@@ -1,0 +1,17 @@
+{
+  "name": "Ioun Stone: Insight",
+  "type": "Wondrous Item",
+  "rarity": "Very Rare",
+  "attunement": true,
+  "description": "Your Wisdom increases by 2, to a maximum of 20, while this incandescent blue sphere orbits your head.",
+  "properties": {
+    "shape": "Incandescent blue sphere",
+    "orbit": "1d3 feet from head",
+    "max_concurrent_stones": 3,
+    "ability_bonus": {
+      "ability": "Wisdom",
+      "bonus": 2,
+      "maximum": 20
+    }
+  }
+}

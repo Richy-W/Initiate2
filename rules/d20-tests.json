@@ -1,0 +1,181 @@
+{
+  "title": "D20 Tests - Core Mechanics",
+  "description": "The fundamental resolution system for uncertain outcomes in D&D",
+  "version": "2024",
+  "overview": {
+    "description": "When the outcome of an action is uncertain, the game uses a d20 roll to determine success or failure. These rolls are called D20 Tests.",
+    "principle": "You always want to roll high on D20 Tests"
+  },
+  "test_types": [
+    "ability checks",
+    "saving throws", 
+    "attack rolls"
+  ],
+  "procedure": {
+    "steps": [
+      {
+        "step": 1,
+        "title": "Roll 1d20",
+        "description": "You always want to roll high. If the roll has Advantage or Disadvantage, you roll two d20s, but you use the number from only one of them—the higher one if you have Advantage or the lower one if you have Disadvantage."
+      },
+      {
+        "step": 2,
+        "title": "Add Modifiers",
+        "description": "Add these modifiers to the number rolled on the d20",
+        "modifiers": [
+          {
+            "type": "The Relevant Ability Modifier",
+            "description": "This chapter and the Rules Glossary explain which ability modifiers to use for various D20 Tests."
+          },
+          {
+            "type": "Your Proficiency Bonus If Relevant", 
+            "description": "Each creature has a Proficiency Bonus, a number added when making a D20 Test that uses something, such as a skill, in which the creature has proficiency."
+          },
+          {
+            "type": "Circumstantial Bonuses and Penalties",
+            "description": "A class feature, a spell, or another rule might give a bonus or penalty to the die roll."
+          }
+        ]
+      },
+      {
+        "step": 3,
+        "title": "Compare the Total to a Target Number",
+        "description": "If the total of the d20 and its modifiers equals or exceeds the target number, the D20 Test succeeds. Otherwise, it fails. The Dungeon Master determines target numbers and tells players whether their rolls are successful.",
+        "target_types": {
+          "ability_check": "The target number for an ability check or a saving throw is called a Difficulty Class (DC).",
+          "attack_roll": "The target number for an attack roll is called an Armor Class (AC), which appears on a character sheet or in a stat block."
+        }
+      }
+    ]
+  },
+  "ability_checks": {
+    "description": "An ability check represents a creature using talent and training to try to overcome a challenge.",
+    "purpose": "The DM and the rules often call for an ability check when a creature attempts something other than an attack that has a chance of meaningful failure.",
+    "trigger": "When the outcome is uncertain and narratively interesting, the dice determine the result.",
+    "naming": "An ability check is named for the ability modifier it uses: a Strength check, an Intelligence check, and so on.",
+    "examples": [
+      {
+        "ability": "Strength",
+        "check_for": "Lift, push, pull, or break something"
+      },
+      {
+        "ability": "Dexterity", 
+        "check_for": "Move nimbly, quickly, or quietly"
+      },
+      {
+        "ability": "Constitution",
+        "check_for": "Push your body beyond normal limits"
+      },
+      {
+        "ability": "Intelligence",
+        "check_for": "Reason or remember"
+      },
+      {
+        "ability": "Wisdom",
+        "check_for": "Notice things in the environment or in creatures' behavior"
+      },
+      {
+        "ability": "Charisma",
+        "check_for": "Influence, entertain, or deceive"
+      }
+    ],
+    "difficulty_classes": [
+      {
+        "task_difficulty": "Very easy",
+        "dc": 5
+      },
+      {
+        "task_difficulty": "Easy", 
+        "dc": 10
+      },
+      {
+        "task_difficulty": "Medium",
+        "dc": 15
+      },
+      {
+        "task_difficulty": "Hard",
+        "dc": 20
+      },
+      {
+        "task_difficulty": "Very hard",
+        "dc": 25
+      },
+      {
+        "task_difficulty": "Nearly impossible",
+        "dc": 30
+      }
+    ],
+    "proficiency": "Add your Proficiency Bonus to an ability check when the DM determines that a skill or tool proficiency is relevant to the check and you have that proficiency."
+  },
+  "saving_throws": {
+    "description": "A saving throw—also called a save—represents an attempt to evade or resist a threat, such as a fiery explosion, a blast of poisonous gas, or a spell trying to invade your mind.",
+    "triggering": "You don't normally choose to make a save; you must make one because your character or a monster (if you're the DM) is at risk.",
+    "voluntary_failure": "If you don't want to resist the effect, you can choose to fail the save without rolling.",
+    "naming": "Saving throws are named for the ability modifiers they use: a Constitution saving throw, a Wisdom saving throw, and so on.",
+    "examples": [
+      {
+        "ability": "Strength",
+        "save_to": "Physically resist direct force"
+      },
+      {
+        "ability": "Dexterity",
+        "save_to": "Dodge out of harm's way"
+      },
+      {
+        "ability": "Constitution", 
+        "save_to": "Endure a toxic hazard"
+      },
+      {
+        "ability": "Intelligence",
+        "save_to": "Recognize an illusion as fake"
+      },
+      {
+        "ability": "Wisdom",
+        "save_to": "Resist a mental assault"
+      },
+      {
+        "ability": "Charisma",
+        "save_to": "Assert your identity"
+      }
+    ],
+    "proficiency": "You add your Proficiency Bonus to your saving throw if you have proficiency in that kind of save.",
+    "dc_source": "The Difficulty Class for a saving throw is determined by the effect that causes it or by the DM. For example, if a spell forces you to make a save, the DC is determined by the caster's spellcasting ability and Proficiency Bonus. Monster abilities that call for saves specify the DC."
+  },
+  "attack_rolls": {
+    "description": "An attack roll determines whether an attack hits a target. An attack roll hits if the roll equals or exceeds the target's Armor Class.",
+    "context": "Attack rolls usually occur in battle, but the DM might also ask for an attack roll in other situations, such as an archery competition.",
+    "ability_modifiers": [
+      {
+        "ability": "Strength",
+        "attack_type": "Melee attack with a weapon or an Unarmed Strike"
+      },
+      {
+        "ability": "Dexterity",
+        "attack_type": "Ranged attack with a weapon"
+      },
+      {
+        "ability": "Varies",
+        "attack_type": "Spell attack (the ability used is determined by the spellcaster's spellcasting feature)"
+      }
+    ],
+    "exceptions": "Some features let you use different ability modifiers from those listed. For example, the Finesse property lets you use Strength or Dexterity with a weapon that has that property.",
+    "proficiency": "You add your Proficiency Bonus to your attack roll when you attack using a weapon you have proficiency with, as well as when you attack with a spell.",
+    "armor_class": {
+      "description": "A creature's Armor Class represents how well the creature avoids being wounded in combat.",
+      "determination": "The AC of a character is determined at character creation, whereas the AC of a monster appears in its stat block.",
+      "base_calculation": "Base AC = 10 + the creature's Dexterity modifier",
+      "modifications": "A creature's AC can then be modified by armor, magic items, spells, and more.",
+      "one_base_rule": "Some spells and class features give characters a different way to calculate their AC. A character with multiple features that give different ways to calculate AC must choose which one to use; only one base calculation can be in effect for a creature."
+    }
+  },
+  "special_results": {
+    "natural_20": {
+      "attack_rolls": "If you roll a 20 on the d20 (called a 'natural 20') for an attack roll, the attack hits regardless of any modifiers or the target's AC. This is called a Critical Hit.",
+      "name": "Critical Hit"
+    },
+    "natural_1": {
+      "attack_rolls": "If you roll a 1 on the d20 (a 'natural 1') for an attack roll, the attack misses regardless of any modifiers or the target's AC.",
+      "name": "Automatic Miss"
+    }
+  }
+}

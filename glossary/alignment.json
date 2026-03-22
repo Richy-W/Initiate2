@@ -1,0 +1,32 @@
+{
+  "name": "Alignment",
+  "slug": "alignment",
+  "definition": "A creature's alignment broadly describes its ethical attitudes and ideals.",
+  "category": "Creatures & Types",
+  "tags": [],
+  "full_text": "A creature's alignment broadly describes its ethical attitudes and ideals. Alignment is a combination of two factors: one identifies morality (good, evil, or neutral), and the other describes attitudes toward order (lawful, chaotic, or neutral). These factors allow for nine possible combinations, such as Lawful Good and Neutral Evil.",
+  "morality_axis": [
+    "Good",
+    "Neutral",
+    "Evil"
+  ],
+  "order_axis": [
+    "Lawful",
+    "Neutral",
+    "Chaotic"
+  ],
+  "combinations": [
+    "Lawful Good (LG)",
+    "Neutral Good (NG)",
+    "Chaotic Good (CG)",
+    "Lawful Neutral (LN)",
+    "Neutral (N)",
+    "Chaotic Neutral (CN)",
+    "Lawful Evil (LE)",
+    "Neutral Evil (NE)",
+    "Chaotic Evil (CE)"
+  ],
+  "see_also": [
+    "Creature"
+  ]
+}

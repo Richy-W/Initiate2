@@ -1,0 +1,13 @@
+{
+  "name": "Creature",
+  "slug": "creature",
+  "definition": "Any being in the game, including a player's character, is a creature.",
+  "category": "Creatures & Types",
+  "tags": [],
+  "full_text": "Any being in the game, including a player's character, is a creature.",
+  "see_also": [
+    "Creature Type",
+    "Player Character",
+    "Monster"
+  ]
+}

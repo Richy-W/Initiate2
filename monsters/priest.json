@@ -1,0 +1,114 @@
+{
+  "name": "Priest",
+  "size": "Medium",
+  "type": "Humanoid (Cleric)",
+  "alignment": "Neutral",
+  "armor_class": {
+    "value": 13,
+    "source": "Chain Shirt"
+  },
+  "initiative": {
+    "bonus": 0,
+    "total": 10
+  },
+  "hit_points": {
+    "average": 38,
+    "formula": "7d8 + 7"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "dexterity": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "intelligence": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "charisma": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    }
+  },
+  "skills": {
+    "medicine": 7,
+    "perception": 5,
+    "religion": 5
+  },
+  "senses": {
+    "passive_perception": 15
+  },
+  "languages": ["Common plus one other language"],
+  "challenge_rating": {
+    "cr": 2,
+    "xp": 450,
+    "proficiency_bonus": 2
+  },
+  "equipment": ["Chain Shirt", "Holy Symbol", "Mace"],
+  "spellcasting": {
+    "description": "The priest casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 13):",
+    "spells": {
+      "at_will": ["Light", "Thaumaturgy"],
+      "1_per_day": ["Spirit Guardians"]
+    }
+  },
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The priest makes two attacks, using Mace or Radiant Flame in any combination."
+    },
+    {
+      "name": "Mace",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 6 (1d6 + 3) Bludgeoning damage plus 5 (2d4) Radiant damage.",
+      "attack_roll": 5,
+      "reach": 5,
+      "damage": "6 (1d6 + 3) + 5 (2d4)",
+      "damage_type": "Bludgeoning + Radiant"
+    },
+    {
+      "name": "Radiant Flame",
+      "description": "Ranged Attack Roll: +5, range 60 ft. Hit: 11 (2d10) Radiant damage.",
+      "attack_roll": 5,
+      "range": 60,
+      "damage": "11 (2d10)",
+      "damage_type": "Radiant"
+    },
+    {
+      "name": "Spellcasting",
+      "description": "The priest casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 13): At Will: Light, Thaumaturgy; 1/Day: Spirit Guardians"
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Divine Aid (3/Day)",
+      "description": "The priest casts Bless, Dispel Magic, Healing Word, or Lesser Restoration, using the same spellcasting ability as Spellcasting."
+    }
+  ],
+  "tactical_info": {
+    "role": "Divine Spellcaster/Healer",
+    "environment": "Temples, religious ceremonies, healing centers, pilgrimage routes",
+    "tactics": "Uses spirit guardians for area control, divine aid for party support, flexible attack options with multiattack",
+    "weaknesses": "Moderate AC and HP, relies on positioning for spirit guardians, limited high-level spells",
+    "signature_abilities": ["Multiattack flexibility", "Spirit guardians area control", "Enhanced healing support", "Radiant damage specialization"]
+  }
+}

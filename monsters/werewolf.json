@@ -1,0 +1,89 @@
+{
+  "name": "Werewolf",
+  "size": "Medium or Small",
+  "type": "Monstrosity",
+  "subtype": "Lycanthrope",
+  "alignment": "Chaotic Evil",
+  "armor_class": 15,
+  "armor_description": "Natural Armor",
+  "hit_points": 71,
+  "hit_dice": "11d8 + 22",
+  "speed": {
+    "walk": "30 ft.",
+    "walk_wolf": "40 ft. (wolf form only)"
+  },
+  "ability_scores": {
+    "strength": 16,
+    "dexterity": 14,
+    "constitution": 14,
+    "intelligence": 10,
+    "wisdom": 11,
+    "charisma": 10
+  },
+  "saving_throws": {
+    "strength": "+3",
+    "dexterity": "+2",
+    "constitution": "+2",
+    "intelligence": "+0",
+    "wisdom": "+0",
+    "charisma": "+0"
+  },
+  "skills": {
+    "perception": "+4",
+    "stealth": "+4"
+  },
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "darkvision": "60 ft.",
+    "passive_perception": 14
+  },
+  "languages": ["Common (can't speak in wolf form)"],
+  "challenge_rating": "3",
+  "experience_points": 700,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Pack Tactics",
+      "description": "The werewolf has Advantage on an attack roll against a creature if at least one of the werewolf's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The werewolf makes two attacks, using Scratch or Longbow in any combination. It can replace one attack with a Bite attack."
+    },
+    {
+      "name": "Bite (Wolf or Hybrid Form Only)",
+      "type": "weapon",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 12 (2d8 + 3) Piercing damage. If the target is a Humanoid, it is subjected to the following effect. Constitution Saving Throw: DC 12. Failure: The target is cursed. If the cursed target drops to 0 Hit Points, it instead becomes a Werewolf under the DM's control and has 10 Hit Points. Success: The target is immune to this werewolf's curse for 24 hours."
+    },
+    {
+      "name": "Scratch",
+      "type": "weapon",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 10 (2d6 + 3) Slashing damage."
+    },
+    {
+      "name": "Longbow (Humanoid or Hybrid Form Only)",
+      "type": "weapon",
+      "description": "Ranged Attack Roll: +4, range 150/600 ft. Hit: 11 (2d8 + 2) Piercing damage."
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Shape-Shift",
+      "description": "The werewolf shape-shifts into a Large wolf-humanoid hybrid or a Medium wolf, or it returns to its true humanoid form. Its game statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed."
+    }
+  ],
+  "reactions": [],
+  "legendary_actions": [],
+  "equipment": ["Longbow"],
+  "tactical_info": {
+    "combat_role": "Pack Hunter",
+    "preferred_range": "Melee with Ranged Support",
+    "key_abilities": ["Pack tactics advantage", "Lycanthropy curse", "Wolf mobility"],
+    "weaknesses": ["Dependent on allies", "Form restrictions"],
+    "tactics": "Works best with other werewolves or wolves. Uses pack tactics for advantage. Starts with longbow, then closes for bite attacks to spread lycanthropy."
+  }
+}

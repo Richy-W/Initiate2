@@ -1,0 +1,13 @@
+{
+  "name": "Proficiency",
+  "slug": "proficiency",
+  "definition": "The ability to add your Proficiency Bonus to a D20 Test using something",
+  "category": "Abilities & Attributes",
+  "tags": ["bonus", "skill"],
+  "full_text": "If you have proficiency with something, you can add your Proficiency Bonus to any D20 Test you make using that thing. A creature might have proficiency in a skill or saving throw or with a weapon or tool.",
+  "mechanics": {
+    "benefit": "Add Proficiency Bonus to D20 Tests",
+    "types": "Skills, saving throws, weapons, tools"
+  },
+  "see_also": ["proficiency-bonus", "d20-test"]
+}

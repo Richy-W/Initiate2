@@ -1,0 +1,64 @@
+{
+  "name": "Boar",
+  "size": "Medium",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 11,
+  "armor_description": "Natural Armor",
+  "hit_points": 13,
+  "hit_dice": "2d8 + 4",
+  "speed": {
+    "walk": "40 ft."
+  },
+  "ability_scores": {
+    "strength": 13,
+    "dexterity": 11,
+    "constitution": 14,
+    "intelligence": 2,
+    "wisdom": 9,
+    "charisma": 5
+  },
+  "saving_throws": {
+    "strength": "+1",
+    "dexterity": "+0",
+    "constitution": "+2",
+    "intelligence": "-4",
+    "wisdom": "-1",
+    "charisma": "-3"
+  },
+  "skills": {},
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "passive_perception": 9
+  },
+  "languages": [],
+  "challenge_rating": "1/4",
+  "experience_points": 50,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Bloodied Fury",
+      "description": "While Bloodied, the boar has Advantage on attack rolls."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Gore",
+      "type": "weapon",
+      "description": "Melee Attack Roll: +3, reach 5 ft. Hit: 4 (1d6 + 1) Piercing damage. If the target is a Medium or smaller creature and the boar moved 20+ feet straight toward it immediately before the hit, the target takes an extra 3 (1d6) Piercing damage and has the Prone condition."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "equipment": [],
+  "tactical_info": {
+    "combat_role": "Charging Predator",
+    "preferred_range": "Melee",
+    "key_abilities": ["Charging gore attack", "Bloodied fury", "High speed", "Prone knockdown"],
+    "weaknesses": ["Becomes more dangerous when wounded", "Predictable charge pattern"],
+    "tactics": "Uses high speed to charge enemies for extra damage and prone effect. Bloodied fury makes it more dangerous when wounded, potentially catching enemies off-guard."
+  }
+}

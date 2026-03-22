@@ -1,0 +1,22 @@
+{
+  "name": "Sovereign Glue",
+  "type": "Wondrous Item",
+  "rarity": "Legendary",
+  "attunement": false,
+  "description": "This viscous, milky-white substance can form a permanent adhesive bond between any two objects. It must be stored in a jar or flask that has been coated inside with Oil of Slipperiness.",
+  "properties": {
+    "storage": "Jar or flask coated inside with Oil of Slipperiness",
+    "initial_quantity": "1d6 + 1 ounces when found",
+    "application": {
+      "coverage": "1 ounce covers 1-foot square surface",
+      "action_type": "Utilize action",
+      "setting_time": "1 minute to set"
+    },
+    "bond_strength": "Can only be broken by:",
+    "removal_methods": [
+      "Universal Solvent",
+      "Oil of Etherealness",
+      "Wish spell"
+    ]
+  }
+}

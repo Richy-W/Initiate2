@@ -1,0 +1,598 @@
+{
+  "character_sheet": {
+    "template_info": {
+      "title": "D&D 5e 2024 Character Sheet Template",
+      "description": "Complete character sheet structure mapping API data to standard character sheet format",
+      "version": "2024",
+      "pages": 2,
+      "purpose": "Bridge between API data structures and character sheet presentation"
+    },
+    "page_1": {
+      "header_section": {
+        "character_name": {
+          "field": "character_name",
+          "type": "text",
+          "source": "player_input",
+          "description": "Character's chosen name"
+        },
+        "background": {
+          "field": "background",
+          "type": "reference",
+          "source": "backgrounds/",
+          "description": "Character's pre-adventuring life"
+        },
+        "class": {
+          "field": "class",
+          "type": "reference", 
+          "source": "classes/",
+          "description": "Character's adventuring profession"
+        },
+        "level": {
+          "field": "level",
+          "type": "number",
+          "source": "character_progression",
+          "description": "Character's experience level (1-20)"
+        },
+        "species": {
+          "field": "species",
+          "type": "reference",
+          "source": "species/",
+          "description": "Character's ancestry"
+        },
+        "subclass": {
+          "field": "subclass",
+          "type": "reference",
+          "source": "classes/[class]/subclasses",
+          "description": "Specialized path within class"
+        }
+      },
+      "vital_stats": {
+        "armor_class": {
+          "field": "armor_class",
+          "type": "calculated",
+          "formula": "10 + dex_modifier + armor_bonus + shield_bonus + other_bonuses",
+          "source": "equipment + abilities"
+        },
+        "hit_points": {
+          "current": {
+            "field": "current_hp",
+            "type": "number",
+            "max_value": "max_hp"
+          },
+          "maximum": {
+            "field": "max_hp", 
+            "type": "calculated",
+            "formula": "base_hp + (level * con_modifier) + other_bonuses"
+          },
+          "temporary": {
+            "field": "temp_hp",
+            "type": "number",
+            "description": "Temporary hit points"
+          }
+        },
+        "hit_dice": {
+          "total": {
+            "field": "hit_dice_total",
+            "type": "calculated",
+            "source": "class_hit_die * level"
+          },
+          "spent": {
+            "field": "hit_dice_spent",
+            "type": "number",
+            "description": "Hit dice used for short rest healing"
+          }
+        },
+        "death_saves": {
+          "successes": {
+            "field": "death_save_successes",
+            "type": "number",
+            "range": "0-3",
+            "reset_on": "stabilize_or_heal"
+          },
+          "failures": {
+            "field": "death_save_failures", 
+            "type": "number",
+            "range": "0-3",
+            "reset_on": "stabilize_or_heal"
+          }
+        }
+      },
+      "core_stats": {
+        "proficiency_bonus": {
+          "field": "proficiency_bonus",
+          "type": "calculated",
+          "source": "rules/proficiency.json",
+          "formula": "based_on_level"
+        },
+        "initiative": {
+          "field": "initiative",
+          "type": "calculated", 
+          "formula": "dex_modifier + other_bonuses"
+        },
+        "speed": {
+          "field": "speed",
+          "type": "calculated",
+          "source": "species + class_features + equipment",
+          "units": "feet"
+        },
+        "size": {
+          "field": "size",
+          "type": "reference",
+          "source": "species",
+          "options": ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan"]
+        },
+        "passive_perception": {
+          "field": "passive_perception",
+          "type": "calculated",
+          "formula": "10 + wisdom_perception_bonus"
+        }
+      },
+      "ability_scores": {
+        "strength": {
+          "score": {
+            "field": "strength_score",
+            "type": "number",
+            "range": "1-30"
+          },
+          "modifier": {
+            "field": "strength_modifier",
+            "type": "calculated",
+            "formula": "(score - 10) / 2, rounded down"
+          },
+          "saving_throw": {
+            "field": "strength_save",
+            "type": "calculated",
+            "formula": "modifier + (proficiency_bonus if proficient)",
+            "proficient": {
+              "field": "str_save_proficient",
+              "source": "class"
+            }
+          }
+        },
+        "dexterity": {
+          "score": {
+            "field": "dexterity_score",
+            "type": "number",
+            "range": "1-30"
+          },
+          "modifier": {
+            "field": "dexterity_modifier", 
+            "type": "calculated",
+            "formula": "(score - 10) / 2, rounded down"
+          },
+          "saving_throw": {
+            "field": "dexterity_save",
+            "type": "calculated",
+            "formula": "modifier + (proficiency_bonus if proficient)",
+            "proficient": {
+              "field": "dex_save_proficient",
+              "source": "class"
+            }
+          }
+        },
+        "constitution": {
+          "score": {
+            "field": "constitution_score",
+            "type": "number", 
+            "range": "1-30"
+          },
+          "modifier": {
+            "field": "constitution_modifier",
+            "type": "calculated",
+            "formula": "(score - 10) / 2, rounded down"
+          },
+          "saving_throw": {
+            "field": "constitution_save",
+            "type": "calculated",
+            "formula": "modifier + (proficiency_bonus if proficient)",
+            "proficient": {
+              "field": "con_save_proficient",
+              "source": "class"
+            }
+          }
+        },
+        "intelligence": {
+          "score": {
+            "field": "intelligence_score",
+            "type": "number",
+            "range": "1-30"
+          },
+          "modifier": {
+            "field": "intelligence_modifier",
+            "type": "calculated", 
+            "formula": "(score - 10) / 2, rounded down"
+          },
+          "saving_throw": {
+            "field": "intelligence_save",
+            "type": "calculated",
+            "formula": "modifier + (proficiency_bonus if proficient)",
+            "proficient": {
+              "field": "int_save_proficient",
+              "source": "class"
+            }
+          }
+        },
+        "wisdom": {
+          "score": {
+            "field": "wisdom_score",
+            "type": "number",
+            "range": "1-30"
+          },
+          "modifier": {
+            "field": "wisdom_modifier",
+            "type": "calculated",
+            "formula": "(score - 10) / 2, rounded down"
+          },
+          "saving_throw": {
+            "field": "wisdom_save", 
+            "type": "calculated",
+            "formula": "modifier + (proficiency_bonus if proficient)",
+            "proficient": {
+              "field": "wis_save_proficient",
+              "source": "class"
+            }
+          }
+        },
+        "charisma": {
+          "score": {
+            "field": "charisma_score",
+            "type": "number",
+            "range": "1-30"
+          },
+          "modifier": {
+            "field": "charisma_modifier",
+            "type": "calculated",
+            "formula": "(score - 10) / 2, rounded down"
+          },
+          "saving_throw": {
+            "field": "charisma_save",
+            "type": "calculated",
+            "formula": "modifier + (proficiency_bonus if proficient)",
+            "proficient": {
+              "field": "cha_save_proficient",
+              "source": "class"
+            }
+          }
+        }
+      },
+      "skills": {
+        "acrobatics": {
+          "ability": "dexterity",
+          "field": "acrobatics",
+          "proficient": "acrobatics_proficient",
+          "bonus": "dex_modifier + (proficiency_bonus if proficient)"
+        },
+        "animal_handling": {
+          "ability": "wisdom",
+          "field": "animal_handling", 
+          "proficient": "animal_handling_proficient",
+          "bonus": "wis_modifier + (proficiency_bonus if proficient)"
+        },
+        "arcana": {
+          "ability": "intelligence",
+          "field": "arcana",
+          "proficient": "arcana_proficient", 
+          "bonus": "int_modifier + (proficiency_bonus if proficient)"
+        },
+        "athletics": {
+          "ability": "strength",
+          "field": "athletics",
+          "proficient": "athletics_proficient",
+          "bonus": "str_modifier + (proficiency_bonus if proficient)"
+        },
+        "deception": {
+          "ability": "charisma",
+          "field": "deception",
+          "proficient": "deception_proficient",
+          "bonus": "cha_modifier + (proficiency_bonus if proficient)"
+        },
+        "history": {
+          "ability": "intelligence", 
+          "field": "history",
+          "proficient": "history_proficient",
+          "bonus": "int_modifier + (proficiency_bonus if proficient)"
+        },
+        "insight": {
+          "ability": "wisdom",
+          "field": "insight",
+          "proficient": "insight_proficient",
+          "bonus": "wis_modifier + (proficiency_bonus if proficient)"
+        },
+        "intimidation": {
+          "ability": "charisma",
+          "field": "intimidation",
+          "proficient": "intimidation_proficient",
+          "bonus": "cha_modifier + (proficiency_bonus if proficient)"
+        },
+        "investigation": {
+          "ability": "intelligence",
+          "field": "investigation",
+          "proficient": "investigation_proficient",
+          "bonus": "int_modifier + (proficiency_bonus if proficient)"
+        },
+        "medicine": {
+          "ability": "wisdom",
+          "field": "medicine",
+          "proficient": "medicine_proficient", 
+          "bonus": "wis_modifier + (proficiency_bonus if proficient)"
+        },
+        "nature": {
+          "ability": "intelligence",
+          "field": "nature",
+          "proficient": "nature_proficient",
+          "bonus": "int_modifier + (proficiency_bonus if proficient)"
+        },
+        "perception": {
+          "ability": "wisdom",
+          "field": "perception",
+          "proficient": "perception_proficient",
+          "bonus": "wis_modifier + (proficiency_bonus if proficient)"
+        },
+        "performance": {
+          "ability": "charisma",
+          "field": "performance", 
+          "proficient": "performance_proficient",
+          "bonus": "cha_modifier + (proficiency_bonus if proficient)"
+        },
+        "persuasion": {
+          "ability": "charisma",
+          "field": "persuasion",
+          "proficient": "persuasion_proficient",
+          "bonus": "cha_modifier + (proficiency_bonus if proficient)"
+        },
+        "religion": {
+          "ability": "intelligence",
+          "field": "religion",
+          "proficient": "religion_proficient",
+          "bonus": "int_modifier + (proficiency_bonus if proficient)"
+        },
+        "sleight_of_hand": {
+          "ability": "dexterity",
+          "field": "sleight_of_hand",
+          "proficient": "sleight_of_hand_proficient",
+          "bonus": "dex_modifier + (proficiency_bonus if proficient)"
+        },
+        "stealth": {
+          "ability": "dexterity",
+          "field": "stealth",
+          "proficient": "stealth_proficient", 
+          "bonus": "dex_modifier + (proficiency_bonus if proficient)"
+        },
+        "survival": {
+          "ability": "wisdom",
+          "field": "survival",
+          "proficient": "survival_proficient",
+          "bonus": "wis_modifier + (proficiency_bonus if proficient)"
+        }
+      },
+      "heroic_inspiration": {
+        "field": "heroic_inspiration",
+        "type": "boolean",
+        "description": "Whether character currently has Heroic Inspiration",
+        "source": "rules/advantage-disadvantage.json"
+      },
+      "weapons_and_cantrips": {
+        "section_type": "dynamic_list",
+        "entries": [
+          {
+            "name": {
+              "field": "weapon_name",
+              "type": "reference",
+              "source": "equipment/weapons"
+            },
+            "attack_bonus": {
+              "field": "attack_bonus",
+              "type": "calculated",
+              "formula": "ability_modifier + proficiency_bonus (if proficient)"
+            },
+            "damage_type": {
+              "field": "damage_type",
+              "type": "reference",
+              "source": "equipment/weapons"
+            },
+            "notes": {
+              "field": "weapon_notes",
+              "type": "text",
+              "description": "Special properties, range, etc."
+            }
+          }
+        ]
+      },
+      "class_features": {
+        "section_type": "dynamic_text_area",
+        "field": "class_features",
+        "source": "classes/[class]/features",
+        "description": "List of class features by level"
+      },
+      "species_traits": {
+        "section_type": "dynamic_text_area", 
+        "field": "species_traits",
+        "source": "species/[species]/traits",
+        "description": "Racial traits and abilities"
+      },
+      "feats": {
+        "section_type": "dynamic_text_area",
+        "field": "feats",
+        "source": "feats/",
+        "description": "Optional feats taken"
+      },
+      "equipment_and_proficiencies": {
+        "armor": {
+          "field": "armor_proficiencies",
+          "type": "list",
+          "source": "class + species + feats"
+        },
+        "weapons": {
+          "field": "weapon_proficiencies", 
+          "type": "list",
+          "source": "class + species + feats"
+        },
+        "tools": {
+          "field": "tool_proficiencies",
+          "type": "list",
+          "source": "background + class + species + feats"
+        }
+      }
+    },
+    "page_2": {
+      "spellcasting": {
+        "spellcasting_ability": {
+          "field": "spellcasting_ability",
+          "type": "reference",
+          "source": "class",
+          "options": ["Intelligence", "Wisdom", "Charisma", "None"]
+        },
+        "spell_save_dc": {
+          "field": "spell_save_dc",
+          "type": "calculated",
+          "formula": "8 + proficiency_bonus + spellcasting_ability_modifier"
+        },
+        "spell_attack_bonus": {
+          "field": "spell_attack_bonus",
+          "type": "calculated",
+          "formula": "proficiency_bonus + spellcasting_ability_modifier"
+        },
+        "spell_slots": {
+          "level_1": {"field": "spell_slots_1", "type": "number"},
+          "level_2": {"field": "spell_slots_2", "type": "number"},
+          "level_3": {"field": "spell_slots_3", "type": "number"},
+          "level_4": {"field": "spell_slots_4", "type": "number"},
+          "level_5": {"field": "spell_slots_5", "type": "number"},
+          "level_6": {"field": "spell_slots_6", "type": "number"},
+          "level_7": {"field": "spell_slots_7", "type": "number"},
+          "level_8": {"field": "spell_slots_8", "type": "number"},
+          "level_9": {"field": "spell_slots_9", "type": "number"}
+        },
+        "cantrips_and_spells": {
+          "section_type": "dynamic_spell_list",
+          "entries": [
+            {
+              "level": {"field": "spell_level", "type": "number", "range": "0-9"},
+              "name": {"field": "spell_name", "type": "reference", "source": "spells/"},
+              "casting_time": {"field": "casting_time", "type": "text"},
+              "range": {"field": "range", "type": "text"},
+              "components": {"field": "components", "type": "text"},
+              "duration": {"field": "duration", "type": "text"},
+              "ritual": {"field": "ritual", "type": "boolean"},
+              "concentration": {"field": "concentration", "type": "boolean"},
+              "prepared": {"field": "prepared", "type": "boolean"},
+              "notes": {"field": "spell_notes", "type": "text"}
+            }
+          ]
+        }
+      },
+      "appearance": {
+        "section_type": "text_area",
+        "field": "appearance",
+        "description": "Physical description, clothing, distinguishing marks"
+      },
+      "backstory_and_personality": {
+        "alignment": {
+          "field": "alignment",
+          "type": "text",
+          "options": ["LG", "NG", "CG", "LN", "N", "CN", "LE", "NE", "CE"]
+        },
+        "personality_traits": {
+          "field": "personality_traits",
+          "type": "text_area",
+          "source": "background suggestions + player input"
+        },
+        "ideals": {
+          "field": "ideals",
+          "type": "text_area", 
+          "source": "background suggestions + player input"
+        },
+        "bonds": {
+          "field": "bonds",
+          "type": "text_area",
+          "source": "background suggestions + player input"
+        },
+        "flaws": {
+          "field": "flaws",
+          "type": "text_area",
+          "source": "background suggestions + player input"
+        },
+        "backstory": {
+          "field": "backstory",
+          "type": "text_area",
+          "description": "Character's personal history and motivations"
+        }
+      },
+      "languages": {
+        "section_type": "list",
+        "field": "languages",
+        "source": "species + background + class + feats"
+      },
+      "equipment": {
+        "section_type": "dynamic_list",
+        "field": "equipment",
+        "source": "starting_equipment + acquired_items",
+        "categories": ["weapons", "armor", "gear", "magic_items"]
+      },
+      "currency": {
+        "copper": {"field": "copper_pieces", "type": "number"},
+        "silver": {"field": "silver_pieces", "type": "number"},
+        "electrum": {"field": "electrum_pieces", "type": "number"},
+        "gold": {"field": "gold_pieces", "type": "number"},
+        "platinum": {"field": "platinum_pieces", "type": "number"}
+      }
+    },
+    "data_mapping": {
+      "api_to_sheet": {
+        "description": "How API data structures map to character sheet fields",
+        "class_data": "classes/[class].json → class features section",
+        "species_data": "species/[species].json → species traits section", 
+        "background_data": "backgrounds/[background].json → skills, equipment, personality",
+        "spell_data": "spells/[spell].json → cantrips and spells section",
+        "equipment_data": "equipment/[item].json → equipment section and AC calculation",
+        "feat_data": "feats/[feat].json → feats section and stat modifications"
+      },
+      "calculated_fields": {
+        "description": "Fields that are computed from other values",
+        "armor_class": "Base 10 + dex_mod + armor + shield + bonuses",
+        "initiative": "dex_modifier + bonuses",
+        "passive_perception": "10 + perception_bonus",
+        "spell_save_dc": "8 + prof_bonus + spellcasting_ability_mod",
+        "skill_bonuses": "ability_modifier + (prof_bonus if proficient)",
+        "attack_bonuses": "ability_modifier + prof_bonus + magic_bonus"
+      },
+      "proficiency_sources": {
+        "skills": ["class", "background", "species", "feats"],
+        "saving_throws": ["class"],
+        "weapons": ["class", "species", "feats"],
+        "armor": ["class", "feats"],
+        "tools": ["background", "class", "species", "feats"]
+      }
+    },
+    "validation_rules": {
+      "ability_scores": {
+        "range": "1-30 (adventurers typically max 20 without magic)",
+        "point_buy": "Standard array or point buy system",
+        "racial_bonuses": "Applied after base scores determined"
+      },
+      "proficiencies": {
+        "no_stacking": "Can't have proficiency in same thing multiple times",
+        "expertise": "Some features grant double proficiency bonus"
+      },
+      "spell_slots": {
+        "by_class_level": "Determined by class and level",
+        "multiclass": "Special rules for multiclass spellcasters"
+      }
+    },
+    "integration": {
+      "api_references": {
+        "character_creation": "character-creation.json",
+        "classes": "classes/",
+        "species": "species/", 
+        "backgrounds": "backgrounds/",
+        "equipment": "equipment/",
+        "spells": "spells/",
+        "rules": "rules/",
+        "feats": "feats/"
+      },
+      "schema_validation": "Uses existing schema files for data validation",
+      "auto_population": "Many fields can be auto-populated from API data",
+      "manual_entries": "Personality, appearance, and some equipment require player input"
+    }
+  }
+}

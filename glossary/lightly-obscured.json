@@ -1,0 +1,12 @@
+{
+  "name": "Lightly Obscured",
+  "slug": "lightly-obscured",
+  "definition": "A level of obscurement where visibility is slightly impeded",
+  "category": "Light & Vision",
+  "tags": ["obscurement", "perception", "vision"],
+  "full_text": "You have Disadvantage on Wisdom (Perception) checks to see something in a Lightly Obscured space.",
+  "mechanics": {
+    "effect": "Disadvantage on WIS (Perception) checks to see"
+  },
+  "see_also": ["dim-light", "heavily-obscured", "perception"]
+}

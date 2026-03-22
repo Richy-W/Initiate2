@@ -1,0 +1,13 @@
+{
+  "name": "Ring of Jumping",
+  "type": "Ring",
+  "rarity": "Uncommon",
+  "attunement": true,
+  "description": "While wearing this ring, you can cast Jump from it, but can target only yourself when you do so.",
+  "properties": {
+    "spellcasting": {
+      "spell": "Jump",
+      "target_restriction": "Only yourself"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "name": "Piranha",
+  "size": "Tiny",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 13,
+  "hit_points": 1,
+  "hit_dice": "1d4 - 1",
+  "speed": {
+    "walk": 5,
+    "swim": 40
+  },
+  "ability_scores": {
+    "strength": 2,
+    "dexterity": 16,
+    "constitution": 9,
+    "intelligence": 1,
+    "wisdom": 7,
+    "charisma": 2
+  },
+  "saving_throws": {
+    "strength": -4,
+    "dexterity": 3,
+    "constitution": -1,
+    "intelligence": -5,
+    "wisdom": -2,
+    "charisma": -4
+  },
+  "skills": {},
+  "senses": [
+    "Darkvision 60 ft.",
+    "Passive Perception 8"
+  ],
+  "languages": "None",
+  "challenge_rating": 0,
+  "experience_points": 10,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Water Breathing",
+      "description": "The piranha can breathe only underwater."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +5 (with Advantage if the target doesn't have all its Hit Points), reach 5 ft. Hit: 1 Piercing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Swarm Predator - Blood-frenzied aquatic hunter",
+    "positioning": "Seeks wounded targets for advantage on attacks",
+    "damage_output": "1 piercing per hit with advantage against wounded foes",
+    "key_abilities": "Blood frenzy advantage, high swim speed, tiny size",
+    "weaknesses": "Minimal HP and damage individually, effective only in swarms",
+    "synergies": "Deadly in large groups, particularly against wounded swimmers"
+  }
+}

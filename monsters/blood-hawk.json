@@ -1,0 +1,67 @@
+{
+  "name": "Blood Hawk",
+  "size": "Small",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 12,
+  "armor_description": "Natural Armor",
+  "hit_points": 7,
+  "hit_dice": "2d6",
+  "speed": {
+    "walk": "10 ft.",
+    "fly": "60 ft."
+  },
+  "ability_scores": {
+    "strength": 6,
+    "dexterity": 14,
+    "constitution": 10,
+    "intelligence": 3,
+    "wisdom": 14,
+    "charisma": 5
+  },
+  "saving_throws": {
+    "strength": "-2",
+    "dexterity": "+2",
+    "constitution": "+0",
+    "intelligence": "-4",
+    "wisdom": "+2",
+    "charisma": "-3"
+  },
+  "skills": {
+    "perception": "+6"
+  },
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "passive_perception": 16
+  },
+  "languages": [],
+  "challenge_rating": "1/8",
+  "experience_points": 25,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Pack Tactics",
+      "description": "The hawk has Advantage on an attack roll against a creature if at least one of the hawk's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Beak",
+      "type": "weapon",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 4 (1d4 + 2) Piercing damage, or 6 (1d8 + 2) Piercing damage if the target is Bloodied."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "equipment": [],
+  "tactical_info": {
+    "combat_role": "Aerial Pack Hunter",
+    "preferred_range": "Melee",
+    "key_abilities": ["Pack tactics", "Exceptional perception", "Flight mobility", "Bloodied prey bonus"],
+    "weaknesses": ["Low HP", "Weak when alone", "Limited ground movement"],
+    "tactics": "Works in flocks using pack tactics. Excellent perception spots wounded prey. Does extra damage to bloodied enemies, making it deadly in group hunts."
+  }
+}

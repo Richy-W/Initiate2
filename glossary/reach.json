@@ -1,0 +1,12 @@
+{
+  "name": "Reach",
+  "slug": "reach",
+  "definition": "The distance a creature can attack or interact with targets",
+  "category": "Combat",
+  "tags": ["distance", "attack"],
+  "full_text": "A creature has a reach of 5 feet unless a rule says otherwise.",
+  "mechanics": {
+    "default": "5 feet"
+  },
+  "see_also": ["opportunity-attacks", "attack"]
+}

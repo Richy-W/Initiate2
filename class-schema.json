@@ -1,0 +1,333 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "D&D Class Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the class"
+    },
+    "description": {
+      "type": "string",
+      "description": "Class description and flavor text"
+    },
+    "primaryAbility": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
+      },
+      "description": "Primary abilities for multiclassing and optimization"
+    },
+    "hitPointDie": {
+      "type": "string",
+      "pattern": "^D(4|6|8|10|12)$",
+      "description": "Hit die used for hit points per level"
+    },
+    "proficiencies": {
+      "type": "object",
+      "properties": {
+        "savingThrows": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
+          }
+        },
+        "skills": {
+          "type": "object",
+          "properties": {
+            "choose": {
+              "type": "integer",
+              "description": "Number of skills to choose"
+            },
+            "from": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "any": {
+              "type": "integer",
+              "description": "Choose any X skills"
+            }
+          }
+        },
+        "weapons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "armor": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tools": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["savingThrows"]
+    },
+    "startingEquipment": {
+      "type": "object",
+      "properties": {
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "choice": {
+                "type": "string",
+                "enum": ["A", "B", "C"]
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "gold": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "classFeatures": {
+      "type": "object",
+      "patternProperties": {
+        "^[1-9]|1[0-9]|20$": {
+          "type": "object",
+          "properties": {
+            "proficiencyBonus": {
+              "type": "integer"
+            },
+            "features": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": ["feature", "improvement", "subclass", "spell"]
+                  }
+                }
+              }
+            },
+            "additionalData": {
+              "type": "object",
+              "description": "Level-specific data like spell slots, rage uses, etc."
+            }
+          }
+        }
+      }
+    },
+    "spellcasting": {
+      "type": "object",
+      "properties": {
+        "ability": {
+          "type": "string",
+          "enum": ["Intelligence", "Wisdom", "Charisma"]
+        },
+        "type": {
+          "type": "string",
+          "enum": ["full", "half", "third", "pact", "none"]
+        },
+        "cantripsKnown": {
+          "type": "object",
+          "patternProperties": {
+            "^[1-9]|1[0-9]|20$": {
+              "type": "integer"
+            }
+          }
+        },
+        "spellSlots": {
+          "type": "object",
+          "patternProperties": {
+            "^[1-9]|1[0-9]|20$": {
+              "type": "object",
+              "patternProperties": {
+                "^[1-9]$": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        },
+        "spellsPrepared": {
+          "type": "object",
+          "patternProperties": {
+            "^[1-9]|1[0-9]|20$": {
+              "type": "integer"
+            }
+          }
+        },
+        "ritualCasting": {
+          "type": "boolean"
+        },
+        "spellcastingFocus": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "subclasses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "features": {
+            "type": "object",
+            "patternProperties": {
+              "^[1-9]|1[0-9]|20$": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "spells": {
+            "type": "object",
+            "patternProperties": {
+              "^[1-9]|1[0-9]|20$": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "required": ["name", "description"]
+      }
+    },
+    "spellList": {
+      "type": "object",
+      "properties": {
+        "cantrips": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "school": {
+                "type": "string"
+              },
+              "special": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "levels": {
+          "type": "object",
+          "patternProperties": {
+            "^[1-9]$": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "school": {
+                    "type": "string"
+                  },
+                  "special": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "multiclassing": {
+      "type": "object",
+      "properties": {
+        "requirements": {
+          "type": "object",
+          "patternProperties": {
+            "^(Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma)$": {
+              "type": "integer"
+            }
+          }
+        },
+        "proficienciesGained": {
+          "type": "object",
+          "properties": {
+            "armor": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "weapons": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "tools": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "skills": {
+              "type": "object",
+              "properties": {
+                "choose": {
+                  "type": "integer"
+                },
+                "from": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "sourceBook": {
+      "type": "string"
+    }
+  },
+  "required": ["name", "description", "primaryAbility", "hitPointDie", "proficiencies", "classFeatures"]
+}

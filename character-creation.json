@@ -1,0 +1,305 @@
+{
+  "character_creation": {
+    "overview": {
+      "description": "Complete guide to creating a Dungeons & Dragons character using building blocks of class, background, species, and personal details",
+      "components": "Game statistics, roleplaying hooks, and imagination",
+      "avatar_purpose": "Your character serves as your avatar in the D&D multiverse"
+    },
+    "preparation": {
+      "talk_with_dm": {
+        "importance": "Essential first step before character creation",
+        "discussion_topics": [
+          "Type of D&D game the DM plans to run",
+          "Campaign themes and inspirations",
+          "Setting and tone expectations",
+          "Character concepts that fit the game"
+        ],
+        "examples": {
+          "greek_mythology": "Character choices differ for mythological campaigns",
+          "swashbuckling": "High seas adventures suggest different character types",
+          "horror": "Gothic campaigns may favor certain themes",
+          "political_intrigue": "Court-based games emphasize social characters"
+        },
+        "key_question": "What kind of adventurer do you want to play in this game?"
+      },
+      "session_zero": {
+        "definition": "Initial gathering focused on creating characters and setting expectations",
+        "purposes": [
+          "Character creation collaboration",
+          "Setting campaign expectations",
+          "Discussing topics to avoid",
+          "Identifying themes to embrace",
+          "Establishing character relationships"
+        ],
+        "opportunities": [
+          "Talk with other players and DM",
+          "Decide if characters know each other",
+          "Determine how characters met",
+          "Plan potential group quests",
+          "Align character concepts with campaign"
+        ],
+        "benefits": "Ensures character concepts work together and fit the campaign"
+      },
+      "character_sheet_selection": {
+        "definition": "Choose the format for recording character details",
+        "options": [
+          "Printed character sheet (official WotC sheets)",
+          "Digital character sheet (D&D Beyond, apps)",
+          "Plain paper or custom formats",
+          "Digital tools and calculators"
+        ],
+        "recommendation": "Choose whichever style works best for you",
+        "flexibility": "The term 'character sheet' encompasses any method of tracking character details"
+      }
+    },
+    "creation_steps": {
+      "step_1": {
+        "title": "Choose a Class",
+        "description": "Every adventurer is a member of a class",
+        "class_definition": "Broadly describes a character's vocation, special talents, and favored tactics",
+        "considerations": [
+          "Combat role preference (tank, damage, support, control)",
+          "Magical vs non-magical abilities",
+          "Complexity level desired",
+          "Party composition needs",
+          "Personal interest and fantasy fulfillment"
+        ],
+        "examples": {
+          "fighter": "Martial combat specialist with weapon mastery",
+          "wizard": "Arcane spellcaster with vast magical knowledge",
+          "rogue": "Stealthy specialist with precision strikes",
+          "cleric": "Divine magic user with healing and support"
+        },
+        "reference": "See classes/ directory for complete class options and details"
+      },
+      "step_2": {
+        "title": "Determine Origin",
+        "description": "A character's origin includes two elements: background and species",
+        "components": {
+          "background": {
+            "question": "How did the character spend the years leading up to a life of adventure?",
+            "provides": [
+              "Skill proficiencies",
+              "Tool proficiencies", 
+              "Languages",
+              "Equipment",
+              "Roleplaying inspiration"
+            ],
+            "examples": ["Soldier", "Acolyte", "Criminal", "Noble", "Folk Hero"]
+          },
+          "species": {
+            "question": "Who are the character's ancestors?",
+            "provides": [
+              "Ability score increases",
+              "Special traits and abilities",
+              "Size and speed",
+              "Languages",
+              "Cultural background"
+            ],
+            "examples": ["Human", "Elf", "Dwarf", "Halfling", "Dragonborn"]
+          },
+          "languages": {
+            "sources": ["Species", "Background", "Class features", "Feats"],
+            "importance": "Enable communication and understanding of written materials"
+          }
+        },
+        "integration": "Background and species work together to create character history and capabilities",
+        "reference": "See backgrounds/ and species/ directories for complete options"
+      },
+      "step_3": {
+        "title": "Determine Ability Scores",
+        "description": "Much of what your character does in the game depends on the character's six abilities",
+        "abilities": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
+        "importance": "Ability scores affect nearly every aspect of character performance",
+        "methods": [
+          "Standard Array (15, 14, 13, 12, 10, 8)",
+          "Point Buy system",
+          "Rolling dice (4d6 drop lowest)",
+          "DM-specified method"
+        ],
+        "considerations": [
+          "Class primary abilities (most important for class features)",
+          "Secondary abilities (useful for skills and saves)",
+          "Dump stats (less important abilities)",
+          "Racial bonuses and how they interact with class needs"
+        ],
+        "reference": "See rules/abilities.json for complete ability score system"
+      },
+      "step_4": {
+        "title": "Choose an Alignment",
+        "description": "Alignment is a shorthand for your character's moral compass",
+        "purpose": "Provides guidance for character behavior and decision-making",
+        "axes": {
+          "law_chaos": ["Lawful", "Neutral", "Chaotic"],
+          "good_evil": ["Good", "Neutral", "Evil"]
+        },
+        "combinations": [
+          "Lawful Good", "Neutral Good", "Chaotic Good",
+          "Lawful Neutral", "True Neutral", "Chaotic Neutral", 
+          "Lawful Evil", "Neutral Evil", "Chaotic Evil"
+        ],
+        "considerations": [
+          "Character's moral principles",
+          "Approach to authority and rules",
+          "Treatment of others",
+          "Campaign tone and group dynamics"
+        ],
+        "flexibility": "Alignment can evolve based on character experiences and growth"
+      },
+      "step_5": {
+        "title": "Fill in Details",
+        "description": "Using the choices you've made, fill in the remaining details on your character sheet",
+        "categories": {
+          "mechanical_details": [
+            "Hit points and Armor Class",
+            "Proficiency bonus and skill proficiencies",
+            "Saving throw proficiencies",
+            "Attack bonuses and damage",
+            "Spell save DC and spell attack bonus (if applicable)",
+            "Equipment and starting wealth"
+          ],
+          "personal_details": [
+            "Character name",
+            "Physical appearance and age",
+            "Personality traits and mannerisms",
+            "Ideals and bonds",
+            "Flaws and quirks",
+            "Personal history and motivations"
+          ],
+          "background_elements": [
+            "Family and relationships",
+            "Important events and experiences",
+            "Goals and aspirations",
+            "Fears and weaknesses",
+            "Connections to the world"
+          ]
+        },
+        "tips": [
+          "Leave room for character growth and development",
+          "Consider how details connect to other party members",
+          "Think about plot hooks for the DM to use",
+          "Balance strengths with interesting flaws",
+          "Make the character engaging to roleplay"
+        ]
+      }
+    },
+    "character_concept_development": {
+      "integration_approach": "Weave class, background, species, and personality into a cohesive whole",
+      "questions_to_consider": [
+        "What drove this character to become an adventurer?",
+        "How do their background experiences shape their worldview?",
+        "What are their goals, both personal and professional?",
+        "How do they interact with authority, strangers, and friends?",
+        "What internal or external conflicts drive their story?",
+        "How does their species heritage influence their perspective?",
+        "What role do they prefer in a group dynamic?"
+      ],
+      "concept_examples": {
+        "fallen_paladin": {
+          "class": "Paladin",
+          "background": "Acolyte",
+          "species": "Human",
+          "hook": "Lost faith after witnessing corruption, seeking redemption",
+          "personality": "Struggling with doubt but maintaining hope"
+        },
+        "street_smart_wizard": {
+          "class": "Wizard", 
+          "background": "Criminal",
+          "species": "Halfling",
+          "hook": "Self-taught magic to survive, now pursuing formal education",
+          "personality": "Clever and resourceful with trust issues"
+        },
+        "noble_ranger": {
+          "class": "Ranger",
+          "background": "Noble",
+          "species": "Elf",
+          "hook": "Left comfort to protect wilderness from family's industrial expansion",
+          "personality": "Conflicted between duty to family and nature"
+        }
+      }
+    },
+    "collaborative_elements": {
+      "party_integration": {
+        "character_relationships": [
+          "How characters know each other",
+          "Shared experiences or backgrounds",
+          "Complementary skills and roles",
+          "Conflicting but compatible goals"
+        ],
+        "group_dynamics": [
+          "Leadership and decision-making styles",
+          "Conflict resolution approaches",
+          "Shared values and team cohesion",
+          "Individual spotlight moments"
+        ]
+      },
+      "campaign_integration": {
+        "setting_connections": [
+          "Ties to locations, organizations, or NPCs",
+          "Knowledge of local customs and politics",
+          "Personal stakes in campaign events",
+          "Reasons to care about the central conflict"
+        ],
+        "plot_hooks": [
+          "Personal goals that align with campaign",
+          "Enemies or rivals from character's past",
+          "Mysteries or secrets to uncover",
+          "Relationships that create ongoing stories"
+        ]
+      }
+    },
+    "mechanical_completion": {
+      "starting_statistics": {
+        "level": 1,
+        "hit_points": "Maximum at 1st level (class HD + Constitution modifier)",
+        "proficiency_bonus": "+2 at 1st level",
+        "armor_class": "10 + Dex modifier + armor bonus + shield bonus",
+        "initiative": "Dexterity modifier",
+        "passive_perception": "10 + Wisdom (Perception) modifier"
+      },
+      "proficiencies": {
+        "saving_throws": "Determined by class",
+        "skills": "From class, background, and sometimes species",
+        "armor": "From class (and sometimes species/feats)",
+        "weapons": "From class (and sometimes species/feats)", 
+        "tools": "From background, class, and species",
+        "languages": "From species, background, and class"
+      },
+      "equipment": {
+        "starting_equipment": "Provided by class and background",
+        "alternative_method": "Buy equipment with starting wealth",
+        "considerations": "Armor Class, weapon proficiencies, adventure utility"
+      },
+      "spellcasting": {
+        "if_applicable": "Calculate spell save DC and spell attack bonus",
+        "spell_save_dc": "8 + proficiency bonus + spellcasting ability modifier",
+        "spell_attack_bonus": "proficiency bonus + spellcasting ability modifier",
+        "known_prepared": "Determined by class and level"
+      }
+    },
+    "finalization_checklist": [
+      "All ability scores assigned and bonuses calculated",
+      "Class features and proficiencies recorded",
+      "Background benefits applied",
+      "Species traits noted",
+      "Equipment and wealth tracked",
+      "Hit points, AC, and other defenses calculated",
+      "Attack bonuses and damage determined", 
+      "Spell information completed (if applicable)",
+      "Personality and appearance described",
+      "Background story and motivations established",
+      "Connections to party and campaign identified",
+      "Character sheet completely filled out"
+    ],
+    "references": {
+      "classes": "See classes/ directory for all class options and features",
+      "backgrounds": "See backgrounds/ directory for all background options",
+      "species": "See species/ directory for all species options and traits",
+      "equipment": "See equipment/ directory for weapons, armor, and gear",
+      "spells": "See spells/ directory for all spell options",
+      "rules": "See rules/ directory for game mechanics and systems",
+      "abilities": "See rules/abilities.json for ability score details",
+      "alignment": "See rules for alignment descriptions and implications"
+    }
+  }
+}

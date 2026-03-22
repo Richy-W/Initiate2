@@ -1,0 +1,19 @@
+{
+  "name": "Broom of Flying",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "requires_attunement": true,
+  "overview": "A wooden broom that can be ridden through the air at high speed.",
+  "properties": {
+    "activation": "Take a Magic action to make it hover beneath you while you stand astride it",
+    "fly_speed": "50 feet",
+    "capacity": "Can carry up to 400 pounds, but Fly Speed becomes 30 feet while carrying over 200 pounds",
+    "landing": "The broom stops hovering when you land or when you're no longer riding it"
+  },
+  "autonomous_travel": {
+    "description": "As a Magic action, you can send the broom to travel alone to a destination within 1 mile of you if you name the location and are familiar with it.",
+    "return": "The broom comes back to you when you take a Magic action and use a command word if the broom is still within 1 mile of you."
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

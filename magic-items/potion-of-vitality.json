@@ -1,0 +1,20 @@
+{
+  "name": "Potion of Vitality",
+  "type": "Potion",
+  "rarity": "Very Rare",
+  "attunement": false,
+  "description": "When you drink this potion, it removes any Exhaustion levels you have and ends the Poisoned condition on you. For the next 24 hours, you regain the maximum number of Hit Points for any Hit Point Die you spend. This potion's crimson liquid regularly pulses with dull light, calling to mind a heartbeat.",
+  "properties": {
+    "exhaustion_removal": {
+      "effect": "Removes all Exhaustion levels"
+    },
+    "poison_removal": {
+      "effect": "Ends Poisoned condition"
+    },
+    "hit_point_bonus": {
+      "effect": "For next 24 hours, regain maximum Hit Points for any Hit Point Die spent",
+      "duration": "24 hours"
+    },
+    "appearance": "Crimson liquid that regularly pulses with dull light like a heartbeat"
+  }
+}

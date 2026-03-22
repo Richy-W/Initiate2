@@ -1,0 +1,30 @@
+{
+  "name": "Sun Blade",
+  "type": "Weapon",
+  "weapon_type": "Longsword",
+  "rarity": "Rare",
+  "attunement": true,
+  "description": "This item appears to be a sword hilt.",
+  "properties": {
+    "blade_of_radiance": {
+      "activation": "Bonus Action to summon or dismiss blade",
+      "weapon": "Longsword with Finesse property",
+      "proficiency": "Proficient if proficient with Longswords or Shortswords"
+    },
+    "attack_bonus": "+2",
+    "damage_bonus": "+2",
+    "damage_type": "Radiant instead of Slashing",
+    "undead_bonus": {
+      "trigger": "Hit an Undead",
+      "extra_damage": "1d8 Radiant damage"
+    },
+    "sunlight": {
+      "effect": "Luminous blade emits Bright Light in 15-foot radius",
+      "additional_light": "Dim Light for additional 15 feet",
+      "light_type": "Sunlight",
+      "adjustment": "Magic action to expand or reduce radius by 5 feet each",
+      "maximum_radius": "30 feet",
+      "minimum_radius": "10 feet"
+    }
+  }
+}

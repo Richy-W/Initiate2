@@ -1,0 +1,13 @@
+{
+  "name": "Nonplayer Character",
+  "slug": "nonplayer-character",
+  "definition": "A monster with a personal name and distinct personality",
+  "category": "Creatures & Types",
+  "tags": ["creature", "npc"],
+  "full_text": "A nonplayer character (NPC) is a monster that has a personal name and a distinct personality.",
+  "mechanics": {
+    "abbreviation": "NPC",
+    "nature": "Monster with named personality"
+  },
+  "see_also": ["monster", "creature"]
+}

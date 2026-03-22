@@ -1,0 +1,37 @@
+{
+  "id": "cloak-of-billowing",
+  "name": "Cloak of Billowing",
+  "rarity": "Common",
+  "category": "Wondrous Item",
+  "attunement_required": false,
+  "weight": "0.5 lb",
+  "value": "50 GP",
+  "description": "While wearing this cloak, you can use a bonus action to make it billow dramatically around you. The cloak remains billowed until you use a bonus action to end the effect, until you remove the cloak, or until you become incapacitated. While the cloak is billowed, it allows you to appear more intimidating or theatrical, though it provides no actual mechanical benefit in combat. This is more of a novelty item used for dramatic effect.",
+  "properties": [
+    "Enchanted",
+    "Novelty",
+    "Cosmetic"
+  ],
+  "effects": [
+    {
+      "type": "Appearance",
+      "description": "Cloak billows dramatically around you",
+      "mechanical_benefit": "None (purely visual/theatrical)"
+    }
+  ],
+  "activation": {
+    "type": "Bonus Action",
+    "description": "Make the cloak billow dramatically"
+  },
+  "deactivation": {
+    "type": "Bonus Action",
+    "conditions": [
+      "Use a bonus action to end effect",
+      "Remove the cloak",
+      "Become incapacitated"
+    ]
+  },
+  "consumable": false,
+  "source": "Player's Handbook",
+  "notes": "This is a humorous item that has no mechanical effect. It exemplifies low-level magic items that emphasize roleplay and character personality over combat utility. Perfect for bards, sorcerers, and other theatrical characters."
+}

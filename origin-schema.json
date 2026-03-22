@@ -1,0 +1,169 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "D&D 2024 Character Origin Builder Rules",
+  "description": "Rules and schema for dynamically combining any background with any species to create character origins",
+  "type": "object",
+  "properties": {
+    "originRules": {
+      "type": "object",
+      "description": "Rules for combining background and species components",
+      "properties": {
+        "abilityScoreRules": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string",
+              "enum": ["background"],
+              "description": "Ability score increases come from background"
+            },
+            "methods": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "enum": ["focused", "balanced"]
+                  },
+                  "distribution": {
+                    "type": "string",
+                    "description": "How to distribute the 3 points"
+                  },
+                  "pattern": {
+                    "type": "array",
+                    "items": {"type": "integer"},
+                    "description": "Point distribution pattern"
+                  }
+                },
+                "required": ["name", "distribution", "pattern"]
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "maximumScore": {
+              "type": "integer",
+              "enum": [20],
+              "description": "No ability score can be increased above this during character creation"
+            }
+          },
+          "required": ["source", "methods", "maximumScore"]
+        },
+        "componentSources": {
+          "type": "object",
+          "description": "Which component provides which traits",
+          "properties": {
+            "fromBackground": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Traits that come from background"
+            },
+            "fromSpecies": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Traits that come from species"
+            },
+            "combined": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Traits that combine from both sources"
+            }
+          },
+          "required": ["fromBackground", "fromSpecies", "combined"]
+        }
+      },
+      "required": ["abilityScoreRules", "componentSources"]
+    },
+    "characterOrigin": {
+      "type": "object",
+      "description": "Schema for a completed character origin",
+      "properties": {
+        "selectedBackground": {
+          "type": "object",
+          "properties": {
+            "name": {"type": "string"},
+            "file": {"type": "string"},
+            "abilityScoreMethod": {
+              "type": "string",
+              "enum": ["focused", "balanced"],
+              "description": "User's choice of ability score distribution method"
+            },
+            "abilityScoreAssignment": {
+              "type": "object",
+              "patternProperties": {
+                "^(Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma)$": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2
+                }
+              },
+              "description": "User's assignment of ability score increases"
+            }
+          },
+          "required": ["name", "file", "abilityScoreMethod", "abilityScoreAssignment"]
+        },
+        "selectedSpecies": {
+          "type": "object",
+          "properties": {
+            "name": {"type": "string"},
+            "file": {"type": "string"},
+            "variant": {
+              "type": "string",
+              "description": "Selected variant/lineage/legacy if species has options"
+            },
+            "choices": {
+              "type": "object",
+              "description": "User choices for species options (size, spells, etc.)",
+              "additionalProperties": true
+            }
+          },
+          "required": ["name", "file"]
+        },
+        "derivedTraits": {
+          "type": "object",
+          "description": "Final calculated traits from the combination",
+          "properties": {
+            "creatureType": {"type": "string"},
+            "size": {"type": "string"},
+            "speed": {"type": "integer"},
+            "abilityScoreIncreases": {
+              "type": "object",
+              "patternProperties": {
+                "^(Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma)$": {
+                  "type": "integer"
+                }
+              }
+            },
+            "skillProficiencies": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "toolProficiencies": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "languageProficiencies": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "originFeat": {"type": "string"},
+            "speciesTraits": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "startingEquipment": {
+              "type": "object",
+              "properties": {
+                "choice": {"type": "string"},
+                "items": {"type": "array", "items": {"type": "string"}},
+                "gold": {"type": "integer"}
+              }
+            }
+          },
+          "required": ["creatureType", "size", "speed", "abilityScoreIncreases", "skillProficiencies", "originFeat"]
+        }
+      },
+      "required": ["selectedBackground", "selectedSpecies", "derivedTraits"]
+    }
+  },
+  "required": ["originRules", "characterOrigin"]
+}

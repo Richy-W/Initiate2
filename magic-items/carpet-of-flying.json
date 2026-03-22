@@ -1,0 +1,42 @@
+{
+  "name": "Carpet of Flying",
+  "type": "Wondrous Item",
+  "rarity": "Very Rare",
+  "requires_attunement": false,
+  "overview": "A magical carpet that hovers and flies according to your directions.",
+  "properties": {
+    "activation": "You can make this carpet hover and fly by taking a Magic action and using the carpet's command word",
+    "control": "It moves according to your directions if you are within 30 feet of it",
+    "weight_capacity_normal": "Can carry up to the weight shown for its size",
+    "weight_capacity_maximum": "Can carry up to twice the normal weight, but Fly Speed is halved if it carries more than normal capacity"
+  },
+  "sizes": [
+    {
+      "size": "3 ft. × 5 ft.",
+      "capacity": "200 lb.",
+      "fly_speed": "80 feet",
+      "roll": "01-20"
+    },
+    {
+      "size": "4 ft. × 6 ft.",
+      "capacity": "400 lb.",
+      "fly_speed": "60 feet",
+      "roll": "21-55"
+    },
+    {
+      "size": "5 ft. × 7 ft.",
+      "capacity": "600 lb.",
+      "fly_speed": "40 feet",
+      "roll": "56-80"
+    },
+    {
+      "size": "6 ft. × 9 ft.",
+      "capacity": "800 lb.",
+      "fly_speed": "30 feet",
+      "roll": "81-00"
+    }
+  ],
+  "size_determination": "The DM chooses the size of a given carpet or determines it randomly by rolling 1d100",
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

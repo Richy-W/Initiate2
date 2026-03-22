@@ -1,0 +1,11 @@
+{
+  "name": "Gloves of Thievery",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "attunement": false,
+  "description": "These gloves are imperceptible while worn. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks.",
+  "properties": {
+    "appearance": "Imperceptible while worn",
+    "sleight_of_hand_bonus": 5
+  }
+}

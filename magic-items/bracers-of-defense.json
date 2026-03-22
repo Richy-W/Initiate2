@@ -1,0 +1,13 @@
+{
+  "name": "Bracers of Defense",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "requires_attunement": true,
+  "overview": "These bracers provide an Armor Class bonus when wearing no armor or shield.",
+  "properties": {
+    "ac_bonus": "You gain a +2 bonus to Armor Class if you are wearing no armor and using no Shield",
+    "requirement": "Must not be wearing armor or wielding a shield for the bonus to apply"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

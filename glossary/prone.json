@@ -1,0 +1,14 @@
+{
+  "name": "Prone",
+  "slug": "prone",
+  "definition": "A condition where you are lying down with restricted movement",
+  "category": "Conditions",
+  "tags": ["[Condition]", "disadvantage"],
+  "full_text": "While you have the Prone condition, you experience the following effects.\n\nRestricted Movement. Your only movement options are to crawl or to spend an amount of movement equal to half your Speed (round down) to right yourself and thereby end the condition. If your Speed is 0, you can't right yourself.\n\nAttacks Affected. You have Disadvantage on attack rolls. An attack roll against you has Advantage if the attacker is within 5 feet of you. Otherwise, that attack roll has Disadvantage.",
+  "mechanics": {
+    "movement": "Can only crawl OR spend half Speed to end condition; Speed 0 = can't right yourself",
+    "attack_rolls": "Disadvantage",
+    "attacks_against": "Advantage if attacker within 5 feet; Disadvantage otherwise"
+  },
+  "see_also": ["condition", "disadvantage", "advantage", "crawling"]
+}

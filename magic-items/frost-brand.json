@@ -1,0 +1,23 @@
+{
+  "name": "Frost Brand",
+  "type": "Weapon",
+  "weapon_type": ["Glaive", "Greatsword", "Longsword", "Rapier", "Scimitar", "Shortsword"],
+  "rarity": "Very Rare",
+  "attunement": true,
+  "description": "When you hit with an attack roll using this magic weapon, the target takes an extra 1d6 Cold damage. In addition, while you hold the weapon, you have Resistance to Fire damage. In freezing temperatures, the weapon sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet. When you draw this weapon, you can extinguish all nonmagical flames within 30 feet of yourself. Once used, this property can't be used again for 1 hour.",
+  "properties": {
+    "damage_bonus": "1d6 Cold damage on hit",
+    "fire_resistance": true,
+    "freezing_temperatures": {
+      "light": {
+        "bright_light": "10 feet",
+        "dim_light": "additional 10 feet"
+      }
+    },
+    "flame_extinguishing": {
+      "activation": "When you draw this weapon",
+      "effect": "Extinguish all nonmagical flames within 30 feet",
+      "reuse_duration": "1 hour"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "name": "Sprite",
+  "size": "Tiny",
+  "type": "Fey",
+  "alignment": "Neutral Good",
+  "armor_class": 15,
+  "initiative": 14,
+  "hit_points": {
+    "average": 10,
+    "formula": "4d4"
+  },
+  "speed": {
+    "walk": "10 ft.",
+    "fly": "40 ft."
+  },
+  "ability_scores": {
+    "strength": { "score": 3, "modifier": -4, "save": -4 },
+    "dexterity": { "score": 18, "modifier": 4, "save": 4 },
+    "constitution": { "score": 10, "modifier": 0, "save": 0 },
+    "intelligence": { "score": 14, "modifier": 2, "save": 2 },
+    "wisdom": { "score": 13, "modifier": 1, "save": 1 },
+    "charisma": { "score": 11, "modifier": 0, "save": 0 }
+  },
+  "skills": {
+    "perception": 3,
+    "stealth": 8
+  },
+  "senses": "Passive Perception 13",
+  "languages": "Common, Elvish, Sylvan",
+  "challenge_rating": 0.25,
+  "experience_points": 50,
+  "proficiency_bonus": 2,
+  "actions": [
+    {
+      "name": "Needle Sword",
+      "description": "Melee Attack Roll: +6, reach 5 ft. Hit: 6 (1d4 + 4) Piercing damage."
+    },
+    {
+      "name": "Enchanting Bow",
+      "description": "Ranged Attack Roll: +6, range 40/160 ft. Hit: 1 Piercing damage, and the target has the Charmed condition until the start of the sprite's next turn."
+    },
+    {
+      "name": "Heart Sight",
+      "description": "Charisma Saving Throw: DC 10, one creature within 5 feet the sprite can see (Celestials, Fiends, and Undead automatically fail the save). Failure: The sprite knows the target's emotions and alignment."
+    },
+    {
+      "name": "Invisibility",
+      "description": "The sprite casts Invisibility on itself, requiring no spell components and using Charisma as the spellcasting ability."
+    }
+  ],
+  "tactical_info": {
+    "optimal_range": "Long range for enchanting bow, close range for heart sight",
+    "key_abilities": ["Enchanting Bow charm", "Heart Sight detection", "Invisibility escape", "High stealth"],
+    "weaknesses": ["Extremely low hit points", "Minimal damage output", "Vulnerable when visible"],
+    "synergies": ["Scouting and reconnaissance", "Temporary charm control", "Information gathering", "Hit-and-run tactics"]
+  }
+}

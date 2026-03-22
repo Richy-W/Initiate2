@@ -1,0 +1,102 @@
+{
+  "originRules": {
+    "abilityScoreRules": {
+      "source": "background",
+      "methods": [
+        {
+          "name": "focused",
+          "distribution": "Increase one score by 2 and another by 1 from the background's three options",
+          "pattern": [2, 1, 0]
+        },
+        {
+          "name": "balanced", 
+          "distribution": "Increase all three background scores by 1 each",
+          "pattern": [1, 1, 1]
+        }
+      ],
+      "maximumScore": 20
+    },
+    "componentSources": {
+      "fromBackground": [
+        "abilityScoreIncreases",
+        "originFeat",
+        "skillProficiencies",
+        "toolProficiency",
+        "startingEquipment",
+        "languageChoice"
+      ],
+      "fromSpecies": [
+        "creatureType",
+        "size",
+        "speed",
+        "specialTraits",
+        "resistances",
+        "senses",
+        "languages"
+      ],
+      "combined": [
+        "totalLanguages",
+        "finalProficiencies"
+      ]
+    }
+  },
+  "characterOrigin": {
+    "selectedBackground": {
+      "name": "string - background name",
+      "file": "string - path to background JSON",
+      "abilityScoreMethod": "focused | balanced - user choice",
+      "abilityScoreAssignment": {
+        "description": "User assigns the increases to specific abilities from background choices",
+        "example": {
+          "Intelligence": 2,
+          "Wisdom": 1,
+          "Charisma": 0
+        }
+      }
+    },
+    "selectedSpecies": {
+      "name": "string - species name", 
+      "file": "string - path to species JSON",
+      "variant": "string - optional variant/lineage selection",
+      "choices": {
+        "description": "User choices for any options the species provides",
+        "examples": {
+          "size": "Medium",
+          "cantrip": "Fire Bolt",
+          "skill": "Perception",
+          "resistance": "Fire"
+        }
+      }
+    },
+    "derivedTraits": {
+      "description": "Final calculated character traits",
+      "creatureType": "from species",
+      "size": "from species (may be user choice)",
+      "speed": "from species", 
+      "abilityScoreIncreases": "from background with user assignment",
+      "skillProficiencies": "from background",
+      "toolProficiencies": "from background",
+      "languageProficiencies": "combined from species + background choice",
+      "originFeat": "from background",
+      "speciesTraits": "all traits from selected species/variant",
+      "startingEquipment": "user choice from background options"
+    }
+  },
+  "validationRules": {
+    "abilityScoreValidation": {
+      "rule": "No single ability score can exceed 20 during character creation",
+      "check": "sum of racial bonuses + background increases ≤ 20 per ability"
+    },
+    "choiceValidation": {
+      "backgroundChoices": "User must assign background increases only to the 3 abilities listed in background",
+      "speciesChoices": "User must make valid selections for any species options (size, spells, etc.)",
+      "equipmentChoice": "User must pick either equipment package A or B from background"
+    }
+  },
+  "implementationNotes": {
+    "dynamicGeneration": "System should load any background + any species and combine according to rules",
+    "userInterface": "Present background ability score choices, species options, equipment choices to user",
+    "validation": "Validate all user choices against rules before generating final character origin",
+    "output": "Generate complete character origin with all derived traits for use in character creation"
+  }
+}

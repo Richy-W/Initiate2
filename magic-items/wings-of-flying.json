@@ -1,0 +1,21 @@
+{
+  "name": "Wings of Flying",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "attunement": true,
+  "description": "While wearing this cloak, you can take a Magic action to turn the cloak into a pair of wings on your back.",
+  "properties": {
+    "transformation": {
+      "action_type": "Magic action",
+      "effect": "Cloak becomes pair of wings on back",
+      "duration": "1 hour or until you end effect as Magic action"
+    },
+    "flight": {
+      "fly_speed": 60,
+      "falling": "If aloft when wings disappear, you fall"
+    },
+    "recharge": {
+      "duration": "Can't use again for 1d12 hours after wings disappear"
+    }
+  }
+}

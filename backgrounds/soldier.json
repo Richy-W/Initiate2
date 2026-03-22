@@ -1,0 +1,49 @@
+{
+  "name": "Soldier",
+  "description": "You began training for war as soon as you reached adulthood and carry precious few memories of life before you took up arms. Battle is in your blood. Sometimes you catch yourself reflexively performing the basic fighting exercises you learned first. Eventually, you put that training to use on the battlefield, protecting the realm by waging war.",
+  "abilityScoreIncrease": {
+    "choices": ["Strength", "Dexterity", "Constitution"],
+    "points": 3
+  },
+  "feat": {
+    "name": "Savage Attacker",
+    "type": "Origin",
+    "description": "You've trained to deal particularly damaging strikes. Once per turn when you hit a target with a weapon, you can roll the weapon's damage dice twice and use either roll against the target."
+  },
+  "skillProficiencies": ["Athletics", "Intimidation"],
+  "toolProficiency": {
+    "choice": {
+      "from": ["Gaming Set (Dice)", "Gaming Set (Cards)", "Gaming Set (Chess)", "Gaming Set (Dragonchess)"],
+      "count": 1
+    }
+  },
+  "languageProficiency": {
+    "choice": {
+      "count": 1,
+      "type": "standard"
+    }
+  },
+  "startingEquipment": {
+    "options": [
+      {
+        "choice": "A",
+        "items": [
+          "Spear",
+          "Shortbow",
+          "20 Arrows",
+          "Gaming Set (choose type)",
+          "Healer's Kit",
+          "Quiver",
+          "Traveler's Clothes"
+        ],
+        "gold": 14
+      },
+      {
+        "choice": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  "sourceBook": "Player's Handbook 2024"
+}

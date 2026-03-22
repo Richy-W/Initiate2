@@ -1,0 +1,93 @@
+{
+  "name": "Cat",
+  "size": "Tiny",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 12,
+  "initiative": 2,
+  "hit_points": {
+    "average": 2,
+    "formula": "1d4"
+  },
+  "speed": {
+    "walk": 40,
+    "climb": 40
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 3,
+      "modifier": -4,
+      "save": -4
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2,
+      "save": 4
+    },
+    "constitution": {
+      "score": 10,
+      "modifier": 0,
+      "save": 0
+    },
+    "intelligence": {
+      "score": 3,
+      "modifier": -4,
+      "save": -4
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1,
+      "save": 1
+    },
+    "charisma": {
+      "score": 7,
+      "modifier": -2,
+      "save": -2
+    }
+  },
+  "skills": {
+    "perception": 3,
+    "stealth": 4
+  },
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 13
+  },
+  "languages": [],
+  "challenge_rating": 0,
+  "experience_points": 10,
+  "proficiency_bonus": 2,
+  "actions": [
+    {
+      "name": "Scratch",
+      "type": "melee_attack",
+      "attack_bonus": 4,
+      "reach": 5,
+      "targets": "one target",
+      "damage": {
+        "damage_dice": "1",
+        "damage_type": "slashing",
+        "average_damage": 1
+      },
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 1 Slashing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "traits": [
+    {
+      "name": "Jumper",
+      "description": "The cat's jump distance is determined using its Dexterity rather than its Strength."
+    }
+  ],
+  "tactical_info": {
+    "optimal_range": "Companion or familiar, minimal combat role",
+    "key_abilities": ["High stealth and perception", "Climbing ability", "Jumper trait"],
+    "weaknesses": ["Extremely fragile", "Minimal damage output", "Tiny size limits"],
+    "synergies": ["Perfect scout or spy", "Urban exploration", "Detection and alarm system"]
+  }
+}

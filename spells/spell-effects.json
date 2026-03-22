@@ -1,0 +1,105 @@
+{
+  "title": "Spell Effects and Targeting",
+  "description": "Rules for spell effects, targeting, and interaction mechanics",
+  "version": "2024", 
+  "targeting": {
+    "description": "Rules for selecting and affecting targets with spells",
+    "requirements": {
+      "clear_path": "To target something with a spell, a caster must have a clear path to it, so it can't be behind Total Cover",
+      "self_targeting": "If a spell targets a creature of your choice, you can choose yourself unless the creature must be Hostile or specifically a creature other than you"
+    },
+    "areas_of_effect": {
+      "description": "Some spells cover an area rather than specific targets",
+      "shapes": [
+        {
+          "name": "Cone",
+          "description": "Area extends in a cone from the caster"
+        },
+        {
+          "name": "Cube", 
+          "description": "Cubic area of effect"
+        },
+        {
+          "name": "Cylinder",
+          "description": "Cylindrical area extending vertically"
+        },
+        {
+          "name": "Emanation",
+          "description": "Area radiating outward from a point"
+        },
+        {
+          "name": "Line",
+          "description": "Straight line area from the caster"
+        },
+        {
+          "name": "Sphere",
+          "description": "Spherical area of effect"
+        }
+      ]
+    },
+    "awareness": {
+      "perceptible_effects": "Unless a spell has a perceptible effect, a creature doesn't know it was targeted",
+      "obvious_effects": "Effects like lightning are obvious",
+      "subtle_effects": "More subtle effects, such as reading thoughts, go unnoticed unless the spell says otherwise"
+    },
+    "invalid_targets": {
+      "mechanics": "If you cast a spell on someone or something that can't be affected by it, nothing happens to that target",
+      "slot_expenditure": "If you used a spell slot to cast the spell, the slot is still expended",
+      "saving_throw_appearance": {
+        "success_spells": "If the spell normally has no effect on a successful save, the invalid target appears to have succeeded",
+        "no_hint": "This gives no hint that the creature is an invalid target",
+        "other_spells": "Otherwise, you perceive that the spell did nothing to the target"
+      }
+    }
+  },
+  "effects": {
+    "description": "The specific outcomes of casting a spell",
+    "authority": {
+      "spell_description": "Effects are detailed in the spell's description and present exactly what the spell does",
+      "physics_override": "Spell effects ignore mundane physical laws",
+      "dm_purview": "Any outcomes beyond the stated effects are under the DM's purview"
+    },
+    "typical_elements": [
+      "Targets (creatures, objects, areas)",
+      "Saving throws for affected creatures", 
+      "Attack rolls to hit targets",
+      "Damage or healing amounts",
+      "Conditions applied or removed",
+      "Environmental changes",
+      "Duration of ongoing effects"
+    ]
+  },
+  "saving_throws": {
+    "purpose": "Many spells specify that a target makes a saving throw to avoid some or all effects",
+    "mechanics": {
+      "ability_specified": "The spell specifies which ability the target uses for the save",
+      "outcomes": "The spell describes what happens on success or failure",
+      "dc_calculation": "Spell save DC = 8 + your spellcasting ability modifier + your Proficiency Bonus"
+    }
+  },
+  "attack_rolls": {
+    "purpose": "Some spells require the caster to make an attack roll to determine whether the spell hits a target",
+    "calculation": "Spell attack modifier = your spellcasting ability modifier + your Proficiency Bonus",
+    "resolution": "Follow normal attack roll procedures for hit/miss determination"
+  },
+  "combining_effects": {
+    "different_spells": {
+      "rule": "The effects of different spells add together while their durations overlap",
+      "example": "A character affected by both Bless and Guidance gains both benefits"
+    },
+    "same_spell": {
+      "rule": "The effects of the same spell cast multiple times don't combine",
+      "resolution": "Only the most potent effect applies while durations overlap",
+      "tie_breaker": "If castings are equally potent, the most recent effect applies",
+      "example": "Two Clerics casting Bless on the same target - the target gains the benefit only once"
+    }
+  },
+  "spell_identification": {
+    "ongoing_spells": {
+      "action_required": "Study action", 
+      "check": "DC 15 Intelligence (Arcana) check",
+      "requirements": "Spell must have ongoing duration with observable effects",
+      "limitation": "Cannot identify instantaneous spells after they've been cast"
+    }
+  }
+}

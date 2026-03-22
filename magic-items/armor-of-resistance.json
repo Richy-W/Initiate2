@@ -1,0 +1,45 @@
+{
+  "id": "armor-of-resistance",
+  "name": "Armor of Resistance",
+  "rarity": "Rare",
+  "category": "Armor",
+  "armor_type": "Any Light, Medium, or Heavy",
+  "attunement_required": true,
+  "weight": "Varies",
+  "value": "5000 GP",
+  "description": "You have Resistance to one type of damage while you wear this armor. The DM chooses the type or determines it randomly.",
+  "properties": [
+    "Enchanted",
+    "Protective",
+    "Damage Resistance"
+  ],
+  "damage_types": [
+    "Acid",
+    "Cold",
+    "Fire",
+    "Force",
+    "Lightning",
+    "Necrotic",
+    "Poison",
+    "Psychic",
+    "Radiant",
+    "Thunder"
+  ],
+  "effect": {
+    "type": "Damage Resistance",
+    "resistance": "One damage type (determined by DM or random roll)",
+    "mechanics": "Take half damage (rounded down) from that damage type"
+  },
+  "attunement": {
+    "required": true,
+    "description": "You must attune to this armor by wearing it for 1 hour."
+  },
+  "activation": {
+    "type": "Passive",
+    "description": "The magic functions automatically while attuned and wearing the armor"
+  },
+  "consumable": false,
+  "determination": "DM chooses or randomly determines by rolling 1d10",
+  "source": "Player's Handbook",
+  "notes": "The damage type is determined when the armor is created or found and cannot be changed. This is a valuable protective item against known damage types."
+}

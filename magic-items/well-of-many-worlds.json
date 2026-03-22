@@ -1,0 +1,25 @@
+{
+  "name": "Well of Many Worlds",
+  "type": "Wondrous Item",
+  "rarity": "Legendary",
+  "attunement": false,
+  "description": "This fine black cloth, soft as silk, is folded up to the dimensions of a handkerchief. It unfolds into a circular sheet 6 feet in diameter.",
+  "properties": {
+    "appearance": "Black cloth, soft as silk, folds to handkerchief size, unfolds to 6-foot diameter circle",
+    "portal_creation": {
+      "action_type": "Magic action",
+      "effect": "Unfold and place on solid surface to form two-way portal",
+      "portal_size": "6-foot-diameter circular",
+      "destination": "DM decides where it leads (another world or plane)",
+      "duration": "Remains open until closed"
+    },
+    "closing": {
+      "action_type": "Magic action",
+      "range": "Within 5 feet of portal",
+      "effect": "Take hold of cloth edges and fold it up to close"
+    },
+    "recharge": {
+      "reuse": "Can't open portal again for 1d8 hours"
+    }
+  }
+}

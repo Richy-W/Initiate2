@@ -1,0 +1,145 @@
+{
+  "title": "Social Interaction",
+  "description": "Rules and guidelines for character interactions with NPCs and other creatures",
+  "version": "2024",
+  "overview": {
+    "description": "During their adventures, player characters meet many different people and face some monsters that would rather talk than fight. In those situations, it's time for social interaction, which takes many forms.",
+    "examples": [
+      "Try to convince a burglar to confess to wrongdoing",
+      "Try to flatter a guard",
+      "Negotiate with hostile creatures",
+      "Gather information from informants"
+    ],
+    "dm_role": "The Dungeon Master assumes the roles of any nonplayer characters who are participating"
+  },
+  "npc_attitudes": {
+    "description": "An NPC's attitude toward your character is Friendly, Indifferent, or Hostile, as defined in the Rules Glossary",
+    "attitudes": [
+      {
+        "attitude": "Friendly",
+        "description": "Friendly NPCs are predisposed to help",
+        "inclination": "Helpful and cooperative"
+      },
+      {
+        "attitude": "Indifferent", 
+        "description": "Neutral NPCs have no particular feelings toward the characters",
+        "inclination": "Requires persuasion or incentive to assist"
+      },
+      {
+        "attitude": "Hostile",
+        "description": "Hostile ones are inclined to hinder",
+        "inclination": "Actively opposes or obstructs the characters"
+      }
+    ]
+  },
+  "interaction_methods": {
+    "description": "Social interactions progress in two ways: through roleplaying and ability checks",
+    "methods": [
+      "Roleplaying",
+      "Ability checks"
+    ]
+  },
+  "roleplaying": {
+    "definition": "Roleplaying is, literally, the act of playing out a role. In this case, it's you as a player determining how your character thinks, acts, and talks.",
+    "scope": "Roleplaying is part of every aspect of the game, and it comes to the fore during social interactions",
+    "approaches": {
+      "active_approach": {
+        "description": "Speak and act as your character would, using first person",
+        "example": "Speaking in character: 'I don't think we can trust this merchant.'"
+      },
+      "descriptive_approach": {
+        "description": "Describe what your character does and says without acting it out",
+        "example": "Describing actions: 'My character tries to intimidate the guard by mentioning our powerful allies.'"
+      }
+    },
+    "dm_response": {
+      "factors": "The DM uses an NPC's personality and your character's actions and attitudes to determine how an NPC reacts",
+      "examples": [
+        {
+          "npc_type": "Cowardly bandit",
+          "effective_approach": "Threats of imprisonment might make them buckle"
+        },
+        {
+          "npc_type": "Stubborn merchant",
+          "ineffective_approach": "Refuses to help if the characters badger her"
+        },
+        {
+          "npc_type": "Vain dragon",
+          "effective_approach": "Laps up flattery"
+        }
+      ]
+    },
+    "strategy_tips": {
+      "observation": "When interacting with an NPC, pay attention to the DM's portrayal of the NPC's personality",
+      "information_gathering": "You might be able to learn an NPC's goals and then use that information to influence the NPC",
+      "positive_outcomes": "If you offer NPCs something they want or play on their sympathies, fears, or goals, you can form friendships, ward off violence, or learn a key piece of information",
+      "negative_outcomes": "If you insult a proud warrior or speak ill of a noble's allies, your efforts to convince or deceive will likely fail"
+    }
+  },
+  "ability_checks": {
+    "role": "Ability checks can be key in determining the outcome of a social interaction",
+    "relationship_to_roleplay": "Your roleplaying efforts can alter an NPC's attitude, but there might still be an element of chance if the DM wants dice to play a role in determining an NPC's response to you",
+    "typical_action": "In such situations, the DM will typically ask you to take the Influence action",
+    "strategic_considerations": {
+      "skill_awareness": "Pay attention to your skill proficiencies when thinking of how you will interact with an NPC",
+      "team_approach": "Use an approach that relies on your group's skill proficiencies",
+      "example": "If the group needs to trick a guard into letting them into a castle, the Rogue who is proficient in Deception should lead the discussion"
+    }
+  },
+  "influence_action_skills": [
+    {
+      "skill": "Deception",
+      "ability": "Charisma",
+      "use": "Tell convincing lies or maintain false identities"
+    },
+    {
+      "skill": "Intimidation",
+      "ability": "Charisma", 
+      "use": "Use threats or imposing presence to coerce cooperation"
+    },
+    {
+      "skill": "Performance",
+      "ability": "Charisma",
+      "use": "Entertain, tell stories, or put on acts to influence mood"
+    },
+    {
+      "skill": "Persuasion",
+      "ability": "Charisma",
+      "use": "Honestly and graciously convince someone through logical argument"
+    },
+    {
+      "skill": "Animal Handling",
+      "ability": "Wisdom",
+      "use": "Influence animal behavior and reactions"
+    }
+  ],
+  "social_interaction_outcomes": {
+    "attitude_changes": "Successfully influencing NPCs can shift their attitude from Hostile to Indifferent or from Indifferent to Friendly",
+    "information_gathering": "Social interactions can reveal important plot information, rumors, or clues",
+    "access_opportunities": "Good social interactions can open doors (literally and figuratively) that might otherwise be closed",
+    "conflict_avoidance": "Successful social interaction can prevent combat encounters or reduce their severity",
+    "resource_acquisition": "NPCs might provide equipment, services, or assistance based on social interaction outcomes"
+  },
+  "common_scenarios": [
+    {
+      "scenario": "Negotiating with merchants",
+      "relevant_skills": ["Persuasion", "Deception", "Intimidation"],
+      "considerations": "Price haggling, seeking information about goods, building merchant relationships"
+    },
+    {
+      "scenario": "Dealing with guards or officials", 
+      "relevant_skills": ["Persuasion", "Deception", "Intimidation"],
+      "considerations": "Gaining access, avoiding legal trouble, acquiring permits or information"
+    },
+    {
+      "scenario": "Gathering information in taverns",
+      "relevant_skills": ["Persuasion", "Performance", "Deception"],
+      "considerations": "Building rapport, buying drinks, entertaining patrons to loosen tongues"
+    },
+    {
+      "scenario": "Dealing with hostile creatures",
+      "relevant_skills": ["Intimidation", "Persuasion", "Animal Handling"],
+      "considerations": "Avoiding combat, negotiating safe passage, finding common ground"
+    }
+  ]
+}

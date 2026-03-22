@@ -1,0 +1,14 @@
+{
+  "name": "Magic",
+  "slug": "magic-action",
+  "definition": "An action that allows you to cast a spell or activate a magical feature",
+  "category": "Actions",
+  "tags": ["[Action]", "spellcasting"],
+  "full_text": "When you take the Magic action, you cast a spell that has a casting time of an action or use a feature or magic item that requires a Magic action to be activated.\n\nIf you cast a spell that has a casting time of 1 minute or longer, you must take the Magic action on each turn of that casting, and you must maintain Concentration while you do so. If your Concentration is broken, the spell fails, but you don't expend a spell slot.",
+  "mechanics": {
+    "usage": "Cast spell with 1 action casting time OR activate magic item/feature",
+    "longer_casting": "Multi-action spells require Magic action each turn with maintained Concentration",
+    "concentration_break": "Spell fails but slot not expended"
+  },
+  "see_also": ["action", "concentration", "spell"]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Fly Speed",
+  "slug": "fly-speed",
+  "definition": "A speed that allows a creature to travel through the air",
+  "category": "Movement",
+  "tags": ["speed", "flying", "movement"],
+  "full_text": "A Fly Speed can be used to travel through the air. While you have a Fly Speed, you can stay aloft until you land, fall, or die.",
+  "mechanics": {
+    "duration": "Until landing, falling, or death",
+    "interaction": "Separate from standard speed; used for aerial movement"
+  },
+  "see_also": ["flying", "speed", "falling"]
+}

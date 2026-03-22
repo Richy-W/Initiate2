@@ -1,0 +1,15 @@
+{
+  "name": "Ioun Stone: Mastery",
+  "type": "Wondrous Item",
+  "rarity": "Legendary",
+  "attunement": true,
+  "description": "Your Proficiency Bonus increases by 1 while this pale green prism orbits your head.",
+  "properties": {
+    "shape": "Pale green prism",
+    "orbit": "1d3 feet from head",
+    "max_concurrent_stones": 3,
+    "proficiency_bonus": {
+      "bonus": 1
+    }
+  }
+}

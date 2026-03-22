@@ -1,0 +1,15 @@
+{
+  "name": "Efreeti Chain",
+  "type": "Armor",
+  "armor_type": ["Chain Mail", "Chain Shirt"],
+  "rarity": "Legendary",
+  "attunement": true,
+  "ac_bonus": 3,
+  "description": "While wearing this armor, you gain a +3 bonus to Armor Class, you have Immunity to Fire damage, and you know Primordial. In addition, you can stand on and move across molten rock as if it were solid ground.",
+  "properties": {
+    "ac_bonus": 3,
+    "damage_immunities": ["Fire"],
+    "languages": ["Primordial"],
+    "special_movement": "Can stand on and move across molten rock as if it were solid ground"
+  }
+}

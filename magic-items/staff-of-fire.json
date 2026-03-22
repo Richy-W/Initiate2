@@ -1,0 +1,35 @@
+{
+  "name": "Staff of Fire",
+  "type": "Staff",
+  "rarity": "Very Rare",
+  "attunement": true,
+  "attunement_class": "Druid, Sorcerer, Warlock, or Wizard",
+  "description": "You have Resistance to Fire damage while you hold this staff.",
+  "properties": {
+    "resistance": "Fire damage",
+    "charges": {
+      "max_charges": 10,
+      "current_charges": 10
+    },
+    "spells": [
+      {
+        "spell": "Burning Hands",
+        "charges": 1
+      },
+      {
+        "spell": "Fireball",
+        "charges": 3
+      },
+      {
+        "spell": "Wall of Fire",
+        "charges": 4
+      }
+    ],
+    "spell_save_dc": "Your spell save DC",
+    "regaining_charges": {
+      "recharge": "1d6 + 4 daily at dawn",
+      "destruction_condition": "Expend last charge and roll 1d20",
+      "on_roll_1": "Staff crumbles into cinders and is destroyed"
+    }
+  }
+}

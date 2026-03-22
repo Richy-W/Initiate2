@@ -1,0 +1,153 @@
+{
+  "title": "D&D 5e 2024 Feats Index",
+  "version": "2024",
+  "description": "Complete index of all available feats organized by category",
+  "categories": {
+    "origin": {
+      "name": "Origin Feats",
+      "description": "Feats available at character creation through backgrounds",
+      "feats": [
+        {
+          "name": "Alert",
+          "file": "alert.json",
+          "summary": "Increase Initiative and immunity to surprise"
+        },
+        {
+          "name": "Magic Initiate",
+          "file": "magic-initiate.json",
+          "summary": "Learn spells from another class's spell list",
+          "repeatable": true
+        },
+        {
+          "name": "Savage Attacker",
+          "file": "savage-attacker.json",
+          "summary": "Reroll damage dice once per turn"
+        },
+        {
+          "name": "Skilled",
+          "file": "skilled.json",
+          "summary": "Gain proficiency in three skills of your choice",
+          "repeatable": true
+        }
+      ]
+    },
+    "general": {
+      "name": "General Feats",
+      "description": "Feats available at levels 4, 8, 12, 16, and 19 when you gain an Ability Score Improvement",
+      "feats": [
+        {
+          "name": "Ability Score Improvement",
+          "file": "ability-score-improvement.json",
+          "summary": "Increase ability scores or gain a skill proficiency",
+          "repeatable": true
+        },
+        {
+          "name": "Grappler",
+          "file": "grappler.json",
+          "summary": "Enhanced grappling abilities and advantage on attacks",
+          "prerequisites": ["Strength 13+"]
+        }
+      ]
+    },
+    "fightingStyle": {
+      "name": "Fighting Style Feats",
+      "description": "Feats that grant fighting styles, available to characters with the Fighting Style feature",
+      "feats": [
+        {
+          "name": "Archery",
+          "file": "fighting-style-archery.json",
+          "summary": "+2 bonus to attack rolls with ranged weapons",
+          "prerequisites": ["Fighting Style feature"]
+        },
+        {
+          "name": "Defense",
+          "file": "fighting-style-defense.json",
+          "summary": "+1 AC while wearing armor",
+          "prerequisites": ["Fighting Style feature"]
+        },
+        {
+          "name": "Dueling",
+          "file": "fighting-style-dueling.json",
+          "summary": "+2 damage when wielding one weapon with no shield",
+          "prerequisites": ["Fighting Style feature"]
+        },
+        {
+          "name": "Great Weapon Fighting",
+          "file": "fighting-style-great-weapon-fighting.json",
+          "summary": "Reroll 1s and 2s on damage with two-handed weapons",
+          "prerequisites": ["Fighting Style feature"]
+        },
+        {
+          "name": "Protection",
+          "file": "fighting-style-protection.json",
+          "summary": "Use reaction and shield to impose disadvantage on attacks",
+          "prerequisites": ["Fighting Style feature"]
+        },
+        {
+          "name": "Two-Weapon Fighting",
+          "file": "fighting-style-two-weapon-fighting.json",
+          "summary": "Add ability modifier to off-hand weapon damage",
+          "prerequisites": ["Fighting Style feature"]
+        }
+      ]
+    },
+    "epicBoon": {
+      "name": "Epic Boon Feats",
+      "description": "Powerful feats available at 19th level and beyond",
+      "feats": [
+        {
+          "name": "Boon of Combat Prowess",
+          "file": "boon-of-combat-prowess.json",
+          "summary": "Ability score increase and extra attack once per turn",
+          "prerequisites": ["Level 19+"]
+        },
+        {
+          "name": "Boon of Dimensional Travel",
+          "file": "boon-of-dimensional-travel.json",
+          "summary": "Ability score increase and bonus action Misty Step",
+          "prerequisites": ["Level 19+"]
+        },
+        {
+          "name": "Boon of Fate",
+          "file": "boon-of-fate.json",
+          "summary": "Ability score increase and reroll reaction",
+          "prerequisites": ["Level 19+"]
+        },
+        {
+          "name": "Boon of Irresistible Offense",
+          "file": "boon-of-irresistible-offense.json",
+          "summary": "Ability score increase and force damage weapon strikes",
+          "prerequisites": ["Level 19+"]
+        },
+        {
+          "name": "Boon of Night Spirit",
+          "file": "boon-of-night-spirit.json",
+          "summary": "Ability score increase and invisibility in darkness",
+          "prerequisites": ["Level 19+"]
+        },
+        {
+          "name": "Boon of Spell Recall",
+          "file": "boon-of-spell-recall.json",
+          "summary": "Ability score increase and chance to not expend spell slots",
+          "prerequisites": ["Level 19+", "Spellcasting feature"]
+        },
+        {
+          "name": "Boon of Truesight",
+          "file": "boon-of-truesight.json",
+          "summary": "Ability score increase and 60-foot truesight",
+          "prerequisites": ["Level 19+"]
+        }
+      ]
+    }
+  },
+  "totalFeats": 17,
+  "featsByLevel": {
+    "1": ["Alert", "Magic Initiate", "Savage Attacker", "Skilled"],
+    "4": ["Ability Score Improvement", "Grappler"],
+    "fightingStyleLevels": ["Archery", "Defense", "Dueling", "Great Weapon Fighting", "Protection", "Two-Weapon Fighting"],
+    "19": ["Boon of Combat Prowess", "Boon of Dimensional Travel", "Boon of Fate", "Boon of Irresistible Offense", "Boon of Night Spirit", "Boon of Spell Recall", "Boon of Truesight"]
+  },
+  "repeatableFeats": ["Magic Initiate", "Skilled", "Ability Score Improvement"],
+  "schema": "feat-schema.json",
+  "sourceBook": "Player's Handbook 2024"
+}

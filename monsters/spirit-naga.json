@@ -1,0 +1,65 @@
+{
+  "name": "Spirit Naga",
+  "size": "Large",
+  "type": "Fiend",
+  "alignment": "Chaotic Evil",
+  "armor_class": 17,
+  "initiative": 13,
+  "hit_points": {
+    "average": 135,
+    "formula": "18d10 + 36"
+  },
+  "speed": {
+    "walk": "40 ft."
+  },
+  "ability_scores": {
+    "strength": { "score": 18, "modifier": 4, "save": 4 },
+    "dexterity": { "score": 17, "modifier": 3, "save": 6 },
+    "constitution": { "score": 14, "modifier": 2, "save": 5 },
+    "intelligence": { "score": 16, "modifier": 3, "save": 3 },
+    "wisdom": { "score": 15, "modifier": 2, "save": 5 },
+    "charisma": { "score": 16, "modifier": 3, "save": 6 }
+  },
+  "damage_immunities": "Poison",
+  "condition_immunities": "Charmed, Poisoned",
+  "senses": "Darkvision 60 ft.; Passive Perception 12",
+  "languages": "Abyssal, Common",
+  "challenge_rating": 8,
+  "experience_points": 3900,
+  "proficiency_bonus": 3,
+  "traits": [
+    {
+      "name": "Fiendish Restoration",
+      "description": "If it dies, the naga returns to life in 1d6 days and regains all its Hit Points. Only a Wish spell can prevent this trait from functioning."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The naga makes three attacks, using Bite or Necrotic Ray in any combination."
+    },
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +7, reach 10 ft. Hit: 7 (1d6 + 4) Piercing damage plus 14 (4d6) Poison damage."
+    },
+    {
+      "name": "Necrotic Ray",
+      "description": "Ranged Attack Roll: +6, range 60 ft. Hit: 21 (6d6) Necrotic damage."
+    }
+  ],
+  "spellcasting": {
+    "ability": "Intelligence",
+    "save_dc": 14,
+    "spells": {
+      "at_will": ["Detect Magic", "Mage Hand", "Minor Illusion", "Water Breathing"],
+      "2_per_day": ["Detect Thoughts", "Dimension Door", "Hold Person (level 3 version)", "Lightning Bolt (level 4 version)"]
+    },
+    "notes": "The naga casts spells requiring no Somatic or Material components."
+  },
+  "tactical_info": {
+    "optimal_range": "Medium range for necrotic ray and spellcasting",
+    "key_abilities": ["Fiendish Restoration", "Multiattack versatility", "Hold Person", "Dimension Door mobility"],
+    "weaknesses": ["No legendary actions", "Vulnerable to radiant damage effects"],
+    "synergies": ["Control spells before multiattack", "Dimension Door positioning", "Persistent threat due to restoration"]
+  }
+}

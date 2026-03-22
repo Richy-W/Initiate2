@@ -1,0 +1,242 @@
+{
+  "title": "Skills System",
+  "description": "The 18 skills that represent categories of activities for ability checks",
+  "version": "2024",
+  "overview": {
+    "description": "Most ability checks involve using a skill, which represents a category of things creatures try to do with an ability check",
+    "rule_references": "The descriptions of the actions you take specify which skill applies if you make an ability check for that action, and many other rules note when a skill is relevant",
+    "dm_authority": "The DM has the ultimate say on whether a skill is relevant in a situation"
+  },
+  "skills": [
+    {
+      "name": "Acrobatics",
+      "ability": "Dexterity",
+      "example_uses": [
+        "Stay on your feet in a tricky situation",
+        "Perform an acrobatic stunt"
+      ],
+      "category": "Physical"
+    },
+    {
+      "name": "Animal Handling",
+      "ability": "Wisdom",
+      "example_uses": [
+        "Calm or train an animal",
+        "Get an animal to behave in a certain way"
+      ],
+      "category": "Social/Nature"
+    },
+    {
+      "name": "Arcana",
+      "ability": "Intelligence", 
+      "example_uses": [
+        "Recall lore about spells",
+        "Recall lore about magic items",
+        "Recall lore about the planes of existence"
+      ],
+      "category": "Knowledge"
+    },
+    {
+      "name": "Athletics",
+      "ability": "Strength",
+      "example_uses": [
+        "Jump farther than normal",
+        "Stay afloat in rough water", 
+        "Break something"
+      ],
+      "category": "Physical"
+    },
+    {
+      "name": "Deception",
+      "ability": "Charisma",
+      "example_uses": [
+        "Tell a convincing lie",
+        "Wear a disguise convincingly"
+      ],
+      "category": "Social"
+    },
+    {
+      "name": "History",
+      "ability": "Intelligence",
+      "example_uses": [
+        "Recall lore about historical events",
+        "Recall lore about people, nations, and cultures"
+      ],
+      "category": "Knowledge"
+    },
+    {
+      "name": "Insight",
+      "ability": "Wisdom",
+      "example_uses": [
+        "Discern a person's mood and intentions"
+      ],
+      "category": "Social"
+    },
+    {
+      "name": "Intimidation", 
+      "ability": "Charisma",
+      "example_uses": [
+        "Awe or threaten someone into doing what you want"
+      ],
+      "category": "Social"
+    },
+    {
+      "name": "Investigation",
+      "ability": "Intelligence",
+      "example_uses": [
+        "Find obscure information in books",
+        "Deduce how something works"
+      ],
+      "category": "Mental"
+    },
+    {
+      "name": "Medicine",
+      "ability": "Wisdom", 
+      "example_uses": [
+        "Diagnose an illness",
+        "Determine what killed the recently slain"
+      ],
+      "category": "Knowledge/Practical"
+    },
+    {
+      "name": "Nature",
+      "ability": "Intelligence",
+      "example_uses": [
+        "Recall lore about terrain",
+        "Recall lore about plants, animals, and weather"
+      ],
+      "category": "Knowledge"
+    },
+    {
+      "name": "Perception",
+      "ability": "Wisdom",
+      "example_uses": [
+        "Using a combination of senses, notice something that's easy to miss"
+      ],
+      "category": "Awareness"
+    },
+    {
+      "name": "Performance",
+      "ability": "Charisma",
+      "example_uses": [
+        "Act", 
+        "Tell a story",
+        "Perform music",
+        "Dance"
+      ],
+      "category": "Social"
+    },
+    {
+      "name": "Persuasion",
+      "ability": "Charisma",
+      "example_uses": [
+        "Honestly and graciously convince someone of something"
+      ],
+      "category": "Social"
+    },
+    {
+      "name": "Religion",
+      "ability": "Intelligence",
+      "example_uses": [
+        "Recall lore about gods",
+        "Recall lore about religious rituals",
+        "Recall lore about holy symbols"
+      ],
+      "category": "Knowledge"
+    },
+    {
+      "name": "Sleight of Hand",
+      "ability": "Dexterity",
+      "example_uses": [
+        "Pick a pocket",
+        "Conceal a handheld object", 
+        "Perform legerdemain"
+      ],
+      "category": "Physical"
+    },
+    {
+      "name": "Stealth",
+      "ability": "Dexterity",
+      "example_uses": [
+        "Escape notice by moving quietly",
+        "Hiding behind things"
+      ],
+      "category": "Physical"
+    },
+    {
+      "name": "Survival", 
+      "ability": "Wisdom",
+      "example_uses": [
+        "Follow tracks",
+        "Forage",
+        "Find a trail",
+        "Avoid natural hazards"
+      ],
+      "category": "Nature/Practical"
+    }
+  ],
+  "skill_categories": {
+    "physical": {
+      "skills": ["Acrobatics", "Athletics", "Sleight of Hand", "Stealth"],
+      "focus": "Physical activities and bodily coordination"
+    },
+    "social": {
+      "skills": ["Animal Handling", "Deception", "Insight", "Intimidation", "Performance", "Persuasion"], 
+      "focus": "Interacting with and influencing other creatures"
+    },
+    "knowledge": {
+      "skills": ["Arcana", "History", "Medicine", "Nature", "Religion"],
+      "focus": "Recalling information and applying learned knowledge"
+    },
+    "mental": {
+      "skills": ["Investigation"],
+      "focus": "Active reasoning and deduction"
+    },
+    "awareness": {
+      "skills": ["Perception"],
+      "focus": "Noticing things in the environment"
+    },
+    "practical": {
+      "skills": ["Medicine", "Survival"],
+      "focus": "Applied skills for survival and health"
+    }
+  },
+  "ability_distribution": {
+    "strength": ["Athletics"],
+    "dexterity": ["Acrobatics", "Sleight of Hand", "Stealth"],
+    "constitution": [],
+    "intelligence": ["Arcana", "History", "Investigation", "Nature", "Religion"],
+    "wisdom": ["Animal Handling", "Insight", "Medicine", "Perception", "Survival"],
+    "charisma": ["Deception", "Intimidation", "Performance", "Persuasion"]
+  },
+  "variant_abilities": {
+    "description": "Each skill proficiency is associated with an ability check. In some situations, the DM might allow you to apply your skill proficiency to a different ability check.",
+    "example": "If a character tries to intimidate someone through a show of physical strength, the DM might ask for a Strength (Intimidation) check rather than a Charisma (Intimidation) check. That character would make a Strength check and add their Proficiency Bonus if they have Intimidation proficiency.",
+    "common_variants": [
+      {
+        "skill": "Intimidation",
+        "standard_ability": "Charisma",
+        "variant_ability": "Strength",
+        "scenario": "Physical intimidation through shows of strength"
+      },
+      {
+        "skill": "Athletics",
+        "standard_ability": "Strength", 
+        "variant_ability": "Constitution",
+        "scenario": "Endurance-based athletic activities like marathon running"
+      },
+      {
+        "skill": "Acrobatics",
+        "standard_ability": "Dexterity",
+        "variant_ability": "Strength", 
+        "scenario": "Gymnastic feats requiring upper body strength"
+      }
+    ]
+  },
+  "total_skills": 18,
+  "proficiency_mechanics": {
+    "with_proficiency": "Add Proficiency Bonus to ability checks involving that skill",
+    "without_proficiency": "Can still make ability checks but don't add Proficiency Bonus",
+    "tool_synergy": "If you have proficiency in both a relevant skill and tool, you have Advantage on the check"
+  }
+}

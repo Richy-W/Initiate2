@@ -1,0 +1,104 @@
+{
+  "name": "Pseudodragon",
+  "size": "Tiny",
+  "type": "Dragon",
+  "alignment": "Neutral Good",
+  "armor_class": {
+    "value": 14,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 2,
+    "total": 12
+  },
+  "hit_points": {
+    "average": 10,
+    "formula": "3d4 + 3"
+  },
+  "speed": {
+    "walk": 15,
+    "fly": 60
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 6,
+      "modifier": -2,
+      "saving_throw": -2
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    }
+  },
+  "skills": {
+    "perception": 5,
+    "stealth": 4
+  },
+  "senses": {
+    "blindsight": 10,
+    "darkvision": 60,
+    "passive_perception": 15
+  },
+  "languages": ["Understands Common and Draconic but can't speak"],
+  "challenge_rating": {
+    "cr": 0.25,
+    "xp": 50,
+    "proficiency_bonus": 2
+  },
+  "traits": [
+    {
+      "name": "Magic Resistance",
+      "description": "The pseudodragon has Advantage on saving throws against spells and other magical effects."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The pseudodragon makes two Bite attacks."
+    },
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 4 (1d4 + 2) Piercing damage.",
+      "attack_roll": 4,
+      "reach": 5,
+      "damage": "4 (1d4 + 2)",
+      "damage_type": "Piercing"
+    },
+    {
+      "name": "Sting",
+      "description": "Constitution Saving Throw: DC 12, one creature the pseudodragon can see within 5 feet. Failure: 5 (2d4) Poison damage, and the target has the Poisoned condition for 1 hour. While Poisoned, the target also has the Unconscious condition, which ends early if the target takes damage or a creature within 5 feet of it takes an action to wake it.",
+      "range": 5,
+      "saving_throw": "DC 12 Constitution",
+      "damage": "5 (2d4)",
+      "damage_type": "Poison"
+    }
+  ],
+  "tactical_info": {
+    "role": "Tiny Dragon Familiar/Scout",
+    "environment": "Forests, magical locations, wizard towers, areas with kind-hearted spellcasters",
+    "tactics": "Uses high flight speed for mobility, sting for unconsciousness effects, magic resistance for survivability",
+    "weaknesses": "Extremely low HP, tiny size makes it fragile, limited combat effectiveness",
+    "signature_abilities": ["Unconsciousness-inducing sting", "High flight speed", "Magic resistance", "Familiar potential"]
+  }
+}

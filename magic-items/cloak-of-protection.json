@@ -1,0 +1,13 @@
+{
+  "name": "Cloak of Protection",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "requires_attunement": true,
+  "overview": "A cloak that provides bonuses to Armor Class and saving throws.",
+  "properties": {
+    "ac_bonus": "You gain a +1 bonus to Armor Class",
+    "saving_throw_bonus": "+1 bonus to saving throws while you wear this cloak"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

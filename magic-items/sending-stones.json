@@ -1,0 +1,18 @@
+{
+  "name": "Sending Stones",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "attunement": false,
+  "description": "Sending Stones come in pairs, with each stone carved to match the other so the pairing is easily recognized.",
+  "properties": {
+    "pairing": "Come in matched pairs",
+    "sending_spell": {
+      "activation": "Touch one stone",
+      "spell": "Sending",
+      "target": "Bearer of other stone",
+      "detection": "Know if no creature bears other stone when used"
+    },
+    "recharge": "Stones can't be used again until next dawn after Sending cast",
+    "destruction": "If one stone destroyed, other becomes nonmagical"
+  }
+}

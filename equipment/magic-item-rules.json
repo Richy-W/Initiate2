@@ -1,0 +1,77 @@
+{
+  "title": "D&D 5e 2024 Magic Items Rules",
+  "version": "2024",
+  "description": "Complete rules for magic item identification, attunement, and usage",
+  "identification": {
+    "description": "Some magic items are indistinguishable from their nonmagical counterparts, while others are conspicuously magical. Handling a magic item is enough to give you a sense that it is extraordinary, but learning a magic item's properties isn't automatic.",
+    "methods": [
+      {
+        "name": "Identify Spell",
+        "description": "The fastest way to reveal an item's properties"
+      },
+      {
+        "name": "Short Rest Focus",
+        "description": "You can focus on one magic item during a Short Rest while being in physical contact with the item. At the end of the rest, you learn its properties and how to use them (but not any curse the item might bear)."
+      },
+      {
+        "name": "Visual Clues",
+        "description": "Sometimes a magic item carries a clue to its properties. The command word to activate a ring might be etched inside the band, or a feathered design might hint that it's a Ring of Feather Falling."
+      },
+      {
+        "name": "Experimentation",
+        "description": "Wearing or experimenting with an item can offer hints about its properties. Potions can be identified with a little taste."
+      }
+    ]
+  },
+  "attunement": {
+    "description": "Some magic items require a creature to form a bond—called Attunement—with them before the creature can use an item's magical properties.",
+    "rules": {
+      "withoutAttunement": "Without becoming attuned to an item that requires Attunement, you gain only its nonmagical benefits unless its description states otherwise.",
+      "attunementProcess": "Attuning to an item requires you to spend a Short Rest focused on only that item while being in physical contact with it (this can't be the same Short Rest used to learn the item's properties).",
+      "focusActivities": "This focus can take the form of weapon practice (for a Weapon), meditation (for a Wand), or some other appropriate activity.",
+      "interruption": "If the Short Rest is interrupted, the Attunement attempt fails.",
+      "success": "At the end of the Short Rest, you're attuned to the magic item and can access its full magical capabilities."
+    },
+    "limitations": {
+      "maxItems": 3,
+      "description": "You can be attuned to no more than three magic items at a time. Any attempt to attune to a fourth item fails; you must end your Attunement to an item first.",
+      "duplicates": "You can't attune to more than one copy of an item. For example, you can't attune to more than one Ring of Protection at a time."
+    },
+    "endingAttunement": {
+      "conditions": [
+        "You no longer satisfy the prerequisites for Attunement",
+        "The item has been more than 100 feet away for at least 24 hours",
+        "You die",
+        "Another creature attunes to the item"
+      ],
+      "voluntary": "You can also voluntarily end Attunement by spending another Short Rest focused on the item unless the item is cursed."
+    }
+  },
+  "wearingAndWielding": {
+    "description": "Using a magic item's properties might mean wearing or wielding it.",
+    "rules": {
+      "properPlacement": "A magic item meant to be worn must be donned in the intended fashion: boots go on feet, gloves on hands, hats and helmets on a head, and rings on a finger. Magic armor must be donned, a Shield strapped to the arm, a cloak fastened about the shoulders. A weapon must be held.",
+      "sizing": "In most cases, a magic item that's meant to be worn can fit a creature regardless of size or build. Magic garments are made to be easily adjustable, or they magically adjust themselves to the wearer.",
+      "multipleItems": "You can't wear more than one of certain magic items. You can't normally wear more than one pair of footwear, one pair of gloves or gauntlets, one pair of bracers, one suit of armor, one item of headwear, or one cloak. The DM might make exceptions.",
+      "pairedItems": "Items that come in pairs—such as boots, bracers, gauntlets, and gloves—impart their benefits only if both items of the pair are worn. For example, a character wearing a Boot of Striding and Springing on one foot and a Boot of Elvenkind on the other foot gains no benefit from either."
+    }
+  },
+  "wearingLimitations": {
+    "singleItems": [
+      "Footwear (one pair)",
+      "Gloves or gauntlets (one pair)",
+      "Bracers (one pair)",
+      "Armor (one suit)",
+      "Headwear (one item)",
+      "Cloak (one item)"
+    ],
+    "pairedItemRule": "Items that come in pairs only provide benefits if both items of the pair are worn"
+  },
+  "generalRules": {
+    "magicalDetection": "Handling a magic item gives you a sense that it is extraordinary",
+    "nonmagicalBenefits": "Items that require attunement still provide their nonmagical benefits without attunement",
+    "cursedItems": "Curses are not revealed through normal identification methods",
+    "dmDiscretion": "The DM decides when characters find magic items and may make exceptions to wearing limitations"
+  },
+  "sourceBook": "Player's Handbook 2024"
+}

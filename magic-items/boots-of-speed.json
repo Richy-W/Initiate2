@@ -1,0 +1,15 @@
+{
+  "name": "Boots of Speed",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "requires_attunement": true,
+  "overview": "These magical boots grant temporary speed enhancement when activated.",
+  "properties": {
+    "activation": "While you wear these boots, you can take a Bonus Action to click the boots' heels together.",
+    "effect": "If you do, the boots double your Speed, and any creature that makes an Opportunity Attack against you has Disadvantage on the attack roll.",
+    "deactivation": "If you click your heels together again, you end the effect.",
+    "duration_limit": "When you've used the boots' property for a total of 10 minutes, the magic ceases to function for you until you finish a Long Rest."
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

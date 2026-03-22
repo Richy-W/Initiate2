@@ -1,0 +1,92 @@
+{
+  "name": "Crab",
+  "size": "Tiny",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 11,
+  "initiative": 0,
+  "hit_points": {
+    "average": 3,
+    "formula": "1d4 + 1"
+  },
+  "speed": {
+    "walk": 20,
+    "swim": 20
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 6,
+      "modifier": -2,
+      "save": -2
+    },
+    "dexterity": {
+      "score": 11,
+      "modifier": 0,
+      "save": 0
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1,
+      "save": 1
+    },
+    "intelligence": {
+      "score": 1,
+      "modifier": -5,
+      "save": -5
+    },
+    "wisdom": {
+      "score": 8,
+      "modifier": -1,
+      "save": -1
+    },
+    "charisma": {
+      "score": 2,
+      "modifier": -4,
+      "save": -4
+    }
+  },
+  "skills": {
+    "stealth": 2
+  },
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "blindsight": 30,
+    "passive_perception": 9
+  },
+  "languages": [],
+  "challenge_rating": 0,
+  "experience_points": 10,
+  "proficiency_bonus": 2,
+  "actions": [
+    {
+      "name": "Claw",
+      "type": "melee_attack",
+      "attack_bonus": 2,
+      "reach": 5,
+      "targets": "one target",
+      "damage": {
+        "damage_dice": "1",
+        "damage_type": "bludgeoning",
+        "average_damage": 1
+      },
+      "description": "Melee Attack Roll: +2, reach 5 ft. Hit: 1 Bludgeoning damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "traits": [
+    {
+      "name": "Amphibious",
+      "description": "The crab can breathe air and water."
+    }
+  ],
+  "tactical_info": {
+    "optimal_range": "Coastal or aquatic environments, minimal combat",
+    "key_abilities": ["Amphibious breathing", "Blindsight detection", "Small size stealth"],
+    "weaknesses": ["Extremely low damage", "Tiny size fragility", "Poor mobility"],
+    "synergies": ["Coastal exploration", "Underwater scouting", "Environmental flavor creature"]
+  }
+}

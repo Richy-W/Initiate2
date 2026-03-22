@@ -1,0 +1,87 @@
+{
+  "title": "Adventures and Campaigns",
+  "description": "Structure and organization of D&D gameplay experiences",
+  "version": "2024",
+  "game_sessions": {
+    "description": "Each time you sit down to play D&D",
+    "types": {
+      "one_shot": {
+        "description": "Sometimes a session of D&D is a complete game in itself (often called a 'one-shot'), where you play a short adventure that lasts for just one session."
+      },
+      "ongoing": {
+        "description": "More often, though, D&D sessions are connected in a longer adventure that takes several sessions to complete, and adventures can be strung together into a larger narrative called a campaign."
+      }
+    }
+  },
+  "adventures": {
+    "description": "An adventure features a fantastic setting and includes a cast of nonplayer characters controlled by the DM.",
+    "creation": {
+      "sources": [
+        "Created by the Dungeon Master",
+        "Purchased adventures"
+      ]
+    },
+    "elements": {
+      "setting": {
+        "description": "A fantastic setting, such as an underground dungeon, a wondrous wilderness, or a magic-filled city"
+      },
+      "npcs": {
+        "description": "A cast of nonplayer characters controlled by the DM",
+        "villain": "Often one of the NPCs is a villain whose agenda drives much of an adventure's action"
+      },
+      "content": {
+        "exploration": "The adventurers explore environments, events, and creatures presented by the DM",
+        "challenges": [
+          "Battles",
+          "Traps", 
+          "Negotiations",
+          "Mysteries",
+          "And more"
+        ]
+      }
+    },
+    "variety": {
+      "short_adventure": {
+        "challenges": "Only a few challenges",
+        "duration": "Take only one session to complete"
+      },
+      "long_adventure": {
+        "challenges": "Many combats, interactions, and other challenges",
+        "duration": "Take dozens of sessions"
+      }
+    }
+  },
+  "campaigns": {
+    "description": "A campaign is a series of adventures with a consistent group of adventurers following the narrative.",
+    "analogy": {
+      "campaign": "Like a TV series",
+      "adventure": "Like a season of the series", 
+      "session": "Like a single episode—it might be self-contained, but it usually links to the larger plot if there is one"
+    },
+    "types": {
+      "episodic": {
+        "description": "Some campaigns are episodic, where each adventure is its own tale and not much besides the player characters links it to the next one."
+      },
+      "long_running": {
+        "description": "Other campaigns involve long-running plots, a cast of recurring NPCs, and themes that span multiple adventures, leading toward a climactic conclusion.",
+        "elements": [
+          "Long-running plots",
+          "Cast of recurring NPCs",
+          "Themes that span multiple adventures",
+          "Climactic conclusion"
+        ]
+      }
+    },
+    "creation": {
+      "approaches": [
+        "DM creates a campaign from scratch",
+        "Assemble a campaign from published adventures",
+        "Mix homemade material with published material"
+      ],
+      "settings": [
+        "World of the DM's creation",
+        "Published campaign setting"
+      ]
+    }
+  }
+}

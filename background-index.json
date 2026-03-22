@@ -1,0 +1,47 @@
+{
+  "name": "Background Index",
+  "description": "Index of all available character backgrounds for D&D 2024",
+  "version": "2024.1",
+  "totalBackgrounds": 4,
+  "backgrounds": [
+    {
+      "name": "Acolyte",
+      "file": "acolyte.json",
+      "abilityScores": ["Intelligence", "Wisdom", "Charisma"],
+      "skills": ["Insight", "Religion"],
+      "feat": "Magic Initiate (Cleric)",
+      "theme": "Religious service and divine studies"
+    },
+    {
+      "name": "Criminal",
+      "file": "criminal.json",
+      "abilityScores": ["Dexterity", "Constitution", "Intelligence"],
+      "skills": ["Sleight of Hand", "Stealth"],
+      "feat": "Alert",
+      "theme": "Life of crime and survival on the streets"
+    },
+    {
+      "name": "Sage",
+      "file": "sage.json",
+      "abilityScores": ["Constitution", "Intelligence", "Wisdom"],
+      "skills": ["Arcana", "History"],
+      "feat": "Magic Initiate (Wizard)",
+      "theme": "Academic study and pursuit of knowledge"
+    },
+    {
+      "name": "Soldier",
+      "file": "soldier.json",
+      "abilityScores": ["Strength", "Dexterity", "Constitution"],
+      "skills": ["Athletics", "Intimidation"],
+      "feat": "Savage Attacker",
+      "theme": "Military training and combat experience"
+    }
+  ],
+  "categories": {
+    "religious": ["Acolyte"],
+    "criminal": ["Criminal"],
+    "scholarly": ["Sage"],
+    "military": ["Soldier"]
+  },
+  "sourceBook": "Player's Handbook 2024"
+}

@@ -1,0 +1,61 @@
+{
+  "name": "Satyr",
+  "size": "Medium",
+  "type": "Fey",
+  "alignment": "Chaotic Neutral",
+  "armor_class": 13,
+  "hit_points": {
+    "average": 31,
+    "formula": "7d8"
+  },
+  "speed": {
+    "walk": 40
+  },
+  "initiative": 13,
+  "ability_scores": {
+    "strength": 12,
+    "dexterity": 16,
+    "constitution": 11,
+    "intelligence": 12,
+    "wisdom": 10,
+    "charisma": 14
+  },
+  "saving_throws": {},
+  "skills": {
+    "perception": 2,
+    "performance": 6,
+    "stealth": 5
+  },
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "passive_perception": 12
+  },
+  "languages": ["Common", "Elvish", "Sylvan"],
+  "challenge_rating": 0.5,
+  "proficiency_bonus": 2,
+  "traits": [
+    {
+      "name": "Magic Resistance",
+      "description": "The satyr has Advantage on saving throws against spells and other magical effects."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Hooves",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 5 (1d4 + 3) Bludgeoning damage. If the target is a Medium or smaller creature, the satyr pushes the target up to 10 feet straight away from itself."
+    },
+    {
+      "name": "Mockery",
+      "description": "Wisdom Saving Throw: DC 12, one creature the satyr can see within 90 feet. Failure: 5 (1d6 + 2) Psychic damage."
+    }
+  ],
+  "tactical_info": {
+    "combat_role": "Fey Skirmisher/Social Manipulator",
+    "preferred_range": "Mixed - melee hooves and ranged mockery",
+    "key_abilities": ["Magic resistance", "Knockback hooves", "Ranged psychic damage", "High mobility"],
+    "weaknesses": ["Low hit points", "Limited damage output", "No area effects"],
+    "tactics": "Uses superior speed and magic resistance for hit-and-run tactics, employs mockery at range, then closes for hoof attacks with knockback to maintain distance."
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "title": "Spell Preparation Rules",
+  "description": "Rules for preparing and changing prepared spells by class",
+  "version": "2024",
+  "preparation_by_class": [
+    {
+      "class": "Bard",
+      "change_when": "Gain a level",
+      "number_of_spells": "One",
+      "flexibility": "Limited - can only change one spell per level"
+    },
+    {
+      "class": "Cleric", 
+      "change_when": "Finish a Long Rest",
+      "number_of_spells": "Any",
+      "flexibility": "High - can change entire spell list daily"
+    },
+    {
+      "class": "Druid",
+      "change_when": "Finish a Long Rest", 
+      "number_of_spells": "Any",
+      "flexibility": "High - can change entire spell list daily"
+    },
+    {
+      "class": "Paladin",
+      "change_when": "Finish a Long Rest",
+      "number_of_spells": "One", 
+      "flexibility": "Low - can only change one spell per long rest"
+    },
+    {
+      "class": "Ranger",
+      "change_when": "Finish a Long Rest",
+      "number_of_spells": "One",
+      "flexibility": "Low - can only change one spell per long rest"
+    },
+    {
+      "class": "Sorcerer",
+      "change_when": "Gain a level",
+      "number_of_spells": "One",
+      "flexibility": "Limited - can only change one spell per level"
+    },
+    {
+      "class": "Warlock", 
+      "change_when": "Gain a level",
+      "number_of_spells": "One",
+      "flexibility": "Limited - can only change one spell per level"
+    },
+    {
+      "class": "Wizard",
+      "change_when": "Finish a Long Rest",
+      "number_of_spells": "Any",
+      "flexibility": "High - can change entire spell list daily"
+    }
+  ],
+  "always_prepared_spells": {
+    "description": "Certain features might give you a spell that you always have prepared",
+    "mechanics": {
+      "list_counting": "A spell that you always have prepared doesn't count against the number of spells on your prepared list",
+      "source": "Granted by class features, racial traits, or other character options"
+    }
+  },
+  "monster_preparation": {
+    "default": "Most spellcasting monsters don't change their lists of prepared spells",
+    "dm_discretion": "The DM is free to alter monster prepared spell lists"
+  }
+}

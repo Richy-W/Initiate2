@@ -1,0 +1,138 @@
+{
+  "name": "Ring of Elemental Command",
+  "type": "Ring",
+  "rarity": "Legendary",
+  "attunement": true,
+  "description": "Each Ring of Elemental Command is linked to one of the four Elemental Planes. The DM chooses or randomly determines the linked plane.",
+  "properties": {
+    "linked_planes": [
+      "Air",
+      "Earth",
+      "Fire",
+      "Water"
+    ],
+    "elemental_bane": {
+      "effect": "Advantage on attack rolls against Elementals and they have Disadvantage on attack rolls against you"
+    },
+    "elemental_compulsion": {
+      "action_type": "Magic action",
+      "target": "Elemental within 60 feet",
+      "saving_throw": {
+        "type": "Wisdom",
+        "dc": 18
+      },
+      "on_failure": {
+        "condition": "Charmed",
+        "duration": "Until start of your next turn",
+        "effect": "You determine its move and action on next turn"
+      }
+    },
+    "elemental_focus": {
+      "air": {
+        "languages": "Auran",
+        "resistance": "Lightning",
+        "fly_speed": "Equal to your Speed with hover"
+      },
+      "earth": {
+        "languages": "Terran",
+        "resistance": "Acid",
+        "terrain": "Rubble, rocks, or dirt isn't Difficult Terrain",
+        "movement": "Move through solid earth or rock as Difficult Terrain without disturbing matter",
+        "safety": "If turn ends in solid matter, shunted to nearest unoccupied space last occupied"
+      },
+      "fire": {
+        "languages": "Ignan",
+        "immunity": "Fire"
+      },
+      "water": {
+        "languages": "Aquan",
+        "swim_speed": 60,
+        "breathing": "Can breathe underwater"
+      }
+    },
+    "spellcasting": {
+      "charges": {
+        "max_charges": 5,
+        "current_charges": 5,
+        "recharge": "1d4 + 1 daily at dawn"
+      },
+      "save_dc": 18,
+      "air_spells": [
+        {
+          "spell": "Chain Lightning",
+          "charges": 3
+        },
+        {
+          "spell": "Feather Fall",
+          "charges": 0
+        },
+        {
+          "spell": "Gust of Wind",
+          "charges": 2
+        },
+        {
+          "spell": "Wind Wall",
+          "charges": 1
+        }
+      ],
+      "earth_spells": [
+        {
+          "spell": "Earthquake",
+          "charges": 5
+        },
+        {
+          "spell": "Stone Shape",
+          "charges": 2
+        },
+        {
+          "spell": "Stoneskin",
+          "charges": 3
+        },
+        {
+          "spell": "Wall of Stone",
+          "charges": 3
+        }
+      ],
+      "fire_spells": [
+        {
+          "spell": "Burning Hands",
+          "charges": 1
+        },
+        {
+          "spell": "Fireball",
+          "charges": 2
+        },
+        {
+          "spell": "Fire Storm",
+          "charges": 4
+        },
+        {
+          "spell": "Wall of Fire",
+          "charges": 3
+        }
+      ],
+      "water_spells": [
+        {
+          "spell": "Create or Destroy Water",
+          "charges": 1
+        },
+        {
+          "spell": "Ice Storm",
+          "charges": 2
+        },
+        {
+          "spell": "Tsunami",
+          "charges": 5
+        },
+        {
+          "spell": "Wall of Ice",
+          "charges": 3
+        },
+        {
+          "spell": "Water Walk",
+          "charges": 2
+        }
+      ]
+    }
+  }
+}

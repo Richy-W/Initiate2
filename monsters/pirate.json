@@ -1,0 +1,91 @@
+{
+  "name": "Pirate",
+  "size": "Medium",
+  "type": "Humanoid",
+  "alignment": "Neutral",
+  "armor_class": {
+    "value": 14,
+    "source": "Leather Armor"
+  },
+  "initiative": {
+    "bonus": 5,
+    "total": 15
+  },
+  "hit_points": {
+    "average": 33,
+    "formula": "6d8 + 6"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "dexterity": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 5
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "intelligence": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "charisma": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 4
+    }
+  },
+  "senses": {
+    "passive_perception": 11
+  },
+  "languages": ["Common plus one other language"],
+  "challenge_rating": {
+    "cr": 1,
+    "xp": 200,
+    "proficiency_bonus": 2
+  },
+  "equipment": ["Daggers (6)", "Leather Armor"],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The pirate makes two Dagger attacks. It can replace one attack with a use of Enthralling Panache."
+    },
+    {
+      "name": "Dagger",
+      "description": "Melee or Ranged Attack Roll: +5, reach 5 ft. or range 20/60 ft. Hit: 5 (1d4 + 3) Piercing damage.",
+      "attack_roll": 5,
+      "reach": 5,
+      "range": "20/60",
+      "damage": "5 (1d4 + 3)",
+      "damage_type": "Piercing"
+    },
+    {
+      "name": "Enthralling Panache",
+      "description": "Wisdom Saving Throw: DC 12, one creature the pirate can see within 30 feet. Failure: The target has the Charmed condition until the start of the pirate's next turn.",
+      "range": 30,
+      "saving_throw": "DC 12 Wisdom"
+    }
+  ],
+  "tactical_info": {
+    "role": "Swashbuckling Skirmisher/Naval Fighter",
+    "environment": "Ships, coastal towns, ports, pirate bases, tropical islands",
+    "tactics": "Uses enthralling panache to distract enemies, multiple dagger attacks for consistent damage, high dexterity for mobility",
+    "weaknesses": "Low armor class, moderate HP, relies on charm effects and mobility over direct combat",
+    "signature_abilities": ["Charming panache", "Multiple dagger attacks", "High initiative", "Naval combat expertise"]
+  }
+}

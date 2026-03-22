@@ -1,0 +1,2879 @@
+{
+  "monsters_index": {
+    "title": "D&D 2024 Monster Manual API",
+    "description": "Comprehensive collection of monster stat blocks for Dungeons & Dragons 2024",
+    "version": "2024",
+    "total_monsters": "Growing collection covering CR 0 to CR 23 across all major creature types",
+    "organization": "Individual JSON files for each monster with consistent schema"
+  },
+  "categories": {
+    "aberrations": {
+      "description": "Alien entities with bizarre anatomy and strange powers",
+      "examples": ["Aboleth", "Chuul", "Cloaker", "Darkmantle", "Gibbering Mouther", "Grick", "Grimlock", "Nothic", "Otyugh"],
+      "common_traits": ["Telepathy", "Mind control", "Otherworldly abilities"]
+    },
+    "constructs": {
+      "description": "Artificial beings created through magic or technology",
+      "examples": ["Animated Armor", "Animated Flying Sword", "Animated Rug", "Clay Golem", "Flesh Golem", "Gorgon", "Homunculus", "Iron Golem", "Stone Golem"],
+      "common_traits": ["Immunity to mental effects", "No biological needs", "Magic resistance"]
+    },
+    "dragons": {
+      "description": "Ancient, powerful reptilian creatures with breath weapons and magic",
+      "examples": ["Adult Black Dragon", "Adult Gold Dragon", "Adult Green Dragon", "Adult White Dragon", "Ancient Black Dragon", "Ancient Gold Dragon", "Ancient Green Dragon", "Ancient White Dragon", "Brass Dragon Wyrmling", "Bronze Dragon", "Dragon Turtle", "Gold Dragon Wyrmling", "Green Dragon Wyrmling", "Half-Dragon", "Kobold Warrior", "Pseudodragon", "White Dragon Wyrmling", "Wyvern", "Young Gold Dragon", "Young Green Dragon", "Young White Dragon"],
+      "common_traits": ["Breath weapons", "Spellcasting", "Legendary actions", "Age categories"]
+    },
+    "elementals": {
+      "description": "Creatures native to the elemental planes",
+      "examples": ["Air Elemental", "Azer Sentinel", "Djinni", "Dust Mephit", "Earth Elemental", "Efreeti", "Fire Elemental", "Gargoyle", "Ice Mephit", "Invisible Stalker", "Magma Mephit", "Magmin", "Steam Mephit", "Water Elemental", "Xorn"],
+      "common_traits": ["Elemental immunities", "Plane-specific abilities", "Elemental languages"]
+    },
+    "fey": {
+      "description": "Magical creatures from the Feywild with otherworldly abilities",
+      "examples": ["Blink Dog", "Bugbear Stalker", "Bullywug Bog Sage", "Centaur Trooper", "Dryad", "Goblin Boss", "Goblin Minion", "Goblin Warrior", "Green Hag", "Hobgoblin Captain", "Hobgoblin Warrior", "Worg"],
+      "common_traits": ["Magical nature", "Teleportation", "Fey ancestry"]
+    },
+    "fiends": {
+      "description": "Evil creatures from the Lower Planes (demons and devils)",
+      "examples": ["Balor", "Barbed Devil", "Bearded Devil", "Bone Devil", "Chain Devil", "Dretch", "Erinyes", "Glabrezu", "Gnoll Warrior", "Hell Hound", "Hezrou", "Horned Devil", "Ice Devil", "Imp", "Incubus", "Lamia", "Lemure", "Marilith", "Nalfeshnee", "Night Hag", "Nightmare", "Oni", "Pit Fiend", "Succubus", "Vrock"],
+      "common_traits": ["Evil alignment", "Resistances/immunities", "Magic resistance", "Telepathy"]
+    },
+    "giants": {
+      "description": "Towering humanoids with great strength and elemental affinities",
+      "examples": ["Cloud Giant", "Ettin", "Fire Giant", "Frost Giant", "Hill Giant", "Ogre", "Stone Giant", "Storm Giant", "Troll"],
+      "common_traits": ["Large size", "Great strength", "Elemental themes", "Ancient culture"]
+    },
+    "celestials": {
+      "description": "Divine beings from the Upper Planes with holy powers",
+      "examples": ["Couatl", "Deva", "Guardian Naga", "Pegasus", "Planetar", "Unicorn"],
+      "common_traits": ["Good alignment", "Divine magic", "Radiant damage resistance", "Holy aura"]
+    },
+    "humanoids": {
+      "description": "Bipedal civilized creatures including humans and human-like beings",
+      "examples": ["Archmage", "Assassin", "Bandit", "Berserker", "Commoner", "Cultist", "Cultist Fanatic", "Druid", "Gladiator", "Guard", "Guard Captain", "Knight", "Mage", "Merfolk Skirmisher", "Noble", "Pirate", "Pirate Captain", "Priest", "Priest Acolyte", "Tough", "Tough Boss", "Vampire Familiar", "Warrior Infantry", "Warrior Veteran"],
+      "common_traits": ["Tool use", "Language", "Social organization"]
+    },
+    "monstrosities": {
+      "description": "Unnatural creatures with magical origins",
+      "examples": ["Ankheg", "Axe Beak", "Basilisk", "Behir", "Bulette", "Carrion Crawler", "Chimera", "Cockatrice", "Death Dog", "Doppelganger", "Drider", "Ettercap", "Griffon", "Harpy", "Hippogriff", "Hydra", "Kraken", "Manticore", "Medusa", "Merrow", "Mimic", "Minotaur of Baphomet", "Owlbear", "Phase Spider", "Purple Worm", "Tarrasque", "Werebear", "Wereboar", "Wererat", "Weretiger", "Werewolf", "Winter Wolf"],
+      "common_traits": ["Unusual anatomy", "Magical origins", "Predatory nature"]
+    },
+    "oozes": {
+      "description": "Amorphous creatures that dissolve and consume organic matter",
+      "examples": ["Black Pudding", "Gelatinous Cube", "Gray Ooze", "Ochre Jelly"],
+      "common_traits": ["Amorphous form", "Acid damage", "Immunity to mental effects"]
+    },
+    "beasts": {
+      "description": "Natural animals and creatures from the material plane including dinosaurs",
+      "examples": ["Allosaurus", "Ankylosaurus", "Ape", "Archelon", "Baboon", "Badger", "Bat", "Black Bear", "Blood Hawk", "Boar", "Brown Bear"],
+      "common_traits": ["Natural instincts", "Animal intelligence", "Environmental adaptation", "Unaligned nature"]
+    },
+    "undead": {
+      "description": "Once-living creatures animated by necromantic magic",
+      "examples": ["Swarm of Crawling Claws", "Ghast", "Ghost", "Ghoul", "Lich", "Mummy", "Mummy Lord", "Ogre Zombie", "Vampire", "Vampire Spawn", "Wight", "Will-o'-Wisp", "Wraith", "Zombie"],
+      "common_traits": ["Immunity to poison", "Immunity to mental effects", "Necrotic damage", "Turn undead vulnerability"]
+    },
+    "plants": {
+      "description": "Vegetative creatures, including awakened and mobile plants",
+      "examples": ["Awakened Shrub", "Awakened Tree"],
+      "common_traits": ["Plant traits", "Environmental adaptation", "Natural camouflage"]
+    }
+  },
+  "challenge_rating_distribution": {
+    "cr_0": {
+      "xp": 10,
+      "proficiency_bonus": 2,
+      "examples": ["Awakened Shrub", "Baboon", "Badger", "Cat", "Commoner", "Crab", "Deer", "Eagle", "Frog", "Giant Fire Beetle", "Homunculus", "Lemure", "Shrieker Fungus"]
+    },
+    "cr_eighth": {
+      "xp": 25,
+      "proficiency_bonus": 2,
+      "examples": ["Bat", "Camel", "Cultist", "Flying Snake", "Giant Crab", "Goblin Minion", "Guard", "Kobold Warrior", "Merfolk Skirmisher", "Noble", "Slaad Tadpole", "Warrior Infantry"]
+    },
+    "cr_quarter": {
+      "xp": 50,
+      "proficiency_bonus": 2,
+      "examples": ["Boar", "Constrictor Snake", "Draft Horse", "Dretch", "Elk", "Giant Badger", "Giant Bat", "Giant Centipede", "Giant Frog", "Goblin Warrior", "Grimlock", "Priest Acolyte", "Pseudodragon", "Skeleton", "Steam Mephit", "Violet Fungus", "Zombie"]
+    },
+    "cr_half": {
+      "xp": 100,
+      "proficiency_bonus": 2,
+      "examples": ["Ape", "Black Bear", "Cockatrice", "Crocodile", "Darkmantle", "Dust Mephit", "Giant Goat", "Gnoll Warrior", "Gray Ooze", "Hobgoblin Warrior", "Ice Mephit", "Magma Mephit", "Magmin", "Rust Monster", "Sahuagin Warrior", "Satyr", "Scout", "Shadow", "Worg"]
+    },
+    "cr_1": {
+      "xp": 200,
+      "proficiency_bonus": 2,
+      "examples": ["Animated Armor", "Brass Dragon Wyrmling", "Brown Bear", "Bugbear Warrior", "Copper Dragon Wyrmling", "Death Dog", "Dire Wolf", "Dryad", "Ghoul", "Giant Eagle", "Goblin Boss", "Harpy", "Hippogriff", "Imp", "Pirate", "Quasit", "Specter"]
+    },
+    "cr_2": {
+      "xp": 450,
+      "proficiency_bonus": 2,
+      "examples": ["Allosaurus", "Animated Rug", "Ankheg", "Awakened Tree", "Azer Sentinel", "Bandit Captain", "Berserker", "Black Dragon Wyrmling", "Bronze Dragon Wyrmling", "Bullywug Noble", "Carrion Crawler", "Centaur Trooper", "Cultist Fanatic", "Druid", "Ettercap", "Gargoyle", "Gelatinous Cube", "Ghast", "Giant Boar", "Giant Constrictor Snake", "Giant Elk", "Gibbering Mouther", "Green Dragon Wyrmling", "Grick", "Griffon", "Merrow", "Mimic", "Minotaur Skeleton", "Nothic", "Ochre Jelly", "Ogre", "Ogre Zombie", "Pegasus", "Priest", "Sea Hag", "Silver Dragon Wyrmling", "Wererat", "White Dragon Wyrmling", "Will-o'-Wisp"]
+    },
+    "cr_3": {
+      "xp": 700,
+      "proficiency_bonus": 2,
+      "examples": ["Ankylosaurus", "Basilisk", "Bearded Devil", "Blue Dragon Wyrmling", "Bugbear Stalker", "Doppelganger", "Gold Dragon Wyrmling", "Green Hag", "Hell Hound", "Hobgoblin Captain", "Knight", "Manticore", "Minotaur of Baphomet", "Mummy", "Nightmare", "Owlbear", "Phase Spider", "Swarm of Crawling Claws", "Vampire Familiar", "Warrior Veteran", "Werewolf", "Wight", "Winter Wolf"]
+    },
+    "cr_4": {
+      "xp": 1100,
+      "proficiency_bonus": 2,
+      "examples": ["Archelon", "Black Pudding", "Bullywug Bog Sage", "Chuul", "Couatl", "Elephant", "Ettin", "Ghost", "Guard Captain", "Incubus", "Lamia", "Red Dragon Wyrmling", "Succubus", "Tough Boss", "Wereboar", "Weretiger"]
+    },
+    "cr_5": {
+      "xp": 1800,
+      "proficiency_bonus": 3,
+      "examples": ["Air Elemental", "Barbed Devil", "Bulette", "Earth Elemental", "Fire Elemental", "Flesh Golem", "Giant Crocodile", "Gladiator", "Gorgon", "Half-Dragon", "Hill Giant", "Night Hag", "Otyugh", "Roper", "Salamander", "Shambling Mound", "Troll", "Unicorn", "Vampire Spawn", "Water Elemental", "Werebear", "Wraith", "Xorn"]
+    },
+    "cr_6": {
+      "xp": 2300,
+      "proficiency_bonus": 3,
+      "examples": ["Young Brass Dragon", "Chimera", "Drider", "Invisible Stalker", "Mage", "Medusa", "Pirate Captain", "Vrock", "Wyvern", "Young White Dragon"]
+    },
+    "cr_7": {
+      "xp": 2900,
+      "proficiency_bonus": 3,
+      "examples": ["Young Black Dragon", "Young Copper Dragon", "Giant Ape", "Oni", "Shield Guardian", "Stone Giant"]
+    },
+    "cr_8": {
+      "xp": 3900,
+      "proficiency_bonus": 3,
+      "examples": ["Assassin", "Young Bronze Dragon", "Chain Devil", "Cloaker", "Frost Giant", "Hezrou", "Hydra", "Young Green Dragon"]
+    },
+    "cr_9": {
+      "xp": 5000,
+      "proficiency_bonus": 4,
+      "examples": ["Young Blue Dragon", "Bone Devil", "Clay Golem", "Cloud Giant", "Fire Giant", "Glabrezu", "Treant"]
+    },
+    "cr_10": {
+      "xp": 5900,
+      "proficiency_bonus": 4,
+      "examples": ["Aboleth", "Deva", "Guardian Naga", "Stone Giant", "Stone Golem", "Young Gold Dragon", "Young Red Dragon"]
+    },
+    "cr_11": {
+      "xp": 7200,
+      "proficiency_bonus": 4,
+      "examples": ["Behir", "Djinni", "Efreeti", "Gynosphinx", "Horned Devil", "Remorhaz", "Roc"]
+    },    "cr_12": {
+      "xp": 8400,
+      "proficiency_bonus": 4,
+      "examples": ["Archmage", "Erinyes"]
+    },    "cr_13": {
+      "xp": 10000,
+      "proficiency_bonus": 5,
+      "examples": ["Adult Brass Dragon", "Adult White Dragon", "Beholder", "Nalfeshnee", "Rakshasa", "Storm Giant", "Vampire"]
+    },
+    "cr_14": {
+      "xp": 11500,
+      "proficiency_bonus": 5,
+      "examples": ["Adult Black Dragon", "Adult Copper Dragon", "Ice Devil"]
+    },
+    "cr_15": {
+      "xp": 13000,
+      "proficiency_bonus": 5,
+      "examples": ["Adult Bronze Dragon", "Adult Green Dragon", "Mummy Lord", "Purple Worm"]
+    },
+    "cr_16": {
+      "xp": 15000,
+      "proficiency_bonus": 5,
+      "examples": ["Adult Blue Dragon", "Adult Silver Dragon", "Iron Golem", "Marilith", "Planetar"]
+    },
+    "cr_17": {
+      "xp": 18000,
+      "proficiency_bonus": 6,
+      "examples": ["Adult Gold Dragon", "Adult Red Dragon", "Androsphinx", "Dragon Turtle"]
+    },
+    "cr_19": {
+      "xp": 22000,
+      "proficiency_bonus": 6,
+      "examples": ["Balor"]
+    },
+    "cr_20": {
+      "xp": 25000,
+      "proficiency_bonus": 6,
+      "examples": ["Ancient Brass Dragon", "Ancient White Dragon", "Pit Fiend"]
+    },
+    "cr_21": {
+      "xp": 33000,
+      "proficiency_bonus": 7,
+      "examples": ["Ancient Black Dragon", "Ancient Copper Dragon", "Lich", "Solar"]
+    },
+    "cr_22": {
+      "xp": 41000,
+      "proficiency_bonus": 7,
+      "examples": ["Ancient Bronze Dragon", "Ancient Green Dragon"]
+    },
+    "cr_23": {
+      "xp": 50000,
+      "proficiency_bonus": 7,
+      "examples": ["Ancient Blue Dragon", "Ancient Silver Dragon", "Kraken"]
+    },
+    "cr_24": {
+      "xp": 62000,
+      "proficiency_bonus": 7,
+      "examples": ["Ancient Gold Dragon", "Ancient Red Dragon"]
+    }
+  },
+  "monster_files": [
+    {
+      "file": "aboleth.json",
+      "name": "Aboleth",
+      "cr": 10,
+      "type": "Aberration",
+      "role": "Controller/Artillery",
+      "signature_abilities": ["Legendary actions", "Dominate mind", "Mucus cloud"]
+    },
+    {
+      "file": "allosaurus.json",
+      "name": "Allosaurus",
+      "cr": 2,
+      "type": "Beast (Dinosaur)",
+      "role": "Striker",
+      "signature_abilities": ["Pounce", "Keen smell", "Claws and bite"]
+    },
+    {
+      "file": "ankylosaurus.json",
+      "name": "Ankylosaurus",
+      "cr": 3,
+      "type": "Beast (Dinosaur)",
+      "role": "Tank",
+      "signature_abilities": ["Tail attack", "Heavy armor", "Knockdown"]
+    },
+    {
+      "file": "ape.json",
+      "name": "Ape",
+      "cr": 0.5,
+      "type": "Beast",
+      "role": "Striker", 
+      "signature_abilities": ["Fist attacks", "Rock throwing", "Climbing"]
+    },
+    {
+      "file": "archelon.json",
+      "name": "Archelon",
+      "cr": 4,
+      "type": "Beast",
+      "role": "Tank",
+      "signature_abilities": ["Bite attack", "Swimming", "Shell protection"]
+    },
+    {
+      "file": "adult-black-dragon.json",
+      "name": "Adult Black Dragon", 
+      "cr": 14,
+      "type": "Dragon (Chromatic)",
+      "role": "Boss Monster",
+      "signature_abilities": ["Acid breath line", "Spellcasting", "Legendary actions", "Amphibious"]
+    },
+    {
+      "file": "air-elemental.json", 
+      "name": "Air Elemental",
+      "cr": 5,
+      "type": "Elemental",
+      "role": "Skirmisher",
+      "signature_abilities": ["Air form", "Whirlwind", "Fly speed"]
+    },
+    {
+      "file": "animated-armor.json",
+      "name": "Animated Armor",
+      "cr": 1,
+      "type": "Construct", 
+      "role": "Guardian",
+      "signature_abilities": ["High AC", "Construct immunities", "Multiattack"]
+    },
+    {
+      "file": "ankheg.json",
+      "name": "Ankheg",
+      "cr": 2,
+      "type": "Monstrosity",
+      "role": "Ambush Predator", 
+      "signature_abilities": ["Burrowing", "Acid spray", "Grappling bite"]
+    },
+    {
+      "file": "assassin.json",
+      "name": "Assassin",
+      "cr": 8,
+      "type": "Humanoid",
+      "role": "Striker",
+      "signature_abilities": ["Poison weapons", "Stealth", "Cunning action"]
+    },
+    {
+      "file": "balor.json",
+      "name": "Balor",
+      "cr": 19,
+      "type": "Fiend (Demon)",
+      "role": "Boss Monster",
+      "signature_abilities": ["Death throes explosion", "Fire aura", "Teleportation", "Legendary resistance"]
+    },
+    {
+      "file": "baboon.json",
+      "name": "Baboon",
+      "cr": 0,
+      "type": "Beast",
+      "role": "Minion",
+      "signature_abilities": ["Pack tactics", "Nimble", "Climbing"]
+    },
+    {
+      "file": "badger.json",
+      "name": "Badger",
+      "cr": 0,
+      "type": "Beast",
+      "role": "Minion",
+      "signature_abilities": ["Keen smell", "Burrow", "Bite and claws"]
+    },
+    {
+      "file": "bat.json",
+      "name": "Bat",
+      "cr": 0.125,
+      "type": "Beast",
+      "role": "Scout",
+      "signature_abilities": ["Echolocation", "Keen hearing", "Flying"]
+    },
+    {
+      "file": "bandit.json",
+      "name": "Bandit",
+      "cr": 0.125,
+      "type": "Humanoid",
+      "role": "Minion",
+      "signature_abilities": ["Basic weapons", "Thieves' cant"]
+    },
+    {
+      "file": "bandit-captain.json",
+      "name": "Bandit Captain",
+      "cr": 2,
+      "type": "Humanoid",
+      "role": "Leader/Striker",
+      "signature_abilities": ["Multiattack", "Parry reaction", "Leadership"]
+    },
+    {
+      "file": "barbed-devil.json",
+      "name": "Barbed Devil",
+      "cr": 5,
+      "type": "Fiend (Devil)",
+      "role": "Controller/Tank",
+      "signature_abilities": ["Grappling claws", "Barbed hide damage", "Devil resistances"]
+    },
+    {
+      "file": "basilisk.json",
+      "name": "Basilisk",
+      "cr": 3,
+      "type": "Monstrosity",
+      "role": "Controller",
+      "signature_abilities": ["Petrifying gaze", "Progressive petrification"]
+    },
+    {
+      "file": "bearded-devil.json",
+      "name": "Bearded Devil",
+      "cr": 3,
+      "type": "Fiend (Devil)",
+      "role": "Controller/Warrior",
+      "signature_abilities": ["Poisonous beard", "Reach weapon", "Healing prevention"]
+    },
+    {
+      "file": "behir.json",
+      "name": "Behir",
+      "cr": 11,
+      "type": "Monstrosity",
+      "role": "Elite Striker",
+      "signature_abilities": ["Lightning breath", "Swallow whole", "Constriction"]
+    },
+    {
+      "file": "berserker.json",
+      "name": "Berserker",
+      "cr": 2,
+      "type": "Humanoid",
+      "role": "Striker/Berserker",
+      "signature_abilities": ["Bloodied frenzy", "High damage", "Barbarian resilience"]
+    },
+    {
+      "file": "black-dragon-wyrmling.json",
+      "name": "Black Dragon Wyrmling",
+      "cr": 2,
+      "type": "Dragon (Chromatic)",
+      "role": "Artillery/Skirmisher",
+      "signature_abilities": ["Acid breath weapon", "Flight", "Amphibious"]
+    },
+    {
+      "file": "young-black-dragon.json",
+      "name": "Young Black Dragon",
+      "cr": 7,
+      "type": "Dragon (Chromatic)",
+      "role": "Solo Monster",
+      "signature_abilities": ["Devastating acid breath", "Multiattack", "Amphibious mobility"]
+    },
+    {
+      "file": "black-bear.json",
+      "name": "Black Bear",
+      "cr": 0.5,
+      "type": "Beast",
+      "role": "Bruiser",
+      "signature_abilities": ["Keen smell", "Claws and bite", "Charging attack"]
+    },
+    {
+      "file": "black-pudding.json",
+      "name": "Black Pudding",
+      "cr": 4,
+      "type": "Ooze",
+      "role": "Tank/Hazard",
+      "signature_abilities": ["Equipment corrosion", "Split reaction", "Damage immunities"]
+    },
+    {
+      "file": "blink-dog.json",
+      "name": "Blink Dog",
+      "cr": 0.25,
+      "type": "Fey",
+      "role": "Scout",
+      "signature_abilities": ["Teleportation", "Pack tactics", "Fey nature"]
+    },
+    {
+      "file": "bone-devil.json",
+      "name": "Bone Devil",
+      "cr": 13,
+      "type": "Fiend (Devil)",
+      "role": "Elite Controller/Striker",
+      "signature_abilities": ["Poisonous sting", "10-foot reach", "Flight mobility"]
+    },
+    {
+      "file": "bugbear-warrior.json",
+      "name": "Bugbear Warrior",
+      "cr": 1,
+      "type": "Humanoid (Goblinoid)",
+      "role": "Ambush Warrior",
+      "signature_abilities": ["Surprise attack", "Brute weapon damage", "Stealth ambush"]
+    },
+    {
+      "file": "blood-hawk.json",
+      "name": "Blood Hawk",
+      "cr": 0.125,
+      "type": "Beast",
+      "role": "Scout/Harasser",
+      "signature_abilities": ["High fly speed", "Pack tactics", "Keen sight"]
+    },
+    {
+      "file": "blue-dragon-wyrmling.json",
+      "name": "Blue Dragon Wyrmling",
+      "cr": 3,
+      "type": "Dragon (Chromatic)",
+      "role": "Artillery/Skirmisher",
+      "signature_abilities": ["Lightning breath line", "Burrow speed", "Flight"]
+    },
+    {
+      "file": "young-blue-dragon.json",
+      "name": "Young Blue Dragon",
+      "cr": 9,
+      "type": "Dragon (Chromatic)",
+      "role": "Solo Monster/Controller",
+      "signature_abilities": ["Devastating lightning breath", "Multiattack", "Burrow mobility"]
+    },
+    {
+      "file": "adult-blue-dragon.json",
+      "name": "Adult Blue Dragon",
+      "cr": 16,
+      "type": "Dragon (Chromatic)",
+      "role": "Solo Monster/Controller",
+      "signature_abilities": ["Lightning breath line", "Spellcasting", "Legendary actions", "Burrow escape"]
+    },
+    {
+      "file": "ancient-blue-dragon.json",
+      "name": "Ancient Blue Dragon",
+      "cr": 23,
+      "type": "Dragon (Chromatic)",
+      "role": "Apex Predator/Legendary Boss",
+      "signature_abilities": ["Massive lightning breath", "Advanced spellcasting", "Legendary actions", "Burrow mobility"]
+    },
+    {
+      "file": "ancient-black-dragon.json",
+      "name": "Ancient Black Dragon",
+      "cr": 21,
+      "type": "Dragon (Chromatic)",
+      "role": "Apex Predator/Boss Monster",
+      "signature_abilities": ["Devastating acid breath", "Create undead", "Legendary resistance", "Amphibious mobility"]
+    },
+    {
+      "file": "boar.json",
+      "name": "Boar",
+      "cr": 0.25,
+      "type": "Beast",
+      "role": "Skirmisher",
+      "signature_abilities": ["Charge attack combo", "Relentless survival", "High speed"]
+    },
+    {
+      "file": "brown-bear.json",
+      "name": "Brown Bear",
+      "cr": 1,
+      "type": "Beast",
+      "role": "Brute/Guardian",
+      "signature_abilities": ["Multiattack claws", "Keen smell", "Climb speed"]
+    },
+    {
+      "file": "bulette.json",
+      "name": "Bulette",
+      "cr": 5,
+      "type": "Monstrosity",
+      "role": "Ambush Predator/Striker",
+      "signature_abilities": ["Burrow speed", "Deadly leap attack", "Tremorsense"]
+    },
+    {
+      "file": "bullywug.json",
+      "name": "Bullywug",
+      "cr": 0.25,
+      "type": "Humanoid",
+      "role": "Swamp Skirmisher",
+      "signature_abilities": ["Amphibious nature", "Swamp stealth", "Standing leap"]
+    },
+    {
+      "file": "bullywug-noble.json",
+      "name": "Bullywug Noble",
+      "cr": 2,
+      "type": "Humanoid",
+      "role": "Leader/Controller",
+      "signature_abilities": ["Croaking command", "Multiattack", "Amphibious leader"]
+    },
+    {
+      "file": "bullywug-bog-sage.json",
+      "name": "Bullywug Bog Sage",
+      "cr": 4,
+      "type": "Fey",
+      "role": "Spellcaster/Controller",
+      "signature_abilities": ["Druidic spellcasting", "Poison attacks", "Amphibian communication", "Swamp mobility"]
+    },
+    {
+      "file": "brass-dragon-wyrmling.json",
+      "name": "Brass Dragon Wyrmling",
+      "cr": 1,
+      "type": "Dragon (Metallic)",
+      "role": "Young Dragon/Artillery",
+      "signature_abilities": ["Dual breath weapons", "Fire immunity", "Burrow speed"]
+    },
+    {
+      "file": "young-brass-dragon.json",
+      "name": "Young Brass Dragon",
+      "cr": 6,
+      "type": "Dragon (Metallic)",
+      "role": "Solo Monster/Controller",
+      "signature_abilities": ["Dual breath weapons", "Multiattack", "Good alignment diplomacy"]
+    },
+    {
+      "file": "adult-brass-dragon.json",
+      "name": "Adult Brass Dragon",
+      "cr": 13,
+      "type": "Dragon (Metallic)",
+      "role": "Solo Monster/Controller",
+      "signature_abilities": ["Dual breath weapons", "Shapechange", "Legendary actions", "Control Weather"]
+    },
+    {
+      "file": "ancient-brass-dragon.json",
+      "name": "Ancient Brass Dragon",
+      "cr": 20,
+      "type": "Dragon (Metallic)",
+      "role": "Apex Guardian/Legendary Boss",
+      "signature_abilities": ["Massive dual breath weapons", "Advanced shapechange", "Weather control", "Legendary resistance"]
+    },
+    {
+      "file": "bronze-dragon-wyrmling.json",
+      "name": "Bronze Dragon Wyrmling",
+      "cr": 2,
+      "type": "Dragon (Metallic)",
+      "role": "Young Dragon/Controller",
+      "signature_abilities": ["Dual breath weapons", "Amphibious", "Lightning immunity"]
+    },
+    {
+      "file": "young-bronze-dragon.json",
+      "name": "Young Bronze Dragon",
+      "cr": 8,
+      "type": "Dragon (Metallic)",
+      "role": "Solo Monster/Controller",
+      "signature_abilities": ["Dual breath weapons", "Amphibious mobility", "Multiattack flexibility"]
+    },
+    {
+      "file": "adult-bronze-dragon.json",
+      "name": "Adult Bronze Dragon",
+      "cr": 15,
+      "type": "Dragon (Metallic)",
+      "role": "Solo Monster/Guardian",
+      "signature_abilities": ["Dual breath weapons", "Divine spellcasting", "Water breathing", "Legendary actions"]
+    },
+    {
+      "file": "ancient-bronze-dragon.json",
+      "name": "Ancient Bronze Dragon",
+      "cr": 22,
+      "type": "Dragon (Metallic)",
+      "role": "Apex Guardian/Legendary Boss",
+      "signature_abilities": ["Massive dual breath weapons", "Control water", "Advanced divine magic", "Legendary resistance"]
+    },
+    {
+      "file": "bugbear-stalker.json",
+      "name": "Bugbear Stalker",
+      "cr": 3,
+      "type": "Fey (Goblinoid)",
+      "role": "Ambush Predator/Controller",
+      "signature_abilities": ["Stealth ambush", "Grappling specialization", "Abduct trait"]
+    },
+    {
+      "file": "carrion-crawler.json",
+      "name": "Carrion Crawler",
+      "cr": 2,
+      "type": "Monstrosity",
+      "role": "Controller/Lurker",
+      "signature_abilities": ["Spider climb", "Paralyzing tentacles", "Scavenger instincts"]
+    },
+    {
+      "file": "camel.json",
+      "name": "Camel",
+      "cr": 0.125,
+      "type": "Beast",
+      "role": "Mount/Transport",
+      "signature_abilities": ["Desert adaptation", "Strong constitution", "Bite defense"]
+    },
+    {
+      "file": "cat.json",
+      "name": "Cat",
+      "cr": 0,
+      "type": "Beast",
+      "role": "Scout/Companion",
+      "signature_abilities": ["High stealth", "Climbing", "Keen perception"]
+    },
+    {
+      "file": "constrictor-snake.json",
+      "name": "Constrictor Snake",
+      "cr": 0.25,
+      "type": "Beast",
+      "role": "Grappler",
+      "signature_abilities": ["Constrict and grapple", "Swimming", "Stealth ambush"]
+    },
+    {
+      "file": "crab.json",
+      "name": "Crab",
+      "cr": 0,
+      "type": "Beast",
+      "role": "Aquatic/Coastal",
+      "signature_abilities": ["Amphibious", "Blindsight", "Small size stealth"]
+    },
+    {
+      "file": "crocodile.json",
+      "name": "Crocodile",
+      "cr": 0.5,
+      "type": "Beast",
+      "role": "Aquatic Ambusher",
+      "signature_abilities": ["Grapple and restrain bite", "Hold breath", "Aquatic stealth"]
+    },
+    {
+      "file": "centaur-trooper.json",
+      "name": "Centaur Trooper",
+      "cr": 2,
+      "type": "Fey",
+      "role": "Mobile Striker/Ranged Support",
+      "signature_abilities": ["High speed", "Reach weapons", "Trampling charge", "Fey nature"]
+    },
+    {
+      "file": "chain-devil.json",
+      "name": "Chain Devil",
+      "cr": 8,
+      "type": "Fiend (Devil)",
+      "role": "Controller/Striker",
+      "signature_abilities": ["Chain grappling", "Infernal chain conjuration", "Unnerving gaze", "Devil resistances"]
+    },
+    {
+      "file": "chimera.json",
+      "name": "Chimera",
+      "cr": 6,
+      "type": "Monstrosity",
+      "role": "Solo Monster/Brute",
+      "signature_abilities": ["Triple attack multiattack", "Fire breath", "Flight mobility", "Keen senses"]
+    },
+    {
+      "file": "chuul.json",
+      "name": "Chuul",
+      "cr": 4,
+      "type": "Aberration",
+      "role": "Controller/Lurker",
+      "signature_abilities": ["Dual grappling pincers", "Paralyzing tentacles", "Magic sense", "Amphibious"]
+    },
+    {
+      "file": "clay-golem.json",
+      "name": "Clay Golem",
+      "cr": 9,
+      "type": "Construct",
+      "role": "Tank/Guardian",
+      "signature_abilities": ["Acid absorption", "Berserk when bloodied", "HP reduction attacks", "Construct immunities"]
+    },
+    {
+      "file": "cloaker.json",
+      "name": "Cloaker",
+      "cr": 8,
+      "type": "Aberration",
+      "role": "Ambush Predator/Controller",
+      "signature_abilities": ["Attach and drain", "Fear moan", "Mirror image", "Stealth ambush"]
+    },
+    {
+      "file": "cloud-giant.json",
+      "name": "Cloud Giant",
+      "cr": 9,
+      "type": "Giant",
+      "role": "Solo Monster/Controller",
+      "signature_abilities": ["Weather control", "Thunder attacks", "Telekinesis", "Flight mobility"]
+    },
+    {
+      "file": "cockatrice.json",
+      "name": "Cockatrice",
+      "cr": 0.5,
+      "type": "Monstrosity",
+      "role": "Harasser/Controller",
+      "signature_abilities": ["Petrifying bite", "Flight mobility", "Small size stealth"]
+    },
+    {
+      "file": "commoner.json",
+      "name": "Commoner",
+      "cr": 0,
+      "type": "Humanoid",
+      "role": "Civilian/NPC",
+      "signature_abilities": ["Training in chosen skill", "Represents common folk"]
+    },
+    {
+      "file": "copper-dragon-wyrmling.json",
+      "name": "Copper Dragon Wyrmling",
+      "cr": 1,
+      "type": "Dragon (Metallic)",
+      "role": "Skirmisher/Controller",
+      "signature_abilities": ["Acid breath line", "Slowing breath line", "Playful nature", "Earth walking"]
+    },
+    {
+      "file": "young-copper-dragon.json",
+      "name": "Young Copper Dragon",
+      "cr": 7,
+      "type": "Dragon (Metallic)",
+      "role": "Elite Controller/Striker",
+      "signature_abilities": ["Dual breath weapons", "Spellcasting", "Burrowing speed", "Trickster personality"]
+    },
+    {
+      "file": "adult-copper-dragon.json",
+      "name": "Adult Copper Dragon",
+      "cr": 14,
+      "type": "Dragon (Metallic)",
+      "role": "Boss Monster",
+      "signature_abilities": ["Legendary actions", "Advanced spellcasting", "Area control", "Giggling magic"]
+    },
+    {
+      "file": "ancient-copper-dragon.json",
+      "name": "Ancient Copper Dragon",
+      "cr": 21,
+      "type": "Dragon (Metallic)",
+      "role": "Legendary Boss",
+      "signature_abilities": ["Mind jolt", "Legendary resistance", "Epic spellcasting", "Supreme battlefield control"]
+    },
+    {
+      "file": "couatl.json",
+      "name": "Couatl",
+      "cr": 4,
+      "type": "Celestial",
+      "role": "Divine Guardian/Support",
+      "signature_abilities": ["Extensive spellcasting", "Truesight", "Divine aid", "Shielded mind", "Universal telepathy"]
+    },
+    {
+      "file": "cultist.json",
+      "name": "Cultist",
+      "cr": 0.125,
+      "type": "Humanoid",
+      "role": "Low-Level Minion",
+      "signature_abilities": ["Dark devotion", "Ranged weapon capability", "Fanatical loyalty"]
+    },
+    {
+      "file": "cultist-fanatic.json",
+      "name": "Cultist Fanatic",
+      "cr": 2,
+      "type": "Humanoid",
+      "role": "Elite Cultist/Spellcaster",
+      "signature_abilities": ["Pact blade with necrotic/psychic damage", "Divine spellcasting", "Leadership presence", "Dark devotion"]
+    },
+    {
+      "file": "darkmantle.json",
+      "name": "Darkmantle",
+      "cr": 0.5,
+      "type": "Aberration",
+      "role": "Ambush Predator/Controller",
+      "signature_abilities": ["Darkness aura", "Attach and blind", "Ceiling ambush", "Suffocation attack"]
+    },
+    {
+      "file": "death-dog.json",
+      "name": "Death Dog",
+      "cr": 1,
+      "type": "Monstrosity",
+      "role": "Pack Hunter/Disease Vector",
+      "signature_abilities": ["Multiattack", "Wasting disease bite", "Condition immunities", "Pack stealth"]
+    },
+    {
+      "file": "deer.json",
+      "name": "Deer",
+      "cr": 0,
+      "type": "Beast",
+      "role": "Forest Creature",
+      "signature_abilities": ["High speed", "Agile movement", "Keen perception"]
+    },
+    {
+      "file": "dire-wolf.json",
+      "name": "Dire Wolf",
+      "cr": 1,
+      "type": "Beast",
+      "role": "Pack Hunter",
+      "signature_abilities": ["Pack tactics", "Prone-inducing bite", "High perception"]
+    },
+    {
+      "file": "draft-horse.json",
+      "name": "Draft Horse",
+      "cr": 0.25,
+      "type": "Beast",
+      "role": "Mount/Transport",
+      "signature_abilities": ["High strength", "Powerful hooves", "Good speed"]
+    },
+    {
+      "file": "deva.json",
+      "name": "Deva",
+      "cr": 10,
+      "type": "Celestial (Angel)",
+      "role": "Divine Champion/Healer",
+      "signature_abilities": ["Exalted restoration", "Divine spellcasting", "Holy radiant damage", "Universal telepathy"]
+    },
+    {
+      "file": "djinni.json",
+      "name": "Djinni",
+      "cr": 11,
+      "type": "Elemental (Genie)",
+      "role": "Elemental Master/Wish Granter",
+      "signature_abilities": ["Wish spell potential", "Create whirlwind", "Elemental restoration", "Extensive spellcasting"]
+    },
+    {
+      "file": "doppelganger.json",
+      "name": "Doppelganger",
+      "cr": 3,
+      "type": "Monstrosity",
+      "role": "Infiltrator/Impersonator",
+      "signature_abilities": ["Perfect shapeshifting", "Detect thoughts", "Unsettling visage", "First round advantage"]
+    },
+    {
+      "file": "dragon-turtle.json",
+      "name": "Dragon Turtle",
+      "cr": 17,
+      "type": "Dragon",
+      "role": "Legendary Aquatic Fortress",
+      "signature_abilities": ["Steam breath underwater", "Gargantuan size", "Amphibious nature", "Prone-inducing tail"]
+    },
+    {
+      "file": "dretch.json",
+      "name": "Dretch",
+      "cr": 0.25,
+      "type": "Fiend (Demon)",
+      "role": "Lowly Demon Minion",
+      "signature_abilities": ["Fetid cloud incapacitation", "Demon resistances", "Abyssal telepathy", "Swarm tactics"]
+    },
+    {
+      "file": "drider.json",
+      "name": "Drider",
+      "cr": 6,
+      "type": "Monstrosity",
+      "role": "Elite Spider Hybrid/Controller",
+      "signature_abilities": ["Spider climb", "Web magic", "Poison burst ranged attacks", "10-foot reach"]
+    },
+    {
+      "file": "druid.json",
+      "name": "Druid",
+      "cr": 2,
+      "type": "Humanoid",
+      "role": "Nature Spellcaster/Support",
+      "signature_abilities": ["Nature spellcasting", "Animal communication", "Verdant wisp attacks", "Druidic knowledge"]
+    },
+    {
+      "file": "dryad.json",
+      "name": "Dryad",
+      "cr": 1,
+      "type": "Fey",
+      "role": "Forest Guardian/Enchanter",
+      "signature_abilities": ["Tree stride teleportation", "Long-lasting charm monster", "Beast and plant communication", "Magic resistance"]
+    },
+    {
+      "file": "eagle.json",
+      "name": "Eagle",
+      "cr": 0,
+      "type": "Beast",
+      "role": "Aerial Scout",
+      "signature_abilities": ["Excellent perception", "High flight speed", "Keen eyesight"]
+    },
+    {
+      "file": "elephant.json",
+      "name": "Elephant",
+      "cr": 4,
+      "type": "Beast",
+      "role": "Heavy Bruiser",
+      "signature_abilities": ["Multiattack gore", "Charging prone", "Trample bonus action"]
+    },
+    {
+      "file": "elk.json",
+      "name": "Elk",
+      "cr": 0.25,
+      "type": "Beast",
+      "role": "Charging Beast",
+      "signature_abilities": ["Charging ram", "Extra charge damage", "High speed"]
+    },
+    {
+      "file": "earth-elemental.json",
+      "name": "Earth Elemental",
+      "cr": 5,
+      "type": "Elemental",
+      "role": "Siege Tank/Controller",
+      "signature_abilities": ["Earth glide", "Siege monster", "Tremorsense", "Prone-inducing ranged attacks"]
+    },
+    {
+      "file": "efreeti.json",
+      "name": "Efreeti",
+      "cr": 11,
+      "type": "Elemental (Genie)",
+      "role": "Fire Genie Master/Artillery",
+      "signature_abilities": ["Wish spell potential", "Devastating fire damage", "Elemental restoration", "Advanced fire magic"]
+    },
+    {
+      "file": "erinyes.json",
+      "name": "Erinyes",
+      "cr": 12,
+      "type": "Fiend (Devil)",
+      "role": "Elite Devil Enforcer/Controller",
+      "signature_abilities": ["Magic rope restraint", "Diabolical restoration", "Truesight", "Parry reaction", "Withering necrotic sword"]
+    },
+    {
+      "file": "ettercap.json",
+      "name": "Ettercap",
+      "cr": 2,
+      "type": "Monstrosity",
+      "role": "Web Controller/Ambush Predator",
+      "signature_abilities": ["Web strand restraint", "Reel bonus action", "Spider climb", "Web walker", "Poisonous bite"]
+    },
+    {
+      "file": "ettin.json",
+      "name": "Ettin",
+      "cr": 4,
+      "type": "Giant",
+      "role": "Twin-Weapon Bruiser",
+      "signature_abilities": ["Dual-weapon multiattack", "Prone battleaxe", "Disadvantage morningstar", "Mental condition immunities"]
+    },
+    {
+      "file": "flying-snake.json",
+      "name": "Flying Snake",
+      "cr": 0.125,
+      "type": "Monstrosity",
+      "role": "Aerial Scout",
+      "signature_abilities": ["Flyby aerial mobility", "Poison damage", "Multi-environment movement"]
+    },
+    {
+      "file": "frog.json",
+      "name": "Frog",
+      "cr": 0,
+      "type": "Beast",
+      "role": "Aquatic/Companion",
+      "signature_abilities": ["Amphibious", "Standing leap", "Tiny stealth"]
+    },
+    {
+      "file": "fire-elemental.json",
+      "name": "Fire Elemental",
+      "cr": 5,
+      "type": "Elemental",
+      "role": "Mobile Fire Hazard/Area Denial",
+      "signature_abilities": ["Fire aura", "Fire form mobility", "Illumination", "Burning attacks", "Extensive condition immunities"]
+    },
+    {
+      "file": "fire-giant.json",
+      "name": "Fire Giant",
+      "cr": 9,
+      "type": "Giant",
+      "role": "Elite Fire Warrior/Artillery",
+      "signature_abilities": ["Flame sword devastation", "Hammer throw control", "Fire immunity", "10-foot reach"]
+    },
+    {
+      "file": "flesh-golem.json",
+      "name": "Flesh Golem",
+      "cr": 5,
+      "type": "Construct",
+      "role": "Unstable Construct Guardian",
+      "signature_abilities": ["Lightning absorption healing", "Berserk when bloodied", "Creator calming", "Lightning slam attacks", "Magic resistance"]
+    },
+    {
+      "file": "frost-giant.json",
+      "name": "Frost Giant",
+      "cr": 8,
+      "type": "Giant",
+      "role": "Frost Warrior/Support",
+      "signature_abilities": ["Speed reduction bow", "Frost axe devastation", "War cry buff", "Cold immunity", "Long-range bow"]
+    },
+    {
+      "file": "goblin-minion.json",
+      "name": "Goblin Minion",
+      "cr": 0.125,
+      "type": "Fey (Goblinoid)",
+      "role": "Scout/Harasser",
+      "signature_abilities": ["Nimble escape", "Stealth expertise", "Ranged and melee dagger attacks", "Pack coordination"]
+    },
+    {
+      "file": "goblin-warrior.json",
+      "name": "Goblin Warrior",
+      "cr": 0.25,
+      "type": "Fey (Goblinoid)",
+      "role": "Skirmisher/Archer",
+      "signature_abilities": ["Advantage bonus damage", "Versatile weapon options", "Nimble escape mobility", "Stealth specialization"]
+    },
+    {
+      "file": "goblin-boss.json",
+      "name": "Goblin Boss",
+      "cr": 1,
+      "type": "Fey (Goblinoid)",
+      "role": "Leader/Controller",
+      "signature_abilities": ["Multiattack versatility", "Redirect attack defense", "Leadership presence", "Enhanced armor and survivability"]
+    },
+    {
+      "file": "gold-dragon-wyrmling.json",
+      "name": "Gold Dragon Wyrmling",
+      "cr": 3,
+      "type": "Dragon (Metallic)",
+      "role": "Young Noble Dragon/Controller",
+      "signature_abilities": ["Dual breath weapons", "Fire immunity", "Amphibious nature", "Good alignment diplomacy"]
+    },
+    {
+      "file": "young-gold-dragon.json",
+      "name": "Young Gold Dragon",
+      "cr": 10,
+      "type": "Dragon (Metallic)",
+      "role": "Solo Monster/Guardian",
+      "signature_abilities": ["Devastating fire damage", "Tactical debuffing breath", "Strong flight mobility", "Social skills for diplomacy"]
+    },
+    {
+      "file": "adult-gold-dragon.json",
+      "name": "Adult Gold Dragon",
+      "cr": 17,
+      "type": "Dragon (Metallic)",
+      "role": "Legendary Boss Monster/Guardian",
+      "signature_abilities": ["Legendary resistance and actions", "Advanced spellcasting", "Banish legendary action", "Fire immunity and breath"]
+    },
+    {
+      "file": "ancient-gold-dragon.json",
+      "name": "Ancient Gold Dragon",
+      "cr": 24,
+      "type": "Dragon (Metallic)",
+      "role": "Apex Legendary Boss/Divine Guardian",
+      "signature_abilities": ["Epic fire breath", "Enhanced legendary resistance", "Advanced divine spellcasting", "Massive banish damage"]
+    },
+    {
+      "file": "gorgon.json",
+      "name": "Gorgon",
+      "cr": 5,
+      "type": "Construct",
+      "role": "Heavy Bruiser/Controller",
+      "signature_abilities": ["Progressive petrification breath", "Charge and prone attacks", "Trample bonus action", "High AC and HP"]
+    },
+    {
+      "file": "giant-ape.json",
+      "name": "Giant Ape",
+      "cr": 7,
+      "type": "Beast",
+      "role": "Heavy Bruiser",
+      "signature_abilities": ["Multiattack fists", "Boulder toss area damage", "Leap mobility"]
+    },
+    {
+      "file": "giant-badger.json",
+      "name": "Giant Badger",
+      "cr": 0.25,
+      "type": "Beast", 
+      "role": "Burrower",
+      "signature_abilities": ["Burrow movement", "Poison resistance", "Good constitution"]
+    },
+    {
+      "file": "giant-bat.json",
+      "name": "Giant Bat",
+      "cr": 0.25,
+      "type": "Beast",
+      "role": "Aerial Scout",
+      "signature_abilities": ["Blindsight 120 feet", "Good flight speed", "Aerial mobility"]
+    },
+    {
+      "file": "giant-boar.json",
+      "name": "Giant Boar",
+      "cr": 2,
+      "type": "Beast",
+      "role": "Charger",
+      "signature_abilities": ["Charging gore", "Bloodied fury", "High hit points"]
+    },
+    {
+      "file": "giant-centipede.json",
+      "name": "Giant Centipede",
+      "cr": 0.25,
+      "type": "Beast",
+      "role": "Poisoner",
+      "signature_abilities": ["Poison condition", "Climbing movement", "Blindsight"]
+    },
+    {
+      "file": "giant-constrictor-snake.json",
+      "name": "Giant Constrictor Snake",
+      "cr": 2,
+      "type": "Beast",
+      "role": "Grappler",
+      "signature_abilities": ["Multiattack with constrict", "10-foot reach", "High grapple DC"]
+    },
+    {
+      "file": "giant-crab.json",
+      "name": "Giant Crab",
+      "cr": 0.125,
+      "type": "Beast",
+      "role": "Aquatic Grappler",
+      "signature_abilities": ["Amphibious", "Grappling claws", "Good AC for CR"]
+    },
+    {
+      "file": "giant-crocodile.json",
+      "name": "Giant Crocodile",
+      "cr": 5,
+      "type": "Beast",
+      "role": "Aquatic Predator",
+      "signature_abilities": ["Multiattack bite and tail", "Grapple and restrain", "Extended breath holding"]
+    },
+    {
+      "file": "giant-eagle.json",
+      "name": "Giant Eagle",
+      "cr": 1,
+      "type": "Celestial",
+      "role": "Aerial Guardian",
+      "signature_abilities": ["Multiattack rend", "Radiant damage", "High flight speed"]
+    },
+    {
+      "file": "giant-elk.json",
+      "name": "Giant Elk",
+      "cr": 2,
+      "type": "Celestial",
+      "role": "Charging Guardian",
+      "signature_abilities": ["Charging ram with radiant", "10-foot reach", "High speed"]
+    },
+    {
+      "file": "giant-fire-beetle.json",
+      "name": "Giant Fire Beetle",
+      "cr": 0,
+      "type": "Beast",
+      "role": "Living Torch",
+      "signature_abilities": ["Illumination trait", "Fire resistance", "Climbing movement"]
+    },
+    {
+      "file": "giant-frog.json",
+      "name": "Giant Frog",
+      "cr": 0.25,
+      "type": "Beast",
+      "role": "Swallower",
+      "signature_abilities": ["Grapple and swallow", "Standing leap", "Amphibious movement"]
+    },
+    {
+      "file": "giant-goat.json",
+      "name": "Giant Goat",
+      "cr": 0.5,
+      "type": "Beast",
+      "role": "Mountain Charger",
+      "signature_abilities": ["Charging ram", "Climbing movement", "Mountain terrain"]
+    },
+    {
+      "file": "giant-hyena.json",
+      "name": "Giant Hyena",
+      "cr": 1,
+      "type": "Beast",
+      "role": "Striker",
+      "signature_abilities": ["Rampage ability", "High mobility", "Bloodied target bonus"]
+    },
+    {
+      "file": "giant-lizard.json",
+      "name": "Giant Lizard",
+      "cr": 0.25,
+      "type": "Beast",
+      "role": "Scout",
+      "signature_abilities": ["Spider climb", "Wall traversal", "Darkvision"]
+    },
+    {
+      "file": "giant-octopus.json",
+      "name": "Giant Octopus",
+      "cr": 1,
+      "type": "Beast",
+      "role": "Controller",
+      "signature_abilities": ["Grapple and restrain", "Ink cloud escape", "Underwater combat"]
+    },
+    {
+      "file": "giant-owl.json",
+      "name": "Giant Owl",
+      "cr": 0.25,
+      "type": "Celestial",
+      "role": "Scout",
+      "signature_abilities": ["Flyby attacks", "Detection spells", "Enhanced perception"]
+    },
+    {
+      "file": "giant-rat.json",
+      "name": "Giant Rat",
+      "cr": 0.125,
+      "type": "Beast",
+      "role": "Swarm Fighter",
+      "signature_abilities": ["Pack tactics", "Climbing ability", "Group coordination"]
+    },
+    {
+      "file": "giant-scorpion.json",
+      "name": "Giant Scorpion",
+      "cr": 3,
+      "type": "Beast",
+      "role": "Controller",
+      "signature_abilities": ["Grappling claws", "Poison sting", "Multiattack"]
+    },
+    {
+      "file": "giant-seahorse.json",
+      "name": "Giant Seahorse",
+      "cr": 0.5,
+      "type": "Beast",
+      "role": "Charger",
+      "signature_abilities": ["Charging ram", "Bubble dash", "Underwater mount"]
+    },
+    {
+      "file": "giant-shark.json",
+      "name": "Giant Shark",
+      "cr": 5,
+      "type": "Beast",
+      "role": "Striker",
+      "signature_abilities": ["Blood frenzy", "Massive bite", "Underwater predator"]
+    },
+    {
+      "file": "giant-spider.json",
+      "name": "Giant Spider",
+      "cr": 1,
+      "type": "Beast",
+      "role": "Controller",
+      "signature_abilities": ["Web restraint", "Spider climb", "Poison bite"]
+    },
+    {
+      "file": "giant-toad.json",
+      "name": "Giant Toad",
+      "cr": 1,
+      "type": "Beast",
+      "role": "Controller",
+      "signature_abilities": ["Swallow ability", "Standing leap", "Grapple bite"]
+    },
+    {
+      "file": "giant-venomous-snake.json",
+      "name": "Giant Venomous Snake",
+      "cr": 0.25,
+      "type": "Beast",
+      "role": "Striker",
+      "signature_abilities": ["Extended reach", "Poison damage", "High mobility"]
+    },
+    {
+      "file": "giant-vulture.json",
+      "name": "Giant Vulture",
+      "cr": 1,
+      "type": "Monstrosity",
+      "role": "Striker",
+      "signature_abilities": ["Pack tactics", "Poisoning attack", "Flight mobility"]
+    },
+    {
+      "file": "giant-wasp.json",
+      "name": "Giant Wasp",
+      "cr": 0.5,
+      "type": "Beast",
+      "role": "Striker",
+      "signature_abilities": ["Flyby attacks", "Poison sting", "Hit-and-run tactics"]
+    },
+    {
+      "file": "giant-weasel.json",
+      "name": "Giant Weasel",
+      "cr": 0.125,
+      "type": "Beast",
+      "role": "Scout",
+      "signature_abilities": ["High mobility", "Stealth capability", "Climbing ability"]
+    },
+    {
+      "file": "giant-wolf-spider.json",
+      "name": "Giant Wolf Spider",
+      "cr": 0.25,
+      "type": "Beast",
+      "role": "Ambush Predator",
+      "signature_abilities": ["Spider climb", "Poison bite", "Stealth ambush"]
+    },
+    {
+      "file": "goat.json",
+      "name": "Goat",
+      "cr": 0,
+      "type": "Beast",
+      "role": "Charger",
+      "signature_abilities": ["Charging ram", "Climbing movement", "Farm animal"]
+    },
+    {
+      "file": "gray-ooze.json",
+      "name": "Gray Ooze",
+      "cr": 0.5,
+      "type": "Ooze",
+      "role": "Environmental Hazard/Equipment Destroyer",
+      "signature_abilities": ["Equipment corrosion", "Amorphous mobility", "Extensive condition immunities", "Stealth in appropriate environments"]
+    },
+    {
+      "file": "green-dragon-wyrmling.json",
+      "name": "Green Dragon Wyrmling",
+      "cr": 2,
+      "type": "Dragon (Chromatic)",
+      "role": "Young Toxic Dragon/Artillery",
+      "signature_abilities": ["Poison breath weapon", "Amphibious nature", "Poison immunity", "Combined slashing and poison damage"]
+    },
+    {
+      "file": "young-green-dragon.json",
+      "name": "Young Green Dragon",
+      "cr": 8,
+      "type": "Dragon (Chromatic)",
+      "role": "Solo Monster/Toxic Controller",
+      "signature_abilities": ["Enhanced poison damage", "Deception expertise", "Area poison breath", "Amphibious mobility"]
+    },
+    {
+      "file": "adult-green-dragon.json",
+      "name": "Adult Green Dragon",
+      "cr": 15,
+      "type": "Dragon (Chromatic)",
+      "role": "Legendary Boss Monster/Mental Manipulator",
+      "signature_abilities": ["Mind spike spellcasting", "Noxious miasma legendary action", "Geas domination", "Massive poison breath"]
+    },
+    {
+      "file": "ancient-green-dragon.json",
+      "name": "Ancient Green Dragon",
+      "cr": 22,
+      "type": "Dragon (Chromatic)",
+      "role": "Apex Mental Manipulator/Legendary Boss",
+      "signature_abilities": ["Memory modification", "Epic poison breath", "Enhanced mind spike", "Massive noxious miasma"]
+    },
+    {
+      "file": "green-hag.json",
+      "name": "Green Hag",
+      "cr": 3,
+      "type": "Fey",
+      "role": "Deceptive Spellcaster/Manipulator",
+      "signature_abilities": ["24-hour disguise self", "Trackless invisibility", "Voice mimicry", "Coven spellcasting"]
+    },
+    {
+      "file": "grick.json",
+      "name": "Grick",
+      "cr": 2,
+      "type": "Aberration",
+      "role": "Ambush Predator/Grappler",
+      "signature_abilities": ["Four-tentacle grappling", "Wall and ceiling climbing", "Beak and tentacle combo", "Stealth ambushes"]
+    },
+    {
+      "file": "griffon.json",
+      "name": "Griffon",
+      "cr": 2,
+      "type": "Monstrosity",
+      "role": "Aerial Grappler/Mount",
+      "signature_abilities": ["Dual-claw grappling", "High-speed flight", "Keen perception", "Aerial mobility advantage"]
+    },
+    {
+      "file": "grimlock.json",
+      "name": "Grimlock",
+      "cr": 0.25,
+      "type": "Aberration",
+      "role": "Underground Warrior/Climber",
+      "signature_abilities": ["Blindsight navigation", "Wall climbing", "Psychic damage cudgel", "Stealth expertise"]
+    },
+    {
+      "file": "guard.json",
+      "name": "Guard",
+      "cr": 0.125,
+      "type": "Humanoid",
+      "role": "Basic Security/Patrol",
+      "signature_abilities": ["Versatile spear weapon", "Shield defense", "Perception training", "Standard military coordination"]
+    },
+    {
+      "file": "guard-captain.json",
+      "name": "Guard Captain",
+      "cr": 4,
+      "type": "Humanoid",
+      "role": "Military Leader/Elite Warrior",
+      "signature_abilities": ["Multiattack versatility", "Enhanced javelin damage", "Leadership presence", "Athletic prowess"]
+    },
+    {
+      "file": "guardian-naga.json",
+      "name": "Guardian Naga",
+      "cr": 10,
+      "type": "Celestial",
+      "role": "Divine Guardian/Healer",
+      "signature_abilities": ["Celestial restoration", "Divine spellcasting", "True seeing", "Devastating poison bite"]
+    },
+    {
+      "file": "gargoyle.json",
+      "name": "Gargoyle",
+      "cr": 2,
+      "type": "Elemental",
+      "role": "Flying Guardian/Ambush Predator",
+      "signature_abilities": ["Stone camouflage", "Flyby attack", "Damage resistances", "Keen senses"]
+    },
+    {
+      "file": "gelatinous-cube.json",
+      "name": "Gelatinous Cube",
+      "cr": 2,
+      "type": "Ooze",
+      "role": "Dungeon Cleaner/Area Control",
+      "signature_abilities": ["Engulf with restraint", "Transparency stealth", "Acid damage", "Object absorption"]
+    },
+    {
+      "file": "ghast.json",
+      "name": "Ghast",
+      "cr": 2,
+      "type": "Undead",
+      "role": "Pack Leader/Controller",
+      "signature_abilities": ["Stench aura", "Paralyzing attacks", "Undead nature", "Superior ghoul"]
+    },
+    {
+      "file": "ghost.json",
+      "name": "Ghost",
+      "cr": 4,
+      "type": "Undead",
+      "role": "Incorporeal Haunter/Controller",
+      "signature_abilities": ["Incorporeal movement", "Possession", "Horrifying visage", "Etherealness"]
+    },
+    {
+      "file": "ghoul.json",
+      "name": "Ghoul",
+      "cr": 1,
+      "type": "Undead",
+      "role": "Pack Hunter/Controller",
+      "signature_abilities": ["Paralyzing claws", "Bite attacks", "Undead pack tactics", "Carrion scavenger"]
+    },
+    {
+      "file": "gibbering-mouther.json",
+      "name": "Gibbering Mouther",
+      "cr": 2,
+      "type": "Aberration",
+      "role": "Chaos Engine/Controller",
+      "signature_abilities": ["Gibbering confusion", "Aberrant ground", "Multiple bite attacks", "Madness inducer"]
+    },
+    {
+      "file": "glabrezu.json",
+      "name": "Glabrezu",
+      "cr": 9,
+      "type": "Fiend (Demon)",
+      "role": "Tempting Destroyer/Controller",
+      "signature_abilities": ["Pincer grappling", "Spellcasting", "Magic resistance", "Confusion spells"]
+    },
+    {
+      "file": "gladiator.json",
+      "name": "Gladiator",
+      "cr": 5,
+      "type": "Humanoid",
+      "role": "Arena Fighter/Striker",
+      "signature_abilities": ["Spear mastery", "Shield parry", "Multiattack", "Combat expertise"]
+    },
+    {
+      "file": "gnoll-warrior.json",
+      "name": "Gnoll Warrior",
+      "cr": 0.5,
+      "type": "Fiend",
+      "role": "Pack Raider/Archer",
+      "signature_abilities": ["Rampage on bloodied foes", "Long-range bow", "Pack coordination", "Fiendish nature"]
+    },
+    {
+      "file": "ice-devil.json",
+      "name": "Ice Devil",
+      "cr": 14,
+      "type": "Fiend (Devil)",
+      "role": "Elite Devil Controller/Striker",
+      "signature_abilities": ["Movement-restricting ice spears", "Wall of ice battlefield control", "Devil resistances"]
+    },
+    {
+      "file": "imp.json",
+      "name": "Imp",
+      "cr": 1,
+      "type": "Fiend (Devil)",
+      "role": "Devil Familiar/Scout/Spy",
+      "signature_abilities": ["At-will invisibility", "Shapeshifting disguises", "Poison sting attack"]
+    },
+    {
+      "file": "incubus.json",
+      "name": "Incubus",
+      "cr": 4,
+      "type": "Fiend",
+      "role": "Seductive Controller/Psychic Manipulator",
+      "signature_abilities": ["Rest-preventing curse touch", "Unconsciousness-inducing nightmare", "At-will etherealness"]
+    },
+    {
+      "file": "invisible-stalker.json",
+      "name": "Invisible Stalker",
+      "cr": 6,
+      "type": "Elemental",
+      "role": "Invisible Assassin/Tracker",
+      "signature_abilities": ["Permanent invisibility", "Air form movement", "Spellcaster-disrupting vortex"]
+    },
+    {
+      "file": "iron-golem.json",
+      "name": "Iron Golem",
+      "cr": 16,
+      "type": "Construct",
+      "role": "Elite Guardian/Siege Engine",
+      "signature_abilities": ["Fire damage absorption healing", "Devastating poison breath weapon", "Magic resistance"]
+    },
+    {
+      "file": "killer-whale.json",
+      "name": "Killer Whale",
+      "cr": 3,
+      "type": "Beast",
+      "role": "Striker",
+      "signature_abilities": ["Massive bite damage", "Extended blindsight", "Aquatic apex predator"]
+    },
+    {
+      "file": "knight.json",
+      "name": "Knight",
+      "cr": 3,
+      "type": "Humanoid",
+      "role": "Elite Warrior/Paladin",
+      "signature_abilities": ["Radiant damage enhancement", "Parry defensive reaction", "Frightened immunity"]
+    },
+    {
+      "file": "kobold-warrior.json",
+      "name": "Kobold Warrior",
+      "cr": 0.125,
+      "type": "Dragon",
+      "role": "Pack Minion/Scout",
+      "signature_abilities": ["Pack tactics advantage", "Multiple dagger weapons", "Dragon heritage"]
+    },
+    {
+      "file": "kraken.json",
+      "name": "Kraken",
+      "cr": 23,
+      "type": "Monstrosity (Titan)",
+      "role": "Apex Oceanic Predator/Titan Boss",
+      "signature_abilities": ["Multiple tentacle grappling", "Swallow whole capability", "Lightning strike attacks", "Legendary resistance"]
+    },
+    {
+      "file": "lamia.json",
+      "name": "Lamia",
+      "cr": 4,
+      "type": "Fiend",
+      "role": "Deceptive Predator/Controller",
+      "signature_abilities": ["Charming and poisoning corrupting touch", "Enhanced disguise self", "High mobility leap"]
+    },
+    {
+      "file": "lemure.json",
+      "name": "Lemure",
+      "cr": 0,
+      "type": "Fiend (Devil)",
+      "role": "Lowest Devil Minion/Fodder",
+      "signature_abilities": ["Hellish restoration revival", "Devil immunities and resistances", "Poison damage attack"]
+    },
+    {
+      "file": "lich.json",
+      "name": "Lich",
+      "cr": 21,
+      "type": "Undead (Wizard)",
+      "role": "Apex Undead Spellcaster/Lair Boss",
+      "signature_abilities": ["Spirit jar resurrection", "Devastating spell selection", "Paralyzing touch attacks", "Legendary resistance"]
+    },
+    {
+      "file": "lion.json",
+      "name": "Lion",
+      "cr": 1,
+      "type": "Beast",
+      "role": "Controller/Striker",
+      "signature_abilities": ["Pack tactics", "Roar fear effect", "Running leap mobility"]
+    },
+    {
+      "file": "lizard.json",
+      "name": "Lizard",
+      "cr": 0,
+      "type": "Beast",
+      "role": "Pest",
+      "signature_abilities": ["Spider climb", "Tiny size", "Wall traversal"]
+    },
+    {
+      "file": "mage.json",
+      "name": "Mage",
+      "cr": 6,
+      "type": "Humanoid (Wizard)",
+      "role": "Versatile Spellcaster/Artillery",
+      "signature_abilities": ["Versatile spell selection", "Arcane burst attacks", "Misty step mobility", "Protective magic reactions"]
+    },
+    {
+      "file": "mammoth.json",
+      "name": "Mammoth",
+      "cr": 6,
+      "type": "Beast",
+      "role": "Bruiser",
+      "signature_abilities": ["Charging gore", "Trample attack", "Massive size", "High damage output"]
+    },
+    {
+      "file": "archmage.json",
+      "name": "Archmage",
+      "cr": 12,
+      "type": "Humanoid (Wizard)",
+      "role": "Elite Spellcaster/Magical Artillery",
+      "signature_abilities": ["High-level spell mastery", "Enhanced arcane burst attacks", "Magic resistance", "Mind blank immunity"]
+    },
+    {
+      "file": "magmin.json",
+      "name": "Magmin",
+      "cr": 0.5,
+      "type": "Elemental",
+      "role": "Expendable Fire Elemental/Living Bomb",
+      "signature_abilities": ["Fire damage touch with ignition", "Death burst explosion", "Controllable illumination"]
+    },
+    {
+      "file": "manticore.json",
+      "name": "Manticore",
+      "cr": 3,
+      "type": "Monstrosity",
+      "role": "Flying Ranged/Melee Hybrid",
+      "signature_abilities": ["Flexible multiattack options", "Ranged tail spike volleys", "Flight mobility"]
+    },
+    {
+      "file": "mastiff.json",
+      "name": "Mastiff",
+      "cr": 0.125,
+      "type": "Beast",
+      "role": "Controller",
+      "signature_abilities": ["Prone-inducing bite", "High perception", "Guard dog instincts"]
+    },
+    {
+      "file": "mule.json",
+      "name": "Mule",
+      "cr": 0.125,
+      "type": "Beast",
+      "role": "Pack Animal",
+      "signature_abilities": ["Beast of burden", "Enhanced carrying capacity", "Sturdy transport"]
+    },
+    {
+      "file": "marilith.json",
+      "name": "Marilith",
+      "cr": 16,
+      "type": "Fiend (Demon)",
+      "role": "Elite Demon Warrior/Multi-Armed Destroyer",
+      "signature_abilities": ["Six-weapon multiattack capability", "Grappling and restraining constrict", "Enhanced parry defense", "Tactical teleportation"]
+    },
+    {
+      "file": "medusa.json",
+      "name": "Medusa",
+      "cr": 6,
+      "type": "Monstrosity",
+      "role": "Petrifying Controller/Ranged Striker",
+      "signature_abilities": ["Progressive petrifying gaze", "Flexible multiattack options", "High poison damage snake hair"]
+    },
+    {
+      "file": "half-dragon.json",
+      "name": "Half-Dragon",
+      "cr": 5,
+      "type": "Dragon (Variant)",
+      "role": "Elite Warrior/Elemental Striker",
+      "signature_abilities": ["Variable elemental resistance", "Breath weapon", "Draconic heritage", "Damage type versatility"]
+    },
+    {
+      "file": "hawk.json",
+      "name": "Hawk",
+      "cr": 0,
+      "type": "Beast",
+      "role": "Scout",
+      "signature_abilities": ["Flight mobility", "Exceptional perception", "Aerial reconnaissance"]
+    },
+    {
+      "file": "hippopotamus.json",
+      "name": "Hippopotamus",
+      "cr": 4,
+      "type": "Beast",
+      "role": "Bruiser",
+      "signature_abilities": ["Multiattack bite", "Hold breath", "Amphibious combat"]
+    },
+    {
+      "file": "hunter-shark.json",
+      "name": "Hunter Shark",
+      "cr": 2,
+      "type": "Beast",
+      "role": "Striker",
+      "signature_abilities": ["Blood frenzy", "Blindsight", "Underwater predator"]
+    },
+    {
+      "file": "hyena.json",
+      "name": "Hyena",
+      "cr": 0,
+      "type": "Beast",
+      "role": "Pack Fighter",
+      "signature_abilities": ["Pack tactics", "High speed", "Group hunting"]
+    },
+    {
+      "file": "jackal.json",
+      "name": "Jackal",
+      "cr": 0,
+      "type": "Beast",
+      "role": "Scout",
+      "signature_abilities": ["Extended darkvision", "Stealth capability", "Pack tactics"]
+    },
+    {
+      "file": "harpy.json",
+      "name": "Harpy",
+      "cr": 1,
+      "type": "Monstrosity",
+      "role": "Flying Controller/Lurer",
+      "signature_abilities": ["300-foot luring song", "Flyby attacks", "Charm compulsion", "Aerial mobility"]
+    },
+    {
+      "file": "hell-hound.json",
+      "name": "Hell Hound",
+      "cr": 3,
+      "type": "Fiend",
+      "role": "Pack Hunter/Fire Striker",
+      "signature_abilities": ["Pack tactics", "Fire breath weapon", "Keen hearing and smell", "Fiendish nature"]
+    },
+    {
+      "file": "hezrou.json",
+      "name": "Hezrou",
+      "cr": 8,
+      "type": "Fiend (Demon)",
+      "role": "Tanky Controller/Area Denial",
+      "signature_abilities": ["Poisonous stench aura", "Magic resistance", "Multiattack bite and claws", "Demonic restoration"]
+    },
+    {
+      "file": "hill-giant.json",
+      "name": "Hill Giant",
+      "cr": 5,
+      "type": "Giant",
+      "role": "Bruiser/Area Controller",
+      "signature_abilities": ["Prone-inducing tree club", "Rock throwing", "Giant strength", "Intimidating presence"]
+    },
+    {
+      "file": "hippogriff.json",
+      "name": "Hippogriff",
+      "cr": 1,
+      "type": "Monstrosity",
+      "role": "Aerial Scout/Mount",
+      "signature_abilities": ["Flyby attack", "High flight speed", "Keen sight", "Trainable mount"]
+    },
+    {
+      "file": "hobgoblin-warrior.json",
+      "name": "Hobgoblin Warrior",
+      "cr": 0.5,
+      "type": "Fey",
+      "role": "Disciplined Soldier/Formation Fighter",
+      "signature_abilities": ["Exceptional AC", "Pack tactics", "Military precision", "Fey heritage"]
+    },
+    {
+      "file": "hobgoblin-captain.json",
+      "name": "Hobgoblin Captain",
+      "cr": 3,
+      "type": "Fey",
+      "role": "Military Leader/Elite Warrior",
+      "signature_abilities": ["Aura of authority for allies", "Multiattack leadership", "Enhanced combat skills", "Tactical coordination"]
+    },
+    {
+      "file": "homunculus.json",
+      "name": "Homunculus",
+      "cr": 0,
+      "type": "Construct",
+      "role": "Magical Familiar/Scout",
+      "signature_abilities": ["Telepathic bond with creator", "Unconsciousness-inducing poison", "Flight mobility", "Construct immunities"]
+    },
+    {
+      "file": "horned-devil.json",
+      "name": "Horned Devil (Malebranche)",
+      "cr": 11,
+      "type": "Fiend (Devil)",
+      "role": "Elite Devil Enforcer/Frontline Fighter",
+      "signature_abilities": ["Infernal wounds from fork attacks", "Poison tail with constitution drain", "Flight maneuverability", "Flame hurling attacks"]
+    },
+    {
+      "file": "hydra.json",
+      "name": "Hydra",
+      "cr": 8,
+      "type": "Monstrosity",
+      "role": "Regenerating Tank/Multi-target Threat",
+      "signature_abilities": ["Head regeneration (2 heads per lost head)", "Multiple opportunity attacks", "Advantage on many saving throws", "Amphibious movement"]
+    },
+    {
+      "file": "dust-mephit.json",
+      "name": "Dust Mephit",
+      "cr": 0.5,
+      "type": "Elemental",
+      "role": "Elemental Scout/Debuffer",
+      "signature_abilities": ["Blinding breath weapon", "Sleep spell", "Death burst", "Innate magic"]
+    },
+    {
+      "file": "ice-mephit.json",
+      "name": "Ice Mephit",
+      "cr": 0.5,
+      "type": "Elemental",
+      "role": "Elemental Scout/Controller",
+      "signature_abilities": ["Frost breath weapon", "Fog cloud spell", "Death burst", "Cold immunity"]
+    },
+    {
+      "file": "magma-mephit.json",
+      "name": "Magma Mephit",
+      "cr": 0.5,
+      "type": "Elemental",
+      "role": "Elemental Scout/Artillery",
+      "signature_abilities": ["Fire breath weapon", "Heat metal spell", "Death burst", "Fire immunity"]
+    },
+    {
+      "file": "steam-mephit.json",
+      "name": "Steam Mephit", 
+      "cr": 0.25,
+      "type": "Elemental",
+      "role": "Elemental Scout/Evasion",
+      "signature_abilities": ["Steam breath weapon", "Blur spell", "Death burst", "Steam form defense"]
+    },
+    {
+      "file": "merfolk-skirmisher.json",
+      "name": "Merfolk Skirmisher",
+      "cr": 0.125,
+      "type": "Humanoid",
+      "role": "Aquatic Scout/Skirmisher",
+      "signature_abilities": ["Ocean spear returning weapon", "Amphibious combat", "Swimming mobility", "Coastal knowledge"]
+    },
+    {
+      "file": "merrow.json",
+      "name": "Merrow",
+      "cr": 2,
+      "type": "Monstrosity",
+      "role": "Aquatic Predator/Grappler",
+      "signature_abilities": ["Pulling harpoon attacks", "Flexible multiattack options", "Poisonous bite", "Amphibious hunting"]
+    },
+    {
+      "file": "mimic.json",
+      "name": "Mimic",
+      "cr": 2,
+      "type": "Monstrosity",
+      "role": "Ambush Predator/Terrain Trap",
+      "signature_abilities": ["Perfect object mimicry", "Adhesive grappling", "Acid damage bite", "Advantage against grappled targets"]
+    },
+    {
+      "file": "minotaur-of-baphomet.json",
+      "name": "Minotaur of Baphomet",
+      "cr": 3,
+      "type": "Monstrosity",
+      "role": "Berserker/Charger",
+      "signature_abilities": ["Devastating charge attacks", "Reckless combat stance", "Abyssal weapon mastery", "Perfect maze navigation"]
+    },
+    {
+      "file": "mummy.json",
+      "name": "Mummy",
+      "cr": 3,
+      "type": "Undead",
+      "role": "Cursed Guardian/Debuffer",
+      "signature_abilities": ["Mummy rot curse", "Frightening/paralyzing glare", "Necrotic damage immunity", "Physical damage resistance"]
+    },
+    {
+      "file": "mummy-lord.json",
+      "name": "Mummy Lord",
+      "cr": 15,
+      "type": "Undead",
+      "role": "Elite Undead Spellcaster/Controller",
+      "signature_abilities": ["Legendary resistance and actions", "Rejuvenation from heart", "Potent spellcasting", "Whirlwind transformation", "Area control effects"]
+    },
+    {
+      "file": "nalfeshnee.json",
+      "name": "Nalfeshnee",
+      "cr": 13,
+      "type": "Fiend (Demon)",
+      "role": "Elite Demon Controller/Striker",
+      "signature_abilities": ["Terror-inducing aura", "Pursuit teleportation", "Demonic restoration", "Triple rend attacks"]
+    },
+    {
+      "file": "night-hag.json",
+      "name": "Night Hag",
+      "cr": 5,
+      "type": "Fiend",
+      "role": "Soul-Stealing Spellcaster/Infiltrator",
+      "signature_abilities": ["Soul-stealing nightmare haunting", "Ethereal plane travel", "Shapeshifting disguises", "Coven magic enhancement"]
+    },
+    {
+      "file": "nightmare.json",
+      "name": "Nightmare",
+      "cr": 3,
+      "type": "Fiend",
+      "role": "Fiendish Mount/Planar Transport",
+      "signature_abilities": ["Ethereal plane travel", "Fire immunity and damage", "Mount capabilities", "Illumination aura"]
+    },
+    {
+      "file": "noble.json",
+      "name": "Noble",
+      "cr": 0.125,
+      "type": "Humanoid",
+      "role": "Social NPC/Minor Authority Figure",
+      "signature_abilities": ["High charisma and social skills", "Parry defensive reaction", "Multiple language proficiency", "Authority and influence"]
+    },
+    {
+      "file": "nothic.json",
+      "name": "Nothic",
+      "cr": 2,
+      "type": "Aberration",
+      "role": "Aberrant Information Broker/Lurker",
+      "signature_abilities": ["Secret-stealing weird insight", "Necrotic rotting gaze", "Truesight vision", "Knowledge obsession"]
+    },
+    {
+      "file": "ochre-jelly.json",
+      "name": "Ochre Jelly",
+      "cr": 2,
+      "type": "Ooze",
+      "role": "Self-Replicating Hazard/Area Denial",
+      "signature_abilities": ["Damage-triggered splitting", "Amorphous mobility", "Wall and ceiling climbing", "Acid damage immunity"]
+    },
+    {
+      "file": "ogre.json",
+      "name": "Ogre",
+      "cr": 2,
+      "type": "Giant",
+      "role": "Brutal Warrior/Siege Monster",
+      "signature_abilities": ["Exceptional strength attacks", "Ranged javelin capability", "Large size advantage", "Giant heritage"]
+    },
+    {
+      "file": "oni.json",
+      "name": "Oni",
+      "cr": 7,
+      "type": "Fiend",
+      "role": "Shapeshifting Fiend Mastermind/Controller",
+      "signature_abilities": ["Continuous regeneration", "Perfect shapeshifting", "At-will invisibility", "Nightmare ray fear attacks"]
+    },
+    {
+      "file": "otyugh.json",
+      "name": "Otyugh",
+      "cr": 5,
+      "type": "Aberration",
+      "role": "Aberrant Grappler/Area Controller",
+      "signature_abilities": ["Dual tentacle grappling", "HP-reducing poison bite", "Stunning tentacle slam", "One-way telepathy"]
+    },
+    {
+      "file": "octopus.json",
+      "name": "Octopus",
+      "cr": 0,
+      "type": "Beast",
+      "role": "Escape Artist",
+      "signature_abilities": ["Compression ability", "Ink cloud escape", "High stealth", "Aquatic mobility"]
+    },
+    {
+      "file": "owl.json",
+      "name": "Owl",
+      "cr": 0,
+      "type": "Beast",
+      "role": "Scout",
+      "signature_abilities": ["Extended darkvision", "Flyby attacks", "Silent flight", "Exceptional perception"]
+    },
+    {
+      "file": "owlbear.json",
+      "name": "Owlbear",
+      "cr": 3,
+      "type": "Monstrosity",
+      "role": "Forest Predator/Brute",
+      "signature_abilities": ["Exceptional strength", "Dual rend attacks", "Climbing mobility", "Enhanced perception"]
+    },
+    {
+      "file": "pegasus.json",
+      "name": "Pegasus",
+      "cr": 2,
+      "type": "Celestial",
+      "role": "Divine Mount/Aerial Support",
+      "signature_abilities": ["High flight speed", "Radiant damage hooves", "Celestial nature", "Mount capabilities"]
+    },
+    {
+      "file": "panther.json",
+      "name": "Panther",
+      "cr": 0.25,
+      "type": "Beast",
+      "role": "Striker",
+      "signature_abilities": ["Nimble escape", "High stealth", "Climbing ability", "Hit-and-run tactics"]
+    },
+    {
+      "file": "piranha.json",
+      "name": "Piranha",
+      "cr": 0,
+      "type": "Beast",
+      "role": "Swarm Predator",
+      "signature_abilities": ["Blood frenzy", "High swim speed", "Swarm tactics", "Underwater hunter"]
+    },
+    {
+      "file": "phase-spider.json",
+      "name": "Phase Spider",
+      "cr": 3,
+      "type": "Monstrosity",
+      "role": "Planar Ambush Predator/Phase Hunter",
+      "signature_abilities": ["Ethereal plane travel", "Paralyzing poison bite", "Wall climbing", "Ethereal sight"]
+    },
+    {
+      "file": "pirate.json",
+      "name": "Pirate",
+      "cr": 1,
+      "type": "Humanoid",
+      "role": "Swashbuckling Skirmisher/Naval Fighter",
+      "signature_abilities": ["Charming panache", "Multiple dagger attacks", "High initiative", "Naval combat expertise"]
+    },
+    {
+      "file": "pirate-captain.json",
+      "name": "Pirate Captain",
+      "cr": 6,
+      "type": "Humanoid",
+      "role": "Elite Naval Leader/Swashbuckling Commander",
+      "signature_abilities": ["Three attacks per turn", "Pistol and rapier mastery", "Charming leadership", "Riposte counterattack"]
+    },
+    {
+      "file": "pit-fiend.json",
+      "name": "Pit Fiend",
+      "cr": 20,
+      "type": "Fiend (Devil)",
+      "role": "Apex Devil General/Legendary Boss",
+      "signature_abilities": ["Four-attack multiattack", "Fear aura", "Hellfire spellcasting", "Diabolical restoration", "Legendary resistance"]
+    },
+    {
+      "file": "planetar.json",
+      "name": "Planetar",
+      "cr": 16,
+      "type": "Celestial (Angel)",
+      "role": "Divine Champion/Heavenly General",
+      "signature_abilities": ["Lie detection", "Area radiant damage", "Divine restoration", "Powerful spellcasting", "Exalted restoration"]
+    },
+    {
+      "file": "plesiosaurus.json",
+      "name": "Plesiosaurus",
+      "cr": 2,
+      "type": "Beast (Dinosaur)",
+      "role": "Striker",
+      "signature_abilities": ["Extended reach", "Hold breath", "Aquatic predator", "Dinosaur heritage"]
+    },
+    {
+      "file": "polar-bear.json",
+      "name": "Polar Bear",
+      "cr": 2,
+      "type": "Beast",
+      "role": "Striker",
+      "signature_abilities": ["Multiattack", "Cold resistance", "Amphibious nature", "Enhanced perception"]
+    },
+    {
+      "file": "pony.json",
+      "name": "Pony",
+      "cr": 0.125,
+      "type": "Beast",
+      "role": "Mount/Transport",
+      "signature_abilities": ["Reliable mount", "Moderate speed", "Gentle nature"]
+    },
+    {
+      "file": "pteranodon.json",
+      "name": "Pteranodon",
+      "cr": 0.25,
+      "type": "Beast (Dinosaur)",
+      "role": "Aerial Scout",
+      "signature_abilities": ["Flight capabilities", "Fishing dive attacks", "Prehistoric predator"]
+    },
+    {
+      "file": "rat.json",
+      "name": "Rat",
+      "cr": 0,
+      "type": "Beast",
+      "role": "Tiny Urban Creature",
+      "signature_abilities": ["High stealth", "Disease potential", "Climbing ability"]
+    },
+    {
+      "file": "raven.json",
+      "name": "Raven",
+      "cr": 0,
+      "type": "Beast",
+      "role": "Aerial Messenger",
+      "signature_abilities": ["Flight mobility", "Mimicry potential", "High intelligence for bird"]
+    },
+    {
+      "file": "reef-shark.json",
+      "name": "Reef Shark",
+      "cr": 0.5,
+      "type": "Beast",
+      "role": "Aquatic Predator",
+      "signature_abilities": ["Pack tactics", "Blood frenzy", "Underwater hunting"]
+    },
+    {
+      "file": "riding-horse.json",
+      "name": "Riding Horse",
+      "cr": 0.25,
+      "type": "Beast",
+      "role": "Mount/Transport",
+      "signature_abilities": ["High speed", "Reliable mount", "Combat-trained"]
+    },
+    {
+      "file": "saber-toothed-tiger.json",
+      "name": "Saber-Toothed Tiger",
+      "cr": 2,
+      "type": "Beast",
+      "role": "Prehistoric Striker",
+      "signature_abilities": ["Pounce attack", "Deadly bite", "Stealth hunter"]
+    },
+    {
+      "file": "scorpion.json",
+      "name": "Scorpion",
+      "cr": 0,
+      "type": "Beast",
+      "role": "Tiny Desert Predator",
+      "signature_abilities": ["Poison sting", "Stealth ambush", "Desert adaptation"]
+    },
+    {
+      "file": "seahorse.json",
+      "name": "Seahorse",
+      "cr": 0,
+      "type": "Beast",
+      "role": "Tiny Aquatic Creature",
+      "signature_abilities": ["Water breathing", "Stealth hiding", "Delicate nature"]
+    },
+    {
+      "file": "spider.json",
+      "name": "Spider",
+      "cr": 0,
+      "type": "Beast",
+      "role": "Ambush Predator",
+      "signature_abilities": ["Spider Climb", "Web Walker", "Poison bite"]
+    },
+    {
+      "file": "priest-acolyte.json",
+      "name": "Priest Acolyte",
+      "cr": 0.25,
+      "type": "Humanoid (Cleric)",
+      "role": "Low-Level Divine Support/Temple Guardian",
+      "signature_abilities": ["Radiant damage attacks", "Basic divine spellcasting", "Healing support", "Religious knowledge"]
+    },
+    {
+      "file": "priest.json",
+      "name": "Priest",
+      "cr": 2,
+      "type": "Humanoid (Cleric)",
+      "role": "Divine Spellcaster/Healer",
+      "signature_abilities": ["Multiattack flexibility", "Spirit guardians area control", "Enhanced healing support", "Radiant damage specialization"]
+    },
+    {
+      "file": "pseudodragon.json",
+      "name": "Pseudodragon",
+      "cr": 0.25,
+      "type": "Dragon",
+      "role": "Tiny Dragon Familiar/Scout",
+      "signature_abilities": ["Unconsciousness-inducing sting", "High flight speed", "Magic resistance", "Familiar potential"]
+    },
+    {
+      "file": "purple-worm.json",
+      "name": "Purple Worm",
+      "cr": 15,
+      "type": "Monstrosity",
+      "role": "Gargantuan Tunneling Predator/Siege Monster",
+      "signature_abilities": ["Swallow whole capability", "Devastating poison stinger", "Rock tunneling", "Gargantuan size advantage"]
+    },
+    {
+      "file": "quasit.json",
+      "name": "Quasit",
+      "cr": 1,
+      "type": "Fiend (Demon)",
+      "role": "Skirmishing Familiar/Demonic Scout",
+      "signature_abilities": ["Shape-shifting mobility", "Invisibility for escape", "Fear control", "Poison attacks"]
+    },
+    {
+      "file": "rakshasa.json",
+      "name": "Rakshasa",
+      "cr": 13,
+      "type": "Fiend",
+      "role": "Elite Fiendish Manipulator/Curse Master",
+      "signature_abilities": ["Near-immunity to magic", "Rest-preventing curse", "Area fear/incapacitation", "Infinite respawning"]
+    },
+    {
+      "file": "red-dragon-wyrmling.json",
+      "name": "Red Dragon Wyrmling",
+      "cr": 4,
+      "type": "Dragon (Chromatic)",
+      "role": "Young Fire-Breathing Predator/Draconic Threat",
+      "signature_abilities": ["Fire breath cone", "Fire immunity", "Flight mobility", "Strong physical attacks"]
+    },
+    {
+      "file": "remorhaz.json",
+      "name": "Remorhaz",
+      "cr": 11,
+      "type": "Monstrosity",
+      "role": "Arctic Tunneling Predator/Swallowing Monster",
+      "signature_abilities": ["Continuous heat aura", "Swallow whole capability", "Fire and cold immunity", "Burrow mobility"]
+    },
+    {
+      "file": "roc.json",
+      "name": "Roc",
+      "cr": 11,
+      "type": "Monstrosity",
+      "role": "Gargantuan Aerial Predator/Sky Dominator",
+      "signature_abilities": ["Massive flight speed", "Devastating beak attacks", "Grapple and drop tactics", "Huge creature grappling"]
+    },
+    {
+      "file": "roper.json",
+      "name": "Roper",
+      "cr": 5,
+      "type": "Aberration",
+      "role": "Ceiling Ambush Predator/Grappling Controller",
+      "signature_abilities": ["60-foot tentacle reach", "Multiple grapples simultaneously", "Spider climb mobility", "Tentacle regeneration"]
+    },
+    {
+      "file": "rust-monster.json",
+      "name": "Rust Monster",
+      "cr": 0.5,
+      "type": "Monstrosity",
+      "role": "Equipment Destroyer/Metal Predator",
+      "signature_abilities": ["Metal detection scent", "Equipment degradation", "Automatic equipment response", "Metal destruction"]
+    },
+    {
+      "file": "young-red-dragon.json",
+      "name": "Young Red Dragon",
+      "cr": 10,
+      "type": "Dragon (Chromatic)",
+      "role": "Intermediate Dragon Predator/Territorial Guardian",
+      "signature_abilities": ["Devastating fire breath", "Three claw attacks", "Enhanced flight speed", "Extended reach"]
+    },
+    {
+      "file": "adult-red-dragon.json",
+      "name": "Adult Red Dragon",
+      "cr": 17,
+      "type": "Dragon (Chromatic)",
+      "role": "Legendary Dragon Lord/Elite Boss",
+      "signature_abilities": ["Massive fire breath cone", "Legendary resistance", "Spellcasting integration", "Legendary actions"]
+    },
+    {
+      "file": "ancient-red-dragon.json",
+      "name": "Ancient Red Dragon",
+      "cr": 24,
+      "type": "Dragon (Chromatic)",
+      "role": "Ancient Dragon Overlord/Campaign Boss",
+      "signature_abilities": ["Colossal fire breath", "Enhanced legendary resistance", "Upgraded spellcasting", "Massive reach and damage"]
+    },
+    {
+      "file": "sahuagin-warrior.json",
+      "name": "Sahuagin Warrior",
+      "cr": 0.5,
+      "type": "Fiend",
+      "role": "Aquatic Warrior/Shark Commander",
+      "signature_abilities": ["Blood frenzy advantage", "Shark telepathy control", "Amphibious combat", "Aquatic charge mobility"]
+    },
+    {
+      "file": "salamander.json",
+      "name": "Salamander",
+      "cr": 5,
+      "type": "Elemental",
+      "role": "Fire Elemental Warrior/Area Control",
+      "signature_abilities": ["Continuous fire aura", "Returning flame spear", "Grapple and restrain", "Fire immunity"]
+    },
+    {
+      "file": "satyr.json",
+      "name": "Satyr",
+      "cr": 0.5,
+      "type": "Fey",
+      "role": "Fey Skirmisher/Social Manipulator",
+      "signature_abilities": ["Magic resistance", "Knockback hooves", "Ranged psychic damage", "High mobility"]
+    },
+    {
+      "file": "scout.json",
+      "name": "Scout",
+      "cr": 0.5,
+      "type": "Humanoid",
+      "role": "Wilderness Tracker/Ranged Support",
+      "signature_abilities": ["Mixed weapon multiattack", "High stealth and perception", "Wilderness expertise", "Flexible size"]
+    },
+    {
+      "file": "sea-hag.json",
+      "name": "Sea Hag",
+      "cr": 2,
+      "type": "Fey",
+      "role": "Aquatic Fey Witch/Fear Controller",
+      "signature_abilities": ["Automatic fear aura", "Death glare execution", "Coven magic enhancement", "Long-duration disguise"]
+    },
+    {
+      "file": "shadow.json",
+      "name": "Shadow",
+      "cr": 0.5,
+      "type": "Undead",
+      "role": "Stealth Undead/Strength Drainer",
+      "signature_abilities": ["Ability score drain", "Shadow reproduction", "Amorphous movement", "Darkness stealth"]
+    },
+    {
+      "file": "shambling-mound.json",
+      "name": "Shambling Mound",
+      "cr": 5,
+      "type": "Plant",
+      "role": "Large Plant Grappler/Lightning Absorber",
+      "signature_abilities": ["Lightning healing", "Triple tendril attacks", "Pull and engulf combo", "Extended reach"]
+    },
+    {
+      "file": "shield-guardian.json",
+      "name": "Shield Guardian",
+      "cr": 7,
+      "type": "Construct",
+      "role": "Magical Bodyguard/Spell Repository",
+      "signature_abilities": ["Damage sharing with master", "Constant regeneration", "Spell storage and casting", "AC boost protection reaction"]
+    },
+    {
+      "file": "shrieker-fungus.json",
+      "name": "Shrieker Fungus",
+      "cr": 0,
+      "type": "Plant",
+      "role": "Living Alarm System/Environmental Hazard",
+      "signature_abilities": ["Long-range shriek alarm", "Motion and light detection", "Extended shriek duration", "Passive surveillance"]
+    },
+    {
+      "file": "silver-dragon-wyrmling.json",
+      "name": "Silver Dragon Wyrmling",
+      "cr": 2,
+      "type": "Dragon (Metallic)",
+      "role": "Young Metallic Dragon/Dual Breath Wielder",
+      "signature_abilities": ["Cold breath weapon", "Paralyzing breath alternative", "Cold immunity", "Dual attack capability"]
+    },
+    {
+      "file": "skeleton.json",
+      "name": "Skeleton",
+      "cr": 0.25,
+      "type": "Undead",
+      "role": "Basic Undead Warrior/Ranged Combatant",
+      "signature_abilities": ["Dual weapon capability", "Darkvision", "Immunity to poison", "Undead resilience"]
+    },
+    {
+      "file": "slaad-tadpole.json",
+      "name": "Slaad Tadpole",
+      "cr": 0.125,
+      "type": "Aberration",
+      "role": "Tiny Aberrant Pest/Stealth Infiltrator",
+      "signature_abilities": ["Magic resistance", "Multiple damage resistances", "Stealth capability", "Burrow mobility"]
+    },
+    {
+      "file": "solar.json",
+      "name": "Solar",
+      "cr": 21,
+      "type": "Celestial (Angel)",
+      "role": "Elite Celestial Champion/Divine Executioner",
+      "signature_abilities": ["Instant death slaying bow", "Returning radiant sword", "Divine healing support", "Radiant teleportation"]
+    },
+    {
+      "file": "specter.json",
+      "name": "Specter",
+      "cr": 1,
+      "type": "Undead",
+      "role": "Incorporeal Undead/Life Drainer",
+      "signature_abilities": ["Incorporeal movement", "Hit point maximum reduction", "Extensive resistances", "Flight capability"]
+    },
+    {
+      "file": "sphinx-of-lore.json",
+      "name": "Sphinx of Lore",
+      "cr": 11,
+      "type": "Celestial",
+      "role": "Knowledge Guardian/Arcane Controller",
+      "signature_abilities": ["Inscrutable mind", "Mind-rending roar", "Weight of years aging", "Legendary spell knowledge"]
+    },
+    {
+      "file": "sphinx-of-valor.json",
+      "name": "Sphinx of Valor",
+      "cr": 17,
+      "type": "Celestial",
+      "role": "Elite Celestial Sphinx/Progressive Roarer",
+      "signature_abilities": ["Three-tier roar sequence", "Enhanced legendary resistance", "Weight of years", "Divine restoration spells"]
+    },
+    {
+      "file": "sphinx-of-wonder.json",
+      "name": "Sphinx of Wonder",
+      "cr": 1,
+      "type": "Celestial",
+      "role": "Tiny Support Sphinx/Ingenuity Provider",
+      "signature_abilities": ["Magic resistance", "Burst of ingenuity support", "Radiant rend attacks", "Multiple damage resistances"]
+    },
+    {
+      "file": "spirit-naga.json",
+      "name": "Spirit Naga",
+      "cr": 8,
+      "type": "Fiend",
+      "role": "Immortal Serpent Caster/Multiattacker",
+      "signature_abilities": ["Fiendish restoration revival", "Necrotic ray versatility", "Hold person control", "Dimension door mobility"]
+    },
+    {
+      "file": "stone-giant.json",
+      "name": "Stone Giant",
+      "cr": 7,
+      "type": "Giant",
+      "role": "Boulder Thrower/Defensive Giant",
+      "signature_abilities": ["Boulder prone attacks", "Deflect missile reaction", "Exceptional athletics", "15-foot reach"]
+    },
+    {
+      "file": "stone-golem.json",
+      "name": "Stone Golem",
+      "cr": 10,
+      "type": "Construct",
+      "role": "Heavy Tank/Force Damage Dealer",
+      "signature_abilities": ["Magic resistance", "Force damage", "Slow spell", "Construct immunities"]
+    },
+    {
+      "file": "storm-giant.json",
+      "name": "Storm Giant",
+      "cr": 13,
+      "type": "Giant",
+      "role": "Lightning Master/Weather Controller",
+      "signature_abilities": ["Lightning storm AoE", "Amphibious movement", "Control weather", "Thunderbolt attacks"]
+    },
+    {
+      "file": "succubus.json",
+      "name": "Succubus",
+      "cr": 4,
+      "type": "Fiend",
+      "role": "Charming Manipulator/Shape-shifter",
+      "signature_abilities": ["Dominate person", "Shape-shift disguise", "Draining kiss", "Flight mobility"]
+    },
+    {
+      "file": "sprite.json",
+      "name": "Sprite",
+      "cr": 0.25,
+      "type": "Fey",
+      "role": "Tiny Scout/Enchanter",
+      "signature_abilities": ["Enchanting bow charm", "Heart sight detection", "Invisibility escape", "High stealth capability"]
+    },
+    {
+      "file": "spy.json",
+      "name": "Spy",
+      "cr": 1,
+      "type": "Humanoid",
+      "role": "Urban Infiltrator/Skill Specialist",
+      "signature_abilities": ["Cunning action mobility", "Poison weapon coating", "High social skills", "Climb speed mobility"]
+    },
+    {
+      "file": "stirge.json",
+      "name": "Stirge",
+      "cr": 0.125,
+      "type": "Monstrosity",
+      "role": "Tiny Blood Drainer/Attachment Pest",
+      "signature_abilities": ["Proboscis attachment", "Ongoing blood drain", "Flying mobility", "Easy detachment vulnerability"]
+    },
+    {
+      "file": "swarm-of-bats.json",
+      "name": "Swarm of Bats",
+      "cr": 0.25,
+      "type": "Beast (Swarm)",
+      "role": "Area Control Swarm",
+      "signature_abilities": ["Blindsight", "Flight mobility", "Space occupation", "Swarm mechanics"]
+    },
+    {
+      "file": "swarm-of-insects.json",
+      "name": "Swarm of Insects",
+      "cr": 0.5,
+      "type": "Beast (Swarm)",
+      "role": "Versatile Terrain Controller",
+      "signature_abilities": ["Spider Climb", "Multiple movement modes", "Poison damage", "Ceiling positioning"]
+    },
+    {
+      "file": "swarm-of-piranhas.json",
+      "name": "Swarm of Piranhas",
+      "cr": 1,
+      "type": "Beast (Swarm)",
+      "role": "Aquatic Blood Hunter",
+      "signature_abilities": ["Blood frenzy advantage", "Underwater specialist", "High swim speed", "Darkvision"]
+    },
+    {
+      "file": "swarm-of-rats.json",
+      "name": "Swarm of Rats",
+      "cr": 0.25,
+      "type": "Beast (Swarm)",
+      "role": "Urban Pest Swarm",
+      "signature_abilities": ["Climbing ability", "Urban adaptation", "Darkvision", "Basic swarm tactics"]
+    },
+    {
+      "file": "swarm-of-ravens.json",
+      "name": "Swarm of Ravens",
+      "cr": 0.25,
+      "type": "Beast (Swarm)",
+      "role": "Aerial Controller",
+      "signature_abilities": ["Cacophony debuff", "High perception", "Flight speed", "Deafening attack"]
+    },
+    {
+      "file": "swarm-of-venomous-snakes.json",
+      "name": "Swarm of Venomous Snakes",
+      "cr": 2,
+      "type": "Beast (Swarm)",
+      "role": "High-Damage Poison Swarm",
+      "signature_abilities": ["Massive poison damage", "Amphibious movement", "High AC", "Deadly bites"]
+    },
+    {
+      "file": "tarrasque.json",
+      "name": "Tarrasque",
+      "cr": 30,
+      "type": "Monstrosity (Titan)",
+      "role": "Ultimate World-Ending Boss",
+      "signature_abilities": ["Swallow multiple creatures", "World-shaking movement", "Reflective carapace", "Legendary resistance"]
+    },
+    {
+      "file": "tiger.json",
+      "name": "Tiger",
+      "cr": 1,
+      "type": "Beast",
+      "role": "Mobile Striker",
+      "signature_abilities": ["Exceptional stealth", "Rend with prone", "Nimble Escape", "Darkvision"]
+    },
+    {
+      "file": "tough.json",
+      "name": "Tough",
+      "cr": 0.5,
+      "type": "Humanoid",
+      "role": "Basic Enforcer/Gang Member",
+      "signature_abilities": ["Pack tactics", "Heavy crossbow", "Basic combat training"]
+    },
+    {
+      "file": "tough-boss.json",
+      "name": "Tough Boss",
+      "cr": 4,
+      "type": "Humanoid",
+      "role": "Gang Leader/Elite Enforcer",
+      "signature_abilities": ["Multiattack", "Warhammer push", "Pack tactics", "Heavy armor"]
+    },
+    {
+      "file": "treant.json",
+      "name": "Treant",
+      "cr": 9,
+      "type": "Plant",
+      "role": "Forest Guardian/Siege Monster",
+      "signature_abilities": ["Animate trees", "Siege monster", "Long-range bark attack", "Physical resistances"]
+    },
+    {
+      "file": "troll.json",
+      "name": "Troll",
+      "cr": 5,
+      "type": "Giant",
+      "role": "Regenerating Berserker",
+      "signature_abilities": ["Regeneration", "Loathsome limbs", "Three rend attacks", "Charge mobility"]
+    },
+    {
+      "file": "troll-limb.json",
+      "name": "Troll Limb",
+      "cr": 0.5,
+      "type": "Giant",
+      "role": "Regenerating Pest/Spawn",
+      "signature_abilities": ["Regeneration", "Troll spawn transformation", "Surprising strength"]
+    },
+    {
+      "file": "triceratops.json",
+      "name": "Triceratops",
+      "cr": 5,
+      "type": "Beast (Dinosaur)",
+      "role": "Heavy Charger",
+      "signature_abilities": ["Multiattack gore", "Charging prone", "Extra charge damage", "Huge size"]
+    },
+    {
+      "file": "tyrannosaurus-rex.json",
+      "name": "Tyrannosaurus Rex",
+      "cr": 8,
+      "type": "Beast (Dinosaur)",
+      "role": "Apex Predator",
+      "signature_abilities": ["Grappling bite", "Prone-inducing tail", "Extended reach", "Massive damage"]
+    },
+    {
+      "file": "unicorn.json",
+      "name": "Unicorn",
+      "cr": 5,
+      "type": "Celestial",
+      "role": "Divine Guardian/Healer",
+      "signature_abilities": ["Legendary actions", "Healing support", "Magic resistance", "Radiant damage"]
+    },
+    {
+      "file": "vampire-familiar.json",
+      "name": "Vampire Familiar",
+      "cr": 3,
+      "type": "Humanoid",
+      "role": "Vampiric Servant/Scout",
+      "signature_abilities": ["Vampiric connection", "Umbral daggers", "Paralysis on kill", "Deathless agility"]
+    },
+    {
+      "file": "vampire-spawn.json",
+      "name": "Vampire Spawn",
+      "cr": 5,
+      "type": "Undead",
+      "role": "Vampiric Minion/Life Drainer",
+      "signature_abilities": ["Spider climb", "Life drain bite", "Grappling claws", "Vampire weaknesses"]
+    },
+    {
+      "file": "vampire.json",
+      "name": "Vampire",
+      "cr": 13,
+      "type": "Undead",
+      "role": "Master Undead/Shape-shifter",
+      "signature_abilities": ["Shape-shift forms", "Spawn creation", "Misty escape", "Legendary actions"]
+    },
+    {
+      "file": "violet-fungus.json",
+      "name": "Violet Fungus",
+      "cr": 0.25,
+      "type": "Plant",
+      "role": "Stationary Hazard/Dungeon Pest",
+      "signature_abilities": ["Rotting touch reach", "Multiattack", "Condition immunities", "Minimal mobility"]
+    },
+    {
+      "file": "venomous-snake.json",
+      "name": "Venomous Snake",
+      "cr": 0.125,
+      "type": "Beast",
+      "role": "Tiny Venomous Threat",
+      "signature_abilities": ["Poison bite damage", "Amphibious movement", "Blindsight", "Small size"]
+    },
+    {
+      "file": "vulture.json",
+      "name": "Vulture",
+      "cr": 0,
+      "type": "Beast",
+      "role": "Aerial Scavenger",
+      "signature_abilities": ["Pack Tactics", "Flight speed", "Good perception", "Group hunting"]
+    },
+    {
+      "file": "vrock.json",
+      "name": "Vrock",
+      "cr": 6,
+      "type": "Fiend (Demon)",
+      "role": "Flying Demon/Area Controller",
+      "signature_abilities": ["Spore poisoning", "Stunning screech", "Flight mobility", "Demonic restoration"]
+    },
+    {
+      "file": "young-silver-dragon.json",
+      "name": "Young Silver Dragon",
+      "cr": 9,
+      "type": "Dragon (Metallic)",
+      "role": "Intermediate Metallic Dragon/Battlefield Controller",
+      "signature_abilities": ["Triple claw attacks", "Devastating cold breath", "Paralyzing breath integration", "Extended reach"]
+    },
+    {
+      "file": "adult-silver-dragon.json",
+      "name": "Adult Silver Dragon",
+      "cr": 16,
+      "type": "Dragon (Metallic)",
+      "role": "Legendary Metallic Dragon/Cold Controller",
+      "signature_abilities": ["Dual breath weapons", "Shape-changing ability", "Legendary cold attacks", "Hold monster control"]
+    },
+    {
+      "file": "ancient-silver-dragon.json",
+      "name": "Ancient Silver Dragon",
+      "cr": 23,
+      "type": "Dragon (Metallic)",
+      "role": "Ancient Metallic Dragon Overlord/Weather Controller",
+      "signature_abilities": ["Colossal breath weapons", "Weather control magic", "Enhanced legendary resistance", "Teleport mobility"]
+    },
+    {
+      "file": "minotaur-skeleton.json",
+      "name": "Minotaur Skeleton",
+      "cr": 2,
+      "type": "Undead",
+      "role": "Large Undead Bruiser/Charge Attacker",
+      "signature_abilities": ["Devastating charge attack", "High damage slam", "Large size advantage", "Enhanced speed"]
+    },
+    {
+      "file": "swarm-of-crawling-claws.json",
+      "name": "Swarm of Crawling Claws",
+      "cr": 3,
+      "type": "Undead (Swarm)",
+      "role": "Harassing Swarm",
+      "signature_abilities": ["Healing prevention", "False appearance", "Swarm mobility", "Necrotic damage"]
+    },
+    {
+      "file": "warrior-infantry.json",
+      "name": "Warrior Infantry",
+      "cr": "1/8",
+      "type": "Humanoid",
+      "role": "Basic Infantry",
+      "signature_abilities": ["Pack tactics", "Spear versatility", "Formation fighting"]
+    },
+    {
+      "file": "warrior-veteran.json",
+      "name": "Warrior Veteran",
+      "cr": 3,
+      "type": "Humanoid",
+      "role": "Elite Warrior",
+      "signature_abilities": ["Multiattack", "Parry reaction", "Weapon mastery", "Combat experience"]
+    },
+    {
+      "file": "water-elemental.json",
+      "name": "Water Elemental",
+      "cr": 5,
+      "type": "Elemental",
+      "role": "Aquatic Controller",
+      "signature_abilities": ["Water form", "Whelm grapple", "Prone attacks", "Aquatic mastery"]
+    },
+    {
+      "file": "warhorse.json",
+      "name": "Warhorse",
+      "cr": 0.5,
+      "type": "Beast",
+      "role": "Heavy Mount",
+      "signature_abilities": ["Charging hooves", "Prone effect", "High speed", "Combat trained"]
+    },
+    {
+      "file": "weasel.json",
+      "name": "Weasel",
+      "cr": 0,
+      "type": "Beast",
+      "role": "Tiny Agile Scout",
+      "signature_abilities": ["Exceptional stealth", "Climbing speed", "High acrobatics", "Darkvision"]
+    },
+    {
+      "file": "werebear.json",
+      "name": "Werebear",
+      "cr": 5,
+      "type": "Monstrosity (Lycanthrope)",
+      "role": "Protective Shapeshifter",
+      "signature_abilities": ["Shape-shifting", "Lycanthropy curse", "Bear strength", "Climbing mobility"]
+    },
+    {
+      "file": "wereboar.json",
+      "name": "Wereboar",
+      "cr": 4,
+      "type": "Monstrosity (Lycanthrope)",
+      "role": "Aggressive Charger",
+      "signature_abilities": ["Shape-shifting", "Charging tusk", "Lycanthropy curse", "Javelin attacks"]
+    },
+    {
+      "file": "wererat.json",
+      "name": "Wererat",
+      "cr": 2,
+      "type": "Monstrosity (Lycanthrope)",
+      "role": "Stealth Assassin",
+      "signature_abilities": ["Shape-shifting", "Stealth mastery", "Lycanthropy curse", "Climbing mobility"]
+    },
+    {
+      "file": "weretiger.json",
+      "name": "Weretiger",
+      "cr": 4,
+      "type": "Monstrosity (Lycanthrope)",
+      "role": "Stealth Predator",
+      "signature_abilities": ["Shape-shifting", "Prowl mobility", "Lycanthropy curse", "Stealth hunting"]
+    },
+    {
+      "file": "werewolf.json",
+      "name": "Werewolf",
+      "cr": 3,
+      "type": "Monstrosity (Lycanthrope)",
+      "role": "Pack Hunter",
+      "signature_abilities": ["Shape-shifting", "Pack tactics", "Lycanthropy curse", "Wolf mobility"]
+    },
+    {
+      "file": "white-dragon-wyrmling.json",
+      "name": "White Dragon Wyrmling",
+      "cr": 2,
+      "type": "Dragon (Chromatic)",
+      "role": "Young Cold Dragon",
+      "signature_abilities": ["Cold breath weapon", "Ice walking", "Dragon senses", "Multiattack"]
+    },
+    {
+      "file": "young-white-dragon.json",
+      "name": "Young White Dragon",
+      "cr": 6,
+      "type": "Dragon (Chromatic)",
+      "role": "Territorial Cold Dragon",
+      "signature_abilities": ["Devastating cold breath", "Triple attacks", "Ice mastery", "Extended reach"]
+    },
+    {
+      "file": "adult-white-dragon.json",
+      "name": "Adult White Dragon",
+      "cr": 13,
+      "type": "Dragon (Chromatic)",
+      "role": "Apex Cold Dragon",
+      "signature_abilities": ["Legendary resistance", "Freezing burst", "Fear presence", "Lair powers"]
+    },
+    {
+      "file": "ancient-white-dragon.json",
+      "name": "Ancient White Dragon",
+      "cr": 20,
+      "type": "Dragon (Chromatic)",
+      "role": "Ancient Cold Dragon Overlord",
+      "signature_abilities": ["Enhanced legendary resistance", "Massive cold breath", "Ancient intelligence", "Colossal size"]
+    },
+    {
+      "file": "wight.json",
+      "name": "Wight",
+      "cr": 3,
+      "type": "Undead",
+      "role": "Undead Commander",
+      "signature_abilities": ["Life drain", "Zombie creation", "Necrotic weapons", "HP reduction"]
+    },
+    {
+      "file": "will-o-wisp.json",
+      "name": "Will-o'-Wisp",
+      "cr": 2,
+      "type": "Undead",
+      "role": "Ethereal Harasser",
+      "signature_abilities": ["Extremely high AC", "Incorporeal movement", "Invisibility", "Life consumption"]
+    },
+    {
+      "file": "winter-wolf.json",
+      "name": "Winter Wolf",
+      "cr": 3,
+      "type": "Monstrosity",
+      "role": "Arctic Pack Hunter",
+      "signature_abilities": ["Pack tactics", "Cold breath", "Prone attacks", "Cold immunity"]
+    },
+    {
+      "file": "wolf.json",
+      "name": "Wolf",
+      "cr": 0.25,
+      "type": "Beast",
+      "role": "Pack Hunter",
+      "signature_abilities": ["Pack Tactics", "Prone-inducing bite", "High perception", "Darkvision"]
+    },
+    {
+      "file": "worg.json",
+      "name": "Worg",
+      "cr": "1/2",
+      "type": "Fey",
+      "role": "Goblin Mount",
+      "signature_abilities": ["Advantage granting bite", "High speed", "Darkvision", "Pack coordination"]
+    },
+    {
+      "file": "wraith.json",
+      "name": "Wraith",
+      "cr": 5,
+      "type": "Undead",
+      "role": "Incorporeal Controller",
+      "signature_abilities": ["Life drain", "Specter creation", "Incorporeal movement", "Extensive resistances"]
+    },
+    {
+      "file": "wyvern.json",
+      "name": "Wyvern",
+      "cr": 6,
+      "type": "Dragon",
+      "role": "Flying Predator",
+      "signature_abilities": ["Flight mobility", "Poison sting", "Multiattack", "Extended reach"]
+    },
+    {
+      "file": "xorn.json",
+      "name": "Xorn",
+      "cr": 5,
+      "type": "Elemental",
+      "role": "Earth Elemental Ambusher",
+      "signature_abilities": ["Earth glide", "Treasure sense", "Four attacks per turn", "High AC"]
+    },
+    {
+      "file": "zombie.json",
+      "name": "Zombie",
+      "cr": "1/4",
+      "type": "Undead",
+      "role": "Basic Undead Minion",
+      "signature_abilities": ["Undead fortitude", "Poison immunity", "Mindless persistence"]
+    },
+    {
+      "file": "ogre-zombie.json",
+      "name": "Ogre Zombie",
+      "cr": 2,
+      "type": "Undead",
+      "role": "Heavy Undead Bruiser",
+      "signature_abilities": ["Large size", "High damage slam", "Undead fortitude", "Significant HP"]
+    }
+  ],
+  "stat_block_features": {
+    "2024_format": {
+      "initiative_total": "Shows initiative modifier + 10 for quick reference",
+      "simplified_saves": "Only shows saves the creature is proficient in",
+      "damage_formatting": "Includes both average and dice formula",
+      "condition_integration": "References 2024 condition system"
+    },
+    "tactical_information": {
+      "role": "Combat role (Controller, Striker, Defender, etc.)",
+      "environment": "Preferred habitats and encounter locations",
+      "tactics": "Combat behavior and strategy",
+      "weaknesses": "Exploitable vulnerabilities"
+    }
+  },
+  "integration": {
+    "rules_system": "Uses rules/ directory for combat mechanics, conditions, and damage types",
+    "equipment_system": "Monster equipment references equipment/ directory", 
+    "spell_system": "Monster spellcasters reference spells/ directory",
+    "character_system": "Humanoid monsters can use class features and backgrounds"
+  },
+  "usage_for_dms": {
+    "encounter_building": "CR system helps balance encounters for party level",
+    "narrative_hooks": "Tactical info provides roleplay and story opportunities",
+    "combat_reference": "Quick access to abilities, resistances, and special rules",
+    "scaling": "Monster variants and templates for different challenge levels"
+  },
+  "expansion_plans": {
+    "additional_monsters": "Continue adding monsters from 2024 Monster Manual",
+    "monster_variants": "Templates for scaling difficulty and creating variants", 
+    "encounter_tools": "Integration with encounter building and balancing systems",
+    "lair_actions": "Expand legendary creatures with full lair action rules"
+  },
+  "schema_reference": {
+    "file": "monster-schema.json",
+    "description": "Defines structure and validation rules for all monster stat blocks",
+    "consistency": "Ensures uniform data format across all monsters"
+  }
+}

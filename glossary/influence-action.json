@@ -1,0 +1,23 @@
+{
+  "name": "Influence",
+  "slug": "influence",
+  "definition": "An action that allows you to urge a monster to do something",
+  "category": "Actions",
+  "tags": ["[Action]", "persuasion", "deception", "interaction"],
+  "full_text": "With the Influence action, you urge a monster to do something. Describe or roleplay how you're communicating with the monster. Are you trying to deceive, intimidate, amuse, or gently persuade? The DM then determines whether the monster feels willing, unwilling, or hesitant due to your interaction; this determination establishes whether an ability check is necessary.\n\nWilling. If your urging aligns with the monster's desires, no ability check is necessary; the monster fulfills your request in a way it prefers.\n\nUnwilling. If your urging is repugnant to the monster or counter to its alignment, no ability check is necessary; it doesn't comply.\n\nHesitant. If you urge the monster to do something that it is hesitant to do, you must make an ability check, which is affected by the monster's attitude: Indifferent, Friendly, or Hostile. The DM chooses the check, which has a default DC equal to 15 or the monster's Intelligence score, whichever is higher. On a successful check, the monster does as urged. On a failed check, you must wait 24 hours (or a duration set by the DM) before urging it in the same way again.",
+  "mechanics": {
+    "willing": "No check required; monster complies if aligns with desires",
+    "unwilling": "No check required; monster refuses if repugnant or counter to alignment",
+    "hesitant": "Ability check required, affected by monster attitude (Indifferent/Friendly/Hostile)",
+    "check_dc": "15 or monster Intelligence score (whichever higher)",
+    "failure_cooldown": "24 hours or DM-set duration before same attempt"
+  },
+  "effects": {
+    "deception": "Charisma (Deception) vs monster understanding",
+    "intimidation": "Charisma (Intimidation) for scaring",
+    "performance": "Charisma (Performance) for amusing",
+    "persuasion": "Charisma (Persuasion) vs monster understanding",
+    "animal_handling": "Wisdom (Animal Handling) for Beast or Monstrosity"
+  },
+  "see_also": ["action", "attitude", "friendly", "hostile", "indifferent"]
+}

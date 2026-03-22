@@ -1,0 +1,115 @@
+{
+  "title": "Movement and Positioning",
+  "description": "Rules for movement, positioning, and spatial relationships in combat",
+  "version": "2024",
+  "basic_movement": {
+    "description": "On your turn, you can move a distance equal to your Speed or less. Or you can decide not to move",
+    "movement_types": "Your movement can include climbing, crawling, jumping, and swimming (each explained in the Rules Glossary). These different modes of movement can be combined with your regular movement, or they can constitute your entire move",
+    "speed_deduction": "However you're moving with your Speed, you deduct the distance of each part of your move from it until it is used up or until you are done moving, whichever comes first",
+    "speed_determination": "A character's Speed is determined during character creation. A monster's Speed is noted in the monster's stat block. See the Rules Glossary for more about Speed as well as about special speeds, such as a Climb Speed, Fly Speed, or Swim Speed"
+  },
+  "difficult_terrain": {
+    "description": "Combatants are often slowed down by Difficult Terrain. Low furniture, rubble, undergrowth, steep stairs, snow, and shallow bogs are examples of Difficult Terrain",
+    "cost": "Every foot of movement in Difficult Terrain costs 1 extra foot, even if multiple things in a space count as Difficult Terrain",
+    "examples": ["low furniture", "rubble", "undergrowth", "steep stairs", "snow", "shallow bogs"]
+  },
+  "grid_rules": {
+    "description": "If you play using a square grid and miniatures or other tokens, follow these rules",
+    "squares": "Each square represents 5 feet",
+    "speed_conversion": {
+      "method": "Rather than moving foot by foot, move square by square on the grid, using your Speed in 5-foot segments",
+      "calculation": "You can translate your Speed into squares by dividing it by 5. For example, a Speed of 30 feet translates into 6 squares",
+      "tip": "If you use a grid often, consider writing your Speed in squares on your character sheet"
+    },
+    "entering_squares": {
+      "cost": "To enter a square, you must have enough movement left to pay for entering. It costs 1 square of movement to enter an unoccupied square that's adjacent to your space (orthogonally or diagonally adjacent)",
+      "difficult_terrain": "A square of Difficult Terrain costs 2 squares to enter",
+      "other_effects": "Other effects might make a square cost even more"
+    },
+    "corners": "Diagonal movement can't cross the corner of a wall, a large tree, or another terrain feature that fills its space",
+    "ranges": "To determine the range on a grid between two things—whether creatures or objects—count squares from a square adjacent to one of them and stop counting in the space of the other one. Count by the shortest route"
+  },
+  "breaking_up_movement": {
+    "description": "You can break up your move, using some of its movement before and after any action, Bonus Action, or Reaction you take on the same turn",
+    "example": "For example, if you have a Speed of 30 feet, you could go 10 feet, take an action, and then go 20 feet"
+  },
+  "dropping_prone": {
+    "description": "On your turn, you can give yourself the Prone condition without using an action or any of your Speed, but you can't do so if your Speed is 0"
+  },
+  "creature_size": {
+    "description": "A creature belongs to a size category, which determines the width of the square space the creature occupies on a map",
+    "space_definition": "That table lists the sizes from smallest (Tiny) to largest (Gargantuan). A creature's space is the area that it effectively controls in combat and the area it needs to fight effectively",
+    "determination": "A character's size is determined by species, and a monster's size is specified in the monster's stat block",
+    "size_table": [
+      {
+        "size": "Tiny",
+        "space_feet": "2½ by 2½ feet",
+        "space_squares": "4 per square"
+      },
+      {
+        "size": "Small",
+        "space_feet": "5 by 5 feet", 
+        "space_squares": "1 square"
+      },
+      {
+        "size": "Medium",
+        "space_feet": "5 by 5 feet",
+        "space_squares": "1 square"
+      },
+      {
+        "size": "Large",
+        "space_feet": "10 by 10 feet",
+        "space_squares": "4 squares (2 by 2)"
+      },
+      {
+        "size": "Huge",
+        "space_feet": "15 by 15 feet",
+        "space_squares": "9 squares (3 by 3)"
+      },
+      {
+        "size": "Gargantuan",
+        "space_feet": "20 by 20 feet",
+        "space_squares": "16 squares (4 by 4)"
+      }
+    ]
+  },
+  "moving_around_creatures": {
+    "passable_creatures": "During your move, you can pass through the space of an ally, a creature that has the Incapacitated condition, a Tiny creature, or a creature that is two sizes larger or smaller than you",
+    "difficult_terrain_rule": "Another creature's space is Difficult Terrain for you unless that creature is Tiny or your ally",
+    "ending_movement": "You can't willingly end a move in a space occupied by another creature",
+    "unwilling_occupation": "If you somehow end a turn in a space with another creature, you have the Prone condition unless you are Tiny or are of a larger size than the other creature"
+  },
+  "movement_types": {
+    "walking": {
+      "description": "Standard movement across normal terrain",
+      "cost": "1 foot of movement per foot traveled"
+    },
+    "difficult_terrain": {
+      "description": "Movement through hindering terrain",
+      "cost": "2 feet of movement per foot traveled"
+    },
+    "climbing": {
+      "description": "Moving up, down, or across vertical surfaces",
+      "reference": "See Rules Glossary for detailed rules"
+    },
+    "crawling": {
+      "description": "Moving while prone",
+      "reference": "See Rules Glossary for detailed rules"
+    },
+    "jumping": {
+      "description": "Leaping across gaps or over obstacles",
+      "reference": "See Rules Glossary for detailed rules"
+    },
+    "swimming": {
+      "description": "Moving through liquid environments", 
+      "reference": "See Rules Glossary for detailed rules"
+    }
+  },
+  "positioning_tactics": {
+    "flanking": "Positioning to gain tactical advantage over enemies",
+    "cover_seeking": "Using terrain and objects to gain protection",
+    "choke_points": "Controlling narrow passages to limit enemy movement",
+    "high_ground": "Gaining elevation advantages when possible",
+    "formation_fighting": "Coordinating positions with allies for maximum effectiveness"
+  }
+}

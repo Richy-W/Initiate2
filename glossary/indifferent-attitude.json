@@ -1,0 +1,12 @@
+{
+  "name": "Indifferent",
+  "slug": "indifferent",
+  "definition": "An attitude where a creature has no desire to help or hinder you",
+  "category": "Attitudes",
+  "tags": ["[Attitude]", "influence", "default"],
+  "full_text": "An Indifferent creature has no desire to help or hinder you. Indifferent is the default attitude of a monster.",
+  "mechanics": {
+    "default": "Standard attitude for monsters"
+  },
+  "see_also": ["influence", "attitude", "friendly", "hostile"]
+}

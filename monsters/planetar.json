@@ -1,0 +1,129 @@
+{
+  "name": "Planetar",
+  "size": "Large",
+  "type": "Celestial (Angel)",
+  "alignment": "Lawful Good",
+  "armor_class": {
+    "value": 19,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 10,
+    "total": 20
+  },
+  "hit_points": {
+    "average": 262,
+    "formula": "21d10 + 147"
+  },
+  "speed": {
+    "walk": 40,
+    "fly": "120 (hover)"
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 24,
+      "modifier": 7,
+      "saving_throw": 12
+    },
+    "dexterity": {
+      "score": 20,
+      "modifier": 5,
+      "saving_throw": 5
+    },
+    "constitution": {
+      "score": 24,
+      "modifier": 7,
+      "saving_throw": 12
+    },
+    "intelligence": {
+      "score": 19,
+      "modifier": 4,
+      "saving_throw": 4
+    },
+    "wisdom": {
+      "score": 22,
+      "modifier": 6,
+      "saving_throw": 11
+    },
+    "charisma": {
+      "score": 25,
+      "modifier": 7,
+      "saving_throw": 12
+    }
+  },
+  "skills": {
+    "perception": 11
+  },
+  "damage_resistances": ["Radiant"],
+  "condition_immunities": ["Charmed", "Exhaustion", "Frightened"],
+  "senses": {
+    "truesight": 120,
+    "passive_perception": 21
+  },
+  "languages": ["All", "telepathy 120 ft."],
+  "challenge_rating": {
+    "cr": 16,
+    "xp": 15000,
+    "proficiency_bonus": 5
+  },
+  "spellcasting": {
+    "description": "The planetar casts one of the following spells, requiring no Material components and using Charisma as spellcasting ability (spell save DC 20):",
+    "spells": {
+      "at_will": ["Detect Evil and Good"],
+      "1_per_day_each": ["Commune", "Control Weather", "Dispel Evil and Good", "Raise Dead"]
+    }
+  },
+  "traits": [
+    {
+      "name": "Divine Awareness",
+      "description": "The planetar knows if it hears a lie."
+    },
+    {
+      "name": "Exalted Restoration",
+      "description": "If the planetar dies outside Mount Celestia, its body disappears, and it gains a new body instantly, reviving with all its Hit Points somewhere in Mount Celestia."
+    },
+    {
+      "name": "Magic Resistance",
+      "description": "The planetar has Advantage on saving throws against spells and other magical effects."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The planetar makes three Radiant Sword attacks or uses Holy Burst twice."
+    },
+    {
+      "name": "Radiant Sword",
+      "description": "Melee Attack Roll: +12, reach 10 ft. Hit: 14 (2d6 + 7) Slashing damage plus 18 (4d8) Radiant damage.",
+      "attack_roll": 12,
+      "reach": 10,
+      "damage": "14 (2d6 + 7) + 18 (4d8)",
+      "damage_type": "Slashing + Radiant"
+    },
+    {
+      "name": "Holy Burst",
+      "description": "Dexterity Saving Throw: DC 20, each enemy in a 20-foot-radius Sphere centered on a point the planetar can see within 120 feet. Failure: 24 (7d6) Radiant damage. Success: Half damage.",
+      "range": 120,
+      "saving_throw": "DC 20 Dexterity",
+      "damage": "24 (7d6)",
+      "damage_type": "Radiant"
+    },
+    {
+      "name": "Spellcasting",
+      "description": "The planetar casts one of the following spells, requiring no Material components and using Charisma as spellcasting ability (spell save DC 20): At Will: Detect Evil and Good; 1/Day Each: Commune, Control Weather, Dispel Evil and Good, Raise Dead"
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Divine Aid (2/Day)",
+      "description": "The planetar casts Cure Wounds, Invisibility, Lesser Restoration, or Remove Curse, using the same spellcasting ability as Spellcasting."
+    }
+  ],
+  "tactical_info": {
+    "role": "Divine Champion/Heavenly General",
+    "environment": "Mount Celestia, divine temples, sites of great good, celestial battlefields",
+    "tactics": "Uses holy burst for area damage, radiant sword for high single-target damage, divine aid for support, powerful spellcasting",
+    "weaknesses": "Vulnerable to overwhelming evil magic, limited daily spell uses, predictable good alignment",
+    "signature_abilities": ["Lie detection", "Area radiant damage", "Divine restoration", "Powerful spellcasting", "Exalted restoration"]
+  }
+}

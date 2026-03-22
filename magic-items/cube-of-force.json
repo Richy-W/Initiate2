@@ -1,0 +1,43 @@
+{
+  "name": "Cube of Force",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "requires_attunement": true,
+  "overview": "A 1-inch cube with different spell-casting faces, using a charge system.",
+  "properties": {
+    "physical_description": "This cube is about an inch across. Each face has a distinct marking on it.",
+    "activation": "You can press one of those faces, expend the number of charges required for it, and thereby cast the spell associated with it (save DC 17)"
+  },
+  "charges": {
+    "starting": 10,
+    "recharge": "1d6 expended charges daily at dawn"
+  },
+  "spells": [
+    {
+      "spell": "Mage Armor",
+      "charge_cost": 1
+    },
+    {
+      "spell": "Shield",
+      "charge_cost": 1
+    },
+    {
+      "spell": "Leomund's Tiny Hut",
+      "charge_cost": 3
+    },
+    {
+      "spell": "Mordenkainen's Private Sanctum",
+      "charge_cost": 4
+    },
+    {
+      "spell": "Otiluke's Resilient Sphere",
+      "charge_cost": 4
+    },
+    {
+      "spell": "Wall of Force",
+      "charge_cost": 5
+    }
+  ],
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

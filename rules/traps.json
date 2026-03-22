@@ -1,0 +1,406 @@
+{
+  "id": "traps",
+  "name": "Traps",
+  "description": "Rules for trap design, usage, mechanics, and 8 example traps spanning levels 1-20",
+  "design_philosophy": {
+    "overview": "Traps should be used sparingly, lest they lose their charm",
+    "key_principle": "A hidden pit can be a fun surprise, but too many traps in an adventure can lead players to become overly cautious, which slows down the game",
+    "best_practices": [
+      "The best traps are fleeting distractions that skilled characters can overcome in a short amount of time",
+      "Deadly puzzles that require quick thinking and teamwork to overcome are engaging",
+      "Traps that are undetectable and inescapable are rarely fun",
+      "Caution: A trap that is a nuisance at one level range could be deadly to characters of a lower level range"
+    ]
+  },
+  "sections": {
+    "parts_of_a_trap": {
+      "title": "Parts of a Trap",
+      "description": "The description of a trap includes the following parts after the trap's name",
+      "components": {
+        "severity_and_levels": {
+          "name": "Severity and Levels",
+          "description": "A trap is designated as a nuisance or as deadly for characters of certain levels",
+          "definitions": {
+            "nuisance_trap": "Unlikely to kill or seriously harm characters of the indicated levels",
+            "deadly_trap": "Can grievously damage characters of the indicated levels"
+          }
+        },
+        "trigger": {
+          "name": "Trigger",
+          "description": "Traps are often set to go off when a creature enters an area or touches an object",
+          "examples": [
+            "Stepping on a pressure plate",
+            "Crossing a trip wire",
+            "Turning a doorknob",
+            "Using the wrong key in a lock"
+          ]
+        },
+        "duration": {
+          "name": "Duration",
+          "description": "How long the trap's effects last",
+          "types": [
+            "Duration expressed in rounds, minutes, or hours",
+            "Lasts until the trap is destroyed or dispelled",
+            "Instantaneous (effect is resolved instantly)"
+          ]
+        }
+      }
+    },
+    "example_traps": {
+      "title": "Example Traps",
+      "description": "Traps are presented in alphabetical order",
+      "traps": {
+        "collapsing_roof": {
+          "name": "Collapsing Roof",
+          "severity": "Deadly Trap",
+          "levels": "1–4",
+          "trigger": "A creature crosses a trip wire",
+          "duration": "Instantaneous",
+          "description": "This trap uses a trip wire to collapse an unstable section of ceiling. The trip wire is 3 inches off the ground and stretches between two weak supports that topple when the trip wire is pulled.",
+          "mechanics": {
+            "effect": "The first creature that crosses the trip wire causes the supports to topple and the unstable section of ceiling to collapse",
+            "targets": "Each creature beneath the unstable section of ceiling",
+            "save": "DC 13 Dexterity saving throw",
+            "damage": "11 (2d10) Bludgeoning damage on a failed save or half as much damage on a successful one",
+            "additional": "Rubble from the collapse turns the trapped area into Difficult Terrain"
+          },
+          "detect_and_disarm": {
+            "detect": {
+              "action": "Search action",
+              "check": "DC 11 Wisdom (Perception) check",
+              "detects": "The trip wire and the unstable section of ceiling"
+            },
+            "disarm": "Once detected, the trip wire can be easily cut or avoided (no ability check required)"
+          },
+          "higher_levels": {
+            "5_10": {
+              "levels": "5–10",
+              "damage": "22 (4d10) Bludgeoning",
+              "save_dc": 15
+            },
+            "11_16": {
+              "levels": "11–16",
+              "damage": "55 (10d10) Bludgeoning",
+              "save_dc": 17
+            },
+            "17_20": {
+              "levels": "17–20",
+              "damage": "99 (18d10) Bludgeoning",
+              "save_dc": 19
+            }
+          }
+        },
+        "falling_net": {
+          "name": "Falling Net",
+          "severity": "Nuisance Trap",
+          "levels": "1–4",
+          "trigger": "A creature crosses a trip wire",
+          "duration": "Instantaneous",
+          "description": "A falling net trap uses a trip wire to release a weighted, 10-foot-square Net suspended from the ceiling. The trip wire is 3 inches off the ground and stretches between two columns or trees.",
+          "mechanics": {
+            "effect": "The first creature that crosses the trip wire causes the Net to fall on it",
+            "save": "DC 10 Dexterity saving throw",
+            "failure": "Has the Restrained condition until it escapes",
+            "automatic_success": "The target succeeds automatically if it's Huge or larger"
+          },
+          "escape": {
+            "action": "Action",
+            "check": "DC 10 Strength (Athletics) check",
+            "effect": "Freeing itself or another creature within its reach from the Net on a successful check"
+          },
+          "detect_and_disarm": {
+            "detect": {
+              "action": "Search action",
+              "check": "DC 11 Wisdom (Perception) check",
+              "detects": "The trip wire and the suspended Net"
+            },
+            "disarm": "Once detected, the trip wire can be easily cut or avoided (no ability check required)"
+          },
+          "destroy_net": "Reducing the Net to 0 Hit Points frees any creature trapped in it",
+          "set_trap": {
+            "requirement": "Thieves' Tools and all the trap's components (including a Net)",
+            "check": "DC 13 Dexterity (Sleight of Hand) check",
+            "time": "10 minutes per attempt"
+          },
+          "higher_levels": {
+            "scaling": "Increasing the weight of the Net increases the save DC and the DC of the Strength (Athletics) check",
+            "5_10": "DC 12",
+            "11_16": "DC 14",
+            "17_20": "DC 16"
+          }
+        },
+        "fire_casting_statue": {
+          "name": "Fire-Casting Statue",
+          "severity": "Deadly Trap",
+          "levels": "1–4",
+          "trigger": "A creature moves onto a pressure plate",
+          "duration": "Instantaneous",
+          "description": "When a creature moves onto this trap's pressure plate for the first time on a turn or starts its turn there, a nearby statue exhales a 15-foot Cone of magical flame. The statue can look like anything, such as a dragon or a wizard.",
+          "mechanics": {
+            "targets": "Each creature in the Cone",
+            "save": "DC 15 Dexterity saving throw",
+            "damage": "11 (2d10) Fire damage on a failed save or half as much damage on a successful one"
+          },
+          "detect_and_disarm": {
+            "detect_magic": "A Detect Magic spell reveals an aura of Evocation magic around the statue",
+            "find_glyph": {
+              "action": "Search action",
+              "location": "Within 5 feet of the statue",
+              "check": "DC 10 Wisdom (Perception) check",
+              "detects": "A tiny glyph on the statue"
+            },
+            "read_glyph": {
+              "action": "Study action",
+              "check": "DC 15 Intelligence (Arcana) check",
+              "result": "Ascertaining that the glyph means 'fire'"
+            },
+            "deface_glyph": {
+              "action": "Action with a sharp tool",
+              "effect": "Defacing the glyph disarms the trap"
+            },
+            "pressure_plate": {
+              "method": "Examine the section of floor that forms the pressure plate",
+              "action": "Search action",
+              "check": "DC 15 Wisdom (Perception) check",
+              "disarm": "Wedging an Iron Spike or similar object under the pressure plate prevents the trap from triggering"
+            }
+          },
+          "higher_levels": {
+            "5_10": {
+              "levels": "5–10",
+              "damage": "22 (4d10) Fire",
+              "area": "30-foot Cone"
+            },
+            "11_16": {
+              "levels": "11–16",
+              "damage": "55 (10d10) Fire",
+              "area": "60-foot Cone"
+            },
+            "17_20": {
+              "levels": "17–20",
+              "damage": "99 (18d10) Fire",
+              "area": "120-foot Cone"
+            }
+          }
+        },
+        "hidden_pit": {
+          "name": "Hidden Pit",
+          "severity": "Nuisance Trap",
+          "levels": "1–4",
+          "trigger": "A creature moves onto the pit's lid",
+          "duration": "Instantaneous",
+          "description": "This 10-foot-deep pit has a hinged lid constructed from material identical to the surrounding floor. When a creature moves onto the lid, it swings open like a trapdoor, causing the creature to fall into the pit. The lid remains open thereafter.",
+          "mechanics": {
+            "damage": "3 (1d6) Bludgeoning damage from the fall"
+          },
+          "detect_and_disarm": {
+            "action": "Study action",
+            "check": "DC 15 Intelligence (Investigation) check",
+            "detects": "The pit",
+            "disarm_methods": [
+              "Wedge an Iron Spike or similar object between the pit's lid and the surrounding floor to prevent the lid from opening",
+              "Hold the cover shut using Arcane Lock or similar magic"
+            ]
+          },
+          "escape": "A creature needs a Climb Speed, climbing gear, or magic such as Spider Climb to scale the pit's smooth walls. (You can make the pit easier to escape by adding cracks in the walls big enough to serve as handholds and footholds.)",
+          "higher_levels": {
+            "5_10": {
+              "levels": "5–10",
+              "depth": "30 feet",
+              "damage": "10 (3d6) Bludgeoning"
+            },
+            "11_16": {
+              "levels": "11–16",
+              "depth": "60 feet",
+              "damage": "21 (6d6) Bludgeoning"
+            },
+            "17_20": {
+              "levels": "17–20",
+              "depth": "120 feet",
+              "damage": "42 (12d6) Bludgeoning"
+            }
+          }
+        },
+        "poisoned_darts": {
+          "name": "Poisoned Darts",
+          "severity": "Deadly Trap",
+          "levels": "1–4",
+          "trigger": "A creature moves onto a pressure plate",
+          "duration": "Instantaneous",
+          "description": "When a creature moves onto this trap's pressure plate for the first time on a turn, poisoned darts shoot from tubes embedded in the surrounding walls. The holes that house these tubes are obscured by dust and cobwebs, or skillfully hidden amid bas-reliefs, murals, or frescoes.",
+          "mechanics": {
+            "targets": "Each creature in the darts' path",
+            "save": "DC 13 Dexterity saving throw",
+            "effect": "Be struck by 1d3 darts, taking 3 (1d6) Poison damage per dart on a failed save"
+          },
+          "detect_and_disarm": {
+            "find_holes": {
+              "action": "Search action",
+              "check": "DC 15 Wisdom (Perception) check",
+              "detects": "The holes",
+              "disarm": "Plugging all the holes with wax, cloth, or detritus prevents the darts from firing"
+            },
+            "find_pressure_plate": {
+              "action": "Search action",
+              "check": "DC 15 Wisdom (Perception) check",
+              "detects": "The pressure plate",
+              "disarm": "Wedging an Iron Spike or similar object under the pressure plate prevents the trap from triggering"
+            }
+          },
+          "higher_levels": {
+            "5_10": {
+              "levels": "5–10",
+              "damage_per_dart": "7 (2d6) Poison"
+            },
+            "11_16": {
+              "levels": "11–16",
+              "damage_per_dart": "14 (4d6) Poison"
+            },
+            "17_20": {
+              "levels": "17–20",
+              "damage_per_dart": "24 (7d6) Poison"
+            }
+          }
+        },
+        "poisoned_needle": {
+          "name": "Poisoned Needle",
+          "severity": "Nuisance Trap",
+          "levels": "1–4",
+          "trigger": "A creature opens the trap's lock improperly or fails to disarm the trap",
+          "duration": "Instantaneous",
+          "description": "A poisoned needle is hidden in a lock. When a creature opens the lock with any object other than the proper key, the needle springs out and stabs the creature.",
+          "mechanics": {
+            "save": "DC 11 Constitution saving throw",
+            "failure": {
+              "damage": "5 (1d10) Poison damage",
+              "effect": "Has the Poisoned condition for 1 hour"
+            },
+            "success": "Takes half as much damage only"
+          },
+          "avoid": "The trap doesn't trigger if the lock is opened using a Knock spell or similar magic",
+          "detect_and_disarm": {
+            "detect": {
+              "action": "Search action",
+              "check": "DC 15 Wisdom (Perception) check",
+              "detects": "The needle"
+            },
+            "disarm": {
+              "action": "Action",
+              "check": "DC 15 Dexterity (Sleight of Hand) check",
+              "effect": "On a failed check, the creature triggers the trap"
+            }
+          },
+          "higher_levels": {
+            "5_10": {
+              "levels": "5–10",
+              "damage": "11 (2d10) Poison",
+              "save_dc": 13
+            },
+            "11_16": {
+              "levels": "11–16",
+              "damage": "22 (4d10) Poison",
+              "save_dc": 15
+            },
+            "17_20": {
+              "levels": "17–20",
+              "damage": "55 (10d10) Poison",
+              "save_dc": 17
+            }
+          }
+        },
+        "rolling_stone": {
+          "name": "Rolling Stone",
+          "severity": "Deadly Trap (Levels 11–16) or Nuisance Trap (Levels 17–20)",
+          "levels": "11–20",
+          "trigger": "A creature moves onto a pressure plate",
+          "duration": "Until the stone stops rolling",
+          "description": "When a creature moves onto a hidden pressure plate, a 5-foot-radius orb of solid stone is released from a secret compartment and begins to roll.",
+          "mechanics": {
+            "initiative": "The stone and all creatures nearby roll Initiative; the stone gets a +8 bonus on its Initiative roll",
+            "movement": "On its turn, the stone moves 60 feet in one direction, changing course if redirected by an obstacle",
+            "space": "The stone can move through creatures' spaces, and creatures can move through the stone's space, treating it as Difficult Terrain",
+            "collision": "Whenever the stone enters a creature's space for the first time on a turn or a creature enters the stone's space while the stone is rolling",
+            "save": "DC 15 Dexterity saving throw",
+            "effect": "On a failed save, take 55 (10d10) Bludgeoning damage and have the Prone condition",
+            "stopping": "The stone stops when it hits a wall or similar barrier. It can't go around corners, but creative dungeon builders incorporate curving turns into nearby passages that allow the stone to keep moving"
+          },
+          "detect_and_disarm": {
+            "detect": {
+              "action": "Study action",
+              "check": "DC 15 Intelligence (Investigation) check",
+              "deduces": "The pressure plate's function"
+            },
+            "disarm": "Wedging an Iron Spike or similar object under the pressure plate prevents the trap from triggering"
+          },
+          "destroy_stone": {
+            "type": "Large object",
+            "ac": 17,
+            "hp": 100,
+            "damage_threshold": 10,
+            "immunities": ["Poison", "Psychic"]
+          },
+          "slow_stone": {
+            "action": "Action",
+            "check": "DC 20 Strength (Athletics) check",
+            "effect": "If successful, the distance the stone moves on its turn is reduced by 15 feet",
+            "stopping": "If that distance drops to 0, it stops moving and is no longer a threat"
+          }
+        },
+        "spiked_pit": {
+          "name": "Spiked Pit",
+          "severity": "Deadly Trap",
+          "levels": "1–4",
+          "trigger": "A creature moves onto the pit's lid",
+          "duration": "Instantaneous",
+          "description": "A 10-foot-deep pit has a hinged lid constructed from material identical to the surrounding floor. When a creature moves onto the lid, it swings open like a trapdoor, causing the creature to fall into the pit, which has sharpened wooden or metal spikes at the bottom. The lid remains open thereafter.",
+          "mechanics": {
+            "damage": "3 (1d6) Bludgeoning damage from the fall plus 9 (2d8) Piercing damage from the spikes"
+          },
+          "detect_and_disarm": {
+            "detect": {
+              "action": "Study action",
+              "check": "DC 15 Intelligence (Investigation) check",
+              "detects": "The pit"
+            },
+            "disarm_methods": [
+              "Wedge an Iron Spike or similar object between the pit's lid and the surrounding floor to prevent the lid from opening",
+              "Hold the cover shut using an Arcane Lock spell or similar magic"
+            ]
+          },
+          "escape": "A creature needs a Climb Speed, climbing gear, or magic such as a Spider Climb spell to scale the pit's smooth walls. You can make the pit easier to escape by adding cracks in the walls big enough to serve as handholds and footholds.",
+          "higher_levels": {
+            "5_10": {
+              "levels": "5–10",
+              "depth": "30 feet",
+              "damage": "10 (3d6) Bludgeoning plus 13 (3d8) Piercing"
+            },
+            "11_16": {
+              "levels": "11–16",
+              "depth": "60 feet",
+              "damage": "21 (6d6) Bludgeoning plus 36 (8d8) Piercing"
+            },
+            "17_20": {
+              "levels": "17–20",
+              "depth": "120 feet",
+              "damage": "42 (12d6) Bludgeoning plus 57 (13d8) Piercing"
+            }
+          }
+        }
+      }
+    }
+  },
+  "contains": [
+    "Trap design philosophy and best practices",
+    "Parts of a trap (Severity, Trigger, Duration)",
+    "8 example traps spanning levels 1-20",
+    "Collapsing Roof (deadly, trip wire, terrain hazard)",
+    "Falling Net (nuisance, restraint condition)",
+    "Fire-Casting Statue (deadly, cone damage, multiple detection methods)",
+    "Hidden Pit (nuisance, fall damage, escape mechanics)",
+    "Poisoned Darts (deadly, multiple targets, damage per dart)",
+    "Poisoned Needle (nuisance, lock-based, poisoned condition)",
+    "Rolling Stone (deadly/nuisance by level, initiative, collision mechanics)",
+    "Spiked Pit (deadly, fall + spike damage, scaling by level)",
+    "Scaling tables for higher character levels (5-10, 11-16, 17-20)"
+  ]
+}

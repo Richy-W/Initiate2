@@ -1,0 +1,99 @@
+{
+  "name": "Hobgoblin Captain",
+  "size": "Medium",
+  "type": "Fey (Goblinoid)",
+  "alignment": "Lawful Evil",
+  "armor_class": {
+    "value": 17,
+    "source": "Half-Plate Armor"
+  },
+  "initiative": {
+    "bonus": 4,
+    "total": 14
+  },
+  "hit_points": {
+    "average": 58,
+    "formula": "9d8 + 18"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "charisma": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    }
+  },
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 10
+  },
+  "languages": ["Common", "Goblin"],
+  "challenge_rating": {
+    "cr": 3,
+    "xp": 700,
+    "proficiency_bonus": 2
+  },
+  "equipment": ["Greatsword", "Half-Plate Armor", "Longbow"],
+  "traits": [
+    {
+      "name": "Aura of Authority",
+      "description": "While in a 10-foot Emanation originating from the hobgoblin, the hobgoblin and its allies have Advantage on attack rolls and saving throws, provided the hobgoblin doesn't have the Incapacitated condition."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The hobgoblin makes two attacks, using Greatsword or Longbow in any combination."
+    },
+    {
+      "name": "Greatsword",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 9 (2d6 + 2) Slashing damage plus 3 (1d6) Poison damage.",
+      "attack_roll": 4,
+      "reach": 5,
+      "damage": "9 (2d6 + 2) Slashing plus 3 (1d6) Poison",
+      "damage_type": "Slashing + Poison"
+    },
+    {
+      "name": "Longbow",
+      "description": "Ranged Attack Roll: +4, range 150/600 ft. Hit: 6 (1d8 + 2) Piercing damage plus 5 (2d4) Poison damage.",
+      "attack_roll": 4,
+      "range": "150/600",
+      "damage": "6 (1d8 + 2) Piercing plus 5 (2d4) Poison",
+      "damage_type": "Piercing + Poison"
+    }
+  ],
+  "tactical_info": {
+    "role": "Military Leader/Support",
+    "environment": "Leading hobgoblin forces, fortress command posts, organized military campaigns",
+    "tactics": "Uses aura of authority to enhance all allies, multiattack versatility, coordinates group tactics",
+    "weaknesses": "Aura requires conscious control, becomes priority target due to support abilities",
+    "signature_abilities": ["10-foot advantage aura", "Multiattack flexibility", "Poison weapon coating", "Leadership presence"]
+  }
+}

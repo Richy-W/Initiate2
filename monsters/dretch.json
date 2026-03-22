@@ -1,0 +1,88 @@
+{
+  "name": "Dretch",
+  "size": "Small",
+  "type": "Fiend (Demon)",
+  "alignment": "Chaotic Evil",
+  "armor_class": {
+    "value": 11,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 0,
+    "total": 10
+  },
+  "hit_points": {
+    "average": 18,
+    "formula": "4d6 + 4"
+  },
+  "speed": {
+    "walk": 20
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "dexterity": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "intelligence": {
+      "score": 5,
+      "modifier": -3,
+      "saving_throw": -3
+    },
+    "wisdom": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    },
+    "charisma": {
+      "score": 3,
+      "modifier": -4,
+      "saving_throw": -4
+    }
+  },
+  "damage_resistances": ["Cold", "Fire", "Lightning"],
+  "damage_immunities": ["Poison"],
+  "condition_immunities": ["Poisoned"],
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 9
+  },
+  "languages": ["Abyssal; telepathy 60 ft. (works only with creatures that understand Abyssal)"],
+  "challenge_rating": {
+    "cr": 0.25,
+    "xp": 50,
+    "proficiency_bonus": 2
+  },
+  "actions": [
+    {
+      "name": "Rend",
+      "description": "Melee Attack Roll: +3, reach 5 ft. Hit: 4 (1d6 + 1) Slashing damage.",
+      "attack_roll": 3,
+      "reach": 5,
+      "damage": "4 (1d6 + 1)",
+      "damage_type": "Slashing"
+    },
+    {
+      "name": "Fetid Cloud (1/Day)",
+      "description": "Constitution Saving Throw: DC 11, each creature in a 10-foot Emanation originating from the dretch. Failure: The target has the Poisoned condition until the end of its next turn. While Poisoned, the creature can take either an action or a Bonus Action on its turn, not both, and it can't take Reactions.",
+      "save_dc": 11
+    }
+  ],
+  "tactical_info": {
+    "role": "Lowly Demon Minion",
+    "environment": "Abyss, demon-infested areas, summoning circles",
+    "tactics": "Swarms enemies in groups, uses fetid cloud to disable actions, serves as distraction for stronger demons",
+    "weaknesses": "Very low stats across the board, relies entirely on numbers and surprise",
+    "signature_abilities": ["Fetid cloud incapacitation", "Demon resistances", "Abyssal telepathy", "Swarm tactics"]
+  }
+}

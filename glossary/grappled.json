@@ -1,0 +1,14 @@
+{
+  "name": "Grappled",
+  "slug": "grappled",
+  "definition": "A condition where your speed is 0 and you're held by a grappler",
+  "category": "Conditions",
+  "tags": ["[Condition]", "speed", "disadvantage"],
+  "full_text": "While you have the Grappled condition, you experience the following effects.\n\nSpeed 0. Your Speed is 0 and can't increase.\n\nAttacks Affected. You have Disadvantage on attack rolls against any target other than the grappler.\n\nMovable. The grappler can drag or carry you when it moves, but every foot of movement costs it 1 extra foot unless you are Tiny or two or more sizes smaller than it.",
+  "mechanics": {
+    "speed": "0 and can't be increased",
+    "attack_rolls": "Disadvantage against all targets except grappler",
+    "grappler_movement": "1 extra foot per foot of movement to drag/carry you (exception for Tiny or 2+ sizes smaller)"
+  },
+  "see_also": ["condition", "grappling", "speed", "disadvantage"]
+}

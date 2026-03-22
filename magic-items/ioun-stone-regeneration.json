@@ -1,0 +1,17 @@
+{
+  "name": "Ioun Stone: Regeneration",
+  "type": "Wondrous Item",
+  "rarity": "Legendary",
+  "attunement": true,
+  "description": "You regain 15 Hit Points at the end of each hour this pearly white spindle orbits your head if you have at least 1 Hit Point.",
+  "properties": {
+    "shape": "Pearly white spindle",
+    "orbit": "1d3 feet from head",
+    "max_concurrent_stones": 3,
+    "regeneration": {
+      "hit_points": 15,
+      "frequency": "At the end of each hour",
+      "requirement": "At least 1 Hit Point remaining"
+    }
+  }
+}

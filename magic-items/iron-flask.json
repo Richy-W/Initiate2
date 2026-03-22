@@ -1,0 +1,166 @@
+{
+  "name": "Iron Flask",
+  "type": "Wondrous Item",
+  "rarity": "Legendary",
+  "attunement": false,
+  "description": "While holding this brass-stoppered iron flask, you can take a Magic action to target a creature that you can see within 60 feet of yourself. If the flask is empty and the target is native to a plane of existence other than the one you're on, the target must succeed on a DC 17 Wisdom saving throw or be trapped in the flask.",
+  "properties": {
+    "appearance": "Brass-stoppered iron flask",
+    "trapping": {
+      "activation": "Magic action",
+      "range": "60 feet",
+      "requirement": "Flask is empty and target is native to different plane",
+      "save": {
+        "save_type": "Wisdom",
+        "save_dc": 17
+      },
+      "advantage": "Target has Advantage if already trapped by flask before",
+      "effect_on_fail": "Target trapped in flask"
+    },
+    "capacity": "One creature at a time",
+    "trapped_conditions": {
+      "aging": "Creature doesn't age",
+      "sustenance": "Doesn't need to breathe, eat, or drink"
+    },
+    "release": {
+      "activation": "Magic action",
+      "action": "Remove stopper",
+      "effect": "Release creature from flask"
+    },
+    "released_creature": {
+      "obedience_duration": "1 hour",
+      "obedience": "Creature obeys your commands, understands commands even if language unknown",
+      "limitations": {
+        "no_command": "Defends itself but takes no other actions",
+        "suicidal_command": "Defends itself but takes no actions if command likely results in death/imprisonment"
+      },
+      "after_duration": "Acts in accordance with normal disposition and alignment"
+    },
+    "identification": {
+      "identify_spell": "Reveals if flask contains creature",
+      "creature_type": "Only way to determine type is to open flask"
+    },
+    "contents_table": [
+      {
+        "roll": "01–50",
+        "contents": "No creature"
+      },
+      {
+        "roll": "51",
+        "contents": "Arcanaloth"
+      },
+      {
+        "roll": "52–54",
+        "contents": "Bone Devil"
+      },
+      {
+        "roll": "55–56",
+        "contents": "Cambion"
+      },
+      {
+        "roll": "57–58",
+        "contents": "Dao"
+      },
+      {
+        "roll": "59",
+        "contents": "Deva"
+      },
+      {
+        "roll": "60–61",
+        "contents": "Djinni"
+      },
+      {
+        "roll": "62–63",
+        "contents": "Efreeti"
+      },
+      {
+        "roll": "64–65",
+        "contents": "Erinyes"
+      },
+      {
+        "roll": "66–67",
+        "contents": "Fomorian"
+      },
+      {
+        "roll": "68",
+        "contents": "Githyanki Knight"
+      },
+      {
+        "roll": "69",
+        "contents": "Githzerai Zerth"
+      },
+      {
+        "roll": "70–71",
+        "contents": "Glabrezu"
+      },
+      {
+        "roll": "72–74",
+        "contents": "Hezrou"
+      },
+      {
+        "roll": "75",
+        "contents": "Incubus"
+      },
+      {
+        "roll": "76–77",
+        "contents": "Invisible Stalker"
+      },
+      {
+        "roll": "78–79",
+        "contents": "Marid"
+      },
+      {
+        "roll": "80",
+        "contents": "Marilith"
+      },
+      {
+        "roll": "81–82",
+        "contents": "Mezzoloth"
+      },
+      {
+        "roll": "83–84",
+        "contents": "Nalfeshnee"
+      },
+      {
+        "roll": "85–86",
+        "contents": "Night Hag"
+      },
+      {
+        "roll": "87–88",
+        "contents": "Nycaloth"
+      },
+      {
+        "roll": "89",
+        "contents": "Planetar"
+      },
+      {
+        "roll": "90–91",
+        "contents": "Red Slaad"
+      },
+      {
+        "roll": "92–93",
+        "contents": "Salamander"
+      },
+      {
+        "roll": "94",
+        "contents": "Solar"
+      },
+      {
+        "roll": "95",
+        "contents": "Succubus"
+      },
+      {
+        "roll": "96",
+        "contents": "Ultroloth"
+      },
+      {
+        "roll": "97–99",
+        "contents": "Vrock"
+      },
+      {
+        "roll": "00",
+        "contents": "Xorn"
+      }
+    ]
+  }
+}

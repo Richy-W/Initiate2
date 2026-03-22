@@ -1,0 +1,66 @@
+{
+  "name": "Gnome",
+  "description": "Gnomes are magical folk created by gods of invention, illusions, and life underground. The earliest gnomes were seldom seen by other folk due to the gnomes' secretive nature and their propensity for living in forests and burrows. What they lacked in size, they made up for in cleverness. They confounded predators with traps and labyrinthine tunnels. They also learned magic from gods like Garl Glittergold, Baervan Wildwanderer, and Baravar Cloakshadow, who visited them in disguise. That magic eventually created the lineages of forest gnomes and rock gnomes. Gnomes are petite folk with big eyes and pointed ears, who live around 425 years. Many gnomes like the feeling of a roof over their head, even if that 'roof' is nothing more than a hat.",
+  "creatureType": "Humanoid",
+  "size": {
+    "category": "Small",
+    "height": "about 3–4 feet tall"
+  },
+  "speed": 30,
+  "lifespan": "around 425 years",
+  "traits": [
+    {
+      "name": "Darkvision",
+      "description": "You have Darkvision with a range of 60 feet.",
+      "type": "passive"
+    },
+    {
+      "name": "Gnomish Cunning",
+      "description": "You have Advantage on Intelligence, Wisdom, and Charisma saving throws.",
+      "type": "advantage"
+    },
+    {
+      "name": "Gnomish Lineage",
+      "description": "You are part of a lineage that grants you supernatural abilities. Choose one of the following options; whichever one you choose, Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage).",
+      "type": "passive"
+    }
+  ],
+  "variants": [
+    {
+      "name": "Forest Gnome",
+      "description": "Forest gnomes are connected to nature and woodland creatures.",
+      "spellProgression": {
+        "spellcastingAbility": ["Intelligence", "Wisdom", "Charisma"],
+        "level1": ["Minor Illusion", "Speak with Animals"]
+      },
+      "traits": [
+        {
+          "name": "Speak with Animals",
+          "description": "You always have the Speak with Animals spell prepared. You can cast it without a spell slot a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest. You can also use any spell slots you have to cast the spell.",
+          "type": "spell",
+          "usesPerRest": "proficiency",
+          "restType": "long"
+        }
+      ]
+    },
+    {
+      "name": "Rock Gnome",
+      "description": "Rock gnomes are skilled tinkerers and inventors with a talent for mechanical devices.",
+      "spellProgression": {
+        "spellcastingAbility": ["Intelligence", "Wisdom", "Charisma"],
+        "level1": ["Mending", "Prestidigitation"]
+      },
+      "traits": [
+        {
+          "name": "Clockwork Device",
+          "description": "You can spend 10 minutes casting Prestidigitation to create a Tiny clockwork device (AC 5, 1 HP), such as a toy, fire starter, or music box. When you create the device, you determine its function by choosing one effect from Prestidigitation; the device produces that effect whenever you or another creature takes a Bonus Action to activate it with a touch. You can have three such devices in existence at a time, and each falls apart 8 hours after its creation or when you dismantle it with a touch as a Utilize action.",
+          "type": "active"
+        }
+      ]
+    }
+  ],
+  "senses": {
+    "darkvision": 60
+  },
+  "sourceBook": "Player's Handbook 2024"
+}

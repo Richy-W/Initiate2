@@ -1,0 +1,64 @@
+{
+  "name": "Killer Whale",
+  "size": "Huge",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 12,
+  "hit_points": 90,
+  "hit_dice": "12d12 + 12",
+  "speed": {
+    "walk": 5,
+    "swim": 60
+  },
+  "ability_scores": {
+    "strength": 19,
+    "dexterity": 14,
+    "constitution": 13,
+    "intelligence": 3,
+    "wisdom": 12,
+    "charisma": 7
+  },
+  "saving_throws": {
+    "strength": 4,
+    "dexterity": 2,
+    "constitution": 1,
+    "intelligence": -4,
+    "wisdom": 1,
+    "charisma": -2
+  },
+  "skills": {
+    "perception": 3,
+    "stealth": 4
+  },
+  "senses": [
+    "Blindsight 120 ft.",
+    "Passive Perception 13"
+  ],
+  "languages": "None",
+  "challenge_rating": 3,
+  "experience_points": 700,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Hold Breath",
+      "description": "The whale can hold its breath for 30 minutes."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +6, reach 5 ft. Hit: 21 (5d6 + 4) Piercing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Striker - Apex aquatic predator with massive damage",
+    "positioning": "Uses huge size and speed to ram and bite",
+    "damage_output": "21 piercing per hit, devastating single attacks",
+    "key_abilities": "Massive HP pool, extended blindsight (120 ft), high swim speed",
+    "weaknesses": "Restricted to aquatic environments, large target",
+    "synergies": "Dominates open water encounters, excellent for naval combat"
+  }
+}

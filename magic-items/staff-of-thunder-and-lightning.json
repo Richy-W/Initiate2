@@ -1,0 +1,68 @@
+{
+  "name": "Staff of Thunder and Lightning",
+  "type": "Staff",
+  "rarity": "Very Rare",
+  "attunement": true,
+  "description": "This staff can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it.",
+  "properties": {
+    "weapon": {
+      "type": "Magic Quarterstaff",
+      "attack_bonus": "+2",
+      "damage_bonus": "+2"
+    },
+    "lightning": {
+      "trigger": "Hit with melee attack",
+      "action_type": "No action required",
+      "damage": "Extra 2d6 Lightning damage",
+      "recharge": "Next dawn"
+    },
+    "thunder": {
+      "trigger": "Hit with melee attack",
+      "action_type": "No action required",
+      "audibility": "Audible out to 300 feet",
+      "saving_throw": {
+        "type": "Constitution",
+        "dc": 17
+      },
+      "on_failure": {
+        "condition": "Stunned",
+        "duration": "Until end of your next turn"
+      },
+      "recharge": "Next dawn"
+    },
+    "thunder_and_lightning": {
+      "trigger": "After hit with melee attack",
+      "action_type": "Bonus Action",
+      "effect": "Use both Lightning and Thunder properties",
+      "special": "Doesn't expend daily use of both properties, only use of this one",
+      "recharge": "Next dawn"
+    },
+    "lightning_strike": {
+      "action_type": "Magic action",
+      "effect": "Bolt of lightning from staff tip",
+      "area": "Line 5 feet wide, 120 feet long",
+      "saving_throw": {
+        "type": "Dexterity",
+        "dc": 17
+      },
+      "damage": "9d6 Lightning damage on failed save, half on success",
+      "recharge": "Next dawn"
+    },
+    "thunderclap": {
+      "action_type": "Magic action",
+      "audibility": "Audible out to 600 feet",
+      "area": "60-foot Emanation from you",
+      "saving_throw": {
+        "type": "Constitution",
+        "dc": 17
+      },
+      "on_failure": {
+        "damage": "2d6 Thunder damage",
+        "condition": "Deafened",
+        "duration": "1 minute"
+      },
+      "on_success": "Half damage only",
+      "recharge": "Next dawn"
+    }
+  }
+}

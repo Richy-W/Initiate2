@@ -1,0 +1,28 @@
+{
+  "name": "Boon of Irresistible Offense",
+  "category": "Epic Boon",
+  "prerequisite": {
+    "level": 19
+  },
+  "benefits": [
+    {
+      "name": "Ability Score Increase",
+      "description": "Increase your Strength, Dexterity, or Constitution score by 1, to a maximum of 30.",
+      "type": "abilityScoreIncrease"
+    },
+    {
+      "name": "Overwhelming Strike",
+      "description": "When you deal damage with a weapon or an Unarmed Strike, you can change the damage type to Force, and you can push the target up to 10 feet away from you. Once you use this benefit, you can't use it again until you roll Initiative or finish a Short or Long Rest.",
+      "type": "attack"
+    }
+  ],
+  "repeatable": false,
+  "choices": [
+    {
+      "name": "Ability Score Increase",
+      "options": ["Strength", "Dexterity", "Constitution"],
+      "count": 1
+    }
+  ],
+  "sourceBook": "Player's Handbook 2024"
+}

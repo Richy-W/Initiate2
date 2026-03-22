@@ -1,0 +1,92 @@
+{
+  "title": "Action Economy and Turn Structure",
+  "description": "Rules governing how actions work in sequence and the types of actions available",
+  "version": "2024",
+  "one_thing_at_a_time": {
+    "principle": "The game uses actions to govern how much you can do at one time. You can take only one action at a time.",
+    "importance": "This principle is most important in combat, but applies in all situations",
+    "examples": {
+      "social_interaction": "In a social interaction, you can try to Influence a creature or use the Search action to read the creature's body language, but you can't do both at the same time",
+      "exploration": "When you're exploring a dungeon, you can't simultaneously use the Search action to look for traps and use the Help action to aid another character who's trying to open a stuck door (with the Utilize action)"
+    }
+  },
+  "bonus_actions": {
+    "description": "Various class features, spells, and other abilities let you take an additional action on your turn called a Bonus Action",
+    "requirements": {
+      "availability": "You can take a Bonus Action only when a special ability, a spell, or another feature of the game states that you can do something as a Bonus Action",
+      "default_state": "You otherwise don't have a Bonus Action to take"
+    },
+    "limitations": {
+      "quantity": "You can take only one Bonus Action on your turn, so you must choose which Bonus Action to use if you have more than one available",
+      "timing": "You choose when to take a Bonus Action during your turn unless the Bonus Action's timing is specified",
+      "dependency": "Anything that deprives you of your ability to take actions also prevents you from taking a Bonus Action"
+    },
+    "examples": [
+      {
+        "source": "Cunning Action (Rogue feature)",
+        "description": "Allows a Rogue to take a Bonus Action for specific abilities"
+      },
+      {
+        "source": "Two-Weapon Fighting",
+        "description": "Attack with off-hand weapon as a bonus action"
+      },
+      {
+        "source": "Healing Word (spell)",
+        "description": "Cast as a bonus action to heal at range"
+      }
+    ]
+  },
+  "reactions": {
+    "description": "Certain special abilities, spells, and situations allow you to take a special action called a Reaction",
+    "characteristics": {
+      "trigger_based": "A Reaction is an instant response to a trigger of some kind, which can occur on your turn or on someone else's",
+      "most_common": "The Opportunity Attack is the most common type of Reaction"
+    },
+    "limitations": {
+      "frequency": "When you take a Reaction, you can't take another one until the start of your next turn",
+      "interruption": "If the reaction interrupts another creature's turn, that creature can continue its turn right after the Reaction"
+    },
+    "timing": {
+      "default": "A Reaction takes place immediately after its trigger unless the Reaction's description says otherwise"
+    },
+    "common_reactions": [
+      {
+        "name": "Opportunity Attack",
+        "trigger": "A creature leaves your reach without using the Disengage action",
+        "response": "Make one melee attack against the creature"
+      },
+      {
+        "name": "Counterspell",
+        "trigger": "A creature within range casts a spell",
+        "response": "Attempt to counter the spell"
+      },
+      {
+        "name": "Shield (spell)",
+        "trigger": "You are hit by an attack or targeted by Magic Missile",
+        "response": "Increase AC and potentially negate the attack"
+      }
+    ]
+  },
+  "action_economy_summary": {
+    "per_turn_limits": {
+      "action": "One action per turn (unless specifically granted additional actions)",
+      "bonus_action": "One bonus action per turn (only if a feature grants it)",
+      "reaction": "One reaction per round (resets at start of your next turn)",
+      "movement": "Movement up to your Speed (can be broken up)",
+      "free_interactions": "One free object interaction per turn"
+    },
+    "timing_flexibility": {
+      "action": "Taken during your turn at any point you choose",
+      "bonus_action": "Taken during your turn at any point you choose (unless timing specified)",
+      "reaction": "Taken immediately after trigger occurs (on any creature's turn)",
+      "movement": "Can be broken up before and after your action",
+      "interaction": "Must occur during movement or action"
+    }
+  },
+  "character_motivation": {
+    "roleplay_question": "Ask yourself as you play, 'What would my character do?'",
+    "approach": "Playing a role involves some amount of getting into another person's head and understanding what motivates them and how those motivations translate into action",
+    "context": "In D&D, those actions unfold against the backdrop of a fantastic world full of situations we can only imagine. How does your character react to those situations?",
+    "caveat": "Avoid character choices that ruin the fun of the other players and the DM. Choose actions that delight you and your friends."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Eyes of Minute Seeing",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "attunement": false,
+  "description": "These crystal lenses fit over the eyes. While wearing them, your vision improves significantly out to a range of 1 foot, granting you Darkvision within that range and Advantage on Intelligence (Investigation) checks made to examine something within that range.",
+  "properties": {
+    "type": "Crystal lenses",
+    "range": "1 foot",
+    "darkvision": true,
+    "darkvision_range": "1 foot",
+    "investigation_advantage": true,
+    "investigation_advantage_type": "Intelligence (Investigation) checks made to examine something within 1 foot range"
+  }
+}

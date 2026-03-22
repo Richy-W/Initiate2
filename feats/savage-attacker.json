@@ -1,0 +1,13 @@
+{
+  "name": "Savage Attacker",
+  "category": "Origin",
+  "benefits": [
+    {
+      "name": "Enhanced Weapon Damage",
+      "description": "Once per turn when you hit a target with a weapon, you can roll the weapon's damage dice twice and use either roll against the target.",
+      "type": "combat"
+    }
+  ],
+  "repeatable": false,
+  "sourceBook": "Player's Handbook 2024"
+}

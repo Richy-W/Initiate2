@@ -1,0 +1,83 @@
+{
+  "name": "Pegasus",
+  "size": "Large",
+  "type": "Celestial",
+  "alignment": "Chaotic Good",
+  "armor_class": {
+    "value": 12,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 2,
+    "total": 12
+  },
+  "hit_points": {
+    "average": 59,
+    "formula": "7d10 + 21"
+  },
+  "speed": {
+    "walk": 60,
+    "fly": 90
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 18,
+      "modifier": 4,
+      "saving_throw": 4
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 4
+    },
+    "constitution": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 5
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "wisdom": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 4
+    },
+    "charisma": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 3
+    }
+  },
+  "skills": {
+    "perception": 6
+  },
+  "senses": {
+    "passive_perception": 16
+  },
+  "languages": ["Understands Celestial, Common, Elvish, and Sylvan but can't speak"],
+  "challenge_rating": {
+    "cr": 2,
+    "xp": 450,
+    "proficiency_bonus": 2
+  },
+  "actions": [
+    {
+      "name": "Hooves",
+      "description": "Melee Attack Roll: +6, reach 5 ft. Hit: 7 (1d6 + 4) Bludgeoning damage plus 5 (2d4) Radiant damage.",
+      "attack_roll": 6,
+      "reach": 5,
+      "damage": "7 (1d6 + 4) + 5 (2d4)",
+      "damage_type": "Bludgeoning + Radiant"
+    }
+  ],
+  "tactical_info": {
+    "role": "Divine Mount/Aerial Support",
+    "environment": "Celestial realms, sacred groves, mountainous regions, places of divine power",
+    "tactics": "Uses high flight speed for mobility, radiant damage hooves against evil creatures, serves as mount for good-aligned characters",
+    "weaknesses": "Single attack per turn, vulnerable when grounded, selective about riders",
+    "signature_abilities": ["High flight speed", "Radiant damage hooves", "Celestial nature", "Mount capabilities"]
+  }
+}

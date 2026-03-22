@@ -1,0 +1,69 @@
+{
+  "name": "Giant Toad",
+  "size": "Large",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 11,
+  "hit_points": 39,
+  "hit_dice": "6d10 + 6",
+  "speed": {
+    "walk": 30,
+    "swim": 30
+  },
+  "ability_scores": {
+    "strength": 15,
+    "dexterity": 13,
+    "constitution": 13,
+    "intelligence": 2,
+    "wisdom": 10,
+    "charisma": 3
+  },
+  "saving_throws": {
+    "strength": 2,
+    "dexterity": 1,
+    "constitution": 1,
+    "intelligence": -4,
+    "wisdom": 0,
+    "charisma": -4
+  },
+  "skills": {},
+  "senses": [
+    "Darkvision 60 ft.",
+    "Passive Perception 10"
+  ],
+  "languages": "None",
+  "challenge_rating": 1,
+  "experience_points": 200,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Amphibious",
+      "description": "The toad can breathe air and water."
+    },
+    {
+      "name": "Standing Leap",
+      "description": "The toad's Long Jump is up to 20 feet and its High Jump is up to 10 feet with or without a running start."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 5 (1d6 + 2) Piercing damage plus 5 (2d4) Poison damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 12)."
+    },
+    {
+      "name": "Swallow",
+      "description": "The toad swallows a Medium or smaller target it is grappling. While swallowed, the target isn't Grappled but has the Blinded and Restrained conditions, and it has Total Cover against attacks and other effects outside the toad. In addition, the target takes 10 (3d6) Acid damage at the end of each of the toad's turns. The toad can have only one target swallowed at a time, and it can't use Bite while it has a swallowed target. If the toad dies, a swallowed creature is no longer Restrained and can escape from the corpse using 5 feet of movement, exiting with the Prone condition."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Controller/Striker - Grappler with swallow ability",
+    "positioning": "Uses Standing Leap for mobility, amphibious nature",
+    "damage_output": "10 per hit + ongoing acid damage to swallowed targets",
+    "key_abilities": "Swallow removes enemies from combat, deals ongoing acid damage",
+    "weaknesses": "Cannot bite while having swallowed a target",
+    "synergies": "Excellent for removing key enemies from battle temporarily"
+  }
+}

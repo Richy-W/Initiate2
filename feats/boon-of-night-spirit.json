@@ -1,0 +1,28 @@
+{
+  "name": "Boon of Night Spirit",
+  "category": "Epic Boon",
+  "prerequisite": {
+    "level": 19
+  },
+  "benefits": [
+    {
+      "name": "Ability Score Increase",
+      "description": "Increase your Dexterity, Wisdom, or Charisma score by 1, to a maximum of 30.",
+      "type": "abilityScoreIncrease"
+    },
+    {
+      "name": "Merge with Shadows",
+      "description": "While entirely in Dim Light or Darkness, you have the Invisible condition. You aren't Invisible if you take an action, make an attack, or cast a spell.",
+      "type": "special"
+    }
+  ],
+  "repeatable": false,
+  "choices": [
+    {
+      "name": "Ability Score Increase",
+      "options": ["Dexterity", "Wisdom", "Charisma"],
+      "count": 1
+    }
+  ],
+  "sourceBook": "Player's Handbook 2024"
+}

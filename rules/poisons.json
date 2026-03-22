@@ -1,0 +1,316 @@
+{
+  "id": "poisons",
+  "name": "Poisons",
+  "description": "Rules for poison types, acquisition, and 14 example poisons used as tools by assassins and evil creatures",
+  "introduction": "Given their insidious and deadly nature, poisons are a favorite tool among assassins and evil creatures.",
+  "sections": {
+    "poison_types": {
+      "title": "Poison Types",
+      "description": "Poisons come in the following four types",
+      "types": {
+        "contact": {
+          "name": "Contact",
+          "description": "Contact poison can be smeared on an object and remains potent until it is touched or washed off",
+          "mechanics": "A creature that touches contact poison with exposed skin suffers its effects"
+        },
+        "ingested": {
+          "name": "Ingested",
+          "description": "A creature must swallow an entire dose of ingested poison to suffer its effects",
+          "delivery": "The dose can be delivered in food or a liquid",
+          "dm_note": "You may decide that a partial dose has a reduced effect, such as allowing Advantage on the saving throw or dealing only half as much damage on a failed save"
+        },
+        "inhaled": {
+          "name": "Inhaled",
+          "description": "Poisonous powders and gases take effect when inhaled",
+          "mechanics": [
+            "Blowing the powder or releasing the gas subjects creatures in a 5-foot Cube to its effect",
+            "The resulting cloud dissipates immediately afterward",
+            "Holding one's breath is ineffective against inhaled poisons, as they affect nasal membranes, tear ducts, and other parts of the body"
+          ]
+        },
+        "injury": {
+          "name": "Injury",
+          "description": "Injury poison can be applied as a Bonus Action to a weapon, a piece of ammunition, or similar object",
+          "mechanics": "The poison remains potent until delivered through a wound or washed off",
+          "effect": "A creature that takes Piercing or Slashing damage from an object coated with the poison is exposed to its effects"
+        }
+      }
+    },
+    "purchasing_poison": {
+      "title": "Purchasing Poison",
+      "description": "How characters can acquire poisons",
+      "overview": "In some settings, laws prohibit the possession and use of poison, but an illicit dealer or unscrupulous apothecary might keep a hidden stash",
+      "acquisition": [
+        "Characters with criminal contacts might be able to acquire poison easily",
+        "Other characters might have to make extensive inquiries and pay bribes before they acquire the poison they seek"
+      ]
+    },
+    "harvesting_poison": {
+      "title": "Harvesting Poison",
+      "description": "How to extract poison from venomous creatures",
+      "requirements": "A character can attempt to harvest poison from a venomous creature that is dead or has the Incapacitated condition",
+      "mechanics": {
+        "time": "1d6 minutes",
+        "check": "DC 20 Intelligence (Nature) check",
+        "tools": "Poisoner's Kit",
+        "results": {
+          "success": "The character harvests enough poison for a single dose, and no additional poison can be harvested from that creature",
+          "failure": "The character is unable to extract any poison",
+          "critical_failure": "If the character fails the check by 5 or more, the character is subjected to the creature's poison"
+        }
+      }
+    },
+    "sample_poisons": {
+      "title": "Sample Poisons",
+      "description": "Example poisons are detailed here in alphabetical order",
+      "note": "Each poison's description includes the suggested price for a single dose, its type, and a description of the poison's debilitating effects",
+      "poisons": {
+        "assassins_blood": {
+          "name": "Assassin's Blood",
+          "price": "150 gp",
+          "type": "Ingested",
+          "mechanics": {
+            "save": "DC 10 Constitution saving throw",
+            "failure": {
+              "damage": "6 (1d12) Poison damage",
+              "effect": "Has the Poisoned condition for 24 hours"
+            },
+            "success": "Takes half as much damage only"
+          }
+        },
+        "burnt_othur_fumes": {
+          "name": "Burnt Othur Fumes",
+          "price": "500 gp",
+          "type": "Inhaled",
+          "mechanics": {
+            "initial_save": "DC 13 Constitution saving throw",
+            "failure": {
+              "damage": "10 (3d6) Poison damage",
+              "recurring": "Must repeat the save at the start of each of its turns"
+            },
+            "successive_failures": "Takes 3 (1d6) Poison damage on each successive failed save",
+            "cure": "After three successful saves, the poison ends"
+          }
+        },
+        "carrion_crawler_mucus": {
+          "name": "Carrion Crawler Mucus",
+          "price": "200 gp",
+          "type": "Contact",
+          "mechanics": {
+            "save": "DC 13 Constitution saving throw",
+            "failure": {
+              "effect": "Has the Poisoned condition for 1 minute",
+              "additional": "Also has the Paralyzed condition while Poisoned in this way"
+            },
+            "recovery": "The creature repeats the save at the end of each of its turns, ending the effect on itself on a success"
+          }
+        },
+        "essence_of_ether": {
+          "name": "Essence of Ether",
+          "price": "300 gp",
+          "type": "Inhaled",
+          "mechanics": {
+            "save": "DC 15 Constitution saving throw",
+            "failure": {
+              "effect": "Has the Poisoned condition for 8 hours",
+              "additional": "Also has the Unconscious condition while Poisoned in this way"
+            },
+            "waking": "The creature wakes up if it takes damage or if another creature takes an action to shake it awake"
+          }
+        },
+        "lolths_sting": {
+          "name": "Lolth's Sting",
+          "price": "200 gp",
+          "type": "Injury",
+          "mechanics": {
+            "save": "DC 13 Constitution saving throw",
+            "failure": {
+              "effect": "Has the Poisoned condition for 1 hour"
+            },
+            "critical_failure": {
+              "trigger": "If the creature fails the save by 5 or more",
+              "effect": "Also has the Unconscious condition while Poisoned in this way"
+            },
+            "waking": "The creature wakes up if it takes damage or if another creature takes an action to shake it awake"
+          }
+        },
+        "malice": {
+          "name": "Malice",
+          "price": "250 gp",
+          "type": "Inhaled",
+          "mechanics": {
+            "save": "DC 15 Constitution saving throw",
+            "failure": {
+              "effect": "Has the Poisoned condition for 1 hour",
+              "additional": "Also has the Blinded condition while Poisoned in this way"
+            }
+          }
+        },
+        "midnight_tears": {
+          "name": "Midnight Tears",
+          "price": "1,500 gp",
+          "type": "Ingested",
+          "mechanics": {
+            "onset": "A creature that ingests Midnight Tears suffers no effect until the stroke of midnight",
+            "neutralization": "Any effect that ends the Poisoned condition neutralizes this poison",
+            "trigger": "If the poison hasn't been neutralized before midnight",
+            "save": "DC 17 Constitution saving throw",
+            "damage": "31 (9d6) Poison damage on a failed save or half as much damage on a successful one"
+          }
+        },
+        "oil_of_taggit": {
+          "name": "Oil of Taggit",
+          "price": "400 gp",
+          "type": "Contact",
+          "mechanics": {
+            "save": "DC 13 Constitution saving throw",
+            "failure": {
+              "effect": "Has the Poisoned condition for 24 hours",
+              "additional": "Also has the Unconscious condition while Poisoned in this way"
+            },
+            "waking": "It wakes up if it takes damage"
+          }
+        },
+        "pale_tincture": {
+          "name": "Pale Tincture",
+          "price": "250 gp",
+          "type": "Ingested",
+          "mechanics": {
+            "save": "DC 16 Constitution saving throw",
+            "failure": {
+              "damage": "3 (1d6) Poison damage",
+              "effect": "Has the Poisoned condition"
+            },
+            "recurring": {
+              "frequency": "Every 24 hours",
+              "save": "DC 16 Constitution saving throw",
+              "damage": "3 (1d6) Poison damage on a failed save"
+            },
+            "special": "The damage the poison deals can't be healed by any means while the creature remains Poisoned",
+            "cure": "After seven successful saves against the poison, the creature is no longer Poisoned"
+          }
+        },
+        "purple_worm_poison": {
+          "name": "Purple Worm Poison",
+          "price": "2,000 gp",
+          "type": "Injury",
+          "mechanics": {
+            "save": "DC 21 Constitution saving throw",
+            "damage": "35 (10d6) Poison damage on a failed save or half as much damage on a successful one"
+          }
+        },
+        "serpent_venom": {
+          "name": "Serpent Venom",
+          "price": "200 gp",
+          "type": "Injury",
+          "mechanics": {
+            "save": "DC 11 Constitution saving throw",
+            "damage": "10 (3d6) Poison damage on a failed save or half as much damage on a successful one"
+          }
+        },
+        "torpor": {
+          "name": "Torpor",
+          "price": "600 gp",
+          "type": "Ingested",
+          "mechanics": {
+            "save": "DC 15 Constitution saving throw",
+            "failure": {
+              "effect": "Has the Poisoned condition for 4d6 hours",
+              "additional": "Speed is halved while the creature is Poisoned in this way"
+            }
+          }
+        },
+        "truth_serum": {
+          "name": "Truth Serum",
+          "price": "150 gp",
+          "type": "Ingested",
+          "mechanics": {
+            "save": "DC 11 Constitution saving throw",
+            "failure": {
+              "effect": "Has the Poisoned condition for 1 hour",
+              "special": "The Poisoned creature can't knowingly communicate a lie"
+            }
+          }
+        },
+        "wyvern_poison": {
+          "name": "Wyvern Poison",
+          "price": "1,200 gp",
+          "type": "Injury",
+          "mechanics": {
+            "save": "DC 14 Constitution saving throw",
+            "damage": "24 (7d6) Poison damage on a failed save or half as much damage on a successful one"
+          }
+        }
+      }
+    }
+  },
+  "poison_by_type": {
+    "contact": [
+      "Carrion Crawler Mucus (200 gp, DC 13, Poisoned + Paralyzed 1 min)",
+      "Oil of Taggit (400 gp, DC 13, Poisoned + Unconscious 24 hrs)"
+    ],
+    "ingested": [
+      "Assassin's Blood (150 gp, DC 10, 1d12 Poison + Poisoned 24 hrs)",
+      "Midnight Tears (1,500 gp, DC 17 at midnight, 9d6 Poison)",
+      "Pale Tincture (250 gp, DC 16, 1d6 Poison + Poisoned daily checks, 7 saves)",
+      "Torpor (600 gp, DC 15, Poisoned 4d6 hrs, half Speed)",
+      "Truth Serum (150 gp, DC 11, Poisoned 1 hr, can't lie)"
+    ],
+    "inhaled": [
+      "Burnt Othur Fumes (500 gp, DC 13, 3d6 Poison, recurring saves, 3 successes to end)",
+      "Essence of Ether (300 gp, DC 15, Poisoned 8 hrs + Unconscious)",
+      "Malice (250 gp, DC 15, Poisoned 1 hr + Blinded)"
+    ],
+    "injury": [
+      "Lolth's Sting (200 gp, DC 13, Poisoned 1 hr, DC 13-5 for Unconscious)",
+      "Purple Worm Poison (2,000 gp, DC 21, 10d6 Poison)",
+      "Serpent Venom (200 gp, DC 11, 3d6 Poison)",
+      "Wyvern Poison (1,200 gp, DC 14, 7d6 Poison)"
+    ]
+  },
+  "poison_by_price": {
+    "budget": {
+      "range": "150-200 gp",
+      "poisons": [
+        "Assassin's Blood (150 gp)",
+        "Truth Serum (150 gp)",
+        "Carrion Crawler Mucus (200 gp)",
+        "Lolth's Sting (200 gp)",
+        "Serpent Venom (200 gp)"
+      ]
+    },
+    "standard": {
+      "range": "250-400 gp",
+      "poisons": [
+        "Malice (250 gp)",
+        "Pale Tincture (250 gp)",
+        "Essence of Ether (300 gp)",
+        "Oil of Taggit (400 gp)"
+      ]
+    },
+    "premium": {
+      "range": "500-600 gp",
+      "poisons": [
+        "Burnt Othur Fumes (500 gp)",
+        "Torpor (600 gp)"
+      ]
+    },
+    "rare": {
+      "range": "1,200-2,000 gp",
+      "poisons": [
+        "Wyvern Poison (1,200 gp)",
+        "Midnight Tears (1,500 gp)",
+        "Purple Worm Poison (2,000 gp)"
+      ]
+    }
+  },
+  "contains": [
+    "Four poison types (Contact, Ingested, Inhaled, Injury)",
+    "Purchasing poison rules and acquisition methods",
+    "Harvesting poison from venomous creatures (DC 20 Nature check)",
+    "14 example poisons with mechanics and prices",
+    "Poison effects including damage, conditions, and durations",
+    "Poison organization by type and price point",
+    "Special mechanics (delayed onset, healing immunity, daily recurring saves)"
+  ]
+}

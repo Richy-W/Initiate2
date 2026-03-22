@@ -1,0 +1,217 @@
+{
+  "name": "Dragonborn",
+  "description": "The ancestors of dragonborn hatched from the eggs of chromatic and metallic dragons. One story holds that these eggs were blessed by the dragon gods Bahamut and Tiamat, who wanted to populate the multiverse with people created in their image. Another story claims that dragons created the first dragonborn without the gods' blessings. Whatever their origin, dragonborn have made homes for themselves on the Material Plane. Dragonborn look like wingless, bipedal dragons—scaly, bright-eyed, and thick-boned with horns on their heads—and their coloration and other features are reminiscent of their draconic ancestors.",
+  "creatureType": "Humanoid",
+  "size": {
+    "category": "Medium",
+    "height": "about 5–7 feet tall"
+  },
+  "speed": 30,
+  "traits": [
+    {
+      "name": "Draconic Ancestry",
+      "description": "Your lineage stems from a dragon progenitor. Choose the kind of dragon from the Draconic Ancestors table. Your choice affects your Breath Weapon and Damage Resistance traits as well as your appearance.",
+      "type": "passive"
+    },
+    {
+      "name": "Breath Weapon",
+      "description": "When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in either a 15-foot Cone or a 30-foot Line that is 5 feet wide (choose the shape each time). Each creature in that area must make a Dexterity saving throw (DC 8 plus your Constitution modifier and Proficiency Bonus). On a failed save, a creature takes 1d10 damage of the type determined by your Draconic Ancestry trait. On a successful save, a creature takes half as much damage. This damage increases by 1d10 when you reach character levels 5 (2d10), 11 (3d10), and 17 (4d10). You can use this Breath Weapon a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest.",
+      "type": "active",
+      "usesPerRest": "proficiency",
+      "restType": "long",
+      "scalesWithLevel": true,
+      "levelProgression": {
+        "5": "2d10",
+        "11": "3d10",
+        "17": "4d10"
+      }
+    },
+    {
+      "name": "Damage Resistance",
+      "description": "You have Resistance to the damage type determined by your Draconic Ancestry trait.",
+      "type": "resistance"
+    },
+    {
+      "name": "Darkvision",
+      "description": "You have Darkvision with a range of 60 feet.",
+      "type": "passive"
+    },
+    {
+      "name": "Draconic Flight",
+      "description": "When you reach character level 5, you can channel draconic magic to give yourself temporary flight. As a Bonus Action, you sprout spectral wings on your back that last for 10 minutes or until you retract the wings (no action required) or have the Incapacitated condition. During that time, you have a Fly Speed equal to your Speed. Your wings appear to be made of the same energy as your Breath Weapon. Once you use this trait, you can't use it again until you finish a Long Rest.",
+      "type": "bonus_action",
+      "usesPerRest": 1,
+      "restType": "long",
+      "scalesWithLevel": true,
+      "levelProgression": {
+        "5": "Available"
+      }
+    }
+  ],
+  "variants": [
+    {
+      "name": "Black Dragon Ancestry",
+      "description": "Descendant of black dragons",
+      "traits": [
+        {
+          "name": "Breath Weapon (Acid)",
+          "description": "Your breath weapon deals acid damage",
+          "type": "active"
+        },
+        {
+          "name": "Acid Resistance",
+          "description": "You have resistance to acid damage",
+          "type": "resistance"
+        }
+      ]
+    },
+    {
+      "name": "Blue Dragon Ancestry",
+      "description": "Descendant of blue dragons",
+      "traits": [
+        {
+          "name": "Breath Weapon (Lightning)",
+          "description": "Your breath weapon deals lightning damage",
+          "type": "active"
+        },
+        {
+          "name": "Lightning Resistance",
+          "description": "You have resistance to lightning damage",
+          "type": "resistance"
+        }
+      ]
+    },
+    {
+      "name": "Brass Dragon Ancestry",
+      "description": "Descendant of brass dragons",
+      "traits": [
+        {
+          "name": "Breath Weapon (Fire)",
+          "description": "Your breath weapon deals fire damage",
+          "type": "active"
+        },
+        {
+          "name": "Fire Resistance",
+          "description": "You have resistance to fire damage",
+          "type": "resistance"
+        }
+      ]
+    },
+    {
+      "name": "Bronze Dragon Ancestry",
+      "description": "Descendant of bronze dragons",
+      "traits": [
+        {
+          "name": "Breath Weapon (Lightning)",
+          "description": "Your breath weapon deals lightning damage",
+          "type": "active"
+        },
+        {
+          "name": "Lightning Resistance",
+          "description": "You have resistance to lightning damage",
+          "type": "resistance"
+        }
+      ]
+    },
+    {
+      "name": "Copper Dragon Ancestry",
+      "description": "Descendant of copper dragons",
+      "traits": [
+        {
+          "name": "Breath Weapon (Acid)",
+          "description": "Your breath weapon deals acid damage",
+          "type": "active"
+        },
+        {
+          "name": "Acid Resistance",
+          "description": "You have resistance to acid damage",
+          "type": "resistance"
+        }
+      ]
+    },
+    {
+      "name": "Gold Dragon Ancestry",
+      "description": "Descendant of gold dragons",
+      "traits": [
+        {
+          "name": "Breath Weapon (Fire)",
+          "description": "Your breath weapon deals fire damage",
+          "type": "active"
+        },
+        {
+          "name": "Fire Resistance",
+          "description": "You have resistance to fire damage",
+          "type": "resistance"
+        }
+      ]
+    },
+    {
+      "name": "Green Dragon Ancestry",
+      "description": "Descendant of green dragons",
+      "traits": [
+        {
+          "name": "Breath Weapon (Poison)",
+          "description": "Your breath weapon deals poison damage",
+          "type": "active"
+        },
+        {
+          "name": "Poison Resistance",
+          "description": "You have resistance to poison damage",
+          "type": "resistance"
+        }
+      ]
+    },
+    {
+      "name": "Red Dragon Ancestry",
+      "description": "Descendant of red dragons",
+      "traits": [
+        {
+          "name": "Breath Weapon (Fire)",
+          "description": "Your breath weapon deals fire damage",
+          "type": "active"
+        },
+        {
+          "name": "Fire Resistance",
+          "description": "You have resistance to fire damage",
+          "type": "resistance"
+        }
+      ]
+    },
+    {
+      "name": "Silver Dragon Ancestry",
+      "description": "Descendant of silver dragons",
+      "traits": [
+        {
+          "name": "Breath Weapon (Cold)",
+          "description": "Your breath weapon deals cold damage",
+          "type": "active"
+        },
+        {
+          "name": "Cold Resistance",
+          "description": "You have resistance to cold damage",
+          "type": "resistance"
+        }
+      ]
+    },
+    {
+      "name": "White Dragon Ancestry",
+      "description": "Descendant of white dragons",
+      "traits": [
+        {
+          "name": "Breath Weapon (Cold)",
+          "description": "Your breath weapon deals cold damage",
+          "type": "active"
+        },
+        {
+          "name": "Cold Resistance",
+          "description": "You have resistance to cold damage",
+          "type": "resistance"
+        }
+      ]
+    }
+  ],
+  "senses": {
+    "darkvision": 60
+  },
+  "sourceBook": "Player's Handbook 2024"
+}

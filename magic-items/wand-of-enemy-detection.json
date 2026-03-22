@@ -1,0 +1,28 @@
+{
+  "name": "Wand of Enemy Detection",
+  "type": "Wand",
+  "rarity": "Rare",
+  "attunement": true,
+  "description": "This wand has 7 charges. While holding it, you can take a Magic action to expend 1 charge. For 1 minute, you know the direction of the nearest creature Hostile to you within 60 feet, but not its distance from you.",
+  "properties": {
+    "charges": {
+      "max_charges": 7,
+      "current_charges": 7
+    },
+    "detection": {
+      "action_type": "Magic action",
+      "charges_cost": 1,
+      "range": "60 feet",
+      "target": "Nearest Hostile creature",
+      "information": "Direction only, not distance",
+      "duration": "1 minute",
+      "abilities": "Can sense Invisible, ethereal, disguised, hidden, or plainly visible creatures",
+      "ending": "Effect ends if you stop holding wand"
+    },
+    "regaining_charges": {
+      "recharge": "1d6 + 1 daily at dawn",
+      "destruction_condition": "Expend last charge and roll 1d20",
+      "on_roll_1": "Wand crumbles into ashes and is destroyed"
+    }
+  }
+}

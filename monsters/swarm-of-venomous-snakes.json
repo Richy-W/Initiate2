@@ -1,0 +1,64 @@
+{
+  "name": "Swarm of Venomous Snakes",
+  "size": "Medium",
+  "type": "Beast (Swarm)",
+  "alignment": "Unaligned",
+  "armor_class": 14,
+  "hit_points": 36,
+  "hit_dice": "8d8",
+  "speed": {
+    "walk": 30,
+    "swim": 30
+  },
+  "ability_scores": {
+    "strength": 8,
+    "dexterity": 18,
+    "constitution": 11,
+    "intelligence": 1,
+    "wisdom": 10,
+    "charisma": 3
+  },
+  "saving_throws": {
+    "strength": -1,
+    "dexterity": 4,
+    "constitution": 0,
+    "intelligence": -5,
+    "wisdom": 0,
+    "charisma": -4
+  },
+  "skills": {},
+  "damage_resistances": ["Bludgeoning", "Piercing", "Slashing"],
+  "damage_immunities": [],
+  "condition_immunities": ["Charmed", "Frightened", "Grappled", "Paralyzed", "Petrified", "Prone", "Restrained", "Stunned"],
+  "senses": [
+    "Blindsight 10 ft.",
+    "Passive Perception 10"
+  ],
+  "languages": "None",
+  "challenge_rating": 2,
+  "experience_points": 450,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Swarm",
+      "description": "The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny snake. The swarm can't regain Hit Points or gain Temporary Hit Points."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Bites",
+      "description": "Melee Attack Roll: +6, reach 5 ft. Hit: 8 (1d8 + 4) Piercing damage—or 6 (1d4 + 4) Piercing damage if the swarm is Bloodied—plus 10 (3d6) Poison damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "High-Damage Poison Swarm - Elite venomous assault unit",
+    "positioning": "Amphibious movement allows versatile positioning in mixed terrain",
+    "damage_output": "18 total damage (8 piercing + 10 poison) or 16 when bloodied",
+    "key_abilities": "Massive poison damage, high AC for swarm, amphibious",
+    "weaknesses": "Limited blindsight range, vulnerable to poison resistance",
+    "synergies": "Devastating damage dealer for mid-tier encounters"
+  }
+}

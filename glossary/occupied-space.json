@@ -1,0 +1,12 @@
+{
+  "name": "Occupied Space",
+  "slug": "occupied-space",
+  "definition": "A space in the game world containing a creature or filled by objects",
+  "category": "Objects & Items",
+  "tags": ["space", "positioning"],
+  "full_text": "A space is occupied if a creature is in it or if it is completely filled by objects.",
+  "mechanics": {
+    "occupied_by": "Creature presence OR completely filled by objects"
+  },
+  "see_also": ["object", "creature", "positioning"]
+}

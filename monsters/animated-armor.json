@@ -1,0 +1,85 @@
+{
+  "name": "Animated Armor",
+  "size": "Medium",
+  "type": "Construct",
+  "alignment": "Unaligned",
+  "armor_class": {
+    "value": 18,
+    "source": "natural armor"
+  },
+  "initiative": {
+    "bonus": 0,
+    "total": 10
+  },
+  "hit_points": {
+    "average": 33,
+    "formula": "6d8 + 6"
+  },
+  "speed": {
+    "walk": 25
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "dexterity": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "intelligence": {
+      "score": 1,
+      "modifier": -5,
+      "saving_throw": -5
+    },
+    "wisdom": {
+      "score": 3,
+      "modifier": -4,
+      "saving_throw": -4
+    },
+    "charisma": {
+      "score": 1,
+      "modifier": -5,
+      "saving_throw": -5
+    }
+  },
+  "damage_immunities": ["Poison", "Psychic"],
+  "condition_immunities": ["Charmed", "Deafened", "Exhaustion", "Frightened", "Paralyzed", "Petrified", "Poisoned"],
+  "senses": {
+    "blindsight": 60,
+    "passive_perception": 6
+  },
+  "languages": [],
+  "challenge_rating": {
+    "cr": 1,
+    "xp": 200,
+    "proficiency_bonus": 2
+  },
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The armor makes two Slam attacks."
+    },
+    {
+      "name": "Slam",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 5 (1d6 + 2) Bludgeoning damage.",
+      "attack_roll": 4,
+      "reach": 5,
+      "damage": "5 (1d6 + 2)",
+      "damage_type": "Bludgeoning"
+    }
+  ],
+  "tactical_info": {
+    "role": "Guardian/Sentinel",
+    "environment": "Dungeons, wizard towers, ancient ruins",
+    "tactics": "Simple melee combat, guards specific areas or objects",
+    "weaknesses": "No ranged attacks, predictable behavior"
+  }
+}

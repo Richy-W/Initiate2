@@ -1,0 +1,30 @@
+{
+  "name": "Robe of Eyes",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "attunement": true,
+  "description": "This robe is adorned with eyelike patterns.",
+  "properties": {
+    "all_around_vision": {
+      "effect": "Advantage on Wisdom (Perception) checks that rely on sight"
+    },
+    "special_senses": {
+      "darkvision": "120 feet",
+      "truesight": "120 feet"
+    },
+    "drawbacks": {
+      "light_spell": {
+        "trigger": "Light spell cast on robe",
+        "condition": "Blinded",
+        "duration": "1 minute",
+        "save": "Constitution saving throw DC 11 at end of each turn ends condition"
+      },
+      "daylight_spell": {
+        "trigger": "Daylight spell cast within 5 feet",
+        "condition": "Blinded",
+        "duration": "1 minute",
+        "save": "Constitution saving throw DC 15 at end of each turn ends condition"
+      }
+    }
+  }
+}

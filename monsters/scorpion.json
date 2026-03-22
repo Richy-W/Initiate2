@@ -1,0 +1,55 @@
+{
+  "name": "Scorpion",
+  "size": "Tiny",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 11,
+  "hit_points": 1,
+  "hit_dice": "1d4 - 1",
+  "speed": {
+    "walk": 10
+  },
+  "ability_scores": {
+    "strength": 2,
+    "dexterity": 11,
+    "constitution": 8,
+    "intelligence": 1,
+    "wisdom": 8,
+    "charisma": 2
+  },
+  "saving_throws": {
+    "strength": -4,
+    "dexterity": 0,
+    "constitution": -1,
+    "intelligence": -5,
+    "wisdom": -1,
+    "charisma": -4
+  },
+  "skills": {},
+  "senses": [
+    "Blindsight 10 ft.",
+    "Passive Perception 9"
+  ],
+  "languages": "None",
+  "challenge_rating": 0,
+  "experience_points": 10,
+  "proficiency_bonus": 2,
+  "features": [],
+  "actions": [
+    {
+      "name": "Sting",
+      "description": "Melee Attack Roll: +2, reach 5 ft. Hit: 1 Piercing damage plus 3 (1d6) Poison damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Venomous Pest - Tiny poisonous threat",
+    "positioning": "Uses small size to avoid detection and retaliation",
+    "damage_output": "4 total damage (1 piercing + 3 poison) per hit",
+    "key_abilities": "Poison damage that bypasses armor, blindsight detection",
+    "weaknesses": "Extremely low HP and reach",
+    "synergies": "Dangerous in groups or as environmental hazards"
+  }
+}

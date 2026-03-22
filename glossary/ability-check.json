@@ -1,0 +1,13 @@
+{
+  "name": "Ability Check",
+  "slug": "ability-check",
+  "definition": "An ability check is a D20 Test that represents using one of the six abilities—or a specific skill associated with an ability—to overcome a challenge.",
+  "category": "Abilities & Attributes",
+  "tags": [],
+  "full_text": "An ability check is a D20 Test that represents using one of the six abilities—or a specific skill associated with an ability—to overcome a challenge.",
+  "see_also": [
+    "D20 Test",
+    "The Six Abilities",
+    "Proficiency"
+  ]
+}

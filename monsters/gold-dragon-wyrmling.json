@@ -1,0 +1,106 @@
+{
+  "name": "Gold Dragon Wyrmling",
+  "size": "Medium",
+  "type": "Dragon (Metallic)",
+  "alignment": "Lawful Good",
+  "armor_class": {
+    "value": 17,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 4,
+    "total": 14
+  },
+  "hit_points": {
+    "average": 60,
+    "formula": "8d8 + 24"
+  },
+  "speed": {
+    "walk": 30,
+    "fly": 60,
+    "swim": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 19,
+      "modifier": 4,
+      "saving_throw": 4
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 4
+    },
+    "constitution": {
+      "score": 17,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "intelligence": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "wisdom": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 2
+    },
+    "charisma": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    }
+  },
+  "skills": {
+    "perception": 4,
+    "stealth": 4
+  },
+  "damage_immunities": ["Fire"],
+  "senses": {
+    "blindsight": 10,
+    "darkvision": 60,
+    "passive_perception": 14
+  },
+  "languages": ["Draconic"],
+  "challenge_rating": {
+    "cr": 3,
+    "xp": 700,
+    "proficiency_bonus": 2
+  },
+  "traits": [
+    {
+      "name": "Amphibious",
+      "description": "The dragon can breathe air and water."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The dragon makes two Rend attacks."
+    },
+    {
+      "name": "Rend",
+      "description": "Melee Attack Roll: +6, reach 5 ft. Hit: 9 (1d10 + 4) Slashing damage.",
+      "attack_roll": 6,
+      "reach": 5,
+      "damage": "9 (1d10 + 4)",
+      "damage_type": "Slashing"
+    },
+    {
+      "name": "Fire Breath (Recharge 5-6)",
+      "description": "Dexterity Saving Throw: DC 13, each creature in a 15-foot Cone. Failure: 22 (4d10) Fire damage. Success: Half damage."
+    },
+    {
+      "name": "Weakening Breath",
+      "description": "Strength Saving Throw: DC 13, each creature that isn't currently affected by this breath in a 15-foot Cone. Failure: The target has Disadvantage on Strength-based D20 Tests and subtracts 2 (1d4) from its damage rolls. It repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically."
+    }
+  ],
+  "tactical_info": {
+    "role": "Young Noble Dragon/Controller",
+    "environment": "Hidden lairs in mountains, ancient ruins, protective of good communities nearby",
+    "tactics": "Uses dual breath weapons tactically, fire for damage and weakening for debuffing, amphibious mobility",
+    "weaknesses": "Still young and inexperienced, lacks legendary actions of adult dragons, limited spell repertoire",
+    "signature_abilities": ["Dual breath weapons", "Fire immunity", "Amphibious nature", "Good alignment diplomacy"]
+  }
+}

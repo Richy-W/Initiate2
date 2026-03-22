@@ -1,0 +1,86 @@
+{
+  "name": "Eagle",
+  "size": "Small",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 12,
+  "initiative": 2,
+  "hit_points": {
+    "average": 4,
+    "formula": "1d6 + 1"
+  },
+  "speed": {
+    "walk": 10,
+    "fly": 60
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 6,
+      "modifier": -2,
+      "save": -2
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2,
+      "save": 2
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1,
+      "save": 1
+    },
+    "intelligence": {
+      "score": 2,
+      "modifier": -4,
+      "save": -4
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2,
+      "save": 2
+    },
+    "charisma": {
+      "score": 7,
+      "modifier": -2,
+      "save": -2
+    }
+  },
+  "skills": {
+    "perception": 6
+  },
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "passive_perception": 16
+  },
+  "languages": [],
+  "challenge_rating": 0,
+  "experience_points": 10,
+  "proficiency_bonus": 2,
+  "actions": [
+    {
+      "name": "Talons",
+      "type": "melee_attack",
+      "attack_bonus": 4,
+      "reach": 5,
+      "targets": "one target",
+      "damage": {
+        "damage_dice": "1d4 + 2",
+        "damage_type": "slashing",
+        "average_damage": 4
+      },
+      "description": "Melee Attack Roll: +4, reach 5 feet. Hit: 4 (1d4 + 2) Slashing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "traits": [],
+  "tactical_info": {
+    "optimal_range": "Aerial scout and messenger, minimal combat",
+    "key_abilities": ["Excellent perception", "High flight speed", "Small size maneuverability"],
+    "weaknesses": ["Very low hit points", "Weak on ground", "Minimal damage"],
+    "synergies": ["Aerial reconnaissance", "Familiar or animal companion", "Mountain and wilderness exploration"]
+  }
+}

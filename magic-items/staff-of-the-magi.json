@@ -1,0 +1,122 @@
+{
+  "name": "Staff of the Magi",
+  "type": "Staff",
+  "rarity": "Legendary",
+  "attunement": true,
+  "attunement_class": "Sorcerer, Warlock, or Wizard",
+  "description": "This staff has 50 charges and can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it.",
+  "properties": {
+    "weapon": {
+      "type": "Magic Quarterstaff",
+      "attack_bonus": "+2",
+      "damage_bonus": "+2"
+    },
+    "spell_attack_bonus": "+2",
+    "spell_absorption": {
+      "saving_throws": "Advantage on saving throws against spells",
+      "trigger": "Another creature casts spell targeting only you",
+      "action_type": "Reaction",
+      "effect": "Staff absorbs spell magic, canceling effect",
+      "charge_gain": "Gains charges equal to absorbed spell's level",
+      "overcharge_limit": "If total exceeds 50 charges, staff explodes as Retributive Strike"
+    },
+    "spells": [
+      {
+        "spell": "Arcane Lock",
+        "charges": 0
+      },
+      {
+        "spell": "Conjure Elemental",
+        "charges": 7
+      },
+      {
+        "spell": "Detect Magic",
+        "charges": 0
+      },
+      {
+        "spell": "Dispel Magic",
+        "charges": 3
+      },
+      {
+        "spell": "Enlarge/Reduce",
+        "charges": 0
+      },
+      {
+        "spell": "Fireball (level 7)",
+        "charges": 7
+      },
+      {
+        "spell": "Flaming Sphere",
+        "charges": 2
+      },
+      {
+        "spell": "Ice Storm",
+        "charges": 4
+      },
+      {
+        "spell": "Invisibility",
+        "charges": 2
+      },
+      {
+        "spell": "Knock",
+        "charges": 2
+      },
+      {
+        "spell": "Light",
+        "charges": 0
+      },
+      {
+        "spell": "Lightning Bolt (level 7)",
+        "charges": 7
+      },
+      {
+        "spell": "Mage Hand",
+        "charges": 0
+      },
+      {
+        "spell": "Passwall",
+        "charges": 5
+      },
+      {
+        "spell": "Plane Shift",
+        "charges": 7
+      },
+      {
+        "spell": "Protection from Evil and Good",
+        "charges": 0
+      },
+      {
+        "spell": "Telekinesis",
+        "charges": 5
+      },
+      {
+        "spell": "Wall of Fire",
+        "charges": 4
+      },
+      {
+        "spell": "Web",
+        "charges": 2
+      }
+    ],
+    "spell_save_dc": "Your spell save DC",
+    "regaining_charges": {
+      "recharge": "4d6 + 2 daily at dawn",
+      "destruction_check": "Roll 1d20 when last charge expended",
+      "on_roll_20": "Regains 1d12 + 1 charges"
+    },
+    "retributive_strike": {
+      "activation": "Magic action to break staff",
+      "effect": "Staff destroyed, magic released in 30-foot Emanation",
+      "avoidance": "50% chance to instantly travel to random plane avoiding explosion",
+      "caster_damage": "Force damage equal to 16 times number of charges",
+      "other_creatures": {
+        "saving_throw": {
+          "type": "Dexterity",
+          "dc": 17
+        },
+        "on_failure": "6 times number of charges in Force damage",
+        "on_success": "Half damage"
+      }
+    }
+  }
+}

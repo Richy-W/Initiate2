@@ -1,0 +1,63 @@
+{
+  "name": "Hunter Shark",
+  "size": "Large",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 12,
+  "hit_points": 45,
+  "hit_dice": "6d10 + 12",
+  "speed": {
+    "walk": 5,
+    "swim": 40
+  },
+  "ability_scores": {
+    "strength": 18,
+    "dexterity": 14,
+    "constitution": 15,
+    "intelligence": 1,
+    "wisdom": 10,
+    "charisma": 4
+  },
+  "saving_throws": {
+    "strength": 4,
+    "dexterity": 2,
+    "constitution": 2,
+    "intelligence": -5,
+    "wisdom": 0,
+    "charisma": -3
+  },
+  "skills": {
+    "perception": 2
+  },
+  "senses": [
+    "Blindsight 60 ft.",
+    "Passive Perception 12"
+  ],
+  "languages": "None",
+  "challenge_rating": 2,
+  "experience_points": 450,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Water Breathing",
+      "description": "The shark can breathe only underwater."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +6 (with Advantage if the target doesn't have all its Hit Points), reach 5 ft. Hit: 14 (3d6 + 4) Piercing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Striker - Underwater predator with blood frenzy",
+    "positioning": "Hunts wounded targets for advantage on attacks",
+    "damage_output": "14 piercing per hit with advantage against wounded foes",
+    "key_abilities": "Blood frenzy advantage, blindsight detection",
+    "weaknesses": "Restricted to underwater environments",
+    "synergies": "Excellent ambush predator in aquatic encounters"
+  }
+}

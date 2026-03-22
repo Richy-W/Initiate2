@@ -1,0 +1,216 @@
+{
+  "monster_schema": {
+    "version": "2024",
+    "description": "JSON schema for D&D 2024 monster stat blocks",
+    "required_fields": [
+      "name", "size", "type", "alignment", "armor_class", "hit_points", 
+      "speed", "ability_scores", "challenge_rating"
+    ],
+    "structure": {
+      "basic_info": {
+        "name": {
+          "type": "string",
+          "description": "Monster's name"
+        },
+        "size": {
+          "type": "string",
+          "enum": ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan"],
+          "description": "Physical size category"
+        },
+        "type": {
+          "type": "string",
+          "description": "Creature type (Aberration, Beast, Construct, etc.)",
+          "examples": ["Aberration", "Beast", "Celestial", "Construct", "Dragon", "Elemental", "Fey", "Fiend", "Giant", "Humanoid", "Monstrosity", "Ooze", "Plant", "Undead"]
+        },
+        "alignment": {
+          "type": "string",
+          "description": "Moral and ethical outlook",
+          "examples": ["Lawful Good", "Chaotic Evil", "Neutral", "Unaligned"]
+        }
+      },
+      "combat_stats": {
+        "armor_class": {
+          "value": {"type": "number"},
+          "source": {"type": "string", "optional": true, "description": "AC source (natural armor, etc.)"}
+        },
+        "initiative": {
+          "bonus": {"type": "number", "description": "Initiative modifier"},
+          "total": {"type": "number", "description": "Initiative + 10 for quick reference"}
+        },
+        "hit_points": {
+          "average": {"type": "number", "description": "Average HP"},
+          "formula": {"type": "string", "description": "Hit dice formula (e.g., '20d10 + 40')"},
+          "maximum": {"type": "number", "optional": true}
+        },
+        "speed": {
+          "walk": {"type": "number", "default": 30},
+          "fly": {"type": "number", "optional": true},
+          "swim": {"type": "number", "optional": true},
+          "burrow": {"type": "number", "optional": true},
+          "climb": {"type": "number", "optional": true},
+          "hover": {"type": "boolean", "optional": true, "description": "Can hover when flying"}
+        }
+      },
+      "ability_scores": {
+        "strength": {
+          "score": {"type": "number", "range": "1-30"},
+          "modifier": {"type": "number", "calculated": true},
+          "saving_throw": {"type": "number", "optional": true}
+        },
+        "dexterity": {
+          "score": {"type": "number", "range": "1-30"},
+          "modifier": {"type": "number", "calculated": true},
+          "saving_throw": {"type": "number", "optional": true}
+        },
+        "constitution": {
+          "score": {"type": "number", "range": "1-30"},
+          "modifier": {"type": "number", "calculated": true},
+          "saving_throw": {"type": "number", "optional": true}
+        },
+        "intelligence": {
+          "score": {"type": "number", "range": "1-30"},
+          "modifier": {"type": "number", "calculated": true},
+          "saving_throw": {"type": "number", "optional": true}
+        },
+        "wisdom": {
+          "score": {"type": "number", "range": "1-30"},
+          "modifier": {"type": "number", "calculated": true},
+          "saving_throw": {"type": "number", "optional": true}
+        },
+        "charisma": {
+          "score": {"type": "number", "range": "1-30"},
+          "modifier": {"type": "number", "calculated": true},
+          "saving_throw": {"type": "number", "optional": true}
+        }
+      },
+      "skills": {
+        "type": "object",
+        "description": "Skill bonuses beyond ability modifier",
+        "properties": {
+          "skill_name": {"type": "number", "description": "Total skill bonus"}
+        }
+      },
+      "damage_resistances": {
+        "type": "array",
+        "items": {"type": "string"},
+        "description": "Damage types resisted (half damage)"
+      },
+      "damage_vulnerabilities": {
+        "type": "array", 
+        "items": {"type": "string"},
+        "description": "Damage types vulnerability (double damage)"
+      },
+      "damage_immunities": {
+        "type": "array",
+        "items": {"type": "string"},
+        "description": "Damage types ignored completely"
+      },
+      "condition_immunities": {
+        "type": "array",
+        "items": {"type": "string"},
+        "description": "Conditions that don't affect this creature"
+      },
+      "senses": {
+        "passive_perception": {"type": "number", "required": true},
+        "darkvision": {"type": "number", "optional": true, "description": "Darkvision range in feet"},
+        "blindsight": {"type": "number", "optional": true},
+        "tremorsense": {"type": "number", "optional": true},
+        "truesight": {"type": "number", "optional": true},
+        "special": {"type": "string", "optional": true, "description": "Special senses"}
+      },
+      "languages": {
+        "type": "array",
+        "items": {"type": "string"},
+        "description": "Known languages and communication methods"
+      },
+      "challenge_rating": {
+        "cr": {"type": "number", "description": "Challenge Rating"},
+        "xp": {"type": "number", "description": "Base XP award"},
+        "xp_lair": {"type": "number", "optional": true, "description": "XP when fought in lair"},
+        "proficiency_bonus": {"type": "number", "description": "Proficiency bonus based on CR"}
+      },
+      "traits": {
+        "type": "array",
+        "items": {
+          "name": {"type": "string"},
+          "description": {"type": "string"},
+          "recharge": {"type": "string", "optional": true},
+          "uses_per_day": {"type": "number", "optional": true}
+        }
+      },
+      "actions": {
+        "type": "array",
+        "items": {
+          "name": {"type": "string"},
+          "description": {"type": "string"},
+          "attack_roll": {"type": "number", "optional": true},
+          "reach": {"type": "number", "optional": true},
+          "range": {"type": "string", "optional": true},
+          "damage": {"type": "string", "optional": true},
+          "damage_type": {"type": "string", "optional": true},
+          "save_dc": {"type": "number", "optional": true},
+          "save_ability": {"type": "string", "optional": true},
+          "recharge": {"type": "string", "optional": true},
+          "uses_per_day": {"type": "number", "optional": true}
+        }
+      },
+      "bonus_actions": {
+        "type": "array",
+        "items": {
+          "name": {"type": "string"},
+          "description": {"type": "string"}
+        },
+        "optional": true
+      },
+      "reactions": {
+        "type": "array", 
+        "items": {
+          "name": {"type": "string"},
+          "description": {"type": "string"},
+          "trigger": {"type": "string"}
+        },
+        "optional": true
+      },
+      "legendary_actions": {
+        "uses": {"type": "number", "description": "Actions per turn"},
+        "uses_lair": {"type": "number", "optional": true, "description": "Actions in lair"},
+        "reset": {"type": "string", "default": "start of turn"},
+        "actions": {
+          "type": "array",
+          "items": {
+            "name": {"type": "string"},
+            "description": {"type": "string"},
+            "cost": {"type": "number", "default": 1}
+          }
+        },
+        "optional": true
+      },
+      "lair_actions": {
+        "type": "array",
+        "items": {
+          "name": {"type": "string"}, 
+          "description": {"type": "string"},
+          "initiative": {"type": "number", "default": 20}
+        },
+        "optional": true
+      },
+      "equipment": {
+        "type": "array",
+        "items": {"type": "string"},
+        "optional": true,
+        "description": "Notable equipment and gear"
+      }
+    },
+    "calculated_fields": {
+      "ability_modifiers": "Floor((score - 10) / 2)",
+      "passive_perception": "10 + Wisdom (Perception) modifier",
+      "proficiency_bonus": "Based on Challenge Rating (+2 to +9)",
+      "initiative_total": "Initiative modifier + 10"
+    },
+    "integration": {
+      "rules_system": "References rules/ for combat mechanics, conditions, damage types",
+      "equipment_system": "References equipment/ for weapon and armor details",
+      "spells_system": "Monster spells reference spells/ directory"
+    }
+  }
+}

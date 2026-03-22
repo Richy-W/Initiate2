@@ -1,0 +1,15 @@
+{
+  "name": "Attack Roll",
+  "slug": "attack-roll",
+  "definition": "An attack roll is a D20 Test that represents making an attack with a weapon, an Unarmed Strike, or a spell.",
+  "category": "Combat & Movement",
+  "tags": [],
+  "full_text": "An attack roll is a D20 Test that represents making an attack with a weapon, an Unarmed Strike, or a spell.",
+  "see_also": [
+    "D20 Test",
+    "Weapon",
+    "Unarmed Strike",
+    "Spell",
+    "Armor Class"
+  ]
+}

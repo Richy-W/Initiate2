@@ -1,0 +1,63 @@
+{
+  "name": "Plesiosaurus",
+  "size": "Large",
+  "type": "Beast (Dinosaur)",
+  "alignment": "Unaligned",
+  "armor_class": 13,
+  "hit_points": 68,
+  "hit_dice": "8d10 + 24",
+  "speed": {
+    "walk": 20,
+    "swim": 40
+  },
+  "ability_scores": {
+    "strength": 18,
+    "dexterity": 15,
+    "constitution": 16,
+    "intelligence": 2,
+    "wisdom": 12,
+    "charisma": 5
+  },
+  "saving_throws": {
+    "strength": 4,
+    "dexterity": 2,
+    "constitution": 3,
+    "intelligence": -4,
+    "wisdom": 1,
+    "charisma": -3
+  },
+  "skills": {
+    "perception": 3,
+    "stealth": 4
+  },
+  "senses": [
+    "Passive Perception 13"
+  ],
+  "languages": "None",
+  "challenge_rating": 2,
+  "experience_points": 450,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Hold Breath",
+      "description": "The plesiosaurus can hold its breath for 1 hour."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +6, reach 10 ft. Hit: 11 (2d6 + 4) Piercing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Striker - Aquatic dinosaur with extended reach",
+    "positioning": "Uses 10 ft reach to attack from deeper water",
+    "damage_output": "11 piercing per hit with superior positioning",
+    "key_abilities": "Extended breath holding (1 hour), 10 ft reach bite",
+    "weaknesses": "Slower on land, relies on aquatic advantage",
+    "synergies": "Dominates water-land interfaces, excellent for coastal encounters"
+  }
+}

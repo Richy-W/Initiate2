@@ -1,0 +1,1250 @@
+{
+  "glossary_index": {
+    "title": "D&D 2024 Rules Glossary",
+    "version": "2024",
+    "total_terms": "Growing collection",
+    "description": "Comprehensive glossary of D&D 2024 rules terms, organized by category",
+    "conventions": {
+      "tags": "Terms are tagged with their category: Action, Area of Effect, Attitude, Condition, or Hazard",
+      "you_reference": "The word 'you' refers to the creature or object a rule applies to in a particular moment",
+      "current_only": "Glossary contains definitions of current rules terms only",
+      "no_stacking": "Conditions don't stack with themselves unless specified (Exhaustion is an exception)"
+    }
+  },
+  "abbreviations": {
+    "AC": "Armor Class",
+    "C": "Concentration",
+    "CE": "Chaotic Evil",
+    "CG": "Chaotic Good",
+    "Cha": "Charisma",
+    "CN": "Chaotic Neutral",
+    "Con": "Constitution",
+    "CP": "Copper Piece(s)",
+    "CR": "Challenge Rating",
+    "DC": "Difficulty Class",
+    "Dex": "Dexterity",
+    "DM": "Dungeon Master",
+    "EP": "Electrum Piece(s)",
+    "GP": "Gold Piece(s)",
+    "HP": "Hit Point(s)",
+    "Int": "Intelligence",
+    "LE": "Lawful Evil",
+    "LG": "Lawful Good",
+    "LN": "Lawful Neutral",
+    "M": "Material component",
+    "N": "Neutral",
+    "NE": "Neutral Evil",
+    "NG": "Neutral Good",
+    "NPC": "Nonplayer character",
+    "PB": "Proficiency Bonus",
+    "PP": "Platinum Piece(s)",
+    "R": "Ritual",
+    "S": "Somatic component",
+    "SP": "Silver Piece(s)",
+    "Str": "Strength",
+    "V": "Verbal component",
+    "Wis": "Wisdom",
+    "XP": "Experience Point(s)"
+  },
+  "categories": {
+    "actions": {
+      "name": "Actions",
+      "description": "Actions you can take on your turn",
+      "terms": [
+        "attack",
+        "dash",
+        "disengage",
+        "dodge",
+        "help",
+        "hide",
+        "influence",
+        "magic",
+        "ready",
+        "reaction",
+        "search",
+        "study",
+        "utilize"
+      ]
+    },
+    "attitudes": {
+      "name": "Attitudes",
+      "description": "Creature attitudes toward you",
+      "terms": [
+        "friendly",
+        "hostile",
+        "indifferent"
+      ]
+    },
+    "areas_of_effect": {
+      "name": "Areas of Effect",
+      "description": "Shapes and effects of spell areas",
+      "terms": [
+        "area-of-effect",
+        "cone",
+        "cube",
+        "cylinder",
+        "emanation",
+        "line",
+        "sphere",
+        "sphere-aoe"
+      ]
+    },
+    "conditions": {
+      "name": "Conditions",
+      "description": "Temporary game states affecting creatures",
+      "terms": [
+        "blinded",
+        "charmed",
+        "deafened",
+        "exhaustion",
+        "frightened",
+        "grappled",
+        "incapacitated",
+        "invisible",
+        "paralyzed",
+        "petrified",
+        "poisoned",
+        "prone",
+        "restrained",
+        "stunned",
+        "unconscious"
+      ]
+    },
+    "hit_points": {
+      "name": "Hit Points",
+      "description": "Health and healing mechanics",
+      "terms": [
+        "healing",
+        "hit-point-dice",
+        "hit-points",
+        "stable",
+        "temporary-hit-points"
+      ]
+    },
+    "movement": {
+      "name": "Movement & Flight",
+      "description": "Movement types and flight mechanics",
+      "terms": [
+        "flying",
+        "fly-speed",
+        "high-jump",
+        "hover",
+        "jumping",
+        "speed",
+        "swimming",
+        "swim-speed"
+      ]
+    },
+    "light_vision": {
+      "name": "Light & Vision",
+      "description": "Light levels and visibility",
+      "terms": [
+        "heavily-obscured",
+        "lightly-obscured"
+      ]
+    },
+    "hazards": {
+      "name": "Hazards",
+      "description": "Environmental and ongoing threats",
+      "terms": [
+        "burning",
+        "dehydration",
+        "falling",
+        "hazard",
+        "malnutrition",
+        "suffocation"
+      ]
+    },
+    "abilities": {
+      "name": "Abilities & Attributes",
+      "description": "Core character attributes and mechanics",
+      "terms": [
+        "ability-check",
+        "ability-score-and-modifier",
+        "armor-class",
+        "advantage",
+        "disadvantage",
+        "proficiency",
+        "immunity",
+        "size",
+        "skill",
+        "telepathy",
+        "vulnerability"
+      ]
+    },
+    "mechanics": {
+      "name": "Game Mechanics",
+      "description": "Core gameplay mechanics and concepts",
+      "terms": [
+        "d20-test",
+        "damage",
+        "damage-roll",
+        "damage-types",
+        "difficulty-class",
+        "experience-points",
+        "expertise",
+        "passive-perception",
+        "per-day",
+        "round-down",
+        "save",
+        "saving-throw",
+        "simultaneous-effects",
+        "target",
+        "surprise"
+      ]
+    },
+    "combat": {
+      "name": "Combat & Movement",
+      "description": "Combat-related mechanics and movement",
+      "terms": [
+        "attack-roll",
+        "critical-hit",
+        "carrying-capacity",
+        "climbing",
+        "climb-speed",
+        "crawling",
+        "cover",
+        "difficult-terrain",
+        "grappling",
+        "initiative",
+        "knocking-out-a-creature",
+        "opportunity-attacks",
+        "reach",
+        "surprise",
+        "unarmed-strike",
+        "weapon-attack"
+      ]
+    },
+    "creature": {
+      "name": "Creatures & Types",
+      "description": "Creature definitions and types",
+      "terms": [
+        "creature",
+        "creature-type",
+        "alignment",
+        "ally",
+        "enemy",
+        "attitude",
+        "monster",
+        "nonplayer-character",
+        "player-character",
+        "stat-block"
+      ]
+    },
+    "magic": {
+      "name": "Magic & Spells",
+      "description": "Magic and spell mechanics",
+      "terms": [
+        "cantrip",
+        "concentration",
+        "attunement",
+        "illusions",
+        "magical-effect",
+        "possession",
+        "ritual",
+        "shape-shifting",
+        "spell",
+        "spell-attack",
+        "spellcasting-focus",
+        "teleportation"
+      ]
+    },
+    "environment": {
+      "name": "Environment & Light",
+      "description": "Exploration and environmental rules",
+      "terms": [
+        "bright-light",
+        "darkness",
+        "darkvision",
+        "dim-light",
+        "lightly-obscured",
+        "heavily-obscured"
+      ]
+    },
+    "objects": {
+      "name": "Objects & Items",
+      "description": "Rules for objects and breaking objects",
+      "terms": [
+        "breaking-objects",
+        "damage-threshold",
+        "improvised-weapons",
+        "object",
+        "occupied-space",
+        "unoccupied-space"
+      ]
+    },
+    "character": {
+      "name": "Character Creation & Development",
+      "description": "Character sheet and advancement",
+      "terms": [
+        "character-sheet",
+        "challenge-rating"
+      ]
+    },
+    "gameplay": {
+      "name": "Gameplay Structure",
+      "description": "Campaign, adventure, and encounter structure",
+      "terms": [
+        "campaign",
+        "adventure",
+        "encounter",
+        "heroic-inspiration"
+      ]
+    },
+    "rest_recovery": {
+      "name": "Rest & Recovery",
+      "description": "Rest mechanics and recovery",
+      "terms": [
+        "long-rest",
+        "short-rest"
+      ]
+    },
+    "senses": {
+      "name": "Senses",
+      "description": "Special senses and perception",
+      "terms": [
+        "tremorsense",
+        "truesight"
+      ]
+    },
+    "equipment": {
+      "name": "Equipment",
+      "description": "Weapons, armor, and gear",
+      "terms": [
+        "weapon"
+      ]
+    }
+  },
+  "all_terms": [
+    {
+      "name": "Ability Check",
+      "file": "ability-check.json",
+      "category": "Abilities & Attributes",
+      "tags": []
+    },
+    {
+      "name": "Ability Score and Modifier",
+      "file": "ability-score-and-modifier.json",
+      "category": "Abilities & Attributes",
+      "tags": []
+    },
+    {
+      "name": "Action",
+      "file": "action.json",
+      "category": "Actions",
+      "tags": ["Action"]
+    },
+    {
+      "name": "Advantage",
+      "file": "advantage.json",
+      "category": "Abilities & Attributes",
+      "tags": []
+    },
+    {
+      "name": "Adventure",
+      "file": "adventure.json",
+      "category": "Gameplay Structure",
+      "tags": []
+    },
+    {
+      "name": "Alignment",
+      "file": "alignment.json",
+      "category": "Creatures & Types",
+      "tags": []
+    },
+    {
+      "name": "Ally",
+      "file": "ally.json",
+      "category": "Creatures & Types",
+      "tags": []
+    },
+    {
+      "name": "Area of Effect",
+      "file": "area-of-effect.json",
+      "category": "Areas of Effect",
+      "tags": ["Area of Effect"]
+    },
+    {
+      "name": "Armor Class",
+      "file": "armor-class.json",
+      "category": "Abilities & Attributes",
+      "tags": []
+    },
+    {
+      "name": "Armor Training",
+      "file": "armor-training.json",
+      "category": "Combat & Movement",
+      "tags": []
+    },
+    {
+      "name": "Attack",
+      "file": "attack.json",
+      "category": "Actions",
+      "tags": ["Action"]
+    },
+    {
+      "name": "Attack Roll",
+      "file": "attack-roll.json",
+      "category": "Combat & Movement",
+      "tags": []
+    },
+    {
+      "name": "Attitude",
+      "file": "attitude.json",
+      "category": "Creatures & Types",
+      "tags": ["Attitude"]
+    },
+    {
+      "name": "Attunement",
+      "file": "attunement.json",
+      "category": "Magic & Spells",
+      "tags": []
+    },
+    {
+      "name": "Blinded",
+      "file": "blinded.json",
+      "category": "Conditions",
+      "tags": ["Condition"]
+    },
+    {
+      "name": "Blindsight",
+      "file": "blindsight.json",
+      "category": "Environment & Light",
+      "tags": []
+    },
+    {
+      "name": "Bloodied",
+      "file": "bloodied.json",
+      "category": "Combat & Movement",
+      "tags": []
+    },
+    {
+      "name": "Bonus Action",
+      "file": "bonus-action.json",
+      "category": "Actions",
+      "tags": []
+    },
+    {
+      "name": "Breaking Objects",
+      "file": "breaking-objects.json",
+      "category": "Objects & Items",
+      "tags": []
+    },
+    {
+      "name": "Bright Light",
+      "file": "bright-light.json",
+      "category": "Environment & Light",
+      "tags": []
+    },
+    {
+      "name": "Burning",
+      "file": "burning.json",
+      "category": "Hazards",
+      "tags": ["Hazard"]
+    },
+    {
+      "name": "Burrow Speed",
+      "file": "burrow-speed.json",
+      "category": "Combat & Movement",
+      "tags": []
+    },
+    {
+      "name": "Campaign",
+      "file": "campaign.json",
+      "category": "Gameplay Structure",
+      "tags": []
+    },
+    {
+      "name": "Cantrip",
+      "file": "cantrip.json",
+      "category": "Magic & Spells",
+      "tags": []
+    },
+    {
+      "name": "Carrying Capacity",
+      "file": "carrying-capacity.json",
+      "category": "Combat & Movement",
+      "tags": []
+    },
+    {
+      "name": "Challenge Rating",
+      "file": "challenge-rating.json",
+      "category": "Character Creation & Development",
+      "tags": []
+    },
+    {
+      "name": "Character Sheet",
+      "file": "character-sheet.json",
+      "category": "Character Creation & Development",
+      "tags": []
+    },
+    {
+      "name": "Charmed",
+      "file": "charmed.json",
+      "category": "Conditions",
+      "tags": ["Condition"]
+    },
+    {
+      "name": "Climbing",
+      "file": "climbing.json",
+      "category": "Combat & Movement",
+      "tags": []
+    },
+    {
+      "name": "Climb Speed",
+      "file": "climb-speed.json",
+      "category": "Combat & Movement",
+      "tags": []
+    },
+    {
+      "name": "Concentration",
+      "file": "concentration.json",
+      "category": "Magic & Spells",
+      "tags": []
+    },
+    {
+      "name": "Condition",
+      "file": "condition.json",
+      "category": "Conditions",
+      "tags": ["Condition"]
+    },
+    {
+      "name": "Cone",
+      "file": "cone.json",
+      "category": "Areas of Effect",
+      "tags": ["Area of Effect"]
+    },
+    {
+      "name": "Cover",
+      "file": "cover.json",
+      "category": "Combat & Movement",
+      "tags": []
+    },
+    {
+      "name": "Crawling",
+      "file": "crawling.json",
+      "category": "Combat & Movement",
+      "tags": []
+    },
+    {
+      "name": "Creature",
+      "file": "creature.json",
+      "category": "Creatures & Types",
+      "tags": []
+    },
+    {
+      "name": "Creature Type",
+      "file": "creature-type.json",
+      "category": "Creatures & Types",
+      "tags": []
+    },
+    {
+      "name": "Critical Hit",
+      "file": "critical-hit.json",
+      "category": "Combat & Movement",
+      "tags": []
+    },
+    {
+      "name": "Cube",
+      "file": "cube.json",
+      "category": "Areas of Effect",
+      "tags": ["Area of Effect"]
+    },
+    {
+      "name": "Curses",
+      "file": "curses.json",
+      "category": "Magic & Spells",
+      "tags": []
+    },
+    {
+      "name": "Cylinder",
+      "file": "cylinder.json",
+      "category": "Areas of Effect",
+      "tags": ["Area of Effect"]
+    },
+    {
+      "name": "D20 Test",
+      "file": "d20-test.json",
+      "category": "Game Mechanics",
+      "tags": []
+    },
+    {
+      "name": "Damage",
+      "file": "damage.json",
+      "category": "Game Mechanics",
+      "tags": []
+    },
+    {
+      "name": "Damage Roll",
+      "file": "damage-roll.json",
+      "category": "Game Mechanics",
+      "tags": []
+    },
+    {
+      "name": "Damage Threshold",
+      "file": "damage-threshold.json",
+      "category": "Objects & Items",
+      "tags": []
+    },
+    {
+      "name": "Damage Types",
+      "file": "damage-types.json",
+      "category": "Game Mechanics",
+      "tags": []
+    },
+    {
+      "name": "Darkness",
+      "file": "darkness.json",
+      "category": "Environment & Light",
+      "tags": []
+    },
+    {
+      "name": "Darkvision",
+      "file": "darkvision.json",
+      "category": "Environment & Light",
+      "tags": []
+    },
+    {
+      "name": "Dash",
+      "file": "dash.json",
+      "category": "Actions",
+      "tags": ["Action"]
+    },
+    {
+      "name": "Dead",
+      "file": "dead.json",
+      "category": "Conditions",
+      "tags": []
+    },
+    {
+      "name": "Deafened",
+      "file": "deafened.json",
+      "category": "Conditions",
+      "tags": ["Condition"]
+    },
+    {
+      "name": "Death Saving Throw",
+      "file": "death-saving-throw.json",
+      "category": "Game Mechanics",
+      "tags": []
+    },
+    {
+      "name": "Dehydration",
+      "file": "dehydration.json",
+      "category": "Hazards",
+      "tags": ["Hazard"]
+    },
+    {
+      "name": "Difficult Terrain",
+      "file": "difficult-terrain.json",
+      "category": "Combat & Movement",
+      "tags": []
+    },
+    {
+      "name": "Difficulty Class",
+      "file": "difficulty-class.json",
+      "category": "Game Mechanics",
+      "tags": []
+    },
+    {
+      "name": "Dim Light",
+      "file": "dim-light.json",
+      "category": "Environment & Light",
+      "tags": []
+    },
+    {
+      "name": "Disadvantage",
+      "file": "disadvantage.json",
+      "category": "Abilities & Attributes",
+      "tags": []
+    },
+    {
+      "name": "Disengage",
+      "file": "disengage.json",
+      "category": "Actions",
+      "tags": ["Action"]
+    },
+    {
+      "name": "Dodge",
+      "file": "dodge.json",
+      "category": "Actions",
+      "tags": ["Action"]
+    },
+    {
+      "name": "Emanation",
+      "file": "emanation.json",
+      "category": "Areas of Effect",
+      "tags": ["Area of Effect"]
+    },
+    {
+      "name": "Encounter",
+      "file": "encounter.json",
+      "category": "Gameplay Structure",
+      "tags": []
+    },
+    {
+      "name": "Enemy",
+      "file": "enemy.json",
+      "category": "Creatures & Types",
+      "tags": []
+    },
+    {
+      "name": "Exhaustion",
+      "file": "exhaustion.json",
+      "category": "Conditions",
+      "tags": ["Condition"]
+    },
+    {
+      "name": "Experience Points",
+      "file": "experience-points.json",
+      "category": "Character Creation & Development",
+      "tags": []
+    },
+    {
+      "name": "Expertise",
+      "file": "expertise.json",
+      "category": "Game Mechanics",
+      "tags": []
+    },
+    {
+      "name": "Falling",
+      "file": "falling.json",
+      "category": "Hazards",
+      "tags": ["Hazard"]
+    },
+    {
+      "name": "Flying",
+      "file": "flying.json",
+      "category": "Movement",
+      "tags": []
+    },
+    {
+      "name": "Fly Speed",
+      "file": "fly-speed.json",
+      "category": "Movement",
+      "tags": []
+    },
+    {
+      "name": "Friendly",
+      "file": "friendly-attitude.json",
+      "category": "Attitudes",
+      "tags": ["Attitude"]
+    },
+    {
+      "name": "Frightened",
+      "file": "frightened.json",
+      "category": "Conditions",
+      "tags": ["Condition"]
+    },
+    {
+      "name": "Grappled",
+      "file": "grappled.json",
+      "category": "Conditions",
+      "tags": ["Condition"]
+    },
+    {
+      "name": "Grappling",
+      "file": "grappling.json",
+      "category": "Combat",
+      "tags": []
+    },
+    {
+      "name": "Hazard",
+      "file": "hazard.json",
+      "category": "Hazards",
+      "tags": ["Hazard"]
+    },
+    {
+      "name": "Healing",
+      "file": "healing.json",
+      "category": "Hit Points",
+      "tags": []
+    },
+    {
+      "name": "Heavily Obscured",
+      "file": "heavily-obscured.json",
+      "category": "Light & Vision",
+      "tags": []
+    },
+    {
+      "name": "Help",
+      "file": "help-action.json",
+      "category": "Actions",
+      "tags": ["Action"]
+    },
+    {
+      "name": "Heroic Inspiration",
+      "file": "heroic-inspiration.json",
+      "category": "Gameplay",
+      "tags": []
+    },
+    {
+      "name": "Hide",
+      "file": "hide-action.json",
+      "category": "Actions",
+      "tags": ["Action"]
+    },
+    {
+      "name": "High Jump",
+      "file": "high-jump.json",
+      "category": "Movement",
+      "tags": []
+    },
+    {
+      "name": "Hit Point Dice",
+      "file": "hit-point-dice.json",
+      "category": "Hit Points",
+      "tags": []
+    },
+    {
+      "name": "Hit Points",
+      "file": "hit-points.json",
+      "category": "Hit Points",
+      "tags": []
+    },
+    {
+      "name": "Hostile",
+      "file": "hostile-attitude.json",
+      "category": "Attitudes",
+      "tags": ["Attitude"]
+    },
+    {
+      "name": "Hover",
+      "file": "hover.json",
+      "category": "Movement",
+      "tags": []
+    },
+    {
+      "name": "Illusions",
+      "file": "illusions.json",
+      "category": "Magic",
+      "tags": []
+    },
+    {
+      "name": "Immunity",
+      "file": "immunity.json",
+      "category": "Abilities",
+      "tags": []
+    },
+    {
+      "name": "Improvised Weapons",
+      "file": "improvised-weapons.json",
+      "category": "Equipment",
+      "tags": []
+    },
+    {
+      "name": "Incapacitated",
+      "file": "incapacitated.json",
+      "category": "Conditions",
+      "tags": ["Condition"]
+    },
+    {
+      "name": "Indifferent",
+      "file": "indifferent-attitude.json",
+      "category": "Attitudes",
+      "tags": ["Attitude"]
+    },
+    {
+      "name": "Influence",
+      "file": "influence-action.json",
+      "category": "Actions",
+      "tags": ["Action"]
+    },
+    {
+      "name": "Initiative",
+      "file": "initiative.json",
+      "category": "Combat",
+      "tags": []
+    },
+    {
+      "name": "Invisible",
+      "file": "invisible.json",
+      "category": "Conditions",
+      "tags": ["Condition"]
+    },
+    {
+      "name": "Jumping",
+      "file": "jumping.json",
+      "category": "Movement",
+      "tags": []
+    },
+    {
+      "name": "Knocking Out a Creature",
+      "file": "knocking-out-a-creature.json",
+      "category": "Combat",
+      "tags": []
+    },
+    {
+      "name": "Lightly Obscured",
+      "file": "lightly-obscured.json",
+      "category": "Light & Vision",
+      "tags": []
+    },
+    {
+      "name": "Line",
+      "file": "line-aoe.json",
+      "category": "Areas of Effect",
+      "tags": ["Area of Effect"]
+    },
+    {
+      "name": "Long Jump",
+      "file": "long-jump.json",
+      "category": "Movement",
+      "tags": []
+    },
+    {
+      "name": "Long Rest",
+      "file": "long-rest.json",
+      "category": "Rest & Recovery",
+      "tags": []
+    },
+    {
+      "name": "Magic",
+      "file": "magic-action.json",
+      "category": "Actions",
+      "tags": ["Action"]
+    },
+    {
+      "name": "Magical Effect",
+      "file": "magical-effect.json",
+      "category": "Magic",
+      "tags": []
+    },
+    {
+      "name": "Malnutrition",
+      "file": "malnutrition.json",
+      "category": "Hazards",
+      "tags": ["Hazard"]
+    },
+    {
+      "name": "Monster",
+      "file": "monster.json",
+      "category": "Creatures & Types",
+      "tags": []
+    },
+    {
+      "name": "Nonplayer Character",
+      "file": "nonplayer-character.json",
+      "category": "Creatures & Types",
+      "tags": []
+    },
+    {
+      "name": "Object",
+      "file": "object.json",
+      "category": "Objects & Items",
+      "tags": []
+    },
+    {
+      "name": "Occupied Space",
+      "file": "occupied-space.json",
+      "category": "Objects & Items",
+      "tags": []
+    },
+    {
+      "name": "Opportunity Attacks",
+      "file": "opportunity-attacks.json",
+      "category": "Combat",
+      "tags": []
+    },
+    {
+      "name": "Paralyzed",
+      "file": "paralyzed.json",
+      "category": "Conditions",
+      "tags": ["Condition"]
+    },
+    {
+      "name": "Passive Perception",
+      "file": "passive-perception.json",
+      "category": "Game Mechanics",
+      "tags": []
+    },
+    {
+      "name": "Per Day",
+      "file": "per-day.json",
+      "category": "Game Mechanics",
+      "tags": []
+    },
+    {
+      "name": "Petrified",
+      "file": "petrified.json",
+      "category": "Conditions",
+      "tags": ["Condition"]
+    },
+    {
+      "name": "Player Character",
+      "file": "player-character.json",
+      "category": "Creatures & Types",
+      "tags": []
+    },
+    {
+      "name": "Poisoned",
+      "file": "poisoned.json",
+      "category": "Conditions",
+      "tags": ["Condition"]
+    },
+    {
+      "name": "Possession",
+      "file": "possession.json",
+      "category": "Magic",
+      "tags": []
+    },
+    {
+      "name": "Proficiency",
+      "file": "proficiency.json",
+      "category": "Abilities & Attributes",
+      "tags": []
+    },
+    {
+      "name": "Prone",
+      "file": "prone.json",
+      "category": "Conditions",
+      "tags": ["Condition"]
+    },
+    {
+      "name": "Reach",
+      "file": "reach.json",
+      "category": "Combat",
+      "tags": []
+    },
+    {
+      "name": "Reaction",
+      "file": "reaction.json",
+      "category": "Actions",
+      "tags": ["Action"]
+    },
+    {
+      "name": "Ready",
+      "file": "ready-action.json",
+      "category": "Actions",
+      "tags": ["Action"]
+    },
+    {
+      "name": "Resistance",
+      "file": "resistance.json",
+      "category": "Abilities & Attributes",
+      "tags": []
+    },
+    {
+      "name": "Restrained",
+      "file": "restrained.json",
+      "category": "Conditions",
+      "tags": ["Condition"]
+    },
+    {
+      "name": "Ritual",
+      "file": "ritual.json",
+      "category": "Magic & Spells",
+      "tags": []
+    },
+    {
+      "name": "Round Down",
+      "file": "round-down.json",
+      "category": "Game Mechanics",
+      "tags": []
+    },
+    {
+      "name": "Save",
+      "file": "save.json",
+      "category": "Game Mechanics",
+      "tags": []
+    },
+    {
+      "name": "Saving Throw",
+      "file": "saving-throw.json",
+      "category": "Game Mechanics",
+      "tags": []
+    },
+    {
+      "name": "Search",
+      "file": "search-action.json",
+      "category": "Actions",
+      "tags": ["Action"]
+    },
+    {
+      "name": "Shape-Shifting",
+      "file": "shape-shifting.json",
+      "category": "Magic",
+      "tags": []
+    },
+    {
+      "name": "Short Rest",
+      "file": "short-rest.json",
+      "category": "Rest & Recovery",
+      "tags": []
+    },
+    {
+      "name": "Simultaneous Effects",
+      "file": "simultaneous-effects.json",
+      "category": "Game Mechanics",
+      "tags": []
+    },
+    {
+      "name": "Size",
+      "file": "size.json",
+      "category": "Abilities & Attributes",
+      "tags": []
+    },
+    {
+      "name": "Skill",
+      "file": "skill.json",
+      "category": "Abilities & Attributes",
+      "tags": []
+    },
+    {
+      "name": "Speed",
+      "file": "speed.json",
+      "category": "Movement",
+      "tags": []
+    },
+    {
+      "name": "Spell",
+      "file": "spell.json",
+      "category": "Magic & Spells",
+      "tags": []
+    },
+    {
+      "name": "Spell Attack",
+      "file": "spell-attack.json",
+      "category": "Magic & Spells",
+      "tags": []
+    },
+    {
+      "name": "Spellcasting Focus",
+      "file": "spellcasting-focus.json",
+      "category": "Magic & Spells",
+      "tags": []
+    },
+    {
+      "name": "Sphere",
+      "file": "sphere-aoe.json",
+      "category": "Areas of Effect",
+      "tags": ["Area of Effect"]
+    },
+    {
+      "name": "Stable",
+      "file": "stable.json",
+      "category": "Hit Points",
+      "tags": []
+    },
+    {
+      "name": "Stat Block",
+      "file": "stat-block.json",
+      "category": "Creatures & Types",
+      "tags": []
+    },
+    {
+      "name": "Study",
+      "file": "study-action.json",
+      "category": "Actions",
+      "tags": ["Action"]
+    },
+    {
+      "name": "Stunned",
+      "file": "stunned.json",
+      "category": "Conditions",
+      "tags": ["Condition"]
+    },
+    {
+      "name": "Suffocation",
+      "file": "suffocation.json",
+      "category": "Hazards",
+      "tags": ["Hazard"]
+    },
+    {
+      "name": "Surprise",
+      "file": "surprise.json",
+      "category": "Combat",
+      "tags": []
+    },
+    {
+      "name": "Swimming",
+      "file": "swimming.json",
+      "category": "Movement",
+      "tags": []
+    },
+    {
+      "name": "Swim Speed",
+      "file": "swim-speed.json",
+      "category": "Movement",
+      "tags": []
+    },
+    {
+      "name": "Target",
+      "file": "target.json",
+      "category": "Game Mechanics",
+      "tags": []
+    },
+    {
+      "name": "Telepathy",
+      "file": "telepathy.json",
+      "category": "Abilities",
+      "tags": []
+    },
+    {
+      "name": "Teleportation",
+      "file": "teleportation.json",
+      "category": "Magic & Spells",
+      "tags": []
+    },
+    {
+      "name": "Temporary Hit Points",
+      "file": "temporary-hit-points.json",
+      "category": "Hit Points",
+      "tags": []
+    },
+    {
+      "name": "Tremorsense",
+      "file": "tremorsense.json",
+      "category": "Senses",
+      "tags": []
+    },
+    {
+      "name": "Truesight",
+      "file": "truesight.json",
+      "category": "Senses",
+      "tags": []
+    },
+    {
+      "name": "Unarmed Strike",
+      "file": "unarmed-strike.json",
+      "category": "Combat",
+      "tags": []
+    },
+    {
+      "name": "Unconscious",
+      "file": "unconscious.json",
+      "category": "Conditions",
+      "tags": ["Condition"]
+    },
+    {
+      "name": "Unoccupied Space",
+      "file": "unoccupied-space.json",
+      "category": "Objects & Items",
+      "tags": []
+    },
+    {
+      "name": "Utilize",
+      "file": "utilize-action.json",
+      "category": "Actions",
+      "tags": ["Action"]
+    },
+    {
+      "name": "Vulnerability",
+      "file": "vulnerability.json",
+      "category": "Abilities & Attributes",
+      "tags": []
+    },
+    {
+      "name": "Weapon",
+      "file": "weapon.json",
+      "category": "Equipment",
+      "tags": []
+    },
+    {
+      "name": "Weapon Attack",
+      "file": "weapon-attack.json",
+      "category": "Combat",
+      "tags": []
+    }
+  ]
+}

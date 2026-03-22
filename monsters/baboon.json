@@ -1,0 +1,65 @@
+{
+  "name": "Baboon",
+  "size": "Small",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 12,
+  "armor_description": "Natural Armor",
+  "hit_points": 3,
+  "hit_dice": "1d6",
+  "speed": {
+    "walk": "30 ft.",
+    "climb": "30 ft."
+  },
+  "ability_scores": {
+    "strength": 8,
+    "dexterity": 14,
+    "constitution": 11,
+    "intelligence": 4,
+    "wisdom": 12,
+    "charisma": 6
+  },
+  "saving_throws": {
+    "strength": "-1",
+    "dexterity": "+2",
+    "constitution": "+0",
+    "intelligence": "-3",
+    "wisdom": "+1",
+    "charisma": "-2"
+  },
+  "skills": {},
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "passive_perception": 11
+  },
+  "languages": [],
+  "challenge_rating": "0",
+  "experience_points": 10,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Pack Tactics",
+      "description": "The baboon has Advantage on an attack roll against a creature if at least one of the baboon's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Bite",
+      "type": "weapon",
+      "description": "Melee Attack Roll: +1, reach 5 ft. Hit: 1 (1d4 − 1) Piercing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "equipment": [],
+  "tactical_info": {
+    "combat_role": "Pack Animal",
+    "preferred_range": "Melee",
+    "key_abilities": ["Pack tactics", "Climbing mobility", "Small size stealth"],
+    "weaknesses": ["Very low HP", "Weak individual attacks"],
+    "tactics": "Functions best in groups using pack tactics for advantage. Climbing ability provides escape routes and positioning options. Minimal threat alone."
+  }
+}

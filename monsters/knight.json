@@ -1,0 +1,99 @@
+{
+  "name": "Knight",
+  "size": "Medium",
+  "type": "Humanoid",
+  "alignment": "Neutral",
+  "armor_class": {
+    "value": 18,
+    "source": "Plate Armor"
+  },
+  "initiative": {
+    "bonus": 0,
+    "total": 10
+  },
+  "hit_points": {
+    "average": 52,
+    "formula": "8d8 + 16"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "dexterity": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 4
+    },
+    "intelligence": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "wisdom": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 2
+    },
+    "charisma": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    }
+  },
+  "condition_immunities": ["Frightened"],
+  "equipment": ["Greatsword", "Heavy Crossbow", "Plate Armor"],
+  "senses": {
+    "passive_perception": 10
+  },
+  "languages": ["Common plus one other language"],
+  "challenge_rating": {
+    "cr": 3,
+    "xp": 700,
+    "proficiency_bonus": 2
+  },
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The knight makes two attacks, using Greatsword or Heavy Crossbow in any combination."
+    },
+    {
+      "name": "Greatsword",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 10 (2d6 + 3) Slashing damage plus 4 (1d8) Radiant damage.",
+      "attack_roll": 5,
+      "reach": 5,
+      "damage": "10 (2d6 + 3) + 4 (1d8)",
+      "damage_type": "Slashing + Radiant"
+    },
+    {
+      "name": "Heavy Crossbow",
+      "description": "Ranged Attack Roll: +2, range 100/400 ft. Hit: 11 (2d10) Piercing damage plus 4 (1d8) Radiant damage.",
+      "attack_roll": 2,
+      "range": "100/400",
+      "damage": "11 (2d10) + 4 (1d8)",
+      "damage_type": "Piercing + Radiant"
+    }
+  ],
+  "reactions": [
+    {
+      "name": "Parry",
+      "description": "Trigger: The knight is hit by a melee attack roll while holding a weapon. Response: The knight adds 2 to its AC against that attack, possibly causing it to miss."
+    }
+  ],
+  "tactical_info": {
+    "role": "Elite Warrior/Paladin",
+    "environment": "Kingdoms, courts, holy orders, military campaigns",
+    "tactics": "Uses multiattack with radiant-enhanced weapons, parry reaction for defense, heavy crossbow for ranged combat",
+    "weaknesses": "Low dexterity affects initiative and ranged accuracy, moderate hit points for CR",
+    "signature_abilities": ["Radiant damage enhancement", "Parry defensive reaction", "Frightened immunity", "Heavy armor proficiency"]
+  }
+}

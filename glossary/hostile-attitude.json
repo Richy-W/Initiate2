@@ -1,0 +1,12 @@
+{
+  "name": "Hostile",
+  "slug": "hostile",
+  "definition": "An attitude where a creature views you unfavorably",
+  "category": "Attitudes",
+  "tags": ["[Attitude]", "influence", "disadvantage"],
+  "full_text": "A Hostile creature views you unfavorably. You have Disadvantage on an ability check to influence a Hostile creature.",
+  "mechanics": {
+    "effect": "Disadvantage on ability checks to influence this creature"
+  },
+  "see_also": ["influence", "attitude", "disadvantage", "friendly", "indifferent"]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Shield of the Cavalier",
+  "type": "Armor",
+  "armor_type": "Shield",
+  "rarity": "Very Rare",
+  "attunement": true,
+  "description": "While holding this Shield, you have a +2 bonus to Armor Class. This bonus is in addition to the Shield's normal bonus to AC.",
+  "properties": {
+    "ac_bonus": "+2 (in addition to normal Shield bonus)",
+    "forceful_bash": {
+      "activation": "During Attack action",
+      "effect": "Make one attack roll with Shield against target within 5 feet",
+      "bonuses": "Proficiency Bonus + Strength modifier",
+      "damage": "2d6 + 2 Force damage plus Strength modifier on hit",
+      "push": "Push target up to 10 feet directly away",
+      "knockdown": "Creature your size or smaller: also knock Prone"
+    },
+    "protective_field": {
+      "action_type": "Reaction",
+      "trigger": "You or ally within 5 feet targeted by attack or area saving throw",
+      "effect": "Create 5-foot Emanation from you",
+      "emanation_effect": "Creatures/objects not fully contained pushed to nearest unoccupied spaces",
+      "protection": "Attack/area effect has no effect on creatures/objects inside Emanation",
+      "duration": "Maintain Concentration, up to 1 minute",
+      "isolation": "Nothing enters or exits Emanation, creatures inside can't damage outside or vice versa",
+      "recharge": "Next dawn"
+    }
+  }
+}

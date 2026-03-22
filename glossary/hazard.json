@@ -1,0 +1,12 @@
+{
+  "name": "Hazard",
+  "slug": "hazard",
+  "definition": "An environmental danger that can harm creatures",
+  "category": "Hazards",
+  "tags": ["environment", "danger"],
+  "full_text": "A hazard is an environmental danger.",
+  "mechanics": {
+    "category": "Encompasses various environmental threats"
+  },
+  "see_also": ["burning", "dehydration", "falling", "malnutrition", "suffocation"]
+}

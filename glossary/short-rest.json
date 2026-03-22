@@ -1,0 +1,24 @@
+{
+  "name": "Short Rest",
+  "slug": "short-rest",
+  "definition": "A 1-hour period of downtime for recovery",
+  "category": "Rest & Recovery",
+  "tags": ["rest", "recovery", "downtime"],
+  "full_text": "A Short Rest is a 1-hour period of downtime, during which a creature does nothing more strenuous than reading, talking, eating, or standing watch. To start a Short Rest, you must have at least 1 Hit Point.",
+  "mechanics": {
+    "duration": "1 hour",
+    "activity_level": "Light (reading, talking, eating, standing watch)",
+    "requirement_to_start": "At least 1 HP"
+  },
+  "benefits": {
+    "spend_hit_point_dice": "Roll Hit Point Dice, add CON modifier; regain HP equal to total (minimum 1)",
+    "special_feature_recharge": "Features recharged per their descriptions"
+  },
+  "interruptions": {
+    "rolling_initiative": "Stops rest",
+    "casting_spell": "Stops rest (other than cantrip)",
+    "taking_damage": "Stops rest",
+    "benefit": "No benefits if interrupted"
+  },
+  "see_also": ["long-rest", "hit-point-dice"]
+}

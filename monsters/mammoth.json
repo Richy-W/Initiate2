@@ -1,0 +1,63 @@
+{
+  "name": "Mammoth",
+  "size": "Huge",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 13,
+  "hit_points": 126,
+  "hit_dice": "11d12 + 55",
+  "speed": {
+    "walk": 50
+  },
+  "ability_scores": {
+    "strength": 24,
+    "dexterity": 9,
+    "constitution": 21,
+    "intelligence": 3,
+    "wisdom": 11,
+    "charisma": 6
+  },
+  "saving_throws": {
+    "strength": 10,
+    "dexterity": -1,
+    "constitution": 8,
+    "intelligence": -4,
+    "wisdom": 0,
+    "charisma": -2
+  },
+  "skills": {},
+  "senses": [
+    "Passive Perception 10"
+  ],
+  "languages": "None",
+  "challenge_rating": 6,
+  "experience_points": 2300,
+  "proficiency_bonus": 3,
+  "features": [],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The mammoth makes two Gore attacks."
+    },
+    {
+      "name": "Gore",
+      "description": "Melee Attack Roll: +10, reach 10 ft. Hit: 18 (2d10 + 7) Piercing damage. If the target is a Huge or smaller creature and the mammoth moved 20+ feet straight toward it immediately before the hit, the target has the Prone condition."
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Trample",
+      "description": "Dexterity Saving Throw: DC 18, one creature within 5 feet that has the Prone condition. Failure: 29 (4d10 + 7) Bludgeoning damage. Success: Half damage."
+    }
+  ],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Bruiser - Massive charging tank with trample ability",
+    "positioning": "Uses charge attacks to knock prone, then tramples fallen enemies",
+    "damage_output": "36 piercing + 29 bludgeoning per round with charge combo",
+    "key_abilities": "Charge-prone combo, devastating trample on prone targets",
+    "weaknesses": "Low DEX makes it vulnerable to ranged attacks and mobility spells",
+    "synergies": "Excellent for controlling large areas and devastating grouped enemies"
+  }
+}

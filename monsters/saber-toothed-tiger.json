@@ -1,0 +1,72 @@
+{
+  "name": "Saber-Toothed Tiger",
+  "size": "Large",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 13,
+  "hit_points": 52,
+  "hit_dice": "7d10 + 14",
+  "speed": {
+    "walk": 40
+  },
+  "ability_scores": {
+    "strength": 18,
+    "dexterity": 17,
+    "constitution": 15,
+    "intelligence": 3,
+    "wisdom": 12,
+    "charisma": 8
+  },
+  "saving_throws": {
+    "strength": 6,
+    "dexterity": 5,
+    "constitution": 2,
+    "intelligence": -4,
+    "wisdom": 1,
+    "charisma": -1
+  },
+  "skills": {
+    "perception": 5,
+    "stealth": 7
+  },
+  "senses": [
+    "Darkvision 60 ft.",
+    "Passive Perception 15"
+  ],
+  "languages": "None",
+  "challenge_rating": 2,
+  "experience_points": 450,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Running Leap",
+      "description": "With a 10-foot running start, the tiger can Long Jump up to 25 feet."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The tiger makes two Rend attacks."
+    },
+    {
+      "name": "Rend",
+      "description": "Melee Attack Roll: +6, reach 5 ft. Hit: 11 (2d6 + 4) Slashing damage."
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Nimble Escape",
+      "description": "The tiger takes the Disengage or Hide action."
+    }
+  ],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Striker - Prehistoric predator with enhanced mobility",
+    "positioning": "Uses Running Leap and Nimble Escape for tactical positioning",
+    "damage_output": "22 slashing per round with multiattack",
+    "key_abilities": "Exceptional leap distance, stealth expertise, nimble escape",
+    "weaknesses": "Standard predator vulnerabilities, relies on ambush tactics",
+    "synergies": "Perfect apex predator for prehistoric or wilderness encounters"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Monster",
+  "slug": "monster",
+  "definition": "A creature controlled by the DM, whether benevolent or hostile",
+  "category": "Creatures & Types",
+  "tags": ["creature", "npc"],
+  "full_text": "A monster is a creature controlled by the DM, even if the creature is benevolent.",
+  "mechanics": {
+    "controller": "Dungeon Master",
+    "includes": "Benevolent and hostile creatures"
+  },
+  "see_also": ["creature", "npc", "nonplayer-character"]
+}

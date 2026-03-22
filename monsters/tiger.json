@@ -1,0 +1,63 @@
+{
+  "name": "Tiger",
+  "size": "Large",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 13,
+  "hit_points": 30,
+  "hit_dice": "4d10 + 8",
+  "speed": {
+    "walk": 40
+  },
+  "ability_scores": {
+    "strength": 17,
+    "dexterity": 16,
+    "constitution": 14,
+    "intelligence": 3,
+    "wisdom": 12,
+    "charisma": 8
+  },
+  "saving_throws": {
+    "strength": 3,
+    "dexterity": 3,
+    "constitution": 2,
+    "intelligence": -4,
+    "wisdom": 1,
+    "charisma": -1
+  },
+  "skills": {
+    "perception": 3,
+    "stealth": 7
+  },
+  "senses": [
+    "Darkvision 60 ft.",
+    "Passive Perception 13"
+  ],
+  "languages": "None",
+  "challenge_rating": 1,
+  "experience_points": 200,
+  "proficiency_bonus": 2,
+  "features": [],
+  "actions": [
+    {
+      "name": "Rend",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 10 (2d6 + 3) Slashing damage. If the target is a Large or smaller creature, it has the Prone condition."
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Nimble Escape",
+      "description": "The tiger takes the Disengage or Hide action."
+    }
+  ],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Mobile Striker - High-stealth ambush predator with control",
+    "positioning": "Uses high stealth for ambush, Nimble Escape for hit-and-run tactics",
+    "damage_output": "10 slashing damage with prone effect for battlefield control",
+    "key_abilities": "Exceptional stealth (+7), Rend with prone, Nimble Escape mobility",
+    "weaknesses": "No damage resistances, relies on stealth for survivability",
+    "synergies": "Excellent ambush predator and mobile striker for jungle encounters"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Cloak of Elvenkind",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "requires_attunement": true,
+  "overview": "A cloak that grants enhanced stealth and perception evasion.",
+  "properties": {
+    "perception_disadvantage": "Wisdom (Perception) checks made to perceive you have Disadvantage",
+    "stealth_advantage": "You have Advantage on Dexterity (Stealth) checks"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

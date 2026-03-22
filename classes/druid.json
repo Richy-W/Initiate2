@@ -1,0 +1,270 @@
+{
+  "name": "Druid",
+  "description": "Druids revere nature above all, gaining their spells and other magical powers either from the force of nature itself or from a nature deity. Many druids pursue a mystic spirituality of transcendent union with nature rather than devotion to a divine entity, while others serve gods of wild nature, animals, or elemental forces. The ancient druidic traditions are sometimes called the Old Faith, in contrast to the worship of gods in temples and shrines. Druid spells are oriented toward nature and animals—the power of tooth and claw, of sun and moon, of fire and storm. Druids also gain the ability to take on animal forms, and some druids make a particular study of this practice, even to the point where they prefer animal form to their natural form.",
+  "primaryAbility": ["Wisdom"],
+  "hitPointDie": "D8",
+  "proficiencies": {
+    "savingThrows": ["Intelligence", "Wisdom"],
+    "skills": {
+      "choose": 2,
+      "from": ["Arcana", "Animal Handling", "Insight", "Medicine", "Nature", "Perception", "Religion", "Survival"]
+    },
+    "weapons": ["Simple weapons", "Martial weapons that have the Light or Finesse property"],
+    "armor": ["Light armor", "Medium armor", "Shields (made of nonmetal materials)"],
+    "tools": ["Herbalism Kit"]
+  },
+  "startingEquipment": {
+    "options": [
+      {
+        "choice": "A",
+        "items": ["Leather Armor", "Shield", "Scimitar", "Simple weapon", "Druidcraft focus", "Explorer's Pack"],
+        "gold": 9
+      },
+      {
+        "choice": "B",
+        "items": [],
+        "gold": 100
+      }
+    ]
+  },
+  "classFeatures": {
+    "1": {
+      "proficiencyBonus": 2,
+      "features": [
+        {
+          "name": "Druidcraft",
+          "description": "You know the Druidcraft cantrip. Wisdom is your spellcasting ability for it.",
+          "type": "feature"
+        },
+        {
+          "name": "Spellcasting",
+          "description": "You have learned to cast spells through your connection with nature. You know two cantrips of your choice from the Druid spell list and can prepare two level 1 spells.",
+          "type": "spell"
+        }
+      ]
+    },
+    "2": {
+      "proficiencyBonus": 2,
+      "features": [
+        {
+          "name": "Wild Shape",
+          "description": "The power of nature allows you to assume the form of an animal. As a Bonus Action, you transform into a Beast form that you have learned for this feature. You can stay in that form for a number of hours equal to half your Druid level (rounded down). You then revert to your normal form unless you expend another use of this feature. You can revert to your normal form earlier as a Bonus Action. You can use Wild Shape twice, and you regain all expended uses when you finish a Short or Long Rest.",
+          "type": "feature"
+        },
+        {
+          "name": "Wild Companion",
+          "description": "You can summon a nature spirit that assumes an animal form to aid you. As a Magic action, you can expend a use of Wild Shape to cast the Find Familiar spell without a Material component. When you cast the spell this way, the familiar is a Fey instead of its normal creature type.",
+          "type": "feature"
+        }
+      ]
+    },
+    "3": {
+      "proficiencyBonus": 2,
+      "features": [
+        {
+          "name": "Druid Subclass",
+          "description": "You gain a Druid subclass of your choice. A subclass represents a circle of druids that share certain perspectives on nature, balance, and the way of the druid.",
+          "type": "subclass"
+        }
+      ]
+    },
+    "4": {
+      "proficiencyBonus": 2,
+      "features": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        },
+        {
+          "name": "Wild Shape Improvement",
+          "description": "Your Wild Shape improves. You can now transform into a Beast with a Swim Speed and a Challenge Rating as high as 1/2.",
+          "type": "feature"
+        }
+      ]
+    },
+    "5": {
+      "proficiencyBonus": 3,
+      "features": [
+        {
+          "name": "Wild Resurgence",
+          "description": "Once on each of your turns, if you have no uses of Wild Shape left, you can give yourself one use by expending a spell slot (no action required).",
+          "type": "feature"
+        }
+      ]
+    },
+    "8": {
+      "proficiencyBonus": 3,
+      "features": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        },
+        {
+          "name": "Wild Shape Improvement",
+          "description": "You can now transform into a Beast with a Fly Speed and a Challenge Rating as high as 1.",
+          "type": "feature"
+        }
+      ]
+    },
+    "10": {
+      "proficiencyBonus": 4,
+      "features": [
+        {
+          "name": "Elemental Wild Shape",
+          "description": "The power of the elements flows through you. When you use Wild Shape, you can transform into an Elemental with a Challenge Rating as high as your Druid level divided by 3 (rounded down). You can use Elemental Wild Shape once, and you regain the ability to do so when you finish a Long Rest.",
+          "type": "feature"
+        }
+      ]
+    },
+    "12": {
+      "proficiencyBonus": 4,
+      "features": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        }
+      ]
+    },
+    "15": {
+      "proficiencyBonus": 5,
+      "features": [
+        {
+          "name": "Improved Elemental Wild Shape",
+          "description": "You can now use Elemental Wild Shape twice between Long Rests.",
+          "type": "feature"
+        }
+      ]
+    },
+    "16": {
+      "proficiencyBonus": 5,
+      "features": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        }
+      ]
+    },
+    "18": {
+      "proficiencyBonus": 6,
+      "features": [
+        {
+          "name": "Beast Spells",
+          "description": "While in a Wild Shape form, you can cast spells you have prepared, provided the spell doesn't require a Material component. If the spell has a Somatic component, you can perform it only if your Beast form is capable of doing so.",
+          "type": "feature"
+        }
+      ]
+    },
+    "19": {
+      "proficiencyBonus": 6,
+      "features": [
+        {
+          "name": "Epic Boon",
+          "description": "You gain an Epic Boon feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        }
+      ]
+    },
+    "20": {
+      "proficiencyBonus": 6,
+      "features": [
+        {
+          "name": "Archdruid",
+          "description": "The vitality of nature sustains you in the following ways: You regain all expended uses of Wild Shape when you roll Initiative. Additionally, you can use your Wild Shape an unlimited number of times.",
+          "type": "feature"
+        }
+      ]
+    }
+  },
+  "spellcasting": {
+    "ability": "Wisdom",
+    "type": "full",
+    "cantripsKnown": {
+      "1": 2,
+      "4": 3,
+      "10": 4
+    },
+    "spellSlots": {
+      "1": {"1": 2},
+      "2": {"1": 3},
+      "3": {"1": 4, "2": 2},
+      "4": {"1": 4, "2": 3},
+      "5": {"1": 4, "2": 3, "3": 2},
+      "6": {"1": 4, "2": 3, "3": 3},
+      "7": {"1": 4, "2": 3, "3": 3, "4": 1},
+      "8": {"1": 4, "2": 3, "3": 3, "4": 2},
+      "9": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 1},
+      "10": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2},
+      "11": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1},
+      "12": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1},
+      "13": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 1},
+      "14": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 1},
+      "15": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 1, "8": 1},
+      "16": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 1, "8": 1},
+      "17": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 1, "8": 1, "9": 1},
+      "18": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 3, "6": 1, "7": 1, "8": 1, "9": 1},
+      "19": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 3, "6": 2, "7": 1, "8": 1, "9": 1},
+      "20": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 3, "6": 2, "7": 2, "8": 1, "9": 1}
+    },
+    "spellsPrepared": {
+      "1": 2, "2": 3, "3": 4, "4": 5, "5": 6, "6": 7, "7": 8, "8": 9, "9": 10, "10": 11,
+      "11": 12, "12": 13, "13": 14, "14": 15, "15": 16, "16": 17, "17": 18, "18": 19, "19": 20, "20": 21
+    },
+    "ritualCasting": true,
+    "spellcastingFocus": ["Druidcraft Focus"]
+  },
+  "subclasses": [
+    {
+      "name": "Circle of the Land",
+      "description": "The Circle of the Land is made up of mystics and sages who safeguard ancient knowledge and rites through a vast oral tradition. These druids meet within sacred circles of trees or standing stones to whisper primal secrets in Druidic. The circle's wisest members preside as the chief priests of communities that hold to the Old Faith and serve as advisors to the rulers of those folk.",
+      "features": {
+        "3": [
+          {
+            "name": "Circle Spells",
+            "description": "Your connection to the land infuses you with the ability to cast certain spells. You learn additional spells based on the land you choose. Once you gain access to a circle spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day."
+          },
+          {
+            "name": "Natural Recovery",
+            "description": "You can regain some of your magical energy by sitting in meditation and communing with nature. During a Short Rest, you can recover a number of expended spell slots whose combined level equals up to half your Druid level (rounded up). You can use this feature once per Long Rest."
+          }
+        ],
+        "6": [
+          {
+            "name": "Land's Aid",
+            "description": "As a Magic action, you can expend a use of your Wild Shape to choose a point within 60 feet of yourself. Vitality-giving flowers and plants suddenly bloom there in a 10-foot radius centered on that point. The blooms grant a creature Temporary Hit Points equal to your Druid level when the creature enters the area for the first time on a turn or starts its turn there. The blooms last for 10 minutes or until you use this feature again."
+          }
+        ],
+        "10": [
+          {
+            "name": "Nature's Ward",
+            "description": "You are immune to the Charmed and Frightened conditions. Moreover, when you finish a Short or Long Rest in a natural environment, you regain all expended Hit Dice."
+          }
+        ],
+        "14": [
+          {
+            "name": "Nature's Sanctuary",
+            "description": "When a Beast or Plant creature targets you with an attack, that creature must make a Wisdom saving throw against your spell save DC. On a failed save, the creature must choose a different target, or the attack automatically misses. On a successful save, the creature is immune to this effect for 24 hours."
+          }
+        ]
+      },
+      "spells": {
+        "3": ["Misty Step", "Spider Climb"],
+        "5": ["Haste", "Slow"],
+        "7": ["Freedom of Movement", "Locate Creature"],
+        "9": ["Commune with Nature", "Tree Stride"]
+      }
+    }
+  ],
+  "multiclassing": {
+    "requirements": {
+      "Wisdom": 13
+    },
+    "proficienciesGained": {
+      "armor": ["Light armor", "Medium armor", "Shields (nonmetal only)"]
+    }
+  },
+  "sourceBook": "Player's Handbook 2024"
+}

@@ -1,0 +1,101 @@
+{
+  "name": "Rod of Lordly Might",
+  "type": "Rod",
+  "rarity": "Legendary",
+  "attunement": true,
+  "description": "This rod has a flanged head, and it functions as a magic Mace that grants a +3 bonus to attack rolls and damage rolls made with it. The rod has properties associated with six different buttons that are set in a row along the haft. It has three other properties as well.",
+  "properties": {
+    "base_weapon": {
+      "type": "Magic Mace",
+      "attack_bonus": "+3",
+      "damage_bonus": "+3"
+    },
+    "buttons": [
+      {
+        "button": 1,
+        "name": "Fiery Blade",
+        "effect": "Fiery blade sprouts from opposite end",
+        "light": "Bright Light 40 feet, Dim Light additional 40 feet",
+        "weapon": "Magic Longsword or Shortsword (your choice)",
+        "damage_bonus": "+2d6 Fire damage on hit"
+      },
+      {
+        "button": 2,
+        "name": "Battle Axe",
+        "effect": "Flanged head folds, crescent blades spring out",
+        "weapon": "Magic Battleaxe",
+        "attack_bonus": "+3",
+        "damage_bonus": "+3"
+      },
+      {
+        "button": 3,
+        "name": "Spear",
+        "effect": "Flanged head folds, spear point springs out, handle extends",
+        "weapon": "Magic Spear (6-foot haft)",
+        "attack_bonus": "+3",
+        "damage_bonus": "+3"
+      },
+      {
+        "button": 4,
+        "name": "Climbing Pole",
+        "effect": "Rod transforms into climbing pole up to 50 feet long",
+        "anchoring": "Spike at bottom and three hooks at top in granite",
+        "rungs": "Horizontal bars 3 inches long, 1 foot apart forming ladder",
+        "weight_capacity": "4,000 pounds"
+      },
+      {
+        "button": 5,
+        "name": "Battering Ram",
+        "effect": "Rod transforms into handheld battering ram",
+        "bonus": "+10 to Strength (Athletics) checks to break barriers"
+      },
+      {
+        "button": 6,
+        "name": "Normal Form",
+        "effect": "Rod assumes or remains normal form",
+        "magnetic_north": "Indicates magnetic north",
+        "depth_knowledge": "Knowledge of approximate depth below ground or height above"
+      }
+    ],
+    "drain_life": {
+      "trigger": "Hit creature with melee attack",
+      "saving_throw": {
+        "type": "Constitution",
+        "dc": 17
+      },
+      "on_failure": {
+        "damage": "Extra 4d6 Necrotic damage",
+        "healing": "Regain Hit Points equal to half Necrotic damage"
+      },
+      "recharge": "Next dawn"
+    },
+    "paralyze": {
+      "trigger": "Hit creature with melee attack",
+      "saving_throw": {
+        "type": "Constitution",
+        "dc": 17
+      },
+      "on_failure": {
+        "condition": "Paralyzed",
+        "duration": "1 minute",
+        "repeat_save": "End of each turn"
+      },
+      "recharge": "Next dawn"
+    },
+    "terrify": {
+      "action_type": "Magic action",
+      "range": "30 feet",
+      "targets": "Each creature you can see",
+      "saving_throw": {
+        "type": "Wisdom",
+        "dc": 17
+      },
+      "on_failure": {
+        "condition": "Frightened",
+        "duration": "1 minute",
+        "repeat_save": "End of each turn"
+      },
+      "recharge": "Next dawn"
+    }
+  }
+}

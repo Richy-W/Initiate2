@@ -1,0 +1,57 @@
+{
+  "name": "Hawk",
+  "size": "Tiny",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 13,
+  "hit_points": 1,
+  "hit_dice": "1d4 - 1",
+  "speed": {
+    "walk": 10,
+    "fly": 60
+  },
+  "ability_scores": {
+    "strength": 5,
+    "dexterity": 16,
+    "constitution": 8,
+    "intelligence": 2,
+    "wisdom": 14,
+    "charisma": 6
+  },
+  "saving_throws": {
+    "strength": -3,
+    "dexterity": 3,
+    "constitution": -1,
+    "intelligence": -4,
+    "wisdom": 2,
+    "charisma": -2
+  },
+  "skills": {
+    "perception": 6
+  },
+  "senses": [
+    "Passive Perception 16"
+  ],
+  "languages": "None",
+  "challenge_rating": 0,
+  "experience_points": 10,
+  "proficiency_bonus": 2,
+  "features": [],
+  "actions": [
+    {
+      "name": "Talons",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 1 Slashing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Scout - Aerial reconnaissance with exceptional perception",
+    "positioning": "Uses flight to avoid ground threats while observing",
+    "damage_output": "1 slashing per hit, minimal direct combat",
+    "key_abilities": "Exceptional perception (+6), high flight speed",
+    "weaknesses": "Extremely low HP, dies to single hit",
+    "synergies": "Perfect for scouting, familiars, and aerial surveillance"
+  }
+}

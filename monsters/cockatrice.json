@@ -1,0 +1,83 @@
+{
+  "name": "Cockatrice",
+  "size": "Small",
+  "type": "Monstrosity",
+  "alignment": "Unaligned",
+  "armor_class": {
+    "value": 11,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 1,
+    "total": 11
+  },
+  "hit_points": {
+    "average": 22,
+    "formula": "5d6 + 5"
+  },
+  "speed": {
+    "walk": 20,
+    "fly": 40
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 6,
+      "modifier": -2,
+      "saving_throw": -2
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "intelligence": {
+      "score": 2,
+      "modifier": -4,
+      "saving_throw": -4
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "charisma": {
+      "score": 5,
+      "modifier": -3,
+      "saving_throw": -3
+    }
+  },
+  "condition_immunities": ["Petrified"],
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 11
+  },
+  "languages": [],
+  "challenge_rating": {
+    "cr": 0.5,
+    "xp": 100,
+    "proficiency_bonus": 2
+  },
+  "actions": [
+    {
+      "name": "Petrifying Bite",
+      "description": "Melee Attack Roll: +3, reach 5 ft. Hit: 3 (1d4 + 1) Piercing damage. If the target is a creature, it is subjected to the following effect. Constitution Saving Throw: DC 11. First Failure: The target has the Restrained condition. The target repeats the save at the end of its next turn if it is still Restrained, ending the effect on itself on a success. Second Failure: The target has the Petrified condition, instead of the Restrained condition, for 24 hours.",
+      "attack_roll": 3,
+      "reach": 5,
+      "damage": "3 (1d4 + 1)",
+      "damage_type": "Piercing",
+      "save_dc": 11
+    }
+  ],
+  "tactical_info": {
+    "role": "Harasser/Controller",
+    "environment": "Plains, hills, rocky outcroppings",
+    "tactics": "Hit-and-run attacks using flight, petrifying bite to disable enemies",
+    "weaknesses": "Low strength and HP, predictable flight patterns",
+    "signature_abilities": ["Petrifying bite", "Flight mobility", "Small size stealth"]
+  }
+}

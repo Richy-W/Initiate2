@@ -1,0 +1,12 @@
+{
+  "name": "Crystal Ball",
+  "type": "Wondrous Item",
+  "rarity": "Very Rare",
+  "requires_attunement": true,
+  "overview": "A crystal orb that enables scrying magic.",
+  "properties": {
+    "spell_casting": "While touching this crystal orb, you can cast Scrying (save DC 17) with it"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

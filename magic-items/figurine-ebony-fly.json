@@ -1,0 +1,40 @@
+{
+  "name": "Figurine of Wondrous Power: Ebony Fly",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "attunement": false,
+  "description": "This ebony statuette, carved in the likeness of a horsefly, can become a Giant Fly for up to 12 hours and can be ridden as a mount. Once it has been used, it can't be used again until 2 days have passed.",
+  "properties": {
+    "item_type": "Figurine of Wondrous Power",
+    "activation": "Magic action",
+    "activation_type": "throw to a point on the ground within 60 feet",
+    "creature_form": "Giant Fly",
+    "duration": "12 hours",
+    "reuse_duration": "2 days",
+    "mountable": true,
+    "creature_traits": {
+      "friendly": true,
+      "understands_languages": true,
+      "obeys_commands": true,
+      "initiative": "Immediately after you"
+    }
+  },
+  "giant_fly_stats": {
+    "type": "Large Beast, Unaligned",
+    "ac": 11,
+    "initiative": 1,
+    "hp": "19 (3d10 + 3)",
+    "speed": "30 ft., Fly 60 ft.",
+    "abilities": {
+      "str": { "score": 14, "modifier": 2, "save": 2 },
+      "dex": { "score": 13, "modifier": 1, "save": 1 },
+      "con": { "score": 13, "modifier": 1, "save": 1 },
+      "int": { "score": 2, "modifier": -4, "save": -4 },
+      "wis": { "score": 10, "modifier": 0, "save": 0 },
+      "cha": { "score": 3, "modifier": -4, "save": -4 }
+    },
+    "senses": "Darkvision 60 ft.; Passive Perception 10",
+    "languages": "None",
+    "cr": "0 (XP 0; PB +2)"
+  }
+}

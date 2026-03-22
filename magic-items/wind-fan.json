@@ -1,0 +1,15 @@
+{
+  "name": "Wind Fan",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "attunement": false,
+  "description": "While holding this fan, you can cast Gust of Wind (save DC 13) from it.",
+  "properties": {
+    "spell": "Gust of Wind",
+    "spell_save_dc": 13,
+    "cumulative_failure": {
+      "effect": "Each use before next dawn has cumulative 20% chance of not working",
+      "on_failure": "Fan tears into useless, nonmagical tatters"
+    }
+  }
+}

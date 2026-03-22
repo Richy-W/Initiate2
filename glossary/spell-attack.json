@@ -1,0 +1,12 @@
+{
+  "name": "Spell Attack",
+  "slug": "spell-attack",
+  "definition": "An attack roll made as part of a spell or magical effect",
+  "category": "Magic & Spells",
+  "tags": ["attack-roll", "spell"],
+  "full_text": "A spell attack is an attack roll made as part of a spell or another magical effect.",
+  "mechanics": {
+    "nature": "Attack roll component of spell/magical effect"
+  },
+  "see_also": ["attack-roll", "spell"]
+}

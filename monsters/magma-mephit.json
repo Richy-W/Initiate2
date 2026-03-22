@@ -1,0 +1,97 @@
+{
+  "name": "Magma Mephit",
+  "size": "Small",
+  "type": "Elemental",
+  "alignment": "Neutral Evil",
+  "armor_class": {
+    "value": 11,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 1,
+    "total": 11
+  },
+  "hit_points": {
+    "average": 18,
+    "formula": "4d6 + 4"
+  },
+  "speed": {
+    "walk": 30,
+    "fly": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "intelligence": {
+      "score": 7,
+      "modifier": -2,
+      "saving_throw": -2
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    }
+  },
+  "skills": {
+    "Stealth": 3
+  },
+  "damage_vulnerabilities": ["Cold"],
+  "damage_immunities": ["Fire", "Poison"],
+  "condition_immunities": ["Exhaustion", "Poisoned"],
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 10
+  },
+  "languages": ["Primordial (Ignan, Terran)"],
+  "challenge_rating": {
+    "cr": 0.5,
+    "xp": 100,
+    "proficiency_bonus": 2
+  },
+  "traits": [
+    {
+      "name": "Death Burst",
+      "description": "The mephit explodes when it dies. Dexterity Saving Throw: DC 11, each creature in a 5-foot Emanation originating from the mephit. Failure: 7 (2d6) Fire damage. Success: Half damage."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Claw",
+      "description": "Melee Attack Roll: +3, reach 5 ft. Hit: 3 (1d4 + 1) Slashing damage plus 3 (1d6) Fire damage.",
+      "attack_roll": 3,
+      "reach": 5,
+      "damage": "3 (1d4 + 1) + 3 (1d6)",
+      "damage_type": "Slashing + Fire"
+    },
+    {
+      "name": "Fire Breath (Recharge 6)",
+      "description": "Dexterity Saving Throw: DC 11, each creature in a 15-foot Cone. Failure: 7 (2d6) Fire damage. Success: Half damage."
+    }
+  ],
+  "tactical_info": {
+    "role": "Minor Fire Elemental/Living Bomb",
+    "environment": "Elemental Plane of Fire and Earth, volcanic regions, lava tubes",
+    "tactics": "Uses fire breath for area damage, fire claw attacks, death burst creates fire explosion",
+    "weaknesses": "Vulnerable to cold, low hit points, simple tactics",
+    "signature_abilities": ["Fire damage attacks", "Fire breath weapon", "Fire death burst", "Dual fire/earth elemental nature"]
+  }
+}

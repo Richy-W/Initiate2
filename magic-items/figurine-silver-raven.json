@@ -1,0 +1,25 @@
+{
+  "name": "Figurine of Wondrous Power: Silver Raven",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "attunement": false,
+  "description": "This silver statuette of a raven can become a Raven for up to 12 hours. Once it has been used, it can't be used again until 2 days have passed. While in raven form, the figurine grants you the ability to cast Animal Messenger on it.",
+  "properties": {
+    "item_type": "Figurine of Wondrous Power",
+    "activation": "Magic action",
+    "activation_type": "throw to a point on the ground within 60 feet",
+    "creature_form": "Raven",
+    "duration": "12 hours",
+    "reuse_duration": "2 days",
+    "creature_traits": {
+      "friendly": true,
+      "understands_languages": true,
+      "obeys_commands": true,
+      "initiative": "Immediately after you"
+    },
+    "spell_casting": {
+      "spell": "Animal Messenger",
+      "available": "While in raven form"
+    }
+  }
+}

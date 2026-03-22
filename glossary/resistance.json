@@ -1,0 +1,13 @@
+{
+  "name": "Resistance",
+  "slug": "resistance",
+  "definition": "Reduction of damage of a specific type by half",
+  "category": "Abilities & Attributes",
+  "tags": ["damage", "reduction"],
+  "full_text": "If you have Resistance to a damage type, damage of that type is halved against you (round down). Resistance is applied only once to an instance of damage.",
+  "mechanics": {
+    "effect": "Damage of type halved (round down)",
+    "stacking": "Applied only once per damage instance"
+  },
+  "see_also": ["damage", "immunity", "vulnerability"]
+}

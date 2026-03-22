@@ -1,0 +1,30 @@
+{
+  "name": "Horn of Blasting",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "attunement": false,
+  "description": "You can take a Magic action to blow the horn, which emits a thunderous blast in a 30-foot Cone that is audible out to 600 feet.",
+  "properties": {
+    "activation": "Magic action",
+    "blast": {
+      "area": "30-foot Cone",
+      "audible_range": "600 feet"
+    },
+    "effect": {
+      "save": {
+        "save_type": "Constitution",
+        "save_dc": 15
+      },
+      "on_failed_save": {
+        "damage": "5d8 Thunder damage",
+        "condition": "Deafened condition for 1 minute"
+      },
+      "on_successful_save": "Half damage only"
+    },
+    "collateral_damage": "Glass or crystal objects in Cone not being worn/carried take 10d8 Thunder damage",
+    "destruction_risk": {
+      "chance": "20 percent per use",
+      "effect": "Horn explodes, dealing 10d6 Force damage to user and destroying horn"
+    }
+  }
+}

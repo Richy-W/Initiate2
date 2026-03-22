@@ -1,0 +1,32 @@
+{
+  "name": "Staff of Withering",
+  "type": "Staff",
+  "rarity": "Rare",
+  "attunement": true,
+  "description": "This staff has 3 charges and regains 1d3 expended charges daily at dawn.",
+  "properties": {
+    "charges": {
+      "max_charges": 3,
+      "current_charges": 3,
+      "recharge": "1d3 daily at dawn"
+    },
+    "weapon": {
+      "type": "Magic Quarterstaff",
+      "normal_damage": "Normal Quarterstaff damage"
+    },
+    "necrotic_effect": {
+      "trigger": "Hit with attack",
+      "charges_cost": 1,
+      "extra_damage": "2d10 Necrotic damage",
+      "saving_throw": {
+        "type": "Constitution",
+        "dc": 15
+      },
+      "on_failure": {
+        "condition": "Disadvantage on ability checks and saving throws",
+        "affected_abilities": "Strength or Constitution",
+        "duration": "1 hour"
+      }
+    }
+  }
+}

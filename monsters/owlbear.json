@@ -1,0 +1,88 @@
+{
+  "name": "Owlbear",
+  "size": "Large",
+  "type": "Monstrosity",
+  "alignment": "Unaligned",
+  "armor_class": {
+    "value": 13,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 1,
+    "total": 11
+  },
+  "hit_points": {
+    "average": 59,
+    "formula": "7d10 + 21"
+  },
+  "speed": {
+    "walk": 40,
+    "climb": 40
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 20,
+      "modifier": 5,
+      "saving_throw": 5
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "constitution": {
+      "score": 17,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "intelligence": {
+      "score": 3,
+      "modifier": -4,
+      "saving_throw": -4
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "charisma": {
+      "score": 7,
+      "modifier": -2,
+      "saving_throw": -2
+    }
+  },
+  "skills": {
+    "perception": 5
+  },
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 15
+  },
+  "languages": [],
+  "challenge_rating": {
+    "cr": 3,
+    "xp": 700,
+    "proficiency_bonus": 2
+  },
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The owlbear makes two Rend attacks."
+    },
+    {
+      "name": "Rend",
+      "description": "Melee Attack Roll: +7, reach 5 ft. Hit: 14 (2d8 + 5) Slashing damage.",
+      "attack_roll": 7,
+      "reach": 5,
+      "damage": "14 (2d8 + 5)",
+      "damage_type": "Slashing"
+    }
+  ],
+  "tactical_info": {
+    "role": "Forest Predator/Brute",
+    "environment": "Dense forests, woodland caves, temperate wilderness, magical beast territories",
+    "tactics": "Uses exceptional strength for devastating rend attacks, climbs to access elevated positions, keen perception for hunting",
+    "weaknesses": "Low intelligence makes it predictable, no ranged options, vulnerable to tactical maneuvering",
+    "signature_abilities": ["Exceptional strength", "Dual rend attacks", "Climbing mobility", "Enhanced perception"]
+  }
+}

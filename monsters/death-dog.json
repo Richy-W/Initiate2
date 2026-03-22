@@ -1,0 +1,90 @@
+{
+  "name": "Death Dog",
+  "size": "Medium",
+  "type": "Monstrosity",
+  "alignment": "Neutral Evil",
+  "armor_class": {
+    "value": 12,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 2,
+    "total": 12
+  },
+  "hit_points": {
+    "average": 39,
+    "formula": "6d8 + 12"
+  },
+  "speed": {
+    "walk": 40
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "intelligence": {
+      "score": 3,
+      "modifier": -4,
+      "saving_throw": -4
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "charisma": {
+      "score": 6,
+      "modifier": -2,
+      "saving_throw": -2
+    }
+  },
+  "skills": {
+    "perception": 5,
+    "stealth": 4
+  },
+  "condition_immunities": ["Blinded", "Charmed", "Deafened", "Frightened", "Stunned", "Unconscious"],
+  "senses": {
+    "darkvision": 120,
+    "passive_perception": 15
+  },
+  "languages": ["None"],
+  "challenge_rating": {
+    "cr": 1,
+    "xp": 200,
+    "proficiency_bonus": 2
+  },
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The death dog makes two Bite attacks."
+    },
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 4 (1d4 + 2) Piercing damage. If the target is a creature, it is subjected to the following effect. Constitution Saving Throw: DC 12. First Failure: The target has the Poisoned condition. While Poisoned, the target's Hit Point maximum doesn't return to normal when finishing a Long Rest, and it repeats the save every 24 hours that elapse, ending the effect on itself on a success. Subsequent Failures: The Poisoned target's Hit Point maximum decreases by 5 (1d10).",
+      "attack_roll": 4,
+      "reach": 5,
+      "damage": "4 (1d4 + 2)",
+      "damage_type": "Piercing",
+      "save_dc": 12
+    }
+  ],
+  "tactical_info": {
+    "role": "Pack Hunter/Disease Vector",
+    "environment": "Graveyards, battlefields, plague lands, underdark",
+    "tactics": "Hunts in packs, uses stealth for ambush, inflicts wasting disease to weaken prey over time",
+    "weaknesses": "Vulnerable to condition removal spells, relatively low individual combat power",
+    "signature_abilities": ["Multiattack", "Wasting disease bite", "Condition immunities", "Pack stealth"]
+  }
+}

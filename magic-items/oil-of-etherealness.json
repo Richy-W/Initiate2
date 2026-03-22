@@ -1,0 +1,14 @@
+{
+  "name": "Oil of Etherealness",
+  "type": "Potion",
+  "rarity": "Rare",
+  "attunement": false,
+  "description": "One vial of this oil can cover one Medium or smaller creature, along with the equipment it's wearing and carrying. Applying the oil takes 10 minutes. The affected creature then gains the effect of the Etherealness spell for 1 hour.",
+  "properties": {
+    "coverage": "One Medium or smaller creature with equipment",
+    "additional_vials": "One additional vial required for each size category above Medium",
+    "application_time": "10 minutes",
+    "effect": "Etherealness spell for 1 hour",
+    "appearance": "Cloudy, gray oil with beads forming on container exterior and quickly evaporating"
+  }
+}

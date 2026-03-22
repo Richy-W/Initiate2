@@ -1,0 +1,119 @@
+{
+  "title": "Proficiency System", 
+  "description": "Training and expertise mechanics that enhance character capabilities",
+  "version": "2024",
+  "overview": {
+    "description": "Characters and monsters are good at various things. Some are skilled with many weapons, while others can use only a few. Some are better at understanding people's motives, and others are better at unlocking the secrets of the multiverse.",
+    "universality": "All creatures have a Proficiency Bonus, which reflects the impact that training has on the creature's capabilities."
+  },
+  "proficiency_bonus": {
+    "description": "This bonus is applied to a D20 Test when the creature has proficiency in a skill, in a saving throw, or with an item that the creature uses to make the D20 Test. The bonus is also used for spell attacks and for calculating the DC of saving throws for spells.",
+    "determination": {
+      "characters": "A character's Proficiency Bonus increases as the character gains levels",
+      "monsters": "A monster's Proficiency Bonus is based on its Challenge Rating"
+    },
+    "bonus_table": [
+      {
+        "level_or_cr": "Up to 4",
+        "bonus": 2
+      },
+      {
+        "level_or_cr": "5–8", 
+        "bonus": 3
+      },
+      {
+        "level_or_cr": "9–12",
+        "bonus": 4
+      },
+      {
+        "level_or_cr": "13–16",
+        "bonus": 5
+      },
+      {
+        "level_or_cr": "17–20",
+        "bonus": 6
+      },
+      {
+        "level_or_cr": "21–24",
+        "bonus": 7
+      },
+      {
+        "level_or_cr": "25–28",
+        "bonus": 8
+      },
+      {
+        "level_or_cr": "29–30",
+        "bonus": 9
+      }
+    ],
+    "stacking_rules": {
+      "no_stacking": "Your Proficiency Bonus can't be added to a die roll or another number more than once",
+      "example": "If a rule allows you to make a Charisma (Deception or Persuasion) check, you add your Proficiency Bonus if you're proficient in either skill, but you don't add it twice if you're proficient in both skills",
+      "multiplication": "Occasionally, a Proficiency Bonus might be multiplied or divided (doubled or halved, for example) before being added",
+      "expertise_example": "The Expertise feature doubles the Proficiency Bonus for certain ability checks",
+      "modification_limits": "Whenever the bonus is used, it can be multiplied only once and divided only once"
+    }
+  },
+  "skill_proficiencies": {
+    "overview": "Most ability checks involve using a skill, which represents a category of things creatures try to do with an ability check",
+    "application": {
+      "with_proficiency": "If a creature is proficient in a skill, the creature applies its Proficiency Bonus to ability checks involving that skill",
+      "without_proficiency": "Without proficiency in a skill, a creature can still make ability checks involving that skill but doesn't add its Proficiency Bonus"
+    },
+    "example": "If a character tries to climb a cliff, the DM might ask for a Strength (Athletics) check. If the character has Athletics proficiency, the character adds their Proficiency Bonus to the Strength check. If the character lacks that proficiency, they make the check without adding their Proficiency Bonus.",
+    "dm_authority": "The DM has the ultimate say on whether a skill is relevant in a situation",
+    "determination": "A character's starting skill proficiencies are determined at character creation, and a monster's skill proficiencies appear in its stat block",
+    "different_abilities": {
+      "description": "Each skill proficiency is associated with an ability check. In some situations, the DM might allow you to apply your skill proficiency to a different ability check",
+      "example": "If a character tries to intimidate someone through a show of physical strength, the DM might ask for a Strength (Intimidation) check rather than a Charisma (Intimidation) check. That character would make a Strength check and add their Proficiency Bonus if they have Intimidation proficiency."
+    }
+  },
+  "saving_throw_proficiencies": {
+    "description": "Proficiency in a saving throw lets a character add their Proficiency Bonus to saves that use a particular ability",
+    "example": "Proficiency in Wisdom saves lets you add your Proficiency Bonus to your Wisdom saves",
+    "monsters": "Some monsters also have saving throw proficiencies, as noted in their stat blocks",
+    "class_training": "Each class gives proficiency in at least two saving throws, representing that class's training in evading or resisting certain threats",
+    "wizard_example": "Wizards, for example, are proficient in Intelligence and Wisdom saves; they train to resist mental assault"
+  },
+  "equipment_proficiencies": {
+    "description": "A character gains proficiency with various weapons and tools from their class and background",
+    "categories": {
+      "weapons": {
+        "description": "Anyone can wield a weapon, but proficiency makes you better at wielding it",
+        "benefit": "If you have proficiency with a weapon, you add your Proficiency Bonus to attack rolls you make with it"
+      },
+      "tools": {
+        "description": "If you have proficiency with a tool, you can add your Proficiency Bonus to any ability check you make that uses the tool",
+        "skill_synergy": "If you have proficiency in the skill that's also used with that check, you have Advantage on the check too",
+        "double_benefit": "This means you can benefit from both skill proficiency and tool proficiency on the same ability check"
+      }
+    }
+  },
+  "proficiency_types": [
+    {
+      "type": "Skills",
+      "description": "18 different skills covering various activities and knowledge areas",
+      "application": "Added to ability checks when relevant skill proficiency applies"
+    },
+    {
+      "type": "Saving Throws",
+      "description": "Proficiency in one or more of the six ability-based saves",
+      "application": "Added to saving throws of the relevant ability type"
+    },
+    {
+      "type": "Weapons",
+      "description": "Proficiency with specific weapons or weapon groups",
+      "application": "Added to attack rolls made with those weapons"
+    },
+    {
+      "type": "Tools",
+      "description": "Proficiency with various tools and kits",
+      "application": "Added to ability checks made using those tools"
+    },
+    {
+      "type": "Languages",
+      "description": "Ability to speak, read, and write languages",
+      "application": "No mechanical bonus, but enables communication and understanding"
+    }
+  ]
+}

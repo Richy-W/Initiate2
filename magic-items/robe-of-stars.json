@@ -1,0 +1,24 @@
+{
+  "name": "Robe of Stars",
+  "type": "Wondrous Item",
+  "rarity": "Very Rare",
+  "attunement": true,
+  "description": "This black or dark-blue robe is embroidered with small white or silver stars.",
+  "properties": {
+    "saving_throw_bonus": "+1 to saving throws",
+    "stars": {
+      "count": "Six particularly large stars on upper-front portion"
+    },
+    "magic_missile": {
+      "action_type": "Magic action",
+      "effect": "Remove one star and expend it to cast Magic Missile level 5",
+      "recharge": "Daily at dusk, 1d6 removed stars reappear"
+    },
+    "astral_travel": {
+      "action_type": "Magic action",
+      "effect": "Enter Astral Plane with everything you wear and carry",
+      "exit": "Magic action to return to previous plane",
+      "location": "Reappear in last space occupied or nearest unoccupied space"
+    }
+  }
+}

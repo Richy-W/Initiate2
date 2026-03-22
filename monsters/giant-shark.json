@@ -1,0 +1,67 @@
+{
+  "name": "Giant Shark",
+  "size": "Huge",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 13,
+  "hit_points": 92,
+  "hit_dice": "8d12 + 40",
+  "speed": {
+    "walk": 5,
+    "swim": 60
+  },
+  "ability_scores": {
+    "strength": 23,
+    "dexterity": 11,
+    "constitution": 21,
+    "intelligence": 1,
+    "wisdom": 10,
+    "charisma": 5
+  },
+  "saving_throws": {
+    "strength": 6,
+    "dexterity": 0,
+    "constitution": 5,
+    "intelligence": -5,
+    "wisdom": 0,
+    "charisma": -3
+  },
+  "skills": {
+    "perception": 3
+  },
+  "senses": [
+    "Blindsight 60 ft.",
+    "Passive Perception 13"
+  ],
+  "languages": "None",
+  "challenge_rating": 5,
+  "experience_points": 1800,
+  "proficiency_bonus": 3,
+  "features": [
+    {
+      "name": "Water Breathing",
+      "description": "The shark can breathe only underwater."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The shark makes two Bite attacks."
+    },
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +9 (with Advantage if the target doesn't have all its Hit Points), reach 5 ft. Hit: 22 (3d10 + 6) Piercing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Striker - Apex underwater predator with blood frenzy",
+    "positioning": "Seeks wounded targets for advantage on attacks",
+    "damage_output": "44 piercing per round with two bite attacks",
+    "key_abilities": "Advantage against wounded targets makes it devastating",
+    "weaknesses": "Restricted to underwater environments",
+    "synergies": "Excels in aquatic encounters, particularly against injured foes"
+  }
+}

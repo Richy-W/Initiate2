@@ -1,0 +1,12 @@
+{
+  "name": "Healing",
+  "slug": "healing",
+  "definition": "The process of regaining hit points",
+  "category": "Hit Points",
+  "tags": ["hit-points", "recovery"],
+  "full_text": "Healing is how you regain Hit Points.",
+  "mechanics": {
+    "effect": "Restores HP up to maximum"
+  },
+  "see_also": ["hit-points", "damage"]
+}

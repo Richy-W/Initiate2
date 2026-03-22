@@ -1,0 +1,40 @@
+{
+  "id": "amulet-of-proof-against-detection",
+  "name": "Amulet of Proof against Detection and Location",
+  "rarity": "Uncommon",
+  "category": "Wondrous Item",
+  "attunement_required": true,
+  "weight": "Negligible",
+  "value": "500 GP",
+  "description": "While wearing this amulet, you can't be targeted by Divination spells or perceived through magical scrying sensors unless you allow it.",
+  "properties": [
+    "Enchanted",
+    "Protection",
+    "Divination Resistance",
+    "Scrying Protection"
+  ],
+  "effect": {
+    "type": "Divination Protection",
+    "protection": "Cannot be targeted by Divination spells",
+    "scrying_immunity": "Cannot be perceived through magical scrying sensors",
+    "voluntariness": "Can choose to allow it"
+  },
+  "attunement": {
+    "required": true,
+    "description": "You must attune to this amulet by wearing it for 1 hour."
+  },
+  "activation": {
+    "type": "Passive",
+    "description": "The magic functions automatically while attuned and wearing the amulet"
+  },
+  "consumable": false,
+  "protected_against": [
+    "All Divination spells",
+    "Scrying sensors (magical)",
+    "Locate object spell (if targeting you)",
+    "Scrying spell",
+    "Other divination magics"
+  ],
+  "source": "Player's Handbook",
+  "notes": "This amulet is invaluable for those trying to hide from magical detection or seeking privacy from divination magic."
+}

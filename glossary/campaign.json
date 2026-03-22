@@ -1,0 +1,12 @@
+{
+  "name": "Campaign",
+  "slug": "campaign",
+  "definition": "A campaign is a series of adventures.",
+  "category": "Gameplay Structure",
+  "tags": [],
+  "full_text": "A campaign is a series of adventures.",
+  "see_also": [
+    "Adventure",
+    "Encounter"
+  ]
+}

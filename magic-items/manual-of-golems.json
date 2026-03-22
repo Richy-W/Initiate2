@@ -1,0 +1,49 @@
+{
+  "name": "Manual of Golems",
+  "type": "Wondrous Item",
+  "rarity": "Very Rare",
+  "attunement": false,
+  "description": "This tome contains information and incantations necessary to make a particular type of golem. The DM chooses the type or determines it randomly. To decipher and use the manual, you must be a spellcaster with at least two level 5 spell slots. A creature that can't use a Manual of Golems and attempts to read it takes 6d6 Psychic damage.",
+  "properties": {
+    "type": "Tome",
+    "requirement": "Spellcaster with at least two level 5 spell slots",
+    "damage_on_failure": "6d6 Psychic damage to creatures that can't use manual",
+    "creation_process": {
+      "requirement": "Work without interruption with manual at hand, rest no more than 8 hours per day",
+      "steps": [
+        "Spend time shown on table",
+        "Pay specified cost for supplies",
+        "Finish creating golem",
+        "Manual consumed in eldritch flames",
+        "Sprinkle ashes on golem to animate it"
+      ]
+    },
+    "golem_types": [
+      {
+        "type": "Clay Golem",
+        "roll": "1–5",
+        "time": "30 days",
+        "cost": "65,000 GP"
+      },
+      {
+        "type": "Flesh Golem",
+        "roll": "6–17",
+        "time": "60 days",
+        "cost": "50,000 GP"
+      },
+      {
+        "type": "Iron Golem",
+        "roll": "18",
+        "time": "120 days",
+        "cost": "100,000 GP"
+      },
+      {
+        "type": "Stone Golem",
+        "roll": "19–20",
+        "time": "90 days",
+        "cost": "80,000 GP"
+      }
+    ],
+    "control": "Golem is under your control and understands and obeys your commands"
+  }
+}

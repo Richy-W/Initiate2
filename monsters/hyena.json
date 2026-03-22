@@ -1,0 +1,62 @@
+{
+  "name": "Hyena",
+  "size": "Medium",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 11,
+  "hit_points": 5,
+  "hit_dice": "1d8 + 1",
+  "speed": {
+    "walk": 50
+  },
+  "ability_scores": {
+    "strength": 11,
+    "dexterity": 13,
+    "constitution": 12,
+    "intelligence": 2,
+    "wisdom": 12,
+    "charisma": 5
+  },
+  "saving_throws": {
+    "strength": 0,
+    "dexterity": 1,
+    "constitution": 1,
+    "intelligence": -4,
+    "wisdom": 1,
+    "charisma": -3
+  },
+  "skills": {
+    "perception": 3
+  },
+  "senses": [
+    "Darkvision 60 ft.",
+    "Passive Perception 13"
+  ],
+  "languages": "None",
+  "challenge_rating": 0,
+  "experience_points": 10,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Pack Tactics",
+      "description": "The hyena has Advantage on an attack roll against a creature if at least one of the hyena's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +2, reach 5 ft. Hit: 3 (1d6) Piercing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Pack Fighter - Fast pack hunter with group tactics",
+    "positioning": "Works with allies to gain advantage on attacks",
+    "damage_output": "3 piercing per hit with advantage when in groups",
+    "key_abilities": "Pack Tactics, high speed (50 ft), good perception",
+    "weaknesses": "Low individual combat capability, relies on numbers",
+    "synergies": "Deadly in packs, works well with other pack animals"
+  }
+}

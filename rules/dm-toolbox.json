@@ -1,0 +1,405 @@
+{
+  "dm_toolbox": {
+    "title": "DM's Toolbox",
+    "description": "Practical tools and advice for adventure elements, backgrounds, and combat design"
+  },
+  "creating_backgrounds": {
+    "title": "Creating a Custom Background",
+    "overview": "How to create backgrounds tailored for your world and campaign themes",
+    "purpose": [
+      "Reflect particular theme of campaign",
+      "Reflect elements of your world",
+      "Help player craft the story they have in mind"
+    ],
+    "step_by_step": [
+      {
+        "step": 1,
+        "title": "Choose Abilities",
+        "description": "Choose three abilities that seem appropriate for the background",
+        "options": [
+          {
+            "abilities": "Strength or Dexterity",
+            "use": "Ideal for backgrounds involving physical exertion"
+          },
+          {
+            "ability": "Constitution",
+            "use": "Ideal for backgrounds involving endurance or long hours of activity"
+          },
+          {
+            "abilities": "Intelligence or Wisdom",
+            "use": "Ideal for backgrounds focusing on cerebral or spiritual matters"
+          },
+          {
+            "ability": "Charisma",
+            "use": "Ideal for backgrounds involving performance or social interaction"
+          }
+        ]
+      },
+      {
+        "step": 2,
+        "title": "Choose a Feat",
+        "description": "Choose one feat from the Origin category",
+        "note": "See Player's Handbook for examples of Origin feats"
+      },
+      {
+        "step": 3,
+        "title": "Choose Skill Proficiencies",
+        "description": "Choose two skills appropriate for the background",
+        "note": "No need for relationship between skill proficiencies and ability score increases"
+      },
+      {
+        "step": 4,
+        "title": "Choose a Tool Proficiency",
+        "description": "Choose one tool used in practice of background or often associated with it"
+      },
+      {
+        "step": 5,
+        "title": "Choose Equipment",
+        "description": "Assemble equipment package",
+        "value": "Worth 50 GP (including unspent gold)",
+        "restrictions": [
+          "Don't include Martial weapons (from class)",
+          "Don't include armor (from class)"
+        ]
+      }
+    ]
+  },
+  "combat_encounters": {
+    "title": "Combat Encounters",
+    "overview": "Features and design principles for interesting combat"
+  },
+  "combat_encounter_features": {
+    "title": "Interesting Combat Encounter Features",
+    "overview": "Features that make combat encounters more interesting or challenging",
+    "features": [
+      {
+        "feature": "Changes in Elevation",
+        "examples": [
+          "Stacks of empty crates",
+          "Ledges",
+          "Balconies"
+        ],
+        "benefit": "Reward clever positioning",
+        "encourage": [
+          "Jumping",
+          "Climbing",
+          "Flying",
+          "Teleporting"
+        ]
+      },
+      {
+        "feature": "Defensive Positions",
+        "description": "Enemies in hard-to-reach locations or defensive positions",
+        "benefit": "Force ranged attackers to move around",
+        "examples": [
+          "High ground",
+          "Fortified positions",
+          "Behind barriers"
+        ]
+      },
+      {
+        "feature": "Mixed Monster Groups",
+        "description": "Different types of monsters working together",
+        "benefit": [
+          "Combine abilities like character classes",
+          "Diverse force is more powerful",
+          "Requires diverse tactics from players"
+        ]
+      },
+      {
+        "feature": "Reasons to Move",
+        "description": "Features that encourage movement",
+        "examples": [
+          "Chandeliers",
+          "Kegs of gunpowder or oil",
+          "Rolling stone traps",
+          "Collapsing platforms",
+          "Moving enemies"
+        ]
+      }
+    ]
+  },
+  "combat_encounter_difficulty": {
+    "title": "Combat Encounter Difficulty",
+    "overview": "Creating encounters of desired difficulty level",
+    "categories": [
+      {
+        "difficulty": "Low Difficulty",
+        "characteristics": [
+          "Likely to have one or two scary moments",
+          "Characters should emerge victorious with no casualties",
+          "One or more might need to use healing resources"
+        ],
+        "guideline": "Single monster generally presents low-difficulty challenge for party of four characters whose level equals monster's CR"
+      },
+      {
+        "difficulty": "Moderate Difficulty",
+        "characteristics": [
+          "Absent healing and resources, could go badly for adventurers",
+          "Weaker characters might get taken out of fight",
+          "Slim chance one or more characters might die"
+        ]
+      },
+      {
+        "difficulty": "High Difficulty",
+        "characteristics": [
+          "Could be lethal for one or more characters",
+          "Characters need smart tactics, quick thinking, maybe luck to survive"
+        ]
+      }
+    ]
+  },
+  "xp_budget_system": {
+    "title": "XP Budget System for Encounter Design",
+    "overview": "Step-by-step process for building encounters of specific difficulty",
+    "step_1": {
+      "title": "Choose a Difficulty",
+      "action": "Select Low, Moderate, or High difficulty"
+    },
+    "step_2": {
+      "title": "Determine Your XP Budget",
+      "process": [
+        "Cross-reference party's level with desired difficulty in table",
+        "Multiply the number by number of characters in party",
+        "Result is your XP budget for the encounter"
+      ]
+    },
+    "xp_budget_table": {
+      "title": "XP Budget per Character by Party Level and Difficulty",
+      "data": [
+        {
+          "party_level": 1,
+          "low": 50,
+          "moderate": 75,
+          "high": 100
+        },
+        {
+          "party_level": 2,
+          "low": 100,
+          "moderate": 150,
+          "high": 200
+        },
+        {
+          "party_level": 3,
+          "low": 150,
+          "moderate": 225,
+          "high": 400
+        },
+        {
+          "party_level": 4,
+          "low": 250,
+          "moderate": 375,
+          "high": 500
+        },
+        {
+          "party_level": 5,
+          "low": 500,
+          "moderate": 750,
+          "high": 1100
+        },
+        {
+          "party_level": 6,
+          "low": 600,
+          "moderate": 1000,
+          "high": 1400
+        },
+        {
+          "party_level": 7,
+          "low": 750,
+          "moderate": 1300,
+          "high": 1700
+        },
+        {
+          "party_level": 8,
+          "low": 1000,
+          "moderate": 1700,
+          "high": 2100
+        },
+        {
+          "party_level": 9,
+          "low": 1300,
+          "moderate": 2000,
+          "high": 2600
+        },
+        {
+          "party_level": 10,
+          "low": 1600,
+          "moderate": 2300,
+          "high": 3100
+        },
+        {
+          "party_level": 11,
+          "low": 1900,
+          "moderate": 2900,
+          "high": 4100
+        },
+        {
+          "party_level": 12,
+          "low": 2200,
+          "moderate": 3700,
+          "high": 4700
+        },
+        {
+          "party_level": 13,
+          "low": 2600,
+          "moderate": 4200,
+          "high": 5400
+        },
+        {
+          "party_level": 14,
+          "low": 2900,
+          "moderate": 4900,
+          "high": 6200
+        },
+        {
+          "party_level": 15,
+          "low": 3300,
+          "moderate": 5400,
+          "high": 7800
+        },
+        {
+          "party_level": 16,
+          "low": 3800,
+          "moderate": 6100,
+          "high": 9800
+        },
+        {
+          "party_level": 17,
+          "low": 4500,
+          "moderate": 7200,
+          "high": 11700
+        },
+        {
+          "party_level": 18,
+          "low": 5000,
+          "moderate": 8700,
+          "high": 14200
+        },
+        {
+          "party_level": 19,
+          "low": 5500,
+          "moderate": 10700,
+          "high": 17200
+        },
+        {
+          "party_level": 20,
+          "low": 6400,
+          "moderate": 13200,
+          "high": 22000
+        }
+      ]
+    },
+    "step_3": {
+      "title": "Spend Your Budget",
+      "process": [
+        "Every creature has an XP value in its stat block",
+        "When adding creature, deduct its XP from budget",
+        "Spend as much of budget as possible without going over",
+        "It's OK to have a few unspent XP left over"
+      ]
+    }
+  },
+  "encounter_examples": {
+    "title": "Example Encounters",
+    "examples": [
+      {
+        "example": 1,
+        "difficulty": "Low-difficulty",
+        "party": "Four level 1 characters",
+        "xp_budget": "50 × 4 = 200 XP total",
+        "possible_encounters": [
+          {
+            "composition": "1 Bugbear Warrior",
+            "xp": "200 XP"
+          },
+          {
+            "composition": "2 Giant Wasps",
+            "xp": "100 XP each, 200 XP total"
+          },
+          {
+            "composition": "6 Twig Blights",
+            "xp": "25 XP each, 150 XP total"
+          }
+        ]
+      },
+      {
+        "example": 2,
+        "difficulty": "Moderate-difficulty",
+        "party": "Five level 3 characters",
+        "xp_budget": "225 × 5 = 1,125 XP total",
+        "possible_encounters": [
+          {
+            "composition": "2 Nothics and 9 Stirges",
+            "breakdown": "450 XP each (Nothics) + 25 XP each (Stirges)",
+            "xp_total": "1,125 XP"
+          },
+          {
+            "composition": "1 Wight, 1 Warhorse Skeleton, 6 Skeletons",
+            "breakdown": "700 XP + 100 XP + 50 XP each",
+            "xp_total": "1,100 XP"
+          }
+        ]
+      },
+      {
+        "example": 3,
+        "difficulty": "High-difficulty",
+        "party": "Six level 15 characters",
+        "xp_budget": "7,800 × 6 = 46,800 XP total",
+        "possible_encounters": [
+          {
+            "composition": "2 Adult Red Dragons and 2 Fire Giants",
+            "breakdown": "18,000 XP each (Dragons) + 5,000 XP each (Giants)",
+            "xp_total": "46,000 XP"
+          }
+        ]
+      }
+    ]
+  },
+  "encounter_troubleshooting": {
+    "title": "Troubleshooting Combat Encounters",
+    "overview": "Keep these considerations in mind when creating and running encounters",
+    "issues": [
+      {
+        "issue": "Many Creatures",
+        "concern": "More creatures in encounter = higher risk of lucky streak dealing more damage than expected",
+        "guideline": "If encounter includes more than two creatures per character, include fragile creatures that can be defeated quickly",
+        "especially_important": "For characters of level 1 or 2"
+      },
+      {
+        "issue": "Adjustments",
+        "scenario": [
+          "Player absence",
+          "Die rolls result in easier/harder encounter than intended"
+        ],
+        "solution": "Adjust encounter on the fly",
+        "methods": [
+          "Have creatures flee (makes encounter easier)",
+          "Add reinforcements (makes encounter harder)"
+        ]
+      },
+      {
+        "issue": "CR 0 Creatures",
+        "description": "Creatures with CR 0, particularly ones worth 0 XP",
+        "guidance": "Use sparingly",
+        "tip": "If wanting to include many CR 0 critters, use swarms instead"
+      },
+      {
+        "issue": "Number of Stat Blocks",
+        "description": "Best encounters pair one kind of creature with another",
+        "concern": "Referencing more than two or three stat blocks can be daunting",
+        "especially_true": "When creatures are complex"
+      },
+      {
+        "issue": "Powerful Creatures",
+        "description": "Combat encounter includes creature with CR higher than party's level",
+        "concern": "Such creature might deal enough damage with single action to take out one or more characters",
+        "example": "Ogre (CR 2) can kill level 1 Wizard with single blow"
+      },
+      {
+        "issue": "Unusual Features",
+        "description": "Monster has feature that lower-level characters can't easily overcome",
+        "guidance": "Consider not adding that monster to encounter for characters whose level is lower than monster's CR"
+      }
+    ]
+  }
+}

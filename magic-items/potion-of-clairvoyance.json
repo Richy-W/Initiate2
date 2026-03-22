@@ -1,0 +1,14 @@
+{
+  "name": "Potion of Clairvoyance",
+  "type": "Potion",
+  "rarity": "Rare",
+  "attunement": false,
+  "description": "When you drink this potion, you gain the effect of the Clairvoyance spell (no Concentration required). An eyeball bobs in this potion's yellowish liquid but vanishes when the potion is opened.",
+  "properties": {
+    "spell_cast": {
+      "spell": "Clairvoyance",
+      "concentration_required": false
+    },
+    "appearance": "Yellowish liquid with bobbing eyeball that vanishes when opened"
+  }
+}

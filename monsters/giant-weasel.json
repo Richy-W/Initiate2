@@ -1,0 +1,60 @@
+{
+  "name": "Giant Weasel",
+  "size": "Medium",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 13,
+  "hit_points": 9,
+  "hit_dice": "2d8",
+  "speed": {
+    "walk": 40,
+    "climb": 30
+  },
+  "ability_scores": {
+    "strength": 11,
+    "dexterity": 17,
+    "constitution": 10,
+    "intelligence": 4,
+    "wisdom": 12,
+    "charisma": 5
+  },
+  "saving_throws": {
+    "strength": 0,
+    "dexterity": 3,
+    "constitution": 0,
+    "intelligence": -3,
+    "wisdom": 1,
+    "charisma": -3
+  },
+  "skills": {
+    "acrobatics": 5,
+    "perception": 3,
+    "stealth": 5
+  },
+  "senses": [
+    "Darkvision 60 ft.",
+    "Passive Perception 13"
+  ],
+  "languages": "None",
+  "challenge_rating": 0.125,
+  "experience_points": 25,
+  "proficiency_bonus": 2,
+  "features": [],
+  "actions": [
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 5 (1d4 + 3) Piercing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Scout - Fast, stealthy climber with high mobility",
+    "positioning": "Uses high speed and climbing to get advantageous positions",
+    "damage_output": "5 piercing per hit, focused on speed over damage",
+    "key_abilities": "High DEX and acrobatics make it hard to pin down",
+    "weaknesses": "Very low HP, poor durability in sustained combat",
+    "synergies": "Excellent for reconnaissance and hit-and-run tactics"
+  }
+}

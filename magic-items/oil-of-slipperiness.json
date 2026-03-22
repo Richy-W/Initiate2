@@ -1,0 +1,22 @@
+{
+  "name": "Oil of Slipperiness",
+  "type": "Potion",
+  "rarity": "Uncommon",
+  "attunement": false,
+  "description": "One vial of this oil can cover one Medium or smaller creature, along with the equipment it's wearing and carrying. Applying the oil takes 10 minutes. The affected creature then gains the effect of the Freedom of Movement spell for 8 hours.",
+  "properties": {
+    "creature_use": {
+      "coverage": "One Medium or smaller creature with equipment",
+      "additional_vials": "One additional vial for each size category above Medium",
+      "application_time": "10 minutes",
+      "effect": "Freedom of Movement spell for 8 hours"
+    },
+    "ground_use": {
+      "activation": "Magic action to pour on ground",
+      "area": "10-foot square",
+      "effect": "Grease spell effect in that area",
+      "duration": "8 hours"
+    },
+    "appearance": "Sticky, black unguent; thick and heavy but flows quickly when poured"
+  }
+}

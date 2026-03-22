@@ -1,0 +1,22 @@
+{
+  "name": "Speed",
+  "slug": "speed",
+  "definition": "The distance in feet a creature can cover when moving on its turn",
+  "category": "Movement",
+  "tags": ["movement", "distance", "combat"],
+  "full_text": "A creature has a Speed, which is the distance in feet the creature can cover when it moves on its turn.",
+  "mechanics": {
+    "measurement": "Feet per turn",
+    "special_speeds": "Burrow Speed, Climb Speed, Fly Speed, Swim Speed"
+  },
+  "special_mechanics": {
+    "switching": "Choose which speed to use when moving; can switch during move",
+    "subtraction": "Subtract distance already moved from new speed when switching",
+    "zero_or_less": "Can't use new speed if result is 0 or less"
+  },
+  "speed_changes": {
+    "increases_decreases": "Special speeds increase/decrease by equal amount",
+    "example": "Speed reduced to 0 = Climb Speed also reduced to 0; Speed halved = Fly Speed also halved"
+  },
+  "see_also": ["burrow-speed", "climb-speed", "fly-speed", "swim-speed", "movement"]
+}

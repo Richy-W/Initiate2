@@ -1,0 +1,31 @@
+{
+  "name": "Elemental Gem",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "attunement": false,
+  "description": "This gem contains a mote of elemental energy. When you take a Utilize action to break the gem, an elemental is summoned, and the gem ceases to be magical. The elemental appears in an unoccupied space as close to the broken gem as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your Initiative count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a Bonus Action.",
+  "properties": {
+    "activation": "Utilize action",
+    "activation_type": "break the gem",
+    "summoning": "One elemental appears in unoccupied space as close to broken gem as possible",
+    "duration": "1 hour, when it dies, or dismissed as Bonus Action",
+    "gem_types": [
+      {
+        "gem": "Blue Sapphire",
+        "elemental": "Air Elemental"
+      },
+      {
+        "gem": "Emerald",
+        "elemental": "Water Elemental"
+      },
+      {
+        "gem": "Red Corundum",
+        "elemental": "Fire Elemental"
+      },
+      {
+        "gem": "Yellow Diamond",
+        "elemental": "Earth Elemental"
+      }
+    ]
+  }
+}

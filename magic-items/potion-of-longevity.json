@@ -1,0 +1,15 @@
+{
+  "name": "Potion of Longevity",
+  "type": "Potion",
+  "rarity": "Very Rare",
+  "attunement": false,
+  "description": "When you drink this potion, your physical age is reduced by 1d6 + 6 years, to a minimum of 13 years. Each time you subsequently drink a Potion of Longevity, there is 10 percent cumulative chance that you instead age by 1d6 + 6 years. Suspended in this amber liquid is a tiny heart that, against all reason, is still beating. These ingredients vanish when the potion is opened.",
+  "properties": {
+    "age_reduction": {
+      "amount": "1d6 + 6 years",
+      "minimum_age": 13,
+      "risk": "10 percent cumulative chance per subsequent use of aging 1d6 + 6 years instead"
+    },
+    "appearance": "Amber liquid with tiny beating heart that vanishes when opened"
+  }
+}

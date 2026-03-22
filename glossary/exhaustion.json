@@ -1,0 +1,21 @@
+{
+  "name": "Exhaustion",
+  "slug": "exhaustion",
+  "definition": "While you have the Exhaustion condition, you experience the following effects.",
+  "category": "Conditions",
+  "tags": ["Condition"],
+  "full_text": "While you have the Exhaustion condition, you experience the following effects. This condition is cumulative. Each time you receive it, you gain 1 Exhaustion level. You die if your Exhaustion level is 6. When you make a D20 Test, the roll is reduced by 2 times your Exhaustion level. Your Speed is reduced by a number of feet equal to 5 times your Exhaustion level.",
+  "effects": {
+    "exhaustion_levels": "This condition is cumulative. Each time you receive it, you gain 1 Exhaustion level. You die if your Exhaustion level is 6",
+    "d20_tests_affected": "When you make a D20 Test, the roll is reduced by 2 times your Exhaustion level",
+    "speed_reduced": "Your Speed is reduced by a number of feet equal to 5 times your Exhaustion level"
+  },
+  "removal": "Finishing a Long Rest removes 1 of your Exhaustion levels. When your Exhaustion level reaches 0, the condition ends",
+  "note": "Exhaustion is an exception to the rule that conditions don't stack with themselves",
+  "see_also": [
+    "Condition",
+    "D20 Test",
+    "Speed",
+    "Long Rest"
+  ]
+}

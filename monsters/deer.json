@@ -1,0 +1,91 @@
+{
+  "name": "Deer",
+  "size": "Medium",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 13,
+  "initiative": 3,
+  "hit_points": {
+    "average": 4,
+    "formula": "1d8"
+  },
+  "speed": {
+    "walk": 50
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 11,
+      "modifier": 0,
+      "save": 0
+    },
+    "dexterity": {
+      "score": 16,
+      "modifier": 3,
+      "save": 3
+    },
+    "constitution": {
+      "score": 11,
+      "modifier": 0,
+      "save": 0
+    },
+    "intelligence": {
+      "score": 2,
+      "modifier": -4,
+      "save": -4
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2,
+      "save": 2
+    },
+    "charisma": {
+      "score": 5,
+      "modifier": -3,
+      "save": -3
+    }
+  },
+  "skills": {
+    "perception": 4
+  },
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 14
+  },
+  "languages": [],
+  "challenge_rating": 0,
+  "experience_points": 10,
+  "proficiency_bonus": 2,
+  "actions": [
+    {
+      "name": "Ram",
+      "type": "melee_attack",
+      "attack_bonus": 2,
+      "reach": 5,
+      "targets": "one target",
+      "damage": {
+        "damage_dice": "1d4",
+        "damage_type": "bludgeoning",
+        "average_damage": 2
+      },
+      "description": "Melee Attack Roll: +2, reach 5 ft. Hit: 2 (1d4) Bludgeoning damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "traits": [
+    {
+      "name": "Agile",
+      "description": "The deer doesn't provoke an Opportunity Attack when it moves out of an enemy's reach."
+    }
+  ],
+  "tactical_info": {
+    "optimal_range": "Forest encounters, typically flees rather than fights",
+    "key_abilities": ["High perception and speed", "Agile movement trait", "Darkvision"],
+    "weaknesses": ["Very low hit points", "Minimal damage output", "Non-combatant nature"],
+    "synergies": ["Forest exploration", "Natural encounter flavor", "Speed-based escape scenarios"]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Shield +3",
+  "type": "Armor",
+  "armor_type": "Shield",
+  "rarity": "Very Rare",
+  "attunement": false,
+  "description": "While holding this Shield, you have a bonus to Armor Class determined by the Shield's rarity, in addition to the Shield's normal bonus to AC.",
+  "properties": {
+    "ac_bonus": "+3",
+    "stacks_with_normal_shield_bonus": true
+  }
+}

@@ -1,0 +1,208 @@
+{
+  "name": "Cleric",
+  "description": "Clerics draw power from the realms of the gods and harness it to work miracles. Blessed by a deity, a pantheon, or another immortal entity, a Cleric can reach out to the divine magic of the Outer Planes—where gods dwell—and channel it to bolster people and battle foes. Because their power is a divine gift, Clerics typically associate themselves with temples dedicated to the deity or other immortal force that unlocked their magic. Harnessing divine magic doesn't rely on specific training, yet Clerics might learn prayers and rites that help them draw on power from the Outer Planes.",
+  "primaryAbility": ["Wisdom"],
+  "hitPointDie": "D8",
+  "proficiencies": {
+    "savingThrows": ["Wisdom", "Charisma"],
+    "skills": {
+      "choose": 2,
+      "from": ["History", "Insight", "Medicine", "Persuasion", "Religion"]
+    },
+    "weapons": ["Simple weapons"],
+    "armor": ["Light armor", "Medium armor", "Shields"]
+  },
+  "startingEquipment": {
+    "options": [
+      {
+        "choice": "A",
+        "items": ["Chain Shirt", "Shield", "Mace", "Holy Symbol", "Priest's Pack"],
+        "gold": 7
+      },
+      {
+        "choice": "B",
+        "items": [],
+        "gold": 110
+      }
+    ]
+  },
+  "classFeatures": {
+    "1": {
+      "proficiencyBonus": 2,
+      "features": [
+        {
+          "name": "Spellcasting",
+          "description": "You have learned to cast spells through prayer and meditation. You know three cantrips of your choice from the Cleric spell list and can prepare four level 1 spells.",
+          "type": "spell"
+        },
+        {
+          "name": "Divine Order",
+          "description": "You have dedicated yourself to one of the following sacred roles: Protector (gain proficiency with Martial weapons and training with Heavy armor) or Thaumaturge (know one extra cantrip and gain a bonus to Intelligence checks equal to your Wisdom modifier).",
+          "type": "feature"
+        }
+      ]
+    },
+    "2": {
+      "proficiencyBonus": 2,
+      "features": [
+        {
+          "name": "Channel Divinity",
+          "description": "You can channel divine energy directly from the Outer Planes to fuel magical effects. You start with two such effects: Divine Spark and Turn Undead. You can use this feature twice, regaining one use when you finish a Short Rest and all uses when you finish a Long Rest.",
+          "type": "feature"
+        }
+      ]
+    },
+    "3": {
+      "proficiencyBonus": 2,
+      "features": [
+        {
+          "name": "Cleric Subclass",
+          "description": "You gain a Cleric subclass of your choice. Each subclass is named after a domain of existence favored by a god, pantheon, or religious order.",
+          "type": "subclass"
+        }
+      ]
+    },
+    "5": {
+      "proficiencyBonus": 3,
+      "features": [
+        {
+          "name": "Sear Undead",
+          "description": "Whenever you use Turn Undead, you can roll a number of d8s equal to your Wisdom modifier (minimum of 1d8) and add the rolls together. Each Undead that fails its saving throw against that use of Turn Undead takes Radiant damage equal to the roll's total. This damage doesn't end the turn effect.",
+          "type": "feature"
+        }
+      ]
+    },
+    "10": {
+      "proficiencyBonus": 4,
+      "features": [
+        {
+          "name": "Divine Intervention",
+          "description": "You can call on your deity or pantheon to intervene on your behalf. As a Magic action, choose any Cleric spell of level 5 or lower that doesn't require a Reaction to cast. As part of the same action, you cast that spell without expending a spell slot or needing Material components. You can't use this feature again until you finish a Long Rest.",
+          "type": "feature"
+        }
+      ]
+    },
+    "20": {
+      "proficiencyBonus": 6,
+      "features": [
+        {
+          "name": "Greater Divine Intervention",
+          "description": "You can call on even more powerful divine intervention. When you use your Divine Intervention feature, you can choose Wish when you select a spell. If you do so, you can't use Divine Intervention again until you finish 2d4 Long Rests.",
+          "type": "feature"
+        }
+      ]
+    }
+  },
+  "spellcasting": {
+    "ability": "Wisdom",
+    "type": "full",
+    "cantripsKnown": {
+      "1": 3,
+      "4": 4,
+      "10": 5
+    },
+    "spellSlots": {
+      "1": {"1": 2},
+      "2": {"1": 3},
+      "3": {"1": 4, "2": 2},
+      "4": {"1": 4, "2": 3},
+      "5": {"1": 4, "2": 3, "3": 2},
+      "6": {"1": 4, "2": 3, "3": 3},
+      "7": {"1": 4, "2": 3, "3": 3, "4": 1},
+      "8": {"1": 4, "2": 3, "3": 3, "4": 2},
+      "9": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 1},
+      "10": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2},
+      "11": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1},
+      "12": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1},
+      "13": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 1},
+      "14": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 1},
+      "15": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 1, "8": 1},
+      "16": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 1, "8": 1},
+      "17": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 1, "8": 1, "9": 1},
+      "18": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 3, "6": 1, "7": 1, "8": 1, "9": 1},
+      "19": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 3, "6": 2, "7": 1, "8": 1, "9": 1},
+      "20": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 3, "6": 2, "7": 2, "8": 1, "9": 1}
+    },
+    "spellsPrepared": {
+      "1": 4, "2": 5, "3": 6, "4": 7, "5": 9, "6": 10, "7": 11, "8": 12, "9": 14, "10": 15,
+      "11": 16, "12": 16, "13": 17, "14": 17, "15": 18, "16": 18, "17": 19, "18": 20, "19": 21, "20": 22
+    },
+    "ritualCasting": false,
+    "spellcastingFocus": ["Holy Symbol"]
+  },
+  "subclasses": [
+    {
+      "name": "Life Domain",
+      "description": "The Life Domain focuses on the positive energy that helps sustain all life in the multiverse. Clerics who tap into this domain are masters of healing, using that life force to cure many hurts.",
+      "features": {
+        "3": [
+          {
+            "name": "Disciple of Life",
+            "description": "When a spell you cast with a spell slot restores Hit Points to a creature, that creature regains additional Hit Points on the turn you cast the spell. The additional Hit Points equal 2 plus the spell slot's level."
+          },
+          {
+            "name": "Preserve Life",
+            "description": "As a Magic action, you present your Holy Symbol and expend a use of your Channel Divinity to evoke healing energy that can restore a number of Hit Points equal to five times your Cleric level. Choose Bloodied creatures within 30 feet of yourself (which can include you), and divide those Hit Points among them. This feature can restore a creature to no more than half its Hit Point maximum."
+          }
+        ],
+        "6": [
+          {
+            "name": "Blessed Healer",
+            "description": "The healing spells you cast on others heal you as well. Immediately after you cast a spell with a spell slot that restores Hit Points to one or more creatures other than yourself, you regain Hit Points equal to 2 plus the spell slot's level."
+          }
+        ],
+        "17": [
+          {
+            "name": "Supreme Healing",
+            "description": "When you would normally roll one or more dice to restore Hit Points to a creature with a spell or Channel Divinity, don't roll those dice for the healing; instead use the highest number possible for each die."
+          }
+        ]
+      },
+      "spells": {
+        "3": ["Aid", "Bless", "Cure Wounds", "Lesser Restoration"],
+        "5": ["Mass Healing Word", "Revivify"],
+        "7": ["Aura of Life", "Death Ward"],
+        "9": ["Greater Restoration", "Mass Cure Wounds"]
+      }
+    }
+  ],
+  "spellList": {
+    "cantrips": [
+      {"name": "Guidance", "school": "Divination", "special": "C"},
+      {"name": "Light", "school": "Evocation"},
+      {"name": "Mending", "school": "Transmutation"},
+      {"name": "Resistance", "school": "Abjuration", "special": "C"},
+      {"name": "Sacred Flame", "school": "Evocation"},
+      {"name": "Spare the Dying", "school": "Necromancy"},
+      {"name": "Thaumaturgy", "school": "Transmutation"}
+    ],
+    "levels": {
+      "1": [
+        {"name": "Bane", "school": "Enchantment", "special": "C"},
+        {"name": "Bless", "school": "Enchantment", "special": "C, M"},
+        {"name": "Command", "school": "Enchantment"},
+        {"name": "Create or Destroy Water", "school": "Transmutation"},
+        {"name": "Cure Wounds", "school": "Abjuration"},
+        {"name": "Detect Evil and Good", "school": "Divination", "special": "C"},
+        {"name": "Detect Magic", "school": "Divination", "special": "C, R"},
+        {"name": "Detect Poison and Disease", "school": "Divination", "special": "C, R"},
+        {"name": "Guiding Bolt", "school": "Evocation"},
+        {"name": "Healing Word", "school": "Abjuration"},
+        {"name": "Inflict Wounds", "school": "Necromancy"},
+        {"name": "Protection from Evil and Good", "school": "Abjuration", "special": "C, M"},
+        {"name": "Purify Food and Drink", "school": "Transmutation", "special": "R"},
+        {"name": "Sanctuary", "school": "Abjuration"},
+        {"name": "Shield of Faith", "school": "Abjuration", "special": "C"}
+      ]
+    }
+  },
+  "multiclassing": {
+    "requirements": {
+      "Wisdom": 13
+    },
+    "proficienciesGained": {
+      "armor": ["Light armor", "Medium armor", "Shields"]
+    }
+  },
+  "sourceBook": "Player's Handbook 2024"
+}

@@ -1,0 +1,64 @@
+{
+  "name": "Salamander",
+  "size": "Large",
+  "type": "Elemental",
+  "alignment": "Neutral Evil",
+  "armor_class": 15,
+  "hit_points": {
+    "average": 90,
+    "formula": "12d10 + 24"
+  },
+  "speed": {
+    "walk": 30,
+    "climb": 30
+  },
+  "initiative": 12,
+  "ability_scores": {
+    "strength": 18,
+    "dexterity": 14,
+    "constitution": 15,
+    "intelligence": 11,
+    "wisdom": 10,
+    "charisma": 12
+  },
+  "saving_throws": {},
+  "skills": {},
+  "damage_vulnerabilities": ["cold"],
+  "damage_resistances": [],
+  "damage_immunities": ["fire"],
+  "condition_immunities": [],
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 10
+  },
+  "languages": ["Primordial (Ignan)"],
+  "challenge_rating": 5,
+  "proficiency_bonus": 3,
+  "traits": [
+    {
+      "name": "Fire Aura",
+      "description": "At the end of each of the salamander's turns, each creature of the salamander's choice in a 5-foot Emanation originating from the salamander takes 7 (2d6) Fire damage."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The salamander makes two Flame Spear attacks. It can replace one attack with a use of Constrict."
+    },
+    {
+      "name": "Flame Spear",
+      "description": "Melee or Ranged Attack Roll: +7, reach 5 ft. or range 20/60 ft. Hit: 13 (2d8 + 4) Piercing damage plus 7 (2d6) Fire damage. Hit or Miss: The spear magically returns to the salamander's hand immediately after a ranged attack."
+    },
+    {
+      "name": "Constrict",
+      "description": "Strength Saving Throw: DC 15, one Large or smaller creature the salamander can see within 10 feet. Failure: 11 (2d6 + 4) Bludgeoning damage plus 7 (2d6) Fire damage. The target has the Grappled condition (escape DC 14), and it has the Restrained condition until the grapple ends."
+    }
+  ],
+  "tactical_info": {
+    "combat_role": "Fire Elemental Warrior/Area Control",
+    "preferred_range": "Melee and short-range with fire aura control",
+    "key_abilities": ["Continuous fire aura", "Returning flame spear", "Grapple and restrain", "Fire immunity"],
+    "weaknesses": ["Vulnerable to cold damage", "No long-range options", "Single grapple target"],
+    "tactics": "Uses fire aura to punish close-range attackers, throws returning flame spear at range, constricts priority targets while maintaining aura damage on others."
+  }
+}

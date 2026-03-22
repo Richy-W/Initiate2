@@ -1,0 +1,58 @@
+{
+  "name": "Skeleton",
+  "size": "Medium",
+  "type": "Undead",
+  "alignment": "Lawful Evil",
+  "armor_class": 14,
+  "hit_points": {
+    "average": 13,
+    "formula": "2d8 + 4"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "initiative": 13,
+  "ability_scores": {
+    "strength": 10,
+    "dexterity": 16,
+    "constitution": 15,
+    "intelligence": 6,
+    "wisdom": 8,
+    "charisma": 5
+  },
+  "saving_throws": {},
+  "skills": {},
+  "damage_vulnerabilities": ["bludgeoning"],
+  "damage_resistances": [],
+  "damage_immunities": ["poison"],
+  "condition_immunities": ["exhaustion", "poisoned"],
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 9
+  },
+  "languages": ["Understands Common plus one other language but can't speak"],
+  "challenge_rating": 0.25,
+  "proficiency_bonus": 2,
+  "traits": [],
+  "actions": [
+    {
+      "name": "Shortsword",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 6 (1d6 + 3) Piercing damage."
+    },
+    {
+      "name": "Shortbow",
+      "description": "Ranged Attack Roll: +5, range 80/320 ft. Hit: 6 (1d6 + 3) Piercing damage."
+    }
+  ],
+  "equipment": [
+    "Shortbow",
+    "Shortsword"
+  ],
+  "tactical_info": {
+    "combat_role": "Basic Undead Warrior/Ranged Combatant",
+    "preferred_range": "Mixed - ranged archery with melee backup",
+    "key_abilities": ["Dual weapon capability", "Darkvision", "Immunity to poison", "Undead resilience"],
+    "weaknesses": ["Vulnerable to bludgeoning", "Low hit points", "Cannot speak or coordinate"],
+    "tactics": "Uses shortbow from range when possible, switches to shortsword in melee combat, exploits darkvision for ambush attacks in darkness."
+  }
+}

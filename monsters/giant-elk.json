@@ -1,0 +1,87 @@
+{
+  "name": "Giant Elk",
+  "size": "Huge",
+  "type": "Celestial",
+  "alignment": "Neutral Good",
+  "armor_class": 14,
+  "initiative": 6,
+  "hit_points": {
+    "average": 42,
+    "formula": "5d12 + 10"
+  },
+  "speed": {
+    "walk": 60
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 19,
+      "modifier": 4,
+      "save": 6
+    },
+    "dexterity": {
+      "score": 18,
+      "modifier": 4,
+      "save": 6
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2,
+      "save": 2
+    },
+    "intelligence": {
+      "score": 7,
+      "modifier": -2,
+      "save": -2
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2,
+      "save": 2
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0,
+      "save": 0
+    }
+  },
+  "skills": {
+    "perception": 4
+  },
+  "damage_resistances": ["necrotic", "radiant"],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "darkvision": 90,
+    "passive_perception": 14
+  },
+  "languages": ["Celestial; understands Common, Elvish, and Sylvan but can't speak them"],
+  "challenge_rating": 2,
+  "experience_points": 450,
+  "proficiency_bonus": 2,
+  "actions": [
+    {
+      "name": "Ram",
+      "type": "melee_attack",
+      "attack_bonus": 6,
+      "reach": 10,
+      "targets": "one target",
+      "damage": {
+        "damage_dice": "2d6 + 4 bludgeoning + 2d4 radiant",
+        "damage_type": "bludgeoning plus radiant",
+        "average_damage": 16
+      },
+      "description": "Melee Attack Roll: +6, reach 10 ft. Hit: 11 (2d6 + 4) Bludgeoning damage plus 5 (2d4) Radiant damage. If the target is a Huge or smaller creature and the elk moved 20+ feet straight toward it immediately before the hit, the target takes an extra 5 (2d4) Bludgeoning damage and has the Prone condition.",
+      "conditions_applied": ["prone"]
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "traits": [],
+  "tactical_info": {
+    "optimal_range": "Charging distance for momentum-based ram attacks",
+    "key_abilities": ["Charging ram with radiant damage", "10-foot reach", "High speed"],
+    "weaknesses": ["No legendary actions", "Single attack option", "Modest defenses"],
+    "synergies": ["Forest encounters", "Good-aligned campaigns", "Charging tactics"]
+  }
+}

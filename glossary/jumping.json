@@ -1,0 +1,12 @@
+{
+  "name": "Jumping",
+  "slug": "jumping",
+  "definition": "A movement technique for covering horizontal or vertical distance",
+  "category": "Movement",
+  "tags": ["movement", "athletics"],
+  "full_text": "When you jump, you make either a Long Jump (horizontal) or a High Jump (vertical).",
+  "mechanics": {
+    "types": "Long Jump or High Jump"
+  },
+  "see_also": ["long-jump", "high-jump", "movement"]
+}

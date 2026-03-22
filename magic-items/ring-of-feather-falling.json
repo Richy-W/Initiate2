@@ -1,0 +1,13 @@
+{
+  "name": "Ring of Feather Falling",
+  "type": "Ring",
+  "rarity": "Rare",
+  "attunement": true,
+  "description": "When you fall while wearing this ring, you descend 60 feet per round and take no damage from falling.",
+  "properties": {
+    "falling": {
+      "descent_rate": "60 feet per round",
+      "damage": "No damage from falling"
+    }
+  }
+}

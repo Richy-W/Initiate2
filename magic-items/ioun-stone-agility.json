@@ -1,0 +1,17 @@
+{
+  "name": "Ioun Stone: Agility",
+  "type": "Wondrous Item",
+  "rarity": "Very Rare",
+  "attunement": true,
+  "description": "Your Dexterity increases by 2, to a maximum of 20, while this deep-red sphere orbits your head.",
+  "properties": {
+    "shape": "Deep-red sphere",
+    "orbit": "1d3 feet from head",
+    "max_concurrent_stones": 3,
+    "ability_bonus": {
+      "ability": "Dexterity",
+      "bonus": 2,
+      "maximum": 20
+    }
+  }
+}

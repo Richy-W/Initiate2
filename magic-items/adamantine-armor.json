@@ -1,0 +1,31 @@
+{
+  "id": "adamantine-armor",
+  "name": "Adamantine Armor",
+  "rarity": "Uncommon",
+  "category": "Armor",
+  "attunement_required": false,
+  "armor_type": "Any Medium or Heavy (Except Hide)",
+  "weight": "Varies",
+  "value": "500 GP (plus armor cost)",
+  "description": "This suit of armor is reinforced with adamantine, one of the hardest substances in existence. While you're wearing it, any Critical Hit against you becomes a normal hit.",
+  "properties": [
+    "Enchanted",
+    "Protective",
+    "Critical Hit Protection"
+  ],
+  "effect": {
+    "type": "Critical Hit Negation",
+    "description": "Critical hits against you become normal hits",
+    "trigger": "Any critical hit would be made against you"
+  },
+  "activation": {
+    "type": "Passive",
+    "description": "The magic functions automatically while wearing the armor"
+  },
+  "consumable": false,
+  "restrictions": {
+    "armor_types_excluded": ["Hide Armor"]
+  },
+  "source": "Player's Handbook",
+  "notes": "This armor is particularly valuable for characters that draw a lot of enemy attention, as it prevents critical damage from becoming devastating."
+}

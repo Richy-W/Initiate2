@@ -1,0 +1,14 @@
+{
+  "name": "Boots of Striding and Springing",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "requires_attunement": true,
+  "overview": "These boots enhance movement speed and jumping ability.",
+  "properties": {
+    "speed_increase": "While you wear these boots, your Speed becomes 30 feet unless your Speed is higher",
+    "carrying_capacity": "Your Speed isn't reduced by you carrying weight in excess of your carrying capacity or wearing Heavy Armor",
+    "enhanced_jumping": "Once on each of your turns, you can jump up to 30 feet by spending only 10 feet of movement"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

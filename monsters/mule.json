@@ -1,0 +1,59 @@
+{
+  "name": "Mule",
+  "size": "Medium",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 10,
+  "hit_points": 11,
+  "hit_dice": "2d8 + 2",
+  "speed": {
+    "walk": 40
+  },
+  "ability_scores": {
+    "strength": 14,
+    "dexterity": 10,
+    "constitution": 13,
+    "intelligence": 2,
+    "wisdom": 10,
+    "charisma": 5
+  },
+  "saving_throws": {
+    "strength": 4,
+    "dexterity": 0,
+    "constitution": 1,
+    "intelligence": -4,
+    "wisdom": 0,
+    "charisma": -3
+  },
+  "skills": {},
+  "senses": [
+    "Passive Perception 10"
+  ],
+  "languages": "None",
+  "challenge_rating": 0.125,
+  "experience_points": 25,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Beast of Burden",
+      "description": "The mule counts as one size larger for the purpose of determining its carrying capacity."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Hooves",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 4 (1d4 + 2) Bludgeoning damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Pack Animal - Load-bearing transport with defensive capability",
+    "positioning": "Primarily non-combat, uses hoof attacks when threatened",
+    "damage_output": "4 bludgeoning per hit, basic defensive strikes",
+    "key_abilities": "Beast of Burden increases carrying capacity significantly",
+    "weaknesses": "Low AC and combat capability, primarily utility creature",
+    "synergies": "Essential for expeditions, cargo transport, and overland travel"
+  }
+}

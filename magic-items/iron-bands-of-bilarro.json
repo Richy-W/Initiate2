@@ -1,0 +1,29 @@
+{
+  "name": "Iron Bands of Bilarro",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "attunement": false,
+  "description": "This rusty iron sphere measures 3 inches in diameter and weighs 1 pound. You can take a Magic action to throw the sphere at a Huge or smaller creature you can see within 60 feet of yourself. As the sphere moves through the air, it opens into a tangle of metal bands.",
+  "properties": {
+    "appearance": "Rusty iron sphere, 3 inches diameter, 1 pound",
+    "activation": "Magic action",
+    "thrown_attack": {
+      "range": "60 feet",
+      "target": "Huge or smaller creature you can see",
+      "attack_bonus": "Dexterity modifier plus Proficiency Bonus",
+      "hit_effect": {
+        "condition": "Restrained condition",
+        "duration": "Until you issue Bonus Action command to release"
+      },
+      "miss_effect": "Bands contract and become sphere again"
+    },
+    "escape": {
+      "action": "Action",
+      "requirement": "DC 20 Strength (Athletics) check",
+      "creature": "Any creature that can touch the bands (including Restrained creature)",
+      "success": "Bands destroyed, Restrained creature freed",
+      "failure": "Further escape attempts automatically fail until 24 hours elapse"
+    },
+    "reuse_duration": "Can't be used again until the next dawn"
+  }
+}

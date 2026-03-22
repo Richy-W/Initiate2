@@ -1,0 +1,12 @@
+{
+  "name": "Stable",
+  "slug": "stable",
+  "definition": "A creature with 0 HP that isn't required to make Death Saving Throws",
+  "category": "Hit Points",
+  "tags": ["hit-points", "death"],
+  "full_text": "A creature is Stable if it has 0 Hit Points but isn't required to make Death Saving Throws.",
+  "mechanics": {
+    "condition": "0 HP + no Death Saving Throws required"
+  },
+  "see_also": ["hit-points", "death-saving-throw"]
+}

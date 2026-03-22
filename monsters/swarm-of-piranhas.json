@@ -1,0 +1,68 @@
+{
+  "name": "Swarm of Piranhas",
+  "size": "Medium",
+  "type": "Beast (Swarm)",
+  "alignment": "Unaligned",
+  "armor_class": 13,
+  "hit_points": 28,
+  "hit_dice": "8d8 - 8",
+  "speed": {
+    "walk": 5,
+    "swim": 40
+  },
+  "ability_scores": {
+    "strength": 13,
+    "dexterity": 16,
+    "constitution": 9,
+    "intelligence": 1,
+    "wisdom": 7,
+    "charisma": 2
+  },
+  "saving_throws": {
+    "strength": 1,
+    "dexterity": 3,
+    "constitution": -1,
+    "intelligence": -5,
+    "wisdom": -2,
+    "charisma": -4
+  },
+  "skills": {},
+  "damage_resistances": ["Bludgeoning", "Piercing", "Slashing"],
+  "damage_immunities": [],
+  "condition_immunities": ["Charmed", "Frightened", "Grappled", "Paralyzed", "Petrified", "Prone", "Restrained", "Stunned"],
+  "senses": [
+    "Darkvision 60 ft.",
+    "Passive Perception 8"
+  ],
+  "languages": "None",
+  "challenge_rating": 1,
+  "experience_points": 200,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Swarm",
+      "description": "The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny piranha. The swarm can't regain Hit Points or gain Temporary Hit Points."
+    },
+    {
+      "name": "Water Breathing",
+      "description": "The swarm can breathe only underwater."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Bites",
+      "description": "Melee Attack Roll: +5 (with Advantage if the target doesn't have all its Hit Points), reach 5 ft. Hit: 8 (2d4 + 3) Piercing damage, or 5 (1d4 + 3) Piercing damage if the swarm is Bloodied."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Aquatic Blood Hunter - High-damage underwater predator swarm",
+    "positioning": "Water-bound swarm that gains advantage against wounded targets",
+    "damage_output": "8 piercing damage (5 when bloodied) with advantage vs wounded foes",
+    "key_abilities": "Blood frenzy advantage, high swim speed, darkvision",
+    "weaknesses": "Water breathing only, cannot survive on land",
+    "synergies": "Devastating in aquatic encounters, especially against wounded parties"
+  }
+}

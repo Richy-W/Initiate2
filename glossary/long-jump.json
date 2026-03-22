@@ -1,0 +1,16 @@
+{
+  "name": "Long Jump",
+  "slug": "long-jump",
+  "definition": "A horizontal jump covering distance based on your Strength score",
+  "category": "Movement",
+  "tags": ["jumping", "movement", "athletics"],
+  "full_text": "When you make a Long Jump, you leap horizontally a number of feet up to your Strength score if you move at least 10 feet immediately before the jump. When you make a standing Long Jump, you can leap only half that distance. Either way, each foot you jump costs a foot of movement.\n\nIf you land in Difficult Terrain, you must succeed on a DC 10 Dexterity (Acrobatics) check or have the Prone condition.\n\nThis Long Jump rule assumes that the height of the jump doesn't matter, such as a jump across a stream or chasm. At your DM's option, you must succeed on a DC 10 Strength (Athletics) check to clear a low obstacle (no taller than a quarter of the jump's distance), such as a hedge or low wall. Otherwise, you hit the obstacle.",
+  "mechanics": {
+    "running_jump": "Up to STR score feet; requires 10 feet prior movement",
+    "standing_jump": "Half the running jump distance",
+    "cost": "1 foot of movement per foot jumped",
+    "difficult_terrain": "DC 10 DEX (Acrobatics) check or Prone condition",
+    "obstacle_clearance": "DC 10 STR (Athletics) check to clear low obstacle (DM option)"
+  },
+  "see_also": ["jumping", "high-jump", "movement", "difficult-terrain", "prone"]
+}

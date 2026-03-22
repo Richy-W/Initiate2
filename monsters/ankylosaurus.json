@@ -1,0 +1,64 @@
+{
+  "name": "Ankylosaurus",
+  "size": "Huge",
+  "type": "Beast",
+  "subtype": "Dinosaur",
+  "alignment": "Unaligned",
+  "armor_class": 15,
+  "armor_description": "Natural Armor",
+  "hit_points": 68,
+  "hit_dice": "8d12 + 16",
+  "speed": {
+    "walk": "30 ft."
+  },
+  "ability_scores": {
+    "strength": 19,
+    "dexterity": 11,
+    "constitution": 15,
+    "intelligence": 2,
+    "wisdom": 12,
+    "charisma": 5
+  },
+  "saving_throws": {
+    "strength": "+6",
+    "dexterity": "+0",
+    "constitution": "+2",
+    "intelligence": "-4",
+    "wisdom": "+1",
+    "charisma": "-3"
+  },
+  "skills": {},
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "passive_perception": 11
+  },
+  "languages": [],
+  "challenge_rating": "3",
+  "experience_points": 700,
+  "proficiency_bonus": 2,
+  "features": [],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The ankylosaurus makes two Tail attacks."
+    },
+    {
+      "name": "Tail",
+      "type": "weapon",
+      "description": "Melee Attack Roll: +6, reach 10 ft. Hit: 9 (1d10 + 4) Bludgeoning damage. If the target is a Huge or smaller creature, it has the Prone condition."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "equipment": [],
+  "tactical_info": {
+    "combat_role": "Armored Defender",
+    "preferred_range": "Melee",
+    "key_abilities": ["High AC", "Extended reach tail", "Prone attacks", "Large size"],
+    "weaknesses": ["Slow movement", "Limited mobility"],
+    "tactics": "Uses heavily armored body for defense. Tail attacks have extended reach and knock enemies prone. Relies on armor and size for survivability."
+  }
+}

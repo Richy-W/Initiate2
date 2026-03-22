@@ -1,0 +1,70 @@
+{
+  "name": "Roc",
+  "size": "Gargantuan",
+  "type": "Monstrosity",
+  "alignment": "Unaligned",
+  "armor_class": 15,
+  "hit_points": {
+    "average": 248,
+    "formula": "16d20 + 80"
+  },
+  "speed": {
+    "walk": 20,
+    "fly": 120
+  },
+  "initiative": 18,
+  "ability_scores": {
+    "strength": 28,
+    "dexterity": 10,
+    "constitution": 20,
+    "intelligence": 3,
+    "wisdom": 10,
+    "charisma": 9
+  },
+  "saving_throws": {
+    "dexterity": 4,
+    "constitution": 9,
+    "wisdom": 4,
+    "charisma": 3
+  },
+  "skills": {
+    "perception": 8
+  },
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "passive_perception": 18
+  },
+  "languages": [],
+  "challenge_rating": 11,
+  "proficiency_bonus": 4,
+  "traits": [],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The roc makes two Beak attacks. It can replace one attack with a Talons attack."
+    },
+    {
+      "name": "Beak",
+      "description": "Melee Attack Roll: +13, reach 10 ft. Hit: 28 (3d12 + 9) Piercing damage."
+    },
+    {
+      "name": "Talons",
+      "description": "Melee Attack Roll: +13, reach 5 ft. Hit: 23 (4d6 + 9) Slashing damage. If the target is a Huge or smaller creature, it has the Grappled condition (escape DC 19) from both talons, and it has the Restrained condition until the grapple ends."
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Swoop (Recharge 5–6)",
+      "description": "If the roc has a creature Grappled, the roc flies up to half its Fly Speed without provoking Opportunity Attacks and drops that creature."
+    }
+  ],
+  "tactical_info": {
+    "combat_role": "Gargantuan Aerial Predator/Sky Dominator",
+    "preferred_range": "Aerial superiority with dive attacks",
+    "key_abilities": ["Massive flight speed", "Devastating beak attacks", "Grapple and drop tactics", "Huge creature grappling"],
+    "weaknesses": ["Very low ground speed", "Animal intelligence", "No magical abilities"],
+    "tactics": "Uses superior flight speed for hit-and-run attacks, grapples large creatures with talons, then uses swoop to drop them for massive fall damage while maintaining aerial dominance."
+  }
+}

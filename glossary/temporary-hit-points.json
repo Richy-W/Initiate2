@@ -1,0 +1,13 @@
+{
+  "name": "Temporary Hit Points",
+  "slug": "temporary-hit-points",
+  "definition": "Extra hit points that act as a buffer against real HP loss",
+  "category": "Hit Points",
+  "tags": ["hit-points", "buffer", "protection"],
+  "full_text": "Temporary Hit Points are granted by certain effects and act as a buffer against losing real Hit Points.",
+  "mechanics": {
+    "source": "Certain effects",
+    "function": "Buffer against real HP loss"
+  },
+  "see_also": ["hit-points", "damage"]
+}

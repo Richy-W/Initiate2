@@ -1,0 +1,21 @@
+{
+  "name": "Figurine of Wondrous Power: Bronze Griffon",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "attunement": false,
+  "description": "This bronze statuette is of a griffon rampant. It can become a Griffon for up to 6 hours. Once it has been used, it can't be used again until 5 days have passed.",
+  "properties": {
+    "item_type": "Figurine of Wondrous Power",
+    "activation": "Magic action",
+    "activation_type": "throw to a point on the ground within 60 feet",
+    "creature_form": "Griffon",
+    "duration": "6 hours",
+    "reuse_duration": "5 days",
+    "creature_traits": {
+      "friendly": true,
+      "understands_languages": true,
+      "obeys_commands": true,
+      "initiative": "Immediately after you"
+    }
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "name": "Deva",
+  "size": "Medium",
+  "type": "Celestial (Angel)",
+  "alignment": "Lawful Good",
+  "armor_class": {
+    "value": 17,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 4,
+    "total": 14
+  },
+  "hit_points": {
+    "average": 229,
+    "formula": "27d8 + 108"
+  },
+  "speed": {
+    "walk": 30,
+    "fly": 90
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 18,
+      "modifier": 4,
+      "saving_throw": 4
+    },
+    "dexterity": {
+      "score": 18,
+      "modifier": 4,
+      "saving_throw": 4
+    },
+    "constitution": {
+      "score": 18,
+      "modifier": 4,
+      "saving_throw": 4
+    },
+    "intelligence": {
+      "score": 17,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "wisdom": {
+      "score": 20,
+      "modifier": 5,
+      "saving_throw": 9
+    },
+    "charisma": {
+      "score": 20,
+      "modifier": 5,
+      "saving_throw": 9
+    }
+  },
+  "skills": {
+    "insight": 9,
+    "perception": 9
+  },
+  "damage_resistances": ["Radiant"],
+  "condition_immunities": ["Charmed", "Exhaustion", "Frightened"],
+  "senses": {
+    "darkvision": 120,
+    "passive_perception": 19
+  },
+  "languages": ["All; telepathy 120 ft."],
+  "challenge_rating": {
+    "cr": 10,
+    "xp": 5900,
+    "proficiency_bonus": 4
+  },
+  "traits": [
+    {
+      "name": "Exalted Restoration",
+      "description": "If the deva dies outside Mount Celestia, its body disappears, and it gains a new body instantly, reviving with all its Hit Points somewhere in Mount Celestia."
+    },
+    {
+      "name": "Magic Resistance",
+      "description": "The deva has Advantage on saving throws against spells and other magical effects."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The deva makes two Holy Mace attacks."
+    },
+    {
+      "name": "Holy Mace",
+      "description": "Melee Attack Roll: +8, reach 5 ft. Hit: 7 (1d6 + 4) Bludgeoning damage plus 18 (4d8) Radiant damage.",
+      "attack_roll": 8,
+      "reach": 5,
+      "damage": "7 (1d6 + 4) + 18 (4d8)",
+      "damage_type": "Bludgeoning plus Radiant"
+    },
+    {
+      "name": "Spellcasting",
+      "description": "The deva casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 17): At Will: Detect Evil and Good, Shapechange (Beast or Humanoid form only, no Temporary Hit Points gained from the spell, and no Concentration or Temporary Hit Points required to maintain the spell); 1/Day Each: Commune, Raise Dead"
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Divine Aid (2/Day)",
+      "description": "The deva casts Cure Wounds, Lesser Restoration, or Remove Curse, using the same spellcasting ability as Spellcasting."
+    }
+  ],
+  "tactical_info": {
+    "role": "Divine Champion/Healer",
+    "environment": "Mount Celestia, holy sites, divine missions",
+    "tactics": "Focuses on protecting innocents, uses divine aid to heal allies, holy mace against fiends and undead",
+    "weaknesses": "Good alignment limits aggressive options, vulnerable when protecting others",
+    "signature_abilities": ["Exalted restoration", "Divine spellcasting", "Holy radiant damage", "Universal telepathy"]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Potion of Growth",
+  "type": "Potion",
+  "rarity": "Uncommon",
+  "attunement": false,
+  "description": "When you drink this potion, you gain the \"enlarge\" effect of the Enlarge/Reduce spell for 10 minutes (no Concentration required). The red in the potion's liquid continuously expands from a tiny bead to color the clear liquid around it and then contracts. Shaking the bottle fails to interrupt this process.",
+  "properties": {
+    "spell_effect": {
+      "spell": "Enlarge/Reduce",
+      "effect": "Enlarge",
+      "duration": "10 minutes",
+      "concentration_required": false
+    },
+    "appearance": "Red liquid that continuously expands from tiny bead and contracts; shaking doesn't interrupt"
+  }
+}

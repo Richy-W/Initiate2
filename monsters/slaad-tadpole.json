@@ -1,0 +1,57 @@
+{
+  "name": "Slaad Tadpole",
+  "size": "Tiny",
+  "type": "Aberration",
+  "alignment": "Chaotic Neutral",
+  "armor_class": 12,
+  "hit_points": {
+    "average": 7,
+    "formula": "3d4"
+  },
+  "speed": {
+    "walk": 30,
+    "burrow": 10
+  },
+  "initiative": 12,
+  "ability_scores": {
+    "strength": 7,
+    "dexterity": 15,
+    "constitution": 10,
+    "intelligence": 3,
+    "wisdom": 5,
+    "charisma": 3
+  },
+  "saving_throws": {},
+  "skills": {
+    "stealth": 4
+  },
+  "damage_resistances": ["acid", "cold", "fire", "lightning", "thunder"],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 7
+  },
+  "languages": ["Understands Slaad but can't speak"],
+  "challenge_rating": 0.125,
+  "proficiency_bonus": 2,
+  "traits": [
+    {
+      "name": "Magic Resistance",
+      "description": "The slaad has Advantage on saving throws against spells and other magical effects."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 5 (1d6 + 2) Piercing damage."
+    }
+  ],
+  "tactical_info": {
+    "combat_role": "Tiny Aberrant Pest/Stealth Infiltrator",
+    "preferred_range": "Close melee with stealth approach",
+    "key_abilities": ["Magic resistance", "Multiple damage resistances", "Stealth capability", "Burrow mobility"],
+    "weaknesses": ["Extremely low hit points", "Tiny size disadvantage", "Single weak attack", "Low intelligence"],
+    "tactics": "Uses stealth and small size for infiltration, burrows to avoid detection, relies on magic resistance and damage resistances for survival despite fragility."
+  }
+}

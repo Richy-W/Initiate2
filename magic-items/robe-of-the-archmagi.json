@@ -1,0 +1,20 @@
+{
+  "name": "Robe of the Archmagi",
+  "type": "Wondrous Item",
+  "rarity": "Legendary",
+  "attunement": true,
+  "attunement_class": "Sorcerer, Warlock, or Wizard",
+  "description": "This elegant garment is made from exquisite cloth and adorned with runes.",
+  "properties": {
+    "armor": {
+      "effect": "If not wearing armor, base AC is 15 plus Dexterity modifier"
+    },
+    "magic_resistance": {
+      "effect": "Advantage on saving throws against spells and other magical effects"
+    },
+    "war_mage": {
+      "spell_save_dc": "+2",
+      "spell_attack_bonus": "+2"
+    }
+  }
+}

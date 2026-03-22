@@ -1,0 +1,58 @@
+{
+  "name": "Ring of Shooting Stars",
+  "type": "Ring",
+  "rarity": "Very Rare",
+  "attunement": true,
+  "description": "You can cast Dancing Lights or Light from the ring. The ring has 6 charges and regains 1d6 expended charges daily at dawn.",
+  "properties": {
+    "cantrips": [
+      "Dancing Lights",
+      "Light"
+    ],
+    "charges": {
+      "max_charges": 6,
+      "current_charges": 6,
+      "recharge": "1d6 daily at dawn"
+    },
+    "faerie_fire": {
+      "charges_cost": 1,
+      "spell": "Faerie Fire"
+    },
+    "lightning_spheres": {
+      "charges_cost": 2,
+      "action_type": "Magic action",
+      "spheres": "Up to four 3-foot-diameter spheres",
+      "range": "120 feet",
+      "duration": "Maintain Concentration, up to 1 minute",
+      "light": "Dim Light in 30-foot radius",
+      "movement": "Bonus Action to move up to 30 feet, no farther than 120 feet from self",
+      "discharge": {
+        "trigger": "Sphere comes within 5 feet of creature other than you without Total Cover",
+        "saving_throw": {
+          "type": "Dexterity",
+          "dc": 15
+        },
+        "damage_table": {
+          "1_sphere": "4d12",
+          "2_spheres": "5d4",
+          "3_spheres": "2d6",
+          "4_spheres": "2d4"
+        },
+        "on_success": "Half damage"
+      }
+    },
+    "shooting_stars": {
+      "charges_cost": "1 to 3",
+      "action_type": "Magic action",
+      "mottes": "One glowing mote per charge",
+      "range": "60 feet",
+      "area": "15-foot Cube from each point",
+      "effect": "Showered in sparks",
+      "saving_throw": {
+        "type": "Dexterity",
+        "dc": 15
+      },
+      "damage": "5d4 Radiant damage on failed save, half on successful"
+    }
+  }
+}

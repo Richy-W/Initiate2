@@ -1,0 +1,119 @@
+{
+  "title": "Dice Mechanics",
+  "description": "Complete system for dice usage, notation, and randomness in D&D",
+  "version": "2024",
+  "purpose": {
+    "description": "Dice add randomness to the game. They help determine whether characters and monsters are successful at the things they attempt."
+  },
+  "dice_types": [
+    {
+      "name": "d4",
+      "sides": 4,
+      "description": "Four-sided die (pyramid shape)"
+    },
+    {
+      "name": "d6", 
+      "sides": 6,
+      "description": "Six-sided die (cube that many games use)"
+    },
+    {
+      "name": "d8",
+      "sides": 8,
+      "description": "Eight-sided die (octahedron)"
+    },
+    {
+      "name": "d10",
+      "sides": 10,
+      "description": "Ten-sided die (pentagonal trapezohedron)"
+    },
+    {
+      "name": "d12",
+      "sides": 12,
+      "description": "Twelve-sided die (dodecahedron)"
+    },
+    {
+      "name": "d20",
+      "sides": 20,
+      "description": "Twenty-sided die (icosahedron) - the most important die in D&D"
+    }
+  ],
+  "dice_notation": {
+    "format": "The dice used in D&D are referred to by the letter d followed by the die's number of sides: d4, d6, d8, d10, d12, and d20.",
+    "rolling_format": "When you need to roll dice, the rules tell you how many dice to roll of a certain type, along with any numbers to add or subtract.",
+    "example": {
+      "notation": "3d8 + 5",
+      "meaning": "Roll three eight-sided dice, add them together, and add 5 to the total"
+    }
+  },
+  "special_dice": {
+    "percentile_dice": {
+      "notation": "d100",
+      "method": "The common way to roll 1d100 uses a pair of ten-sided dice numbered from 0 to 9, known as percentile dice.",
+      "mechanics": {
+        "designation": "One die—that you designate before rolling—gives the tens digit, and the other gives the ones digit.",
+        "example": "If you roll a 7 for the tens digit and a 1 for the ones digit, the number rolled is 71.",
+        "double_zero": "Two 0s represent 100."
+      },
+      "specialized_dice": {
+        "description": "Some ten-sided dice are numbered in tens (00, 10, 20, and so on), making it easier to distinguish the tens digit from the ones digit.",
+        "example": "A roll of 70 and 1 is 71, and 00 and 0 is 100."
+      }
+    },
+    "d3": {
+      "notation": "1d3",
+      "rarity": "It's rare to find dice with only three sides",
+      "simulation": "To simulate rolling 1d3, roll 1d6 and divide the number rolled by 2 (round up)."
+    }
+  },
+  "common_uses": {
+    "d20_test": {
+      "importance": "The 20-sided die (d20) is the most important die you'll use in the game.",
+      "core_mechanic": "It's central to the core mechanic—called D20 Tests—the game uses to determine whether creatures succeed or fail at the things they attempt during the game.",
+      "usage": "You roll a d20 whenever your character tries to do something that the DM decides has a chance of both success and failure.",
+      "principle": "The higher your roll, the more likely it is that you succeed."
+    },
+    "damage": {
+      "description": "The most common use for dice other than the d20 is to determine damage.",
+      "attack_damage": "When you make a successful attack roll (one kind of D20 Test), you roll damage to see how effective the attack is.",
+      "spell_damage": "When you cast a spell, you might also roll damage.",
+      "examples": [
+        {
+          "weapon": "Dagger",
+          "damage": "1d4"
+        },
+        {
+          "weapon": "Greataxe",
+          "damage": "1d12"
+        },
+        {
+          "spell": "Fireball",
+          "damage": "8d6"
+        }
+      ]
+    },
+    "random_tables": {
+      "description": "Occasionally, you'll see a table that uses a die roll to generate a random result.",
+      "format": "On these tables, you'll see a die expression, such as d10 or d100, in the header of the leftmost column.",
+      "usage": "Roll that die, and find the number you rolled (or a range containing that number) in that column. Read across that row for the result.",
+      "example": "The Trinkets table in 'Creating a Character' uses a d100."
+    },
+    "percentage_chances": {
+      "description": "Sometimes you might see a rule describing a percentage chance of something happening.",
+      "example": "A rule might say there is a 5 percent chance of something happening.",
+      "resolution": "You can determine whether that thing happens by rolling percentile dice; if the roll is equal to or less than the percentage chance (a 01 to 05, in this example), it happens."
+    }
+  },
+  "mathematical_rules": {
+    "rounding": {
+      "rule": "Round Down",
+      "description": "Whenever you divide or multiply a number in the game, round down if you end up with a fraction, even if the fraction is one-half or greater.",
+      "exceptions": "Some rules make an exception and tell you to round up."
+    }
+  },
+  "narrative_interpretation": {
+    "description": "Part of the fun of D&D is interpreting what die rolls mean in the story.",
+    "randomness_value": "The randomness that dice bring often introduces the unexpected: an expert fails, a novice succeeds, or any number of other twists.",
+    "dm_role": "When a D20 Test or another roll produces a surprise, the Dungeon Master often gives a fun description of what happened.",
+    "player_role": "If you're a player, look for opportunities to interpret your character's die rolls and describe why things unfolded unexpectedly or even humorously."
+  }
+}

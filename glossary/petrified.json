@@ -1,0 +1,18 @@
+{
+  "name": "Petrified",
+  "slug": "petrified",
+  "definition": "A condition where you are turned to stone or similar substance",
+  "category": "Conditions",
+  "tags": ["[Condition]", "incapacitated"],
+  "full_text": "While you have the Petrified condition, you experience the following effects.\n\nTurned to Inanimate Substance. You are transformed, along with any nonmagical objects you are wearing and carrying, into a solid inanimate substance (usually stone). Your weight increases by a factor of ten, and you cease aging.\n\nIncapacitated. You have the Incapacitated condition.\n\nSpeed 0. Your Speed is 0 and can't increase.\n\nAttacks Affected. Attack rolls against you have Advantage.\n\nSaving Throws Affected. You automatically fail Strength and Dexterity saving throws.\n\nResist Damage. You have Resistance to all damage.\n\nPoison Immunity. You have Immunity to the Poisoned condition.",
+  "mechanics": {
+    "transformation": "Turned to solid substance (usually stone) with weight ×10; cease aging; nonmagical worn/carried items also transformed",
+    "incapacitation": "You have Incapacitated condition",
+    "speed": "0 and can't increase",
+    "attacks": "Attacks have Advantage",
+    "saving_throws": "Automatically fail STR and DEX saves",
+    "resistance": "Resistance to all damage",
+    "immunity": "Immunity to Poisoned condition"
+  },
+  "see_also": ["condition", "incapacitated", "resistance", "immunity"]
+}

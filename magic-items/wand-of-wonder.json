@@ -1,0 +1,47 @@
+{
+  "name": "Wand of Wonder",
+  "type": "Wand",
+  "rarity": "Rare",
+  "attunement": true,
+  "description": "This wand has 7 charges. While holding it, you can take a Magic action to expend 1 charge while choosing a point within 120 feet of yourself.",
+  "properties": {
+    "charges": {
+      "max_charges": 7,
+      "current_charges": 7
+    },
+    "activation": {
+      "action_type": "Magic action",
+      "charges_cost": 1,
+      "range": "120 feet",
+      "effect": "Roll on Wand of Wonder Effects table"
+    },
+    "spell_save_dc": 15,
+    "spell_range_extension": "Spells with max range less than 120 feet become 120 feet",
+    "multiple_targets": "DM determines randomly if effect has multiple subjects",
+    "regaining_charges": {
+      "recharge": "1d6 + 1 daily at dawn",
+      "destruction_condition": "Expend last charge and roll 1d20",
+      "on_roll_1": "Wand crumbles into dust and is destroyed"
+    },
+    "effects_table": {
+      "01-20": "Cast spell from chosen point. Roll 1d10: 1-2 Darkness, 3-4 Faerie Fire, 5-6 Fireball, 7-8 Slow, 9-10 Stinking Cloud",
+      "21-25": "Nothing happens. You have Stunned condition until next turn",
+      "26-30": "Cast Gust of Wind. Line extends from you to chosen point",
+      "31-35": "Nothing happens. You take 1d6 Psychic damage",
+      "36-40": "Heavy rain for 1 minute in 120-foot-high, 60-foot-radius Cylinder",
+      "41-45": "600 oversized butterflies fill 60-foot-high, 30-foot-radius Cylinder for 10 minutes",
+      "46-50": "Cast Lightning Bolt. Line extends from you to chosen point",
+      "51-55": "Creature closest to chosen point is enlarged. If not you and can't be affected, you become target",
+      "56-60": "Magically formed creature appears. Roll 1d4: 1 Rhinoceros, 2 Elephant, 3-4 Rat. Disappears after 1 hour or at 0 HP",
+      "61-64": "Grass covers 60-foot-radius circle. Existing grass grows to 10x size for 1 minute",
+      "65-68": "Object disappears into Ethereal Plane. Must be unattended, within 120 feet, no larger than 10 feet",
+      "69-72": "Nothing happens. You shrink as if Enlarge/Reduce for 1 minute",
+      "73-77": "Leaves grow from nearest creature. Turn brown and fall after 24 hours unless picked",
+      "78-82": "Nothing happens. Burst of light extends from you 30 feet. DC 15 Constitution save or Blinded 1 minute",
+      "83-87": "Nothing happens. You cast Invisibility on yourself",
+      "88-92": "Stream of 1d4 × 10 gems shoots from wand in Line 30 feet long, 5 feet wide. 1 Bludgeoning damage each, divided equally",
+      "93-97": "Cast Polymorph on creature closest to point. Roll 1d4: 1 Black Bear, 2 Giant Wasp, 3-4 Frog",
+      "98-00": "Creature closest to point makes DC 15 Constitution save. On failure Restrained and turning to stone, repeat save next turn. On success petrified"
+    }
+  }
+}

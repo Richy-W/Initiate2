@@ -1,0 +1,106 @@
+{
+  "name": "Purple Worm",
+  "size": "Gargantuan",
+  "type": "Monstrosity",
+  "alignment": "Unaligned",
+  "armor_class": {
+    "value": 18,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 3,
+    "total": 13
+  },
+  "hit_points": {
+    "average": 247,
+    "formula": "15d20 + 90"
+  },
+  "speed": {
+    "walk": 50,
+    "burrow": 50
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 28,
+      "modifier": 9,
+      "saving_throw": 9
+    },
+    "dexterity": {
+      "score": 7,
+      "modifier": -2,
+      "saving_throw": -2
+    },
+    "constitution": {
+      "score": 22,
+      "modifier": 6,
+      "saving_throw": 11
+    },
+    "intelligence": {
+      "score": 1,
+      "modifier": -5,
+      "saving_throw": -5
+    },
+    "wisdom": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": 4
+    },
+    "charisma": {
+      "score": 4,
+      "modifier": -3,
+      "saving_throw": -3
+    }
+  },
+  "senses": {
+    "blindsight": 30,
+    "tremorsense": 60,
+    "passive_perception": 9
+  },
+  "languages": [],
+  "challenge_rating": {
+    "cr": 15,
+    "xp": 13000,
+    "proficiency_bonus": 5
+  },
+  "traits": [
+    {
+      "name": "Tunneler",
+      "description": "The worm can burrow through solid rock at half its Burrow Speed and leaves a 10-foot-diameter tunnel in its wake."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The worm makes one Bite attack and one Tail Stinger attack."
+    },
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +14, reach 10 ft. Hit: 22 (3d8 + 9) Piercing damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 19), and it has the Restrained condition until the grapple ends.",
+      "attack_roll": 14,
+      "reach": 10,
+      "damage": "22 (3d8 + 9)",
+      "damage_type": "Piercing"
+    },
+    {
+      "name": "Tail Stinger",
+      "description": "Melee Attack Roll: +14, reach 10 ft. Hit: 16 (2d6 + 9) Piercing damage plus 35 (10d6) Poison damage.",
+      "attack_roll": 14,
+      "reach": 10,
+      "damage": "16 (2d6 + 9) + 35 (10d6)",
+      "damage_type": "Piercing + Poison"
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Swallow",
+      "description": "Strength Saving Throw: DC 19, one Large or smaller creature Grappled by the worm (it can have up to three creatures swallowed at a time). Failure: The target is swallowed by the worm, and the Grappled condition ends. A swallowed creature has the Blinded and Restrained conditions, has Total Cover against attacks and other effects outside the worm, and takes 17 (5d6) Acid damage at the start of each of the worm's turns. If the worm takes 30 damage or more on a single turn from a creature inside it, the worm must succeed on a DC 21 Constitution saving throw at the end of that turn or regurgitate all swallowed creatures, each of which falls in a space within 5 feet of the worm and has the Prone condition. If the worm dies, any swallowed creature no longer has the Restrained condition and can escape from the corpse using 20 feet of movement, exiting Prone."
+    }
+  ],
+  "tactical_info": {
+    "role": "Gargantuan Tunneling Predator/Siege Monster",
+    "environment": "Deep underground caverns, ancient tunnel systems, subterranean wastelands",
+    "tactics": "Grapples with bite then swallows prey, tail stinger for massive poison damage, creates tunnel networks for mobility",
+    "weaknesses": "Very low intelligence makes it predictable, vulnerable to creatures that can avoid grappling, slow initiative",
+    "signature_abilities": ["Swallow whole capability", "Devastating poison stinger", "Rock tunneling", "Gargantuan size advantage"]
+  }
+}

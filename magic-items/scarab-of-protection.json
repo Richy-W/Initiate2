@@ -1,0 +1,26 @@
+{
+  "name": "Scarab of Protection",
+  "type": "Wondrous Item",
+  "rarity": "Legendary",
+  "attunement": true,
+  "description": "This beetle-shaped medallion provides three benefits while it is on your person.",
+  "properties": {
+    "defense": {
+      "effect": "+1 bonus to Armor Class"
+    },
+    "preservation": {
+      "charges": {
+        "max_charges": 12,
+        "current_charges": 12
+      },
+      "trigger": "Failed saving throw against Necromancy spell or harmful Undead effect",
+      "action_type": "Reaction",
+      "charges_cost": 1,
+      "effect": "Turn failed save into successful one",
+      "destruction": "Scarab crumbles to powder when last charge expended"
+    },
+    "spell_resistance": {
+      "effect": "Advantage on saving throws against spells"
+    }
+  }
+}

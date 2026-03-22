@@ -1,0 +1,75 @@
+{
+  "name": "Lion",
+  "size": "Large",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 12,
+  "hit_points": 22,
+  "hit_dice": "4d10",
+  "speed": {
+    "walk": 50
+  },
+  "ability_scores": {
+    "strength": 17,
+    "dexterity": 15,
+    "constitution": 11,
+    "intelligence": 3,
+    "wisdom": 12,
+    "charisma": 8
+  },
+  "saving_throws": {
+    "strength": 3,
+    "dexterity": 2,
+    "constitution": 0,
+    "intelligence": -4,
+    "wisdom": 1,
+    "charisma": -1
+  },
+  "skills": {
+    "perception": 3,
+    "stealth": 4
+  },
+  "senses": [
+    "Darkvision 60 ft.",
+    "Passive Perception 13"
+  ],
+  "languages": "None",
+  "challenge_rating": 1,
+  "experience_points": 200,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Pack Tactics",
+      "description": "The lion has Advantage on an attack roll against a creature if at least one of the lion's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition."
+    },
+    {
+      "name": "Running Leap",
+      "description": "With a 10-foot running start, the lion can Long Jump up to 25 feet."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The lion makes two Rend attacks. It can replace one attack with a use of Roar."
+    },
+    {
+      "name": "Rend",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 7 (1d8 + 3) Slashing damage."
+    },
+    {
+      "name": "Roar",
+      "description": "Wisdom Saving Throw: DC 11, one creature within 15 feet. Failure: The target has the Frightened condition until the start of the lion's next turn."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Controller/Striker - Pack predator with fear and mobility",
+    "positioning": "Uses running leap for positioning, roar for control",
+    "damage_output": "14 slashing per round with multiattack",
+    "key_abilities": "Pack Tactics, Roar fear effect, exceptional leap range",
+    "weaknesses": "Moderate HP for its size, relies on pack coordination",
+    "synergies": "Excels in pride groups, combines physical and fear attacks"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "name": "Giant Wasp",
+  "size": "Medium",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 13,
+  "hit_points": 22,
+  "hit_dice": "5d8",
+  "speed": {
+    "walk": 10,
+    "fly": 50
+  },
+  "ability_scores": {
+    "strength": 10,
+    "dexterity": 14,
+    "constitution": 10,
+    "intelligence": 1,
+    "wisdom": 10,
+    "charisma": 3
+  },
+  "saving_throws": {
+    "strength": 0,
+    "dexterity": 2,
+    "constitution": 0,
+    "intelligence": -5,
+    "wisdom": 0,
+    "charisma": -4
+  },
+  "skills": {},
+  "senses": [
+    "Passive Perception 10"
+  ],
+  "languages": "None",
+  "challenge_rating": 0.5,
+  "experience_points": 100,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Flyby",
+      "description": "The wasp doesn't provoke an Opportunity Attack when it flies out of an enemy's reach."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Sting",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 5 (1d6 + 2) Piercing damage plus 5 (2d4) Poison damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Striker - Flying hit-and-run attacker with poison",
+    "positioning": "Uses Flyby to attack and retreat without provoking",
+    "damage_output": "10 damage per hit (5 piercing + 5 poison)",
+    "key_abilities": "Flyby makes it excellent for harassment tactics",
+    "weaknesses": "Low HP makes sustained combat dangerous",
+    "synergies": "Perfect for swarm tactics or supporting ground forces"
+  }
+}

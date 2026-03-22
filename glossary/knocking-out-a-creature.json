@@ -1,0 +1,15 @@
+{
+  "name": "Knocking Out a Creature",
+  "slug": "knocking-out-a-creature",
+  "definition": "A melee attack option to render a creature unconscious instead of killing it",
+  "category": "Combat",
+  "tags": ["melee-attack", "unconscious", "optional"],
+  "full_text": "When you would reduce a creature to 0 Hit Points with a melee attack, you can instead reduce the creature to 1 Hit Point. The creature then has the Unconscious condition and starts a Short Rest.\n\nThe creature remains Unconscious until it regains any Hit Points or until someone uses an action to administer first aid to it, which requires a successful DC 10 Wisdom (Medicine) check.",
+  "mechanics": {
+    "trigger": "Melee attack reducing creature to 0 HP",
+    "result": "Creature reduced to 1 HP, gains Unconscious condition, starts Short Rest",
+    "recovery": "Regains any HP OR successful DC 10 WIS (Medicine) check with action",
+    "check_benefit": "First aid removes Unconscious condition"
+  },
+  "see_also": ["unconscious", "short-rest", "melee-attack"]
+}

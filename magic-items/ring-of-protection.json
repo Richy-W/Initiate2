@@ -1,0 +1,11 @@
+{
+  "name": "Ring of Protection",
+  "type": "Ring",
+  "rarity": "Rare",
+  "attunement": true,
+  "description": "You gain a +1 bonus to Armor Class and saving throws while wearing this ring.",
+  "properties": {
+    "armor_class_bonus": "+1",
+    "saving_throw_bonus": "+1"
+  }
+}

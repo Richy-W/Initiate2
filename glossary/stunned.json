@@ -1,0 +1,14 @@
+{
+  "name": "Stunned",
+  "slug": "stunned",
+  "definition": "A condition where you are incapacitated with failed saves and disadvantaged attacks",
+  "category": "Conditions",
+  "tags": ["[Condition]", "incapacitated"],
+  "full_text": "While you have the Stunned condition, you experience the following effects.\n\nIncapacitated. You have the Incapacitated condition.\n\nSaving Throws Affected. You automatically fail Strength and Dexterity saving throws.\n\nAttacks Affected. Attack rolls against you have Advantage.",
+  "mechanics": {
+    "incapacitation": "You have Incapacitated condition",
+    "saving_throws": "Automatically fail STR and DEX saves",
+    "attacks": "Attacks against you have Advantage"
+  },
+  "see_also": ["condition", "incapacitated", "advantage"]
+}

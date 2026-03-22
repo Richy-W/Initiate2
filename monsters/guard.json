@@ -1,0 +1,83 @@
+{
+  "name": "Guard",
+  "size": "Medium or Small",
+  "type": "Humanoid",
+  "alignment": "Neutral",
+  "armor_class": {
+    "value": 16,
+    "source": "Chain Shirt and Shield"
+  },
+  "initiative": {
+    "bonus": 1,
+    "total": 11
+  },
+  "hit_points": {
+    "average": 11,
+    "formula": "2d8 + 2"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "wisdom": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    }
+  },
+  "skills": {
+    "perception": 2
+  },
+  "senses": {
+    "passive_perception": 12
+  },
+  "languages": ["Common"],
+  "challenge_rating": {
+    "cr": 0.125,
+    "xp": 25,
+    "proficiency_bonus": 2
+  },
+  "equipment": ["Chain Shirt", "Shield", "Spear"],
+  "actions": [
+    {
+      "name": "Spear",
+      "description": "Melee or Ranged Attack Roll: +3, reach 5 ft. or range 20/60 ft. Hit: 4 (1d6 + 1) Piercing damage.",
+      "attack_roll": 3,
+      "reach": "5 ft. or range 20/60",
+      "damage": "4 (1d6 + 1)",
+      "damage_type": "Piercing"
+    }
+  ],
+  "tactical_info": {
+    "role": "Basic Security/Patrol",
+    "environment": "City gates, guard posts, patrol routes, castle walls, merchant escorts",
+    "tactics": "Uses spear for reach advantage, shield for defense, works in coordinated patrols",
+    "weaknesses": "Basic training limits complex tactics, relies on numbers and backup, predictable patrol patterns",
+    "signature_abilities": ["Versatile spear weapon", "Shield defense", "Perception training", "Standard military coordination"]
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "title": "Attack Mechanics and Combat Actions",
+  "description": "Rules for making attacks, opportunity attacks, and combat-specific actions",
+  "version": "2024",
+  "making_attacks": {
+    "description": "When you take the Attack action, you make an attack. Some other actions, Bonus Actions, and Reactions also let you make an attack",
+    "attack_types": "Whether you strike with a Melee weapon, fire a Ranged weapon, or make an attack roll as part of a spell, an attack has the following structure",
+    "attack_structure": [
+      {
+        "step": 1,
+        "title": "Choose a Target",
+        "description": "Pick a target within your attack's range: a creature, an object, or a location"
+      },
+      {
+        "step": 2,
+        "title": "Determine Modifiers",
+        "description": "The DM determines whether the target has Cover and whether you have Advantage or Disadvantage against the target. In addition, spells, special abilities, and other effects can apply penalties or bonuses to your attack roll"
+      },
+      {
+        "step": 3,
+        "title": "Resolve the Attack",
+        "description": "Make the attack roll, as detailed earlier in this chapter. On a hit, you roll damage unless the particular attack has rules that specify otherwise. Some attacks cause special effects in addition to or instead of damage"
+      }
+    ]
+  },
+  "cover": {
+    "description": "Walls, trees, creatures, and other obstacles can provide cover, making a target more difficult to harm",
+    "benefit_requirement": "A target can benefit from cover only when an attack or other effect originates on the opposite side of the cover",
+    "multiple_cover": "If a target is behind multiple sources of cover, only the most protective degree of cover applies; the degrees aren't added together. For example, if a target is behind a creature that gives Half Cover and a tree trunk that gives Three-Quarters Cover, the target has Three-Quarters Cover",
+    "cover_types": [
+      {
+        "degree": "Half",
+        "benefit": "+2 bonus to AC and Dexterity saving throws",
+        "offered_by": "Another creature or an object that covers at least half of the target"
+      },
+      {
+        "degree": "Three-Quarters",
+        "benefit": "+5 bonus to AC and Dexterity saving throws", 
+        "offered_by": "An object that covers at least three-quarters of the target"
+      },
+      {
+        "degree": "Total",
+        "benefit": "Can't be targeted directly",
+        "offered_by": "An object that covers the whole target"
+      }
+    ]
+  },
+  "unseen_combat": {
+    "attacking_unseen_targets": {
+      "disadvantage": "When you make an attack roll against a target you can't see, you have Disadvantage on the roll",
+      "application": "This is true whether you're guessing the target's location or targeting a creature you can hear but not see",
+      "missing": "If the target isn't in the location you targeted, you miss"
+    },
+    "being_unseen": {
+      "advantage": "When a creature can't see you, you have Advantage on attack rolls against it",
+      "location_reveal": "If you are hidden when you make an attack roll, you give away your location when the attack hits or misses"
+    }
+  },
+  "ranged_attacks": {
+    "description": "When you make a ranged attack, you fire a bow, hurl an axe, or otherwise send projectiles to strike a foe at a distance. Many spells also involve making a ranged attack",
+    "range": {
+      "single_range": "If a ranged attack, such as one made with a spell, has a single range, you can't attack a target beyond this range",
+      "dual_range": "Some ranged attacks, such as those made with a Longbow, have two ranges. The smaller number is the normal range, and the larger number is the long range",
+      "range_penalties": "Your attack roll has Disadvantage when your target is beyond normal range, and you can't attack a target beyond long range"
+    },
+    "close_combat": {
+      "description": "Aiming a ranged attack is more difficult when a foe is next to you",
+      "disadvantage": "When you make a ranged attack roll with a weapon, a spell, or some other means, you have Disadvantage on the roll if you are within 5 feet of an enemy who can see you and doesn't have the Incapacitated condition"
+    }
+  },
+  "melee_attacks": {
+    "description": "A melee attack allows you to attack a target within your reach. A melee attack typically uses a handheld weapon or an Unarmed Strike. Many monsters make melee attacks with claws, teeth, or other body parts. A few spells also involve melee attacks",
+    "reach": {
+      "standard": "A creature has a 5-foot reach and can thus attack targets within 5 feet when making a melee attack",
+      "extended": "Certain creatures have melee attacks with a reach greater than 5 feet, as noted in their descriptions"
+    }
+  },
+  "opportunity_attacks": {
+    "description": "Combatants watch for enemies to drop their guard. If you move heedlessly past your foes, you put yourself in danger by provoking an Opportunity Attack",
+    "avoiding": {
+      "disengage": "You can avoid provoking an Opportunity Attack by taking the Disengage action",
+      "exceptions": "You also don't provoke an Opportunity Attack when you teleport or when you are moved without using your movement, action, Bonus Action, or Reaction",
+      "examples": "For example, you don't provoke an Opportunity Attack if an explosion hurls you out of a foe's reach or if you fall past an enemy"
+    },
+    "making": {
+      "trigger": "You can make an Opportunity Attack when a creature that you can see leaves your reach",
+      "reaction": "To make the attack, take a Reaction to make one melee attack with a weapon or an Unarmed Strike against that creature",
+      "timing": "The attack occurs right before it leaves your reach"
+    }
+  },
+  "attack_modifiers": {
+    "ability_modifiers": {
+      "strength": "Used for melee weapon attacks and thrown weapon attacks",
+      "dexterity": "Used for ranged weapon attacks and finesse weapon attacks",
+      "spell_attacks": "Use spellcasting ability modifier as determined by class"
+    },
+    "proficiency_bonus": "Add to attack rolls when proficient with the weapon or when making spell attacks",
+    "circumstantial_modifiers": [
+      "Cover bonuses to target AC",
+      "Advantage/Disadvantage from various sources",
+      "Spell effects and magical bonuses",
+      "Environmental conditions",
+      "Class features and special abilities"
+    ]
+  },
+  "special_attack_situations": {
+    "surprise_attacks": "Attacks made against surprised creatures",
+    "flanking": "Coordinated attacks from multiple directions",
+    "prone_targets": "Attacks against creatures lying down",
+    "grappled_targets": "Attacks against restrained creatures",
+    "aerial_combat": "Attacks involving flying creatures",
+    "underwater_attacks": "Special rules for submerged combat"
+  }
+}

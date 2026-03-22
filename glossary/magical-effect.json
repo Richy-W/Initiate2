@@ -1,0 +1,12 @@
+{
+  "name": "Magical Effect",
+  "slug": "magical-effect",
+  "definition": "An effect created by a spell, magic item, or phenomenon labeled as magical",
+  "category": "Magic",
+  "tags": ["spell", "magic", "effect"],
+  "full_text": "An effect is magical if it is created by a spell, a magic item, or a phenomenon that a rule labels as magical.",
+  "mechanics": {
+    "sources": "Spell, magic item, or labeled magical phenomenon"
+  },
+  "see_also": ["spell", "magic-item", "illusions"]
+}

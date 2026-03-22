@@ -1,0 +1,132 @@
+{
+  "name": "Adult Green Dragon",
+  "size": "Huge",
+  "type": "Dragon (Chromatic)",
+  "alignment": "Lawful Evil",
+  "armor_class": {
+    "value": 19,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 11,
+    "total": 21
+  },
+  "hit_points": {
+    "average": 207,
+    "formula": "18d12 + 90"
+  },
+  "speed": {
+    "walk": 40,
+    "fly": 80,
+    "swim": 40
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 23,
+      "modifier": 6,
+      "saving_throw": 6
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 6
+    },
+    "constitution": {
+      "score": 21,
+      "modifier": 5,
+      "saving_throw": 5
+    },
+    "intelligence": {
+      "score": 18,
+      "modifier": 4,
+      "saving_throw": 4
+    },
+    "wisdom": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 7
+    },
+    "charisma": {
+      "score": 18,
+      "modifier": 4,
+      "saving_throw": 4
+    }
+  },
+  "skills": {
+    "deception": 9,
+    "perception": 12,
+    "persuasion": 9,
+    "stealth": 6
+  },
+  "damage_immunities": ["Poison"],
+  "condition_immunities": ["Poisoned"],
+  "senses": {
+    "blindsight": 60,
+    "darkvision": 120,
+    "passive_perception": 22
+  },
+  "languages": ["Common", "Draconic"],
+  "challenge_rating": {
+    "cr": 15,
+    "xp": 13000,
+    "lair_xp": 15000,
+    "proficiency_bonus": 5
+  },
+  "traits": [
+    {
+      "name": "Amphibious",
+      "description": "The dragon can breathe air and water."
+    },
+    {
+      "name": "Legendary Resistance (3/Day, or 4/Day in Lair)",
+      "description": "If the dragon fails a saving throw, it can choose to succeed instead."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The dragon makes three Rend attacks. It can replace one attack with a use of Spellcasting to cast Mind Spike (level 3 version)."
+    },
+    {
+      "name": "Rend",
+      "description": "Melee Attack Roll: +11, reach 10 ft. Hit: 15 (2d8 + 6) Slashing damage plus 7 (2d6) Poison damage.",
+      "attack_roll": 11,
+      "reach": 10,
+      "damage": "15 (2d8 + 6) Slashing plus 7 (2d6) Poison",
+      "damage_type": "Slashing + Poison"
+    },
+    {
+      "name": "Poison Breath (Recharge 5-6)",
+      "description": "Constitution Saving Throw: DC 18, each creature in a 60-foot Cone. Failure: 56 (16d6) Poison damage. Success: Half damage."
+    },
+    {
+      "name": "Spellcasting",
+      "description": "The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 17): At Will: Detect Magic, Mind Spike (level 3 version). 1/Day: Geas."
+    }
+  ],
+  "legendary_actions": [
+    {
+      "name": "Legendary Action Uses",
+      "description": "3 (4 in Lair). Immediately after another creature's turn, the dragon can expend a use to take one of the following actions. The dragon regains all expended uses at the start of each of its turns."
+    },
+    {
+      "name": "Mind Invasion",
+      "description": "The dragon uses Spellcasting to cast Mind Spike (level 3 version)."
+    },
+    {
+      "name": "Noxious Miasma",
+      "description": "Constitution Saving Throw: DC 17, each creature in a 20-foot-radius Sphere centered on a point the dragon can see within 90 feet. Failure: 7 (2d6) Poison damage, and the target takes a −2 penalty to AC until the end of its next turn. Failure or Success: The dragon can't take this action again until the start of its next turn."
+    },
+    {
+      "name": "Pounce",
+      "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
+    }
+  ],
+  "tactical_info": {
+    "role": "Legendary Boss Monster/Mental Manipulator",
+    "environment": "Ancient forest strongholds, poisonous lairs, corrupted sacred groves, dominating woodland kingdoms",
+    "tactics": "Combines devastating poison with mind control, uses legendary actions for battlefield manipulation, geas for long-term control",
+    "weaknesses": "Lawful evil nature can be exploited through contracts and bargains, overconfident in mental superiority",
+    "signature_abilities": ["Mind spike spellcasting", "Noxious miasma legendary action", "Geas domination", "Massive poison breath"]
+  }
+}

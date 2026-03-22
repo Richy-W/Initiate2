@@ -1,0 +1,317 @@
+{
+  "id": "magic-items-rarity",
+  "name": "Magic Item Rarity, Values, and Acquisition",
+  "description": "Rules for magic item rarity, values, awarding items to characters, activation mechanics, and crafting",
+  "sections": {
+    "magic_item_rarity": {
+      "title": "Magic Item Rarity",
+      "overview": "Every magic item has a rarity, which provides a rough measure of an item's power relative to other magic items",
+      "rarity_spectrum": "Common magic items, such as a Potion of Healing, are the most plentiful. Artifacts, such as the Orb of Dragonkind, are priceless, unique, and difficult to acquire"
+    },
+    "magic_item_values": {
+      "title": "Magic Item Values by Rarity",
+      "overview": "Common magic items can often be bought in a town or city. Uncommon and Rare magic items are usually found only in cities, and rarer magic items might be sold only in wondrous locations",
+      "usage": "If you allow characters to buy and sell magic items in your campaign, rarity can help you set prices for those items",
+      "table": {
+        "title": "Magic Item Rarities and Values",
+        "rows": [
+          {
+            "rarity": "Common",
+            "value": "100 GP"
+          },
+          {
+            "rarity": "Uncommon",
+            "value": "400 GP"
+          },
+          {
+            "rarity": "Rare",
+            "value": "4,000 GP"
+          },
+          {
+            "rarity": "Very Rare",
+            "value": "40,000 GP"
+          },
+          {
+            "rarity": "Legendary",
+            "value": "200,000 GP"
+          },
+          {
+            "rarity": "Artifact",
+            "value": "Priceless"
+          }
+        ]
+      },
+      "notes": [
+        "Halve the value for a consumable item other than a Spell Scroll",
+        "The value of a Spell Scroll is double what it costs to scribe the scroll"
+      ],
+      "base_item_cost": {
+        "description": "If a magic item incorporates an item that has a purchase cost in Equipment (such as a weapon or a suit of armor), add that item's cost to the magic item's value",
+        "example": "+1 Armor (Plate Armor) has a value of 5,500 GP, which is the sum of a Rare magic item's value (4,000 GP) and the cost of Plate Armor (1,500 GP)"
+      }
+    },
+    "awarding_magic_items": {
+      "title": "Awarding Magic Items",
+      "overview": "Awarding magic items is the purview of the DM. You can award a magic item because the story calls for it or the players would be especially pleased to have it",
+      "are_magic_items_necessary": {
+        "title": "Are Magic Items Necessary?",
+        "premise": "The D&D game assumes that magic items appear sporadically and that they are a boon unless an item bears a curse",
+        "design": "Characters and monsters are built to face each other without the help of magic items, which means that having a magic item makes a character more powerful or versatile than a generic character of the same level",
+        "dm_perspective": "As DM, you never have to worry about awarding magic items just so the characters can keep up with the campaign's threats. Magic items are truly prizes—desirable but not necessary"
+      },
+      "magic_items_awarded_by_level": {
+        "title": "Magic Items Awarded by Level",
+        "overview": "The Magic Items Awarded by Level table shows the number of magic items a D&D party typically gains during a campaign, totaling one hundred magic items by level 20",
+        "structure": "The table shows how many items of each rarity are meant to be handed out during each of the four tiers of play",
+        "artifacts": "Artifacts are omitted from the table because they are most often used as plot devices in high-level adventures, and characters rarely have them for long (either because the Artifacts are meant to be destroyed or because the campaign is nearing its end)",
+        "table": {
+          "title": "Magic Items Awarded by Level",
+          "rows": [
+            {
+              "character_level": "1–4 (tier 1)",
+              "common": 6,
+              "uncommon": 4,
+              "rare": 1,
+              "very_rare": 0,
+              "legendary": 0,
+              "total": 11
+            },
+            {
+              "character_level": "5–10 (tier 2)",
+              "common": 10,
+              "uncommon": 17,
+              "rare": 6,
+              "very_rare": 1,
+              "legendary": 0,
+              "total": 34
+            },
+            {
+              "character_level": "11–16 (tier 3)",
+              "common": 3,
+              "uncommon": 7,
+              "rare": 11,
+              "very_rare": 7,
+              "legendary": 2,
+              "total": 30
+            },
+            {
+              "character_level": "17–20 (tier 4)",
+              "common": 0,
+              "uncommon": 0,
+              "rare": 5,
+              "very_rare": 11,
+              "legendary": 9,
+              "total": 25
+            },
+            {
+              "character_level": "Total",
+              "common": 19,
+              "uncommon": 28,
+              "rare": 23,
+              "very_rare": 19,
+              "legendary": 11,
+              "total": 100
+            }
+          ]
+        }
+      },
+      "player_wish_list": {
+        "title": "Player Wish List",
+        "recommendation": "Encourage your players to keep a wish list of magic items they hope their characters will find in the course of the campaign",
+        "usage": "If you want to award a magic item but don't have a specific magic item in mind, you can pick an item of the appropriate rarity from your players' wish list"
+      },
+      "overstocking_an_adventure": {
+        "title": "Overstocking an Adventure",
+        "guidance": "When creating or modifying an adventure, assume that the characters won't find all the magic items you place in it",
+        "calculation": "An adventure usually can include a number of items that's 25 percent higher than the number in the Magic Items Awarded by Level table (round up)",
+        "example": "An adventure designed to take characters from level 1 to 4 might include fourteen items rather than eleven, in the expectation that three items won't be found"
+      },
+      "magic_item_tracker": {
+        "title": "Magic Item Tracker",
+        "description": "You can use the Magic Item Tracker sheet to track how many magic items the characters have acquired",
+        "procedure": [
+          "Each time the characters get a magic item, put a check mark in one of the empty circles corresponding to the item's rarity and the current level range",
+          "If the characters gain a magic item of a rarity that has no unchecked circles at the current level range, check off an empty circle from a lower tier",
+          "If all lower level ranges also have no circles left, check off an empty circle from a higher level range"
+        ]
+      }
+    },
+    "random_magic_item_rarity": {
+      "title": "Random Magic Item Rarity",
+      "overview": "When you decide that a treasure contains magic items, there are two ways to determine the rarity of those items",
+      "methods": [
+        "Choose an appropriate rarity based on the items you've given out already (using the Magic Item Tracker sheet to keep track)",
+        "Roll on the Magic Item Rarities table"
+      ],
+      "procedure": "To use the table, find the level of the characters in the top row. Roll 1d100, and read down that column to find your roll. Then read across to the right column to find the rarity of the item",
+      "table": {
+        "title": "Magic Item Rarities Random Table",
+        "rows": [
+          {
+            "roll": "01–54",
+            "levels_1_4": "01–54",
+            "levels_5_10": "01–30",
+            "levels_11_16": "01–11",
+            "levels_17_20": "—",
+            "rarity": "Common"
+          },
+          {
+            "roll": "55–91",
+            "levels_1_4": "55–91",
+            "levels_5_10": "31–81",
+            "levels_11_16": "12–34",
+            "levels_17_20": "—",
+            "rarity": "Uncommon"
+          },
+          {
+            "roll": "92–00",
+            "levels_1_4": "92–00",
+            "levels_5_10": "82–98",
+            "levels_11_16": "35–70",
+            "levels_17_20": "01–20",
+            "rarity": "Rare"
+          },
+          {
+            "roll": "—",
+            "levels_1_4": "—",
+            "levels_5_10": "99–00",
+            "levels_11_16": "71–93",
+            "levels_17_20": "21–64",
+            "rarity": "Very Rare"
+          },
+          {
+            "roll": "—",
+            "levels_1_4": "—",
+            "levels_5_10": "—",
+            "levels_11_16": "94–00",
+            "levels_17_20": "65–00",
+            "rarity": "Legendary"
+          }
+        ]
+      }
+    },
+    "magic_items_for_starting_characters": {
+      "title": "Magic Items for Starting Characters",
+      "overview": "If you're starting a campaign for characters above level 1, Creating a Character offers suggestions for how many magic items such characters should start with and the rarity of those items",
+      "approaches": [
+        {
+          "name": "DM Choice",
+          "description": "Choose items for each character using your own judgment"
+        },
+        {
+          "name": "Player Choice",
+          "description": "Let the players choose whatever items they want, within the specified rarity"
+        }
+      ]
+    },
+    "activating_a_magic_item": {
+      "title": "Activating a Magic Item",
+      "overview": "It usually takes a Magic action to activate a magic item. The item's user might also need to do something special",
+      "reference": "The description of each item category or individual item details how an item is activated",
+      "command_word": {
+        "title": "Command Word",
+        "description": "A command word is a word or short phrase that must be spoken or signed for an item to work",
+        "limitations": "Spoken command words must be audible and fail to work in areas where all sound is suppressed, as in the area of the Silence spell"
+      },
+      "consumable_items": {
+        "title": "Consumable Items",
+        "description": "Some items are consumed—used up, in other words—when they are activated",
+        "examples": [
+          "A Potion of Healing must be swallowed",
+          "The writing vanishes from a scroll when it is read"
+        ],
+        "result": "Once used, a consumable item loses its magic"
+      },
+      "spells_cast_from_items": {
+        "title": "Spells Cast from Items",
+        "description": "Some magic items allow the user to cast a spell from the item",
+        "mechanics": [
+          "The spell is cast at the lowest possible spell and caster level",
+          "Doesn't expend any of the user's spell slots",
+          "Requires no components unless the item's description notes otherwise",
+          "The spell uses its normal casting time, range, and duration",
+          "The user of the item must concentrate if the spell requires Concentration"
+        ],
+        "potion_bypass": "Many items, such as Potions, bypass the casting of a spell and confer the spell's effects with its usual duration",
+        "exceptions": "Certain items make exceptions to these rules, changing the casting time, duration, or other parts of a spell",
+        "spellcasting_ability": {
+          "requirement": "A magic item may require the user to use their own spellcasting ability when casting a spell from the item",
+          "choice": "If the user has more than one spellcasting ability, the user chooses which one to use with the item",
+          "default": "If the user doesn't have a spellcasting ability, their spellcasting ability modifier is +0 for the item, and the user's Proficiency Bonus applies"
+        }
+      },
+      "charges": {
+        "title": "Charges",
+        "description": "Some magic items have charges that must be expended to activate their properties",
+        "identification": "The number of charges an item has remaining is revealed when the Identify spell is cast on it",
+        "attuned_knowledge": "A creature attuned to an item knows how many charges the item has and how many it regains"
+      },
+      "the_next_dawn": {
+        "title": "\"The Next Dawn\"",
+        "description": "Magic items often have charges or properties that recharge at the next dawn or some other specified time",
+        "dm_ruling": "If such an item is on a world or plane of existence where the specified event doesn't occur, the DM determines when the item recharges"
+      }
+    },
+    "cursed_items": {
+      "title": "Cursed Items",
+      "description": "A magic item's description specifies whether it bears a curse",
+      "detection": "Most methods of identifying items, including the Identify spell, fail to reveal such a curse",
+      "attunement": [
+        "Attunement to a cursed item can't be ended voluntarily unless the curse is broken first",
+        "Curses can be broken with a Remove Curse spell or similar magic"
+      ]
+    },
+    "magic_item_resilience": {
+      "title": "Magic Item Resilience",
+      "description": "A magic item is at least as durable as a nonmagical item of its kind",
+      "damage_resistance": "Most magic items, other than Potions and Scrolls, have Resistance to all damage",
+      "artifacts": {
+        "destruction": "An Artifact can be destroyed only in some special way. Otherwise, it is impervious to damage",
+        "knowledge": "Learning how to destroy an Artifact usually requires research or the completion of a quest"
+      }
+    },
+    "crafting_magic_items": {
+      "title": "Crafting Magic Items",
+      "overview": "To create magic items, follow the rules below",
+      "note": "Equipment contains rules on brewing Potions of Healing and scribing Spell Scrolls",
+      "scope": "To create other magic items, follow the rules in this section",
+      "arcana_proficiency": {
+        "title": "Arcana Proficiency",
+        "requirement": "To craft a magic item, you and any assistants must have proficiency in the Arcana skill"
+      }
+    }
+  },
+  "rarity_tiers": {
+    "tier_1_common_uncommon": "Levels 1-4 (Tier 1) emphasizes Common and Uncommon items",
+    "tier_2_uncommon_rare": "Levels 5-10 (Tier 2) emphasizes Uncommon items with increasing Rare",
+    "tier_3_rare_very_rare": "Levels 11-16 (Tier 3) emphasizes Rare and Very Rare items",
+    "tier_4_very_rare_legendary": "Levels 17-20 (Tier 4) emphasizes Very Rare and Legendary items"
+  },
+  "contains": [
+    "Magic item rarity system (Common through Artifact)",
+    "Magic Item Rarities and Values table (100 GP to Priceless)",
+    "Consumable item value adjustments (half value, Spell Scroll double)",
+    "Base item cost addition (armor + enchantment value)",
+    "Magic items necessary discussion (sporadically appearing, not required)",
+    "Magic Items Awarded by Level table (100 total items by level 20)",
+    "Item distribution by tier (T1: 11, T2: 34, T3: 30, T4: 25)",
+    "Player wish list system",
+    "Overstocking adventures (25% higher than guidelines)",
+    "Magic Item Tracker system",
+    "Random Magic Item Rarity table with level-based rolls",
+    "Starting characters magic item guidelines",
+    "DM Choice vs Player Choice item selection",
+    "Activating magic items (Magic action, special requirements)",
+    "Command words (spoken/signed, Silence spell interaction)",
+    "Consumable items mechanics (Potions, Scrolls)",
+    "Spells cast from items (spell level, slot expenditure, concentration)",
+    "Spellcasting ability selection and modifiers",
+    "Charges mechanics (Identify spell, attuned knowledge)",
+    "Recharge timing (Next Dawn rule, DM discretion)",
+    "Cursed items (identification, Remove Curse)",
+    "Magic item resilience and damage resistance",
+    "Artifact destruction mechanics (special methods, impervious)",
+    "Crafting magic items (Arcana proficiency requirement)",
+    "Potion brewing and Spell Scroll scribing reference"
+  ]
+}

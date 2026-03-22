@@ -1,0 +1,92 @@
+{
+  "name": "Kobold Warrior",
+  "size": "Small",
+  "type": "Dragon",
+  "alignment": "Neutral",
+  "armor_class": {
+    "value": 14,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 2,
+    "total": 12
+  },
+  "hit_points": {
+    "average": 7,
+    "formula": "3d6 - 3"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 7,
+      "modifier": -2,
+      "saving_throw": -2
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "constitution": {
+      "score": 9,
+      "modifier": -1,
+      "saving_throw": -1
+    },
+    "intelligence": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    },
+    "wisdom": {
+      "score": 7,
+      "modifier": -2,
+      "saving_throw": -2
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    }
+  },
+  "equipment": ["Daggers (3)"],
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 8
+  },
+  "languages": ["Common", "Draconic"],
+  "challenge_rating": {
+    "cr": 0.125,
+    "xp": 25,
+    "proficiency_bonus": 2
+  },
+  "traits": [
+    {
+      "name": "Pack Tactics",
+      "description": "The kobold has Advantage on an attack roll against a creature if at least one of the kobold's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition."
+    },
+    {
+      "name": "Sunlight Sensitivity",
+      "description": "While in sunlight, the kobold has Disadvantage on ability checks and attack rolls."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Dagger",
+      "description": "Melee or Ranged Attack Roll: +4, reach 5 ft. or range 20/60 ft. Hit: 4 (1d4 + 2) Piercing damage.",
+      "attack_roll": 4,
+      "reach": 5,
+      "range": "20/60",
+      "damage": "4 (1d4 + 2)",
+      "damage_type": "Piercing"
+    }
+  ],
+  "tactical_info": {
+    "role": "Pack Minion/Scout",
+    "environment": "Underground lairs, dragon territories, kobold warrens, caves",
+    "tactics": "Uses pack tactics with allies for advantage, throws daggers from range, avoids sunlight combat",
+    "weaknesses": "Extremely fragile, sunlight sensitivity, poor ability scores across the board",
+    "signature_abilities": ["Pack tactics advantage", "Multiple dagger weapons", "Dragon heritage", "Darkvision navigation"]
+  }
+}

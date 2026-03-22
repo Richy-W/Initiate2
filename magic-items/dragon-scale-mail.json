@@ -1,0 +1,31 @@
+{
+  "name": "Dragon Scale Mail",
+  "type": "Armor (Scale Mail)",
+  "rarity": "Very Rare",
+  "requires_attunement": true,
+  "overview": "Armor made from dragon scales that grants bonuses and dragon-related benefits.",
+  "properties": {
+    "material": "Dragon Scale Mail is made of the scales of one kind of dragon. Sometimes dragons collect their cast-off scales and gift them. Other times, hunters carefully preserve the hide of a dead dragon",
+    "ac_bonus": "You gain a +1 bonus to Armor Class",
+    "breath_defense": "You have Advantage on saving throws against the breath weapons of Dragons",
+    "resistance": "You have Resistance to one damage type determined by the kind of dragon that provided the scales"
+  },
+  "dragon_sense": {
+    "ability": "You can focus your senses as a Magic action to discern the distance and direction to the closest dragon within 30 miles of yourself that is of the same type as the armor",
+    "recharge": "This action can't be used again until the next dawn"
+  },
+  "dragon_resistances": [
+    { "dragon": "Black", "resistance": "Acid" },
+    { "dragon": "Blue", "resistance": "Lightning" },
+    { "dragon": "Brass", "resistance": "Fire" },
+    { "dragon": "Bronze", "resistance": "Lightning" },
+    { "dragon": "Copper", "resistance": "Acid" },
+    { "dragon": "Gold", "resistance": "Fire" },
+    { "dragon": "Green", "resistance": "Poison" },
+    { "dragon": "Red", "resistance": "Fire" },
+    { "dragon": "Silver", "resistance": "Cold" },
+    { "dragon": "White", "resistance": "Cold" }
+  ],
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

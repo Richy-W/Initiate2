@@ -1,0 +1,30 @@
+{
+  "name": "Luck Blade",
+  "type": "Weapon",
+  "weapon_type": ["Glaive", "Greatsword", "Longsword", "Rapier", "Scimitar", "Sickle", "Shortsword"],
+  "rarity": "Legendary",
+  "attunement": true,
+  "attack_bonus": 1,
+  "damage_bonus": 1,
+  "description": "You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon. While the weapon is on your person, you also gain a +1 bonus to saving throws.",
+  "properties": {
+    "attack_bonus": 1,
+    "damage_bonus": 1,
+    "saving_throw_bonus": 1,
+    "saving_throw_requirement": "Weapon on your person",
+    "luck": {
+      "activation": "No action required",
+      "trigger": "Failed D20 Test",
+      "requirement": "Don't have Incapacitated condition",
+      "effect": "Reroll failed D20 Test; must use second roll",
+      "reuse_duration": "Can't be used again until next dawn"
+    },
+    "wish": {
+      "charges": "1d3",
+      "activation": "Expend 1 charge while holding weapon",
+      "spell": "Wish",
+      "reuse_duration": "Can't be used again until next dawn",
+      "exhaustion": "Weapon loses this property if it has no charges"
+    }
+  }
+}

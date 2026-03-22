@@ -1,0 +1,96 @@
+{
+  "name": "Gargoyle",
+  "size": "Medium",
+  "type": "Elemental",
+  "alignment": "Chaotic Evil",
+  "armor_class": {
+    "value": 15,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 0,
+    "total": 12
+  },
+  "hit_points": {
+    "average": 67,
+    "formula": "9d8 + 27"
+  },
+  "speed": {
+    "walk": 30,
+    "fly": 60
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "dexterity": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "constitution": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "intelligence": {
+      "score": 6,
+      "modifier": -2,
+      "saving_throw": -2
+    },
+    "wisdom": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "charisma": {
+      "score": 7,
+      "modifier": -2,
+      "saving_throw": -2
+    }
+  },
+  "skills": {
+    "stealth": 4
+  },
+  "damage_immunities": ["Poison"],
+  "condition_immunities": ["Exhaustion", "Petrified", "Poisoned"],
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 10
+  },
+  "languages": ["Primordial (Terran)"],
+  "challenge_rating": {
+    "cr": 2,
+    "xp": 450,
+    "proficiency_bonus": 2
+  },
+  "traits": [
+    {
+      "name": "Flyby",
+      "description": "The gargoyle doesn't provoke an Opportunity Attack when it flies out of an enemy's reach."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The gargoyle makes two Claw attacks."
+    },
+    {
+      "name": "Claw",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 7 (2d4 + 2) Slashing damage.",
+      "attack_roll": 4,
+      "reach": 5,
+      "damage": "7 (2d4 + 2)",
+      "damage_type": "Slashing"
+    }
+  ],
+  "tactical_info": {
+    "role": "Aerial Harasser/Guardian",
+    "environment": "Gothic architecture, ancient ruins, castle rooftops, gargoyle perches",
+    "tactics": "Uses flyby attacks to avoid retaliation, employs stealth and stone camouflage for ambush",
+    "weaknesses": "Low mental stats, predictable attack patterns, vulnerable when grounded",
+    "signature_abilities": ["Flyby attacks", "Flight mobility", "Stealth ambush", "Stone creature durability"]
+  }
+}

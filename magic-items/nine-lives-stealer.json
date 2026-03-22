@@ -1,0 +1,26 @@
+{
+  "name": "Nine Lives Stealer",
+  "type": "Weapon",
+  "weapon_type": ["Any Simple", "Any Martial"],
+  "rarity": "Very Rare",
+  "attunement": true,
+  "attack_bonus": 2,
+  "damage_bonus": 2,
+  "description": "You gain a +2 bonus to attack rolls and damage rolls made with this magic weapon.",
+  "properties": {
+    "attack_bonus": 2,
+    "damage_bonus": 2,
+    "life_stealing": {
+      "charges": "1d8 + 1",
+      "trigger": "Attack creature with fewer than 100 HP, roll 20 on d20",
+      "save": {
+        "save_type": "Constitution",
+        "save_dc": 15
+      },
+      "on_failed_save": "Creature is slain instantly as sword tears life force from body",
+      "automatic_success": "Constructs and Undead automatically succeed",
+      "charge_cost": "1 charge if creature slain",
+      "exhaustion": "Loses property when no charges remain"
+    }
+  }
+}

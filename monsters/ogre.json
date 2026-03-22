@@ -1,0 +1,90 @@
+{
+  "name": "Ogre",
+  "size": "Large",
+  "type": "Giant",
+  "alignment": "Chaotic Evil",
+  "armor_class": {
+    "value": 11,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": -1,
+    "total": 9
+  },
+  "hit_points": {
+    "average": 68,
+    "formula": "8d10 + 24"
+  },
+  "speed": {
+    "walk": 40
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 19,
+      "modifier": 4,
+      "saving_throw": 4
+    },
+    "dexterity": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    },
+    "constitution": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "intelligence": {
+      "score": 5,
+      "modifier": -3,
+      "saving_throw": -3
+    },
+    "wisdom": {
+      "score": 7,
+      "modifier": -2,
+      "saving_throw": -2
+    },
+    "charisma": {
+      "score": 7,
+      "modifier": -2,
+      "saving_throw": -2
+    }
+  },
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 8
+  },
+  "languages": ["Common", "Giant"],
+  "challenge_rating": {
+    "cr": 2,
+    "xp": 450,
+    "proficiency_bonus": 2
+  },
+  "equipment": ["Greatclub", "Javelins (3)"],
+  "actions": [
+    {
+      "name": "Greatclub",
+      "description": "Melee Attack Roll: +6, reach 5 ft. Hit: 13 (2d8 + 4) Bludgeoning damage.",
+      "attack_roll": 6,
+      "reach": 5,
+      "damage": "13 (2d8 + 4)",
+      "damage_type": "Bludgeoning"
+    },
+    {
+      "name": "Javelin",
+      "description": "Melee or Ranged Attack Roll: +6, reach 5 ft. or range 30/120 ft. Hit: 11 (2d6 + 4) Piercing damage.",
+      "attack_roll": 6,
+      "reach": 5,
+      "range": "30/120",
+      "damage": "11 (2d6 + 4)",
+      "damage_type": "Piercing"
+    }
+  ],
+  "tactical_info": {
+    "role": "Brutal Warrior/Siege Monster",
+    "environment": "Mountains, hills, ruins, giant settlements, raiding territories",
+    "tactics": "Uses javelins for ranged attacks then closes for melee combat, high strength for devastating weapon attacks",
+    "weaknesses": "Low AC and poor mental stats, predictable combat behavior, limited tactical options",
+    "signature_abilities": ["Exceptional strength attacks", "Ranged javelin capability", "Large size advantage", "Giant heritage"]
+  }
+}

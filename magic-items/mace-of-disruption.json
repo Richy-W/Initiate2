@@ -1,0 +1,24 @@
+{
+  "name": "Mace of Disruption",
+  "type": "Weapon",
+  "weapon_type": "Mace",
+  "rarity": "Rare",
+  "attunement": true,
+  "description": "When you hit a Fiend or an Undead with this magic weapon, that creature takes an extra 2d6 Radiant damage. If the target has 25 Hit Points or fewer after taking this damage, it must succeed on a DC 15 Wisdom saving throw or be destroyed. On a successful save, the creature has the Frightened condition until the end of your next turn.",
+  "properties": {
+    "fiend_undead_damage": "2d6 Radiant damage on hit against Fiend or Undead",
+    "destruction": {
+      "condition": "Target has 25 HP or fewer after damage",
+      "save": {
+        "save_type": "Wisdom",
+        "save_dc": 15
+      },
+      "on_failed_save": "Creature destroyed",
+      "on_successful_save": "Creature has Frightened condition until end of your next turn"
+    },
+    "light": {
+      "bright_light": "20 feet",
+      "dim_light": "additional 20 feet"
+    }
+  }
+}

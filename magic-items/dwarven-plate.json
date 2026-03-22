@@ -1,0 +1,13 @@
+{
+  "name": "Dwarven Plate",
+  "type": "Armor (Half-Plate Armor or Plate Armor)",
+  "rarity": "Very Rare",
+  "requires_attunement": false,
+  "overview": "Dwarven-crafted plate armor that grants movement resistance.",
+  "properties": {
+    "ac_bonus": "You gain a +2 bonus to Armor Class",
+    "movement_resistance": "In addition, if an effect moves you against your will along the ground, you can take a Reaction to reduce the distance you are moved by up to 10 feet"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

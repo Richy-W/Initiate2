@@ -1,0 +1,73 @@
+{
+  "name": "Orb of Dragonkind",
+  "type": "Wondrous Item",
+  "rarity": "Artifact",
+  "attunement": true,
+  "description": "Long ago, in the Dragonlance setting, elves and humans waged war against chromatic dragons. The wizards of the Towers of High Sorcery forged five Orbs of Dragonkind to help defeat the dragons. Their magic has been warped over centuries, and only three are thought to survive.",
+  "properties": {
+    "appearance": "Etched crystal globe about 10 inches diameter, grows to 20 inches when used with mist swirling inside",
+    "control_check": {
+      "activation": "Magic action to peer into depths",
+      "save": {
+        "save_type": "Charisma",
+        "save_dc": 15
+      },
+      "on_successful_save": "You control orb while attuned",
+      "on_failed_save": "Orb imposes Charmed condition while you remain attuned"
+    },
+    "charmed_effects": {
+      "voluntary_attunement_end": "Can't voluntarily end attunement",
+      "suggestion": "Orb casts Suggestion at will (save DC 18)",
+      "purpose": "Urges you toward evil ends the dragon essence desires (annihilation, freedom, suffering, Tiamat worship, etc.)"
+    },
+    "random_properties": {
+      "minor_beneficial": 2,
+      "minor_detrimental": 1,
+      "major_detrimental": 1
+    },
+    "spells": {
+      "charges": 7,
+      "charges_regain": "1d4 + 3 daily at dawn",
+      "requirement": "You must control orb to cast",
+      "spell_list": [
+        {
+          "spell": "Cure Wounds (level 9 version)",
+          "cost": 4
+        },
+        {
+          "spell": "Daylight",
+          "cost": 1
+        },
+        {
+          "spell": "Death Ward",
+          "cost": 2
+        },
+        {
+          "spell": "Detect Magic",
+          "cost": 0
+        },
+        {
+          "spell": "Scrying (save DC 18)",
+          "cost": 3
+        }
+      ]
+    },
+    "call_dragons": {
+      "activation": "Magic action while controlling orb",
+      "effect": "Orb issues telepathic call extending 40 miles in all directions",
+      "target": "Chromatic dragons",
+      "compulsion": "Dragons feel compelled to come to orb as soon as possible by most direct route",
+      "exceptions": "Dragon deities such as Tiamat unaffected",
+      "consequence": "Dragons drawn to orb might be Hostile for compelling them against will",
+      "reuse_duration": "Can't be used again for 1 hour"
+    },
+    "destruction": {
+      "ac": 20,
+      "destruction_methods": [
+        "Damage from +3 Weapon",
+        "Disintegrate spell"
+      ],
+      "immunity": "Nothing else can harm it"
+    }
+  }
+}

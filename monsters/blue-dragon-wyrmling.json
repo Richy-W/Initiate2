@@ -1,0 +1,107 @@
+{
+  "name": "Blue Dragon Wyrmling",
+  "size": "Medium",
+  "type": "Dragon",
+  "subtype": "Chromatic",
+  "alignment": "Lawful Evil",
+  "armor_class": {
+    "value": 17,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 2,
+    "total": 12
+  },
+  "hit_points": {
+    "average": 52,
+    "formula": "8d8 + 16"
+  },
+  "speed": {
+    "walk": 30,
+    "fly": 60,
+    "burrow": 15
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 17,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 4
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 4
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "wisdom": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 2
+    },
+    "charisma": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 4
+    }
+  },
+  "saving_throws": {
+    "dexterity": 4,
+    "constitution": 4,
+    "wisdom": 2,
+    "charisma": 4
+  },
+  "skills": {
+    "perception": 4,
+    "stealth": 4
+  },
+  "damage_immunities": ["Lightning"],
+  "senses": {
+    "blindsight": 10,
+    "darkvision": 60,
+    "passive_perception": 14
+  },
+  "languages": ["Draconic"],
+  "challenge_rating": {
+    "cr": 3,
+    "xp": 700,
+    "proficiency_bonus": 2
+  },
+  "actions": [
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 8 (1d10 + 3) Piercing damage plus 3 (1d6) Lightning damage.",
+      "attack_roll": 5,
+      "reach": 5,
+      "damage": "8 (1d10 + 3) Piercing plus 3 (1d6) Lightning",
+      "damage_type": "Piercing, Lightning"
+    },
+    {
+      "name": "Lightning Breath (Recharge 5-6)",
+      "description": "The dragon exhales lightning in a 30-foot line that is 5 feet wide. Each creature in that line must make a DC 12 Dexterity saving throw, taking 22 (4d10) Lightning damage on a failed save, or half as much damage on a successful one.",
+      "recharge": "5-6",
+      "area": "30-foot line, 5 feet wide",
+      "save": {
+        "ability": "Dexterity",
+        "dc": 12,
+        "on_failure": "22 (4d10) Lightning damage",
+        "on_success": "Half damage"
+      }
+    }
+  ],
+  "tactical_info": {
+    "role": "Artillery/Skirmisher",
+    "environment": "Deserts, coastal cliffs, underground lairs",
+    "tactics": "Uses breath weapon from range, burrows to escape when threatened, flies for positioning",
+    "weaknesses": "Young and overconfident, moderate hit points",
+    "signature_abilities": ["Lightning breath line", "Burrow speed", "Lightning bite", "Flight mobility"]
+  }
+}

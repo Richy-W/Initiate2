@@ -1,0 +1,13 @@
+{
+  "name": "Heroic Inspiration",
+  "slug": "heroic-inspiration",
+  "definition": "A resource that allows you to reroll dice",
+  "category": "Gameplay",
+  "tags": ["reroll", "player-character"],
+  "full_text": "If you (a player character) have Heroic Inspiration, you can expend it to reroll any die immediately after rolling it, and you must use the new roll.\n\nIf you gain Heroic Inspiration but already have it, it's lost unless you give it to a player character who lacks it.",
+  "mechanics": {
+    "usage": "Expend to reroll any die after rolling; must use new result",
+    "stacking": "Can't stack; excess must be given to another PC or lost"
+  },
+  "see_also": ["reroll"]
+}

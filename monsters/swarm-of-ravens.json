@@ -1,0 +1,69 @@
+{
+  "name": "Swarm of Ravens",
+  "size": "Medium",
+  "type": "Beast (Swarm)",
+  "alignment": "Unaligned",
+  "armor_class": 12,
+  "hit_points": 11,
+  "hit_dice": "2d8 + 2",
+  "speed": {
+    "walk": 10,
+    "fly": 50
+  },
+  "ability_scores": {
+    "strength": 6,
+    "dexterity": 14,
+    "constitution": 12,
+    "intelligence": 5,
+    "wisdom": 12,
+    "charisma": 6
+  },
+  "saving_throws": {
+    "strength": -2,
+    "dexterity": 2,
+    "constitution": 1,
+    "intelligence": -3,
+    "wisdom": 1,
+    "charisma": -2
+  },
+  "skills": {
+    "perception": 5
+  },
+  "damage_resistances": ["Bludgeoning", "Piercing", "Slashing"],
+  "damage_immunities": [],
+  "condition_immunities": ["Charmed", "Frightened", "Grappled", "Paralyzed", "Petrified", "Prone", "Restrained", "Stunned"],
+  "senses": [
+    "Passive Perception 15"
+  ],
+  "languages": "None",
+  "challenge_rating": 0.25,
+  "experience_points": 50,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Swarm",
+      "description": "The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny raven. The swarm can't regain Hit Points or gain Temporary Hit Points."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Beaks",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 5 (1d6 + 2) Piercing damage, or 2 (1d4) Piercing damage if the swarm is Bloodied."
+    },
+    {
+      "name": "Cacophony (Recharge 6)",
+      "description": "Wisdom Saving Throw: DC 10, one creature in the swarm's space. Failure: The target has the Deafened condition until the start of the swarm's next turn. While Deafened, the target also has Disadvantage on ability checks and attack rolls."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Aerial Controller - Flying swarm with debuff capabilities",
+    "positioning": "Uses high flight speed and excellent perception for aerial control",
+    "damage_output": "5 piercing damage (2 when bloodied) plus Cacophony debuff",
+    "key_abilities": "Cacophony for disadvantage infliction, exceptional perception (15)",
+    "weaknesses": "Low HP, Cacophony requires recharge",
+    "synergies": "Excellent scout and aerial harassment with debuff support"
+  }
+}

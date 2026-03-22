@@ -1,0 +1,123 @@
+{
+  "name": "Bone Devil",
+  "size": "Large",
+  "type": "Fiend",
+  "subtype": "Devil",
+  "alignment": "Lawful Evil", 
+  "armor_class": {
+    "value": 19,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 2,
+    "total": 12
+  },
+  "hit_points": {
+    "average": 142,
+    "formula": "15d10 + 60"
+  },
+  "speed": {
+    "walk": 40,
+    "fly": 40
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 18,
+      "modifier": 4,
+      "saving_throw": 4
+    },
+    "dexterity": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 8
+    },
+    "constitution": {
+      "score": 18,
+      "modifier": 4,
+      "saving_throw": 9
+    },
+    "intelligence": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 6
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 7
+    },
+    "charisma": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 8
+    }
+  },
+  "saving_throws": {
+    "intelligence": 6,
+    "wisdom": 7,
+    "charisma": 8
+  },
+  "skills": {
+    "deception": 8,
+    "insight": 7
+  },
+  "damage_resistances": ["Cold", "Bludgeoning, Piercing, and Slashing from nonmagical attacks that aren't silvered"],
+  "damage_immunities": ["Fire", "Poison"],
+  "condition_immunities": ["Poisoned"],
+  "senses": {
+    "darkvision": 120,
+    "passive_perception": 12
+  },
+  "languages": ["Infernal"],
+  "telepathy": 120,
+  "challenge_rating": {
+    "cr": 13,
+    "xp": 10000,
+    "proficiency_bonus": 5
+  },
+  "equipment": ["Hooked Chain"],
+  "traits": [
+    {
+      "name": "Devil's Sight",
+      "description": "The devil can see normally in Darkness, both magical and nonmagical, within 120 feet of itself."
+    },
+    {
+      "name": "Magic Resistance", 
+      "description": "The devil has Advantage on saving throws against spells and other magical effects."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The devil makes three attacks: two Claw attacks and one Sting attack."
+    },
+    {
+      "name": "Claw",
+      "description": "Melee Attack Roll: +9, reach 10 ft. Hit: 8 (1d8 + 4) Slashing damage.",
+      "attack_roll": 9,
+      "reach": 10,
+      "damage": "8 (1d8 + 4)",
+      "damage_type": "Slashing"
+    },
+    {
+      "name": "Sting",
+      "description": "Melee Attack Roll: +9, reach 10 ft. Hit: 13 (2d8 + 4) Piercing damage plus 17 (5d6) Poison damage, and the target must succeed on a DC 17 Constitution saving throw or have the Poisoned condition for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
+      "attack_roll": 9,
+      "reach": 10,
+      "damage": "13 (2d8 + 4) Piercing plus 17 (5d6) Poison",
+      "damage_type": "Piercing, Poison",
+      "save": {
+        "ability": "Constitution",
+        "dc": 17,
+        "on_failure": "Poisoned for 1 minute"
+      }
+    }
+  ],
+  "tactical_info": {
+    "role": "Elite Controller/Striker",
+    "environment": "Nine Hells, major summoning circles",
+    "tactics": "Uses reach attacks to control battlefield, focuses sting on spellcasters, flies to maintain advantage",
+    "weaknesses": "Vulnerable to silvered weapons, relies on reach advantage",
+    "signature_abilities": ["Poisonous sting", "10-foot reach on all attacks", "Flight mobility", "High-tier devil resistances"]
+  }
+}

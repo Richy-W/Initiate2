@@ -1,0 +1,12 @@
+{
+  "name": "Hat of Disguise",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "attunement": true,
+  "description": "While wearing this hat, you can cast the Disguise Self spell. The spell ends if the hat is removed.",
+  "properties": {
+    "spell": "Disguise Self",
+    "availability": "While wearing the hat",
+    "ending_condition": "When hat is removed"
+  }
+}

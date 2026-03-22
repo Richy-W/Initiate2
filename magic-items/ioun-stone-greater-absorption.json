@@ -1,0 +1,20 @@
+{
+  "name": "Ioun Stone: Greater Absorption",
+  "type": "Wondrous Item",
+  "rarity": "Legendary",
+  "attunement": true,
+  "description": "While this marbled lavender and green ellipsoid orbits your head, you can take a Reaction to cancel a spell of level 8 or lower cast by a creature you can see. A canceled spell has no effect, and any resources used to cast it are wasted. Once the stone has canceled 20 levels of spells, it burns out, turns dull gray, and loses its magic.",
+  "properties": {
+    "shape": "Marbled lavender and green ellipsoid",
+    "orbit": "1d3 feet from head",
+    "max_concurrent_stones": 3,
+    "spell_cancellation": {
+      "activation": "Reaction",
+      "max_spell_level": 8,
+      "effect": "Cancel spell cast by creature you can see; no effect and resources wasted",
+      "charges": 20,
+      "charge_type": "Spell levels",
+      "exhaustion": "Burns out and turns dull gray when 20 levels canceled"
+    }
+  }
+}

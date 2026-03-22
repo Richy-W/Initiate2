@@ -1,0 +1,49 @@
+{
+  "id": "ammunition-plus",
+  "name": "Ammunition, +1, +2, or +3",
+  "rarity": "Uncommon (+1), Rare (+2), Very Rare (+3)",
+  "category": "Weapon",
+  "weapon_type": "Any Ammunition",
+  "attunement_required": false,
+  "weight": "Varies",
+  "value": "Varies by rarity",
+  "description": "You have a bonus to attack rolls and damage rolls made with this piece of magic ammunition. The bonus is determined by the rarity of the ammunition. Once it hits a target, the ammunition is no longer magical.",
+  "properties": [
+    "Enchanted",
+    "Consumable on Hit",
+    "Attack Bonus",
+    "Damage Bonus"
+  ],
+  "variants": [
+    {
+      "bonus": 1,
+      "rarity": "Uncommon",
+      "value": "50 GP (per piece), equivalent to potion of same rarity"
+    },
+    {
+      "bonus": 2,
+      "rarity": "Rare",
+      "value": "200 GP (per piece), equivalent to potion of same rarity"
+    },
+    {
+      "bonus": 3,
+      "rarity": "Very Rare",
+      "value": "2000 GP (per piece), equivalent to potion of same rarity"
+    }
+  ],
+  "effect": {
+    "type": "Attack and Damage Bonus",
+    "bonus_to_attack": "Determined by rarity (+1, +2, or +3)",
+    "bonus_to_damage": "Determined by rarity (+1, +2, or +3)",
+    "duration": "Until hit, then becomes nonmagical"
+  },
+  "activation": {
+    "type": "Passive",
+    "description": "The magic functions automatically when used"
+  },
+  "consumable": true,
+  "typically_found": "Quantities of 10 or 20 pieces",
+  "equivalence": "Ten pieces equivalent in value to a potion of the same rarity",
+  "source": "Player's Handbook",
+  "notes": "Magic ammunition loses its properties after successfully hitting a target. Purchase or create in batches."
+}

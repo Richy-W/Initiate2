@@ -1,0 +1,63 @@
+{
+  "name": "Giant Rat",
+  "size": "Small",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 13,
+  "hit_points": 7,
+  "hit_dice": "2d6",
+  "speed": {
+    "walk": 30,
+    "climb": 30
+  },
+  "ability_scores": {
+    "strength": 7,
+    "dexterity": 16,
+    "constitution": 11,
+    "intelligence": 2,
+    "wisdom": 10,
+    "charisma": 4
+  },
+  "saving_throws": {
+    "strength": -2,
+    "dexterity": 5,
+    "constitution": 0,
+    "intelligence": -4,
+    "wisdom": 0,
+    "charisma": -3
+  },
+  "skills": {
+    "perception": 2
+  },
+  "senses": [
+    "Darkvision 60 ft.",
+    "Passive Perception 12"
+  ],
+  "languages": "None",
+  "challenge_rating": 0.125,
+  "experience_points": 25,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Pack Tactics",
+      "description": "The rat has Advantage on an attack roll against a creature if at least one of the rat's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +5, reach 5 feet. Hit: 5 (1d4 + 3) Piercing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Swarm Fighter - Pack hunter with climbing ability",
+    "positioning": "Uses Pack Tactics when fighting alongside allies",
+    "damage_output": "5 piercing per hit with advantage when allies are nearby",
+    "key_abilities": "Pack Tactics makes groups of rats dangerous",
+    "weaknesses": "Very low HP, ineffective alone",
+    "synergies": "Excellent in groups, can climb to flank enemies"
+  }
+}

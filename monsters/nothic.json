@@ -1,0 +1,106 @@
+{
+  "name": "Nothic",
+  "size": "Medium",
+  "type": "Aberration",
+  "alignment": "Neutral Evil",
+  "armor_class": {
+    "value": 15,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 3,
+    "total": 13
+  },
+  "hit_points": {
+    "average": 45,
+    "formula": "6d8 + 18"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "dexterity": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "constitution": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "intelligence": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    }
+  },
+  "skills": {
+    "arcana": 3,
+    "insight": 4,
+    "perception": 4,
+    "stealth": 5
+  },
+  "senses": {
+    "truesight": 120,
+    "passive_perception": 14
+  },
+  "languages": ["Undercommon"],
+  "challenge_rating": {
+    "cr": 2,
+    "xp": 450,
+    "proficiency_bonus": 2
+  },
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The nothic makes two Claw attacks."
+    },
+    {
+      "name": "Claw",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 8 (1d10 + 3) Slashing damage.",
+      "attack_roll": 5,
+      "reach": 5,
+      "damage": "8 (1d10 + 3)",
+      "damage_type": "Slashing"
+    },
+    {
+      "name": "Rotting Gaze",
+      "description": "Constitution Saving Throw: DC 13, one creature the nothic can see within 120 feet. Failure: 17 (5d6) Necrotic damage. Success: Half damage.",
+      "range": 120,
+      "saving_throw": "DC 13 Constitution",
+      "damage": "17 (5d6)",
+      "damage_type": "Necrotic"
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Weird Insight (Recharge 6)",
+      "description": "Wisdom Saving Throw: DC 14, one creature the nothic can see within 120 feet. Failure: The nothic magically learns one fact or secret about the target.",
+      "range": 120,
+      "saving_throw": "DC 14 Wisdom"
+    }
+  ],
+  "tactical_info": {
+    "role": "Aberrant Information Broker/Lurker",
+    "environment": "Underground ruins, forgotten libraries, aberrant lairs, places of lost knowledge",
+    "tactics": "Uses truesight to detect hidden enemies, rotting gaze for ranged damage, weird insight to gather secrets for bargaining",
+    "weaknesses": "Moderate combat ability, relies on information gathering and ranged attacks, vulnerable to sustained melee assault",
+    "signature_abilities": ["Secret-stealing weird insight", "Necrotic rotting gaze", "Truesight vision", "Knowledge obsession"]
+  }
+}

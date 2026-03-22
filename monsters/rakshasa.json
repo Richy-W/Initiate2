@@ -1,0 +1,81 @@
+{
+  "name": "Rakshasa",
+  "size": "Medium",
+  "type": "Fiend",
+  "alignment": "Lawful Evil",
+  "armor_class": 17,
+  "hit_points": {
+    "average": 221,
+    "formula": "26d8 + 104"
+  },
+  "speed": {
+    "walk": 40
+  },
+  "initiative": 18,
+  "ability_scores": {
+    "strength": 14,
+    "dexterity": 17,
+    "constitution": 18,
+    "intelligence": 13,
+    "wisdom": 16,
+    "charisma": 20
+  },
+  "saving_throws": {},
+  "skills": {
+    "deception": 10,
+    "insight": 8,
+    "perception": 8
+  },
+  "damage_vulnerabilities": ["piercing from weapons wielded by creatures under the effect of a Bless spell"],
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": ["charmed", "frightened"],
+  "senses": {
+    "truesight": 60,
+    "passive_perception": 18
+  },
+  "languages": ["Common", "Infernal"],
+  "challenge_rating": 13,
+  "proficiency_bonus": 5,
+  "traits": [
+    {
+      "name": "Greater Magic Resistance",
+      "description": "The rakshasa automatically succeeds on saving throws against spells and other magical effects, and the attack rolls of spells automatically miss it. Without the rakshasa's permission, no spell can observe the rakshasa remotely or detect its thoughts, creature type, or alignment."
+    },
+    {
+      "name": "Fiendish Restoration",
+      "description": "If the rakshasa dies outside the Nine Hells, its body turns to ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Nine Hells."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The rakshasa makes three Cursed Touch attacks."
+    },
+    {
+      "name": "Cursed Touch",
+      "description": "Melee Attack Roll: +10, reach 5 ft. Hit: 12 (2d6 + 5) Slashing damage plus 19 (3d12) Necrotic damage. If the target is a creature, it is cursed. While cursed, the target gains no benefit from finishing a Short or Long Rest."
+    },
+    {
+      "name": "Baleful Command (Recharge 5–6)",
+      "description": "Wisdom Saving Throw: DC 18, each enemy in a 30-foot Emanation originating from the rakshasa. Failure: 28 (8d6) Psychic damage, and the target has the Frightened and Incapacitated conditions until the start of the rakshasa's next turn."
+    }
+  ],
+  "spellcasting": {
+    "ability": "charisma",
+    "save_dc": 18,
+    "attack_bonus": null,
+    "spells": {
+      "at_will": ["detect magic", "detect thoughts", "disguise self", "mage hand", "minor illusion"],
+      "1_per_day_each": ["fly", "invisibility", "major image", "plane shift"]
+    },
+    "notes": "Requires no Material components"
+  },
+  "tactical_info": {
+    "combat_role": "Elite Fiendish Manipulator/Curse Master",
+    "preferred_range": "Melee with magical support",
+    "key_abilities": ["Near-immunity to magic", "Rest-preventing curse", "Area fear/incapacitation", "Infinite respawning"],
+    "weaknesses": ["Vulnerable to blessed weapons", "Limited to melee range", "Recharge-dependent area attack"],
+    "tactics": "Uses illusions and disguise for positioning, then engages in melee with cursed touch attacks. Employs baleful command to control groups, relies on magical immunity for defense."
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "plus-one-weapon",
+  "name": "+1 Weapon",
+  "rarity": "Uncommon",
+  "category": "Weapon",
+  "attunement_required": false,
+  "weight": "Varies",
+  "value": "500 GP (plus weapon cost)",
+  "description": "You have a bonus to attack and damage rolls made with this magic weapon. The weapon can be any sword, axe, mace, or similar melee weapon.",
+  "properties": [
+    "Enchanted",
+    "Offensive",
+    "Rare"
+  ],
+  "bonus": {
+    "attack_roll": 1,
+    "damage_roll": 1,
+    "note": "Applies to both the attack roll and damage roll"
+  },
+  "weapon_types": [
+    "Sword",
+    "Axe",
+    "Mace",
+    "Polearm",
+    "Hammer",
+    "Other melee weapons"
+  ],
+  "activation": {
+    "type": "Passive",
+    "description": "The magic functions automatically when wielded"
+  },
+  "consumable": false,
+  "attunement": {
+    "required": false,
+    "description": "No attunement required"
+  },
+  "source": "Player's Handbook",
+  "notes": "This is the entry-level magical weapon. +2 and +3 variants exist at higher rarities. Magical weapons count as magical for the purpose of overcoming resistance to non-magical weapon damage."
+}

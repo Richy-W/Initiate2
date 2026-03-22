@@ -1,0 +1,11 @@
+{
+  "name": "Necklace of Prayer Beads",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "attunement": true,
+  "attunement_class": ["Cleric", "Druid", "Paladin"],
+  "description": "This necklace contains prayer beads imbued with divine magic.",
+  "properties": {
+    "note": "Full mechanics for Necklace of Prayer Beads vary by specific bead types and are detailed in the Player's Handbook"
+  }
+}

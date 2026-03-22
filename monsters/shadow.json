@@ -1,0 +1,67 @@
+{
+  "name": "Shadow",
+  "size": "Medium",
+  "type": "Undead",
+  "alignment": "Chaotic Evil",
+  "armor_class": 12,
+  "hit_points": {
+    "average": 27,
+    "formula": "5d8 + 5"
+  },
+  "speed": {
+    "walk": 40
+  },
+  "initiative": 12,
+  "ability_scores": {
+    "strength": 6,
+    "dexterity": 14,
+    "constitution": 13,
+    "intelligence": 6,
+    "wisdom": 10,
+    "charisma": 8
+  },
+  "saving_throws": {},
+  "skills": {
+    "stealth": 6
+  },
+  "damage_vulnerabilities": ["radiant"],
+  "damage_resistances": ["acid", "cold", "fire", "lightning", "thunder"],
+  "damage_immunities": ["necrotic", "poison"],
+  "condition_immunities": ["exhaustion", "frightened", "grappled", "paralyzed", "petrified", "poisoned", "prone", "restrained", "unconscious"],
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 10
+  },
+  "languages": [],
+  "challenge_rating": 0.5,
+  "proficiency_bonus": 2,
+  "traits": [
+    {
+      "name": "Amorphous",
+      "description": "The shadow can move through a space as narrow as 1 inch without expending extra movement to do so."
+    },
+    {
+      "name": "Sunlight Weakness",
+      "description": "While in sunlight, the shadow has Disadvantage on D20 Tests."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Draining Swipe",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 5 (1d6 + 2) Necrotic damage, and the target's Strength score decreases by 1d4. The target dies if this reduces that score to 0. If a Humanoid is slain by this attack, a Shadow rises from the corpse 1d4 hours later."
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Shadow Stealth",
+      "description": "While in Dim Light or Darkness, the shadow takes the Hide action."
+    }
+  ],
+  "tactical_info": {
+    "combat_role": "Stealth Undead/Strength Drainer",
+    "preferred_range": "Melee with stealth ambush tactics",
+    "key_abilities": ["Ability score drain", "Shadow reproduction", "Amorphous movement", "Darkness stealth"],
+    "weaknesses": ["Vulnerable to radiant damage", "Sunlight disadvantage", "Single attack per turn"],
+    "tactics": "Uses shadow stealth and amorphous movement for ambush attacks, drains strength to weaken and potentially kill targets, creates more shadows from humanoid victims."
+  }
+}

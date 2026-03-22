@@ -1,0 +1,48 @@
+{
+  "name": "Figurine of Wondrous Power: Ivory Goats",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "attunement": false,
+  "description": "These ivory statuettes of goats are always created in sets of three. Each goat looks unique and functions differently from the others.",
+  "properties": {
+    "item_type": "Figurine of Wondrous Power",
+    "quantity": "Set of three",
+    "activation": "Magic action",
+    "activation_type": "throw to a point on the ground within 60 feet",
+    "creature_traits": {
+      "friendly": true,
+      "understands_languages": true,
+      "obeys_commands": true,
+      "initiative": "Immediately after you"
+    },
+    "variants": [
+      {
+        "name": "Goat of Terror",
+        "creature_form": "Giant Goat",
+        "duration": "3 hours",
+        "reuse_duration": "15 days",
+        "can_attack": false,
+        "special_features": {
+          "removable_horns": "Magic action to remove; one horn becomes +1 Lance, other becomes +2 Longsword; weapons disappear when goat reverts",
+          "fear_aura": "Any Hostile creature that starts its turn within 30-foot Emanation originating from the goat must succeed on DC 15 Wisdom saving throw or have Frightened condition for 1 minute. Frightened creature repeats save at end of each of its turns. Once a creature succeeds, it's immune to this effect for 24 hours."
+        }
+      },
+      {
+        "name": "Goat of Traveling",
+        "creature_form": "Large Goat (Riding Horse statistics)",
+        "duration": "Charge-based",
+        "charges": 24,
+        "charges_cost": "1 charge per hour or portion thereof",
+        "reuse_duration": "7 days (when all charges regain)",
+        "can_attack": true
+      },
+      {
+        "name": "Goat of Travail",
+        "creature_form": "Giant Goat",
+        "duration": "3 hours",
+        "reuse_duration": "30 days",
+        "can_attack": true
+      }
+    ]
+  }
+}

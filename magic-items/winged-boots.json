@@ -1,0 +1,24 @@
+{
+  "name": "Winged Boots",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "attunement": true,
+  "description": "These boots have 4 charges and regain 1d4 expended charges daily at dawn.",
+  "properties": {
+    "charges": {
+      "max_charges": 4,
+      "current_charges": 4,
+      "recharge": "1d4 daily at dawn"
+    },
+    "flight": {
+      "action_type": "Magic action",
+      "charges_cost": 1,
+      "effect": "Gain Fly Speed of 30 feet",
+      "duration": "1 hour"
+    },
+    "descent": {
+      "trigger": "Duration expires while aloft",
+      "effect": "Descend at rate of 30 feet per round until land"
+    }
+  }
+}

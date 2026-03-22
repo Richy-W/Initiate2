@@ -1,0 +1,14 @@
+{
+  "name": "Tremorsense",
+  "slug": "tremorsense",
+  "definition": "The ability to pinpoint creatures within range via vibration",
+  "category": "Senses",
+  "tags": ["sense", "detection"],
+  "full_text": "A creature with Tremorsense can pinpoint the location of creatures and moving objects within a specific range, provided that the creature with Tremorsense and anything it is detecting are both in contact with the same surface (such as the ground, a wall, or a ceiling) or the same liquid.\n\nTremorsense can't detect creatures or objects in the air, and it doesn't count as a form of sight.",
+  "mechanics": {
+    "range": "Specified range",
+    "requirement": "Both tremorsense creature and target on same surface/liquid",
+    "limitation": "Can't detect creatures in air; not a form of sight"
+  },
+  "see_also": ["darkvision", "truesight", "blindsight"]
+}

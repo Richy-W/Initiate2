@@ -1,0 +1,89 @@
+{
+  "name": "Giant Boar",
+  "size": "Large",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 13,
+  "initiative": 0,
+  "hit_points": {
+    "average": 42,
+    "formula": "5d10 + 15"
+  },
+  "speed": {
+    "walk": 40
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 17,
+      "modifier": 3,
+      "save": 5
+    },
+    "dexterity": {
+      "score": 10,
+      "modifier": 0,
+      "save": 0
+    },
+    "constitution": {
+      "score": 16,
+      "modifier": 3,
+      "save": 3
+    },
+    "intelligence": {
+      "score": 2,
+      "modifier": -4,
+      "save": -4
+    },
+    "wisdom": {
+      "score": 7,
+      "modifier": -2,
+      "save": -2
+    },
+    "charisma": {
+      "score": 5,
+      "modifier": -3,
+      "save": -3
+    }
+  },
+  "skills": {},
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "passive_perception": 8
+  },
+  "languages": [],
+  "challenge_rating": 2,
+  "experience_points": 450,
+  "proficiency_bonus": 2,
+  "actions": [
+    {
+      "name": "Gore",
+      "type": "melee_attack",
+      "attack_bonus": 5,
+      "reach": 5,
+      "targets": "one target",
+      "damage": {
+        "damage_dice": "2d6 + 3",
+        "damage_type": "piercing",
+        "average_damage": 10
+      },
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 10 (2d6 + 3) Piercing damage. If the target is a Large or smaller creature and the boar moved 20+ feet straight toward it immediately before the hit, the target takes an extra 7 (2d6) Piercing damage and has the Prone condition.",
+      "conditions_applied": ["prone"]
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "traits": [
+    {
+      "name": "Bloodied Fury",
+      "description": "The boar has Advantage on melee attack rolls while it is Bloodied."
+    }
+  ],
+  "tactical_info": {
+    "optimal_range": "Charging distance for momentum-based gore attacks",
+    "key_abilities": ["Charging gore with extra damage", "Bloodied fury advantage", "High hit points"],
+    "weaknesses": ["Low AC and dexterity", "Poor mental stats", "Single attack option"],
+    "synergies": ["Forest encounters", "Charging tactics", "Bloodied combat scenarios"]
+  }
+}

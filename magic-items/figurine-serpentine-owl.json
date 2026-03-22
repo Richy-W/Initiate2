@@ -1,0 +1,24 @@
+{
+  "name": "Figurine of Wondrous Power: Serpentine Owl",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "attunement": false,
+  "description": "This serpentine statuette of an owl can become a Giant Owl for up to 8 hours. The owl can communicate telepathically with you at any range if you and it are on the same plane of existence. Once it has been used, it can't be used again until 2 days have passed.",
+  "properties": {
+    "item_type": "Figurine of Wondrous Power",
+    "activation": "Magic action",
+    "activation_type": "throw to a point on the ground within 60 feet",
+    "creature_form": "Giant Owl",
+    "duration": "8 hours",
+    "reuse_duration": "2 days",
+    "creature_traits": {
+      "friendly": true,
+      "understands_languages": true,
+      "obeys_commands": true,
+      "initiative": "Immediately after you"
+    },
+    "special_abilities": {
+      "telepathy": "Can communicate telepathically with you at any range if you and it are on the same plane of existence"
+    }
+  }
+}

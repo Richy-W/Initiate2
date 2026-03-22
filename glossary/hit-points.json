@@ -1,0 +1,15 @@
+{
+  "name": "Hit Points",
+  "slug": "hit-points",
+  "definition": "A measure of how difficult a creature is to kill or destroy",
+  "category": "Hit Points",
+  "tags": ["health", "damage", "recovery"],
+  "full_text": "Hit Points (HP) are a measure of how difficult it is to kill or destroy a creature or an object. Damage reduces Hit Points, and healing restores them. You can't have more Hit Points than your Hit Point maximum, and you can't have less than 0.",
+  "mechanics": {
+    "minimum": "0",
+    "maximum": "Can't exceed HP maximum",
+    "damage_effect": "Reduces HP",
+    "healing_effect": "Restores HP"
+  },
+  "see_also": ["damage", "healing", "breaking-objects"]
+}

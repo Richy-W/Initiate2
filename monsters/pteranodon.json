@@ -1,0 +1,62 @@
+{
+  "name": "Pteranodon",
+  "size": "Medium",
+  "type": "Beast (Dinosaur)",
+  "alignment": "Unaligned",
+  "armor_class": 13,
+  "hit_points": 13,
+  "hit_dice": "3d8",
+  "speed": {
+    "walk": 10,
+    "fly": 60
+  },
+  "ability_scores": {
+    "strength": 12,
+    "dexterity": 15,
+    "constitution": 10,
+    "intelligence": 2,
+    "wisdom": 9,
+    "charisma": 5
+  },
+  "saving_throws": {
+    "strength": 1,
+    "dexterity": 2,
+    "constitution": 0,
+    "intelligence": -4,
+    "wisdom": -1,
+    "charisma": -3
+  },
+  "skills": {
+    "perception": 1
+  },
+  "senses": [
+    "Passive Perception 11"
+  ],
+  "languages": "None",
+  "challenge_rating": 0.25,
+  "experience_points": 50,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Flyby",
+      "description": "The pteranodon doesn't provoke an Opportunity Attack when it flies out of an enemy's reach."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 6 (1d8 + 2) Piercing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Scout - Flying dinosaur with hit-and-run tactics",
+    "positioning": "Uses flyby to attack without retaliation",
+    "damage_output": "6 piercing per hit with aerial mobility",
+    "key_abilities": "Flyby prevents opportunity attacks, high flight speed",
+    "weaknesses": "Poor on ground, moderate HP for aerial creature",
+    "synergies": "Excellent for aerial reconnaissance and harassment tactics"
+  }
+}

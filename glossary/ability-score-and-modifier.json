@@ -1,0 +1,13 @@
+{
+  "name": "Ability Score and Modifier",
+  "slug": "ability-score-and-modifier",
+  "definition": "A creature has six ability scores—Strength, Dexterity, Constitution, Intelligence, Wisdom, and Charisma—each of which has a corresponding modifier.",
+  "category": "Abilities & Attributes",
+  "tags": [],
+  "full_text": "A creature has six ability scores—Strength, Dexterity, Constitution, Intelligence, Wisdom, and Charisma—each of which has a corresponding modifier. Add the modifier when you make a D20 Test with the corresponding ability or when a rule asks you to do so.",
+  "usage": "Add the modifier when you make a D20 Test with the corresponding ability or when a rule asks you to do so.",
+  "see_also": [
+    "D20 Test",
+    "The Six Abilities"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Wand of the War Mage +3",
+  "type": "Wand",
+  "rarity": "Very Rare",
+  "attunement": true,
+  "attunement_class": "Spellcaster",
+  "description": "While holding this wand, you gain a bonus to spell attack rolls determined by the wand's rarity. In addition, you ignore Half Cover when making a spell attack roll.",
+  "properties": {
+    "spell_attack_bonus": "+3",
+    "ignore_half_cover": true
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "name": "Cultist",
+  "size": "Medium",
+  "type": "Humanoid",
+  "alignment": "Any Non-Good",
+  "armor_class": {
+    "value": 12,
+    "source": "Leather Armor"
+  },
+  "initiative": {
+    "bonus": 1,
+    "total": 11
+  },
+  "hit_points": {
+    "average": 9,
+    "formula": "2d8"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "constitution": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    }
+  },
+  "skills": {
+    "deception": 2,
+    "religion": 2
+  },
+  "senses": {
+    "passive_perception": 10
+  },
+  "languages": ["One language (usually Common)"],
+  "challenge_rating": {
+    "cr": 0.125,
+    "xp": 25,
+    "proficiency_bonus": 2
+  },
+  "traits": [
+    {
+      "name": "Dark Devotion",
+      "description": "The cultist has Advantage on saving throws against being Charmed or Frightened."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Ritual Sickle",
+      "description": "Melee or Ranged Attack Roll: +3, reach 5 ft. or range 20/60 ft. Hit: 4 (1d4 + 2) Slashing damage.",
+      "attack_roll": 3,
+      "reach": 5,
+      "range": "20/60",
+      "damage": "4 (1d4 + 2)",
+      "damage_type": "Slashing"
+    }
+  ],
+  "tactical_info": {
+    "role": "Low-Level Minion",
+    "environment": "Cults, hidden temples, dark rituals, urban shadows",
+    "tactics": "Fights in groups, uses ranged attacks when possible, fanatically devoted to cause",
+    "weaknesses": "Low armor class and hit points, limited combat training, relies on numbers",
+    "signature_abilities": ["Dark devotion", "Ranged weapon capability", "Fanatical loyalty"]
+  }
+}

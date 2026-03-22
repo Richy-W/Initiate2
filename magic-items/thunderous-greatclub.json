@@ -1,0 +1,59 @@
+{
+  "name": "Thunderous Greatclub",
+  "type": "Weapon",
+  "weapon_type": "Greatclub",
+  "rarity": "Very Rare",
+  "attunement": true,
+  "description": "While you are attuned to this magic weapon, your Strength is 20 unless your Strength is already equal to or greater than that score.",
+  "properties": {
+    "strength_bonus": {
+      "effect": "Your Strength becomes 20",
+      "condition": "Only if not already 20 or higher"
+    },
+    "extra_damage": {
+      "creatures": "1d8 Thunder damage to any creature hit",
+      "objects": "3d8 Thunder damage to objects not worn/carried"
+    },
+    "clap_of_thunder": {
+      "action_type": "Magic action",
+      "trigger": "Strike weapon against hard surface",
+      "sound": "Loud clap audible out to 300 feet",
+      "area": "30-foot Cone of thunderous energy",
+      "saving_throw": {
+        "type": "Strength",
+        "dc": 15
+      },
+      "on_failure": "Prone condition",
+      "object_damage": "Nonmagical objects not worn/carried take 3d8 Thunder damage"
+    },
+    "earthquake": {
+      "action_type": "Magic action",
+      "trigger": "Strike weapon against ground",
+      "area": "50-foot-radius circle at impact point",
+      "structure_damage": "Structures in contact with ground take 50 Bludgeoning damage",
+      "creature_save": {
+        "type": "Dexterity",
+        "dc": 20
+      },
+      "on_failure": "Prone condition",
+      "concentration_check": {
+        "type": "Constitution",
+        "dc": 20,
+        "effect": "Break Concentration if also concentrating and fail save"
+      },
+      "fissure": {
+        "depth": "30 feet",
+        "width": "10 feet",
+        "placement": "Can cause anywhere in area",
+        "creature_save": {
+          "type": "Dexterity",
+          "dc": 20
+        },
+        "on_failure": "Falls into fissure",
+        "on_success": "Moves with fissure edge"
+      },
+      "structure_collapse": "Structures on fissure spots collapse into it",
+      "recharge": "Next dawn"
+    }
+  }
+}

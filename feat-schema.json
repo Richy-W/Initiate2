@@ -1,0 +1,161 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "D&D 2024 Feat Schema",
+  "description": "Schema for validating D&D 2024 feat data structures",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the feat"
+    },
+    "category": {
+      "type": "string",
+      "enum": ["Origin", "General", "Fighting Style", "Epic Boon"],
+      "description": "Category that determines when this feat can be taken"
+    },
+    "prerequisite": {
+      "type": "object",
+      "description": "Requirements that must be met to take this feat",
+      "properties": {
+        "level": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20,
+          "description": "Minimum character level required"
+        },
+        "abilityScores": {
+          "type": "object",
+          "description": "Minimum ability score requirements",
+          "patternProperties": {
+            "^(Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma)$": {
+              "type": "integer",
+              "minimum": 13,
+              "maximum": 20
+            }
+          }
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Required class features (e.g., 'Fighting Style Feature', 'Spellcasting Feature')"
+        },
+        "classes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Required class levels"
+        },
+        "other": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Other specific requirements"
+        }
+      }
+    },
+    "benefits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of this benefit"
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed description of what this benefit provides"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["abilityScoreIncrease", "combat", "utility", "spellcasting", "proficiency", "special"],
+            "description": "Type of benefit for categorization"
+          }
+        },
+        "required": ["name", "description", "type"]
+      },
+      "minItems": 1,
+      "description": "All benefits provided by this feat"
+    },
+    "repeatable": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this feat can be taken multiple times"
+    },
+    "repeatableNotes": {
+      "type": "string",
+      "description": "Special conditions for repeating this feat if applicable"
+    },
+    "spellcasting": {
+      "type": "object",
+      "description": "Spellcasting details if this feat grants spells",
+      "properties": {
+        "cantripsLearned": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of cantrips learned"
+        },
+        "spellsLearned": {
+          "type": "integer", 
+          "minimum": 0,
+          "description": "Number of spells learned"
+        },
+        "spellLevel": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9,
+          "description": "Maximum spell level available"
+        },
+        "spellLists": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["Cleric", "Druid", "Wizard", "Bard", "Sorcerer", "Warlock", "Paladin", "Ranger"]
+          },
+          "description": "Available spell lists to choose from"
+        },
+        "abilityChoice": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["Intelligence", "Wisdom", "Charisma"]
+          },
+          "description": "Available spellcasting abilities to choose from"
+        }
+      }
+    },
+    "choices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the choice"
+          },
+          "options": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Available options to choose from"
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Number of options to select"
+          }
+        },
+        "required": ["name", "options", "count"]
+      },
+      "description": "Choices the player must make when taking this feat"
+    },
+    "sourceBook": {
+      "type": "string",
+      "description": "Source book this feat comes from"
+    }
+  },
+  "required": ["name", "category", "benefits", "sourceBook"]
+}

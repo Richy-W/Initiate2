@@ -1,0 +1,120 @@
+{
+  "name": "Ettercap",
+  "size": "Medium",
+  "type": "Monstrosity",
+  "alignment": "Neutral Evil",
+  "armor_class": {
+    "value": 13,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 2,
+    "total": 12
+  },
+  "hit_points": {
+    "average": 44,
+    "formula": "8d8 + 8"
+  },
+  "speed": {
+    "walk": 30,
+    "climb": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "intelligence": {
+      "score": 7,
+      "modifier": -2,
+      "saving_throw": -2
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    }
+  },
+  "skills": {
+    "perception": 3,
+    "stealth": 4,
+    "survival": 3
+  },
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 13
+  },
+  "languages": ["None"],
+  "challenge_rating": {
+    "cr": 2,
+    "xp": 450,
+    "proficiency_bonus": 2
+  },
+  "traits": [
+    {
+      "name": "Spider Climb",
+      "description": "The ettercap can climb difficult surfaces, including along ceilings, without needing to make an ability check."
+    },
+    {
+      "name": "Web Walker",
+      "description": "The ettercap ignores movement restrictions caused by webs, and the ettercap knows the location of any other creature in contact with the same web."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The ettercap makes one Bite attack and one Claw attack."
+    },
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 5 (1d6 + 2) Piercing damage plus 2 (1d4) Poison damage, and the target has the Poisoned condition until the start of the ettercap's next turn.",
+      "attack_roll": 4,
+      "reach": 5,
+      "damage": "5 (1d6 + 2) + 2 (1d4)",
+      "damage_type": "Piercing plus Poison"
+    },
+    {
+      "name": "Claw",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 7 (2d4 + 2) Slashing damage.",
+      "attack_roll": 4,
+      "reach": 5,
+      "damage": "7 (2d4 + 2)",
+      "damage_type": "Slashing"
+    },
+    {
+      "name": "Web Strand (Recharge 5–6)",
+      "description": "Dexterity Saving Throw: DC 12, one Large or smaller creature the ettercap can see within 30 feet. Failure: The target has the Restrained condition until the web is destroyed (AC 10; HP 5; Vulnerability to Fire damage; Immunity to Bludgeoning, Poison, and Psychic damage).",
+      "save_dc": 12,
+      "range": "30"
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Reel",
+      "description": "The ettercap pulls one creature within 30 feet of itself that is Restrained by its Web Strand up to 25 feet straight toward itself."
+    }
+  ],
+  "tactical_info": {
+    "role": "Web Controller/Ambush Predator",
+    "environment": "Forests, caves, web-filled lairs, spider territories",
+    "tactics": "Uses web strand to restrain prey, reels victims into melee range, employs spider climb for positioning",
+    "weaknesses": "Web vulnerable to fire damage, limited intelligence for complex tactics",
+    "signature_abilities": ["Web strand restraint", "Reel bonus action", "Spider climb", "Web walker", "Poisonous bite"]
+  }
+}

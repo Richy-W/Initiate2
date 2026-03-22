@@ -1,0 +1,21 @@
+{
+  "name": "Dwarven Thrower",
+  "type": "Weapon (Warhammer)",
+  "rarity": "Very Rare",
+  "requires_attunement": true,
+  "attunement_requirement": "Requires Attunement by a Dwarf or a Creature Attuned to a Belt of Dwarvenkind",
+  "overview": "A magical warhammer that returns after being thrown and deals extra damage to giants.",
+  "properties": {
+    "attack_bonus": "You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon",
+    "thrown_property": "It has the Thrown property with a normal range of 20 feet and a long range of 60 feet"
+  },
+  "ranged_attack": {
+    "extra_damage_normal": "When you hit with a ranged attack using this weapon, it deals an extra 1d8 Force damage",
+    "extra_damage_giant": "Or an extra 2d8 Force damage if the target is a Giant"
+  },
+  "return": {
+    "description": "Immediately after hitting or missing, the weapon flies back to your hand"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

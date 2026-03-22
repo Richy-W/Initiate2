@@ -1,0 +1,12 @@
+{
+  "name": "Weapon",
+  "slug": "weapon",
+  "definition": "An object in the Simple or Martial weapon category",
+  "category": "Equipment",
+  "tags": ["equipment", "attack"],
+  "full_text": "A weapon is an object that is in the Simple or Martial weapon category.",
+  "mechanics": {
+    "categories": ["Simple", "Martial"]
+  },
+  "see_also": ["weapon-attack", "equipment"]
+}

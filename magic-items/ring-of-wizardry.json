@@ -1,0 +1,68 @@
+{
+  "id": "ring-of-wizardry",
+  "name": "Ring of Wizardry",
+  "rarity": "Rare",
+  "category": "Ring",
+  "attunement_required": true,
+  "weight": "Negligible",
+  "value": "1,200 GP",
+  "description": "While wearing this ring, you have advantage on saving throws you make to maintain your concentration on a spell. This ring has 3 levels. When you finish a long rest, you regain all expended levels. Alternatively, you can recharge the ring by expending one spell slot of 2nd level or higher. An expended level of the ring allows you to cast one of the following spells without expending a spell slot: counterspell, dispel magic, or shield. Once a level is expended in this way, it can't be used again until the next dawn.",
+  "properties": [
+    "Enchanted",
+    "Spell-Storing",
+    "Concentration-Enhancing",
+    "Ring"
+  ],
+  "concentration_bonus": {
+    "effect": "Advantage on saves to maintain concentration",
+    "applies_to": "All concentration saves"
+  },
+  "charges": {
+    "maximum": 3,
+    "current": 3,
+    "recharge": {
+      "frequency": "dawn or by expending spell slot",
+      "recharge_method_1": "Regain all levels after long rest",
+      "recharge_method_2": "Expend spell slot of 2nd level or higher to gain 1 level"
+    }
+  },
+  "spells_available": [
+    {
+      "name": "Counterspell",
+      "level": 3,
+      "cost": "1 ring level",
+      "requires_spell_slot": false
+    },
+    {
+      "name": "Dispel Magic",
+      "level": 3,
+      "cost": "1 ring level",
+      "requires_spell_slot": false
+    },
+    {
+      "name": "Shield",
+      "level": 1,
+      "cost": "1 ring level",
+      "requires_spell_slot": false
+    }
+  ],
+  "attunement": {
+    "required": true,
+    "requirements": ["Wizard or other spellcaster"],
+    "description": "You must attune to this ring by wearing it for 1 hour during which you must maintain concentration as if you were casting a spell."
+  },
+  "activation": {
+    "type": "Passive (concentration) or Reaction (cast spell)",
+    "description": "Concentration bonus applies automatically. Expend a level as a reaction to cast spell."
+  },
+  "consumable": false,
+  "source": "Player's Handbook",
+  "optimal_for": [
+    "Wizards",
+    "Bards",
+    "Clerics",
+    "Druids",
+    "Other spellcasters"
+  ],
+  "notes": "This ring is highly valuable for spellcasters who need to maintain concentration or have quick access to defensive spells like Shield or Counterspell. Perfect for wizards who want tactical flexibility."
+}

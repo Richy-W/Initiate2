@@ -1,0 +1,24 @@
+{
+  "name": "Helm of Telepathy",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "attunement": true,
+  "description": "While wearing this helm, you have telepathy with a range of 30 feet, and you can cast Detect Thoughts or Suggestion (save DC 13) from the helm. Once either spell is cast from the helm, that spell can't be cast from it again until the next dawn.",
+  "properties": {
+    "telepathy": {
+      "range": "30 feet"
+    },
+    "spells": [
+      {
+        "spell": "Detect Thoughts",
+        "save_dc": 13,
+        "reuse": "Once cast, can't be cast from helm again until next dawn"
+      },
+      {
+        "spell": "Suggestion",
+        "save_dc": 13,
+        "reuse": "Once cast, can't be cast from helm again until next dawn"
+      }
+    ]
+  }
+}

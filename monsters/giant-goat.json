@@ -1,0 +1,88 @@
+{
+  "name": "Giant Goat",
+  "size": "Large",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 11,
+  "initiative": 1,
+  "hit_points": {
+    "average": 19,
+    "formula": "3d10 + 3"
+  },
+  "speed": {
+    "walk": 40,
+    "climb": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 17,
+      "modifier": 3,
+      "save": 5
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1,
+      "save": 1
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1,
+      "save": 1
+    },
+    "intelligence": {
+      "score": 3,
+      "modifier": -4,
+      "save": -4
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1,
+      "save": 1
+    },
+    "charisma": {
+      "score": 6,
+      "modifier": -2,
+      "save": -2
+    }
+  },
+  "skills": {
+    "perception": 3
+  },
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 13
+  },
+  "languages": [],
+  "challenge_rating": 0.5,
+  "experience_points": 100,
+  "proficiency_bonus": 2,
+  "actions": [
+    {
+      "name": "Ram",
+      "type": "melee_attack",
+      "attack_bonus": 5,
+      "reach": 5,
+      "targets": "one target",
+      "damage": {
+        "damage_dice": "1d6 + 3",
+        "damage_type": "bludgeoning",
+        "average_damage": 6
+      },
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 6 (1d6 + 3) Bludgeoning damage. If the target is a Large or smaller creature and the goat moved 20+ feet straight toward it immediately before the hit, the target takes an extra 5 (2d4) Bludgeoning damage and has the Prone condition.",
+      "conditions_applied": ["prone"]
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "traits": [],
+  "tactical_info": {
+    "optimal_range": "Mountain terrain with charging and climbing tactics",
+    "key_abilities": ["Charging ram with extra damage", "Climbing movement", "Good perception"],
+    "weaknesses": ["Low AC for size", "Single attack option", "Poor mental stats"],
+    "synergies": ["Mountain encounters", "Charging tactics", "Terrain advantage with climbing"]
+  }
+}

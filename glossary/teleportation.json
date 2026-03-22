@@ -1,0 +1,18 @@
+{
+  "name": "Teleportation",
+  "slug": "teleportation",
+  "definition": "A special magical transportation without moving through intervening space",
+  "category": "Magic & Spells",
+  "tags": ["transportation", "magic", "instant"],
+  "full_text": "Teleportation is a special kind of magical transportation. If you teleport, you disappear and reappear elsewhere instantly, without moving through the intervening space. This transportation doesn't expend movement unless a rule tells you otherwise, and teleportation never provokes Opportunity Attacks.\n\nWhen you teleport, all the equipment you're wearing and carrying teleports with you. If you're touching another creature when you teleport, that creature doesn't teleport with you unless the teleportation effect says otherwise.\n\nIf the destination space of your teleportation is occupied by another creature or blocked by a solid obstacle, you instead appear in the nearest unoccupied space of your choice.\n\nThe description of a teleportation effect tells you if you must see the teleportation's destination.",
+  "mechanics": {
+    "nature": "Instant transportation without intervening space",
+    "movement_cost": "Doesn't expend movement (unless rule says otherwise)",
+    "opportunity_attacks": "Never provokes Opportunity Attacks",
+    "equipment": "All worn/carried items teleport with you",
+    "others": "Other creatures don't teleport unless effect says otherwise",
+    "occupied_destination": "Appear in nearest unoccupied space of your choice",
+    "sight_requirement": "Specified by individual effect"
+  },
+  "see_also": ["magical-effect", "movement"]
+}

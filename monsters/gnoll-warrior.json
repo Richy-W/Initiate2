@@ -1,0 +1,94 @@
+{
+  "name": "Gnoll Warrior",
+  "size": "Medium",
+  "type": "Fiend",
+  "alignment": "Chaotic Evil",
+  "armor_class": {
+    "value": 15,
+    "source": "Studded Leather Armor and Shield"
+  },
+  "initiative": {
+    "bonus": 1,
+    "total": 11
+  },
+  "hit_points": {
+    "average": 27,
+    "formula": "6d8"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "constitution": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "intelligence": {
+      "score": 6,
+      "modifier": -2,
+      "saving_throw": -2
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "charisma": {
+      "score": 7,
+      "modifier": -2,
+      "saving_throw": -2
+    }
+  },
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 10
+  },
+  "languages": ["Gnoll"],
+  "challenge_rating": {
+    "cr": 0.5,
+    "xp": 100,
+    "proficiency_bonus": 2
+  },
+  "actions": [
+    {
+      "name": "Rend",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 5 (1d6 + 2) Piercing damage.",
+      "attack_roll": 4,
+      "reach": 5,
+      "damage": "5 (1d6 + 2)",
+      "damage_type": "Piercing"
+    },
+    {
+      "name": "Bone Bow",
+      "description": "Ranged Attack Roll: +3, range 150/600 ft. Hit: 6 (1d10 + 1) Piercing damage.",
+      "attack_roll": 3,
+      "range": "150/600",
+      "damage": "6 (1d10 + 1)",
+      "damage_type": "Piercing"
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Rampage (1/Day)",
+      "description": "Immediately after dealing damage to a creature that is already Bloodied, the gnoll moves up to half its Speed, and it makes one Rend attack."
+    }
+  ],
+  "tactical_info": {
+    "role": "Pack Raider/Archer",
+    "environment": "Wastelands, tribal territories, demon-influenced regions, raiding camps",
+    "tactics": "Uses bone bow for ranged attacks, rampage ability to finish wounded enemies, fights in packs",
+    "weaknesses": "Low hit points, poor mental stats, vulnerable when isolated from pack",
+    "signature_abilities": ["Rampage on bloodied foes", "Long-range bow", "Pack coordination", "Fiendish nature"]
+  }
+}

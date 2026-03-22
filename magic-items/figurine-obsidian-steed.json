@@ -1,0 +1,27 @@
+{
+  "name": "Figurine of Wondrous Power: Obsidian Steed",
+  "type": "Wondrous Item",
+  "rarity": "Very Rare",
+  "attunement": false,
+  "description": "This polished obsidian horse can become a Nightmare for up to 24 hours. The nightmare fights only to defend itself. Once it has been used, it can't be used again until 5 days have passed.",
+  "properties": {
+    "item_type": "Figurine of Wondrous Power",
+    "activation": "Magic action",
+    "activation_type": "throw to a point on the ground within 60 feet",
+    "creature_form": "Nightmare",
+    "duration": "24 hours",
+    "reuse_duration": "5 days",
+    "defensive_only": true,
+    "creature_traits": {
+      "friendly": true,
+      "understands_languages": true,
+      "obeys_commands": true,
+      "initiative": "Immediately after you"
+    },
+    "chaotic_behavior": {
+      "chance": "10 percent each use",
+      "effect": "Ignores your orders, including command to revert to figurine form",
+      "mounting_consequence": "If you mount nightmare while it ignores your orders, you and nightmare are instantly transported to random location on plane of Hades, where nightmare reverts to figurine form"
+    }
+  }
+}

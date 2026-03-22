@@ -1,0 +1,18 @@
+{
+  "name": "Crystal Ball of Telepathy",
+  "type": "Wondrous Item",
+  "rarity": "Legendary",
+  "requires_attunement": true,
+  "overview": "A legendary crystal orb that combines scrying with telepathy and suggestion.",
+  "properties": {
+    "scrying": "While touching this crystal orb, you can cast Scrying (save DC 17) with it",
+    "telepathy": "In addition, you can communicate telepathically with creatures you can see within 30 feet of the spell's sensor"
+  },
+  "suggestion": {
+    "description": "You can cast Suggestion (save DC 17) through the sensor on one of those creatures",
+    "concentration": "You don't need to concentrate on this Suggestion to maintain it during its duration, but it ends if Scrying ends",
+    "recharge": "You can't cast Suggestion in this way again until the next dawn"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

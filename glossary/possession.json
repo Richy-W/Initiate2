@@ -1,0 +1,13 @@
+{
+  "name": "Possession",
+  "slug": "possession",
+  "definition": "An effect that causes one creature to be possessed by another",
+  "category": "Magic",
+  "tags": ["spell", "effect"],
+  "full_text": "Some effects cause a creature to be possessed by another creature or entity. A possessing effect defines how the possession operates. Possession can be prevented by the Protection from Evil and Good spell and ended by the Dispel Evil and Good spell.",
+  "mechanics": {
+    "prevention": "Protection from Evil and Good spell",
+    "ending": "Dispel Evil and Good spell"
+  },
+  "see_also": ["magical-effect", "spell"]
+}

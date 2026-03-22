@@ -1,0 +1,103 @@
+{
+  "name": "Bullywug",
+  "size": "Medium",
+  "type": "Humanoid",
+  "alignment": "Neutral Evil",
+  "armor_class": {
+    "value": 15,
+    "source": "Studded Leather, Shield"
+  },
+  "initiative": {
+    "bonus": 2,
+    "total": 12
+  },
+  "hit_points": {
+    "average": 11,
+    "formula": "2d8 + 2"
+  },
+  "speed": {
+    "walk": 20,
+    "swim": 40
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "intelligence": {
+      "score": 7,
+      "modifier": -2,
+      "saving_throw": -2
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "charisma": {
+      "score": 7,
+      "modifier": -2,
+      "saving_throw": -2
+    }
+  },
+  "skills": {
+    "stealth": 4
+  },
+  "senses": {
+    "passive_perception": 10
+  },
+  "languages": ["Bullywug"],
+  "challenge_rating": {
+    "cr": 0.25,
+    "xp": 50,
+    "proficiency_bonus": 2
+  },
+  "equipment": ["Spear", "Studded Leather", "Shield"],
+  "traits": [
+    {
+      "name": "Amphibious",
+      "description": "The bullywug can breathe air and water."
+    },
+    {
+      "name": "Speak with Frogs and Toads",
+      "description": "The bullywug can communicate simple concepts to frogs and toads when it speaks in Bullywug."
+    },
+    {
+      "name": "Swamp Camouflage",
+      "description": "The bullywug has Advantage on Dexterity (Stealth) checks made to hide in swampy terrain."
+    },
+    {
+      "name": "Standing Leap",
+      "description": "The bullywug's long jump is up to 20 feet and its high jump is up to 10 feet, with or without a running start."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Spear",
+      "description": "Melee or Ranged Attack Roll: +3, reach 5 ft. or range 20/60 ft. Hit: 4 (1d6 + 1) Piercing damage, or 5 (1d8 + 1) Piercing damage if used with two hands to make a melee attack.",
+      "attack_roll": 3,
+      "reach": 5,
+      "range": "20/60",
+      "damage": "4 (1d6 + 1) one-handed, 5 (1d8 + 1) two-handed",
+      "damage_type": "Piercing"
+    }
+  ],
+  "tactical_info": {
+    "role": "Swamp Skirmisher",
+    "environment": "Swamps, marshes, wetlands",
+    "tactics": "Uses swamp camouflage for ambush, superior swim speed for mobility, throws spears from water",
+    "weaknesses": "Slow land speed, low intelligence",
+    "signature_abilities": ["Amphibious nature", "Standing leap", "Swamp stealth", "Frog communication"]
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "name": "Hill Giant",
+  "size": "Huge",
+  "type": "Giant",
+  "alignment": "Chaotic Evil",
+  "armor_class": {
+    "value": 13,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 2,
+    "total": 12
+  },
+  "hit_points": {
+    "average": 105,
+    "formula": "10d12 + 40"
+  },
+  "speed": {
+    "walk": 40
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 21,
+      "modifier": 5,
+      "saving_throw": 5
+    },
+    "dexterity": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    },
+    "constitution": {
+      "score": 19,
+      "modifier": 4,
+      "saving_throw": 4
+    },
+    "intelligence": {
+      "score": 5,
+      "modifier": -3,
+      "saving_throw": -3
+    },
+    "wisdom": {
+      "score": 9,
+      "modifier": -1,
+      "saving_throw": -1
+    },
+    "charisma": {
+      "score": 6,
+      "modifier": -2,
+      "saving_throw": -2
+    }
+  },
+  "skills": {
+    "perception": 2
+  },
+  "senses": {
+    "passive_perception": 12
+  },
+  "languages": ["Giant"],
+  "challenge_rating": {
+    "cr": 5,
+    "xp": 1800,
+    "proficiency_bonus": 3
+  },
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The giant makes two attacks, using Tree Club or Trash Lob in any combination."
+    },
+    {
+      "name": "Tree Club",
+      "description": "Melee Attack Roll: +8, reach 10 ft. Hit: 18 (3d8 + 5) Bludgeoning damage. If the target is a Large or smaller creature, it has the Prone condition.",
+      "attack_roll": 8,
+      "reach": 10,
+      "damage": "18 (3d8 + 5)",
+      "damage_type": "Bludgeoning"
+    },
+    {
+      "name": "Trash Lob",
+      "description": "Ranged Attack Roll: +8, range 60/240 ft. Hit: 16 (2d10 + 5) Bludgeoning damage, and the target has the Poisoned condition until the end of its next turn.",
+      "attack_roll": 8,
+      "range": "60/240",
+      "damage": "16 (2d10 + 5)",
+      "damage_type": "Bludgeoning"
+    }
+  ],
+  "tactical_info": {
+    "role": "Brutal Melee Combatant",
+    "environment": "Hills, badlands, crude giant settlements, raiding civilized areas",
+    "tactics": "Uses tree club for devastating prone attacks, trash lob for ranged poison control, simple but effective",
+    "weaknesses": "Very low intelligence and dexterity, predictable tactics, vulnerable to ranged attacks and magic",
+    "signature_abilities": ["Prone-inducing tree club", "Poisoning trash lob", "Huge size and reach", "High damage output"]
+  }
+}

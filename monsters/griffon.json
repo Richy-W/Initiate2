@@ -1,0 +1,88 @@
+{
+  "name": "Griffon",
+  "size": "Large",
+  "type": "Monstrosity",
+  "alignment": "Unaligned",
+  "armor_class": {
+    "value": 12,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 2,
+    "total": 12
+  },
+  "hit_points": {
+    "average": 59,
+    "formula": "7d10 + 21"
+  },
+  "speed": {
+    "walk": 30,
+    "fly": 80
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 18,
+      "modifier": 4,
+      "saving_throw": 4
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "constitution": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "intelligence": {
+      "score": 2,
+      "modifier": -4,
+      "saving_throw": -4
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    }
+  },
+  "skills": {
+    "perception": 5
+  },
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 15
+  },
+  "languages": [],
+  "challenge_rating": {
+    "cr": 2,
+    "xp": 450,
+    "proficiency_bonus": 2
+  },
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The griffon makes two Rend attacks."
+    },
+    {
+      "name": "Rend",
+      "description": "Melee Attack Roll: +6, reach 5 ft. Hit: 8 (1d8 + 4) Piercing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 14) from both of the griffon's front claws.",
+      "attack_roll": 6,
+      "reach": 5,
+      "damage": "8 (1d8 + 4)",
+      "damage_type": "Piercing"
+    }
+  ],
+  "tactical_info": {
+    "role": "Aerial Grappler/Mount",
+    "environment": "Mountain peaks, high clifftops, ancient ruins with tall structures, aerial hunting grounds",
+    "tactics": "Grapples and carries off smaller prey, uses flight for hit-and-run attacks, keen perception for hunting",
+    "weaknesses": "Once grounded loses major advantage, grapple can be broken, animal intelligence limits complex tactics",
+    "signature_abilities": ["Dual-claw grappling", "High-speed flight", "Keen perception", "Aerial mobility advantage"]
+  }
+}

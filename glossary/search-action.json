@@ -1,0 +1,18 @@
+{
+  "name": "Search",
+  "slug": "search",
+  "definition": "An action to make a Wisdom check to discern something not obvious",
+  "category": "Actions",
+  "tags": ["[Action]", "wisdom-check", "perception"],
+  "full_text": "When you take the Search action, you make a Wisdom check to discern something that isn't obvious. The Search table suggests which skills are applicable when you take this action, depending on what you're trying to detect.",
+  "mechanics": {
+    "check": "Wisdom check",
+    "examples": [
+      "Insight: Creature's state of mind",
+      "Medicine: Creature's ailment or cause of death",
+      "Perception: Concealed creature or object",
+      "Survival: Tracks or food"
+    ]
+  },
+  "see_also": ["action", "wisdom", "perception"]
+}

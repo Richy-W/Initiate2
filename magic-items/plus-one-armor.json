@@ -1,0 +1,35 @@
+{
+  "id": "plus-one-armor",
+  "name": "+1 Armor",
+  "rarity": "Uncommon",
+  "category": "Armor",
+  "attunement_required": false,
+  "weight": "Varies",
+  "value": "500 GP (plus armor cost)",
+  "description": "You have a bonus to AC while wearing this armor. The armor can be any type.",
+  "properties": [
+    "Enchanted",
+    "Protective",
+    "Rare"
+  ],
+  "bonus": {
+    "armor_class": 1,
+    "note": "Applies in addition to the armor's normal AC bonus"
+  },
+  "armor_types": [
+    "Light",
+    "Medium",
+    "Heavy"
+  ],
+  "activation": {
+    "type": "Passive",
+    "description": "The magic functions automatically when worn"
+  },
+  "consumable": false,
+  "attunement": {
+    "required": false,
+    "description": "No attunement required"
+  },
+  "source": "Player's Handbook",
+  "notes": "This is the entry-level magical armor. +2 and +3 variants exist at higher rarities. Some versions are restricted to specific armor types (plate, leather, etc.)"
+}

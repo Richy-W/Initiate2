@@ -1,0 +1,18 @@
+{
+  "name": "Wand of Magic Detection",
+  "type": "Wand",
+  "rarity": "Uncommon",
+  "attunement": false,
+  "description": "This wand has 3 charges. While holding it, you can expend 1 charge to cast Detect Magic from it.",
+  "properties": {
+    "charges": {
+      "max_charges": 3,
+      "current_charges": 3
+    },
+    "spell": "Detect Magic",
+    "charges_cost": 1,
+    "regaining_charges": {
+      "recharge": "1d3 daily at dawn"
+    }
+  }
+}

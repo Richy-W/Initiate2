@@ -1,0 +1,50 @@
+{
+  "id": "armor-plus",
+  "name": "Armor, +1, +2, or +3",
+  "rarity": "Rare (+1), Very Rare (+2), Legendary (+3)",
+  "category": "Armor",
+  "armor_type": "Any Light, Medium, or Heavy",
+  "attunement_required": false,
+  "weight": "Varies",
+  "value": "Varies by rarity",
+  "description": "You have a bonus to Armor Class while wearing this armor. The bonus is determined by its rarity.",
+  "properties": [
+    "Enchanted",
+    "Protective",
+    "AC Bonus"
+  ],
+  "variants": [
+    {
+      "bonus": 1,
+      "rarity": "Rare",
+      "value": "5000 GP"
+    },
+    {
+      "bonus": 2,
+      "rarity": "Very Rare",
+      "value": "20000 GP"
+    },
+    {
+      "bonus": 3,
+      "rarity": "Legendary",
+      "value": "50000 GP"
+    }
+  ],
+  "effect": {
+    "type": "Armor Class Bonus",
+    "bonus": "Determined by rarity (+1, +2, or +3)",
+    "applies_to": "Total AC while wearing this armor"
+  },
+  "activation": {
+    "type": "Passive",
+    "description": "The magic functions automatically while wearing the armor"
+  },
+  "consumable": false,
+  "armor_type_restrictions": {
+    "light": "Yes",
+    "medium": "Yes",
+    "heavy": "Yes"
+  },
+  "source": "Player's Handbook",
+  "notes": "This is the most common form of magical armor enhancement. The bonus applies in addition to the armor's normal AC calculation."
+}

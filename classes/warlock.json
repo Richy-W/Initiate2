@@ -1,0 +1,405 @@
+{
+  "name": "Warlock",
+  "description": "Warlocks quest for knowledge that lies hidden in the fabric of the multiverse. They often begin their search for magical power by delving into tomes of forbidden lore, dabbling in invocations meant to attract the power of extraplanar beings, or seeking places of power where the influence of these beings can be felt. In no time, each Warlock is drawn into a binding pact with an extraplanar being. Drawing on the alien knowledge of their patrons, Warlocks piece together arcane secrets to bolster their own power. Unlike Wizards or Sorcerers, Warlocks don't rely on their own innate magical abilities. Instead, they are the servants—and sometimes the masters—of beings that exist beyond the veil of known reality. The beings that serve as patrons for Warlocks are mighty inhabitants of other planes of existence—not gods, but almost godlike in their power.",
+  "primaryAbility": ["Charisma"],
+  "hitPointDie": "D8",
+  "proficiencies": {
+    "savingThrows": ["Wisdom", "Charisma"],
+    "skills": {
+      "choose": 2,
+      "from": ["Arcana", "Deception", "History", "Intimidation", "Investigation", "Nature", "Religion"]
+    },
+    "weapons": ["Simple weapons"],
+    "armor": ["Light armor"]
+  },
+  "startingEquipment": {
+    "options": [
+      {
+        "choice": "A",
+        "items": ["Leather Armor", "Scimitar", "Simple weapon", "Component Pouch", "Scholar's Pack", "2 Daggers"],
+        "gold": 11
+      },
+      {
+        "choice": "B",
+        "items": [],
+        "gold": 100
+      }
+    ]
+  },
+  "classFeatures": {
+    "1": {
+      "proficiencyBonus": 2,
+      "invocationsKnown": 0,
+      "features": [
+        {
+          "name": "Otherworldly Patron",
+          "description": "At 1st level, you have struck a bargain with an otherworldly being chosen from the Patron Options list or from another source. Your choice grants you features at 1st level and again at 6th, 10th, and 14th level.",
+          "type": "subclass"
+        },
+        {
+          "name": "Pact Magic",
+          "description": "Your arcane research and the magic bestowed on you by your patron have given you facility with spells. You know two cantrips of your choice from the Warlock spell list and two level 1 spells of your choice from that list. The spells you learn at higher levels must be of a level for which you have spell slots.",
+          "type": "spell"
+        }
+      ]
+    },
+    "2": {
+      "proficiencyBonus": 2,
+      "invocationsKnown": 2,
+      "features": [
+        {
+          "name": "Eldritch Invocations",
+          "description": "In your study of occult lore, you have unearthed Eldritch Invocations, fragments of forbidden knowledge that imbue you with an abiding magical ability. You gain two invocations of your choice. A level prerequisite in an invocation refers to Warlock level, not character level. Additionally, when you gain a level in this class, you can choose one of the invocations you know and replace it with another invocation that you could learn at that level.",
+          "type": "feature"
+        }
+      ]
+    },
+    "3": {
+      "proficiencyBonus": 2,
+      "invocationsKnown": 2,
+      "features": [
+        {
+          "name": "Pact Boon",
+          "description": "Your otherworldly patron bestows a gift upon you for your loyal service. You gain one of the following features of your choice: Pact of the Blade, Pact of the Chain, or Pact of the Tome.",
+          "type": "feature"
+        }
+      ]
+    },
+    "4": {
+      "proficiencyBonus": 2,
+      "invocationsKnown": 2,
+      "features": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        }
+      ]
+    },
+    "5": {
+      "proficiencyBonus": 3,
+      "invocationsKnown": 3,
+      "features": [
+        {
+          "name": "Deepened Pact",
+          "description": "Your connection to your patron deepens. You regain all expended Pact Magic spell slots when you finish a Short or Long Rest, and you know one additional spell.",
+          "type": "feature"
+        }
+      ]
+    },
+    "6": {
+      "proficiencyBonus": 3,
+      "invocationsKnown": 3,
+      "features": []
+    },
+    "7": {
+      "proficiencyBonus": 3,
+      "invocationsKnown": 4,
+      "features": []
+    },
+    "8": {
+      "proficiencyBonus": 3,
+      "invocationsKnown": 4,
+      "features": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        }
+      ]
+    },
+    "9": {
+      "proficiencyBonus": 4,
+      "invocationsKnown": 5,
+      "features": [
+        {
+          "name": "Contact Patron",
+          "description": "In the past, you usually contacted your patron through intermediaries or incomplete rituals. Now you can cast the Contact Other Plane spell as a Ritual; when you do so, you contact your Warlock patron, and you have Advantage on the saving throw you make to avoid taking damage from the spell. Once you cast the spell with this feature, you can't do so again until you finish a Long Rest.",
+          "type": "feature"
+        }
+      ]
+    },
+    "10": {
+      "proficiencyBonus": 4,
+      "invocationsKnown": 5,
+      "features": []
+    },
+    "11": {
+      "proficiencyBonus": 4,
+      "invocationsKnown": 5,
+      "features": [
+        {
+          "name": "Mystic Arcanum (6th Level)",
+          "description": "Your patron bestows upon you a magical secret called an arcanum. Choose one 6th-level spell from the Warlock spell list as this arcanum. You can cast your arcanum spell once without expending a spell slot. You must finish a Long Rest before you can do so again. At higher levels, you gain more arcanum spells of higher levels.",
+          "type": "feature"
+        }
+      ]
+    },
+    "12": {
+      "proficiencyBonus": 4,
+      "invocationsKnown": 6,
+      "features": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        }
+      ]
+    },
+    "13": {
+      "proficiencyBonus": 5,
+      "invocationsKnown": 6,
+      "features": [
+        {
+          "name": "Mystic Arcanum (7th Level)",
+          "description": "You gain a 7th-level spell from the Warlock spell list as an additional Mystic Arcanum.",
+          "type": "feature"
+        }
+      ]
+    },
+    "14": {
+      "proficiencyBonus": 5,
+      "invocationsKnown": 6,
+      "features": []
+    },
+    "15": {
+      "proficiencyBonus": 5,
+      "invocationsKnown": 7,
+      "features": [
+        {
+          "name": "Mystic Arcanum (8th Level)",
+          "description": "You gain an 8th-level spell from the Warlock spell list as an additional Mystic Arcanum.",
+          "type": "feature"
+        }
+      ]
+    },
+    "16": {
+      "proficiencyBonus": 5,
+      "invocationsKnown": 7,
+      "features": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        }
+      ]
+    },
+    "17": {
+      "proficiencyBonus": 6,
+      "invocationsKnown": 7,
+      "features": [
+        {
+          "name": "Mystic Arcanum (9th Level)",
+          "description": "You gain a 9th-level spell from the Warlock spell list as an additional Mystic Arcanum.",
+          "type": "feature"
+        }
+      ]
+    },
+    "18": {
+      "proficiencyBonus": 6,
+      "invocationsKnown": 8,
+      "features": []
+    },
+    "19": {
+      "proficiencyBonus": 6,
+      "invocationsKnown": 8,
+      "features": [
+        {
+          "name": "Epic Boon",
+          "description": "You gain an Epic Boon feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        }
+      ]
+    },
+    "20": {
+      "proficiencyBonus": 6,
+      "invocationsKnown": 8,
+      "features": [
+        {
+          "name": "Eldritch Master",
+          "description": "You can draw on your inner reserve of mystical power to regain expended spell slots. You can spend 1 minute entreating your patron for aid to regain all your expended Pact Magic spell slots. Once you use this feature, you can't use it again until you finish a Long Rest.",
+          "type": "feature"
+        }
+      ]
+    }
+  },
+  "spellcasting": {
+    "ability": "Charisma",
+    "type": "pact",
+    "cantripsKnown": {
+      "1": 2,
+      "4": 3,
+      "10": 4
+    },
+    "spellsKnown": {
+      "1": 2, "2": 3, "3": 4, "4": 5, "5": 6, "6": 7, "7": 8, "8": 9, "9": 10, "10": 10,
+      "11": 11, "12": 11, "13": 12, "14": 12, "15": 13, "16": 13, "17": 14, "18": 14, "19": 15, "20": 15
+    },
+    "spellSlots": {
+      "1": {"1": 1},
+      "2": {"1": 2},
+      "3": {"2": 2},
+      "4": {"2": 2},
+      "5": {"3": 2},
+      "6": {"3": 2},
+      "7": {"4": 2},
+      "8": {"4": 2},
+      "9": {"5": 2},
+      "10": {"5": 2},
+      "11": {"5": 3},
+      "12": {"5": 3},
+      "13": {"5": 3},
+      "14": {"5": 3},
+      "15": {"5": 3},
+      "16": {"5": 3},
+      "17": {"5": 4},
+      "18": {"5": 4},
+      "19": {"5": 4},
+      "20": {"5": 4}
+    },
+    "ritualCasting": false,
+    "spellcastingFocus": ["Arcane Focus"]
+  },
+  "subclasses": [
+    {
+      "name": "The Fiend",
+      "description": "You have made a pact with a fiend from the lower planes of existence, a being whose aims are evil, even if you strive against those aims. Such beings desire the corruption or destruction of all things, ultimately including you. Fiends powerful enough to forge a pact include demon lords such as Demogorgon, Orcus, Fraz'Urb-luu, and Baphomet; archdevils such as Asmodeus, Dispater, Mephistopheles, and Belial; pit fiends and balors that are especially mighty; and ultroloths and other lords of the yugoloths.",
+      "features": {
+        "1": [
+          {
+            "name": "Dark One's Blessing",
+            "description": "Starting at 1st level, when you reduce a hostile creature to 0 Hit Points, you gain Temporary Hit Points equal to your Charisma modifier plus your Warlock level (minimum of 1)."
+          }
+        ],
+        "6": [
+          {
+            "name": "Dark One's Own Luck",
+            "description": "Starting at 6th level, you can call on your patron to alter fate in your favor. When you make an ability check or a saving throw, you can use this feature to add a d10 to your roll. You can do so after seeing the initial roll but before any of the roll's effects occur. Once you use this feature, you can't use it again until you finish a Short or Long Rest."
+          }
+        ],
+        "10": [
+          {
+            "name": "Fiendish Resilience",
+            "description": "Starting at 10th level, you can choose one damage type when you finish a Short or Long Rest. You gain Resistance to that damage type until you choose a different one with this feature. Damage from magical weapons or silver weapons ignores this resistance."
+          }
+        ],
+        "14": [
+          {
+            "name": "Hurl Through Hell",
+            "description": "Starting at 14th level, when you hit a creature with an attack, you can use this feature to instantly transport the target through the lower planes. The creature disappears and hurtles through a nightmare landscape. At the end of your next turn, the target returns to the space it previously occupied, or the nearest unoccupied space. If the target is not a Fiend, it takes 10d10 Psychic damage as it reels from its horrific experience. Once you use this feature, you can't use it again until you finish a Long Rest."
+          }
+        ]
+      },
+      "spells": {
+        "1": ["Burning Hands", "Command"],
+        "3": ["Blindness/Deafness", "Scorching Ray"],
+        "5": ["Fireball", "Stinking Cloud"],
+        "7": ["Fire Shield", "Wall of Fire"],
+        "9": ["Flame Strike", "Hallow"]
+      }
+    }
+  ],
+  "pactBoons": [
+    {
+      "name": "Pact of the Blade",
+      "description": "You can use your action to create a pact weapon in your empty hand. You can choose the form that this melee weapon takes each time you create it. You are proficient with it while you wield it. This weapon counts as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage. Your pact weapon disappears if it is more than 5 feet away from you for 1 minute or more. It also disappears if you use this feature again, if you dismiss the weapon (no action required), or if you die. You can transform one magic weapon into your pact weapon by performing a special ritual while you hold the weapon. You perform the ritual over the course of 1 hour, which can be done during a Short Rest."
+    },
+    {
+      "name": "Pact of the Chain",
+      "description": "You learn the Find Familiar spell and can cast it as a Ritual. The spell doesn't count against your number of spells known. When you cast the spell, you can choose one of the normal forms for your familiar or one of the following special forms: imp, pseudodragon, quasit, or sprite. Additionally, when you take the Attack action, you can forgo one of your own attacks to allow your familiar to make one attack with its reaction."
+    },
+    {
+      "name": "Pact of the Tome",
+      "description": "Your patron gives you a grimoire called a Book of Shadows. When you gain this feature, choose three cantrips from any class's spell list (the three needn't be from the same list). While the book is on your person, you can cast those cantrips at will. They are considered Warlock spells for you, and they don't count against your number of cantrips known. If you lose your Book of Shadows, you can perform a 1-hour ceremony to receive a replacement from your patron."
+    }
+  ],
+  "eldritchInvocations": [
+    {
+      "name": "Agonizing Blast",
+      "prerequisite": "Eldritch Blast cantrip",
+      "description": "When you cast Eldritch Blast, add your Charisma modifier to the damage it deals on a hit."
+    },
+    {
+      "name": "Armor of Shadows",
+      "prerequisite": "None",
+      "description": "You can cast Mage Armor on yourself at will, without expending a spell slot."
+    },
+    {
+      "name": "Beast Speech",
+      "prerequisite": "None",
+      "description": "You can cast Speak with Animals at will, without expending a spell slot."
+    },
+    {
+      "name": "Beguiling Influence",
+      "prerequisite": "None",
+      "description": "You gain proficiency in the Deception and Persuasion skills."
+    },
+    {
+      "name": "Devil's Sight",
+      "prerequisite": "None",
+      "description": "You can see normally in darkness, both magical and nonmagical, to a distance of 120 feet."
+    },
+    {
+      "name": "Eldritch Sight",
+      "prerequisite": "None",
+      "description": "You can cast Detect Magic at will, without expending a spell slot."
+    },
+    {
+      "name": "Eyes of the Rune Keeper",
+      "prerequisite": "None",
+      "description": "You can read all writing."
+    },
+    {
+      "name": "Fiendish Vigor",
+      "prerequisite": "None",
+      "description": "You can cast False Life on yourself at will as a 1st-level spell, without expending a spell slot."
+    },
+    {
+      "name": "Gaze of Two Minds",
+      "prerequisite": "None",
+      "description": "You can use your action to touch a willing humanoid and perceive through its senses until the end of your next turn. As long as the creature is on the same plane of existence as you, you can use your action on subsequent turns to maintain this connection, extending the duration until the end of your next turn."
+    },
+    {
+      "name": "Repelling Blast",
+      "prerequisite": "Eldritch Blast cantrip",
+      "description": "When you hit a creature with Eldritch Blast, you can push the creature up to 10 feet away from you in a straight line."
+    }
+  ],
+  "spellList": {
+    "cantrips": [
+      {"name": "Blade Ward", "school": "Abjuration", "special": "C"},
+      {"name": "Chill Touch", "school": "Necromancy"},
+      {"name": "Eldritch Blast", "school": "Evocation"},
+      {"name": "Friends", "school": "Enchantment", "special": "C"},
+      {"name": "Mage Hand", "school": "Conjuration"},
+      {"name": "Minor Illusion", "school": "Illusion"},
+      {"name": "Poison Spray", "school": "Conjuration"},
+      {"name": "Prestidigitation", "school": "Transmutation"},
+      {"name": "True Strike", "school": "Divination", "special": "C"}
+    ],
+    "levels": {
+      "1": [
+        {"name": "Armor of Agathys", "school": "Abjuration"},
+        {"name": "Arms of Hadar", "school": "Conjuration"},
+        {"name": "Charm Person", "school": "Enchantment"},
+        {"name": "Comprehend Languages", "school": "Divination", "special": "R"},
+        {"name": "Expeditious Retreat", "school": "Transmutation", "special": "C"},
+        {"name": "Hellish Rebuke", "school": "Evocation"},
+        {"name": "Hex", "school": "Enchantment", "special": "C"},
+        {"name": "Protection from Evil and Good", "school": "Abjuration", "special": "C"},
+        {"name": "Unseen Servant", "school": "Conjuration", "special": "R"},
+        {"name": "Witch Bolt", "school": "Evocation", "special": "C"}
+      ]
+    }
+  },
+  "multiclassing": {
+    "requirements": {
+      "Charisma": 13
+    },
+    "proficienciesGained": {
+      "armor": ["Light armor"],
+      "weapons": ["Simple weapons"]
+    }
+  },
+  "sourceBook": "Player's Handbook 2024"
+}

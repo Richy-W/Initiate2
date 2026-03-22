@@ -1,0 +1,49 @@
+{
+  "id": "ammunition-of-slaying",
+  "name": "Ammunition of Slaying",
+  "rarity": "Very Rare",
+  "category": "Weapon",
+  "weapon_type": "Any Ammunition",
+  "attunement_required": false,
+  "weight": "Varies",
+  "value": "5000 GP",
+  "description": "This magic ammunition is meant to slay creatures of a particular type, which the DM chooses or determines randomly. If a creature of that type takes damage from the ammunition, the creature makes a DC 17 Constitution saving throw, taking an extra 6d10 Force damage on a failed save or half as much extra damage on a successful one. After dealing its extra damage to a creature, the ammunition becomes nonmagical.",
+  "properties": [
+    "Enchanted",
+    "Creature Type Specific",
+    "Extra Damage",
+    "Consumable on Use"
+  ],
+  "creature_types": [
+    "Aberrations",
+    "Beasts",
+    "Celestials",
+    "Constructs",
+    "Dragons",
+    "Elementals",
+    "Humanoids",
+    "Fey",
+    "Fiends",
+    "Giants",
+    "Monstrosities",
+    "Oozes",
+    "Plants",
+    "Undead"
+  ],
+  "effect": {
+    "type": "Creature Type Targeted Damage",
+    "trigger": "Creature of specified type takes damage from this ammunition",
+    "saving_throw": "DC 17 Constitution save",
+    "damage_on_failure": "6d10 Force damage",
+    "damage_on_success": "Half as much (3d10 Force damage)",
+    "after_effect": "Ammunition becomes nonmagical after dealing extra damage"
+  },
+  "activation": {
+    "type": "Passive",
+    "description": "The magic functions automatically when the ammunition hits a target of its creature type"
+  },
+  "consumable": true,
+  "determination_method": "Roll 1d100 on creature type table or DM chooses",
+  "source": "Player's Handbook",
+  "notes": "The creature type is determined when the ammunition is created or found. It becomes nonmagical after delivering its extra damage, regardless of the save result."
+}

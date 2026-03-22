@@ -1,0 +1,105 @@
+{
+  "name": "Bugbear Warrior",
+  "size": "Medium",
+  "type": "Humanoid", 
+  "subtype": "Goblinoid",
+  "alignment": "Chaotic Evil",
+  "armor_class": {
+    "value": 16,
+    "source": "Hide Armor, Shield"
+  },
+  "initiative": {
+    "bonus": 2,
+    "total": 12
+  },
+  "hit_points": {
+    "average": 27,
+    "formula": "5d8 + 5"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "intelligence": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    },
+    "wisdom": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "charisma": {
+      "score": 9,
+      "modifier": -1,
+      "saving_throw": -1
+    }
+  },
+  "skills": {
+    "stealth": 6,
+    "survival": 2
+  },
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 10
+  },
+  "languages": ["Common", "Goblin"],
+  "challenge_rating": {
+    "cr": 1,
+    "xp": 200,
+    "proficiency_bonus": 2
+  },
+  "equipment": ["Morningstar", "Javelin", "Hide Armor", "Shield"],
+  "traits": [
+    {
+      "name": "Brute",
+      "description": "A melee weapon deals one extra die of its damage when the bugbear hits with it (included in the attack)."
+    },
+    {
+      "name": "Surprise Attack", 
+      "description": "If the bugbear surprises a creature and hits it with an attack during the first round of combat, the target takes an extra 7 (2d6) damage from the attack."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Morningstar",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 11 (2d8 + 2) Piercing damage.",
+      "attack_roll": 4,
+      "reach": 5,
+      "damage": "11 (2d8 + 2)",
+      "damage_type": "Piercing"
+    },
+    {
+      "name": "Javelin", 
+      "description": "Melee or Ranged Attack Roll: +4, reach 5 ft. or range 30/120 ft. Hit: 9 (2d6 + 2) Piercing damage in melee, or 5 (1d6 + 2) Piercing damage at range.",
+      "attack_roll": 4,
+      "reach": 5,
+      "range": "30/120",
+      "damage": "9 (2d6 + 2) melee, 5 (1d6 + 2) ranged",
+      "damage_type": "Piercing"
+    }
+  ],
+  "tactical_info": {
+    "role": "Ambush Warrior/Bruiser",
+    "environment": "Forests, caves, goblinoid settlements",
+    "tactics": "Ambushes from stealth, uses brute strength in melee, throws javelins when needed",
+    "weaknesses": "Relies on surprise, moderate defenses",
+    "signature_abilities": ["Surprise attack bonus", "Brute weapon damage", "Stealth ambush", "Reach javelin option"]
+  }
+}

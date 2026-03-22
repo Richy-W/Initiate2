@@ -1,0 +1,13 @@
+{
+  "name": "Crystal Ball of True Seeing",
+  "type": "Wondrous Item",
+  "rarity": "Legendary",
+  "requires_attunement": true,
+  "overview": "A legendary crystal orb that combines scrying with true sight capabilities.",
+  "properties": {
+    "scrying": "While touching this crystal orb, you can cast Scrying (save DC 17) with it",
+    "truesight": "In addition, you have Truesight with a range of 120 feet centered on the spell's sensor"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

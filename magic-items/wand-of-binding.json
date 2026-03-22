@@ -1,0 +1,29 @@
+{
+  "name": "Wand of Binding",
+  "type": "Wand",
+  "rarity": "Rare",
+  "attunement": true,
+  "description": "This wand has 7 charges.",
+  "properties": {
+    "charges": {
+      "max_charges": 7,
+      "current_charges": 7
+    },
+    "spells": [
+      {
+        "spell": "Hold Monster",
+        "charges": 5
+      },
+      {
+        "spell": "Hold Person",
+        "charges": 2
+      }
+    ],
+    "spell_save_dc": 17,
+    "regaining_charges": {
+      "recharge": "1d6 + 1 daily at dawn",
+      "destruction_condition": "Expend last charge and roll 1d20",
+      "on_roll_1": "Wand crumbles into ashes and is destroyed"
+    }
+  }
+}

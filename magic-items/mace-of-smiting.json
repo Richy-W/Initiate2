@@ -1,0 +1,25 @@
+{
+  "name": "Mace of Smiting",
+  "type": "Weapon",
+  "weapon_type": "Mace",
+  "rarity": "Rare",
+  "attunement": false,
+  "description": "You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon. The bonus increases to +3 when you use the weapon to attack a Construct.",
+  "properties": {
+    "attack_bonus": 1,
+    "damage_bonus": 1,
+    "construct_bonus": {
+      "attack_bonus": 3,
+      "damage_bonus": 3
+    },
+    "critical_hit": {
+      "trigger": "Roll 20 on attack roll",
+      "damage": "7 Bludgeoning damage extra",
+      "construct_damage": "14 Bludgeoning damage extra"
+    },
+    "construct_destruction": {
+      "condition": "Construct has 25 HP or fewer after extra damage from critical hit",
+      "effect": "Construct is destroyed"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "id": "wand-of-fireballs",
+  "name": "Wand of Fireballs",
+  "rarity": "Rare",
+  "category": "Wand",
+  "attunement_required": true,
+  "weight": "1 lb",
+  "value": "1,500 GP",
+  "description": "This wand has 7 charges. While holding it, you can use an action and expend 1 or more charges to cast the fireball spell (save DC 15) from it. For 1 charge, you cast the 3rd-level version of the spell. You can increase the spell slot level by one for each additional charge you expend. The wand regains 1d6 + 1 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.",
+  "properties": [
+    "Enchanted",
+    "Arcane Focus",
+    "Spell-Storing",
+    "Wand"
+  ],
+  "spells": [
+    {
+      "name": "Fireball",
+      "level": 3,
+      "base_save_dc": 15,
+      "scalable": true,
+      "max_level": 9
+    }
+  ],
+  "charges": {
+    "maximum": 7,
+    "current": 7,
+    "recharge": {
+      "frequency": "dawn",
+      "recharge_formula": "1d6 + 1",
+      "destruction_risk": true,
+      "destruction_roll": "d20 on last charge, 1 destroys wand"
+    }
+  },
+  "attunement": {
+    "required": true,
+    "requirements": ["Spellcaster"],
+    "description": "You must attune to this wand by holding it for 1 hour during which you must maintain concentration as if you were casting a spell."
+  },
+  "activation": {
+    "type": "Action",
+    "description": "Use an action and expend 1 or more charges to cast fireball"
+  },
+  "consumable": false,
+  "source": "Player's Handbook",
+  "notes": "This wand uses charges that recover daily. At higher rarities, similar wands may store different spells or have different charge mechanics."
+}

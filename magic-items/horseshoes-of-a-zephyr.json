@@ -1,0 +1,23 @@
+{
+  "name": "Horseshoes of a Zephyr",
+  "type": "Wondrous Item",
+  "rarity": "Very Rare",
+  "attunement": false,
+  "description": "These horseshoes come in a set of four. As a Magic action, you can touch one of the horseshoes to the hoof of a horse or similar creature, whereupon the horseshoe affixes itself to the hoof. Removing a horseshoe also takes a Magic action.",
+  "properties": {
+    "set": "Four horseshoes",
+    "application": {
+      "activation": "Magic action",
+      "action": "Touch horseshoe to hoof of horse or similar creature",
+      "effect": "Horseshoe affixes to hoof",
+      "removal": "Magic action"
+    },
+    "effect_when_all_four_affixed": {
+      "movement": "Creature moves normally while floating 4 inches above surface",
+      "terrain": "Can cross or stand above nonsolid or unstable surfaces (water, lava, etc.)",
+      "tracks": "Leaves no tracks",
+      "difficult_terrain": "Ignores Difficult Terrain",
+      "exhaustion": "Can travel up to 12 hours a day without gaining Exhaustion levels from extended travel"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Skill",
+  "slug": "skill",
+  "definition": "An area of specialization associated with an ability check",
+  "category": "Abilities & Attributes",
+  "tags": ["proficiency", "ability-check"],
+  "full_text": "A skill is an area of specialization associated with an ability check. If you have proficiency in a skill, you can add your Proficiency Bonus when you make an ability check associated with that skill.",
+  "mechanics": {
+    "proficiency_benefit": "Add Proficiency Bonus to related ability checks"
+  },
+  "see_also": ["proficiency", "ability-check"]
+}

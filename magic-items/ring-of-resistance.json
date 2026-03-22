@@ -1,0 +1,52 @@
+{
+  "name": "Ring of Resistance",
+  "type": "Ring",
+  "rarity": "Rare",
+  "attunement": false,
+  "description": "You have Resistance to one damage type while wearing this ring. The gemstone in the ring indicates the type, which the DM chooses or determines randomly.",
+  "properties": {
+    "damage_types": [
+      {
+        "type": "Acid",
+        "gemstone": "Pearl"
+      },
+      {
+        "type": "Cold",
+        "gemstone": "Tourmaline"
+      },
+      {
+        "type": "Fire",
+        "gemstone": "Garnet"
+      },
+      {
+        "type": "Force",
+        "gemstone": "Sapphire"
+      },
+      {
+        "type": "Lightning",
+        "gemstone": "Citrine"
+      },
+      {
+        "type": "Necrotic",
+        "gemstone": "Jet"
+      },
+      {
+        "type": "Poison",
+        "gemstone": "Amethyst"
+      },
+      {
+        "type": "Psychic",
+        "gemstone": "Jade"
+      },
+      {
+        "type": "Radiant",
+        "gemstone": "Topaz"
+      },
+      {
+        "type": "Thunder",
+        "gemstone": "Spinel"
+      }
+    ],
+    "selection": "DM chooses or randomly determines"
+  }
+}

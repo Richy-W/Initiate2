@@ -1,0 +1,54 @@
+{
+  "name": "Quarterstaff of the Acrobat",
+  "type": "Weapon",
+  "weapon_type": "Quarterstaff",
+  "rarity": "Very Rare",
+  "attunement": true,
+  "description": "You have a +2 bonus to attack rolls and damage rolls made with this magic weapon. While holding this weapon, you can cause it to emit green Dim Light out to 10 feet, either as a Bonus Action or after you roll Initiative, or you can extinguish the light as a Bonus Action. While holding this weapon, you can take a Bonus Action to alter its form, turning it into a 6-inch rod (for ease of storage) or a 10-foot pole, or reverting it a Quarterstaff; the weapon will elongate only as far as the surrounding space allows.",
+  "properties": {
+    "attack_bonus": {
+      "attack_rolls": "+2",
+      "damage_rolls": "+2"
+    },
+    "light_emission": {
+      "light_type": "Green Dim Light",
+      "range": "10 feet",
+      "activation": "Bonus Action or after rolling Initiative",
+      "dismissal": "Bonus Action to extinguish"
+    },
+    "form_alteration": {
+      "action_type": "Bonus Action",
+      "forms": [
+        {
+          "form": "6-inch rod",
+          "purpose": "Easy storage"
+        },
+        {
+          "form": "10-foot pole"
+        },
+        {
+          "form": "Quarterstaff (original form)"
+        }
+      ],
+      "constraint": "Can only elongate as far as surrounding space allows"
+    },
+    "acrobatic_assist": {
+      "forms": ["Quarterstaff", "10-foot Pole"],
+      "effect": "Advantage on Dexterity (Acrobatics) checks"
+    },
+    "attack_deflection": {
+      "form": "Quarterstaff only",
+      "trigger": "When hit by an attack",
+      "action_type": "Reaction",
+      "effect": "Twirl weapon around you, gain +5 bonus to AC against triggering attack, potentially cause miss",
+      "recharge": "Short or Long Rest"
+    },
+    "ranged_weapon": {
+      "form": "Quarterstaff only",
+      "property": "Thrown",
+      "normal_range": "30 feet",
+      "long_range": "120 feet",
+      "return": "Flies back to hand after ranged attack"
+    }
+  }
+}

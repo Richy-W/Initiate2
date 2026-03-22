@@ -1,0 +1,33 @@
+{
+  "name": "Folding Boat",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "attunement": false,
+  "description": "This object appears as a wooden box that measures 12 inches long, 6 inches wide, and 6 inches deep. It weighs 4 pounds and floats. It can be opened to store items inside. This item also has three command words, each requiring a Magic action to use.",
+  "properties": {
+    "appearance": "Wooden box",
+    "dimensions": "12 inches long, 6 inches wide, 6 inches deep",
+    "weight": "4 pounds",
+    "floats": true,
+    "storage": true,
+    "command_words": [
+      {
+        "word": "First Command Word",
+        "activation": "Magic action",
+        "effect": "Box unfolds into a Rowboat"
+      },
+      {
+        "word": "Second Command Word",
+        "activation": "Magic action",
+        "effect": "Box unfolds into a Keelboat"
+      },
+      {
+        "word": "Third Command Word",
+        "activation": "Magic action",
+        "effect": "Folding Boat folds back into a box if no creatures are aboard. Any objects in the vessel that can't fit inside the box remain outside the box as it folds. Any objects that can fit inside the box do so."
+      }
+    ],
+    "weight_transformation": "When box becomes a vessel, its weight becomes that of a normal vessel its size. Stored items remain in the boat.",
+    "durability": "If either vessel is reduced to 0 Hit Points, the Folding Boat is destroyed."
+  }
+}

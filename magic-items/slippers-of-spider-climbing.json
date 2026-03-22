@@ -1,0 +1,15 @@
+{
+  "name": "Slippers of Spider Climbing",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "attunement": true,
+  "description": "While you wear these light shoes, you can move up, down, and across vertical surfaces and along ceilings, while leaving your hands free.",
+  "properties": {
+    "climbing": {
+      "surfaces": "Vertical surfaces and ceilings",
+      "hands_free": true,
+      "climb_speed": "Equal to your Speed"
+    },
+    "limitation": "Don't work on slippery surfaces (ice, oil)"
+  }
+}

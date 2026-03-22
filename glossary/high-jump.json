@@ -1,0 +1,15 @@
+{
+  "name": "High Jump",
+  "slug": "high-jump",
+  "definition": "A vertical jump to reach upward",
+  "category": "Movement",
+  "tags": ["jumping", "movement", "athletics"],
+  "full_text": "When you make a High Jump, you leap into the air a number of feet equal to 3 plus your Strength modifier (minimum of 0 feet) if you move at least 10 feet on foot immediately before the jump. When you make a standing High Jump, you can jump only half that distance. Either way, each foot of the jump costs a foot of movement.\n\nYou can extend your arms half your height above yourself during the jump. Thus, you can reach a distance equal to the height of the jump plus 1½ times your height.",
+  "mechanics": {
+    "running_jump": "3 + STR modifier feet (minimum 0); requires 10 feet of prior movement",
+    "standing_jump": "Half the running jump distance",
+    "cost": "1 foot of movement per foot jumped",
+    "reach": "Jump height + 1.5× your height"
+  },
+  "see_also": ["jumping", "long-jump", "movement"]
+}

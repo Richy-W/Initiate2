@@ -1,0 +1,54 @@
+{
+  "name": "Riding Horse",
+  "size": "Large",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 11,
+  "hit_points": 13,
+  "hit_dice": "2d10 + 2",
+  "speed": {
+    "walk": 60
+  },
+  "ability_scores": {
+    "strength": 16,
+    "dexterity": 13,
+    "constitution": 12,
+    "intelligence": 2,
+    "wisdom": 11,
+    "charisma": 7
+  },
+  "saving_throws": {
+    "strength": 3,
+    "dexterity": 1,
+    "constitution": 1,
+    "intelligence": -4,
+    "wisdom": 0,
+    "charisma": -2
+  },
+  "skills": {},
+  "senses": [
+    "Passive Perception 10"
+  ],
+  "languages": "None",
+  "challenge_rating": 0.25,
+  "experience_points": 50,
+  "proficiency_bonus": 2,
+  "features": [],
+  "actions": [
+    {
+      "name": "Hooves",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 7 (1d8 + 3) Bludgeoning damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Mount - Fast transportation with defensive capability",
+    "positioning": "Primarily mounted combat platform, hoof attacks when threatened",
+    "damage_output": "7 bludgeoning per hit, respectable defensive strikes",
+    "key_abilities": "High speed (60 ft), large size for mounted combat",
+    "weaknesses": "Limited combat training, primarily utility creature",
+    "synergies": "Essential for cavalry, rapid transportation, and mounted warfare"
+  }
+}

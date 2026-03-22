@@ -1,0 +1,13 @@
+{
+  "name": "Line",
+  "slug": "line",
+  "definition": "An area of effect that extends in a straight path from a point of origin",
+  "category": "Areas of Effect",
+  "tags": ["[Area of Effect]", "aoe", "effect"],
+  "full_text": "A Line is an area of effect that extends from a point of origin in a straight path along its length and covers an area defined by its width. The effect that creates a Line specifies its length and width.\n\nA Line's point of origin isn't included in the area of effect unless its creator decides otherwise.",
+  "mechanics": {
+    "extent": "Straight path from origin with defined length and width",
+    "origin_inclusion": "Not included unless creator decides otherwise"
+  },
+  "see_also": ["area-of-effect", "cone-aoe", "cube-aoe", "cylinder-aoe"]
+}

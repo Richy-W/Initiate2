@@ -1,0 +1,97 @@
+{
+  "name": "Frog",
+  "size": "Tiny",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 11,
+  "initiative": 1,
+  "hit_points": {
+    "average": 1,
+    "formula": "1d4 − 1"
+  },
+  "speed": {
+    "walk": 20,
+    "swim": 20
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 1,
+      "modifier": -5,
+      "save": -5
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1,
+      "save": 1
+    },
+    "constitution": {
+      "score": 8,
+      "modifier": -1,
+      "save": -1
+    },
+    "intelligence": {
+      "score": 1,
+      "modifier": -5,
+      "save": -5
+    },
+    "wisdom": {
+      "score": 8,
+      "modifier": -1,
+      "save": -1
+    },
+    "charisma": {
+      "score": 3,
+      "modifier": -4,
+      "save": -4
+    }
+  },
+  "skills": {
+    "perception": 1,
+    "stealth": 3
+  },
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "darkvision": 30,
+    "passive_perception": 11
+  },
+  "languages": [],
+  "challenge_rating": 0,
+  "experience_points": 10,
+  "proficiency_bonus": 2,
+  "actions": [
+    {
+      "name": "Bite",
+      "type": "melee_attack",
+      "attack_bonus": 3,
+      "reach": 5,
+      "targets": "one target",
+      "damage": {
+        "damage_dice": "1",
+        "damage_type": "piercing",
+        "average_damage": 1
+      },
+      "description": "Melee Attack Roll: +3, reach 5 ft. Hit: 1 Piercing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "traits": [
+    {
+      "name": "Amphibious",
+      "description": "The frog can breathe air and water."
+    },
+    {
+      "name": "Standing Leap",
+      "description": "The frog's Long Jump is up to 10 feet and its High Jump is up to 5 feet with or without a running start."
+    }
+  ],
+  "tactical_info": {
+    "optimal_range": "Pond and wetland environments, minimal combat",
+    "key_abilities": ["Amphibious breathing", "Standing leap mobility", "Stealth capability"],
+    "weaknesses": ["Extremely low hit points", "Minimal damage", "Very poor physical stats"],
+    "synergies": ["Aquatic exploration", "Environmental flavor", "Familiar or scout creature"]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Cloak of Invisibility",
+  "type": "Wondrous Item",
+  "rarity": "Legendary",
+  "requires_attunement": true,
+  "overview": "A legendary cloak that grants temporary invisibility through its hood.",
+  "properties": {
+    "charges": "This cloak has 3 charges and regains 1d3 expended charges daily at dawn",
+    "activation": "While wearing the cloak, you can take a Magic action to pull its hood over your head and expend 1 charge to give yourself the Invisible condition for 1 hour",
+    "deactivation": "The effect ends early if you pull the hood down (no action required) or cease wearing the cloak"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

@@ -1,0 +1,28 @@
+{
+  "name": "Boon of Fate",
+  "category": "Epic Boon",
+  "prerequisite": {
+    "level": 19
+  },
+  "benefits": [
+    {
+      "name": "Ability Score Increase",
+      "description": "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 30.",
+      "type": "abilityScoreIncrease"
+    },
+    {
+      "name": "Twist of Fate",
+      "description": "When you or another creature within 60 feet of you makes a D20 Test, you can use your Reaction to cause the creature to reroll, and the creature must use the new roll. Once you use this Reaction, you can't use it again until you finish a Long Rest.",
+      "type": "special"
+    }
+  ],
+  "repeatable": false,
+  "choices": [
+    {
+      "name": "Ability Score Increase",
+      "options": ["Intelligence", "Wisdom", "Charisma"],
+      "count": 1
+    }
+  ],
+  "sourceBook": "Player's Handbook 2024"
+}

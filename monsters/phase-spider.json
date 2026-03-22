@@ -1,0 +1,108 @@
+{
+  "name": "Phase Spider",
+  "size": "Large",
+  "type": "Monstrosity",
+  "alignment": "Unaligned",
+  "armor_class": {
+    "value": 14,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 3,
+    "total": 13
+  },
+  "hit_points": {
+    "average": 45,
+    "formula": "7d10 + 7"
+  },
+  "speed": {
+    "walk": 30,
+    "climb": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "dexterity": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "intelligence": {
+      "score": 6,
+      "modifier": -2,
+      "saving_throw": -2
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "charisma": {
+      "score": 6,
+      "modifier": -2,
+      "saving_throw": -2
+    }
+  },
+  "skills": {
+    "stealth": 7
+  },
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 10
+  },
+  "languages": [],
+  "challenge_rating": {
+    "cr": 3,
+    "xp": 700,
+    "proficiency_bonus": 2
+  },
+  "traits": [
+    {
+      "name": "Ethereal Sight",
+      "description": "The spider can see 60 feet into the Ethereal Plane while on the Material Plane and vice versa."
+    },
+    {
+      "name": "Spider Climb",
+      "description": "The spider can climb difficult surfaces, including along ceilings, without needing to make an ability check."
+    },
+    {
+      "name": "Web Walker",
+      "description": "The spider ignores movement restrictions caused by webs, and the spider knows the location of any other creature in contact with the same web."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The spider makes two Bite attacks."
+    },
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 8 (1d10 + 3) Piercing damage plus 9 (2d8) Poison damage. If this damage reduces the target to 0 Hit Points, the target becomes Stable, and it has the Poisoned condition for 1 hour. While Poisoned, the target also has the Paralyzed condition.",
+      "attack_roll": 5,
+      "reach": 5,
+      "damage": "8 (1d10 + 3) + 9 (2d8)",
+      "damage_type": "Piercing + Poison"
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Ethereal Jaunt",
+      "description": "The spider teleports from the Material Plane to the Ethereal Plane or vice versa."
+    }
+  ],
+  "tactical_info": {
+    "role": "Planar Ambush Predator/Phase Hunter",
+    "environment": "Areas with ethereal activity, planar boundaries, magical laboratories, haunted locations",
+    "tactics": "Uses ethereal jaunt to appear suddenly, bites to paralyze prey, retreats to ethereal plane when threatened",
+    "weaknesses": "Moderate HP for size, vulnerable when forced to stay on material plane, relies on surprise",
+    "signature_abilities": ["Ethereal plane travel", "Paralyzing poison bite", "Wall climbing", "Ethereal sight"]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Staff of Charming",
+  "type": "Staff",
+  "rarity": "Rare",
+  "attunement": true,
+  "attunement_class": "Bard, Cleric, Druid, Sorcerer, Warlock, or Wizard",
+  "description": "This staff has 10 charges.",
+  "properties": {
+    "charges": {
+      "max_charges": 10,
+      "current_charges": 10
+    },
+    "cast_spell": {
+      "charges_cost": 1,
+      "spells": [
+        "Charm Person",
+        "Command",
+        "Comprehend Languages"
+      ],
+      "save_dc": "Your spell save DC"
+    },
+    "reflect_enchantment": {
+      "trigger": "Succeed on saving throw against Enchantment spell targeting only you",
+      "action_type": "Reaction",
+      "charges_cost": 1,
+      "effect": "Turn spell back on its caster as if you cast it"
+    },
+    "resist_enchantment": {
+      "trigger": "Failed saving throw against Enchantment spell targeting only you",
+      "effect": "Turn failed save into successful one",
+      "recharge": "Next dawn"
+    },
+    "regaining_charges": {
+      "recharge": "1d8 + 2 daily at dawn",
+      "destruction_condition": "Expend last charge and roll 1d20",
+      "on_roll_1": "Staff crumbles to dust and is destroyed"
+    }
+  }
+}

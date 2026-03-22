@@ -1,0 +1,12 @@
+{
+  "name": "Unoccupied Space",
+  "slug": "unoccupied-space",
+  "definition": "A space in the game world not occupied by creatures or objects",
+  "category": "Objects & Items",
+  "tags": ["space", "positioning"],
+  "full_text": "A space is unoccupied if no creatures are in it and it isn't completely filled by objects.",
+  "mechanics": {
+    "unoccupied_by": "No creatures AND not completely filled by objects"
+  },
+  "see_also": ["occupied-space", "object"]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Scimitar of Speed",
+  "type": "Weapon",
+  "weapon_type": "Scimitar",
+  "rarity": "Very Rare",
+  "attunement": true,
+  "description": "You gain a +2 bonus to attack rolls and damage rolls made with this magic weapon. In addition, you can make one attack with it as a Bonus Action on each of your turns.",
+  "properties": {
+    "attack_bonus": "+2",
+    "damage_bonus": "+2",
+    "bonus_action_attack": {
+      "action_type": "Bonus Action",
+      "frequency": "Each of your turns"
+    }
+  }
+}

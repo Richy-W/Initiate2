@@ -1,0 +1,20 @@
+{
+  "name": "Cloak of Arachnida",
+  "type": "Wondrous Item",
+  "rarity": "Very Rare",
+  "requires_attunement": true,
+  "overview": "A fine black silk cloak with silvery threads that grants arachnid-like abilities.",
+  "properties": {
+    "material": "Made of black silk interwoven with faint, silvery threads",
+    "poison_resistance": "You have Resistance to Poison damage",
+    "spider_climb": "You have a Climb Speed equal to your Speed and can move up, down, and across vertical surfaces and along ceilings, while leaving your hands free",
+    "spider_walk": "You can't be caught in webs of any sort and can move through webs as if they were Difficult Terrain"
+  },
+  "web_spell": {
+    "description": "You can cast Web (save DC 13)",
+    "enhanced_area": "The web created by the spell fills twice its normal area",
+    "recharge": "Once used, this property can't be used again until the next dawn"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

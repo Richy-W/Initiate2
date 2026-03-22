@@ -1,0 +1,15 @@
+{
+  "name": "Armor Class",
+  "slug": "armor-class",
+  "definition": "An Armor Class (AC) is the target number for an attack roll. AC represents how difficult it is to hit a target.",
+  "category": "Abilities & Attributes",
+  "tags": [],
+  "abbreviation": "AC",
+  "full_text": "An Armor Class (AC) is the target number for an attack roll. AC represents how difficult it is to hit a target. Your base AC calculation is 10 plus your Dexterity modifier. If a rule gives you another base AC calculation, you choose which calculation to use; you can't use more than one.",
+  "base_calculation": "10 + Dexterity modifier",
+  "multiple_calculations": "If a rule gives you another base AC calculation, you choose which calculation to use; you can't use more than one.",
+  "see_also": [
+    "Attack Roll",
+    "Dexterity"
+  ]
+}

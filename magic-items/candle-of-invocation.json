@@ -1,0 +1,41 @@
+{
+  "name": "Candle of Invocation",
+  "type": "Wondrous Item",
+  "rarity": "Very Rare",
+  "requires_attunement": true,
+  "overview": "A magical candle with multiple powerful effects when lit.",
+  "properties": {
+    "activation": "The candle's magic is activated when lit, which requires a Magic action",
+    "burn_time": "After burning for 4 hours, the candle is destroyed. You can snuff it out early for use at a later time, deducting burn time in 1-minute increments",
+    "light": "While lit, the candle sheds Dim Light in a 30-foot radius"
+  },
+  "effects": {
+    "advantage": "While you are within the light, you have Advantage on D20 Tests",
+    "spellcasting_bonus": "A Cleric or Druid in the light can cast level 1 spells they have prepared without expending spell slots"
+  },
+  "gate_spell": {
+    "description": "Alternatively, when you light the candle for the first time, you can cast Gate with it",
+    "consequence": "Doing so destroys the candle",
+    "portal": "The portal created by the spell links to a particular Outer Plane chosen by the DM or determined randomly"
+  },
+  "outer_planes": [
+    { "roll": "01-05", "plane": "Abyss" },
+    { "roll": "06-10", "plane": "Acheron" },
+    { "roll": "11-17", "plane": "Arborea" },
+    { "roll": "18-25", "plane": "Arcadia" },
+    { "roll": "26-33", "plane": "Beastlands" },
+    { "roll": "34-41", "plane": "Bytopia" },
+    { "roll": "42-46", "plane": "Carceri" },
+    { "roll": "47-54", "plane": "Elysium" },
+    { "roll": "55-59", "plane": "Gehenna" },
+    { "roll": "60-64", "plane": "Hades" },
+    { "roll": "65-69", "plane": "Limbo" },
+    { "roll": "70-77", "plane": "Mechanus" },
+    { "roll": "78-85", "plane": "Mount Celestia" },
+    { "roll": "86-90", "plane": "Nine Hells" },
+    { "roll": "91-95", "plane": "Pandemonium" },
+    { "roll": "96-00", "plane": "Ysgard" }
+  ],
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

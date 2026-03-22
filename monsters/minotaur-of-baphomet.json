@@ -1,0 +1,109 @@
+{
+  "name": "Minotaur of Baphomet",
+  "size": "Large",
+  "type": "Monstrosity",
+  "alignment": "Chaotic Evil",
+  "armor_class": {
+    "value": 14,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 0,
+    "total": 10
+  },
+  "hit_points": {
+    "average": 75,
+    "formula": "9d10 + 27"
+  },
+  "speed": {
+    "walk": 40
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 18,
+      "modifier": 4,
+      "saving_throw": 4
+    },
+    "dexterity": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "constitution": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "intelligence": {
+      "score": 6,
+      "modifier": -2,
+      "saving_throw": -2
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "charisma": {
+      "score": 9,
+      "modifier": -1,
+      "saving_throw": -1
+    }
+  },
+  "skills": {
+    "perception": 7
+  },
+  "senses": {
+    "darkvision": 120,
+    "passive_perception": 17
+  },
+  "languages": ["Abyssal"],
+  "challenge_rating": {
+    "cr": 3,
+    "xp": 700,
+    "proficiency_bonus": 2
+  },
+  "traits": [
+    {
+      "name": "Charge",
+      "description": "If the minotaur moves at least 10 feet straight toward a target and then hits it with a Gore attack on the same turn, the target takes an extra 9 (2d8) Piercing damage. If the target is a creature, it must succeed on a DC 14 Strength saving throw or be pushed up to 10 feet away and have the Prone condition."
+    },
+    {
+      "name": "Labyrinthine Recall",
+      "description": "The minotaur can perfectly recall any path it has traveled."
+    },
+    {
+      "name": "Reckless",
+      "description": "At the start of its turn, the minotaur can gain Advantage on all melee attack rolls during that turn, but attack rolls against it have Advantage until the start of its next turn."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The minotaur makes two Abyssal Glaive attacks, or it makes one Abyssal Glaive attack and one Gore attack."
+    },
+    {
+      "name": "Abyssal Glaive",
+      "description": "Melee Attack Roll: +6, reach 10 ft. Hit: 10 (1d10 + 4) Slashing damage plus 3 (1d6) Necrotic damage.",
+      "attack_roll": 6,
+      "reach": 10,
+      "damage": "10 (1d10 + 4) + 3 (1d6)",
+      "damage_type": "Slashing + Necrotic"
+    },
+    {
+      "name": "Gore",
+      "description": "Melee Attack Roll: +6, reach 5 ft. Hit: 13 (2d8 + 4) Piercing damage.",
+      "attack_roll": 6,
+      "reach": 5,
+      "damage": "13 (2d8 + 4)",
+      "damage_type": "Piercing"
+    }
+  ],
+  "tactical_info": {
+    "role": "Berserker/Charger",
+    "environment": "Abyssal labyrinths, corrupted mazes, demonic strongholds, twisted dungeons",
+    "tactics": "Charges for extra damage and knockdown, uses reckless attacks for advantage, combines glaive reach with gore attacks",
+    "weaknesses": "Reckless attacks leave it vulnerable, low intelligence makes it predictable, relies heavily on brute force",
+    "signature_abilities": ["Devastating charge attacks", "Reckless combat stance", "Abyssal weapon mastery", "Perfect maze navigation"]
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "name": "Bullywug Bog Sage",
+  "size": "Medium",
+  "type": "Fey",
+  "alignment": "Neutral",
+  "armor_class": {
+    "value": 16,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 3,
+    "total": 13
+  },
+  "hit_points": {
+    "average": 52,
+    "formula": "8d8 + 16"
+  },
+  "speed": {
+    "walk": 30,
+    "swim": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    },
+    "dexterity": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 4
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 5
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    }
+  },
+  "skills": {
+    "nature": 4,
+    "stealth": 5
+  },
+  "equipment": ["Component Pouch"],
+  "senses": {
+    "passive_perception": 13
+  },
+  "languages": ["Bullywug", "Common", "Sylvan"],
+  "challenge_rating": {
+    "cr": 4,
+    "xp": 1100,
+    "proficiency_bonus": 2
+  },
+  "traits": [
+    {
+      "name": "Amphibious",
+      "description": "The bullywug can breathe air and water."
+    },
+    {
+      "name": "Speak with Frogs and Toads",
+      "description": "The bullywug can communicate simple concepts to frogs and toads when it speaks in Bullywug."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The bullywug makes two Bog Staff attacks. It can replace any attack with a use of Spellcasting to cast Ray of Sickness."
+    },
+    {
+      "name": "Bog Staff",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 7 (1d8 + 3) Bludgeoning damage plus 10 (3d6) Poison damage.",
+      "attack_roll": 5,
+      "reach": 5,
+      "damage": "7 (1d8 + 3) Bludgeoning plus 10 (3d6) Poison",
+      "damage_type": "Bludgeoning/Poison"
+    },
+    {
+      "name": "Spellcasting",
+      "description": "The bullywug casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 13, +5 to hit with spell attacks): At Will: Dancing Lights, Druidcraft, Ray of Sickness; 1/Day Each: Speak with Plants, Vitriolic Sphere"
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Leap",
+      "description": "The bullywug jumps up to 30 feet by spending 10 feet of movement."
+    }
+  ],
+  "tactical_info": {
+    "role": "Spellcaster/Controller",
+    "environment": "Swamps, bogs, wetland territories",
+    "tactics": "Uses poison spells and bog staff, communicates with amphibians for aid",
+    "weaknesses": "Low strength, relies on terrain advantage",
+    "signature_abilities": ["Druidic spellcasting", "Poison attacks", "Amphibian communication", "Swamp mobility"]
+  }
+}

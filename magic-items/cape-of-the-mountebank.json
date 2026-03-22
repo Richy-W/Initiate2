@@ -1,0 +1,18 @@
+{
+  "name": "Cape of the Mountebank",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "requires_attunement": false,
+  "overview": "A cape smelling faintly of brimstone that grants teleportation abilities.",
+  "properties": {
+    "aroma": "Smells faintly of brimstone",
+    "spell_casting": "While wearing it, you can use it to cast Dimension Door as a Magic action",
+    "recharge": "This property can't be used again until the next dawn"
+  },
+  "effect": {
+    "description": "When you teleport with that spell, you leave behind a cloud of smoke",
+    "obscurement": "The space you left is Lightly Obscured by that smoke until the end of your next turn"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

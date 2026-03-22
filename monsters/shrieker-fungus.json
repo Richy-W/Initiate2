@@ -1,0 +1,50 @@
+{
+  "name": "Shrieker Fungus",
+  "size": "Medium",
+  "type": "Plant",
+  "alignment": "Unaligned",
+  "armor_class": 5,
+  "hit_points": {
+    "average": 13,
+    "formula": "3d8"
+  },
+  "speed": {
+    "walk": 5
+  },
+  "initiative": 5,
+  "ability_scores": {
+    "strength": 1,
+    "dexterity": 1,
+    "constitution": 10,
+    "intelligence": 1,
+    "wisdom": 3,
+    "charisma": 1
+  },
+  "saving_throws": {},
+  "skills": {},
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": ["blinded", "charmed", "deafened", "frightened"],
+  "senses": {
+    "blindsight": 30,
+    "passive_perception": 6
+  },
+  "languages": [],
+  "challenge_rating": 0,
+  "proficiency_bonus": 2,
+  "traits": [],
+  "actions": [],
+  "reactions": [
+    {
+      "name": "Shriek",
+      "description": "Trigger: A creature or a source of Bright Light moves within 30 feet of the shrieker. Response: The shrieker emits a shriek audible within 300 feet of itself for 1 minute or until the shrieker dies."
+    }
+  ],
+  "tactical_info": {
+    "combat_role": "Living Alarm System/Environmental Hazard",
+    "preferred_range": "Stationary detection and alarm",
+    "key_abilities": ["Long-range shriek alarm", "Motion and light detection", "Extended shriek duration", "Passive surveillance"],
+    "weaknesses": ["No offensive abilities", "Extremely low stats", "Minimal movement", "Easy to destroy"],
+    "tactics": "Serves as biological alarm system, detecting movement or light to alert other creatures within 300 feet. Primarily used as dungeon surveillance rather than combat threat."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Cloak of Displacement",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "requires_attunement": true,
+  "overview": "A cloak that magically creates an illusion making you appear displaced from your actual location.",
+  "properties": {
+    "illusion": "While you wear this cloak, it magically projects an illusion that makes you appear to be standing in a place near your actual location",
+    "attack_disadvantage": "Any creature has Disadvantage on attack rolls against you",
+    "damage_disruption": "If you take damage, the property ceases to function until the start of your next turn",
+    "speed_limitation": "This property is suppressed while your Speed is 0"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Round Down",
+  "slug": "round-down",
+  "definition": "A rule to always round down when dividing or multiplying numbers",
+  "category": "Game Mechanics",
+  "tags": ["math", "rounding"],
+  "full_text": "Whenever you divide or multiply a number in the game, round down if you end up with a fraction, even if the fraction is one-half or greater. Some rules make an exception and tell you to round up.",
+  "mechanics": {
+    "rule": "Round down for any fraction (including 0.5 or greater)",
+    "exceptions": "Rules explicitly stating to round up"
+  },
+  "see_also": ["game-mechanics"]
+}

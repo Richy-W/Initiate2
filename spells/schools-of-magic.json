@@ -1,0 +1,108 @@
+{
+  "title": "Schools of Magic",
+  "description": "The eight schools of magic that categorize all spells",
+  "version": "2024",
+  "schools": [
+    {
+      "name": "Abjuration",
+      "description": "Prevents or reverses harmful effects",
+      "typical_spells": [
+        "Shield",
+        "Dispel Magic", 
+        "Counterspell",
+        "Protection spells",
+        "Banishment effects"
+      ],
+      "focus": "Defense, protection, and negation of magic"
+    },
+    {
+      "name": "Conjuration", 
+      "description": "Transports creatures or objects",
+      "typical_spells": [
+        "Misty Step",
+        "Summon spells",
+        "Teleportation Circle",
+        "Creation effects",
+        "Planar travel"
+      ],
+      "focus": "Summoning, teleportation, and creation"
+    },
+    {
+      "name": "Divination",
+      "description": "Reveals information", 
+      "typical_spells": [
+        "Detect Magic",
+        "Identify",
+        "Scrying",
+        "True Seeing", 
+        "Locate spells"
+      ],
+      "focus": "Information gathering and revelation of secrets"
+    },
+    {
+      "name": "Enchantment",
+      "description": "Influences minds",
+      "typical_spells": [
+        "Charm Person",
+        "Sleep",
+        "Suggestion",
+        "Dominate spells",
+        "Mind control effects"
+      ],
+      "focus": "Mental manipulation and control"
+    },
+    {
+      "name": "Evocation",
+      "description": "Channels energy to create effects that are often destructive",
+      "typical_spells": [
+        "Fireball",
+        "Lightning Bolt", 
+        "Magic Missile",
+        "Healing Word",
+        "Energy damage spells"
+      ],
+      "focus": "Raw magical energy and elemental forces"
+    },
+    {
+      "name": "Illusion",
+      "description": "Deceives the mind or senses",
+      "typical_spells": [
+        "Minor Illusion",
+        "Invisibility",
+        "Major Image",
+        "Phantasmal Force",
+        "Disguise effects"
+      ],
+      "focus": "Deception, concealment, and false sensory input"
+    },
+    {
+      "name": "Necromancy", 
+      "description": "Manipulates life and death",
+      "typical_spells": [
+        "Cure Wounds",
+        "Inflict Wounds",
+        "Animate Dead",
+        "Speak with Dead",
+        "Life drain effects"
+      ],
+      "focus": "Life force, death, and undeath"
+    },
+    {
+      "name": "Transmutation",
+      "description": "Transforms creatures or objects",
+      "typical_spells": [
+        "Alter Self",
+        "Polymorph",
+        "Enlarge/Reduce",
+        "Stone to Flesh",
+        "Transformation effects"
+      ],
+      "focus": "Changing the fundamental nature of things"
+    }
+  ],
+  "mechanics": {
+    "purpose": "These categories help describe spells but have no rules of their own",
+    "references": "Some other rules refer to specific schools of magic",
+    "class_lists": "If a spell is on a class's spell list, the class's name appears in parentheses after the spell's school"
+  }
+}

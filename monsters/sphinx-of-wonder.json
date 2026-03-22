@@ -1,0 +1,59 @@
+{
+  "name": "Sphinx of Wonder",
+  "size": "Tiny",
+  "type": "Celestial",
+  "alignment": "Lawful Good",
+  "armor_class": 13,
+  "initiative": 13,
+  "hit_points": {
+    "average": 24,
+    "formula": "7d4 + 7"
+  },
+  "speed": {
+    "walk": "20 ft.",
+    "fly": "40 ft."
+  },
+  "ability_scores": {
+    "strength": { "score": 6, "modifier": -2, "save": -2 },
+    "dexterity": { "score": 17, "modifier": 3, "save": 3 },
+    "constitution": { "score": 13, "modifier": 1, "save": 1 },
+    "intelligence": { "score": 15, "modifier": 2, "save": 2 },
+    "wisdom": { "score": 12, "modifier": 1, "save": 1 },
+    "charisma": { "score": 11, "modifier": 0, "save": 0 }
+  },
+  "skills": {
+    "arcana": 4,
+    "religion": 4,
+    "stealth": 5
+  },
+  "damage_resistances": "Necrotic, Psychic, Radiant",
+  "senses": "Darkvision 60 ft.; Passive Perception 11",
+  "languages": "Celestial, Common",
+  "challenge_rating": 1,
+  "experience_points": 200,
+  "proficiency_bonus": 2,
+  "traits": [
+    {
+      "name": "Magic Resistance",
+      "description": "The sphinx has Advantage on saving throws against spells and other magical effects."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Rend",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 5 (1d4 + 3) Slashing damage plus 7 (2d6) Radiant damage."
+    }
+  ],
+  "reactions": [
+    {
+      "name": "Burst of Ingenuity (2/Day)",
+      "description": "Trigger: The sphinx or another creature within 30 feet makes an ability check or a saving throw. Response: The sphinx adds 2 to the roll."
+    }
+  ],
+  "tactical_info": {
+    "optimal_range": "Close range for rend attacks and ingenuity support",
+    "key_abilities": ["Magic Resistance", "Burst of Ingenuity", "Radiant damage", "Multiple resistances"],
+    "weaknesses": ["Low hit points", "Limited attack options", "Weak physical stats"],
+    "synergies": ["Party support through ingenuity bursts", "Magic resistance tanking", "Radiant damage against undead"]
+  }
+}

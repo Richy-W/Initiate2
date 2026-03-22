@@ -1,0 +1,66 @@
+{
+  "name": "Hippopotamus",
+  "size": "Large",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 14,
+  "hit_points": 82,
+  "hit_dice": "11d10 + 22",
+  "speed": {
+    "walk": 30,
+    "swim": 30
+  },
+  "ability_scores": {
+    "strength": 21,
+    "dexterity": 7,
+    "constitution": 15,
+    "intelligence": 2,
+    "wisdom": 12,
+    "charisma": 4
+  },
+  "saving_throws": {
+    "strength": 7,
+    "dexterity": -2,
+    "constitution": 2,
+    "intelligence": -4,
+    "wisdom": 1,
+    "charisma": -3
+  },
+  "skills": {
+    "perception": 3
+  },
+  "senses": [
+    "Passive Perception 13"
+  ],
+  "languages": "None",
+  "challenge_rating": 4,
+  "experience_points": 1100,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Hold Breath",
+      "description": "The hippopotamus can hold its breath for 10 minutes."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The hippopotamus makes two Bite attacks."
+    },
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +7, reach 5 ft. Hit: 16 (2d10 + 5) Piercing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Bruiser - Amphibious tank with devastating bite attacks",
+    "positioning": "Controls water access points, charges from water",
+    "damage_output": "32 piercing per round with multiattack",
+    "key_abilities": "High HP, massive damage, amphibious nature",
+    "weaknesses": "Low DEX makes it vulnerable to ranged attacks",
+    "synergies": "Dominates aquatic chokepoints and river crossings"
+  }
+}

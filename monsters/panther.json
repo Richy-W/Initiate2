@@ -1,0 +1,64 @@
+{
+  "name": "Panther",
+  "size": "Medium",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 13,
+  "hit_points": 13,
+  "hit_dice": "3d8",
+  "speed": {
+    "walk": 50,
+    "climb": 40
+  },
+  "ability_scores": {
+    "strength": 14,
+    "dexterity": 16,
+    "constitution": 10,
+    "intelligence": 3,
+    "wisdom": 14,
+    "charisma": 7
+  },
+  "saving_throws": {
+    "strength": 2,
+    "dexterity": 3,
+    "constitution": 0,
+    "intelligence": -4,
+    "wisdom": 2,
+    "charisma": -2
+  },
+  "skills": {
+    "perception": 4,
+    "stealth": 7
+  },
+  "senses": [
+    "Darkvision 60 ft.",
+    "Passive Perception 14"
+  ],
+  "languages": "None",
+  "challenge_rating": 0.25,
+  "experience_points": 50,
+  "proficiency_bonus": 2,
+  "features": [],
+  "actions": [
+    {
+      "name": "Rend",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 6 (1d6 + 3) Slashing damage."
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Nimble Escape",
+      "description": "The panther takes the Disengage or Hide action."
+    }
+  ],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Striker - Stealthy hit-and-run predator",
+    "positioning": "Uses Nimble Escape to disengage or hide after attacks",
+    "damage_output": "6 slashing per hit with excellent mobility",
+    "key_abilities": "Nimble Escape provides tactical flexibility, high stealth (+7)",
+    "weaknesses": "Moderate HP, relies on hit-and-run tactics",
+    "synergies": "Excellent ambush predator and mobile striker"
+  }
+}

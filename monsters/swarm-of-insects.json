@@ -1,0 +1,69 @@
+{
+  "name": "Swarm of Insects",
+  "size": "Medium",
+  "type": "Beast (Swarm)",
+  "alignment": "Unaligned",
+  "armor_class": 11,
+  "hit_points": 19,
+  "hit_dice": "3d8 + 6",
+  "speed": {
+    "walk": 20,
+    "climb": 20,
+    "fly": 20
+  },
+  "ability_scores": {
+    "strength": 3,
+    "dexterity": 13,
+    "constitution": 14,
+    "intelligence": 1,
+    "wisdom": 7,
+    "charisma": 1
+  },
+  "saving_throws": {
+    "strength": -4,
+    "dexterity": 1,
+    "constitution": 2,
+    "intelligence": -5,
+    "wisdom": -2,
+    "charisma": -5
+  },
+  "skills": {},
+  "damage_resistances": ["Bludgeoning", "Piercing", "Slashing"],
+  "damage_immunities": [],
+  "condition_immunities": ["Charmed", "Frightened", "Grappled", "Paralyzed", "Petrified", "Prone", "Restrained", "Stunned"],
+  "senses": [
+    "Blindsight 30 ft.",
+    "Passive Perception 8"
+  ],
+  "languages": "None",
+  "challenge_rating": 0.5,
+  "experience_points": 100,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Spider Climb",
+      "description": "If the swarm has a Climb Speed, the swarm can climb difficult surfaces, including along ceilings, without needing to make an ability check."
+    },
+    {
+      "name": "Swarm",
+      "description": "The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny insect. The swarm can't regain Hit Points or gain Temporary Hit Points."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Bites",
+      "description": "Melee Attack Roll: +3, reach 5 ft. Hit: 6 (2d4 + 1) Poison damage, or 3 (1d4 + 1) Poison damage if the swarm is Bloodied."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Versatile Terrain Controller - Multi-environment poison swarm",
+    "positioning": "Uses Spider Climb for ceiling/wall positioning and three movement types",
+    "damage_output": "6 poison damage (3 when bloodied) with flexible mobility",
+    "key_abilities": "Spider Climb for unique positioning, variable movement modes",
+    "weaknesses": "Low perception, reduced damage when bloodied",
+    "synergies": "Excellent for dungeon environments with varied terrain"
+  }
+}

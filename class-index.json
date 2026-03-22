@@ -1,0 +1,148 @@
+{
+  "title": "D&D 5e 2024 Classes Index",
+  "version": "2024",
+  "description": "Complete index of all available classes organized by role and characteristics",
+  "classes": [
+    {
+      "name": "Barbarian",
+      "file": "barbarian.json",
+      "hitDie": "d12",
+      "primaryAbilities": ["Strength"],
+      "savingThrows": ["Strength", "Constitution"],
+      "role": "Tank/Damage",
+      "summary": "Fierce warrior driven by primal rage and incredible durability"
+    },
+    {
+      "name": "Bard",
+      "file": "bard.json",
+      "hitDie": "d8",
+      "primaryAbilities": ["Charisma"],
+      "savingThrows": ["Dexterity", "Charisma"],
+      "role": "Support/Utility",
+      "spellcaster": "Full",
+      "summary": "Versatile performer who weaves magic through music and inspiration"
+    },
+    {
+      "name": "Cleric",
+      "file": "cleric.json",
+      "hitDie": "d8",
+      "primaryAbilities": ["Wisdom"],
+      "savingThrows": ["Wisdom", "Charisma"],
+      "role": "Support/Healing",
+      "spellcaster": "Full",
+      "summary": "Divine spellcaster devoted to a deity and domain of power"
+    },
+    {
+      "name": "Druid",
+      "file": "druid.json",
+      "hitDie": "d8",
+      "primaryAbilities": ["Wisdom"],
+      "savingThrows": ["Intelligence", "Wisdom"],
+      "role": "Versatile/Nature",
+      "spellcaster": "Full",
+      "summary": "Nature-bound spellcaster who can shapeshift and command natural forces"
+    },
+    {
+      "name": "Fighter",
+      "file": "fighter.json",
+      "hitDie": "d10",
+      "primaryAbilities": ["Strength", "Dexterity"],
+      "savingThrows": ["Strength", "Constitution"],
+      "role": "Tank/Damage",
+      "summary": "Master of weapons and tactics with exceptional combat prowess"
+    },
+    {
+      "name": "Monk",
+      "file": "monk.json",
+      "hitDie": "d8",
+      "primaryAbilities": ["Dexterity", "Wisdom"],
+      "savingThrows": ["Strength", "Dexterity"],
+      "role": "Striker/Mobile",
+      "summary": "Martial artist who harnesses ki energy for supernatural abilities"
+    },
+    {
+      "name": "Paladin",
+      "file": "paladin.json",
+      "hitDie": "d10",
+      "primaryAbilities": ["Strength", "Charisma"],
+      "savingThrows": ["Wisdom", "Charisma"],
+      "role": "Tank/Support",
+      "spellcaster": "Half",
+      "summary": "Holy warrior who blends martial prowess with divine magic"
+    },
+    {
+      "name": "Ranger",
+      "file": "ranger.json",
+      "hitDie": "d10",
+      "primaryAbilities": ["Dexterity", "Wisdom"],
+      "savingThrows": ["Strength", "Dexterity"],
+      "role": "Damage/Utility",
+      "spellcaster": "Half",
+      "summary": "Skilled hunter and tracker who protects civilization from wilderness threats"
+    },
+    {
+      "name": "Rogue",
+      "file": "rogue.json",
+      "hitDie": "d8",
+      "primaryAbilities": ["Dexterity"],
+      "savingThrows": ["Dexterity", "Intelligence"],
+      "role": "Striker/Utility",
+      "summary": "Stealthy specialist in precision strikes and skillful infiltration"
+    },
+    {
+      "name": "Sorcerer",
+      "file": "sorcerer.json",
+      "hitDie": "d6",
+      "primaryAbilities": ["Charisma"],
+      "savingThrows": ["Constitution", "Charisma"],
+      "role": "Damage/Blaster",
+      "spellcaster": "Full",
+      "summary": "Innate spellcaster who manipulates magic through raw talent and metamagic"
+    },
+    {
+      "name": "Warlock",
+      "file": "warlock.json",
+      "hitDie": "d8",
+      "primaryAbilities": ["Charisma"],
+      "savingThrows": ["Wisdom", "Charisma"],
+      "role": "Damage/Utility",
+      "spellcaster": "Pact",
+      "summary": "Empowered by otherworldly patron with unique spellcasting and invocations"
+    },
+    {
+      "name": "Wizard",
+      "file": "wizard.json",
+      "hitDie": "d6",
+      "primaryAbilities": ["Intelligence"],
+      "savingThrows": ["Intelligence", "Wisdom"],
+      "role": "Controller/Utility",
+      "spellcaster": "Full",
+      "summary": "Master of arcane knowledge with the largest spell selection and ritual casting"
+    }
+  ],
+  "totalClasses": 12,
+  "classesByRole": {
+    "Tank": ["Barbarian", "Fighter", "Paladin"],
+    "Damage": ["Barbarian", "Fighter", "Ranger", "Sorcerer", "Warlock"],
+    "Support": ["Bard", "Cleric", "Paladin"],
+    "Utility": ["Bard", "Ranger", "Rogue", "Warlock", "Wizard"],
+    "Healing": ["Cleric"],
+    "Controller": ["Wizard"],
+    "Striker": ["Monk", "Rogue"],
+    "Versatile": ["Druid"]
+  },
+  "spellcasters": {
+    "Full": ["Bard", "Cleric", "Druid", "Sorcerer", "Wizard"],
+    "Half": ["Paladin", "Ranger"],
+    "Pact": ["Warlock"],
+    "None": ["Barbarian", "Fighter", "Monk", "Rogue"]
+  },
+  "hitDieDistribution": {
+    "d6": ["Sorcerer", "Wizard"],
+    "d8": ["Bard", "Cleric", "Druid", "Monk", "Rogue", "Warlock"],
+    "d10": ["Fighter", "Paladin", "Ranger"],
+    "d12": ["Barbarian"]
+  },
+  "schema": "class-schema.json",
+  "sourceBook": "Player's Handbook 2024"
+}

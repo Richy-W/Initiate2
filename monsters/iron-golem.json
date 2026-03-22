@@ -1,0 +1,112 @@
+{
+  "name": "Iron Golem",
+  "size": "Large",
+  "type": "Construct",
+  "alignment": "Unaligned",
+  "armor_class": {
+    "value": 20,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 9,
+    "total": 19
+  },
+  "hit_points": {
+    "average": 252,
+    "formula": "24d10 + 120"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 24,
+      "modifier": 7,
+      "saving_throw": 7
+    },
+    "dexterity": {
+      "score": 9,
+      "modifier": -1,
+      "saving_throw": -1
+    },
+    "constitution": {
+      "score": 20,
+      "modifier": 5,
+      "saving_throw": 5
+    },
+    "intelligence": {
+      "score": 3,
+      "modifier": -4,
+      "saving_throw": -4
+    },
+    "wisdom": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "charisma": {
+      "score": 1,
+      "modifier": -5,
+      "saving_throw": -5
+    }
+  },
+  "damage_immunities": ["Fire", "Poison", "Psychic"],
+  "condition_immunities": ["Charmed", "Exhaustion", "Frightened", "Paralyzed", "Petrified", "Poisoned"],
+  "senses": {
+    "darkvision": 120,
+    "passive_perception": 10
+  },
+  "languages": ["Understands Common plus two other languages but can't speak"],
+  "challenge_rating": {
+    "cr": 16,
+    "xp": 15000,
+    "proficiency_bonus": 5
+  },
+  "traits": [
+    {
+      "name": "Fire Absorption",
+      "description": "Whenever the golem is subjected to Fire damage, it regains a number of Hit Points equal to the Fire damage dealt."
+    },
+    {
+      "name": "Immutable Form",
+      "description": "The golem can't shape-shift."
+    },
+    {
+      "name": "Magic Resistance",
+      "description": "The golem has Advantage on saving throws against spells and other magical effects."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The golem makes two attacks, using Bladed Arm or Fiery Bolt in any combination."
+    },
+    {
+      "name": "Bladed Arm",
+      "description": "Melee Attack Roll: +12, reach 10 ft. Hit: 20 (3d8 + 7) Slashing damage plus 10 (3d6) Fire damage.",
+      "attack_roll": 12,
+      "reach": 10,
+      "damage": "20 (3d8 + 7) + 10 (3d6)",
+      "damage_type": "Slashing + Fire"
+    },
+    {
+      "name": "Fiery Bolt",
+      "description": "Ranged Attack Roll: +10, range 120 ft. Hit: 36 (8d8) Fire damage.",
+      "attack_roll": 10,
+      "range": 120,
+      "damage": "36 (8d8)",
+      "damage_type": "Fire"
+    },
+    {
+      "name": "Poison Breath (Recharge 6)",
+      "description": "Constitution Saving Throw: DC 18, each creature in a 60-foot Cone. Failure: 55 (10d10) Poison damage. Success: Half damage."
+    }
+  ],
+  "tactical_info": {
+    "role": "Elite Guardian/Siege Engine",
+    "environment": "Wizard towers, ancient ruins, magical laboratories, treasure vaults",
+    "tactics": "Uses fire absorption to heal from fire attacks, alternates between melee bladed arms and ranged fiery bolts, poison breath for area control",
+    "weaknesses": "Slow movement, low dexterity, vulnerable to cold-based attacks, no healing except fire absorption",
+    "signature_abilities": ["Fire damage absorption healing", "Devastating poison breath weapon", "High AC and fire immunity", "Magic resistance"]
+  }
+}

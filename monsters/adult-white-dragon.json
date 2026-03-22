@@ -1,0 +1,103 @@
+{
+  "name": "Adult White Dragon",
+  "size": "Huge",
+  "type": "Dragon",
+  "subtype": "Chromatic",
+  "alignment": "Chaotic Evil",
+  "armor_class": 18,
+  "armor_description": "Natural Armor",
+  "hit_points": 200,
+  "hit_dice": "16d12 + 96",
+  "speed": {
+    "walk": "40 ft.",
+    "burrow": "30 ft.",
+    "fly": "80 ft.",
+    "swim": "40 ft."
+  },
+  "ability_scores": {
+    "strength": 22,
+    "dexterity": 10,
+    "constitution": 22,
+    "intelligence": 8,
+    "wisdom": 12,
+    "charisma": 12
+  },
+  "saving_throws": {
+    "strength": "+6",
+    "dexterity": "+5",
+    "constitution": "+6",
+    "intelligence": "-1",
+    "wisdom": "+6",
+    "charisma": "+1"
+  },
+  "skills": {
+    "perception": "+11",
+    "stealth": "+5"
+  },
+  "damage_resistances": [],
+  "damage_immunities": ["Cold"],
+  "condition_immunities": [],
+  "senses": {
+    "blindsight": "60 ft.",
+    "darkvision": "120 ft.",
+    "passive_perception": 21
+  },
+  "languages": ["Common", "Draconic"],
+  "challenge_rating": "13",
+  "experience_points": 10000,
+  "proficiency_bonus": 5,
+  "features": [
+    {
+      "name": "Ice Walk",
+      "description": "The dragon can move across and climb icy surfaces without needing to make an ability check. Additionally, Difficult Terrain composed of ice or snow doesn't cost it extra movement."
+    },
+    {
+      "name": "Legendary Resistance (3/Day, or 4/Day in Lair)",
+      "description": "If the dragon fails a saving throw, it can choose to succeed instead."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The dragon makes three Rend attacks."
+    },
+    {
+      "name": "Rend",
+      "type": "weapon",
+      "description": "Melee Attack Roll: +11, reach 10 ft. Hit: 13 (2d6 + 6) Slashing damage plus 4 (1d8) Cold damage."
+    },
+    {
+      "name": "Cold Breath (Recharge 5–6)",
+      "type": "special",
+      "description": "Constitution Saving Throw: DC 19, each creature in a 60-foot Cone. Failure: 54 (12d8) Cold damage. Success: Half damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [
+    {
+      "name": "Legendary Action Uses",
+      "description": "3 (4 in Lair). Immediately after another creature's turn, the dragon can expend a use to take one of the following actions. The dragon regains all expended uses at the start of each of its turns."
+    },
+    {
+      "name": "Freezing Burst",
+      "description": "Constitution Saving Throw: DC 14, each creature in a 30-foot-radius Sphere centered on a point the dragon can see within 120 feet. Failure: 7 (2d6) Cold damage, and the target's Speed is 0 until the end of the target's next turn. Failure or Success: The dragon can't take this action again until the start of its next turn."
+    },
+    {
+      "name": "Frightful Presence",
+      "description": "The dragon casts Fear, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 14). The dragon can't take this action again until the start of its next turn."
+    },
+    {
+      "name": "Pounce",
+      "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
+    }
+  ],
+  "equipment": [],
+  "tactical_info": {
+    "combat_role": "Apex Predator",
+    "preferred_range": "Mixed with Legendary Actions",
+    "key_abilities": ["Legendary resistance", "Freezing burst control", "Fear effects"],
+    "weaknesses": ["Lair dependency for full power", "Intelligence limitations"],
+    "tactics": "Uses legendary resistance to maintain control. Legendary actions control battlefield between turns. Cold breath opens combat, then uses legendary actions for positioning and area denial."
+  }
+}

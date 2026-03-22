@@ -1,0 +1,13 @@
+{
+  "name": "Spellcasting Focus",
+  "slug": "spellcasting-focus",
+  "definition": "An object used in place of spell Material components",
+  "category": "Magic & Spells",
+  "tags": ["spell", "component"],
+  "full_text": "A Spellcasting Focus is an object that certain creatures can use in place of a spell's Material components if those materials aren't consumed by the spell and don't have a cost specified. Some classes allow its members to use certain types of Spellcasting Focuses.",
+  "mechanics": {
+    "requirement": "Materials must not be consumed and have no cost specified",
+    "class_specific": "Available to certain classes"
+  },
+  "see_also": ["spell"]
+}

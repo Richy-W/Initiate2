@@ -1,0 +1,192 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "D&D Species Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the species"
+    },
+    "description": {
+      "type": "string",
+      "description": "Lore and background description"
+    },
+    "creatureType": {
+      "type": "string",
+      "enum": ["Humanoid"],
+      "description": "The creature type"
+    },
+    "size": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "string",
+          "enum": ["Small", "Medium", "Large"]
+        },
+        "height": {
+          "type": "string",
+          "description": "Typical height range"
+        },
+        "canChoose": {
+          "type": "boolean",
+          "description": "Whether player can choose size at character creation"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": {"type": "string"},
+              "height": {"type": "string"}
+            }
+          }
+        }
+      },
+      "required": ["category", "height"]
+    },
+    "speed": {
+      "type": "integer",
+      "description": "Base walking speed in feet"
+    },
+    "lifespan": {
+      "type": "string",
+      "description": "Typical lifespan"
+    },
+    "traits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["passive", "active", "reaction", "bonus_action", "spell", "resistance", "advantage", "proficiency"]
+          },
+          "usesPerRest": {
+            "type": ["integer", "string"],
+            "description": "Number of uses per rest, or 'proficiency' for proficiency bonus times"
+          },
+          "restType": {
+            "type": "string",
+            "enum": ["short", "long"]
+          },
+          "scalesWithLevel": {
+            "type": "boolean"
+          },
+          "levelProgression": {
+            "type": "object",
+            "properties": {
+              "5": {"type": "string"},
+              "11": {"type": "string"},
+              "17": {"type": "string"}
+            }
+          }
+        },
+        "required": ["name", "description", "type"]
+      }
+    },
+    "variants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "traits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/properties/traits/items"
+            }
+          },
+          "spellProgression": {
+            "type": "object",
+            "properties": {
+              "spellcastingAbility": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": ["Intelligence", "Wisdom", "Charisma"]
+                }
+              },
+              "level1": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "level3": {
+                "type": "string"
+              },
+              "level5": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": ["name", "description"]
+      }
+    },
+    "proficiencies": {
+      "type": "object",
+      "properties": {
+        "skills": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "languages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tools": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "weapons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "resistances": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "senses": {
+      "type": "object",
+      "properties": {
+        "darkvision": {
+          "type": "integer",
+          "description": "Darkvision range in feet"
+        },
+        "tremorsense": {
+          "type": "integer",
+          "description": "Tremorsense range in feet"
+        }
+      }
+    },
+    "sourceBook": {
+      "type": "string",
+      "description": "Source publication"
+    }
+  },
+  "required": ["name", "description", "creatureType", "size", "speed", "traits"]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Rod of Alertness",
+  "type": "Rod",
+  "rarity": "Very Rare",
+  "attunement": true,
+  "description": "This rod has the following properties.",
+  "properties": {
+    "alertness": {
+      "effect": "Advantage on Wisdom (Perception) checks and Initiative rolls while holding"
+    },
+    "spells": [
+      "Detect Evil and Good",
+      "Detect Magic",
+      "Detect Poison and Disease",
+      "See Invisibility"
+    ],
+    "protective_aura": {
+      "activation": "Magic action to plant rod in ground",
+      "bright_light": "60-foot radius",
+      "dim_light": "Additional 60 feet",
+      "effects": [
+        "+1 bonus to AC for you and allies",
+        "+1 bonus to saving throws for you and allies",
+        "Can sense location of any Invisible creature in Bright Light"
+      ],
+      "duration": "10 minutes or until creature pulls rod from ground (Magic action)",
+      "recharge": "Next dawn"
+    }
+  }
+}

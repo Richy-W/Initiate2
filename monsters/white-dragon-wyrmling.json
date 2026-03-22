@@ -1,0 +1,82 @@
+{
+  "name": "White Dragon Wyrmling",
+  "size": "Medium",
+  "type": "Dragon",
+  "subtype": "Chromatic",
+  "alignment": "Chaotic Evil",
+  "armor_class": 16,
+  "armor_description": "Natural Armor",
+  "hit_points": 32,
+  "hit_dice": "5d8 + 10",
+  "speed": {
+    "walk": "30 ft.",
+    "burrow": "15 ft.",
+    "fly": "60 ft.",
+    "swim": "30 ft."
+  },
+  "ability_scores": {
+    "strength": 14,
+    "dexterity": 10,
+    "constitution": 14,
+    "intelligence": 5,
+    "wisdom": 10,
+    "charisma": 11
+  },
+  "saving_throws": {
+    "strength": "+2",
+    "dexterity": "+2",
+    "constitution": "+2",
+    "intelligence": "-3",
+    "wisdom": "+2",
+    "charisma": "+0"
+  },
+  "skills": {
+    "perception": "+4",
+    "stealth": "+2"
+  },
+  "damage_resistances": [],
+  "damage_immunities": ["Cold"],
+  "condition_immunities": [],
+  "senses": {
+    "blindsight": "10 ft.",
+    "darkvision": "60 ft.",
+    "passive_perception": 14
+  },
+  "languages": ["Draconic"],
+  "challenge_rating": "2",
+  "experience_points": 450,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Ice Walk",
+      "description": "The dragon can move across and climb icy surfaces without needing to make an ability check. Additionally, Difficult Terrain composed of ice or snow doesn't cost it extra movement."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The dragon makes two Rend attacks."
+    },
+    {
+      "name": "Rend",
+      "type": "weapon",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 6 (1d8 + 2) Slashing damage plus 2 (1d4) Cold damage."
+    },
+    {
+      "name": "Cold Breath (Recharge 5–6)",
+      "type": "special",
+      "description": "Constitution Saving Throw: DC 12, each creature in a 15-foot Cone. Failure: 22 (5d8) Cold damage. Success: Half damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "equipment": [],
+  "tactical_info": {
+    "combat_role": "Young Dragon Threat",
+    "preferred_range": "Melee with Breath Weapon",
+    "key_abilities": ["Cold breath cone", "Ice walking mobility", "Multi-attack"],
+    "weaknesses": ["Young age vulnerability", "Limited spell resistance"],
+    "tactics": "Uses cold breath to soften groups, then closes for rend attacks. Ice walk provides superior mobility in cold environments."
+  }
+}

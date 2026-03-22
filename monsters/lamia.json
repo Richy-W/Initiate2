@@ -1,0 +1,103 @@
+{
+  "name": "Lamia",
+  "size": "Large",
+  "type": "Fiend",
+  "alignment": "Chaotic Evil",
+  "armor_class": {
+    "value": 13,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 1,
+    "total": 11
+  },
+  "hit_points": {
+    "average": 97,
+    "formula": "13d10 + 26"
+  },
+  "speed": {
+    "walk": 40
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "intelligence": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "wisdom": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "charisma": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    }
+  },
+  "skills": {
+    "Deception": 7,
+    "Insight": 4,
+    "Stealth": 5
+  },
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 12
+  },
+  "languages": ["Abyssal", "Common"],
+  "challenge_rating": {
+    "cr": 4,
+    "xp": 1100,
+    "proficiency_bonus": 2
+  },
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The lamia makes two Claw attacks. It can replace one attack with a use of Corrupting Touch."
+    },
+    {
+      "name": "Claw",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 7 (1d8 + 3) Slashing damage plus 7 (2d6) Psychic damage.",
+      "attack_roll": 5,
+      "reach": 5,
+      "damage": "7 (1d8 + 3) + 7 (2d6)",
+      "damage_type": "Slashing + Psychic"
+    },
+    {
+      "name": "Corrupting Touch",
+      "description": "Wisdom Saving Throw: DC 13, one creature the lamia can see within 5 feet. Failure: 13 (3d8) Psychic damage, and the target is cursed for 1 hour. Until the curse ends, the target has the Charmed and Poisoned conditions."
+    },
+    {
+      "name": "Spellcasting",
+      "description": "The lamia casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 13): At Will: Disguise Self (can appear as a Large or Medium biped), Minor Illusion; 1/Day Each: Geas, Major Image, Scrying"
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Leap",
+      "description": "The lamia jumps up to 30 feet by spending 10 feet of movement."
+    }
+  ],
+  "tactical_info": {
+    "role": "Deceptive Predator/Controller",
+    "environment": "Deserts, ruins, abandoned cities, lairs in ancient structures",
+    "tactics": "Uses disguise self for deception, corrupting touch to debilitate enemies, leap for mobility and positioning",
+    "weaknesses": "Moderate AC and hit points, relies on deception and charm effects",
+    "signature_abilities": ["Charming and poisoning corrupting touch", "Enhanced disguise self", "High mobility leap", "Psychic damage claws"]
+  }
+}

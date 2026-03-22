@@ -1,0 +1,16 @@
+{
+  "name": "Archery",
+  "category": "Fighting Style",
+  "prerequisite": {
+    "features": ["Fighting Style Feature"]
+  },
+  "benefits": [
+    {
+      "name": "Ranged Attack Bonus",
+      "description": "You gain a +2 bonus to attack rolls you make with Ranged weapons.",
+      "type": "combat"
+    }
+  ],
+  "repeatable": false,
+  "sourceBook": "Player's Handbook 2024"
+}

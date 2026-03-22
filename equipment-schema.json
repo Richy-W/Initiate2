@@ -1,0 +1,211 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "D&D 5e 2024 Equipment Schema",
+  "description": "Schema for validating D&D equipment data including weapons, armor, tools, and other items",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the equipment item"
+    },
+    "category": {
+      "type": "string",
+      "enum": ["weapon", "armor", "tool", "gear", "currency", "ammunition"],
+      "description": "Primary category of the equipment"
+    },
+    "subcategory": {
+      "type": "string",
+      "description": "Subcategory (e.g., 'Simple Melee', 'Light Armor', 'Artisan's Tools')"
+    },
+    "cost": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "minimum": 0
+        },
+        "currency": {
+          "type": "string",
+          "enum": ["cp", "sp", "ep", "gp", "pp"],
+          "description": "Currency denomination"
+        }
+      },
+      "required": ["amount", "currency"],
+      "description": "Cost of the item"
+    },
+    "weight": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Weight in pounds"
+    },
+    "damage": {
+      "type": "object",
+      "properties": {
+        "dice": {
+          "type": "string",
+          "description": "Damage dice (e.g., '1d8', '2d6')"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["bludgeoning", "piercing", "slashing", "acid", "cold", "fire", "force", "lightning", "necrotic", "poison", "psychic", "radiant", "thunder"],
+          "description": "Damage type"
+        }
+      },
+      "required": ["dice", "type"],
+      "description": "Damage dealt by weapons"
+    },
+    "armorClass": {
+      "type": "object",
+      "properties": {
+        "base": {
+          "type": "number",
+          "minimum": 10
+        },
+        "dexModifier": {
+          "type": "boolean",
+          "description": "Whether Dexterity modifier is added"
+        },
+        "maxDexModifier": {
+          "type": "number",
+          "description": "Maximum Dexterity modifier that can be added"
+        },
+        "formula": {
+          "type": "string",
+          "description": "AC calculation formula"
+        }
+      },
+      "description": "Armor class provided by armor"
+    },
+    "properties": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of weapon/armor properties"
+    },
+    "mastery": {
+      "type": "string",
+      "enum": ["cleave", "graze", "nick", "push", "sap", "slow", "topple", "vex"],
+      "description": "Weapon mastery property"
+    },
+    "requirements": {
+      "type": "object",
+      "properties": {
+        "strength": {
+          "type": "number",
+          "description": "Minimum Strength requirement"
+        },
+        "proficiency": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Required proficiencies"
+        }
+      },
+      "description": "Requirements to use the equipment effectively"
+    },
+    "effects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["disadvantage", "speed_reduction", "stealth_penalty", "bonus", "special"]
+          }
+        },
+        "required": ["name", "description", "type"]
+      },
+      "description": "Special effects or penalties"
+    },
+    "range": {
+      "type": "object",
+      "properties": {
+        "normal": {
+          "type": "number",
+          "description": "Normal range in feet"
+        },
+        "long": {
+          "type": "number",
+          "description": "Long range in feet"
+        },
+        "thrown": {
+          "type": "boolean",
+          "description": "Whether the weapon can be thrown"
+        }
+      },
+      "description": "Range for ranged weapons"
+    },
+    "ammunition": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["arrow", "bolt", "bullet", "needle"]
+        },
+        "required": {
+          "type": "boolean"
+        }
+      },
+      "description": "Ammunition requirements for ranged weapons"
+    },
+    "tool": {
+      "type": "object",
+      "properties": {
+        "ability": {
+          "type": "string",
+          "enum": ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"],
+          "description": "Primary ability used with the tool"
+        },
+        "utilize": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "dc": {
+                "type": "number"
+              }
+            },
+            "required": ["action", "dc"]
+          },
+          "description": "Actions possible with the Utilize action"
+        },
+        "craft": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Items that can be crafted with this tool"
+        },
+        "variants": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Tool variants requiring separate proficiency"
+        }
+      },
+      "description": "Tool-specific properties"
+    },
+    "donDoffTime": {
+      "type": "string",
+      "description": "Time required to don or doff armor"
+    },
+    "sourceBook": {
+      "type": "string",
+      "description": "Source book reference"
+    }
+  },
+  "required": ["name", "category", "cost", "sourceBook"],
+  "additionalProperties": false
+}

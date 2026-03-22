@@ -1,0 +1,72 @@
+{
+  "name": "Winter Wolf",
+  "size": "Large",
+  "type": "Monstrosity",
+  "alignment": "Neutral Evil",
+  "armor_class": 13,
+  "armor_description": "Natural Armor",
+  "hit_points": 75,
+  "hit_dice": "10d10 + 20",
+  "speed": {
+    "walk": "50 ft."
+  },
+  "ability_scores": {
+    "strength": 18,
+    "dexterity": 13,
+    "constitution": 14,
+    "intelligence": 7,
+    "wisdom": 12,
+    "charisma": 8
+  },
+  "saving_throws": {
+    "strength": "+4",
+    "dexterity": "+1",
+    "constitution": "+2",
+    "intelligence": "-2",
+    "wisdom": "+1",
+    "charisma": "-1"
+  },
+  "skills": {
+    "perception": "+5",
+    "stealth": "+5"
+  },
+  "damage_resistances": [],
+  "damage_immunities": ["Cold"],
+  "condition_immunities": [],
+  "senses": {
+    "passive_perception": 15
+  },
+  "languages": ["Common", "Giant"],
+  "challenge_rating": "3",
+  "experience_points": 700,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Pack Tactics",
+      "description": "The wolf has Advantage on an attack roll against a creature if at least one of the wolf's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Bite",
+      "type": "weapon",
+      "description": "Melee Attack Roll: +6, reach 5 ft. Hit: 11 (2d6 + 4) Piercing damage. If the target is a Large or smaller creature, it has the Prone condition."
+    },
+    {
+      "name": "Cold Breath (Recharge 5–6)",
+      "type": "special",
+      "description": "Constitution Saving Throw: DC 12, each creature in a 15-foot Cone. Failure: 18 (4d8) Cold damage. Success: Half damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "equipment": [],
+  "tactical_info": {
+    "combat_role": "Pack Predator",
+    "preferred_range": "Melee with Breath Support",
+    "key_abilities": ["Pack tactics", "Cold breath cone", "Prone attacks", "High speed"],
+    "weaknesses": ["Dependent on pack for maximum effectiveness", "Moderate durability"],
+    "tactics": "Works with pack to surround enemies. Uses cold breath to soften groups, then charges for bite attacks to knock prone. Excellent mobility for flanking."
+  }
+}

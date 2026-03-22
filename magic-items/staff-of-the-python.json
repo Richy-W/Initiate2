@@ -1,0 +1,32 @@
+{
+  "name": "Staff of the Python",
+  "type": "Staff",
+  "rarity": "Uncommon",
+  "attunement": true,
+  "description": "As a Magic action, you can throw this staff so that it lands in an unoccupied space within 10 feet of you, causing the staff to become a Giant Constrictor Snake in that space.",
+  "properties": {
+    "transformation": {
+      "action_type": "Magic action",
+      "range": "10 feet",
+      "result": "Staff becomes Giant Constrictor Snake"
+    },
+    "snake_control": {
+      "control": "Under your control, shares Initiative",
+      "turn_order": "Takes turn immediately after yours",
+      "command_range": "60 feet",
+      "command_requirement": "Mental command (no action) if you're not Incapacitated",
+      "command_options": [
+        "Decide actions and movement",
+        "Issue general command (attack enemies, guard location)",
+        "Defend itself if no commands"
+      ]
+    },
+    "reversion": {
+      "action_type": "Bonus Action to command reversion",
+      "reversion_location": "Staff's current space",
+      "recharge": "Can't use property again for 1 hour",
+      "snake_destruction": "Dies and reverts to staff if reduced to 0 HP, staff shatters and destroyed",
+      "early_reversion": "Snake regains all HP if reverts before losing all HP"
+    }
+  }
+}

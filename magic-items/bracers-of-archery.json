@@ -1,0 +1,13 @@
+{
+  "name": "Bracers of Archery",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "requires_attunement": true,
+  "overview": "These bracers grant proficiency with longbows and shortbows, along with bonus damage.",
+  "properties": {
+    "proficiency": "You have proficiency with the Longbow and Shortbow",
+    "damage_bonus": "You gain a +2 bonus to damage rolls made with such weapons"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

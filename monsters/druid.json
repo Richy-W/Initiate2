@@ -1,0 +1,101 @@
+{
+  "name": "Druid",
+  "size": "Medium",
+  "type": "Humanoid",
+  "alignment": "Neutral",
+  "armor_class": {
+    "value": 13,
+    "source": "Studded Leather Armor"
+  },
+  "initiative": {
+    "bonus": 1,
+    "total": 11
+  },
+  "hit_points": {
+    "average": 44,
+    "formula": "8d8 + 8"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "charisma": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    }
+  },
+  "skills": {
+    "medicine": 5,
+    "nature": 3,
+    "perception": 5
+  },
+  "equipment": ["Studded Leather Armor"],
+  "senses": {
+    "passive_perception": 15
+  },
+  "languages": ["Common", "Druidic", "Sylvan"],
+  "challenge_rating": {
+    "cr": 2,
+    "xp": 450,
+    "proficiency_bonus": 2
+  },
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The druid makes two attacks, using Vine Staff or Verdant Wisp in any combination."
+    },
+    {
+      "name": "Vine Staff",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 7 (1d8 + 3) Bludgeoning damage plus 2 (1d4) Poison damage.",
+      "attack_roll": 5,
+      "reach": 5,
+      "damage": "7 (1d8 + 3) + 2 (1d4)",
+      "damage_type": "Bludgeoning plus Poison"
+    },
+    {
+      "name": "Verdant Wisp",
+      "description": "Ranged Attack Roll: +5, range 90 ft. Hit: 10 (3d6) Radiant damage.",
+      "attack_roll": 5,
+      "range": "90",
+      "damage": "10 (3d6)",
+      "damage_type": "Radiant"
+    },
+    {
+      "name": "Spellcasting",
+      "description": "The druid casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 13): At Will: Druidcraft, Speak with Animals; 2/Day Each: Entangle, Thunderwave; 1/Day Each: Animal Messenger, Longstrider, Moonbeam"
+    }
+  ],
+  "tactical_info": {
+    "role": "Nature Spellcaster/Support",
+    "environment": "Forests, groves, natural areas, druid circles",
+    "tactics": "Uses nature magic for battlefield control, supports with healing and utility spells, communicates with animal allies",
+    "weaknesses": "Limited to nature-based magic, vulnerable without animal or plant allies",
+    "signature_abilities": ["Nature spellcasting", "Animal communication", "Verdant wisp attacks", "Druidic knowledge"]
+  }
+}

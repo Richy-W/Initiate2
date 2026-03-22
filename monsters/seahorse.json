@@ -1,0 +1,63 @@
+{
+  "name": "Seahorse",
+  "size": "Tiny",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 12,
+  "hit_points": 1,
+  "hit_dice": "1d4 - 1",
+  "speed": {
+    "walk": 5,
+    "swim": 20
+  },
+  "ability_scores": {
+    "strength": 1,
+    "dexterity": 12,
+    "constitution": 8,
+    "intelligence": 1,
+    "wisdom": 10,
+    "charisma": 2
+  },
+  "saving_throws": {
+    "strength": -5,
+    "dexterity": 1,
+    "constitution": -1,
+    "intelligence": -5,
+    "wisdom": 0,
+    "charisma": -4
+  },
+  "skills": {
+    "perception": 2,
+    "stealth": 5
+  },
+  "senses": [
+    "Passive Perception 12"
+  ],
+  "languages": "None",
+  "challenge_rating": 0,
+  "experience_points": 0,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Water Breathing",
+      "description": "The seahorse can breathe only underwater."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Bubble Dash",
+      "description": "While underwater, the seahorse moves up to its Swim Speed without provoking Opportunity Attacks."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Escape Artist - Tiny aquatic creature with evasion",
+    "positioning": "Uses Bubble Dash for quick repositioning underwater",
+    "damage_output": "No direct combat capability",
+    "key_abilities": "Bubble Dash avoids opportunity attacks, high stealth",
+    "weaknesses": "No offensive capability, extremely fragile",
+    "synergies": "Perfect for environmental flavor and aquatic scenery"
+  }
+}

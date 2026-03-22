@@ -1,0 +1,90 @@
+{
+  "name": "Giant Fire Beetle",
+  "size": "Small",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 13,
+  "initiative": 0,
+  "hit_points": {
+    "average": 4,
+    "formula": "1d6 + 1"
+  },
+  "speed": {
+    "walk": 30,
+    "climb": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 8,
+      "modifier": -1,
+      "save": -1
+    },
+    "dexterity": {
+      "score": 10,
+      "modifier": 0,
+      "save": 0
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1,
+      "save": 1
+    },
+    "intelligence": {
+      "score": 1,
+      "modifier": -5,
+      "save": -5
+    },
+    "wisdom": {
+      "score": 7,
+      "modifier": -2,
+      "save": -2
+    },
+    "charisma": {
+      "score": 3,
+      "modifier": -4,
+      "save": -4
+    }
+  },
+  "skills": {},
+  "damage_resistances": ["fire"],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "blindsight": 30,
+    "passive_perception": 8
+  },
+  "languages": [],
+  "challenge_rating": 0,
+  "experience_points": 10,
+  "proficiency_bonus": 2,
+  "actions": [
+    {
+      "name": "Bite",
+      "type": "melee_attack",
+      "attack_bonus": 1,
+      "reach": 5,
+      "targets": "one target",
+      "damage": {
+        "damage_dice": "1",
+        "damage_type": "fire",
+        "average_damage": 1
+      },
+      "description": "Melee Attack Roll: +1, reach 5 ft. Hit: 1 Fire damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "traits": [
+    {
+      "name": "Illumination",
+      "description": "The beetle sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet."
+    }
+  ],
+  "tactical_info": {
+    "optimal_range": "Underground exploration providing illumination",
+    "key_abilities": ["Illumination trait", "Fire resistance", "Climbing movement"],
+    "weaknesses": ["Very low hit points", "Poor combat stats", "Minimal damage"],
+    "synergies": ["Cave exploration", "Natural light source", "Fire-themed encounters"]
+  }
+}

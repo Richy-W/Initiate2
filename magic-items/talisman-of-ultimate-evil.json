@@ -1,0 +1,38 @@
+{
+  "name": "Talisman of Ultimate Evil",
+  "type": "Wondrous Item",
+  "rarity": "Legendary",
+  "attunement": true,
+  "description": "This item symbolizes unrepentant evil. A creature that isn't a Fiend or an Undead that touches the talisman takes 8d6 Necrotic damage and takes the damage again each time it ends its turn holding or carrying the talisman.",
+  "properties": {
+    "touch_damage": {
+      "creature_types": "Any creature that isn't Fiend or Undead",
+      "damage": "8d6 Necrotic",
+      "trigger": "Touches talisman and each turn it ends holding/carrying it"
+    },
+    "holy_symbol": {
+      "functionality": "Can use as Holy Symbol",
+      "spell_attack_bonus": "+2 to spell attack rolls while wearing or holding"
+    },
+    "ultimate_end": {
+      "charges": {
+        "max_charges": 6,
+        "current_charges": 6
+      },
+      "activation": "Magic action",
+      "charges_cost": 1,
+      "range": "120 feet",
+      "target": "One creature on ground you can see",
+      "effect": "Flaming fissure opens under target",
+      "saving_throw": {
+        "type": "Dexterity",
+        "dc": 20
+      },
+      "disadvantage_on_save": "Celestial has Disadvantage",
+      "on_failure": "Falls into fissure and is destroyed, leaving no remains",
+      "on_success": "Takes 4d6 Psychic damage, doesn't fall into fissure",
+      "fissure_closes": "After resolution, fissure closes leaving no trace",
+      "destruction": "When last charge expended, talisman dissolves into foul-smelling slime and destroyed"
+    }
+  }
+}

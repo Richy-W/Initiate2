@@ -1,0 +1,28 @@
+{
+  "name": "Creature Type",
+  "slug": "creature-type",
+  "definition": "Every creature, including every player character, has a tag in the rules that identifies the type of creature it is.",
+  "category": "Creatures & Types",
+  "tags": [],
+  "full_text": "Every creature, including every player character, has a tag in the rules that identifies the type of creature it is. Most player characters are of the Humanoid type.",
+  "creature_types": [
+    "Aberration",
+    "Beast",
+    "Celestial",
+    "Construct",
+    "Dragon",
+    "Elemental",
+    "Fey",
+    "Fiend",
+    "Giant",
+    "Humanoid",
+    "Monstrosity",
+    "Ooze",
+    "Plant",
+    "Undead"
+  ],
+  "note": "The types don't have rules themselves, but some rules in the game affect creatures of certain types in different ways",
+  "see_also": [
+    "Creature"
+  ]
+}

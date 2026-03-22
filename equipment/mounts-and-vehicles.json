@@ -1,0 +1,259 @@
+{
+  "title": "D&D 5e 2024 Mounts and Vehicles",
+  "version": "2024",
+  "description": "Complete list of mounts, vehicles, and transportation options",
+  "mounts": [
+    {
+      "name": "Camel",
+      "category": "Mount",
+      "carryingCapacity": 450,
+      "cost": { "amount": 50, "currency": "gp" },
+      "description": "Hardy desert mount capable of long journeys without water"
+    },
+    {
+      "name": "Elephant",
+      "category": "Mount",
+      "carryingCapacity": 1320,
+      "cost": { "amount": 200, "currency": "gp" },
+      "description": "Massive mount with exceptional carrying capacity"
+    },
+    {
+      "name": "Horse, Draft",
+      "category": "Mount",
+      "carryingCapacity": 540,
+      "cost": { "amount": 50, "currency": "gp" },
+      "description": "Strong working horse bred for pulling heavy loads"
+    },
+    {
+      "name": "Horse, Riding",
+      "category": "Mount",
+      "carryingCapacity": 480,
+      "cost": { "amount": 75, "currency": "gp" },
+      "description": "Standard riding horse for travel and transportation"
+    },
+    {
+      "name": "Mastiff",
+      "category": "Mount",
+      "carryingCapacity": 195,
+      "cost": { "amount": 25, "currency": "gp" },
+      "description": "Large dog suitable for smaller riders or as a pack animal"
+    },
+    {
+      "name": "Mule",
+      "category": "Mount",
+      "carryingCapacity": 420,
+      "cost": { "amount": 8, "currency": "gp" },
+      "description": "Sturdy and reliable pack animal, excellent for rough terrain"
+    },
+    {
+      "name": "Pony",
+      "category": "Mount",
+      "carryingCapacity": 225,
+      "cost": { "amount": 30, "currency": "gp" },
+      "description": "Small horse suitable for smaller riders"
+    },
+    {
+      "name": "Warhorse",
+      "category": "Mount",
+      "carryingCapacity": 540,
+      "cost": { "amount": 400, "currency": "gp" },
+      "description": "Trained for combat, brave and loyal in battle"
+    }
+  ],
+  "tackAndHarness": [
+    {
+      "name": "Carriage",
+      "category": "Drawn Vehicle",
+      "weight": 600,
+      "cost": { "amount": 100, "currency": "gp" },
+      "description": "Enclosed passenger vehicle for comfortable travel"
+    },
+    {
+      "name": "Cart",
+      "category": "Drawn Vehicle",
+      "weight": 200,
+      "cost": { "amount": 15, "currency": "gp" },
+      "description": "Simple two-wheeled vehicle for transporting goods"
+    },
+    {
+      "name": "Chariot",
+      "category": "Drawn Vehicle",
+      "weight": 100,
+      "cost": { "amount": 250, "currency": "gp" },
+      "description": "Fast two-wheeled vehicle for racing or combat"
+    },
+    {
+      "name": "Feed per day",
+      "category": "Animal Care",
+      "weight": 10,
+      "cost": { "amount": 5, "currency": "cp" },
+      "description": "Daily food requirement for one mount"
+    },
+    {
+      "name": "Saddle, Exotic",
+      "category": "Tack",
+      "weight": 40,
+      "cost": { "amount": 60, "currency": "gp" },
+      "description": "Required for riding aquatic or flying mounts"
+    },
+    {
+      "name": "Saddle, Military",
+      "category": "Tack",
+      "weight": 30,
+      "cost": { "amount": 20, "currency": "gp" },
+      "description": "Gives Advantage on ability checks to remain mounted"
+    },
+    {
+      "name": "Saddle, Riding",
+      "category": "Tack",
+      "weight": 25,
+      "cost": { "amount": 10, "currency": "gp" },
+      "description": "Standard saddle with bit, bridle, reins, and other equipment"
+    },
+    {
+      "name": "Sled",
+      "category": "Drawn Vehicle",
+      "weight": 300,
+      "cost": { "amount": 20, "currency": "gp" },
+      "description": "Winter vehicle for snow and ice travel"
+    },
+    {
+      "name": "Stabling per day",
+      "category": "Animal Care",
+      "weight": 0,
+      "cost": { "amount": 5, "currency": "sp" },
+      "description": "Daily cost for housing and caring for a mount"
+    },
+    {
+      "name": "Wagon",
+      "category": "Drawn Vehicle",
+      "weight": 400,
+      "cost": { "amount": 35, "currency": "gp" },
+      "description": "Four-wheeled vehicle for transporting heavy loads"
+    }
+  ],
+  "largeVehicles": [
+    {
+      "name": "Airship",
+      "category": "Airborne Vehicle",
+      "speed": "8 mph",
+      "crew": 10,
+      "passengers": 20,
+      "cargoTons": 1,
+      "ac": 13,
+      "hitPoints": 300,
+      "damageThreshold": null,
+      "cost": { "amount": 40000, "currency": "gp" },
+      "description": "Magical flying vessel for air travel"
+    },
+    {
+      "name": "Galley",
+      "category": "Waterborne Vehicle",
+      "speed": "4 mph",
+      "crew": 80,
+      "passengers": 0,
+      "cargoTons": 150,
+      "ac": 15,
+      "hitPoints": 500,
+      "damageThreshold": 20,
+      "cost": { "amount": 30000, "currency": "gp" },
+      "description": "Large warship with both oars and sails"
+    },
+    {
+      "name": "Keelboat",
+      "category": "Waterborne Vehicle",
+      "speed": "1 mph",
+      "crew": 1,
+      "passengers": 6,
+      "cargoTons": 0.5,
+      "ac": 15,
+      "hitPoints": 100,
+      "damageThreshold": 10,
+      "cost": { "amount": 3000, "currency": "gp" },
+      "description": "Small sailing vessel for rivers and lakes"
+    },
+    {
+      "name": "Longship",
+      "category": "Waterborne Vehicle",
+      "speed": "3 mph",
+      "crew": 40,
+      "passengers": 150,
+      "cargoTons": 10,
+      "ac": 15,
+      "hitPoints": 300,
+      "damageThreshold": 15,
+      "cost": { "amount": 10000, "currency": "gp" },
+      "description": "Viking-style vessel with oars and sail"
+    },
+    {
+      "name": "Rowboat",
+      "category": "Waterborne Vehicle",
+      "speed": "1½ mph",
+      "crew": 1,
+      "passengers": 3,
+      "cargoTons": 0,
+      "ac": 11,
+      "hitPoints": 50,
+      "damageThreshold": null,
+      "cost": { "amount": 50, "currency": "gp" },
+      "weight": 100,
+      "description": "Small boat that can be carried and rowed"
+    },
+    {
+      "name": "Sailing Ship",
+      "category": "Waterborne Vehicle",
+      "speed": "2 mph",
+      "crew": 20,
+      "passengers": 20,
+      "cargoTons": 100,
+      "ac": 15,
+      "hitPoints": 300,
+      "damageThreshold": 15,
+      "cost": { "amount": 10000, "currency": "gp" },
+      "description": "Standard oceangoing merchant vessel"
+    },
+    {
+      "name": "Warship",
+      "category": "Waterborne Vehicle",
+      "speed": "2½ mph",
+      "crew": 60,
+      "passengers": 60,
+      "cargoTons": 200,
+      "ac": 15,
+      "hitPoints": 500,
+      "damageThreshold": 20,
+      "cost": { "amount": 25000, "currency": "gp" },
+      "description": "Military vessel equipped for naval combat"
+    }
+  ],
+  "bardingRules": {
+    "description": "Barding is armor designed for a mount. Any type of armor can be purchased as barding.",
+    "costMultiplier": 4,
+    "weightMultiplier": 2,
+    "note": "The cost is four times the normal cost, and it weighs twice as much."
+  },
+  "cargoRules": {
+    "description": "An animal pulling a vehicle can move weight up to five times its base carrying capacity, including the weight of the vehicle.",
+    "multipleAnimals": "If multiple animals pull the same vehicle, add their carrying capacities together."
+  },
+  "shipRules": {
+    "windConditions": {
+      "strongWind": "A ship sailing against a strong wind moves at half speed",
+      "deadCalm": "In a dead calm (no wind), waterborne ships can't move under sail and must be rowed"
+    },
+    "currentEffects": {
+      "downstream": "Add the speed of the current (typically 3 miles per hour) to the speed of the vehicle",
+      "upstream": "These vehicles can't be rowed against any significant current, but they can be pulled upstream by draft animals on the shores"
+    },
+    "passengerRates": {
+      "hammock": "5 SP per day",
+      "privateCabin": "2 GP per day"
+    },
+    "repair": {
+      "cost": "20 GP per Hit Point",
+      "time": "1 day per Hit Point",
+      "cityModifier": "Repair time and cost are halved in a city shipyard"
+    }
+  },
+  "sourceBook": "Player's Handbook 2024"
+}

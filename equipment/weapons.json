@@ -1,0 +1,395 @@
+{
+  "title": "D&D 5e 2024 Weapons",
+  "version": "2024",
+  "description": "Complete list of all weapons with properties, damage, and costs",
+  "weapons": [
+    {
+      "name": "Club",
+      "category": "Simple Melee",
+      "damage": { "dice": "1d4", "type": "bludgeoning" },
+      "properties": ["light"],
+      "mastery": "slow",
+      "weight": 2,
+      "cost": { "amount": 1, "currency": "sp" }
+    },
+    {
+      "name": "Dagger",
+      "category": "Simple Melee",
+      "damage": { "dice": "1d4", "type": "piercing" },
+      "properties": ["finesse", "light", "thrown"],
+      "range": { "normal": 20, "long": 60 },
+      "mastery": "nick",
+      "weight": 1,
+      "cost": { "amount": 2, "currency": "gp" }
+    },
+    {
+      "name": "Greatclub",
+      "category": "Simple Melee",
+      "damage": { "dice": "1d8", "type": "bludgeoning" },
+      "properties": ["two-handed"],
+      "mastery": "push",
+      "weight": 10,
+      "cost": { "amount": 2, "currency": "sp" }
+    },
+    {
+      "name": "Handaxe",
+      "category": "Simple Melee",
+      "damage": { "dice": "1d6", "type": "slashing" },
+      "properties": ["light", "thrown"],
+      "range": { "normal": 20, "long": 60 },
+      "mastery": "vex",
+      "weight": 2,
+      "cost": { "amount": 5, "currency": "gp" }
+    },
+    {
+      "name": "Javelin",
+      "category": "Simple Melee",
+      "damage": { "dice": "1d6", "type": "piercing" },
+      "properties": ["thrown"],
+      "range": { "normal": 30, "long": 120 },
+      "mastery": "slow",
+      "weight": 2,
+      "cost": { "amount": 5, "currency": "sp" }
+    },
+    {
+      "name": "Light Hammer",
+      "category": "Simple Melee",
+      "damage": { "dice": "1d4", "type": "bludgeoning" },
+      "properties": ["light", "thrown"],
+      "range": { "normal": 20, "long": 60 },
+      "mastery": "nick",
+      "weight": 2,
+      "cost": { "amount": 2, "currency": "gp" }
+    },
+    {
+      "name": "Mace",
+      "category": "Simple Melee",
+      "damage": { "dice": "1d6", "type": "bludgeoning" },
+      "properties": [],
+      "mastery": "sap",
+      "weight": 4,
+      "cost": { "amount": 5, "currency": "gp" }
+    },
+    {
+      "name": "Quarterstaff",
+      "category": "Simple Melee",
+      "damage": { "dice": "1d6", "type": "bludgeoning" },
+      "properties": ["versatile"],
+      "versatileDamage": "1d8",
+      "mastery": "topple",
+      "weight": 4,
+      "cost": { "amount": 2, "currency": "sp" }
+    },
+    {
+      "name": "Sickle",
+      "category": "Simple Melee",
+      "damage": { "dice": "1d4", "type": "slashing" },
+      "properties": ["light"],
+      "mastery": "nick",
+      "weight": 2,
+      "cost": { "amount": 1, "currency": "gp" }
+    },
+    {
+      "name": "Spear",
+      "category": "Simple Melee",
+      "damage": { "dice": "1d6", "type": "piercing" },
+      "properties": ["thrown", "versatile"],
+      "range": { "normal": 20, "long": 60 },
+      "versatileDamage": "1d8",
+      "mastery": "sap",
+      "weight": 3,
+      "cost": { "amount": 1, "currency": "gp" }
+    },
+    {
+      "name": "Dart",
+      "category": "Simple Ranged",
+      "damage": { "dice": "1d4", "type": "piercing" },
+      "properties": ["finesse", "thrown"],
+      "range": { "normal": 20, "long": 60 },
+      "mastery": "vex",
+      "weight": 0.25,
+      "cost": { "amount": 5, "currency": "cp" }
+    },
+    {
+      "name": "Light Crossbow",
+      "category": "Simple Ranged",
+      "damage": { "dice": "1d8", "type": "piercing" },
+      "properties": ["ammunition", "loading", "two-handed"],
+      "ammunition": { "type": "bolt", "range": { "normal": 80, "long": 320 } },
+      "mastery": "slow",
+      "weight": 5,
+      "cost": { "amount": 25, "currency": "gp" }
+    },
+    {
+      "name": "Shortbow",
+      "category": "Simple Ranged",
+      "damage": { "dice": "1d6", "type": "piercing" },
+      "properties": ["ammunition", "two-handed"],
+      "ammunition": { "type": "arrow", "range": { "normal": 80, "long": 320 } },
+      "mastery": "vex",
+      "weight": 2,
+      "cost": { "amount": 25, "currency": "gp" }
+    },
+    {
+      "name": "Sling",
+      "category": "Simple Ranged",
+      "damage": { "dice": "1d4", "type": "bludgeoning" },
+      "properties": ["ammunition"],
+      "ammunition": { "type": "bullet", "range": { "normal": 30, "long": 120 } },
+      "mastery": "slow",
+      "weight": 0,
+      "cost": { "amount": 1, "currency": "sp" }
+    },
+    {
+      "name": "Battleaxe",
+      "category": "Martial Melee",
+      "damage": { "dice": "1d8", "type": "slashing" },
+      "properties": ["versatile"],
+      "versatileDamage": "1d10",
+      "mastery": "topple",
+      "weight": 4,
+      "cost": { "amount": 10, "currency": "gp" }
+    },
+    {
+      "name": "Flail",
+      "category": "Martial Melee",
+      "damage": { "dice": "1d8", "type": "bludgeoning" },
+      "properties": [],
+      "mastery": "sap",
+      "weight": 2,
+      "cost": { "amount": 10, "currency": "gp" }
+    },
+    {
+      "name": "Glaive",
+      "category": "Martial Melee",
+      "damage": { "dice": "1d10", "type": "slashing" },
+      "properties": ["heavy", "reach", "two-handed"],
+      "mastery": "graze",
+      "weight": 6,
+      "cost": { "amount": 20, "currency": "gp" }
+    },
+    {
+      "name": "Greataxe",
+      "category": "Martial Melee",
+      "damage": { "dice": "1d12", "type": "slashing" },
+      "properties": ["heavy", "two-handed"],
+      "mastery": "cleave",
+      "weight": 7,
+      "cost": { "amount": 30, "currency": "gp" }
+    },
+    {
+      "name": "Greatsword",
+      "category": "Martial Melee",
+      "damage": { "dice": "2d6", "type": "slashing" },
+      "properties": ["heavy", "two-handed"],
+      "mastery": "graze",
+      "weight": 6,
+      "cost": { "amount": 50, "currency": "gp" }
+    },
+    {
+      "name": "Halberd",
+      "category": "Martial Melee",
+      "damage": { "dice": "1d10", "type": "slashing" },
+      "properties": ["heavy", "reach", "two-handed"],
+      "mastery": "cleave",
+      "weight": 6,
+      "cost": { "amount": 20, "currency": "gp" }
+    },
+    {
+      "name": "Lance",
+      "category": "Martial Melee",
+      "damage": { "dice": "1d10", "type": "piercing" },
+      "properties": ["heavy", "reach", "two-handed (unless mounted)"],
+      "mastery": "topple",
+      "weight": 6,
+      "cost": { "amount": 10, "currency": "gp" }
+    },
+    {
+      "name": "Longsword",
+      "category": "Martial Melee",
+      "damage": { "dice": "1d8", "type": "slashing" },
+      "properties": ["versatile"],
+      "versatileDamage": "1d10",
+      "mastery": "sap",
+      "weight": 3,
+      "cost": { "amount": 15, "currency": "gp" }
+    },
+    {
+      "name": "Maul",
+      "category": "Martial Melee",
+      "damage": { "dice": "2d6", "type": "bludgeoning" },
+      "properties": ["heavy", "two-handed"],
+      "mastery": "topple",
+      "weight": 10,
+      "cost": { "amount": 10, "currency": "gp" }
+    },
+    {
+      "name": "Morningstar",
+      "category": "Martial Melee",
+      "damage": { "dice": "1d8", "type": "piercing" },
+      "properties": [],
+      "mastery": "sap",
+      "weight": 4,
+      "cost": { "amount": 15, "currency": "gp" }
+    },
+    {
+      "name": "Pike",
+      "category": "Martial Melee",
+      "damage": { "dice": "1d10", "type": "piercing" },
+      "properties": ["heavy", "reach", "two-handed"],
+      "mastery": "push",
+      "weight": 18,
+      "cost": { "amount": 5, "currency": "gp" }
+    },
+    {
+      "name": "Rapier",
+      "category": "Martial Melee",
+      "damage": { "dice": "1d8", "type": "piercing" },
+      "properties": ["finesse"],
+      "mastery": "vex",
+      "weight": 2,
+      "cost": { "amount": 25, "currency": "gp" }
+    },
+    {
+      "name": "Scimitar",
+      "category": "Martial Melee",
+      "damage": { "dice": "1d6", "type": "slashing" },
+      "properties": ["finesse", "light"],
+      "mastery": "nick",
+      "weight": 3,
+      "cost": { "amount": 25, "currency": "gp" }
+    },
+    {
+      "name": "Shortsword",
+      "category": "Martial Melee",
+      "damage": { "dice": "1d6", "type": "piercing" },
+      "properties": ["finesse", "light"],
+      "mastery": "vex",
+      "weight": 2,
+      "cost": { "amount": 10, "currency": "gp" }
+    },
+    {
+      "name": "Trident",
+      "category": "Martial Melee",
+      "damage": { "dice": "1d8", "type": "piercing" },
+      "properties": ["thrown", "versatile"],
+      "range": { "normal": 20, "long": 60 },
+      "versatileDamage": "1d10",
+      "mastery": "topple",
+      "weight": 4,
+      "cost": { "amount": 5, "currency": "gp" }
+    },
+    {
+      "name": "Warhammer",
+      "category": "Martial Melee",
+      "damage": { "dice": "1d8", "type": "bludgeoning" },
+      "properties": ["versatile"],
+      "versatileDamage": "1d10",
+      "mastery": "push",
+      "weight": 5,
+      "cost": { "amount": 15, "currency": "gp" }
+    },
+    {
+      "name": "War Pick",
+      "category": "Martial Melee",
+      "damage": { "dice": "1d8", "type": "piercing" },
+      "properties": ["versatile"],
+      "versatileDamage": "1d10",
+      "mastery": "sap",
+      "weight": 2,
+      "cost": { "amount": 5, "currency": "gp" }
+    },
+    {
+      "name": "Whip",
+      "category": "Martial Melee",
+      "damage": { "dice": "1d4", "type": "slashing" },
+      "properties": ["finesse", "reach"],
+      "mastery": "slow",
+      "weight": 3,
+      "cost": { "amount": 2, "currency": "gp" }
+    },
+    {
+      "name": "Blowgun",
+      "category": "Martial Ranged",
+      "damage": { "dice": "1", "type": "piercing" },
+      "properties": ["ammunition", "loading"],
+      "ammunition": { "type": "needle", "range": { "normal": 25, "long": 100 } },
+      "mastery": "vex",
+      "weight": 1,
+      "cost": { "amount": 10, "currency": "gp" }
+    },
+    {
+      "name": "Hand Crossbow",
+      "category": "Martial Ranged",
+      "damage": { "dice": "1d6", "type": "piercing" },
+      "properties": ["ammunition", "light", "loading"],
+      "ammunition": { "type": "bolt", "range": { "normal": 30, "long": 120 } },
+      "mastery": "vex",
+      "weight": 3,
+      "cost": { "amount": 75, "currency": "gp" }
+    },
+    {
+      "name": "Heavy Crossbow",
+      "category": "Martial Ranged",
+      "damage": { "dice": "1d10", "type": "piercing" },
+      "properties": ["ammunition", "heavy", "loading", "two-handed"],
+      "ammunition": { "type": "bolt", "range": { "normal": 100, "long": 400 } },
+      "mastery": "push",
+      "weight": 18,
+      "cost": { "amount": 50, "currency": "gp" }
+    },
+    {
+      "name": "Longbow",
+      "category": "Martial Ranged",
+      "damage": { "dice": "1d8", "type": "piercing" },
+      "properties": ["ammunition", "heavy", "two-handed"],
+      "ammunition": { "type": "arrow", "range": { "normal": 150, "long": 600 } },
+      "mastery": "slow",
+      "weight": 2,
+      "cost": { "amount": 50, "currency": "gp" }
+    },
+    {
+      "name": "Musket",
+      "category": "Martial Ranged",
+      "damage": { "dice": "1d12", "type": "piercing" },
+      "properties": ["ammunition", "loading", "two-handed"],
+      "ammunition": { "type": "bullet", "range": { "normal": 40, "long": 120 } },
+      "mastery": "slow",
+      "weight": 10,
+      "cost": { "amount": 500, "currency": "gp" }
+    },
+    {
+      "name": "Pistol",
+      "category": "Martial Ranged",
+      "damage": { "dice": "1d10", "type": "piercing" },
+      "properties": ["ammunition", "loading"],
+      "ammunition": { "type": "bullet", "range": { "normal": 30, "long": 90 } },
+      "mastery": "vex",
+      "weight": 3,
+      "cost": { "amount": 250, "currency": "gp" }
+    }
+  ],
+  "totalWeapons": 38,
+  "weaponProperties": {
+    "ammunition": "Requires ammunition to make ranged attacks",
+    "finesse": "Use Strength or Dexterity for attack and damage rolls",
+    "heavy": "Disadvantage on attacks if ability score less than 13",
+    "light": "Can make extra attack as Bonus Action with different Light weapon",
+    "loading": "Can fire only one piece of ammunition per action/bonus/reaction",
+    "reach": "Adds 5 feet to reach when attacking",
+    "thrown": "Can throw weapon to make ranged attack",
+    "two-handed": "Requires two hands to attack",
+    "versatile": "Can use with one or two hands (damage in parentheses for two hands)"
+  },
+  "masteryProperties": {
+    "cleave": "Hit second creature within 5 feet on successful hit",
+    "graze": "Deal ability modifier damage even on miss",
+    "nick": "Make Light weapon extra attack as part of Attack action",
+    "push": "Push Large or smaller creature up to 10 feet away",
+    "sap": "Target has disadvantage on next attack roll",
+    "slow": "Reduce target's speed by 10 feet until start of your next turn",
+    "topple": "Force Constitution save or target becomes Prone",
+    "vex": "Gain advantage on next attack roll against same target"
+  },
+  "sourceBook": "Player's Handbook 2024"
+}

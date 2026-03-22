@@ -1,0 +1,106 @@
+{
+  "name": "Cloud Giant",
+  "size": "Huge",
+  "type": "Giant",
+  "alignment": "Neutral",
+  "armor_class": {
+    "value": 14,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 4,
+    "total": 14
+  },
+  "hit_points": {
+    "average": 200,
+    "formula": "16d12 + 96"
+  },
+  "speed": {
+    "walk": 40,
+    "fly": 20
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 27,
+      "modifier": 8,
+      "saving_throw": 8
+    },
+    "dexterity": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "constitution": {
+      "score": 22,
+      "modifier": 6,
+      "saving_throw": 10
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 7
+    },
+    "charisma": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    }
+  },
+  "skills": {
+    "insight": 7,
+    "perception": 11
+  },
+  "senses": {
+    "passive_perception": 21
+  },
+  "languages": ["Common", "Giant"],
+  "challenge_rating": {
+    "cr": 9,
+    "xp": 5000,
+    "proficiency_bonus": 4
+  },
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The giant makes two attacks, using Thunderous Mace or Thundercloud in any combination. It can replace one attack with a use of Spellcasting to cast Fog Cloud."
+    },
+    {
+      "name": "Thunderous Mace",
+      "description": "Melee Attack Roll: +12, reach 10 ft. Hit: 21 (3d8 + 8) Bludgeoning damage plus 7 (2d6) Thunder damage.",
+      "attack_roll": 12,
+      "reach": 10,
+      "damage": "21 (3d8 + 8) Bludgeoning plus 7 (2d6) Thunder",
+      "damage_type": "Bludgeoning/Thunder"
+    },
+    {
+      "name": "Thundercloud",
+      "description": "Ranged Attack Roll: +12, range 240 ft. Hit: 18 (3d6 + 8) Thunder damage, and the target has the Incapacitated condition until the end of its next turn.",
+      "attack_roll": 12,
+      "range": 240,
+      "damage": "18 (3d6 + 8)",
+      "damage_type": "Thunder"
+    },
+    {
+      "name": "Spellcasting",
+      "description": "The giant casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 15): At Will: Detect Magic, Fog Cloud, Light; 1/Day Each: Control Weather, Gaseous Form, Telekinesis"
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Misty Step",
+      "description": "The giant casts the Misty Step spell, using the same spellcasting ability as Spellcasting."
+    }
+  ],
+  "tactical_info": {
+    "role": "Solo Monster/Controller",
+    "environment": "Cloud cities, mountain peaks, aerial domains",
+    "tactics": "Controls weather and battlefield, thundercloud ranged attacks, misty step for positioning",
+    "weaknesses": "Neutral alignment, predictable giant tactics",
+    "signature_abilities": ["Weather control", "Thunder attacks", "Telekinesis", "Flight mobility"]
+  }
+}

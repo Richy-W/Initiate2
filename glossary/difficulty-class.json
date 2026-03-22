@@ -1,0 +1,14 @@
+{
+  "name": "Difficulty Class",
+  "slug": "difficulty-class",
+  "definition": "A Difficulty Class (DC) is the target number for an ability check or a saving throw.",
+  "category": "Game Mechanics",
+  "tags": [],
+  "abbreviation": "DC",
+  "full_text": "A Difficulty Class (DC) is the target number for an ability check or a saving throw.",
+  "see_also": [
+    "Ability Check",
+    "Saving Throw",
+    "D20 Test"
+  ]
+}

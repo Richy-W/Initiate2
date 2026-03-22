@@ -1,0 +1,74 @@
+{
+  "name": "Staff of the Woodlands",
+  "type": "Staff",
+  "rarity": "Rare",
+  "attunement": true,
+  "attunement_class": "Druid",
+  "description": "This staff has 6 charges and can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it.",
+  "properties": {
+    "weapon": {
+      "type": "Magic Quarterstaff",
+      "attack_bonus": "+2",
+      "damage_bonus": "+2"
+    },
+    "spell_attack_bonus": "+2",
+    "charges": {
+      "max_charges": 6,
+      "current_charges": 6
+    },
+    "spells": [
+      {
+        "spell": "Animal Friendship",
+        "charges": 1
+      },
+      {
+        "spell": "Awaken",
+        "charges": 5
+      },
+      {
+        "spell": "Barkskin",
+        "charges": 2
+      },
+      {
+        "spell": "Locate Animals or Plants",
+        "charges": 2
+      },
+      {
+        "spell": "Pass without Trace",
+        "charges": 2
+      },
+      {
+        "spell": "Speak with Animals",
+        "charges": 1
+      },
+      {
+        "spell": "Speak with Plants",
+        "charges": 3
+      },
+      {
+        "spell": "Wall of Thorns",
+        "charges": 6
+      }
+    ],
+    "spell_save_dc": "Your spell save DC",
+    "tree_form": {
+      "activation": "Magic action to plant end in earth",
+      "charges_cost": 1,
+      "effect": "Staff transforms into healthy tree",
+      "tree_size": "60 feet tall, 5-foot-diameter trunk",
+      "branches": "Spread out in 20-foot radius at top",
+      "appearance": "Looks ordinary but radiates faint Transmutation aura",
+      "detection": "Detect Magic reveals it"
+    },
+    "tree_reversion": {
+      "activation": "Touch tree and Magic action",
+      "effect": "Return staff to normal form",
+      "falling_creatures": "Any creature in tree falls when it reverts"
+    },
+    "regaining_charges": {
+      "recharge": "1d6 daily at dawn",
+      "destruction_condition": "Expend last charge and roll 1d20",
+      "on_roll_1": "Staff loses properties, becomes nonmagical Quarterstaff"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Dust of Sneezing and Choking",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "requires_attunement": false,
+  "overview": "A deceptive powder that incapacitates creatures through sneezing.",
+  "properties": {
+    "appearance": "Found in a small container, this powder resembles Dust of Disappearance, and Identify reveals it to be such",
+    "quantity": "There is enough of it for one use"
+  },
+  "activation": "As a Utilize action, you can throw the dust into the air, forcing yourself and every creature in a 30-foot Emanation originating from you to make a DC 15 Constitution saving throw",
+  "automatic_success": "Constructs, Elementals, Oozes, Plants, and Undead succeed on the save automatically",
+  "effect": {
+    "description": "On a failed save, a creature begins sneezing uncontrollably",
+    "condition": "It has the Incapacitated condition and is suffocating",
+    "recovery": "The creature repeats the save at the end of each of its turns, ending the effect on itself on a success. The effect also ends on any creature targeted by a Lesser Restoration spell"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

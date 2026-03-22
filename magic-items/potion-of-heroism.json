@@ -1,0 +1,19 @@
+{
+  "name": "Potion of Heroism",
+  "type": "Potion",
+  "rarity": "Rare",
+  "attunement": false,
+  "description": "When you drink this potion, you gain 10 Temporary Hit Points that last for 1 hour. For the same duration, you are under the effect of the Bless spell (no Concentration required). This potion's blue liquid bubbles and steams as if boiling.",
+  "properties": {
+    "temporary_hit_points": {
+      "amount": 10,
+      "duration": "1 hour"
+    },
+    "bless_spell": {
+      "spell": "Bless",
+      "duration": "1 hour",
+      "concentration_required": false
+    },
+    "appearance": "Blue liquid that bubbles and steams as if boiling"
+  }
+}

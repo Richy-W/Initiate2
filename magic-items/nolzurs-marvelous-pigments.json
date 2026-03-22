@@ -1,0 +1,22 @@
+{
+  "name": "Nolzur's Marvelous Pigments",
+  "type": "Wondrous Item",
+  "rarity": "Very Rare",
+  "attunement": false,
+  "description": "This fine wooden box contains 1d4 pots of pigment and a brush (weighing 1 pound in total).",
+  "properties": {
+    "contents": "1d4 pots of pigment and brush (1 pound total)",
+    "painting": {
+      "requirement": "1 pot of pigment per use",
+      "scope": "Any number of 3D objects and terrain features (walls, doors, trees, flowers, weapons, webs, pits)",
+      "area": "20-foot Cube",
+      "time": "10 minutes",
+      "concentration": true,
+      "failure": "Breaking Concentration or leaving Cube before completion causes painted elements to vanish and pigment wasted"
+    },
+    "materialization": "When work is done, painted objects and terrain become real",
+    "value_limit": "No object can have value greater than 25 GP; total value per pot max 500 GP",
+    "counterfeits": "Painted objects of greater value look authentic but reveal as paste, cookies, etc. on inspection",
+    "energy": "Painted energy forms (fire, lightning) dissipate harmlessly on completion"
+  }
+}

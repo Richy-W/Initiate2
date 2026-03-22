@@ -1,0 +1,222 @@
+{
+  "id": "curses-contagions",
+  "name": "Curses and Magical Contagions",
+  "description": "Rules for curses, blessed conditions that burden creatures, and magical contagions that spread among populations",
+  "sections": {
+    "curses": {
+      "title": "Curses",
+      "description": "A curse is a magical burden that lasts for a specified time or until ended by some means",
+      "overview": "Every curse has rules that govern it. A curse typically takes one of the forms detailed below.",
+      "types": {
+        "bestow_curse": {
+          "name": "Bestow Curse",
+          "description": "The simplest curses are created by the Bestow Curse spell",
+          "details": [
+            "Effects of such curses are limited and can be ended by the Remove Curse spell",
+            "Provides useful benchmarks for gauging the potency of other curses",
+            "A curse that lasts for 1 minute equates to a level 3 spell",
+            "A curse that lasts until dispelled equates to a level 9 spell"
+          ]
+        },
+        "cursed_creatures": {
+          "name": "Cursed Creatures",
+          "description": "Some monsters are associated with curses, whether as part of their origins or due to their ability to spread curses",
+          "example": "Werewolves",
+          "dm_guidance": "You decide how a spell like Remove Curse affects a creature with accursed origins. For example, you might decide that a mummy was created through a curse and it can be destroyed permanently only by casting Remove Curse on its corpse."
+        },
+        "cursed_magic_items": {
+          "name": "Cursed Magic Items",
+          "description": "Cursed magic items are created deliberately or originate as the result of supernatural events",
+          "note": "Such items are detailed in Magic Items section"
+        },
+        "narrative_curses": {
+          "name": "Narrative Curses",
+          "description": "A curse that manifests during an adventure when a creature's violation of a taboo warrants supernatural punishment",
+          "triggers": [
+            "Breaking a vow",
+            "Defiling a tomb",
+            "Murdering an innocent"
+          ],
+          "characteristics": [
+            "Can have any effects the DM designs",
+            "Might be a customized version of another type of curse",
+            "Affected creature should know why they're being punished",
+            "Creature should be able to learn how to end their curse by symbolically righting the wrong they committed"
+          ],
+          "mechanics": [
+            "How a spell like Remove Curse affects such a curse is up to the DM",
+            "The spell might merely suppress the effects of the curse for a time",
+            "Narrative curses should feel like rare, potent magic rooted in the lore of your campaign"
+          ]
+        },
+        "environmental_curses": {
+          "name": "Environmental Curses",
+          "description": "Some locations are so suffused with evil that anyone who lingers there is burdened with a curse"
+        }
+      }
+    },
+    "demonic_possession": {
+      "title": "Demonic Possession",
+      "type": "Environmental Curse",
+      "description": "Demonic Possession arises from the chaos and evil of the Abyss",
+      "origin": "Commonly besets creatures that interact with demonic objects or linger in desecrated locations, where demonic spirits await victims",
+      "mechanics": {
+        "infection": {
+          "trigger": "A creature becomes the target of Demonic Possession",
+          "save": "DC 15 Charisma saving throw",
+          "effect": "On a failed save, the creature is possessed by a bodiless demonic entity"
+        },
+        "control": {
+          "trigger": "Whenever the possessed creature rolls a 1 on a D20 Test",
+          "effect": "The demonic entity takes control of the creature and determines the creature's behavior"
+        },
+        "recovery": {
+          "trigger": "At the end of each of the possessed creature's later turns",
+          "save": "DC 15 Charisma saving throw",
+          "effect": "The creature regains control of itself on a success"
+        },
+        "long_rest_cure": {
+          "trigger": "After finishing a Long Rest",
+          "save": "DC 15 Charisma saving throw",
+          "effect": "On a successful save, the effect ends on the creature"
+        },
+        "removal": [
+          "Dispel Evil and Good spell",
+          "Any magic that removes a curse"
+        ]
+      }
+    },
+    "magical_contagions": {
+      "title": "Magical Contagions",
+      "description": "An adverse effect of magical origin that is contagious by definition",
+      "origins": [
+        "Alchemists",
+        "Potion brewers",
+        "Areas of wild magic"
+      ],
+      "adventure_use": "An outbreak of such a contagion can form the basis of an adventure as characters search for a cure and try to stop the contagion's spread",
+      "rest_and_recuperation": {
+        "title": "Rest and Recuperation",
+        "description": "If a creature infected with a magical contagion spends 3 days recuperating, engaging in no activities that would interrupt a Long Rest",
+        "mechanics": {
+          "trigger": "At the end of the recuperation period",
+          "save": "DC 15 Constitution saving throw",
+          "effect_on_success": "The creature has Advantage on saving throws to fight off the magical contagion for the next 24 hours"
+        }
+      },
+      "examples": {
+        "cackle_fever": {
+          "name": "Cackle Fever",
+          "type": "Magical Contagion",
+          "source": "Cheaply made potions and elixirs that are sometimes tainted",
+          "affected": "Humanoids only (gnomes are strangely immune)",
+          "onset": "1d4 days after infection",
+          "effects": {
+            "fever": {
+              "title": "Fever",
+              "effect": "The creature gains 1 Exhaustion level, which lasts until the contagion ends on the creature"
+            },
+            "uncontrollable_laughter": {
+              "title": "Uncontrollable Laughter",
+              "trigger": "While the creature has the Exhaustion condition",
+              "mechanics": [
+                "Each time the creature takes damage other than Psychic damage, it makes a DC 13 Constitution saving throw",
+                "On a failed save, the creature takes 5 (1d10) Psychic damage and has the Incapacitated condition as it laughs uncontrollably",
+                "At the end of each of its turns, the creature repeats the save, ending the effect on itself on a success",
+                "After 1 minute, it succeeds automatically"
+              ]
+            }
+          },
+          "fighting_the_contagion": {
+            "frequency": "At the end of each Long Rest",
+            "save": "DC 13 Constitution saving throw",
+            "cure": "After the creature succeeds on three of these saves, the contagion ends on it, and the creature is immune to Cackle Fever for 1 year"
+          },
+          "spreading": {
+            "trigger": "Any Humanoid (other than a gnome) that starts its turn within a 10-foot Emanation originating from an infected creature",
+            "save": "DC 10 Constitution saving throw",
+            "effect": "On a failed save, the Humanoid also becomes infected with the contagion",
+            "immunity": "On a successful save, the Humanoid can't catch the contagion from that particular infected creature for the next 24 hours"
+          }
+        },
+        "sewer_plague": {
+          "name": "Sewer Plague",
+          "type": "Magical Contagion",
+          "source": "Fouled potions and alchemical waste",
+          "environment": "Incubates in sewers and refuse heaps",
+          "vectors": [
+            "Transmission by creatures that dwell in such areas, including otyughs and rats",
+            "Any Humanoid that is wounded by a creature that carries the contagion",
+            "Contact with contaminated filth or offal"
+          ],
+          "transmission_save": "DC 11 Constitution saving throw",
+          "onset": "1d4 days after infection",
+          "effects": {
+            "fatigue": {
+              "title": "Fatigue",
+              "effect": "The creature gains 1 Exhaustion level"
+            },
+            "weakness": {
+              "title": "Weakness",
+              "trigger": "While the creature has any Exhaustion levels",
+              "effect": "It regains only half the normal number of Hit Points from spending Hit Point Dice"
+            },
+            "restlessness": {
+              "title": "Restlessness",
+              "trigger": "While the creature has any Exhaustion levels",
+              "effect": "Finishing a Long Rest neither restores lost Hit Points nor reduces the creature's Exhaustion level"
+            }
+          },
+          "fighting_the_contagion": {
+            "frequency": "Daily at dawn",
+            "save": "DC 11 Constitution saving throw",
+            "mechanics": [
+              "On a failed save, the creature gains 1 Exhaustion level as its fatigue worsens",
+              "On a successful save, the creature's Exhaustion level decreases by 1",
+              "If the creature's Exhaustion level is reduced to 0, the contagion ends on the creature"
+            ]
+          }
+        },
+        "sight_rot": {
+          "name": "Sight Rot",
+          "type": "Magical Contagion",
+          "affected": "Any Beast or Humanoid",
+          "transmission": "Drinks water tainted by Sight Rot",
+          "save": "DC 15 Constitution saving throw",
+          "effect_on_failure": "Have the Blinded condition until the contagion ends",
+          "fighting_the_contagion": {
+            "magical_cure": [
+              "Heal spell",
+              "Lesser Restoration spell"
+            ],
+            "nonmagical_treatment": {
+              "method": "Herbalism Kit",
+              "result": "Create one dose of nonmagical ointment (1 hour to create)",
+              "application": "When applied to the eyes of a creature suffering from Sight Rot, the ointment suppresses the contagion on that creature for 24 hours",
+              "cure": "If the contagion is suppressed in this way for a total of 72 hours (requiring three doses and applications of the ointment), the contagion ends on the creature"
+            }
+          },
+          "spreading": {
+            "trigger": "Any Humanoid that makes skin contact with a creature infected with Sight Rot",
+            "save": "DC 15 Constitution saving throw",
+            "effect": "On a failed save, the Humanoid also becomes infected with the contagion",
+            "immunity": "On a successful save, the Humanoid can't catch the contagion from that particular infected creature for the next 24 hours"
+          }
+        }
+      }
+    }
+  },
+  "contains": [
+    "Curse definition and types",
+    "Bestow Curse mechanics",
+    "Cursed creatures and items",
+    "Narrative curses for adventures",
+    "Environmental curses",
+    "Demonic Possession mechanics",
+    "Magical contagions overview",
+    "Rest and recuperation rules",
+    "Cackle Fever example contagion",
+    "Sewer Plague example contagion",
+    "Sight Rot example contagion"
+  ]
+}

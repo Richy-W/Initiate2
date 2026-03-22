@@ -1,0 +1,26 @@
+{
+  "name": "Javelin of Lightning",
+  "type": "Weapon",
+  "weapon_type": "Javelin",
+  "rarity": "Uncommon",
+  "attunement": false,
+  "description": "Each time you make an attack roll with this magic weapon and hit, you can have it deal Lightning damage instead of Piercing damage.",
+  "properties": {
+    "damage_type_swap": "Can deal Lightning damage instead of Piercing on hit",
+    "lightning_bolt": {
+      "activation": "Throw weapon at target no farther than 120 feet",
+      "alternative_to_attack": "Can forgo ranged attack roll",
+      "effect": "Weapon becomes bolt of lightning forming 5-foot-wide Line between you and target",
+      "save": {
+        "save_type": "Dexterity",
+        "save_dc": 13
+      },
+      "damage": "4d6 Lightning damage",
+      "on_failed_save": "Full damage",
+      "on_successful_save": "Half damage",
+      "targets": "Target and each other creature in line (excluding you)",
+      "return": "Weapon reappears in hand immediately after dealing damage",
+      "reuse_duration": "Can't be used again until next dawn"
+    }
+  }
+}

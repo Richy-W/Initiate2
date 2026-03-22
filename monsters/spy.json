@@ -1,0 +1,60 @@
+{
+  "name": "Spy",
+  "size": "Medium or Small",
+  "type": "Humanoid",
+  "alignment": "Neutral",
+  "armor_class": 12,
+  "initiative": 14,
+  "hit_points": {
+    "average": 27,
+    "formula": "6d8"
+  },
+  "speed": {
+    "walk": "30 ft.",
+    "climb": "30 ft."
+  },
+  "ability_scores": {
+    "strength": { "score": 10, "modifier": 0, "save": 0 },
+    "dexterity": { "score": 15, "modifier": 2, "save": 2 },
+    "constitution": { "score": 10, "modifier": 0, "save": 0 },
+    "intelligence": { "score": 12, "modifier": 1, "save": 1 },
+    "wisdom": { "score": 14, "modifier": 2, "save": 2 },
+    "charisma": { "score": 16, "modifier": 3, "save": 3 }
+  },
+  "skills": {
+    "deception": 5,
+    "insight": 4,
+    "investigation": 5,
+    "perception": 6,
+    "sleight_of_hand": 4,
+    "stealth": 6
+  },
+  "equipment": ["Hand Crossbow", "Shortsword", "Thieves' Tools"],
+  "senses": "Passive Perception 16",
+  "languages": "Common plus one other language",
+  "challenge_rating": 1,
+  "experience_points": 200,
+  "proficiency_bonus": 2,
+  "actions": [
+    {
+      "name": "Shortsword",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 5 (1d6 + 2) Piercing damage plus 7 (2d6) Poison damage."
+    },
+    {
+      "name": "Hand Crossbow",
+      "description": "Ranged Attack Roll: +4, range 30/120 ft. Hit: 5 (1d6 + 2) Piercing damage plus 7 (2d6) Poison damage."
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Cunning Action",
+      "description": "The spy takes the Dash, Disengage, or Hide action."
+    }
+  ],
+  "tactical_info": {
+    "optimal_range": "Medium range for hand crossbow, close for shortsword",
+    "key_abilities": ["Cunning Action mobility", "Poison damage on attacks", "High skill proficiencies", "Climb speed"],
+    "weaknesses": ["Low hit points", "No defensive abilities", "Relies on positioning"],
+    "synergies": ["Hit-and-run tactics", "Information gathering", "Social infiltration", "Surprise attacks"]
+  }
+}

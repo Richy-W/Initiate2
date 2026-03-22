@@ -1,0 +1,18 @@
+{
+  "name": "Talisman of the Sphere",
+  "type": "Wondrous Item",
+  "rarity": "Legendary",
+  "attunement": true,
+  "description": "While holding or wearing this talisman, you have Advantage on any Intelligence (Arcana) check you make to control a Sphere of Annihilation.",
+  "properties": {
+    "sphere_control": {
+      "advantage": "Advantage on Intelligence (Arcana) checks to control Sphere of Annihilation"
+    },
+    "enhanced_movement": {
+      "trigger": "Start your turn in control of Sphere of Annihilation",
+      "action_type": "Magic action",
+      "movement": "10 feet plus 10 feet per point of Intelligence modifier",
+      "direction": "Doesn't have to be in straight line"
+    }
+  }
+}

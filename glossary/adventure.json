@@ -1,0 +1,12 @@
+{
+  "name": "Adventure",
+  "slug": "adventure",
+  "definition": "An adventure is a series of encounters.",
+  "category": "Gameplay Structure",
+  "tags": [],
+  "full_text": "An adventure is a series of encounters. A story emerges through playing them.",
+  "see_also": [
+    "Encounter",
+    "Campaign"
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "name": "Hydra",
+  "size": "Huge",
+  "type": "Monstrosity",
+  "alignment": "Unaligned",
+  "armor_class": {
+    "value": 15,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 1,
+    "total": 11
+  },
+  "hit_points": {
+    "average": 172,
+    "formula": "15d12 + 75"
+  },
+  "speed": {
+    "walk": 30,
+    "swim": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 20,
+      "modifier": 5,
+      "saving_throw": 5
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "constitution": {
+      "score": 20,
+      "modifier": 5,
+      "saving_throw": 5
+    },
+    "intelligence": {
+      "score": 2,
+      "modifier": -4,
+      "saving_throw": -4
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "charisma": {
+      "score": 7,
+      "modifier": -2,
+      "saving_throw": -2
+    }
+  },
+  "skills": {
+    "Perception": 6
+  },
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 16
+  },
+  "languages": [],
+  "challenge_rating": {
+    "cr": 8,
+    "xp": 3900,
+    "proficiency_bonus": 3
+  },
+  "traits": [
+    {
+      "name": "Hold Breath",
+      "description": "The hydra can hold its breath for 1 hour."
+    },
+    {
+      "name": "Multiple Heads",
+      "description": "The hydra has five heads. While it has more than one head, the hydra has advantage on saving throws against being blinded, charmed, deafened, frightened, stunned, and knocked unconscious. Whenever the hydra takes 25 or more damage in a single turn, one of its heads dies. If all its heads die, the hydra dies. At the end of its turn, it grows two heads for each of its heads that died since its last turn, unless it has taken fire damage since its last turn. The hydra regains 10 hit points for each head regrown in this way."
+    },
+    {
+      "name": "Reactive Heads",
+      "description": "For each head the hydra has beyond one, it gets an extra reaction that can be used only for opportunity attacks."
+    },
+    {
+      "name": "Wakeful",
+      "description": "While the hydra sleeps, at least one of its heads is awake."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The hydra makes as many bite attacks as it has heads."
+    },
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +8, reach 10 ft. Hit: 10 (1d10 + 5) Piercing damage.",
+      "attack_roll": 8,
+      "reach": 10,
+      "damage": "10 (1d10 + 5)",
+      "damage_type": "Piercing"
+    }
+  ],
+  "tactical_info": {
+    "role": "Regenerating Tank/Multi-target Threat",
+    "environment": "Swamps, marshes, lake shores, underground waterways",
+    "tactics": "Uses multiple heads for numerous bite attacks, regenerates heads unless damaged by fire, controls large areas with reach and multiple opportunity attacks",
+    "weaknesses": "Fire damage prevents regeneration, relatively slow movement, predictable attack patterns",
+    "signature_abilities": ["Head regeneration (2 heads per lost head)", "Multiple opportunity attacks", "Advantage on many saving throws", "Amphibious movement", "Wakeful vigilance"]
+  }
+}

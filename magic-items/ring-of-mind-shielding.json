@@ -1,0 +1,36 @@
+{
+  "name": "Ring of Mind Shielding",
+  "type": "Ring",
+  "rarity": "Uncommon",
+  "attunement": true,
+  "description": "While wearing this ring, you are immune to magic that allows other creatures to read your thoughts, determine whether you are lying, know your alignment, or know your creature type. Creatures can telepathically communicate with you only if you allow it. You can take a Magic action to cause the ring to become imperceptible until you take another Magic action to make it perceptible, until you remove the ring, or until you die. If you die while wearing the ring, your soul enters it, unless it already houses a soul. You can remain in the ring or depart for the afterlife. As long as your soul is in the ring, you can telepathically communicate with any creature wearing it. A wearer can't prevent this telepathic communication.",
+  "properties": {
+    "mental_protection": {
+      "immunity_to": [
+        "Magic that reads thoughts",
+        "Magic that determines if lying",
+        "Magic that reveals alignment",
+        "Magic that reveals creature type"
+      ],
+      "telepathy": "Only if you allow it"
+    },
+    "ring_invisibility": {
+      "action_type": "Magic action",
+      "makes_ring": "Imperceptible",
+      "end_conditions": [
+        "Another Magic action to make perceptible",
+        "Remove ring",
+        "You die"
+      ]
+    },
+    "soul_trapping": {
+      "trigger": "You die while wearing ring",
+      "effect": "Your soul enters ring if not already occupied",
+      "choice": "Remain in ring or depart for afterlife"
+    },
+    "soul_communication": {
+      "effect": "Soul in ring can telepathically communicate with any wearer",
+      "prevention": "Wearer can't prevent this communication"
+    }
+  }
+}

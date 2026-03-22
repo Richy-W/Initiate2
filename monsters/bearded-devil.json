@@ -1,0 +1,122 @@
+{
+  "name": "Bearded Devil",
+  "size": "Medium", 
+  "type": "Fiend",
+  "subtype": "Devil",
+  "alignment": "Lawful Evil",
+  "armor_class": {
+    "value": 13,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 2,
+    "total": 12
+  },
+  "hit_points": {
+    "average": 52,
+    "formula": "8d8 + 16"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 4
+    },
+    "intelligence": {
+      "score": 9,
+      "modifier": -1,
+      "saving_throw": -1
+    },
+    "wisdom": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 2
+    },
+    "charisma": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    }
+  },
+  "saving_throws": {
+    "constitution": 4,
+    "wisdom": 2
+  },
+  "damage_resistances": ["Cold", "Bludgeoning, Piercing, and Slashing from nonmagical attacks that aren't silvered"],
+  "damage_immunities": ["Fire", "Poison"],
+  "condition_immunities": ["Poisoned"],
+  "senses": {
+    "darkvision": 120,
+    "passive_perception": 10
+  },
+  "languages": ["Infernal"],
+  "telepathy": 120,
+  "challenge_rating": {
+    "cr": 3,
+    "xp": 700,
+    "proficiency_bonus": 2
+  },
+  "equipment": ["Glaive"],
+  "traits": [
+    {
+      "name": "Devil's Sight",
+      "description": "The devil can see normally in Darkness, both magical and nonmagical, within 120 feet of itself."
+    },
+    {
+      "name": "Magic Resistance",
+      "description": "The devil has Advantage on saving throws against spells and other magical effects."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack", 
+      "description": "The devil makes two Glaive attacks or one Glaive attack and one Beard attack."
+    },
+    {
+      "name": "Glaive",
+      "description": "Melee Attack Roll: +5, reach 10 ft. Hit: 8 (1d10 + 3) Slashing damage. If the target is a creature other than an Undead or a Construct, it must succeed on a DC 12 Constitution saving throw or take 5 (1d10) Poison damage and have the Poisoned condition for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
+      "attack_roll": 5,
+      "reach": 10,
+      "damage": "8 (1d10 + 3)",
+      "damage_type": "Slashing",
+      "save": {
+        "ability": "Constitution",
+        "dc": 12,
+        "on_failure": "5 (1d10) Poison damage and Poisoned for 1 minute"
+      }
+    },
+    {
+      "name": "Beard",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 6 (1d6 + 3) Piercing damage, and if the target is a creature other than an Undead or a Construct, it must succeed on a DC 12 Constitution saving throw or have the Poisoned condition for 1 minute. While Poisoned in this way, the target can't regain Hit Points. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
+      "attack_roll": 5,
+      "reach": 5,
+      "damage": "6 (1d6 + 3)",
+      "damage_type": "Piercing",
+      "save": {
+        "ability": "Constitution", 
+        "dc": 12,
+        "on_failure": "Poisoned for 1 minute, can't regain Hit Points"
+      }
+    }
+  ],
+  "tactical_info": {
+    "role": "Controller/Warrior",
+    "environment": "Nine Hells, summoned to Material Plane",
+    "tactics": "Uses reach glaive to control distance, beard grapple prevents healing, focuses on poisoning multiple targets",
+    "weaknesses": "Vulnerable to silvered weapons, moderate AC for CR",
+    "signature_abilities": ["Poisonous beard", "Reach weapon", "Healing prevention", "Devil immunities"]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Paralyzed",
+  "slug": "paralyzed",
+  "definition": "A condition where you are incapacitated with 0 speed and weakened defenses",
+  "category": "Conditions",
+  "tags": ["[Condition]", "incapacitated"],
+  "full_text": "While you have the Paralyzed condition, you experience the following effects.\n\nIncapacitated. You have the Incapacitated condition.\n\nSpeed 0. Your Speed is 0 and can't increase.\n\nSaving Throws Affected. You automatically fail Strength and Dexterity saving throws.\n\nAttacks Affected. Attack rolls against you have Advantage.\n\nAutomatic Critical Hits. Any attack roll that hits you is a Critical Hit if the attacker is within 5 feet of you.",
+  "mechanics": {
+    "incapacitation": "You have Incapacitated condition",
+    "speed": "0 and can't increase",
+    "saving_throws": "Automatically fail STR and DEX saves",
+    "attacks": "Attacks have Advantage",
+    "critical_hits": "Automatic Critical Hits from within 5 feet"
+  },
+  "see_also": ["condition", "incapacitated", "advantage", "critical-hit"]
+}

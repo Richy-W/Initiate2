@@ -1,0 +1,39 @@
+{
+  "name": "Staff of Swarming Insects",
+  "type": "Staff",
+  "rarity": "Rare",
+  "attunement": true,
+  "attunement_class": "Bard, Cleric, Druid, Sorcerer, Warlock, or Wizard",
+  "description": "This staff has 10 charges.",
+  "properties": {
+    "charges": {
+      "max_charges": 10,
+      "current_charges": 10
+    },
+    "insect_cloud": {
+      "action_type": "Magic action",
+      "charges_cost": 1,
+      "effect": "Swarm of harmless flying insects fills 30-foot Emanation from you",
+      "duration": "10 minutes",
+      "obscurement": "Area Heavily Obscured for creatures other than you",
+      "dispersal": "Strong wind (like Gust of Wind) disperses swarm and ends effect"
+    },
+    "spells": [
+      {
+        "spell": "Giant Insect",
+        "charges": 4
+      },
+      {
+        "spell": "Insect Plague",
+        "charges": 5
+      }
+    ],
+    "spell_save_dc": "Your spell save DC",
+    "spell_attack_modifier": "Your spell attack modifier",
+    "regaining_charges": {
+      "recharge": "1d6 + 4 daily at dawn",
+      "destruction_condition": "Expend last charge and roll 1d20",
+      "on_roll_1": "Swarm of insects consumes and destroys staff, then disperses"
+    }
+  }
+}

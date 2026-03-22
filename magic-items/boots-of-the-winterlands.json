@@ -1,0 +1,13 @@
+{
+  "name": "Boots of the Winterlands",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "requires_attunement": true,
+  "overview": "These furred boots are snug and feel warm, providing protection against cold and difficult terrain.",
+  "properties": {
+    "cold_resistance": "You have Resistance to Cold damage and can tolerate temperatures of 0 degrees Fahrenheit or lower without any additional protection.",
+    "terrain_traversal": "You ignore Difficult Terrain created by ice or snow."
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Flying",
+  "slug": "flying",
+  "definition": "Effects that allow a creature to move through the air",
+  "category": "Movement",
+  "tags": ["flight", "incapacitated", "prone"],
+  "full_text": "A variety of effects allow a creature to fly. While flying, you fall if you have the Incapacitated or Prone condition or your Fly Speed is reduced to 0. You can stay aloft in those circumstances if you can hover.",
+  "mechanics": {
+    "falling_conditions": "Incapacitated condition, Prone condition, or Fly Speed reduced to 0",
+    "hovering_exception": "Can stay aloft if able to hover"
+  },
+  "see_also": ["fly-speed", "falling", "incapacitated", "prone", "hover"]
+}

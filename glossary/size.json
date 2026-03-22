@@ -1,0 +1,14 @@
+{
+  "name": "Size",
+  "slug": "size",
+  "definition": "A category determining how much space a creature or object occupies",
+  "category": "Abilities & Attributes",
+  "tags": ["category", "combat-space", "hit-points"],
+  "full_text": "A creature or an object belongs to a size category: Tiny, Small, Medium, Large, Huge, or Gargantuan. A creature's size determines how much space the creature occupies in combat. An object's size affects its Hit Points.",
+  "mechanics": {
+    "categories": ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan"],
+    "creature_effect": "Determines combat space occupied",
+    "object_effect": "Affects Hit Points"
+  },
+  "see_also": ["creature", "breaking-objects"]
+}

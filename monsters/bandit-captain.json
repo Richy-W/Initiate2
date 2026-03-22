@@ -1,0 +1,103 @@
+{
+  "name": "Bandit Captain",
+  "size": "Medium",
+  "type": "Humanoid",
+  "alignment": "Neutral",
+  "armor_class": {
+    "value": 15,
+    "source": "Studded Leather Armor"
+  },
+  "initiative": {
+    "bonus": 3,
+    "total": 13
+  },
+  "hit_points": {
+    "average": 52,
+    "formula": "8d8 + 16"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 4
+    },
+    "dexterity": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 5
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "intelligence": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "wisdom": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 2
+    },
+    "charisma": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    }
+  },
+  "skills": {
+    "Athletics": 4,
+    "Deception": 4
+  },
+  "senses": {
+    "passive_perception": 10
+  },
+  "languages": ["Common", "Thieves' Cant"],
+  "challenge_rating": {
+    "cr": 2,
+    "xp": 450,
+    "proficiency_bonus": 2
+  },
+  "equipment": ["Pistol", "Scimitar", "Studded Leather Armor"],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The bandit makes two attacks, using Scimitar and Pistol in any combination."
+    },
+    {
+      "name": "Scimitar",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 6 (1d6 + 3) Slashing damage.",
+      "attack_roll": 5,
+      "reach": 5,
+      "damage": "6 (1d6 + 3)",
+      "damage_type": "Slashing"
+    },
+    {
+      "name": "Pistol",
+      "description": "Ranged Attack Roll: +5, range 30/90 ft. Hit: 8 (1d10 + 3) Piercing damage.",
+      "attack_roll": 5,
+      "range": "30/90 ft",
+      "damage": "8 (1d10 + 3)",
+      "damage_type": "Piercing"
+    }
+  ],
+  "reactions": [
+    {
+      "name": "Parry",
+      "description": "The bandit adds 2 to its AC against that attack, possibly causing it to miss.",
+      "trigger": "The bandit is hit by a melee attack roll while holding a weapon"
+    }
+  ],
+  "tactical_info": {
+    "role": "Leader/Controller",
+    "environment": "Bandit camps, hideouts, roads, criminal organizations",
+    "tactics": "Leads groups of bandits, uses pistol at range then closes with scimitar, parry reaction for defense",
+    "weaknesses": "Depends on minions, vulnerable when isolated",
+    "signature_abilities": ["Multiattack", "Parry reaction", "Leadership presence"]
+  }
+}

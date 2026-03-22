@@ -1,0 +1,97 @@
+{
+  "name": "Ettin",
+  "size": "Large",
+  "type": "Giant",
+  "alignment": "Chaotic Evil",
+  "armor_class": {
+    "value": 12,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": -1,
+    "total": 9
+  },
+  "hit_points": {
+    "average": 85,
+    "formula": "10d10 + 30"
+  },
+  "speed": {
+    "walk": 40
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 21,
+      "modifier": 5,
+      "saving_throw": 5
+    },
+    "dexterity": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    },
+    "constitution": {
+      "score": 17,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "intelligence": {
+      "score": 6,
+      "modifier": -2,
+      "saving_throw": -2
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    }
+  },
+  "skills": {
+    "perception": 4
+  },
+  "condition_immunities": ["Blinded", "Charmed", "Deafened", "Frightened", "Stunned", "Unconscious"],
+  "equipment": ["Battleaxe", "Morningstar"],
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 14
+  },
+  "languages": ["Giant"],
+  "challenge_rating": {
+    "cr": 4,
+    "xp": 1100,
+    "proficiency_bonus": 2
+  },
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The ettin makes one Battleaxe attack and one Morningstar attack."
+    },
+    {
+      "name": "Battleaxe",
+      "description": "Melee Attack Roll: +7, reach 5 ft. Hit: 14 (2d8 + 5) Slashing damage. If the target is a Large or smaller creature, it has the Prone condition.",
+      "attack_roll": 7,
+      "reach": 5,
+      "damage": "14 (2d8 + 5)",
+      "damage_type": "Slashing"
+    },
+    {
+      "name": "Morningstar",
+      "description": "Melee Attack Roll: +7, reach 5 ft. Hit: 14 (2d8 + 5) Piercing damage, and the target has Disadvantage on the next attack roll it makes before the end of its next turn.",
+      "attack_roll": 7,
+      "reach": 5,
+      "damage": "14 (2d8 + 5)",
+      "damage_type": "Piercing"
+    }
+  ],
+  "tactical_info": {
+    "role": "Twin-Weapon Bruiser",
+    "environment": "Hills, caves, giant strongholds, chaotic wastelands",
+    "tactics": "Uses dual-weapon attacks for different effects, prone attacks with battleaxe, disadvantage debuffs with morningstar",
+    "weaknesses": "Low intelligence limits tactical options, vulnerable to mental effects despite immunities",
+    "signature_abilities": ["Dual-weapon multiattack", "Prone battleaxe", "Disadvantage morningstar", "Mental condition immunities"]
+  }
+}

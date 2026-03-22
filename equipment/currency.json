@@ -1,0 +1,43 @@
+{
+  "name": "Currency System",
+  "category": "currency",
+  "description": "Standard D&D currency denominations and exchange rates",
+  "coins": [
+    {
+      "name": "Copper Piece",
+      "abbreviation": "CP",
+      "valueInGP": 0.01,
+      "weight": 0.02
+    },
+    {
+      "name": "Silver Piece", 
+      "abbreviation": "SP",
+      "valueInGP": 0.1,
+      "weight": 0.02
+    },
+    {
+      "name": "Electrum Piece",
+      "abbreviation": "EP", 
+      "valueInGP": 0.5,
+      "weight": 0.02
+    },
+    {
+      "name": "Gold Piece",
+      "abbreviation": "GP",
+      "valueInGP": 1,
+      "weight": 0.02
+    },
+    {
+      "name": "Platinum Piece",
+      "abbreviation": "PP",
+      "valueInGP": 10,
+      "weight": 0.02
+    }
+  ],
+  "notes": [
+    "A coin weighs about a third of an ounce, so fifty coins weigh a pound",
+    "Equipment fetches half its cost when sold",
+    "Trade goods and valuables retain their full value in the marketplace"
+  ],
+  "sourceBook": "Player's Handbook 2024"
+}

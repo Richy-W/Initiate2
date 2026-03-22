@@ -1,0 +1,106 @@
+{
+  "title": "D&D 5e 2024 Equipment Index",
+  "version": "2024", 
+  "description": "Complete index of all equipment organized by category",
+  "structure": {
+    "weapons": {
+      "description": "Combat weapons organized by proficiency and type",
+      "file": "equipment/weapons.json",
+      "categories": {
+        "simple": {
+          "melee": ["Club", "Dagger", "Greatclub", "Handaxe", "Javelin", "Light Hammer", "Mace", "Quarterstaff", "Sickle", "Spear"],
+          "ranged": ["Dart", "Light Crossbow", "Shortbow", "Sling"]
+        },
+        "martial": {
+          "melee": ["Battleaxe", "Flail", "Glaive", "Greataxe", "Greatsword", "Halberd", "Lance", "Longsword", "Maul", "Morningstar", "Pike", "Rapier", "Scimitar", "Shortsword", "Trident", "Warhammer", "War Pick", "Whip"],
+          "ranged": ["Blowgun", "Hand Crossbow", "Heavy Crossbow", "Longbow", "Musket", "Pistol"]
+        }
+      },
+      "totalWeapons": 38
+    },
+    "armor": {
+      "description": "Protective equipment organized by weight category",
+      "file": "equipment/armor.json",
+      "categories": {
+        "light": ["Padded Armor", "Leather Armor", "Studded Leather Armor"],
+        "medium": ["Hide Armor", "Chain Shirt", "Scale Mail", "Breastplate", "Half Plate Armor"],
+        "heavy": ["Ring Mail", "Chain Mail", "Splint Armor", "Plate Armor"],
+        "shield": ["Shield"]
+      },
+      "totalArmor": 13
+    },
+    "tools": {
+      "description": "Specialized equipment for crafting and skill checks",
+      "file": "equipment/tools.json",
+      "categories": {
+        "artisans": ["Alchemist's Supplies", "Brewer's Supplies", "Calligrapher's Supplies", "Carpenter's Tools", "Cartographer's Tools", "Cobbler's Tools", "Cook's Utensils", "Glassblower's Tools", "Jeweler's Tools", "Leatherworker's Tools", "Mason's Tools", "Painter's Supplies", "Potter's Tools", "Smith's Tools", "Tinker's Tools", "Weaver's Tools", "Woodcarver's Tools"],
+        "other": ["Disguise Kit", "Forgery Kit", "Gaming Set", "Herbalism Kit", "Musical Instrument", "Navigator's Tools", "Poisoner's Kit", "Thieves' Tools"]
+      },
+      "totalTools": 25
+    },
+    "adventuringGear": {
+      "description": "Essential equipment for adventuring activities", 
+      "file": "equipment/adventuring-gear.json",
+      "categories": {
+        "combatItems": ["Acid", "Alchemist's Fire", "Holy Water", "Net", "Basic Poison"],
+        "storage": ["Backpack", "Barrel", "Basket", "Bucket", "Chest", "Case", "Flask", "Jug", "Pouch", "Quiver", "Sack", "Vial", "Waterskin"],
+        "utility": ["Ball Bearings", "Block and Tackle", "Caltrops", "Chain", "Climber's Kit", "Crowbar", "Grappling Hook", "Hunting Trap", "Ladder", "Lock", "Magnifying Glass", "Manacles", "Mirror", "Oil", "Pole", "Ram", "Rope", "Shovel", "Signal Whistle", "String", "Tinderbox"],
+        "lightSources": ["Candle", "Lamp", "Bullseye Lantern", "Hooded Lantern", "Torch"],
+        "equipmentPacks": ["Burglar's Pack", "Diplomat's Pack", "Dungeoneer's Pack", "Entertainer's Pack", "Explorer's Pack", "Priest's Pack", "Scholar's Pack"],
+        "spellcastingFoci": ["Arcane Focus", "Component Pouch", "Druidic Focus", "Holy Symbol"],
+        "magicItems": ["Potion of Healing", "Spell Scroll (Cantrip)", "Spell Scroll (Level 1)"]
+      },
+      "totalItems": 79
+    },
+    "mountsAndVehicles": {
+      "description": "Transportation options including mounts, vehicles, and ships",
+      "file": "equipment/mounts-and-vehicles.json",
+      "categories": {
+        "mounts": ["Camel", "Elephant", "Draft Horse", "Riding Horse", "Mastiff", "Mule", "Pony", "Warhorse"],
+        "drawnVehicles": ["Carriage", "Cart", "Chariot", "Sled", "Wagon"],
+        "waterborneVehicles": ["Galley", "Keelboat", "Longship", "Rowboat", "Sailing Ship", "Warship"],
+        "airborneVehicles": ["Airship"],
+        "tackAndHarness": ["Exotic Saddle", "Military Saddle", "Riding Saddle", "Feed", "Stabling"]
+      },
+      "totalVehicles": 13
+    },
+    "services": {
+      "description": "Lifestyle expenses, lodging, travel, and professional services",
+      "file": "equipment/services.json",
+      "categories": {
+        "lifestyles": ["Wretched", "Squalid", "Poor", "Modest", "Comfortable", "Wealthy", "Aristocratic"],
+        "travel": ["Coach rides", "Ship passage", "Tolls"],
+        "hirelings": ["Skilled hireling", "Untrained hireling", "Messenger"],
+        "spellcasting": ["Cantrip through 9th level spells"]
+      },
+      "totalServices": 20
+    },
+    "magicItemRules": {
+      "description": "Rules for identifying, attuning to, and using magic items",
+      "file": "equipment/magic-item-rules.json",
+      "topics": ["Identification", "Attunement", "Wearing and Wielding", "Limitations"]
+    },
+    "craftingRules": {
+      "description": "Rules for crafting items, potions, and spell scrolls",
+      "file": "equipment/crafting-rules.json",
+      "topics": ["Nonmagical Items", "Potions of Healing", "Spell Scrolls", "Time and Cost"]
+    },
+    "currency": {
+      "description": "Standard coin denominations and exchange rates",
+      "file": "equipment/currency.json",
+      "denominations": ["Copper Piece (CP)", "Silver Piece (SP)", "Electrum Piece (EP)", "Gold Piece (GP)", "Platinum Piece (PP)"]
+    }
+  },
+  "rules": {
+    "weaponProficiency": "You must have proficiency with a weapon to add your Proficiency Bonus to attack rolls",
+    "armorTraining": "You need training to use armor effectively without penalties",
+    "selling": "Equipment sells for half its listed cost",
+    "improvised": "Objects can be used as improvised weapons with limitations"
+  },
+  "references": [
+    "equipment/weapon-properties.json",
+    "equipment/currency.json"
+  ],
+  "schema": "equipment-schema.json",
+  "sourceBook": "Player's Handbook 2024"
+}

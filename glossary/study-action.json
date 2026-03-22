@@ -1,0 +1,19 @@
+{
+  "name": "Study",
+  "slug": "study",
+  "definition": "An action to make an Intelligence check about memory, books, clues, or knowledge",
+  "category": "Actions",
+  "tags": ["[Action]", "intelligence-check", "knowledge"],
+  "full_text": "When you take the Study action, you make an Intelligence check to study your memory, a book, a clue, or another source of knowledge and call to mind an important piece of information about it.",
+  "mechanics": {
+    "check": "Intelligence check",
+    "areas_of_knowledge": [
+      "Arcana: Spells, magic items, eldritch symbols, magical traditions, planes, certain creatures",
+      "History: Historic events, people, civilizations, wars, certain creatures",
+      "Investigation: Traps, ciphers, riddles, gadgetry",
+      "Nature: Terrain, flora, weather, certain creatures",
+      "Religion: Deities, hierarchies, rites, symbols, cults, certain creatures"
+    ]
+  },
+  "see_also": ["action", "intelligence"]
+}

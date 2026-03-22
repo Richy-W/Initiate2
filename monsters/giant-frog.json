@@ -1,0 +1,105 @@
+{
+  "name": "Giant Frog",
+  "size": "Medium",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 11,
+  "initiative": 1,
+  "hit_points": {
+    "average": 18,
+    "formula": "4d8"
+  },
+  "speed": {
+    "walk": 30,
+    "swim": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 12,
+      "modifier": 1,
+      "save": 1
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1,
+      "save": 1
+    },
+    "constitution": {
+      "score": 11,
+      "modifier": 0,
+      "save": 0
+    },
+    "intelligence": {
+      "score": 2,
+      "modifier": -4,
+      "save": -4
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0,
+      "save": 0
+    },
+    "charisma": {
+      "score": 3,
+      "modifier": -4,
+      "save": -4
+    }
+  },
+  "skills": {
+    "perception": 2,
+    "stealth": 4
+  },
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "darkvision": 30,
+    "passive_perception": 12
+  },
+  "languages": [],
+  "challenge_rating": 0.25,
+  "experience_points": 50,
+  "proficiency_bonus": 2,
+  "actions": [
+    {
+      "name": "Bite",
+      "type": "melee_attack",
+      "attack_bonus": 3,
+      "reach": 5,
+      "targets": "one target",
+      "damage": {
+        "damage_dice": "1d6 + 2",
+        "damage_type": "piercing",
+        "average_damage": 5
+      },
+      "description": "Melee Attack Roll: +3, reach 5 ft. Hit: 5 (1d6 + 2) Piercing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 11).",
+      "conditions_applied": ["grappled"]
+    },
+    {
+      "name": "Swallow",
+      "type": "special_attack",
+      "targets": "Small or smaller target it is grappling",
+      "description": "The frog swallows a Small or smaller target it is grappling. While swallowed, the target isn't Grappled but has the Blinded and Restrained conditions, and it has Total Cover against attacks and other effects outside the frog. While swallowing the target, the frog can't use Bite, and if the frog dies, the swallowed target is no longer Restrained and can escape from the corpse using 5 feet of movement, exiting with the Prone condition. At the end of the frog's next turn, the swallowed target takes 5 (2d4) Acid damage. If that damage doesn't kill it, the frog disgorges it, causing it to exit Prone.",
+      "conditions_applied": ["blinded", "restrained"]
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "traits": [
+    {
+      "name": "Amphibious",
+      "description": "The frog can breathe air and water."
+    },
+    {
+      "name": "Standing Leap",
+      "description": "The frog's Long Jump is up to 20 feet and its High Jump is up to 10 feet with or without a running start."
+    }
+  ],
+  "tactical_info": {
+    "optimal_range": "Swamp and wetland grapple-based encounters",
+    "key_abilities": ["Grapple and swallow combo", "Standing leap mobility", "Amphibious movement"],
+    "weaknesses": ["Low AC and hit points", "Can't bite while swallowing", "Poor mental stats"],
+    "synergies": ["Swamp encounters", "Small creature threats", "Grapple control tactics"]
+  }
+}

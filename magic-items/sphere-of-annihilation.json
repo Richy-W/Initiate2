@@ -1,0 +1,44 @@
+{
+  "name": "Sphere of Annihilation",
+  "type": "Wondrous Item",
+  "rarity": "Legendary",
+  "attunement": false,
+  "description": "This 2-foot-diameter black sphere is a hole in the multiverse, hovering in space and stabilized by a magical field surrounding it.",
+  "properties": {
+    "destruction": {
+      "effect": "Obliterates all matter it passes through",
+      "exceptions": "Artifacts may pass through unscathed unless susceptible to damage",
+      "contact_damage": "8d10 Force damage to anything touched but not wholly engulfed"
+    },
+    "control": {
+      "requirement": "Within 60 feet",
+      "action_type": "Magic action",
+      "check": {
+        "type": "Intelligence (Arcana)",
+        "dc": 25
+      },
+      "on_success": "Control until start of next turn, lose control if transferred",
+      "on_failure": "Sphere moves 10 feet toward you"
+    },
+    "movement": {
+      "action_type": "Bonus Action while controlling",
+      "movement": "Up to 5 feet times Intelligence modifier (minimum 5)",
+      "direction": "Your choice",
+      "entry_saving_throw": {
+        "type": "Dexterity",
+        "dc": 19
+      },
+      "on_failure": "8d10 Force damage, obliterated at 0 HP (no remains, possessions left behind)",
+      "on_success": "Success means touched but not obliterated"
+    },
+    "planar_interactions": {
+      "trigger": "Contact with planar portal or extradimensional space",
+      "determination": "DM rolls randomly",
+      "results": {
+        "01-50": "Sphere is destroyed",
+        "51-85": "Sphere moves through portal or into extradimensional space",
+        "86-00": "Spatial rift sends sphere and creatures/objects within 180 feet to random plane"
+      }
+    }
+  }
+}

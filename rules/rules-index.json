@@ -1,0 +1,725 @@
+{
+  "title": "Rules System Index",
+  "description": "Fundamental rules and mechanics for playing Dungeons & Dragons 5e 2024",
+  "version": "2024",
+  "last_updated": "2024-02-04",
+  "overview": {
+    "description": "This chapter provides an overview of how to play D&D and focuses on the big picture. Many places in this chapter reference the Rules Glossary.",
+    "imagination": "Imagination is a key ingredient of Dungeons & Dragons, a cooperative game in which the characters that you roleplay embark on adventures together in fantasy worlds filled with monsters and magic.",
+    "collaborative": "In D&D, the action takes place in the imaginations of the players, and it's narrated by everyone together."
+  },
+  "components": [
+    {
+      "file": "dm-rules.json",
+      "title": "Dungeon Master Fundamentals",
+      "description": "Complete guide to DM roles, responsibilities, tips, and essential requirements",
+      "contains": [
+        "DM roles (Actor, Director, Improviser, Referee, Storyteller, Teacher, Worldbuilder)",
+        "DM tips for facilitating fun (Shared Story, Not Competition, Fair, Communicate, Mistakes OK)",
+        "Group composition and DM role sharing",
+        "Essential requirements (DM, Players, Space, Scheduling, Dice, Notes, Sheets, Journal)",
+        "Finding players and choosing play space",
+        "Accessibility considerations",
+        "Optional resources (DM Screen, Adventures, Battle Grid, Miniatures, Online Tools)"
+      ]
+    },
+    {
+      "file": "session-management.json",
+      "title": "Session Preparation and Running",
+      "description": "Guidelines for preparing and running effective D&D game sessions",
+      "contains": [
+        "Card accessories for quick reference",
+        "One-Hour Guideline (accomplishments per hour of play)",
+        "Preparation guidelines (One-Hour, Two-Hour, Three-Hour)",
+        "Session recap approaches (DM vs Player)",
+        "Encounter structure (Describe → Let Players Talk → Describe Results)",
+        "Resolution methods (No rules, Obstacles, Roleplay, Combat, Spellcasting)",
+        "Passing time and pacing",
+        "Taking breaks and managing fatigue",
+        "Ending sessions (avoiding mid-encounter ends, cliffhangers)",
+        "Session note-taking for continuity"
+      ]
+    },
+    {
+      "file": "dm-toolbox.json",
+      "title": "DM's Toolbox",
+      "description": "Practical tools for backgrounds, encounters, and combat design",
+      "contains": [
+        "Creating custom backgrounds (5-step process)",
+        "Background ability score selection",
+        "Background feats and proficiencies",
+        "Combat encounter features (elevation, positions, mixed groups)",
+        "Combat encounter difficulty (Low, Moderate, High)",
+        "XP Budget system with table (levels 1-20)",
+        "Encounter design examples",
+        "Encounter troubleshooting (many creatures, adjustments, CR 0, stat blocks, powerful creatures)"
+      ]
+    },
+    {
+      "file": "running-combat.json",
+      "title": "Running Combat",
+      "description": "Practical tips for managing combat encounters smoothly",
+      "contains": [
+        "Rolling Initiative (DM control, advantage on initiative)",
+        "Using Initiative scores instead of rolling",
+        "Initiative score adjustments (Advantage/Disadvantage)",
+        "Tracking Initiative methods (Hidden List, Open List)",
+        "Hidden List tools and benefits",
+        "Open List tools and benefits",
+        "Tracking monsters' Hit Points",
+        "Differentiating identical monsters (descriptions, tags, stickers)",
+        "HP tracking methods (subtract HP vs track damage)",
+        "Using and tracking conditions",
+        "Physical reminders for conditions (cards, tokens, sticky notes)"
+      ]
+    },
+    {
+      "file": "game-mechanics.json",
+      "title": "Basic Game Mechanics",
+      "description": "Fundamental concepts for playing D&D including roles and rhythm of play",
+      "contains": [
+        "Player vs DM roles and responsibilities",
+        "Group composition (3-6 players + DM)",
+        "Rhythm of Play (3-step pattern)",
+        "Three pillars of play (social interaction, exploration, combat)",
+        "Rule hierarchy (exceptions supersede general rules)",
+        "Exception sources (class features, feats, spells, etc.)"
+      ]
+    },
+    {
+      "file": "campaigns-adventures.json",
+      "title": "Adventures and Campaigns", 
+      "description": "Structure and organization of D&D gameplay experiences",
+      "contains": [
+        "Game sessions (one-shots vs ongoing)",
+        "Adventure elements (setting, NPCs, challenges)",
+        "Adventure variety (short vs long)",
+        "Campaign types (episodic vs long-running)",
+        "Campaign creation approaches",
+        "TV series analogy (campaign/adventure/session)"
+      ]
+    },
+    {
+      "file": "dice-mechanics.json",
+      "title": "Dice Mechanics",
+      "description": "Complete system for dice usage, notation, and randomness",
+      "contains": [
+        "Dice types (d4, d6, d8, d10, d12, d20)",
+        "Dice notation and rolling format",
+        "Special dice (percentile, d3 simulation)",
+        "Common uses (D20 Tests, damage, random tables, percentages)",
+        "Mathematical rules (round down)",
+        "Narrative interpretation of rolls"
+      ]
+    },
+    {
+      "file": "abilities.json",
+      "title": "The Six Abilities",
+      "description": "Core character attributes measuring physical and mental characteristics",
+      "contains": [
+        "Six abilities (STR, DEX, CON, INT, WIS, CHA)",
+        "Ability score ranges (1-30, adventurers max 20)",
+        "Score meanings (weak 2-9, average 10-11, strong 12-19)",
+        "Ability modifier table (score to modifier conversion)",
+        "Physical vs Mental categories",
+        "Universal application to all creatures"
+      ]
+    },
+    {
+      "file": "d20-tests.json",
+      "title": "D20 Tests - Core Mechanics",
+      "description": "The fundamental resolution system for uncertain outcomes in D&D",
+      "contains": [
+        "Three types of D20 Tests (ability checks, saving throws, attack rolls)",
+        "3-step procedure (roll d20, add modifiers, compare to target)",
+        "Ability check examples and Difficulty Classes (DC 5-30)",
+        "Saving throw mechanics and examples",
+        "Attack roll system and Armor Class calculation",
+        "Critical hits (natural 20) and automatic misses (natural 1)"
+      ]
+    },
+    {
+      "file": "advantage-disadvantage.json", 
+      "title": "Advantage, Disadvantage, and Heroic Inspiration",
+      "description": "Modifier systems for D20 Tests reflecting circumstances and heroic moments",
+      "contains": [
+        "Advantage and Disadvantage mechanics (roll two d20s, use higher/lower)",
+        "Stacking and cancellation rules",
+        "Heroic Inspiration system (reroll any die)",
+        "Interaction with rerolls and special abilities",
+        "Common sources of Advantage and Disadvantage"
+      ]
+    },
+    {
+      "file": "proficiency.json",
+      "title": "Proficiency System",
+      "description": "Training and expertise mechanics that enhance character capabilities",
+      "contains": [
+        "Proficiency Bonus table (level/CR 1-30, bonus +2 to +9)",
+        "No stacking rule and multiplication limits", 
+        "Skill proficiencies and different ability applications",
+        "Saving throw proficiencies by class",
+        "Equipment proficiencies (weapons and tools)",
+        "Tool and skill synergy (Advantage when both apply)"
+      ]
+    },
+    {
+      "file": "skills.json",
+      "title": "Skills System", 
+      "description": "The 18 skills that represent categories of activities for ability checks",
+      "contains": [
+        "Complete list of 18 skills with abilities and examples",
+        "Skill categories (Physical, Social, Knowledge, Mental, Awareness)",
+        "Ability distribution across all six ability scores",
+        "Variant ability applications (e.g., Strength Intimidation)",
+        "Proficiency mechanics and tool synergy"
+      ]
+    },
+    {
+      "file": "monster-rules.json",
+      "title": "Monster Rules and Usage",
+      "description": "Complete guide to understanding, using, and customizing monsters in the game",
+      "contains": [
+        "Stat block structure and all component parts",
+        "14 creature types and their characteristics",
+        "Size categories and hit dice by size table",
+        "Combat mechanics (multiattack, legendary actions, reactions)",
+        "Ability scores, skills, and saving throws",
+        "Resistances, vulnerabilities, and immunities",
+        "Monster traits and special abilities",
+        "Senses, languages, and challenge rating",
+        "Equipment proficiency, gear, and customization",
+        "Special mechanics (swarms, pack tactics, legendary actions)",
+        "Monster alignment as suggestion for roleplay"
+      ]
+    },
+    {
+      "file": "actions.json",
+      "title": "Actions System",
+      "description": "Standard actions available to characters and monsters during gameplay", 
+      "contains": [
+        "12 standard actions (Attack, Dash, Disengage, Dodge, Help, Hide, Influence, Magic, Ready, Search, Study, Utilize)",
+        "Action categories and skill associations",
+        "Improvised actions and DM authority",
+        "Additional action sources (class features, feats, spells)",
+        "Action economy principles"
+      ]
+    },
+    {
+      "file": "action-economy.json",
+      "title": "Action Economy and Turn Structure",
+      "description": "Rules governing how actions work in sequence and the types of actions available",
+      "contains": [
+        "One Thing at a Time principle",
+        "Bonus Actions (granted by features, one per turn)",
+        "Reactions (trigger-based, one per round)",
+        "Action timing and limitations",
+        "Character motivation and roleplay considerations"
+      ]
+    },
+    {
+      "file": "social-interaction.json",
+      "title": "Social Interaction",
+      "description": "Rules and guidelines for character interactions with NPCs and other creatures",
+      "contains": [
+        "NPC attitudes (Friendly, Indifferent, Hostile)",
+        "Roleplaying approaches (active vs descriptive)",
+        "Ability checks in social situations",
+        "Influence action skills (Deception, Intimidation, Performance, Persuasion, Animal Handling)",
+        "Strategy tips and common scenarios"
+      ]
+    },
+    {
+      "file": "exploration.json",
+      "title": "Exploration and Environment",
+      "description": "Rules for interacting with the environment, objects, hazards, and travel",
+      "contains": [
+        "Adventuring equipment usage",
+        "Vision and Light (Bright Light, Dim Light, Darkness, special senses)",
+        "Hiding mechanics and circumstances",
+        "Object interaction (finding, carrying, breaking)",
+        "Environmental hazards",
+        "Travel pace and marching order"
+      ]
+    },
+    {
+      "file": "combat-structure.json",
+      "title": "Combat Structure and Initiative", 
+      "description": "Core framework for organizing and running combat encounters",
+      "contains": [
+        "Combat step-by-step (Establish Positions, Roll Initiative, Take Turns)",
+        "Initiative system (Dexterity checks, surprise, turn order)",
+        "Turn structure (movement, action, communication, interactions)",
+        "Round timing (6 seconds) and combat ending conditions"
+      ]
+    },
+    {
+      "file": "movement-positioning.json",
+      "title": "Movement and Positioning",
+      "description": "Rules for movement, positioning, and spatial relationships in combat", 
+      "contains": [
+        "Basic movement and speed deduction",
+        "Difficult Terrain (double movement cost)",
+        "Grid rules (5-foot squares, diagonal movement)",
+        "Creature sizes and space occupation (Tiny to Gargantuan)",
+        "Moving around creatures and breaking up movement"
+      ]
+    },
+    {
+      "file": "attack-mechanics.json",
+      "title": "Attack Mechanics and Combat Actions",
+      "description": "Rules for making attacks, opportunity attacks, and combat-specific actions",
+      "contains": [
+        "Attack structure (Target, Modifiers, Resolution)",
+        "Cover system (Half +2, Three-Quarters +5, Total immunity)",
+        "Ranged vs Melee attacks and reach",
+        "Unseen combat (Advantage/Disadvantage)",
+        "Opportunity Attacks (triggers, avoidance, resolution)"
+      ]
+    },
+    {
+      "file": "damage-healing.json", 
+      "title": "Damage and Healing Systems",
+      "description": "Comprehensive rules for damage, healing, hit points, and survival",
+      "contains": [
+        "Hit Points, Bloodied condition, damage rolls",
+        "Critical Hits (double damage dice)",
+        "Damage types, Resistance/Vulnerability/Immunity",
+        "Dropping to 0 HP (death, unconsciousness, massive damage)",
+        "Death Saving Throws (3 successes/failures)",
+        "Healing, stabilizing, knockout rules, Temporary Hit Points"
+      ]
+    },
+    {
+      "file": "special-combat.json",
+      "title": "Special Combat Situations", 
+      "description": "Rules for mounted, underwater, and environmental combat scenarios",
+      "contains": [
+        "Mounted Combat (mounting, controlling, falling off)",
+        "Underwater Combat (weapon penalties, fire resistance)",
+        "Environmental factors (darkness, weather, terrain)",
+        "Size-based combat and magical considerations"
+      ]
+    },
+    {
+      "file": "combat-index.json",
+      "title": "Combat System Index",
+      "description": "Master reference for all combat mechanics and quick lookups",
+      "contains": [
+        "Combat component overview and organization",
+        "Key mechanics summary (initiative, attacks, damage)",
+        "Cover, movement, and survival quick reference",
+        "Tactical considerations and special situations"
+      ]
+    },
+    {
+      "file": "conditions.json",
+      "title": "Conditions System",
+      "description": "15 temporary states that alter creature capabilities and behavior",
+      "contains": [
+        "Complete condition definitions (Blinded, Charmed, Deafened, etc.)",
+        "Duration rules (specified vs until countered)",
+        "Stacking mechanics (generally don't stack, Exhaustion exception)",
+        "Tactical applications and counter-strategies",
+        "Condition interactions and overlapping effects"
+      ]
+    },
+    {
+      "file": "curses-contagions.json",
+      "title": "Curses and Magical Contagions",
+      "description": "Rules for magical curses and contagious magical effects that affect characters",
+      "contains": [
+        "Curse definition and mechanics",
+        "Bestow Curse spell-based curses",
+        "Cursed creatures and magic items",
+        "Narrative curses tied to adventure themes",
+        "Environmental curses",
+        "Demonic Possession mechanics (chaos and evil)",
+        "Magical contagions overview",
+        "Rest and recuperation mechanics",
+        "Cackle Fever example (1d4 day onset, exhaustion, laughter, DC 13)",
+        "Sewer Plague example (1d4 day onset, exhaustion, weakness, DC 11)",
+        "Sight Rot example (blindness, ointment treatment, DC 15)"
+      ]
+    },
+    {
+      "file": "environmental-hazards.json",
+      "title": "Environmental Effects and Hazards",
+      "description": "Rules for environmental conditions that can harm or hinder characters during adventures",
+      "contains": [
+        "Deep water hazards (pressure, cold, DC 10)",
+        "Extreme cold effects (0°F or lower, DC 10)",
+        "Extreme heat effects (100°F or higher, DC 5+ progression)",
+        "Frigid water immersion (Constitution score minutes safe)",
+        "Heavy precipitation (obscurement, perception penalty)",
+        "High altitude travel (10,000 feet+, reduced oxygen, travel pace doubling)",
+        "Slippery ice terrain (difficult terrain, DC 10 Dex)",
+        "Strong wind effects (ranged disadvantage, flying restrictions)",
+        "Thin ice collapse (weight tolerance 3d10 × 10 pounds, falling through)"
+      ]
+    },
+    {
+      "file": "fear-mental-stress.json",
+      "title": "Fear and Mental Stress",
+      "description": "Rules for handling supernatural fear effects and psychological stress in campaigns",
+      "contains": [
+        "Fear effects and Frightened condition",
+        "Sample fear saving throw DCs (10-20 range)",
+        "Additional fear effect options (mandatory actions, combat disadvantage)",
+        "Mental stress effects using Psychic damage",
+        "Sample mental stress saving throws with damage (1d6 to 9d6)",
+        "Short-term mental stress effects (1d10 minutes, Frightened/Incapacitated/Stunned)",
+        "Long-term mental stress effects (1d10 × 10 hours, Disadvantage on checks)",
+        "Indefinite mental stress effects (requires Greater Restoration)",
+        "Spell interactions (Calm Emotions, Lesser Restoration, Greater Restoration)",
+        "Player discussion recommendation for campaign use"
+      ]
+    },
+    {
+      "file": "poisons.json",
+      "title": "Poisons",
+      "description": "Rules for poison types, acquisition, harvesting, and 14 example poisons",
+      "contains": [
+        "Four poison types (Contact, Ingested, Inhaled, Injury)",
+        "Contact poison mechanics (smeared on objects, exposed skin)",
+        "Ingested poison mechanics (swallowed doses, partial dose options)",
+        "Inhaled poison mechanics (5-foot Cube, breath ineffective)",
+        "Injury poison mechanics (applied as Bonus Action, Piercing/Slashing damage)",
+        "Purchasing poison rules and criminal acquisition",
+        "Harvesting poison mechanics (DC 20 Nature check with Poisoner's Kit, 1d6 minutes)",
+        "Assassin's Blood (150 gp, 1d12 damage, 24-hour Poisoned)",
+        "Burnt Othur Fumes (500 gp, 3d6 damage, recurring saves, 3 successes to cure)",
+        "Carrion Crawler Mucus (200 gp, Paralyzed + Poisoned 1 minute)",
+        "Essence of Ether (300 gp, Unconscious 8 hours)",
+        "Lolth's Sting (200 gp, potential unconsciousness if fail by 5+)",
+        "Malice (250 gp, Blinded + Poisoned 1 hour)",
+        "Midnight Tears (1,500 gp, delayed until midnight, 9d6 damage)",
+        "Oil of Taggit (400 gp, Unconscious 24 hours)",
+        "Pale Tincture (250 gp, 1d6 damage, daily saves, healing immunity, 7 saves to cure)",
+        "Purple Worm Poison (2,000 gp, 10d6 damage, DC 21)",
+        "Serpent Venom (200 gp, 3d6 damage, DC 11)",
+        "Torpor (600 gp, Speed halved 4d6 hours)",
+        "Truth Serum (150 gp, can't lie 1 hour)",
+        "Wyvern Poison (1,200 gp, 7d6 damage, DC 14)",
+        "Poison organization by type and price tier"
+      ]
+    },
+    {
+      "file": "traps.json",
+      "title": "Traps",
+      "description": "Rules for trap design, mechanics, and 8 example traps spanning levels 1-20",
+      "contains": [
+        "Trap design philosophy (fleeting distractions, deadly puzzles, undetectable avoidance)",
+        "Parts of a trap (Severity/Levels, Trigger, Duration)",
+        "Trap severity levels (Nuisance vs Deadly)",
+        "8 example traps with scaling for levels 1-20",
+        "Collapsing Roof (deadly, 1-4, trip wire, 2d10 Bludgeoning, scaling to 18d10)",
+        "Falling Net (nuisance, 1-4, Restrained condition, DC 10)",
+        "Fire-Casting Statue (deadly, 1-4, 15-foot to 120-foot Cone, scaling)",
+        "Hidden Pit (nuisance, 1-4, fall damage, escape mechanics)",
+        "Poisoned Darts (deadly, 1-4, 1d3 darts, scaling 1d6 to 7d6 per dart)",
+        "Poisoned Needle (nuisance, 1-4, lock-based trigger, Poisoned 1 hour)",
+        "Rolling Stone (deadly/nuisance, 11-20, initiative combat, 10d10 damage)",
+        "Spiked Pit (deadly, 1-4, combined fall + spike damage, scaling)",
+        "Trap detection and disarm mechanics by trap type",
+        "Scaling tables for higher character levels"
+      ]
+    },
+    {
+      "file": "travel-pace.json",
+      "title": "Travel Pace and Overland Movement",
+      "description": "Rules for travel speed, terrain effects, and navigation over long distances",
+      "contains": [
+        "Travel pace system (Fast, Normal, Slow)",
+        "Good roads modifier (+1 pace step)",
+        "Slower travelers rule (group limited by slowest member)",
+        "Extended travel mechanics (8+ hours, Constitution saves, exhaustion)",
+        "Special movement calculations (Speed ÷ 10 formula)",
+        "Vehicle travel rules (speed in mph, no pace choice)",
+        "11 terrain types with complete mechanics",
+        "Terrain pacing effects (Grassland Fast, Mountain/Swamp Slow)",
+        "Encounter distance by terrain (2d6 to 6d6 × 10 feet)",
+        "Foraging DCs by terrain (10-20)",
+        "Navigation DCs by terrain (5-15)",
+        "Search DCs by terrain (10-20)",
+        "Travel terrain table reference (all terrains with full mechanics)",
+        "Terrain difficulty summary (fastest to slowest)",
+        "Extended travel exhaustion progression"
+      ]
+    },
+    {
+      "file": "magic-items.json",
+      "title": "Magic Items",
+      "description": "Rules for identifying, attuning to, and using magic items across nine categories",
+      "contains": [
+        "Magic item rules and attunement prerequisites",
+        "Class and spellcaster requirements for attunement",
+        "Items made for specific creatures (size adjustment rules)",
+        "Unusual anatomy rulings (DM discretion)",
+        "Paired items exceptions and flexibility",
+        "Nine magic item categories with examples",
+        "Armor category (type selection, wearing requirements)",
+        "Potions category (Bonus Action usage, consumables)",
+        "Potion Miscibility table (8 outcomes from mixing, 01-00)",
+        "Potion explosion damage (4d10 Force, 5-foot radius)",
+        "Rings category (wearing requirements)",
+        "Rods category (composition, 2-5 lb weight, Arcane Focus)",
+        "Scrolls category (Spell Scrolls, consumable reading)",
+        "Staffs category (appearance variations, 2-7 lb weight, Quarterstaff + focus)",
+        "Wands category (12-15 inches, Arcane Focus use)",
+        "Weapons category (type specification, magical ammunition)",
+        "Wondrous Items category (boots, belts, carpets, figurines, etc.)"
+      ]
+    },
+    {
+      "file": "magic-items-rarity.json",
+      "title": "Magic Item Rarity, Values, and Acquisition",
+      "description": "Rules for magic item rarity, values, awarding, activation, and crafting mechanics",
+      "contains": [
+        "Magic item rarity system (Common to Artifact, Priceless)",
+        "Magic Item Rarities and Values table (100 GP to 200,000 GP)",
+        "Consumable value adjustments (half for non-Spell Scrolls)",
+        "Base item cost addition (weapon/armor + enchantment)",
+        "Magic items not necessary (sporadically appearing, optional)",
+        "Magic Items Awarded by Level table (100 items total by level 20)",
+        "Tier 1 distribution (11 items, Common/Uncommon focus)",
+        "Tier 2 distribution (34 items, Uncommon/Rare emphasis)",
+        "Tier 3 distribution (30 items, Rare/Very Rare focus)",
+        "Tier 4 distribution (25 items, Very Rare/Legendary focus)",
+        "Player wish list system",
+        "Overstocking adventures (25% more items than table)",
+        "Magic Item Tracker sheet system",
+        "Random Magic Item Rarity table with level-based percentages",
+        "Starting character magic items guidance",
+        "DM Choice and Player Choice item selection approaches",
+        "Activating magic items (Magic action default)",
+        "Command words (spoken/signed, Silence spell suppression)",
+        "Consumable items (Potions, Scrolls, one-time use)",
+        "Spells cast from items (lowest spell level, no slot cost)",
+        "Concentration requirements for spell items",
+        "Spellcasting ability selection (user choice if multiple)",
+        "Item charges mechanics (Identify spell reveals count)",
+        "Recharge timing (Next Dawn rule with DM exceptions)",
+        "Cursed items (hidden from most identification methods)",
+        "Remove Curse requirement for voluntary attunement end",
+        "Magic item resilience (Resistance to all damage)",
+        "Artifact destruction mechanics (special methods required)",
+        "Arcana proficiency requirement for magic item crafting",
+        "Potion brewing and Spell Scroll scribing references"
+      ]
+    },
+    {
+      "file": "magic-item-schema.json",
+      "title": "Magic Item JSON Schema",
+      "description": "Schema defining JSON structure and validation for all magic items",
+      "location": "Root directory - defines structure for magic-items/ directory",
+      "contains": [
+        "13 required/optional properties for magic item JSON",
+        "id (unique identifier)",
+        "name (display name)",
+        "rarity (Common to Artifact)",
+        "category (9 types)",
+        "attunement_required (boolean)",
+        "description (full item description)",
+        "properties (array of tags)",
+        "effect (mechanical effects)",
+        "activation (how to use)",
+        "attunement (if required, conditions/restrictions)",
+        "consumable (single-use boolean)",
+        "curse (curse properties if applicable)",
+        "sentience (sentient item attributes)",
+        "crafting (crafting requirements and time)",
+        "source (publication source)"
+      ]
+    },
+    {
+      "file": "magic-item-index.json",
+      "title": "Magic Items Master Index",
+      "description": "Categorized index of all magic items with organization by rarity, type, and attunement",
+      "location": "Root directory - master reference for all magic items",
+      "contains": [
+        "9 magic item categories (Armor, Potion, Ring, Rod, Scroll, Staff, Wand, Weapon, Wondrous Item)",
+        "6 rarity levels (Common to Artifact) with values",
+        "Attunement tracking (requires vs non-attunement)",
+        "Consumable items organization",
+        "Sentient items tracking",
+        "Cursed items registry",
+        "Crafting tool organization (9 categories)",
+        "Special properties index (magical ammunition, class-restricted, etc.)",
+        "Starting character allocation by tier (1-4)",
+        "Quick reference organization for all 10+ core magic items"
+      ]
+    },
+    {
+      "file": "magic-items-crafting.json",
+      "title": "Magic Item Crafting and Sentient Items",
+      "description": "Rules for crafting magic items, sentient item creation, and conflict mechanics",
+      "contains": [
+        "Magic Item Tools table (9 item categories with specific tool requirements)",
+        "Armor tools (Leatherworker's, Smith's, or Weaver's)",
+        "Potion tools (Alchemist's Supplies or Herbalism Kit)",
+        "Ring tools (Jeweler's Tools)",
+        "Rod/Staff/Wand tools (Woodcarver's Tools)",
+        "Scroll tools (Calligrapher's Supplies)",
+        "Weapon tools (Leatherworker's, Smith's, or Woodcarver's)",
+        "Wondrous Item tools (Tinker's or base item tool)",
+        "Proficiency requirements for crafter and assistants",
+        "Spell preparation requirement for spell-casting items",
+        "Magic Item Crafting Time and Cost table (5 to 250 days, 50 GP to 100,000 GP)",
+        "Work per day rules (8 hours minimum per day, non-consecutive allowed)",
+        "Assistants and time division (normally 1 assistant allowed)",
+        "Raw materials availability (75% in cities, 25% settlements)",
+        "Material recheck timing (7 day minimum wait)",
+        "Base item cost addition (weapon/armor costs included)",
+        "Sentient magic items overview (origins, relationship types)",
+        "Single-use items never sentient (Potions, Scrolls)",
+        "DM control of sentient items and their properties",
+        "Sentient item trait creation (5 core traits)",
+        "Ability scores for sentient items (4d6 drop lowest per ability)",
+        "Alignment determination (Sentient Item's Alignment table, 9 options)",
+        "Communication methods (Sentient Item's Communication table, 3 options)",
+        "Sense ranges (Sentient Item's Senses table, 4 options)",
+        "Special purpose selection (Sentient Item's Special Purpose table, 10 purposes)",
+        "Special purpose types (Aligned, Bane, Creator Seeker, Destiny Seeker, Destroyer, Glory Seeker, Lore Seeker, Protector, Soulmate Seeker, Templar)",
+        "Conflict mechanics (triggered by opposition to alignment/purpose)",
+        "Conflict saving throw (DC 12 + item's Charisma modifier)",
+        "Four conflict demands (Chase My Dreams, Get Rid of It, It's Time for a Change, Keep Me Close)",
+        "Refusal consequences (attunement revocation, property suppression, control attempt)",
+        "Control attempt mechanics (Charmed condition 1d12 hours)",
+        "Damage escape from control (repeat save to end Charmed)",
+        "Control cooldown (cannot use again until next dawn)"
+      ]
+    }
+  ],
+  "key_concepts": {
+    "core_mechanic": "D20 Tests - roll a d20 to determine success or failure",
+    "test_types": ["ability checks", "saving throws", "attack rolls"],
+    "rule_hierarchy": "Exceptions supersede general rules",
+    "rhythm_pattern": "DM describes scene → Players describe actions → DM narrates results",
+    "group_size": "3-6 players plus 1 DM (4-7 total)",
+    "play_pillars": ["social interaction", "exploration", "combat"],
+    "rounding_rule": "Always round down unless told otherwise",
+    "advantage_principle": "Roll two d20s, use higher for Advantage or lower for Disadvantage",
+    "proficiency_bonus": "Ranges from +2 (levels 1-4) to +9 (levels 29-30)",
+    "one_thing_at_a_time": "You can take only one action at a time",
+    "npc_attitudes": ["Friendly", "Indifferent", "Hostile"],
+    "combat_timing": "Rounds (6 seconds each) divided into turns in initiative order",
+    "critical_hits": "Natural 20 on attack = automatic hit + double damage dice",
+    "conditions_exist": "15 temporary states (Blinded, Charmed, etc.) that alter capabilities",
+    "condition_stacking": "Multiple instances don't stack (except Exhaustion levels)"
+  },
+  "ability_summary": {
+    "physical": {
+      "strength": "Physical might",
+      "dexterity": "Agility, reflexes, and balance", 
+      "constitution": "Health and stamina"
+    },
+    "mental": {
+      "intelligence": "Reasoning and memory",
+      "wisdom": "Perceptiveness and mental fortitude",
+      "charisma": "Confidence, poise, and charm"
+    }
+  },
+  "d20_test_summary": {
+    "procedure": "Roll 1d20 + ability modifier + proficiency bonus (if applicable) + other modifiers",
+    "difficulty_classes": {
+      "very_easy": 5,
+      "easy": 10, 
+      "medium": 15,
+      "hard": 20,
+      "very_hard": 25,
+      "nearly_impossible": 30
+    },
+    "critical_results": {
+      "natural_20": "Automatic hit on attack rolls (Critical Hit)",
+      "natural_1": "Automatic miss on attack rolls"
+    }
+  },
+  "skills_summary": {
+    "total": 18,
+    "by_ability": {
+      "strength": 1,
+      "dexterity": 3, 
+      "constitution": 0,
+      "intelligence": 5,
+      "wisdom": 5,
+      "charisma": 4
+    },
+    "most_common": ["Perception", "Athletics", "Stealth", "Persuasion", "Investigation"]
+  },
+  "actions_summary": {
+    "total_standard": 12,
+    "combat_focused": ["Attack", "Dodge"],
+    "movement_focused": ["Dash", "Disengage"],
+    "investigation_focused": ["Search", "Study"], 
+    "social_focused": ["Influence", "Help"],
+    "universal": ["Magic", "Ready", "Hide", "Utilize"]
+  },
+  "action_economy_summary": {
+    "per_turn": {
+      "action": "One (unless specifically granted additional)",
+      "bonus_action": "One (only if feature grants it)",
+      "reaction": "One per round (resets at start of next turn)",
+      "movement": "Up to your Speed (can be broken up)",
+      "free_interaction": "One object interaction"
+    }
+  },
+  "social_interaction_summary": {
+    "methods": ["Roleplaying", "Ability checks"],
+    "influence_skills": ["Deception", "Intimidation", "Performance", "Persuasion", "Animal Handling"],
+    "roleplay_approaches": ["Active (speaking in character)", "Descriptive (describing actions)"],
+    "key_principle": "What would my character do?"
+  },
+  "exploration_summary": {
+    "light_levels": ["Bright Light", "Dim Light", "Darkness"],
+    "obscurement": ["Lightly Obscured (Disadvantage on sight Perception)", "Heavily Obscured (Blinded condition)"],
+    "travel_paces": {
+      "fast": "4 miles/hour, 30 miles/day, Disadvantage on Perception/Survival/Stealth",
+      "normal": "3 miles/hour, 24 miles/day, Disadvantage on Stealth", 
+      "slow": "2 miles/hour, 18 miles/day, Advantage on Perception/Survival"
+    },
+    "hazards": ["Burning", "Dehydration", "Falling", "Malnutrition", "Suffocation"]
+  },
+  "combat_summary": {
+    "initiative": "Dexterity check determines turn order (same each round)",
+    "turn_structure": "Move + Action + Bonus Action (if available) + Free Interaction",
+    "reactions": "One per round, reset at start of your turn",
+    "round_duration": "6 seconds in game time",
+    "cover_bonuses": {
+      "half": "+2 AC and Dex saves",
+      "three_quarters": "+5 AC and Dex saves", 
+      "total": "Cannot be targeted"
+    }
+  },
+  "damage_summary": {
+    "critical_hits": "Natural 20 = double damage dice + normal modifiers",
+    "resistance": "Half damage (round down)",
+    "vulnerability": "Double damage", 
+    "immunity": "No damage taken",
+    "death_saves": "DC 10, three successes = stable, three failures = death",
+    "conditions": "15 total states that impose temporary effects on creatures",
+    "exhaustion_levels": "1-6 levels with cumulative effects (level 6 = death)"
+  },
+  "creature_sizes": {
+    "tiny": "4 per square (2.5x2.5 feet)",
+    "small_medium": "1 square each (5x5 feet)",
+    "large": "4 squares (10x10 feet)",
+    "huge": "9 squares (15x15 feet)",
+    "gargantuan": "16 squares (20x20 feet)"
+  },
+  "game_structure": {
+    "session": "Single episode of play",
+    "adventure": "Season - series of connected sessions",
+    "campaign": "TV series - multiple adventures with overarching narrative"
+  },
+  "player_responsibilities": [
+    "Make a character",
+    "Team up with other characters", 
+    "Venture forth and explore"
+  ],
+  "dm_responsibilities": [
+    "Build adventures",
+    "Guide the story",
+    "Adjudicate the rules"
+  ]
+}

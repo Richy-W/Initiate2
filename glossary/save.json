@@ -1,0 +1,12 @@
+{
+  "name": "Save",
+  "slug": "save",
+  "definition": "Another name for a saving throw",
+  "category": "Game Mechanics",
+  "tags": ["saving-throw"],
+  "full_text": "Save is another name for a saving throw.",
+  "mechanics": {
+    "alternative_name": "Saving Throw"
+  },
+  "see_also": ["saving-throw"]
+}

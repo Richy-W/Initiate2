@@ -1,0 +1,66 @@
+{
+  "name": "Polar Bear",
+  "size": "Large",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 12,
+  "hit_points": 42,
+  "hit_dice": "5d10 + 15",
+  "speed": {
+    "walk": 40,
+    "swim": 40
+  },
+  "ability_scores": {
+    "strength": 20,
+    "dexterity": 14,
+    "constitution": 16,
+    "intelligence": 2,
+    "wisdom": 13,
+    "charisma": 7
+  },
+  "saving_throws": {
+    "strength": 5,
+    "dexterity": 2,
+    "constitution": 3,
+    "intelligence": -4,
+    "wisdom": 1,
+    "charisma": -2
+  },
+  "skills": {
+    "perception": 5,
+    "stealth": 4
+  },
+  "damage_resistances": [
+    "Cold"
+  ],
+  "senses": [
+    "Darkvision 60 ft.",
+    "Passive Perception 15"
+  ],
+  "languages": "None",
+  "challenge_rating": 2,
+  "experience_points": 450,
+  "proficiency_bonus": 2,
+  "features": [],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The bear makes two Rend attacks."
+    },
+    {
+      "name": "Rend",
+      "description": "Melee Attack Roll: +7, reach 5 ft. Hit: 9 (1d8 + 5) Slashing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Striker - Cold-adapted predator with multiattack",
+    "positioning": "Uses amphibious nature for surprise attacks from water",
+    "damage_output": "18 slashing per round with multiattack",
+    "key_abilities": "Cold resistance, excellent swim speed, high perception",
+    "weaknesses": "Standard bear vulnerabilities, no special defenses",
+    "synergies": "Perfect for arctic environments and cold-weather encounters"
+  }
+}

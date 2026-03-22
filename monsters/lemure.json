@@ -1,0 +1,90 @@
+{
+  "name": "Lemure",
+  "size": "Medium",
+  "type": "Fiend",
+  "subtype": "Devil",
+  "alignment": "Lawful Evil",
+  "armor_class": {
+    "value": 9,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": -3,
+    "total": 7
+  },
+  "hit_points": {
+    "average": 9,
+    "formula": "2d8"
+  },
+  "speed": {
+    "walk": 20
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "dexterity": {
+      "score": 5,
+      "modifier": -3,
+      "saving_throw": -3
+    },
+    "constitution": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "intelligence": {
+      "score": 1,
+      "modifier": -5,
+      "saving_throw": -5
+    },
+    "wisdom": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "charisma": {
+      "score": 3,
+      "modifier": -4,
+      "saving_throw": -4
+    }
+  },
+  "damage_resistances": ["Cold"],
+  "damage_immunities": ["Fire", "Poison"],
+  "condition_immunities": ["Charmed", "Frightened", "Poisoned"],
+  "senses": {
+    "darkvision": 120,
+    "passive_perception": 10
+  },
+  "languages": ["Understands Infernal but can't speak"],
+  "challenge_rating": {
+    "cr": 0,
+    "xp": 10,
+    "proficiency_bonus": 2
+  },
+  "traits": [
+    {
+      "name": "Hellish Restoration",
+      "description": "If the lemure dies in the Nine Hells, it revives with all its Hit Points in 1d10 days unless it is killed by a creature under the effects of a Bless spell or its remains are sprinkled with Holy Water."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Vile Slime",
+      "description": "Melee Attack Roll: +2, reach 5 ft. Hit: 2 (1d4) Poison damage.",
+      "attack_roll": 2,
+      "reach": 5,
+      "damage": "2 (1d4)",
+      "damage_type": "Poison"
+    }
+  ],
+  "tactical_info": {
+    "role": "Lowest Devil Minion/Fodder",
+    "environment": "Nine Hells, infernal legions, summoned hordes",
+    "tactics": "Swarms in large numbers, weak individual attacks but dangerous in groups, uses hellish restoration for persistence",
+    "weaknesses": "Extremely low stats across the board, poor AC and hit points, minimal damage output",
+    "signature_abilities": ["Hellish restoration revival", "Devil immunities and resistances", "Poison damage attack", "Darkvision in magical darkness"]
+  }
+}

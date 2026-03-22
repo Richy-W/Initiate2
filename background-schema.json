@@ -1,0 +1,177 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "D&D 2024 Background Schema",
+  "description": "Schema for validating D&D 2024 background data structures",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the background"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the background's origin and nature"
+    },
+    "abilityScoreIncrease": {
+      "type": "object",
+      "description": "Ability score options for the background",
+      "properties": {
+        "choices": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Three ability scores to choose from for increases"
+        },
+        "points": {
+          "type": "integer",
+          "enum": [3],
+          "description": "Total points to distribute among chosen abilities"
+        }
+      },
+      "required": ["choices", "points"]
+    },
+    "feat": {
+      "type": "object",
+      "description": "The feat granted by this background",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the feat"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type or category of feat"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of what the feat provides"
+        }
+      },
+      "required": ["name", "type"]
+    },
+    "skillProficiencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Two skill proficiencies granted by the background"
+    },
+    "toolProficiency": {
+      "type": "object",
+      "description": "Tool proficiency granted by the background",
+      "properties": {
+        "fixed": {
+          "type": "string",
+          "description": "Specific tool proficiency if fixed"
+        },
+        "choice": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Tools to choose from"
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Number of tools to choose"
+            }
+          }
+        }
+      },
+      "oneOf": [
+        {"required": ["fixed"]},
+        {"required": ["choice"]}
+      ]
+    },
+    "languageProficiency": {
+      "type": "object",
+      "description": "Language proficiency options",
+      "properties": {
+        "fixed": {
+          "type": "string",
+          "description": "Specific language if fixed"
+        },
+        "choice": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "integer",
+              "enum": [1],
+              "description": "Number of languages to choose"
+            },
+            "type": {
+              "type": "string",
+              "enum": ["standard", "exotic", "any"],
+              "description": "Type of languages to choose from"
+            }
+          },
+          "required": ["count", "type"]
+        }
+      },
+      "oneOf": [
+        {"required": ["fixed"]},
+        {"required": ["choice"]}
+      ]
+    },
+    "startingEquipment": {
+      "type": "object",
+      "description": "Starting equipment options for the background",
+      "properties": {
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "choice": {
+                "type": "string",
+                "enum": ["A", "B"],
+                "description": "Equipment package choice identifier"
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "List of items in this equipment package"
+              },
+              "gold": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "Starting gold pieces for this option"
+              }
+            },
+            "required": ["choice", "items", "gold"]
+          },
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "Two equipment options (typically detailed package vs gold)"
+        }
+      },
+      "required": ["options"]
+    },
+    "sourceBook": {
+      "type": "string",
+      "description": "Source book this background comes from"
+    }
+  },
+  "required": [
+    "name",
+    "description", 
+    "abilityScoreIncrease",
+    "feat",
+    "skillProficiencies",
+    "toolProficiency",
+    "startingEquipment",
+    "sourceBook"
+  ]
+}

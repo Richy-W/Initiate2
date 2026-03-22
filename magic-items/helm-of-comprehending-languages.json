@@ -1,0 +1,11 @@
+{
+  "name": "Helm of Comprehending Languages",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "attunement": false,
+  "description": "While wearing this helm, you can cast Comprehend Languages from it.",
+  "properties": {
+    "spell": "Comprehend Languages",
+    "availability": "While wearing the helm"
+  }
+}

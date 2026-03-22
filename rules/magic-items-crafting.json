@@ -1,0 +1,418 @@
+{
+  "id": "magic-items-crafting",
+  "name": "Magic Item Crafting and Sentient Items",
+  "description": "Rules for crafting magic items, tool requirements, time/cost, and creating sentient magic items with personality and conflict mechanics",
+  "sections": {
+    "tools": {
+      "title": "Tools",
+      "overview": "The Magic Item Tools table lists which tool is required to make a magic item of each category",
+      "requirement": "You must use the required tool to make an item and have proficiency with that tool. Any assistants must also have proficiency with it",
+      "table": {
+        "title": "Magic Item Tools",
+        "rows": [
+          {
+            "item_category": "Armor",
+            "required_tool": "Leatherworker's Tools, Smith's Tools, or Weaver's Tools depending on the kind of armor as noted in the tools' descriptions"
+          },
+          {
+            "item_category": "Potion",
+            "required_tool": "Alchemist's Supplies or Herbalism Kit"
+          },
+          {
+            "item_category": "Ring",
+            "required_tool": "Jeweler's Tools"
+          },
+          {
+            "item_category": "Rod",
+            "required_tool": "Woodcarver's Tools"
+          },
+          {
+            "item_category": "Scroll",
+            "required_tool": "Calligrapher's Supplies"
+          },
+          {
+            "item_category": "Staff",
+            "required_tool": "Woodcarver's Tools"
+          },
+          {
+            "item_category": "Wand",
+            "required_tool": "Woodcarver's Tools"
+          },
+          {
+            "item_category": "Weapon",
+            "required_tool": "Leatherworker's Tools, Smith's Tools, or Woodcarver's Tools depending on the kind of weapon as noted in the tools' descriptions"
+          },
+          {
+            "item_category": "Wondrous Item",
+            "required_tool": "Tinker's Tools or the tool required to make the nonmagical item on which the magic item is based"
+          }
+        ]
+      }
+    },
+    "spells": {
+      "title": "Spells",
+      "description": "If a magic item allows its user to cast any spells from it, you must have all those spells prepared every day you spend crafting the item"
+    },
+    "time_and_cost": {
+      "title": "Time and Cost",
+      "overview": "Crafting a magic item takes an amount of time and money based on the item's rarity",
+      "table": {
+        "title": "Magic Item Crafting Time and Cost",
+        "rows": [
+          {
+            "item_rarity": "Common",
+            "time": "5 days",
+            "cost": "50 GP"
+          },
+          {
+            "item_rarity": "Uncommon",
+            "time": "10 days",
+            "cost": "200 GP"
+          },
+          {
+            "item_rarity": "Rare",
+            "time": "50 days",
+            "cost": "2,000 GP"
+          },
+          {
+            "item_rarity": "Very Rare",
+            "time": "125 days",
+            "cost": "20,000 GP"
+          },
+          {
+            "item_rarity": "Legendary",
+            "time": "250 days",
+            "cost": "100,000 GP"
+          }
+        ],
+        "notes": [
+          "The time and cost are halved for a consumable item other than a Spell Scroll",
+          "Spell Scroll crafting time and cost are given in Equipment"
+        ]
+      },
+      "work_per_day": {
+        "title": "Work per Day",
+        "description": "For each day of crafting, you must work for 8 hours",
+        "flexibility": "If an item requires multiple days, those days needn't be consecutive"
+      },
+      "assistants": {
+        "title": "Assistants",
+        "description": "Characters can combine their efforts to shorten the crafting time",
+        "calculation": "Divide the time needed to create an item by the number of characters working on it",
+        "limitation": "Normally, only one other character can assist you, but the DM might allow more assistants"
+      },
+      "raw_materials": {
+        "title": "Raw Materials",
+        "description": "The cost in the table represents the raw materials needed to make a magic item",
+        "availability": "The DM determines whether appropriate raw materials are available",
+        "urban_availability": "In a city, there is a 75 percent chance that the materials are available",
+        "settlement_availability": "In any other settlement, that chance is 25 percent",
+        "unavailable": "If materials aren't available, you must wait at least 7 days before checking on the availability again",
+        "base_item_cost": {
+          "description": "If a magic item incorporates an item that has a purchase cost (such as a weapon or a suit of armor), you must also pay that entire cost or craft that item using the rules in Equipment",
+          "example": "To make +1 Armor (Plate Armor), you must pay 3,500 GP or pay 2,000 GP and craft the armor"
+        }
+      }
+    },
+    "sentient_magic_items": {
+      "title": "Sentient Magic Items",
+      "overview": "Some magic items have sentience and personality",
+      "origins": [
+        "Possessed items",
+        "Items haunted by the spirit of a previous owner",
+        "Items self-aware thanks to the magic used to create them"
+      ],
+      "relationship": "A sentient item might be a cherished ally to its wielder or a continual thorn in the side",
+      "prevalence": "Most sentient items are weapons, but other kinds of items can manifest sentience",
+      "limitation": "Single-use items such as potions and scrolls are never sentient",
+      "control": "The DM controls sentient magic items and their activated properties",
+      "access": [
+        "A bearer who maintains a good relationship with the item can access those properties",
+        "If the relationship is strained, a conflict can ensue"
+      ]
+    },
+    "sentient_magic_item_traits": {
+      "title": "Sentient Magic Item Traits",
+      "overview": "When you make a sentient magic item, you create the item's persona much as you would create an NPC, with these exceptions",
+      "abilities": {
+        "title": "Abilities",
+        "description": "A sentient magic item has Intelligence, Wisdom, and Charisma scores",
+        "selection": "Choose the item's abilities, or determine them randomly",
+        "random_method": "Roll 4d6 for each one, dropping the lowest roll and totaling the rest"
+      },
+      "alignment": {
+        "title": "Alignment",
+        "description": "A sentient magic item has an alignment",
+        "determination": "Its creator or nature might suggest an alignment. Otherwise, pick an alignment or roll on the Sentient Item's Alignment table"
+      },
+      "communication": {
+        "title": "Communication",
+        "description": "A sentient item communicates by sharing its emotions, broadcasting its thoughts telepathically, or speaking aloud",
+        "choice": "You can choose how it communicates or roll on the Sentient Item's Communication table"
+      },
+      "senses": {
+        "title": "Senses",
+        "description": "A sentient item can perceive its surroundings out to a limited range",
+        "choice": "You can choose its senses or roll on the Sentient Item's Senses table"
+      },
+      "special_purpose": {
+        "title": "Special Purpose",
+        "description": "You can give a sentient item an objective it pursues, perhaps to the exclusion of all else",
+        "alignment_condition": "As long as the wielder's use of the item aligns with that special purpose, the item remains cooperative",
+        "deviation": "Deviating from this course might cause conflict between the wielder and the item",
+        "choice": "You can pick a special purpose or roll on the Sentient Item's Special Purpose table"
+      }
+    },
+    "alignment_table": {
+      "title": "Sentient Item's Alignment",
+      "rolls": [
+        {
+          "roll": "01–15",
+          "alignment": "Lawful Good"
+        },
+        {
+          "roll": "16–35",
+          "alignment": "Neutral Good"
+        },
+        {
+          "roll": "36–50",
+          "alignment": "Chaotic Good"
+        },
+        {
+          "roll": "51–63",
+          "alignment": "Lawful Neutral"
+        },
+        {
+          "roll": "64–73",
+          "alignment": "Neutral"
+        },
+        {
+          "roll": "74–85",
+          "alignment": "Chaotic Neutral"
+        },
+        {
+          "roll": "86–89",
+          "alignment": "Lawful Evil"
+        },
+        {
+          "roll": "90–96",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "roll": "97–00",
+          "alignment": "Chaotic Evil"
+        }
+      ]
+    },
+    "communication_table": {
+      "title": "Sentient Item's Communication",
+      "rolls": [
+        {
+          "roll": "1–6",
+          "communication": "The item communicates by transmitting emotion to the creature carrying or wielding it"
+        },
+        {
+          "roll": "7–9",
+          "communication": "The item speaks one or more languages"
+        },
+        {
+          "roll": "10",
+          "communication": "The item speaks one or more languages. In addition, the item can communicate telepathically with any creature that carries or wields it"
+        }
+      ]
+    },
+    "senses_table": {
+      "title": "Sentient Item's Senses",
+      "rolls": [
+        {
+          "roll": "1",
+          "senses": "Hearing and standard vision out to 30 feet"
+        },
+        {
+          "roll": "2",
+          "senses": "Hearing and standard vision out to 60 feet"
+        },
+        {
+          "roll": "3",
+          "senses": "Hearing and standard vision out to 120 feet"
+        },
+        {
+          "roll": "4",
+          "senses": "Hearing and Darkvision out to 120 feet"
+        }
+      ]
+    },
+    "special_purpose_table": {
+      "title": "Sentient Item's Special Purpose",
+      "rolls": [
+        {
+          "roll": "1",
+          "purpose": "Aligned",
+          "description": "The item seeks to defeat or destroy those of a diametrically opposed alignment. Such an item is never Neutral"
+        },
+        {
+          "roll": "2",
+          "purpose": "Bane",
+          "description": "The item seeks to thwart or destroy creatures of a particular type, such as Constructs, Fiends, or Undead"
+        },
+        {
+          "roll": "3",
+          "purpose": "Creator Seeker",
+          "description": "The item seeks its creator and wants to understand why it was created"
+        },
+        {
+          "roll": "4",
+          "purpose": "Destiny Seeker",
+          "description": "The item believes it and its bearer have key roles to play in future events"
+        },
+        {
+          "roll": "5",
+          "purpose": "Destroyer",
+          "description": "The item craves destruction and goads its user to fight arbitrarily"
+        },
+        {
+          "roll": "6",
+          "purpose": "Glory Seeker",
+          "description": "The item seeks renown as the greatest magic item in the world by winning fame or notoriety for its user"
+        },
+        {
+          "roll": "7",
+          "purpose": "Lore Seeker",
+          "description": "The item craves knowledge or is determined to solve a mystery, learn a secret, or unravel a cryptic prophecy"
+        },
+        {
+          "roll": "8",
+          "purpose": "Protector",
+          "description": "The item seeks to defend a particular kind of creature, such as elves or werewolves"
+        },
+        {
+          "roll": "9",
+          "purpose": "Soulmate Seeker",
+          "description": "The item seeks another sentient magic item, perhaps one that is similar to itself"
+        },
+        {
+          "roll": "10",
+          "purpose": "Templar",
+          "description": "The item seeks to defend the servants and interests of a particular deity"
+        }
+      ]
+    },
+    "conflict": {
+      "title": "Conflict",
+      "overview": "When the bearer of a sentient item acts in a manner opposed to the item's alignment or purpose, conflict can arise",
+      "trigger": "When such a conflict occurs, the item's bearer makes a Charisma saving throw (DC 12 plus the item's Charisma modifier)",
+      "demands_on_failure": {
+        "description": "On a failed save, the item makes one or more of the following demands",
+        "demands": [
+          {
+            "demand": "Chase My Dreams",
+            "effect": "The item demands that its bearer pursue the item's goals to the exclusion of all other goals"
+          },
+          {
+            "demand": "Get Rid of It",
+            "effect": "The item demands that its bearer dispose of anything the item finds repugnant"
+          },
+          {
+            "demand": "It's Time for a Change",
+            "effect": "The item demands to be given to someone else"
+          },
+          {
+            "demand": "Keep Me Close",
+            "effect": "The item insists on being carried or worn at all times"
+          }
+        ]
+      },
+      "refusal_consequences": {
+        "description": "If its bearer refuses to comply with the item's demands, the item can do any of the following",
+        "consequences": [
+          {
+            "consequence": "Attunement Revocation",
+            "effect": "Make it impossible for its bearer to attune to it"
+          },
+          {
+            "consequence": "Property Suppression",
+            "effect": "Suppress one or more of its activated properties"
+          },
+          {
+            "consequence": "Control Attempt",
+            "trigger": "Attempt to take control of its bearer",
+            "mechanism": "The bearer makes a Charisma saving throw (DC 12 plus the item's Charisma modifier)",
+            "failure": {
+              "effect": "The bearer has the Charmed condition for 1d12 hours",
+              "compliance": "While Charmed in this way, the bearer must try to follow the item's commands"
+            },
+            "damage_escape": "If the bearer takes damage, it repeats the save, ending the effect on a success",
+            "cooldown": "Whether or not the attempt to control its bearer succeeds, the item can't use this power again until the next dawn"
+          }
+        ]
+      }
+    }
+  },
+  "crafting_summary": {
+    "time_progression": {
+      "common": "5 days (50 GP)",
+      "uncommon": "10 days (200 GP)",
+      "rare": "50 days (2,000 GP)",
+      "very_rare": "125 days (20,000 GP)",
+      "legendary": "250 days (100,000 GP)"
+    },
+    "tool_categories": {
+      "woodworking": ["Rod", "Staff", "Wand", "Weapon (some)"],
+      "metalworking": ["Armor (some)", "Weapon (some)"],
+      "leatherworking": ["Armor (some)", "Weapon (some)"],
+      "jewelry": ["Ring"],
+      "alchemy_herbalism": ["Potion"],
+      "scribing": ["Scroll"],
+      "specialized": ["Wondrous Item (varies)"]
+    },
+    "availability": {
+      "city": "75% chance materials available",
+      "settlement": "25% chance materials available",
+      "recheck": "7 days minimum before rechecking"
+    }
+  },
+  "sentient_item_traits_summary": {
+    "ability_scores": {
+      "method": "4d6 drop lowest for Intelligence, Wisdom, Charisma",
+      "range": "3-18 typical range per ability"
+    },
+    "alignment_options": 9,
+    "communication_types": 3,
+    "sense_ranges": [
+      "30 feet",
+      "60 feet",
+      "120 feet standard",
+      "120 feet with Darkvision"
+    ],
+    "special_purposes": 10
+  },
+  "conflict_mechanics": {
+    "saving_throw": "DC 12 + item's Charisma modifier (Charisma save)",
+    "charmed_duration": "1d12 hours if control attempt succeeds",
+    "control_cooldown": "Resets at next dawn",
+    "damage_escape": "Damage allows repeat save to end Charmed"
+  },
+  "contains": [
+    "Magic Item Tools table (9 categories with specific tool requirements)",
+    "Tool proficiency requirements for crafter and assistants",
+    "Spell preparation requirement for spell-casting items",
+    "Magic Item Crafting Time and Cost table (Common to Legendary)",
+    "Work per day rules (8 hours minimum per day)",
+    "Assistants and time division mechanics",
+    "Raw materials availability (75% city, 25% settlement)",
+    "Material recheck timing (7 days minimum)",
+    "Base item cost addition for weapons and armor",
+    "Sentient magic items overview (origins, relationship, limitations)",
+    "Sentient item trait creation (Abilities, Alignment, Communication, Senses, Special Purpose)",
+    "Ability score determination (4d6 drop lowest)",
+    "Sentient Item's Alignment table (9 alignments, 01-00 roll)",
+    "Sentient Item's Communication table (3 options, 1d10 roll)",
+    "Sentient Item's Senses table (4 options, 1d4 roll)",
+    "Sentient Item's Special Purpose table (10 purposes, 1d10 roll)",
+    "Conflict trigger and Charisma saving throw (DC 12 + CHA mod)",
+    "Four conflict demands (Chase Dreams, Get Rid of It, Change Bearer, Keep Me Close)",
+    "Refusal consequences (attunement revocation, property suppression, control attempt)",
+    "Control attempt mechanics (Charmed condition, 1d12 hours, damage escape)",
+    "Control cooldown (resets at next dawn)"
+  ]
+}

@@ -1,0 +1,267 @@
+{
+  "conditions": {
+    "overview": {
+      "description": "Many effects impose a condition, a temporary state that alters the recipient's capabilities",
+      "total_conditions": 15,
+      "stacking_rule": "Conditions don't stack - either you have a condition or you don't",
+      "exception": "Exhaustion condition effects get worse with multiple instances"
+    },
+    "duration_rules": {
+      "specified_duration": "Lasts for the duration specified by the imposing effect",
+      "until_countered": "Lasts until the condition is countered",
+      "multiple_instances": "Each instance has its own duration, but effects don't worsen (except Exhaustion)"
+    },
+    "condition_definitions": {
+      "blinded": {
+        "name": "Blinded",
+        "category": "sensory",
+        "effects": [
+          "Can't see and automatically fails ability checks that require sight",
+          "Attack rolls have Disadvantage",
+          "Attack rolls against you have Advantage"
+        ],
+        "common_sources": ["blindness/deafness spell", "darkness effects", "bright light sensitivity"],
+        "counters": ["lesser restoration", "remove blindness effects", "leaving area of effect"]
+      },
+      "charmed": {
+        "name": "Charmed",
+        "category": "mental",
+        "effects": [
+          "Can't attack the charmer or target them with harmful abilities or magical effects",
+          "The charmer has Advantage on ability checks to interact socially with you"
+        ],
+        "common_sources": ["charm person spell", "vampire charm", "fey charm abilities"],
+        "counters": ["calm emotions spell", "dispel magic", "effect duration expires"]
+      },
+      "deafened": {
+        "name": "Deafened",
+        "category": "sensory",
+        "effects": [
+          "Can't hear and automatically fails ability checks that require hearing"
+        ],
+        "common_sources": ["thunderwave spell", "loud explosions", "deafness effects"],
+        "counters": ["lesser restoration", "remove deafness effects", "natural healing"]
+      },
+      "exhaustion": {
+        "name": "Exhaustion",
+        "category": "physical",
+        "stacking": true,
+        "levels": {
+          "1": {
+            "effect": "Disadvantage on ability checks",
+            "description": "Tired but functional"
+          },
+          "2": {
+            "effect": "Speed halved",
+            "description": "Significantly fatigued"
+          },
+          "3": {
+            "effect": "Disadvantage on attack rolls and saving throws",
+            "description": "Severely exhausted"
+          },
+          "4": {
+            "effect": "Hit point maximum halved",
+            "description": "Near collapse"
+          },
+          "5": {
+            "effect": "Speed reduced to 0",
+            "description": "Incapacitated by exhaustion"
+          },
+          "6": {
+            "effect": "Death",
+            "description": "Fatal exhaustion"
+          }
+        },
+        "recovery": "One level reduced by finishing a long rest (if some food and drink consumed)",
+        "common_sources": ["forced march", "starvation", "extreme temperatures", "certain spells"],
+        "counters": ["long rest with food/drink", "greater restoration spell"]
+      },
+      "frightened": {
+        "name": "Frightened",
+        "category": "mental",
+        "effects": [
+          "Disadvantage on ability checks and attack rolls while the source of fear is within line of sight",
+          "Can't willingly move closer to the source of fear"
+        ],
+        "common_sources": ["fear spell", "dragon frightful presence", "intimidation effects"],
+        "counters": ["calm emotions spell", "remove fear effects", "breaking line of sight"]
+      },
+      "grappled": {
+        "name": "Grappled",
+        "category": "movement",
+        "effects": [
+          "Speed becomes 0, and you can't benefit from any bonus to speed",
+          "Condition ends if the grappler is incapacitated",
+          "Condition ends if an effect removes you from the reach of the grappler"
+        ],
+        "escape_options": [
+          "Use action to escape with Athletics or Acrobatics check vs grappler's Athletics",
+          "Grappler becomes incapacitated",
+          "Effect moves you out of grappler's reach"
+        ],
+        "common_sources": ["grapple attack", "entangle spell", "giant octopus tentacles"],
+        "counters": ["successful escape attempt", "incapacitate grappler", "teleportation"]
+      },
+      "incapacitated": {
+        "name": "Incapacitated",
+        "category": "action",
+        "effects": [
+          "Can't take actions or reactions"
+        ],
+        "movement_allowed": true,
+        "speech_allowed": true,
+        "common_sources": ["hold person spell", "unconsciousness", "paralysis effects"],
+        "counters": ["dispel magic", "lesser restoration", "effect duration expires"]
+      },
+      "invisible": {
+        "name": "Invisible",
+        "category": "concealment",
+        "effects": [
+          "Impossible to see without the aid of magic or a special sense",
+          "Considered heavily obscured for the purpose of hiding",
+          "Attack rolls have Advantage",
+          "Attack rolls against you have Disadvantage"
+        ],
+        "detection_methods": ["tremorsense", "blindsight", "truesight", "see invisibility spell"],
+        "common_sources": ["invisibility spell", "greater invisibility", "ring of invisibility"],
+        "counters": ["dispel magic", "see invisibility", "faerie fire spell", "effect duration"]
+      },
+      "paralyzed": {
+        "name": "Paralyzed",
+        "category": "incapacitation",
+        "effects": [
+          "Incapacitated and can't move or speak",
+          "Automatically fails Strength and Dexterity saving throws",
+          "Attack rolls against you have Advantage",
+          "Any attack that hits you is a critical hit if the attacker is within 5 feet"
+        ],
+        "includes_condition": "incapacitated",
+        "common_sources": ["hold person spell", "paralysis poison", "ghoul touch"],
+        "counters": ["lesser restoration", "dispel magic", "effect duration expires"]
+      },
+      "petrified": {
+        "name": "Petrified",
+        "category": "transformation",
+        "effects": [
+          "Transformed, along with any nonmagical objects worn or carried, into a solid inanimate substance (usually stone)",
+          "Weight increases by a factor of ten, and ceases aging",
+          "Incapacitated, can't move or speak, and is unaware of surroundings",
+          "Automatically fails Strength and Dexterity saving throws",
+          "Has resistance to all damage",
+          "Immune to poison and disease (existing poison and disease effects are suspended)"
+        ],
+        "includes_condition": "incapacitated",
+        "weight_multiplier": 10,
+        "aging_stopped": true,
+        "common_sources": ["flesh to stone spell", "medusa gaze", "cockatrice bite"],
+        "counters": ["greater restoration", "stone to flesh spell", "specific magical cures"]
+      },
+      "poisoned": {
+        "name": "Poisoned",
+        "category": "affliction",
+        "effects": [
+          "Disadvantage on attack rolls and ability checks"
+        ],
+        "common_sources": ["poison damage", "poisoned weapons", "environmental toxins", "creature abilities"],
+        "counters": ["lesser restoration", "neutralize poison spell", "antitoxin", "natural recovery"]
+      },
+      "prone": {
+        "name": "Prone",
+        "category": "positioning",
+        "effects": [
+          "Can only crawl or teleport to move (crawling costs extra movement)",
+          "Disadvantage on attack rolls",
+          "Attack rolls against you have Advantage if attacker is within 5 feet",
+          "Attack rolls against you have Disadvantage if attacker is more than 5 feet away"
+        ],
+        "movement_options": ["crawl (extra movement cost)", "teleport", "stand up (half movement)"],
+        "counter": "Use half your movement to stand up",
+        "common_sources": ["shove attack", "trip effects", "falling", "certain spells"],
+        "tactical_considerations": "Ranged attackers have Disadvantage, melee attackers have Advantage"
+      },
+      "restrained": {
+        "name": "Restrained",
+        "category": "movement",
+        "effects": [
+          "Speed becomes 0, and you can't benefit from any bonus to speed",
+          "Attack rolls have Disadvantage",
+          "Attack rolls against you have Advantage",
+          "Disadvantage on Dexterity saving throws"
+        ],
+        "common_sources": ["web spell", "entangle spell", "net weapon", "rope bindings"],
+        "counters": ["escape attempts", "break restraints", "dispel magic", "cut restraints"]
+      },
+      "stunned": {
+        "name": "Stunned",
+        "category": "incapacitation",
+        "effects": [
+          "Incapacitated, can't move, and can speak only falteringly",
+          "Automatically fails Strength and Dexterity saving throws",
+          "Attack rolls against you have Advantage"
+        ],
+        "includes_condition": "incapacitated",
+        "speech_impaired": true,
+        "common_sources": ["stunning strike", "power word stun", "certain monster abilities"],
+        "counters": ["lesser restoration", "effect duration expires", "dispel magic"]
+      },
+      "unconscious": {
+        "name": "Unconscious",
+        "category": "incapacitation",
+        "effects": [
+          "Incapacitated, can't move or speak, and is unaware of surroundings",
+          "Drops whatever it's holding and falls prone",
+          "Automatically fails Strength and Dexterity saving throws",
+          "Attack rolls against you have Advantage",
+          "Any attack that hits you is a critical hit if the attacker is within 5 feet"
+        ],
+        "includes_conditions": ["incapacitated", "prone"],
+        "drops_items": true,
+        "awareness": false,
+        "common_sources": ["sleep spell", "unconsciousness from damage", "knockout effects"],
+        "counters": ["damage", "loud noise", "action to wake", "spell effects", "natural awakening"]
+      }
+    },
+    "condition_interactions": {
+      "stacking_rules": {
+        "general_rule": "Multiple instances of the same condition don't stack",
+        "duration_tracking": "Each instance tracks its own duration separately",
+        "exhaustion_exception": "Exhaustion levels stack and effects worsen"
+      },
+      "overlapping_effects": {
+        "incapacitated_sources": ["paralyzed", "petrified", "stunned", "unconscious"],
+        "movement_restrictions": ["grappled", "paralyzed", "petrified", "restrained", "unconscious"],
+        "advantage_on_attacks_against": ["blinded", "invisible_attacker", "paralyzed", "petrified", "prone_melee", "restrained", "stunned", "unconscious"],
+        "disadvantage_on_attacks_by": ["blinded", "frightened", "poisoned", "prone", "restrained"]
+      },
+      "condition_immunity": {
+        "description": "Some creatures have immunity to specific conditions",
+        "examples": {
+          "constructs": "Often immune to charmed, exhaustion, frightened, paralyzed, petrified, poisoned",
+          "undead": "Often immune to charmed, exhaustion, poisoned",
+          "elementals": "Varies by type, often immune to several conditions"
+        }
+      }
+    },
+    "tactical_applications": {
+      "control_effects": {
+        "movement_denial": ["grappled", "paralyzed", "petrified", "restrained", "unconscious"],
+        "action_denial": ["incapacitated", "paralyzed", "petrified", "stunned", "unconscious"],
+        "social_manipulation": ["charmed", "frightened"]
+      },
+      "defensive_considerations": {
+        "protect_against": ["Condition immunity items", "spells like protection from evil", "class features"],
+        "recovery_options": ["lesser restoration", "greater restoration", "dispel magic", "specific counters"]
+      },
+      "offensive_applications": {
+        "setup_combos": "Apply conditions to enable critical hits or advantage",
+        "battlefield_control": "Use area conditions to restrict enemy movement",
+        "resource_drain": "Force enemies to spend actions/resources removing conditions"
+      }
+    },
+    "references": {
+      "related_spells": ["lesser restoration", "greater restoration", "dispel magic", "calm emotions", "remove curse"],
+      "related_abilities": ["disease immunity", "poison immunity", "charm immunity"],
+      "related_rules": ["advantage_disadvantage", "critical_hits", "movement", "actions", "saving_throws"]
+    }
+  }
+}

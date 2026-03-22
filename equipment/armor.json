@@ -1,0 +1,144 @@
+{
+  "title": "D&D 5e 2024 Armor",
+  "version": "2024",
+  "description": "Complete list of all armor with AC, requirements, and costs",
+  "armor": [
+    {
+      "name": "Padded Armor",
+      "category": "Light Armor",
+      "armorClass": { "base": 11, "dexModifier": true, "formula": "11 + Dex modifier" },
+      "effects": [{ "name": "Stealth Disadvantage", "description": "Disadvantage on Dexterity (Stealth) checks", "type": "disadvantage" }],
+      "donDoffTime": "1 minute to don or doff",
+      "weight": 8,
+      "cost": { "amount": 5, "currency": "gp" }
+    },
+    {
+      "name": "Leather Armor",
+      "category": "Light Armor",
+      "armorClass": { "base": 11, "dexModifier": true, "formula": "11 + Dex modifier" },
+      "donDoffTime": "1 minute to don or doff",
+      "weight": 10,
+      "cost": { "amount": 10, "currency": "gp" }
+    },
+    {
+      "name": "Studded Leather Armor",
+      "category": "Light Armor",
+      "armorClass": { "base": 12, "dexModifier": true, "formula": "12 + Dex modifier" },
+      "donDoffTime": "1 minute to don or doff",
+      "weight": 13,
+      "cost": { "amount": 45, "currency": "gp" }
+    },
+    {
+      "name": "Hide Armor",
+      "category": "Medium Armor",
+      "armorClass": { "base": 12, "dexModifier": true, "maxDexModifier": 2, "formula": "12 + Dex modifier (max 2)" },
+      "donDoffTime": "5 minutes to don and 1 minute to doff",
+      "weight": 12,
+      "cost": { "amount": 10, "currency": "gp" }
+    },
+    {
+      "name": "Chain Shirt",
+      "category": "Medium Armor",
+      "armorClass": { "base": 13, "dexModifier": true, "maxDexModifier": 2, "formula": "13 + Dex modifier (max 2)" },
+      "donDoffTime": "5 minutes to don and 1 minute to doff",
+      "weight": 20,
+      "cost": { "amount": 50, "currency": "gp" }
+    },
+    {
+      "name": "Scale Mail",
+      "category": "Medium Armor",
+      "armorClass": { "base": 14, "dexModifier": true, "maxDexModifier": 2, "formula": "14 + Dex modifier (max 2)" },
+      "effects": [{ "name": "Stealth Disadvantage", "description": "Disadvantage on Dexterity (Stealth) checks", "type": "disadvantage" }],
+      "donDoffTime": "5 minutes to don and 1 minute to doff",
+      "weight": 45,
+      "cost": { "amount": 50, "currency": "gp" }
+    },
+    {
+      "name": "Breastplate",
+      "category": "Medium Armor",
+      "armorClass": { "base": 14, "dexModifier": true, "maxDexModifier": 2, "formula": "14 + Dex modifier (max 2)" },
+      "donDoffTime": "5 minutes to don and 1 minute to doff",
+      "weight": 20,
+      "cost": { "amount": 400, "currency": "gp" }
+    },
+    {
+      "name": "Half Plate Armor",
+      "category": "Medium Armor",
+      "armorClass": { "base": 15, "dexModifier": true, "maxDexModifier": 2, "formula": "15 + Dex modifier (max 2)" },
+      "effects": [{ "name": "Stealth Disadvantage", "description": "Disadvantage on Dexterity (Stealth) checks", "type": "disadvantage" }],
+      "donDoffTime": "5 minutes to don and 1 minute to doff",
+      "weight": 40,
+      "cost": { "amount": 750, "currency": "gp" }
+    },
+    {
+      "name": "Ring Mail",
+      "category": "Heavy Armor",
+      "armorClass": { "base": 14, "dexModifier": false, "formula": "14" },
+      "effects": [{ "name": "Stealth Disadvantage", "description": "Disadvantage on Dexterity (Stealth) checks", "type": "disadvantage" }],
+      "donDoffTime": "10 minutes to don and 5 minutes to doff",
+      "weight": 40,
+      "cost": { "amount": 30, "currency": "gp" }
+    },
+    {
+      "name": "Chain Mail",
+      "category": "Heavy Armor",
+      "armorClass": { "base": 16, "dexModifier": false, "formula": "16" },
+      "requirements": { "strength": 13 },
+      "effects": [
+        { "name": "Stealth Disadvantage", "description": "Disadvantage on Dexterity (Stealth) checks", "type": "disadvantage" },
+        { "name": "Speed Reduction", "description": "Speed reduced by 10 feet if Strength less than 13", "type": "speed_reduction" }
+      ],
+      "donDoffTime": "10 minutes to don and 5 minutes to doff",
+      "weight": 55,
+      "cost": { "amount": 75, "currency": "gp" }
+    },
+    {
+      "name": "Splint Armor",
+      "category": "Heavy Armor",
+      "armorClass": { "base": 17, "dexModifier": false, "formula": "17" },
+      "requirements": { "strength": 15 },
+      "effects": [
+        { "name": "Stealth Disadvantage", "description": "Disadvantage on Dexterity (Stealth) checks", "type": "disadvantage" },
+        { "name": "Speed Reduction", "description": "Speed reduced by 10 feet if Strength less than 15", "type": "speed_reduction" }
+      ],
+      "donDoffTime": "10 minutes to don and 5 minutes to doff",
+      "weight": 60,
+      "cost": { "amount": 200, "currency": "gp" }
+    },
+    {
+      "name": "Plate Armor",
+      "category": "Heavy Armor",
+      "armorClass": { "base": 18, "dexModifier": false, "formula": "18" },
+      "requirements": { "strength": 15 },
+      "effects": [
+        { "name": "Stealth Disadvantage", "description": "Disadvantage on Dexterity (Stealth) checks", "type": "disadvantage" },
+        { "name": "Speed Reduction", "description": "Speed reduced by 10 feet if Strength less than 15", "type": "speed_reduction" }
+      ],
+      "donDoffTime": "10 minutes to don and 5 minutes to doff",
+      "weight": 65,
+      "cost": { "amount": 1500, "currency": "gp" }
+    },
+    {
+      "name": "Shield",
+      "category": "Shield",
+      "armorClass": { "base": 2, "dexModifier": false, "formula": "+2 AC" },
+      "requirements": { "proficiency": ["shields"] },
+      "donDoffTime": "Utilize Action to don or doff",
+      "weight": 6,
+      "cost": { "amount": 10, "currency": "gp" },
+      "notes": "You gain the AC benefit only if you have training with shields"
+    }
+  ],
+  "totalArmor": 13,
+  "armorTraining": {
+    "light": "If you wear Light armor and lack training, you have Disadvantage on any D20 Test that involves Strength or Dexterity, and you can't cast spells",
+    "medium": "If you wear Medium armor and lack training, you have Disadvantage on any D20 Test that involves Strength or Dexterity, and you can't cast spells",
+    "heavy": "If you wear Heavy armor and lack training, you have Disadvantage on any D20 Test that involves Strength or Dexterity, and you can't cast spells",
+    "shield": "You gain the Armor Class benefit of a Shield only if you have training with it"
+  },
+  "armorRules": {
+    "oneAtATime": "A creature can wear only one suit of armor at a time and wield only one Shield at a time",
+    "equipmentSizes": "Armor made for one creature might not fit another without alterations (variant rule)"
+  },
+  "sourceBook": "Player's Handbook 2024"
+}

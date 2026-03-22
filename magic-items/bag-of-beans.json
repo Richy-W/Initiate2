@@ -1,0 +1,103 @@
+{
+  "id": "bag-of-beans",
+  "name": "Bag of Beans",
+  "rarity": "Rare",
+  "category": "Wondrous Item",
+  "attunement_required": false,
+  "weight": "0.5 lbs",
+  "value": "2000 GP",
+  "description": "This heavy cloth bag contains 3d4 dry beans when found. The bag weighs half a pound regardless of how many beans it contains and becomes a nonmagical item when it no longer contains any beans.",
+  "properties": [
+    "Enchanted",
+    "Random Effect",
+    "Consumable",
+    "Chaotic"
+  ],
+  "contents": {
+    "initial_beans": "3d4",
+    "weight_always": "0.5 lbs",
+    "becomes_nonmagical": "When no beans remain"
+  },
+  "bean_explosion": {
+    "trigger": "Dump one or more beans out of bag",
+    "effect": "Explosion in 10-foot-radius Sphere centered on beans",
+    "damage": "5d4 Force damage",
+    "save": "DC 15 Dexterity saving throw",
+    "on_failure": "Full damage",
+    "on_success": "Half damage (rounded down)",
+    "affected": "All creatures in sphere including user",
+    "consumed": "All dumped beans destroyed"
+  },
+  "planting_beans": {
+    "process": [
+      "Remove bean from bag",
+      "Plant in dirt or sand",
+      "Water it"
+    ],
+    "result": "Bean disappears 1 minute later, producing an effect from ground where planted"
+  },
+  "planted_bean_effects": [
+    {
+      "roll": "01",
+      "effect": "5d4 toadstools sprout. Eating toadstool: roll die. Odd = DC 15 CON save or 5d6 Poison damage + Poisoned 1 hour. Even = gain 5d6 Temporary HP for 1 hour."
+    },
+    {
+      "roll": "02-10",
+      "effect": "Geyser erupts: water, beer, mayonnaise, tea, vinegar, wine, or oil (DM choice) shoots 30 feet up for 1d4 minutes"
+    },
+    {
+      "roll": "11-20",
+      "effect": "Treant sprouts. Odd roll = Chaotic Evil. Even roll = Chaotic Good."
+    },
+    {
+      "roll": "21-30",
+      "effect": "Animate stone statue in your likeness rises, makes threats against you. If others approach, it calls you villainous and directs them to attack you. Knows your location if on same plane. Becomes inanimate after 24 hours."
+    },
+    {
+      "roll": "31-40",
+      "effect": "Campfire with green flames springs forth, burns for 24 hours or until extinguished"
+    },
+    {
+      "roll": "41-50",
+      "effect": "Three Shrieker Fungi sprout"
+    },
+    {
+      "roll": "51-60",
+      "effect": "1d4 + 4 bright-pink toads crawl forth. Touching toad transforms it into Large or smaller monster (DM choice, follows alignment/nature). Remains 1 minute then disappears in bright-pink smoke."
+    },
+    {
+      "roll": "61-70",
+      "effect": "Hungry Bulette burrows up and attacks"
+    },
+    {
+      "roll": "71-80",
+      "effect": "Fruit tree grows. 1d10 + 20 fruit, 1d8 are random potions. Tree vanishes after 1 hour. Picked fruit remains, retains magic 30 days."
+    },
+    {
+      "roll": "81-90",
+      "effect": "Nest of 1d4 + 3 rainbow eggs springs up. Eating egg: DC 20 CON save. Success = permanently increase lowest ability score by 1 (random if tied). Failure = 10d6 Force damage from internal explosion."
+    },
+    {
+      "roll": "91-95",
+      "effect": "Pyramid with 60-foot square base bursts upward. Inside burial chamber with Mummy, Mummy Lord, or other Undead (DM choice). Sarcophagus contains DM-chosen treasure."
+    },
+    {
+      "roll": "96-00",
+      "effect": "Giant beanstalk sprouts to DM-chosen height. Top leads where DM chooses (great view, cloud giant's castle, another plane, etc.)"
+    }
+  ],
+  "activation": {
+    "dump_beans": {
+      "type": "Free interaction",
+      "effect": "Triggers explosion"
+    },
+    "plant_bean": {
+      "type": "Minutes to plant and water",
+      "effect": "Produces random result after 1 minute"
+    }
+  },
+  "consumable": true,
+  "determination": "DM rolls or chooses effect from 1d100 table",
+  "source": "Player's Handbook",
+  "notes": "This is a highly unpredictable item with consequences ranging from helpful to dangerous. Effects should be carefully considered by the DM."
+}

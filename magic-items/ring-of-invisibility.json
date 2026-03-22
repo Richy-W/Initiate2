@@ -1,0 +1,17 @@
+{
+  "name": "Ring of Invisibility",
+  "type": "Ring",
+  "rarity": "Legendary",
+  "attunement": true,
+  "description": "While wearing this ring, you can take a Magic action to give yourself the Invisible condition. You remain Invisible until the ring is removed or until you take a Bonus Action to become visible again.",
+  "properties": {
+    "invisibility": {
+      "action_type": "Magic action to activate",
+      "condition": "Invisible",
+      "end_conditions": [
+        "Remove ring",
+        "Bonus Action to become visible"
+      ]
+    }
+  }
+}

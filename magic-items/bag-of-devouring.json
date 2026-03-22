@@ -1,0 +1,30 @@
+{
+  "name": "Bag of Devouring",
+  "type": "Wondrous Item",
+  "rarity": "Very Rare",
+  "requires_attunement": false,
+  "overview": "This bag resembles a Bag of Holding but is a feeding orifice for a gigantic extradimensional creature. Turning the bag inside out closes the orifice.",
+  "properties": {
+    "creature_sense": "The extradimensional creature attached to the bag can sense whatever is placed inside the bag.",
+    "organic_material": "Animal or vegetable matter placed wholly in the bag is devoured and lost forever.",
+    "living_creature_insertion": {
+      "description": "When part of a living creature is placed in the bag, as happens when someone reaches inside it, there is a 50 percent chance that the creature is pulled inside the bag.",
+      "escape_dc": 15,
+      "escape_ability": "Strength (Athletics)"
+    },
+    "creature_extraction": {
+      "description": "Another creature can take an action to reach into the bag to pull a creature out.",
+      "extraction_dc": 20,
+      "extraction_ability": "Strength (Athletics)",
+      "risk": "The puller isn't pulled inside the bag first"
+    },
+    "creature_devoured": "Any creature that starts its turn inside the bag is devoured, its body destroyed.",
+    "inanimate_storage": {
+      "capacity": "1 cubic foot",
+      "daily_event": "Once each day, the bag swallows any objects inside it and spits them out into another plane of existence. The DM determines the time and plane."
+    }
+  },
+  "destruction": "If the bag is pierced or torn, it is destroyed, and anything contained within it is transported to a random location on the Astral Plane.",
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

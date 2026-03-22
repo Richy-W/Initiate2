@@ -1,0 +1,91 @@
+{
+  "title": "Advantage, Disadvantage, and Heroic Inspiration",
+  "description": "Modifier systems for D20 Tests that reflect circumstances and heroic moments",
+  "version": "2024",
+  "advantage_disadvantage": {
+    "overview": {
+      "advantage": "Advantage reflects the positive circumstances surrounding a d20 roll",
+      "disadvantage": "Disadvantage reflects negative circumstances"
+    },
+    "acquisition": {
+      "common_sources": "You usually acquire Advantage or Disadvantage through the use of special abilities and actions",
+      "dm_discretion": "The DM can also decide that circumstances grant Advantage or impose Disadvantage"
+    },
+    "mechanics": {
+      "rolling": {
+        "procedure": "When a roll has either Advantage or Disadvantage, roll a second d20 when you make the roll",
+        "advantage_resolution": "Use the higher of the two rolls if you have Advantage",
+        "disadvantage_resolution": "Use the lower roll if you have Disadvantage",
+        "example": "If you have Disadvantage and roll an 18 and a 3, use the 3. If you instead have Advantage and roll those numbers, use the 18"
+      },
+      "stacking": {
+        "advantage_stacking": "If multiple situations affect a roll and they all grant Advantage on it, you still roll only two d20s",
+        "disadvantage_stacking": "Similarly, if multiple situations impose Disadvantage on a roll, you roll only two d20s",
+        "cancellation": "If circumstances cause a roll to have both Advantage and Disadvantage, the roll has neither of them, and you roll one d20",
+        "cancellation_rule": "This is true even if multiple circumstances impose Disadvantage and only one grants Advantage or vice versa. In such a situation, you have neither Advantage nor Disadvantage"
+      },
+      "reroll_interactions": {
+        "limitation": "When you have Advantage or Disadvantage and something in the game lets you reroll or replace the d20, you can reroll or replace only one die, not both",
+        "choice": "You choose which one",
+        "example": "If you have Heroic Inspiration and roll a 3 and an 18 on an ability check that has Advantage or Disadvantage, you could expend your Heroic Inspiration to reroll one of those dice, not both of them"
+      }
+    }
+  },
+  "heroic_inspiration": {
+    "description": "Sometimes the DM or a rule gives you Heroic Inspiration",
+    "usage": {
+      "activation": "If you have Heroic Inspiration, you can expend it to reroll any die immediately after rolling it",
+      "requirement": "You must use the new roll"
+    },
+    "limitations": {
+      "quantity": "You can never have more than one instance of Heroic Inspiration",
+      "overflow": "If something gives you Heroic Inspiration and you already have it, you can give it to a player character in your group who lacks it"
+    },
+    "gaining_inspiration": {
+      "dm_reasons": "Your DM can give you Heroic Inspiration for a variety of reasons",
+      "typical_awards": "Typically, DMs award it when you do something particularly heroic, in character, or entertaining",
+      "purpose": "It's a reward for making the game more fun for everyone playing",
+      "other_sources": "Other rules might allow your character to gain Heroic Inspiration independent of the DM's decision",
+      "example": "Human characters start each day with Heroic Inspiration"
+    },
+    "mechanics": {
+      "timing": "Immediately after rolling any die",
+      "scope": "Can be used on any die roll in the game",
+      "mandatory_usage": "Must use the new roll result",
+      "single_die": "When used with Advantage/Disadvantage, only reroll one of the two dice"
+    }
+  },
+  "interaction_examples": {
+    "advantage_with_reroll": {
+      "scenario": "Character has Advantage and Heroic Inspiration",
+      "rolls": "Rolls 3 and 18 on an ability check",
+      "options": [
+        "Use 18 (higher roll) without spending Heroic Inspiration", 
+        "Spend Heroic Inspiration to reroll the 3",
+        "Spend Heroic Inspiration to reroll the 18"
+      ],
+      "choice": "Player chooses which die to reroll, if any"
+    },
+    "cancellation_scenario": {
+      "situation": "Multiple sources of Disadvantage and one source of Advantage",
+      "result": "Roll one d20 normally (no Advantage or Disadvantage)",
+      "principle": "Any amount of Advantage cancels any amount of Disadvantage"
+    }
+  },
+  "sources_examples": {
+    "advantage_sources": [
+      "Flanking an opponent in combat",
+      "Attacking a prone target with a melee attack",
+      "Having the high ground in certain situations",
+      "Using a Help action from an ally",
+      "Specific class features and spells"
+    ],
+    "disadvantage_sources": [
+      "Attacking while prone",
+      "Attacking beyond normal range",
+      "Fighting in darkness without darkvision",
+      "Being restrained or poisoned",
+      "Specific environmental hazards"
+    ]
+  }
+}

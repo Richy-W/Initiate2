@@ -1,0 +1,101 @@
+{
+  "name": "Adult Red Dragon",
+  "size": "Huge",
+  "type": "Dragon (Chromatic)",
+  "alignment": "Chaotic Evil",
+  "armor_class": 19,
+  "hit_points": {
+    "average": 256,
+    "formula": "19d12 + 133"
+  },
+  "speed": {
+    "walk": 40,
+    "climb": 40,
+    "fly": 80
+  },
+  "initiative": 22,
+  "ability_scores": {
+    "strength": 27,
+    "dexterity": 10,
+    "constitution": 25,
+    "intelligence": 16,
+    "wisdom": 13,
+    "charisma": 23
+  },
+  "saving_throws": {
+    "dexterity": 6,
+    "constitution": 13,
+    "wisdom": 7,
+    "charisma": 12
+  },
+  "skills": {
+    "perception": 13,
+    "stealth": 6
+  },
+  "damage_resistances": [],
+  "damage_immunities": ["fire"],
+  "condition_immunities": [],
+  "senses": {
+    "blindsight": 60,
+    "darkvision": 120,
+    "passive_perception": 23
+  },
+  "languages": ["Common", "Draconic"],
+  "challenge_rating": 17,
+  "proficiency_bonus": 6,
+  "traits": [
+    {
+      "name": "Legendary Resistance (3/Day, or 4/Day in Lair)",
+      "description": "If the dragon fails a saving throw, it can choose to succeed instead."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The dragon makes three Rend attacks. It can replace one attack with a use of Spellcasting to cast Scorching Ray."
+    },
+    {
+      "name": "Rend",
+      "description": "Melee Attack Roll: +14, reach 10 ft. Hit: 13 (1d10 + 8) Slashing damage plus 5 (2d4) Fire damage."
+    },
+    {
+      "name": "Fire Breath (Recharge 5–6)",
+      "description": "Dexterity Saving Throw: DC 21, each creature in a 60-foot Cone. Failure: 59 (17d6) Fire damage. Success: Half damage."
+    }
+  ],
+  "spellcasting": {
+    "ability": "charisma",
+    "save_dc": 20,
+    "attack_bonus": 12,
+    "spells": {
+      "at_will": ["command (level 2 version)", "detect magic", "scorching ray"],
+      "1_per_day_each": ["fireball"]
+    },
+    "notes": "Requires no Material components"
+  },
+  "legendary_actions": {
+    "per_turn": 3,
+    "lair_bonus": 1,
+    "actions": [
+      {
+        "name": "Commanding Presence",
+        "description": "The dragon uses Spellcasting to cast Command (level 2 version). The dragon can't take this action again until the start of its next turn."
+      },
+      {
+        "name": "Fiery Rays",
+        "description": "The dragon uses Spellcasting to cast Scorching Ray. The dragon can't take this action again until the start of its next turn."
+      },
+      {
+        "name": "Pounce",
+        "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
+      }
+    ]
+  },
+  "tactical_info": {
+    "combat_role": "Legendary Dragon Lord/Elite Boss",
+    "preferred_range": "Mixed - breath weapon opening, then melee dominance",
+    "key_abilities": ["Massive fire breath cone", "Legendary resistance", "Spellcasting integration", "Legendary actions"],
+    "weaknesses": ["Limited spell selection", "Recharge-dependent breath", "Vulnerable to cold/magic weapons"],
+    "tactics": "Opens with devastating fire breath, uses legendary actions for continued pressure between turns, integrates scorching ray into multiattack, commands enemies with legendary presence."
+  }
+}

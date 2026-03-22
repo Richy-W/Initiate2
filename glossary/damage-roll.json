@@ -1,0 +1,13 @@
+{
+  "name": "Damage Roll",
+  "slug": "damage-roll",
+  "definition": "A damage roll is a die roll, adjusted by any applicable modifiers, that deals damage to a target.",
+  "category": "Game Mechanics",
+  "tags": [],
+  "full_text": "A damage roll is a die roll, adjusted by any applicable modifiers, that deals damage to a target.",
+  "see_also": [
+    "Damage",
+    "Modifier",
+    "Critical Hit"
+  ]
+}

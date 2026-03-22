@@ -1,0 +1,43 @@
+{
+  "name": "Hammer of Thunderbolts",
+  "type": "Weapon",
+  "weapon_type": ["Maul", "Warhammer"],
+  "rarity": "Legendary",
+  "attunement": true,
+  "attack_bonus": 1,
+  "damage_bonus": 1,
+  "description": "You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon. The weapon has 5 charges. You can expend 1 charge and make a ranged attack with the weapon, hurling it as if it had the Thrown property with a normal range of 20 feet and a long range of 60 feet. If the attack hits, the weapon unleashes a thunderclap audible out to 300 feet.",
+  "properties": {
+    "attack_bonus": 1,
+    "damage_bonus": 1,
+    "charges": 5,
+    "charges_regain": "1d4 + 1 daily at dawn",
+    "thrown_attack": {
+      "activation": "Expend 1 charge",
+      "range": {
+        "normal": "20 feet",
+        "long": "60 feet"
+      },
+      "effect": "Weapon unleashes thunderclap audible out to 300 feet",
+      "saving_throw": {
+        "save_type": "Constitution",
+        "save_dc": 17,
+        "effect": "Target and every creature within 30 feet except you must succeed or have Stunned condition until end of your next turn"
+      },
+      "return": "Weapon flies back to hand immediately after hitting or missing"
+    },
+    "giant_attunement": {
+      "requirement": "Attuned to Belt of Giant Strength or Gauntlets of Ogre Power",
+      "benefits": [
+        {
+          "name": "Giant's Bane",
+          "effect": "When you roll 20 on d20 for attack roll against a Giant, creature must succeed on DC 17 Constitution save or die"
+        },
+        {
+          "name": "Might of Giants",
+          "effect": "Strength score from Belt/Gauntlets increases by 4 (to maximum 30)"
+        }
+      ]
+    }
+  }
+}

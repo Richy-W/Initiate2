@@ -1,0 +1,12 @@
+{
+  "name": "Heavily Obscured",
+  "slug": "heavily-obscured",
+  "definition": "A level of obscurement where you cannot see anything",
+  "category": "Light & Vision",
+  "tags": ["obscurement", "blinded", "vision"],
+  "full_text": "You have the Blinded condition while trying to see something in a Heavily Obscured space.",
+  "mechanics": {
+    "effect": "Blinded condition applies"
+  },
+  "see_also": ["blinded", "darkness", "dim-light", "lightly-obscured"]
+}

@@ -1,0 +1,56 @@
+{
+  "name": "Venomous Snake",
+  "size": "Tiny",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 12,
+  "hit_points": 5,
+  "hit_dice": "2d4",
+  "speed": {
+    "walk": 30,
+    "swim": 30
+  },
+  "ability_scores": {
+    "strength": 2,
+    "dexterity": 15,
+    "constitution": 11,
+    "intelligence": 1,
+    "wisdom": 10,
+    "charisma": 3
+  },
+  "saving_throws": {
+    "strength": -4,
+    "dexterity": 2,
+    "constitution": 0,
+    "intelligence": -5,
+    "wisdom": 0,
+    "charisma": -4
+  },
+  "skills": {},
+  "senses": [
+    "Blindsight 10 ft.",
+    "Passive Perception 10"
+  ],
+  "languages": "None",
+  "challenge_rating": 0.125,
+  "experience_points": 25,
+  "proficiency_bonus": 2,
+  "features": [],
+  "actions": [
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 4 (1d4 + 2) Piercing damage plus 3 (1d6) Poison damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Tiny Venomous Threat - Low-level poison source with amphibious capability",
+    "positioning": "Uses amphibious movement for versatile positioning in mixed terrain",
+    "damage_output": "7 total damage (4 piercing + 3 poison) per bite",
+    "key_abilities": "Poison damage, amphibious movement, small size stealth",
+    "weaknesses": "Extremely low HP, limited blindsight range",
+    "synergies": "Good for swamp encounters, environmental hazards, or swarm support"
+  }
+}

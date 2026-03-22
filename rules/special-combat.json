@@ -1,0 +1,149 @@
+{
+  "title": "Special Combat Situations",
+  "description": "Rules for mounted combat, underwater fighting, and other special scenarios",
+  "version": "2024",
+  "mounted_combat": {
+    "description": "A willing creature that is at least one size larger than a rider and that has an appropriate anatomy can serve as a mount",
+    "mounting_dismounting": {
+      "description": "During your move, you can mount a creature that is within 5 feet of you or dismount",
+      "cost": "Doing so costs an amount of movement equal to half your Speed (round down)",
+      "example": "For example, if your Speed is 30 feet, you spend 15 feet of movement to mount a horse"
+    },
+    "controlling_mount": {
+      "training_requirement": "You can control a mount only if it has been trained to accept a rider. Domesticated horses, mules, and similar creatures have such training",
+      "initiative_change": "The Initiative of a controlled mount changes to match yours when you mount it",
+      "movement_and_actions": "It moves on your turn as you direct it, and it has only three action options during that turn: Dash, Disengage, and Dodge",
+      "immediate_action": "A controlled mount can move and act even on the turn that you mount it"
+    },
+    "independent_mount": {
+      "description": "In contrast, an independent mount—one that lets you ride but ignores your control—retains its place in the Initiative order and moves and acts as it likes"
+    },
+    "falling_off": {
+      "forced_movement": "If an effect is about to move your mount against its will while you're on it, you must succeed on a DC 10 Dexterity saving throw or fall off, landing with the Prone condition in an unoccupied space within 5 feet of the mount",
+      "prone_condition": "While mounted, you must make the same save if you're knocked Prone or the mount is"
+    }
+  },
+  "underwater_combat": {
+    "description": "A fight underwater follows these rules",
+    "impeded_weapons": {
+      "melee_attacks": "When making a melee attack roll with a weapon underwater, a creature that lacks a Swim Speed has Disadvantage on the attack roll unless the weapon deals Piercing damage",
+      "ranged_attacks": "A ranged attack roll with a weapon underwater automatically misses a target beyond the weapon's normal range, and the attack roll has Disadvantage against a target within normal range"
+    },
+    "fire_resistance": "Anything underwater has Resistance to Fire damage"
+  },
+  "special_movement_combat": {
+    "flying_combat": {
+      "description": "Combat involving flying creatures",
+      "considerations": [
+        "Three-dimensional movement and positioning",
+        "Fall damage when flight is disrupted", 
+        "Line of sight and cover from aerial positions",
+        "Ranged attack advantages from height"
+      ]
+    },
+    "climbing_combat": {
+      "description": "Fighting while climbing surfaces",
+      "considerations": [
+        "Limited hand availability for weapons/shields",
+        "Risk of falling when taking damage",
+        "Movement speed restrictions",
+        "Positioning advantages/disadvantages"
+      ]
+    },
+    "prone_combat": {
+      "description": "Fighting while lying down",
+      "effects": [
+        "Disadvantage on attack rolls",
+        "Attacks against prone creatures have advantage if within 5 feet",
+        "Ranged attacks against prone creatures have disadvantage",
+        "Movement costs extra to stand up"
+      ]
+    }
+  },
+  "environmental_combat": {
+    "darkness": {
+      "description": "Fighting in complete darkness",
+      "effects": [
+        "Blinded condition for creatures without darkvision",
+        "Disadvantage on attack rolls against unseen targets",
+        "Advantage on attack rolls when unseen by target"
+      ]
+    },
+    "difficult_terrain": {
+      "description": "Combat in hindering terrain",
+      "effects": [
+        "Movement costs double",
+        "Tactical positioning challenges",
+        "Potential for creating choke points"
+      ]
+    },
+    "extreme_weather": {
+      "description": "Fighting in harsh conditions",
+      "considerations": [
+        "Vision impairment from storms",
+        "Slippery surfaces from ice/rain",
+        "Wind effects on ranged attacks",
+        "Temperature-based damage or exhaustion"
+      ]
+    }
+  },
+  "size_based_combat": {
+    "large_vs_small": {
+      "description": "Combat between creatures of very different sizes",
+      "considerations": [
+        "Reach differences",
+        "Space occupation rules", 
+        "Grappling mechanics variations",
+        "Movement through spaces"
+      ]
+    },
+    "swarm_combat": {
+      "description": "Fighting swarms of tiny creatures",
+      "special_rules": [
+        "Resistance to certain damage types",
+        "Immunity to certain conditions",
+        "Area damage effectiveness",
+        "Movement through occupied spaces"
+      ]
+    }
+  },
+  "magical_combat": {
+    "spell_interactions": {
+      "description": "How spells interact in combat",
+      "considerations": [
+        "Concentration checks when taking damage",
+        "Counterspell timing and reactions",
+        "Area spell positioning and targeting",
+        "Spell component restrictions in combat"
+      ]
+    },
+    "magic_items": {
+      "description": "Using magic items in combat",
+      "considerations": [
+        "Activation times (action, bonus action, reaction)",
+        "Attunement requirements",
+        "Charges and limited uses",
+        "Command word or mental activation"
+      ]
+    }
+  },
+  "vehicle_combat": {
+    "description": "Combat involving vehicles",
+    "considerations": [
+      "Vehicle AC, HP, and damage threshold",
+      "Crew positions and actions",
+      "Movement and steering",
+      "Ramming and collision damage",
+      "Boarding and defending vehicles"
+    ]
+  },
+  "mass_combat": {
+    "description": "Large-scale battles with many participants",
+    "considerations": [
+      "Initiative grouping for similar creatures",
+      "Area effect spell targeting multiple enemies",
+      "Battlefield positioning and formations",
+      "Morale and leadership effects"
+    ]
+  }
+}

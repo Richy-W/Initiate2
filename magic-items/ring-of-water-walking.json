@@ -1,0 +1,13 @@
+{
+  "name": "Ring of Water Walking",
+  "type": "Ring",
+  "rarity": "Uncommon",
+  "attunement": false,
+  "description": "While wearing this ring, you cast Water Walk from it, targeting only yourself.",
+  "properties": {
+    "spellcasting": {
+      "spell": "Water Walk",
+      "target": "Only yourself"
+    }
+  }
+}

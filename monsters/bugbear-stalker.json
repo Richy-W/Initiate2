@@ -1,0 +1,110 @@
+{
+  "name": "Bugbear Stalker",
+  "size": "Medium",
+  "type": "Fey (Goblinoid)",
+  "alignment": "Chaotic Evil",
+  "armor_class": {
+    "value": 15,
+    "source": "Chain Shirt"
+  },
+  "initiative": {
+    "bonus": 2,
+    "total": 12
+  },
+  "hit_points": {
+    "average": 65,
+    "formula": "10d8 + 20"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 17,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 4
+    },
+    "intelligence": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 3
+    },
+    "charisma": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    }
+  },
+  "skills": {
+    "stealth": 6,
+    "survival": 3
+  },
+  "equipment": ["Chain Shirt", "Javelins (6)", "Morningstar"],
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 11
+  },
+  "languages": ["Common", "Goblin"],
+  "challenge_rating": {
+    "cr": 3,
+    "xp": 700,
+    "proficiency_bonus": 2
+  },
+  "traits": [
+    {
+      "name": "Abduct",
+      "description": "The bugbear needn't spend extra movement to move a creature it is grappling."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The bugbear makes two Javelin or Morningstar attacks."
+    },
+    {
+      "name": "Javelin",
+      "description": "Melee or Ranged Attack Roll: +5, reach 10 ft. or range 30/120 ft. Hit: 13 (3d6 + 3) Piercing damage.",
+      "attack_roll": 5,
+      "reach": 10,
+      "range": "30/120",
+      "damage": "13 (3d6 + 3)",
+      "damage_type": "Piercing"
+    },
+    {
+      "name": "Morningstar",
+      "description": "Melee Attack Roll: +5 (with Advantage if the target is Grappled by the bugbear), reach 10 ft. Hit: 12 (2d8 + 3) Piercing damage.",
+      "attack_roll": 5,
+      "reach": 10,
+      "damage": "12 (2d8 + 3)",
+      "damage_type": "Piercing"
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Quick Grapple",
+      "description": "Dexterity Saving Throw: DC 13, one Medium or smaller creature the bugbear can see within 10 feet. Failure: The target has the Grappled condition (escape DC 13)."
+    }
+  ],
+  "tactical_info": {
+    "role": "Ambush Predator/Controller",
+    "environment": "Dense forests, goblinoid territories, ambush sites",
+    "tactics": "Uses stealth to ambush, quick grapple to control, drags victims away",
+    "weaknesses": "Relies on surprise, vulnerable when surrounded",
+    "signature_abilities": ["Stealth ambush", "Grappling specialization", "Abduct trait"]
+  }
+}

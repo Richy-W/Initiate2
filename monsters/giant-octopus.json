@@ -1,0 +1,69 @@
+{
+  "name": "Giant Octopus",
+  "size": "Large",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 11,
+  "hit_points": 45,
+  "hit_dice": "7d10 + 7",
+  "speed": {
+    "walk": 10,
+    "swim": 60
+  },
+  "ability_scores": {
+    "strength": 17,
+    "dexterity": 13,
+    "constitution": 13,
+    "intelligence": 5,
+    "wisdom": 10,
+    "charisma": 4
+  },
+  "saving_throws": {
+    "strength": 3,
+    "dexterity": 1,
+    "constitution": 1,
+    "intelligence": -3,
+    "wisdom": 0,
+    "charisma": -3
+  },
+  "skills": {
+    "perception": 4,
+    "stealth": 5
+  },
+  "senses": [
+    "Darkvision 60 ft.",
+    "Passive Perception 14"
+  ],
+  "languages": "None",
+  "challenge_rating": 1,
+  "experience_points": 200,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Water Breathing",
+      "description": "The octopus can breathe only underwater. It can hold its breath for 1 hour outside water."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Tentacles",
+      "description": "Melee Attack Roll: +5, reach 10 ft. Hit: 10 (2d6 + 3) Bludgeoning damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 13) from all eight tentacles. While Grappled, the target has the Restrained condition."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [
+    {
+      "name": "Ink Cloud",
+      "description": "(1/Day). Trigger: The octopus takes damage while underwater. Response: The octopus releases ink that fills a 10-foot Cube centered on itself, and the octopus moves up to its Swim Speed. The Cube is Heavily Obscured for 1 minute or until a strong current or similar effect disperses the ink."
+    }
+  ],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Controller - Underwater grappler with escape mechanisms",
+    "positioning": "Uses 10 ft reach to grapple from distance underwater",
+    "damage_output": "10 bludgeoning per hit plus grapple/restrain control",
+    "key_abilities": "Tentacle grapple restrains targets, Ink Cloud provides escape",
+    "weaknesses": "Restricted to underwater environments, low AC",
+    "synergies": "Excellent for underwater encounters and area denial"
+  }
+}

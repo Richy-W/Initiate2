@@ -1,0 +1,216 @@
+{
+  "running_combat": {
+    "title": "Running Combat",
+    "overview": "Tips for keeping the game running smoothly when a fight breaks out",
+    "note": "Builds on combat rules in Playing the Game"
+  },
+  "rolling_initiative": {
+    "title": "Rolling Initiative",
+    "core_principle": "Combat starts when—and only when—you (the DM) say it does",
+    "dm_control": [
+      "You, not the players, decide if and when Initiative is rolled",
+      "Some characters have abilities that trigger on Initiative roll",
+      "Players cannot force Initiative by their actions alone"
+    ],
+    "example": "A high-level Barbarian can't just punch their Paladin friend and roll Initiative to regain expended uses of Rage",
+    "advantage_on_initiative": {
+      "when": "When a character's actions initiate combat",
+      "grant": "You can give the acting character Advantage on their Initiative roll",
+      "example": [
+        "Sorcerer convinced NPC is Doppelganger",
+        "Sorcerer targets it with Chromatic Orb spell",
+        "Everyone rolls Initiative",
+        "Sorcerer rolls with Advantage",
+        "Doppelganger might still act first if rolls well, reflecting its ability to anticipate spell"
+      ]
+    }
+  },
+  "using_initiative_scores": {
+    "title": "Using Initiative Scores Instead of Rolling",
+    "overview": "You can get to combat action more quickly by using Initiative scores instead of rolling",
+    "flexibility": [
+      "Use Initiative scores just for characters",
+      "Use Initiative scores just for monsters",
+      "Use Initiative scores for both"
+    ],
+    "initiative_scores_for_characters": {
+      "calculation": "Character's Initiative score = 10 + all modifiers",
+      "includes": [
+        "Dexterity modifier",
+        "Special modifiers"
+      ],
+      "implementation": [
+        "Have players record Initiative scores on character sheets",
+        "Keep your own list of those scores"
+      ]
+    },
+    "initiative_scores_for_monsters": {
+      "location": "Monster's stat block includes Initiative score after Initiative bonus"
+    },
+    "advantage_disadvantage_adjustments": [
+      {
+        "condition": "Creature has Advantage on Initiative rolls",
+        "adjustment": "Increase Initiative score by 5"
+      },
+      {
+        "condition": "Creature has Disadvantage on Initiative rolls",
+        "adjustment": "Decrease Initiative score by 5"
+      }
+    ]
+  },
+  "tracking_initiative": {
+    "title": "Tracking Initiative - Methods",
+    "overview": "Different methods for keeping track of who goes when in combat"
+  },
+  "hidden_initiative_list": {
+    "title": "Hidden List",
+    "overview": "Track Initiative on a list your players can't see",
+    "tools": [
+      {
+        "tool": "Paper or notebook",
+        "description": "Behind your DM screen"
+      },
+      {
+        "tool": "Spreadsheet or document",
+        "description": "On laptop or tablet"
+      },
+      {
+        "tool": "App",
+        "description": "On tablet or phone"
+      },
+      {
+        "tool": "Index cards",
+        "description": "One for each character and group of identical monsters, placed in Initiative order in a stack you cycle through"
+      }
+    ],
+    "benefits": [
+      "Track combatants who haven't been revealed yet",
+      "Record current Hit Points of monsters",
+      "Record other useful notes"
+    ],
+    "usage_tips": [
+      {
+        "tip": "Tell players when their character's turn is starting",
+        "enhancement": "When calling out the character whose turn is starting, also mention who's next",
+        "effect": "Prompts next character's player to think ahead"
+      }
+    ]
+  },
+  "open_initiative_list": {
+    "title": "Open List",
+    "overview": "Track Initiative on a list visible to all players",
+    "tools": [
+      {
+        "tool": "Whiteboard",
+        "description": "On wall or propped up nearby"
+      },
+      {
+        "tool": "Battle mat",
+        "description": "Used for miniatures"
+      },
+      {
+        "tool": "Index cards",
+        "description": "Folded like tents for each character/monster group, placed across top of DM screen"
+      },
+      {
+        "tool": "Virtual tabletop program",
+        "description": "Or group text chat"
+      },
+      {
+        "tool": "Spatial tracking",
+        "description": "Magnets, clothespins, or designed accessory representing Initiative order"
+      }
+    ],
+    "benefits": [
+      "Everyone aware of order of play",
+      "Players know when their turns are coming up",
+      "Players can plan actions in advance",
+      "Players know when monsters act"
+    ],
+    "monster_reveal": "You can hold off on adding monsters to list until they take their first turns"
+  },
+  "tracking_monster_hit_points": {
+    "title": "Tracking Monsters' Hit Points",
+    "overview": "During combat, track damage each monster takes",
+    "general_practice": "Most DMs track damage in secret so players don't know remaining HP",
+    "system_for_groups": {
+      "description": "Need a system to track damage for groups of identical monsters",
+      "method": "Assign unique features to differentiate",
+      "examples": [
+        "Ogre with big scar",
+        "Ogre with helmet",
+        "Ogre smeared with dirt"
+      ]
+    },
+    "record_format": {
+      "example": [
+        "Krag (ogre w/ scar): 68",
+        "Thod (ogre w/ helm): 71",
+        "Mur (ogre smeared w/ dirt): 59"
+      ],
+      "note": "Can add names and descriptions to help track which monster is which"
+    },
+    "using_miniatures": {
+      "differentiation": "Give each identical miniature a unique tag",
+      "methods": [
+        "Small stickers of different colors",
+        "Stickers with different letters",
+        "Stickers with different numbers"
+      ],
+      "example": "Three ogres tagged A, B, C"
+    },
+    "hp_tracking_format": {
+      "method_1": "Subtract damage from Hit Points",
+      "example": "Ogre A: 68 → 59 → 53 → 45 → 24 → 14 → 9 (dead)",
+      "note": "Cross out each number as damage is applied"
+    },
+    "damage_tracking_format": {
+      "method_2": "Track cumulative damage (add instead of subtract)",
+      "benefit": [
+        "Adding generally easier than subtracting",
+        "Can track on visible list without revealing total HP",
+        "Supports open Initiative lists"
+      ],
+      "example": "Ogre A: 9 → 15 → 23 → 44 → 54 → 59 (dead)"
+    }
+  },
+  "using_and_tracking_conditions": {
+    "title": "Using and Tracking Conditions",
+    "overview": "Rules and features apply conditions to creatures; you can also apply on the fly",
+    "flexibility": {
+      "example": "Poisoned condition can reflect various impairments",
+      "possibilities": [
+        "Influenza",
+        "Intoxication",
+        "Other status effects"
+      ]
+    },
+    "tracking_location": [
+      "Track conditions where you track monster Hit Points",
+      "Players track conditions affecting their characters",
+      "Mark on index cards or whiteboard"
+    ],
+    "physical_reminders": [
+      {
+        "method": "Index cards or sticky notes",
+        "use": "Mark condition and its effects"
+      },
+      {
+        "method": "Tokens or tangible reminders",
+        "use": "Hand to players when characters have condition"
+      },
+      {
+        "method": "Sticky notes with condition rules",
+        "use": "Place on player's character sheet for quick reference",
+        "benefit": "Helps player remember effects"
+      },
+      {
+        "method": "Tokens or colored plastic rings",
+        "use": "Place on creature's miniature",
+        "effect": "Helps everyone remember affected creatures",
+        "tip": "Soda bottle cap rings work well"
+      }
+    ],
+    "player_responsibility": "Players should track any conditions affecting their characters"
+  }
+}

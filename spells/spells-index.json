@@ -1,0 +1,105 @@
+{
+  "title": "Spells System Index",
+  "description": "Complete spellcasting system for D&D 5e 2024",
+  "version": "2024",
+  "last_updated": "2024-02-04",
+  "overview": {
+    "description": "This chapter gives rules for casting spells and includes descriptions of common spells in the worlds of Dungeons & Dragons. Those spells are used by many class features, magic items, and monsters.",
+    "scope": "Comprehensive spellcasting mechanics covering preparation, casting, targeting, and effects"
+  },
+  "components": [
+    {
+      "file": "spell-rules.json",
+      "title": "Core Spell Rules",
+      "description": "Fundamental mechanics for spellcasting including spell levels, slots, and casting without slots",
+      "contains": [
+        "Gaining spells",
+        "Spell levels (0-9)",
+        "Spell slot mechanics",
+        "Casting without slots (cantrips, rituals, special abilities, magic items)",
+        "Higher-level casting",
+        "Casting in armor requirements",
+        "Saving throw and attack roll calculations",
+        "Combining spell effects",
+        "Spell identification"
+      ]
+    },
+    {
+      "file": "spell-preparation.json", 
+      "title": "Spell Preparation Rules",
+      "description": "Class-specific rules for preparing and changing prepared spells",
+      "contains": [
+        "Preparation by class table (8 spellcasting classes)",
+        "Change frequency (Long Rest vs Level Up)",
+        "Number of spells changeable",
+        "Always-prepared spells mechanics",
+        "Monster spellcasting preparation"
+      ]
+    },
+    {
+      "file": "schools-of-magic.json",
+      "title": "Schools of Magic", 
+      "description": "The eight schools that categorize all spells",
+      "contains": [
+        "Abjuration (prevention and reversal)",
+        "Conjuration (transportation)",
+        "Divination (information revelation)",
+        "Enchantment (mind influence)",
+        "Evocation (energy channeling)", 
+        "Illusion (deception)",
+        "Necromancy (life and death)",
+        "Transmutation (transformation)"
+      ]
+    },
+    {
+      "file": "casting-mechanics.json",
+      "title": "Spell Components and Casting",
+      "description": "Physical and temporal requirements for spell casting",
+      "contains": [
+        "Casting time types (Action, Bonus Action, Reaction, longer times)",
+        "Range mechanics (Distance, Touch, Self)",
+        "Components (Verbal, Somatic, Material)",
+        "Component substitutions (Component Pouch, Spellcasting Focus)",
+        "Duration types (Concentration, Instantaneous, Time Span)",
+        "One spell slot per turn rule"
+      ]
+    },
+    {
+      "file": "spell-effects.json",
+      "title": "Spell Effects and Targeting",
+      "description": "Rules for spell effects, targeting, and interaction mechanics", 
+      "contains": [
+        "Targeting requirements and restrictions",
+        "Areas of effect (Cone, Cube, Cylinder, Emanation, Line, Sphere)",
+        "Target awareness of being targeted",
+        "Invalid target handling",
+        "Saving throw mechanics",
+        "Attack roll procedures",
+        "Combining different vs same spell effects",
+        "Ongoing spell identification"
+      ]
+    }
+  ],
+  "key_mechanics": {
+    "spell_save_dc": "8 + spellcasting ability modifier + Proficiency Bonus",
+    "spell_attack_modifier": "spellcasting ability modifier + Proficiency Bonus",
+    "one_slot_per_turn": "You can expend only one spell slot to cast a spell per turn",
+    "higher_level_casting": "Spells cast with higher-level slots take on that higher level",
+    "spell_identification_dc": "DC 15 Intelligence (Arcana) check with Study action"
+  },
+  "preparation_summary": {
+    "daily_changers": ["Cleric", "Druid", "Wizard"],
+    "level_changers": ["Bard", "Sorcerer", "Warlock"], 
+    "limited_daily": ["Paladin", "Ranger"],
+    "change_amounts": {
+      "any": ["Cleric", "Druid", "Wizard"],
+      "one": ["Bard", "Paladin", "Ranger", "Sorcerer", "Warlock"]
+    }
+  },
+  "casting_without_slots": [
+    "Cantrips (level 0 spells)",
+    "Ritual casting (+10 minutes, must be prepared)",
+    "Special class/racial abilities", 
+    "Magic items (Spell Scrolls, etc.)"
+  ]
+}

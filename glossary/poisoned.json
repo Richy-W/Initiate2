@@ -1,0 +1,13 @@
+{
+  "name": "Poisoned",
+  "slug": "poisoned",
+  "definition": "A condition that impairs your ability checks and attacks",
+  "category": "Conditions",
+  "tags": ["[Condition]", "disadvantage"],
+  "full_text": "While you have the Poisoned condition, you experience the following effect.\n\nAbility Checks and Attacks Affected. You have Disadvantage on attack rolls and ability checks.",
+  "mechanics": {
+    "ability_checks": "Disadvantage",
+    "attack_rolls": "Disadvantage"
+  },
+  "see_also": ["condition", "disadvantage"]
+}

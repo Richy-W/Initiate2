@@ -1,0 +1,66 @@
+{
+  "name": "Scout",
+  "size": "Medium or Small",
+  "type": "Humanoid",
+  "alignment": "Neutral",
+  "armor_class": 13,
+  "hit_points": {
+    "average": 16,
+    "formula": "3d8 + 3"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "initiative": 12,
+  "ability_scores": {
+    "strength": 11,
+    "dexterity": 14,
+    "constitution": 12,
+    "intelligence": 11,
+    "wisdom": 13,
+    "charisma": 11
+  },
+  "saving_throws": {},
+  "skills": {
+    "nature": 4,
+    "perception": 5,
+    "stealth": 6,
+    "survival": 5
+  },
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "passive_perception": 15
+  },
+  "languages": ["Common", "plus one other language"],
+  "challenge_rating": 0.5,
+  "proficiency_bonus": 2,
+  "traits": [],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The scout makes two attacks, using Shortsword and Longbow in any combination."
+    },
+    {
+      "name": "Shortsword",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 5 (1d6 + 2) Piercing damage."
+    },
+    {
+      "name": "Longbow",
+      "description": "Ranged Attack Roll: +4, range 150/600 ft. Hit: 6 (1d8 + 2) Piercing damage."
+    }
+  ],
+  "equipment": [
+    "Leather Armor",
+    "Longbow",
+    "Shortsword"
+  ],
+  "tactical_info": {
+    "combat_role": "Wilderness Tracker/Ranged Support",
+    "preferred_range": "Long-range archery with melee backup",
+    "key_abilities": ["Mixed weapon multiattack", "High stealth and perception", "Wilderness expertise", "Flexible size"],
+    "weaknesses": ["Low hit points", "No special abilities", "Limited damage scaling"],
+    "tactics": "Uses stealth and high perception for ambush positioning, prefers longbow attacks at range, switches to shortsword when enemies close distance."
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "name": "Darkmantle",
+  "size": "Small",
+  "type": "Aberration",
+  "alignment": "Unaligned",
+  "armor_class": {
+    "value": 11,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 1,
+    "total": 13
+  },
+  "hit_points": {
+    "average": 22,
+    "formula": "5d6 + 5"
+  },
+  "speed": {
+    "walk": 10,
+    "fly": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "intelligence": {
+      "score": 2,
+      "modifier": -4,
+      "saving_throw": -4
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "charisma": {
+      "score": 5,
+      "modifier": -3,
+      "saving_throw": -3
+    }
+  },
+  "skills": {
+    "stealth": 3
+  },
+  "senses": {
+    "blindsight": 60,
+    "passive_perception": 10
+  },
+  "languages": ["None"],
+  "challenge_rating": {
+    "cr": 0.5,
+    "xp": 100,
+    "proficiency_bonus": 2
+  },
+  "actions": [
+    {
+      "name": "Crush",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 6 (1d6 + 3) Bludgeoning damage, and the darkmantle attaches to the target. If the target is a Medium or smaller creature and the darkmantle had Advantage on the attack roll, it covers the target, which has the Blinded condition and is suffocating while the darkmantle is attached in this way. While attached to a target, the darkmantle can attack only the target but has Advantage on its attack rolls. Its Speed becomes 0, it can't benefit from any bonus to its Speed, and it moves with the target. A creature can take an action to try to detach the darkmantle from itself, doing so with a successful DC 13 Strength (Athletics) check. On its turn, the darkmantle can detach itself by using 5 feet of movement.",
+      "attack_roll": 5,
+      "reach": 5,
+      "damage": "6 (1d6 + 3)",
+      "damage_type": "Bludgeoning"
+    },
+    {
+      "name": "Darkness Aura (1/Day)",
+      "description": "Magical Darkness fills a 15-foot Emanation originating from the darkmantle. This effect lasts while the darkmantle maintains Concentration on it, up to 10 minutes. Darkvision can't penetrate this area, and no light can illuminate it."
+    }
+  ],
+  "tactical_info": {
+    "role": "Ambush Predator/Controller",
+    "environment": "Caves, underground passages, dark caverns",
+    "tactics": "Drops from ceiling for surprise, uses darkness aura to confuse enemies, attaches to smother victims",
+    "weaknesses": "Low AC and speed, relies on surprise attacks, vulnerable when detached",
+    "signature_abilities": ["Darkness aura", "Attach and blind", "Ceiling ambush", "Suffocation attack"]
+  }
+}

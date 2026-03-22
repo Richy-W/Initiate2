@@ -1,0 +1,61 @@
+{
+  "name": "Lizard",
+  "size": "Tiny",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 10,
+  "hit_points": 2,
+  "hit_dice": "1d4",
+  "speed": {
+    "walk": 20,
+    "climb": 20
+  },
+  "ability_scores": {
+    "strength": 2,
+    "dexterity": 11,
+    "constitution": 10,
+    "intelligence": 1,
+    "wisdom": 8,
+    "charisma": 3
+  },
+  "saving_throws": {
+    "strength": -4,
+    "dexterity": 0,
+    "constitution": 0,
+    "intelligence": -5,
+    "wisdom": -1,
+    "charisma": -4
+  },
+  "skills": {},
+  "senses": [
+    "Darkvision 30 ft.",
+    "Passive Perception 9"
+  ],
+  "languages": "None",
+  "challenge_rating": 0,
+  "experience_points": 10,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Spider Climb",
+      "description": "The lizard can climb difficult surfaces, including along ceilings, without needing to make an ability check."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +2, reach 5 ft. Hit: 1 Piercing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Pest - Tiny climbing creature with minimal threat",
+    "positioning": "Uses Spider Climb to reach inaccessible locations",
+    "damage_output": "1 piercing per hit, negligible damage",
+    "key_abilities": "Spider Climb allows ceiling and wall traversal",
+    "weaknesses": "Extremely low stats across the board, minimal HP",
+    "synergies": "Perfect for environmental flavor, familiars, or swarm components"
+  }
+}

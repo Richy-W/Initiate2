@@ -1,0 +1,105 @@
+{
+  "id": "apparatus-of-kwalish",
+  "name": "Apparatus of Kwalish",
+  "rarity": "Legendary",
+  "category": "Wondrous Item",
+  "attunement_required": false,
+  "weight": "500 lbs",
+  "value": "50000 GP",
+  "description": "This item first appears to be a sealed iron barrel weighing 500 pounds. The barrel has a hidden catch, which can be found with a successful DC 20 Intelligence (Investigation) check. Releasing the catch unlocks a hatch at one end of the barrel, allowing two Medium or smaller creatures to crawl inside. Ten levers are set in a row at the far end, each in a neutral position, able to move up or down. When certain levers are used, the apparatus transforms to resemble a giant lobster.",
+  "properties": [
+    "Legendary",
+    "Vehicle",
+    "Submarine",
+    "Combat Capable",
+    "Complex Mechanisms"
+  ],
+  "physical_description": {
+    "appears_as": "Sealed iron barrel",
+    "hidden_catch_dc": 20,
+    "capacity": "2 Medium or smaller creatures",
+    "levers": "10 levers (neutral, up/down)",
+    "transformation": "Resembles giant lobster when activated"
+  },
+  "statistics": {
+    "size": "Large object",
+    "armor_class": 20,
+    "hit_points": 200,
+    "speed": "30 ft.",
+    "swim_speed": "30 ft.",
+    "speed_retracted": "0 ft. (if legs not extended)",
+    "immunities": ["Poison damage", "Psychic damage"]
+  },
+  "compartment": {
+    "sealed": "Airtight and watertight when hatch closed",
+    "air_capacity": "10 hours of breathing (divided by number of creatures)",
+    "floats_on_water": true,
+    "maximum_depth": "900 feet",
+    "pressure_damage": "2d6 Bludgeoning damage per minute below 900 feet"
+  },
+  "levers": [
+    {
+      "number": 1,
+      "up": "Legs extend (allows walk/swim)",
+      "down": "Legs retract (Speed/Swim 0)"
+    },
+    {
+      "number": 2,
+      "up": "Forward window shutter opens",
+      "down": "Forward window shutter closes"
+    },
+    {
+      "number": 3,
+      "up": "Side window shutters open (2 per side)",
+      "down": "Side window shutters close (2 per side)"
+    },
+    {
+      "number": 4,
+      "up": "Two claws extend from front",
+      "down": "Claws retract"
+    },
+    {
+      "number": 5,
+      "up": "Claws attack: +8 to hit, reach 5ft, 7 (2d6) Bludgeoning damage",
+      "down": "Claws attack: +8 to hit, reach 5ft, target Grappled (escape DC 15)"
+    },
+    {
+      "number": 6,
+      "up": "Apparatus walks/swims forward (legs extended)",
+      "down": "Apparatus walks/swims backward (legs extended)"
+    },
+    {
+      "number": 7,
+      "up": "Turns 90° counterclockwise (legs extended)",
+      "down": "Turns 90° clockwise (legs extended)"
+    },
+    {
+      "number": 8,
+      "up": "Emits bright light 30ft + dim light 30ft",
+      "down": "Light turns off"
+    },
+    {
+      "number": 9,
+      "up": "Apparatus sinks up to 20 feet (in liquid)",
+      "down": "Apparatus rises up to 20 feet (in liquid)"
+    },
+    {
+      "number": 10,
+      "up": "Rear hatch unseals and opens",
+      "down": "Rear hatch closes and seals"
+    }
+  ],
+  "operation": {
+    "pilot_required": 1,
+    "action_type": "Utilize action",
+    "levers_per_action": "Up to 2 levers",
+    "lever_return": "Each lever returns to neutral after use"
+  },
+  "activation": {
+    "type": "Utilize Action",
+    "description": "Use Utilize action to move up to two levers"
+  },
+  "consumable": false,
+  "source": "Player's Handbook",
+  "notes": "This is a complex vehicle requiring careful lever management. Each pilot can operate up to two levers per action. The apparatus is heavily armored and can engage in combat."
+}

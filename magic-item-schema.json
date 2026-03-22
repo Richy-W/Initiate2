@@ -1,0 +1,187 @@
+{
+  "title": "Magic Item Schema",
+  "description": "JSON schema defining the structure and validation rules for magic item files",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "rarity",
+    "category",
+    "attunement_required",
+    "description"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the magic item (kebab-case)"
+    },
+    "name": {
+      "type": "string",
+      "description": "Official name of the magic item"
+    },
+    "rarity": {
+      "type": "string",
+      "enum": [
+        "Common",
+        "Uncommon",
+        "Rare",
+        "Very Rare",
+        "Legendary",
+        "Artifact"
+      ],
+      "description": "Rarity level of the magic item"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Armor",
+        "Potion",
+        "Ring",
+        "Rod",
+        "Scroll",
+        "Staff",
+        "Wand",
+        "Weapon",
+        "Wondrous Item"
+      ],
+      "description": "Category of the magic item"
+    },
+    "attunement_required": {
+      "type": "boolean",
+      "description": "Whether attunement is required to use the item"
+    },
+    "attunement_restrictions": {
+      "type": "object",
+      "description": "Optional restrictions on who can attune to the item",
+      "properties": {
+        "class": {
+          "type": "string",
+          "description": "Required class for attunement (e.g., 'Cleric', 'Wizard')"
+        },
+        "spellcaster": {
+          "type": "boolean",
+          "description": "Whether spellcaster ability required"
+        },
+        "other": {
+          "type": "string",
+          "description": "Other attunement restrictions"
+        }
+      }
+    },
+    "base_item": {
+      "type": "string",
+      "description": "Base item type if applicable (e.g., 'Longsword', 'Plate Armor')"
+    },
+    "value_gp": {
+      "type": "integer",
+      "description": "Gold piece value of the item based on rarity"
+    },
+    "weight_lb": {
+      "type": "number",
+      "description": "Weight in pounds"
+    },
+    "description": {
+      "type": "string",
+      "description": "Long-form description of the magic item"
+    },
+    "properties": {
+      "type": "array",
+      "description": "List of magical properties and effects",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the property"
+          },
+          "effect": {
+            "type": "string",
+            "description": "Effect or mechanical benefit"
+          },
+          "usage": {
+            "type": "string",
+            "description": "How to use (Action, Bonus Action, Reaction, etc.)"
+          },
+          "charges": {
+            "type": "string",
+            "description": "Charge mechanics if applicable"
+          },
+          "recharge": {
+            "type": "string",
+            "description": "Recharge timing (e.g., 'at dawn', '1d6 hours')"
+          }
+        }
+      }
+    },
+    "curse": {
+      "type": "object",
+      "description": "If cursed, details about the curse",
+      "properties": {
+        "cursed": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "sentience": {
+      "type": "object",
+      "description": "If sentient, details about the item's personality",
+      "properties": {
+        "sentient": {
+          "type": "boolean"
+        },
+        "intelligence": {
+          "type": "integer"
+        },
+        "wisdom": {
+          "type": "integer"
+        },
+        "charisma": {
+          "type": "integer"
+        },
+        "alignment": {
+          "type": "string"
+        },
+        "communication": {
+          "type": "string"
+        },
+        "senses": {
+          "type": "string"
+        },
+        "special_purpose": {
+          "type": "string"
+        }
+      }
+    },
+    "activation": {
+      "type": "string",
+      "description": "How the item is activated (e.g., 'Command Word', 'Attunement', 'Use')"
+    },
+    "crafting": {
+      "type": "object",
+      "description": "Information for crafting this item",
+      "properties": {
+        "crafting_time": {
+          "type": "string"
+        },
+        "crafting_cost": {
+          "type": "string"
+        },
+        "required_tool": {
+          "type": "string"
+        }
+      }
+    },
+    "consumable": {
+      "type": "boolean",
+      "description": "Whether the item is consumed upon use"
+    },
+    "source": {
+      "type": "string",
+      "description": "D&D source book or reference"
+    }
+  }
+}

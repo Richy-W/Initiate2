@@ -1,0 +1,12 @@
+{
+  "name": "Player Character",
+  "slug": "player-character",
+  "definition": "A character controlled by a player during gameplay",
+  "category": "Creatures & Types",
+  "tags": ["character", "player"],
+  "full_text": "A player character is a character controlled by a player.",
+  "mechanics": {
+    "controller": "Player"
+  },
+  "see_also": ["creature", "creating-a-character"]
+}

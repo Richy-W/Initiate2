@@ -1,0 +1,93 @@
+{
+  "name": "Dire Wolf",
+  "size": "Large",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 14,
+  "initiative": 2,
+  "hit_points": {
+    "average": 22,
+    "formula": "3d10 + 6"
+  },
+  "speed": {
+    "walk": 50
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 17,
+      "modifier": 3,
+      "save": 3
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2,
+      "save": 2
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2,
+      "save": 2
+    },
+    "intelligence": {
+      "score": 3,
+      "modifier": -4,
+      "save": -4
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1,
+      "save": 1
+    },
+    "charisma": {
+      "score": 7,
+      "modifier": -2,
+      "save": -2
+    }
+  },
+  "skills": {
+    "perception": 5,
+    "stealth": 4
+  },
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 15
+  },
+  "languages": [],
+  "challenge_rating": 1,
+  "experience_points": 200,
+  "proficiency_bonus": 2,
+  "actions": [
+    {
+      "name": "Bite",
+      "type": "melee_attack",
+      "attack_bonus": 5,
+      "reach": 5,
+      "targets": "one target",
+      "damage": {
+        "damage_dice": "1d10 + 3",
+        "damage_type": "piercing",
+        "average_damage": 8
+      },
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 8 (1d10 + 3) Piercing damage. If the target is a Large or smaller creature, it has the Prone condition.",
+      "conditions_applied": ["prone"]
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "traits": [
+    {
+      "name": "Pack Tactics",
+      "description": "The wolf has Advantage on an attack roll against a creature if at least one of the wolf's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition."
+    }
+  ],
+  "tactical_info": {
+    "optimal_range": "Pack hunter at melee range",
+    "key_abilities": ["Pack tactics advantage", "Prone-inducing bite", "High perception"],
+    "weaknesses": ["Relies on pack coordination", "No ranged attacks", "Animal intelligence"],
+    "synergies": ["Multiple wolf encounters", "Wilderness pack hunting", "Prone setup for allies"]
+  }
+}

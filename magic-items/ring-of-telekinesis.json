@@ -1,0 +1,12 @@
+{
+  "name": "Ring of Telekinesis",
+  "type": "Ring",
+  "rarity": "Very Rare",
+  "attunement": true,
+  "description": "While wearing this ring, you can cast Telekinesis from it.",
+  "properties": {
+    "spellcasting": {
+      "spell": "Telekinesis"
+    }
+  }
+}

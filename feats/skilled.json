@@ -1,0 +1,21 @@
+{
+  "name": "Skilled",
+  "category": "Origin",
+  "benefits": [
+    {
+      "name": "Skill and Tool Proficiencies",
+      "description": "You gain proficiency in any combination of three skills or tools of your choice.",
+      "type": "proficiency"
+    }
+  ],
+  "repeatable": true,
+  "repeatableNotes": "You can take this feat more than once.",
+  "choices": [
+    {
+      "name": "Skills or Tools",
+      "options": ["Any skill", "Any tool"],
+      "count": 3
+    }
+  ],
+  "sourceBook": "Player's Handbook 2024"
+}

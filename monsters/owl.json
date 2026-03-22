@@ -1,0 +1,64 @@
+{
+  "name": "Owl",
+  "size": "Tiny",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 11,
+  "hit_points": 1,
+  "hit_dice": "1d4 - 1",
+  "speed": {
+    "walk": 5,
+    "fly": 60
+  },
+  "ability_scores": {
+    "strength": 3,
+    "dexterity": 13,
+    "constitution": 8,
+    "intelligence": 2,
+    "wisdom": 12,
+    "charisma": 7
+  },
+  "saving_throws": {
+    "strength": -4,
+    "dexterity": 1,
+    "constitution": -1,
+    "intelligence": -4,
+    "wisdom": 1,
+    "charisma": -2
+  },
+  "skills": {
+    "perception": 5,
+    "stealth": 5
+  },
+  "senses": [
+    "Darkvision 120 ft.",
+    "Passive Perception 15"
+  ],
+  "languages": "None",
+  "challenge_rating": 0,
+  "experience_points": 10,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Flyby",
+      "description": "The owl doesn't provoke an Opportunity Attack when it flies out of an enemy's reach."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Talons",
+      "description": "Melee Attack Roll: +3, reach 5 ft. Hit: 1 Slashing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Scout - Silent aerial observer with exceptional senses",
+    "positioning": "Uses flyby to avoid retaliation, superior darkvision for night ops",
+    "damage_output": "1 slashing per hit, minimal direct threat",
+    "key_abilities": "Extended darkvision (120 ft), flyby movement, high stealth",
+    "weaknesses": "Extremely fragile with only 1 HP",
+    "synergies": "Perfect familiar, scout, and night reconnaissance specialist"
+  }
+}

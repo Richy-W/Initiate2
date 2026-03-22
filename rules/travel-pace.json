@@ -1,0 +1,281 @@
+{
+  "id": "travel-pace",
+  "name": "Travel Pace and Overland Movement",
+  "description": "Rules for character travel speeds, terrain effects, and navigation over overland distances",
+  "sections": {
+    "overview": {
+      "title": "Travel Pace",
+      "description": "A group of characters can travel overland at a Normal, Fast, or Slow pace",
+      "mechanics": "During any journey stage, the predominant terrain determines the characters' maximum travel pace",
+      "factor": "Certain factors can affect a group's travel pace"
+    },
+    "good_roads": {
+      "title": "Good Roads",
+      "description": "The presence of a good road increases the group's maximum pace by one step",
+      "examples": [
+        "Slow to Normal",
+        "Normal to Fast"
+      ]
+    },
+    "slower_travelers": {
+      "title": "Slower Travelers",
+      "description": "The group must move at a Slow pace if any group member's Speed is reduced to half or less of normal"
+    },
+    "extended_travel": {
+      "title": "Extended Travel",
+      "description": "Characters can push themselves to travel for more than 8 hours per day, at the risk of tiring",
+      "mechanics": {
+        "frequency": "At the end of each additional hour of travel beyond 8 hours",
+        "requirement": "Each character must succeed on a Constitution saving throw or gain 1 Exhaustion level",
+        "dc_progression": {
+          "base": 10,
+          "additional": "Plus 1 for each hour past 8 hours"
+        }
+      }
+    },
+    "special_movement": {
+      "title": "Special Movement",
+      "description": "If a party can travel at a high Speed for an extended time",
+      "examples": [
+        "Wind Walk spell",
+        "Carpet of Flying magic item"
+      ],
+      "translation_rules": {
+        "miles_per_hour": "Speed ÷ 10",
+        "miles_per_day": "Miles per hour × number of hours traveled (typically 8)",
+        "fast_pace": "Miles per day × 1⅓ (round down)",
+        "slow_pace": "Miles per day × 2/3 (round down)"
+      },
+      "terrain_bypass": "If the characters are flying or their special movement allows them to ignore Difficult Terrain, they can move at a Fast pace regardless of the terrain"
+    },
+    "vehicles": {
+      "title": "Vehicles",
+      "description": "Characters traveling in a vehicle use the vehicle's speed in miles per hour",
+      "mechanics": "They don't choose a travel pace; their speed is determined by the vehicle"
+    },
+    "travel_terrain": {
+      "title": "Travel Terrain",
+      "description": "Terrain types and their effects on travel and exploration",
+      "terrain_table": {
+        "arctic": {
+          "name": "Arctic",
+          "maximum_pace": "Fast*",
+          "encounter_distance": "6d6 × 10 feet",
+          "foraging_dc": 20,
+          "navigation_dc": 10,
+          "search_dc": 10,
+          "note": "*Appropriate equipment (such as skis) is necessary to keep up a Fast pace in Arctic terrain"
+        },
+        "coastal": {
+          "name": "Coastal",
+          "maximum_pace": "Normal",
+          "encounter_distance": "2d10 × 10 feet",
+          "foraging_dc": 10,
+          "navigation_dc": 5,
+          "search_dc": 15
+        },
+        "desert": {
+          "name": "Desert",
+          "maximum_pace": "Normal",
+          "encounter_distance": "6d6 × 10 feet",
+          "foraging_dc": 20,
+          "navigation_dc": 10,
+          "search_dc": 10
+        },
+        "forest": {
+          "name": "Forest",
+          "maximum_pace": "Normal",
+          "encounter_distance": "2d8 × 10 feet",
+          "foraging_dc": 10,
+          "navigation_dc": 15,
+          "search_dc": 15
+        },
+        "grassland": {
+          "name": "Grassland",
+          "maximum_pace": "Fast",
+          "encounter_distance": "6d6 × 10 feet",
+          "foraging_dc": 15,
+          "navigation_dc": 5,
+          "search_dc": 15
+        },
+        "hill": {
+          "name": "Hill",
+          "maximum_pace": "Normal",
+          "encounter_distance": "2d10 × 10 feet",
+          "foraging_dc": 15,
+          "navigation_dc": 10,
+          "search_dc": 15
+        },
+        "mountain": {
+          "name": "Mountain",
+          "maximum_pace": "Slow",
+          "encounter_distance": "4d10 × 10 feet",
+          "foraging_dc": 20,
+          "navigation_dc": 15,
+          "search_dc": 20
+        },
+        "swamp": {
+          "name": "Swamp",
+          "maximum_pace": "Slow",
+          "encounter_distance": "2d8 × 10 feet",
+          "foraging_dc": 10,
+          "navigation_dc": 15,
+          "search_dc": 20
+        },
+        "underdark": {
+          "name": "Underdark",
+          "maximum_pace": "Normal",
+          "encounter_distance": "2d6 × 10 feet",
+          "foraging_dc": 20,
+          "navigation_dc": 10,
+          "search_dc": 20
+        },
+        "urban": {
+          "name": "Urban",
+          "maximum_pace": "Normal",
+          "encounter_distance": "2d6 × 10 feet",
+          "foraging_dc": 20,
+          "navigation_dc": 15,
+          "search_dc": 15
+        },
+        "waterborne": {
+          "name": "Waterborne",
+          "maximum_pace": "Special†",
+          "encounter_distance": "6d6 × 10 feet",
+          "foraging_dc": 15,
+          "navigation_dc": 10,
+          "search_dc": 15,
+          "note": "†Characters' rate of travel while waterborne depends on the vehicle carrying them; see Vehicles"
+        }
+      }
+    }
+  },
+  "travel_pace_summary": {
+    "standard_paces": {
+      "fast": {
+        "name": "Fast",
+        "miles_per_hour": 4,
+        "miles_per_day": "30 miles per day",
+        "penalty": "Disadvantage on Perception/Survival/Stealth checks"
+      },
+      "normal": {
+        "name": "Normal",
+        "miles_per_hour": 3,
+        "miles_per_day": "24 miles per day",
+        "penalty": "Disadvantage on Stealth checks"
+      },
+      "slow": {
+        "name": "Slow",
+        "miles_per_hour": 2,
+        "miles_per_day": "18 miles per day",
+        "benefit": "Advantage on Perception/Survival checks"
+      }
+    }
+  },
+  "terrain_difficulty_summary": {
+    "fastest_terrain": [
+      "Grassland (Fast pace available)",
+      "Coastal (Normal pace, short encounter distance)"
+    ],
+    "moderate_terrain": [
+      "Arctic (Fast with equipment)",
+      "Desert (Normal)",
+      "Forest (Normal)",
+      "Hill (Normal)",
+      "Underdark (Normal)",
+      "Urban (Normal)"
+    ],
+    "slowest_terrain": [
+      "Mountain (Slow pace)",
+      "Swamp (Slow pace)"
+    ],
+    "challenging_navigation": [
+      "Mountain (Navigation DC 15)",
+      "Forest (Navigation DC 15)",
+      "Swamp (Navigation DC 15)",
+      "Underdark (Navigation DC 10)"
+    ],
+    "difficult_foraging": [
+      "Arctic (DC 20)",
+      "Desert (DC 20)",
+      "Mountain (DC 20)",
+      "Underdark (DC 20)",
+      "Urban (DC 20)"
+    ]
+  },
+  "dc_reference": {
+    "foraging_dcs": {
+      "easy": [
+        "Coastal (DC 10)",
+        "Forest (DC 10)",
+        "Swamp (DC 10)"
+      ],
+      "moderate": [
+        "Grassland (DC 15)",
+        "Hill (DC 15)",
+        "Waterborne (DC 15)"
+      ],
+      "difficult": [
+        "Arctic (DC 20)",
+        "Desert (DC 20)",
+        "Mountain (DC 20)",
+        "Underdark (DC 20)",
+        "Urban (DC 20)"
+      ]
+    },
+    "navigation_dcs": {
+      "easy": [
+        "Coastal (DC 5)",
+        "Grassland (DC 5)",
+        "Waterborne (DC 10)",
+        "Underdark (DC 10)"
+      ],
+      "moderate": [
+        "Arctic (DC 10)",
+        "Desert (DC 10)",
+        "Hill (DC 10)",
+        "Urban (DC 15)",
+        "Forest (DC 15)",
+        "Swamp (DC 15)"
+      ],
+      "difficult": [
+        "Mountain (DC 15)"
+      ]
+    },
+    "search_dcs": {
+      "easy": [
+        "Arctic (DC 10)",
+        "Desert (DC 10)"
+      ],
+      "moderate": [
+        "Coastal (DC 15)",
+        "Forest (DC 15)",
+        "Grassland (DC 15)",
+        "Hill (DC 15)",
+        "Urban (DC 15)",
+        "Waterborne (DC 15)"
+      ],
+      "difficult": [
+        "Mountain (DC 20)",
+        "Swamp (DC 20)",
+        "Underdark (DC 20)"
+      ]
+    }
+  },
+  "contains": [
+    "Travel pace mechanics (Fast, Normal, Slow)",
+    "Good roads modifier (+1 pace step)",
+    "Slower travelers rule (group moves at Slow if any member slowed)",
+    "Extended travel rules (8+ hours, Constitution save progression)",
+    "Special movement calculations (Speed ÷ 10, Fast 1⅓, Slow 2/3)",
+    "Vehicle travel rules",
+    "Travel terrain table (11 terrain types)",
+    "Terrain effects on pacing and encounters",
+    "Foraging DCs by terrain (5-20)",
+    "Navigation DCs by terrain (5-15)",
+    "Search DCs by terrain (10-20)",
+    "Encounter distance by terrain (2d6 to 6d6 × 10 feet)",
+    "Terrain difficulty summary (fastest to slowest)",
+    "Extended travel exhaustion mechanics"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Stat Block",
+  "slug": "stat-block",
+  "definition": "A collection of game statistics for a monster",
+  "category": "Creatures & Types",
+  "tags": ["monster", "statistics"],
+  "full_text": "A stat block contains the game statistics of a monster. Each stat block includes the following information presented after the monster's name.",
+  "mechanics": {
+    "components": [
+      "Size",
+      "Creature Type",
+      "Alignment",
+      "AC/Initiative/HP",
+      "Speed",
+      "Ability Scores",
+      "Skills",
+      "Resistances and Vulnerabilities",
+      "Immunities",
+      "Gear",
+      "Senses",
+      "Languages",
+      "CR",
+      "Traits",
+      "Actions",
+      "Bonus Actions",
+      "Reactions",
+      "Attack Notation",
+      "Saving Throw Effect Notation",
+      "Damage Notation"
+    ]
+  },
+  "see_also": ["monster", "creature"]
+}

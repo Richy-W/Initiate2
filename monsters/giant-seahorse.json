@@ -1,0 +1,65 @@
+{
+  "name": "Giant Seahorse",
+  "size": "Large",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 14,
+  "hit_points": 16,
+  "hit_dice": "3d10",
+  "speed": {
+    "walk": 5,
+    "swim": 40
+  },
+  "ability_scores": {
+    "strength": 15,
+    "dexterity": 12,
+    "constitution": 11,
+    "intelligence": 2,
+    "wisdom": 12,
+    "charisma": 5
+  },
+  "saving_throws": {
+    "strength": 2,
+    "dexterity": 1,
+    "constitution": 0,
+    "intelligence": -4,
+    "wisdom": 1,
+    "charisma": -3
+  },
+  "skills": {},
+  "senses": [
+    "Passive Perception 11"
+  ],
+  "languages": "None",
+  "challenge_rating": 0.5,
+  "experience_points": 100,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Water Breathing",
+      "description": "The seahorse can breathe only underwater."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Ram",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 9 (2d6 + 2) Bludgeoning damage, or 11 (2d8 + 2) Bludgeoning damage if the seahorse moved 20+ feet straight toward the target immediately before the hit."
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Bubble Dash",
+      "description": "While underwater, the seahorse moves up to half its Swim Speed without provoking Opportunity Attacks."
+    }
+  ],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Charger - Underwater mount with charging ability",
+    "positioning": "Uses Bubble Dash to reposition for charge attacks",
+    "damage_output": "9-11 bludgeoning depending on charge distance",
+    "key_abilities": "Charge bonus damage, Bubble Dash for tactical movement",
+    "weaknesses": "Restricted to underwater environments",
+    "synergies": "Excellent underwater mount, works well with aquatic allies"
+  }
+}

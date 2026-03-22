@@ -1,0 +1,113 @@
+{
+  "name": "Black Dragon Wyrmling",
+  "size": "Medium",
+  "type": "Dragon", 
+  "subtype": "Chromatic",
+  "alignment": "Chaotic Evil",
+  "armor_class": {
+    "value": 17,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 2,
+    "total": 12
+  },
+  "hit_points": {
+    "average": 33,
+    "formula": "6d8 + 6"
+  },
+  "speed": {
+    "walk": 30,
+    "fly": 60,
+    "swim": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 4
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 3
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "wisdom": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 2
+    },
+    "charisma": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 3
+    }
+  },
+  "saving_throws": {
+    "dexterity": 4,
+    "constitution": 3,
+    "wisdom": 2,
+    "charisma": 3
+  },
+  "skills": {
+    "perception": 4,
+    "stealth": 4
+  },
+  "damage_immunities": ["Acid"],
+  "senses": {
+    "blindsight": 10,
+    "darkvision": 60,
+    "passive_perception": 14
+  },
+  "languages": ["Draconic"],
+  "challenge_rating": {
+    "cr": 2,
+    "xp": 450,
+    "proficiency_bonus": 2
+  },
+  "traits": [
+    {
+      "name": "Amphibious",
+      "description": "The dragon can breathe air and water."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Bite", 
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 7 (1d10 + 2) Piercing damage plus 2 (1d4) Acid damage.",
+      "attack_roll": 4,
+      "reach": 5,
+      "damage": "7 (1d10 + 2) Piercing plus 2 (1d4) Acid",
+      "damage_type": "Piercing, Acid"
+    },
+    {
+      "name": "Acid Breath (Recharge 5-6)",
+      "description": "The dragon exhales acid in a 15-foot line that is 5 feet wide. Each creature in that line must make a DC 11 Dexterity saving throw, taking 22 (5d8) Acid damage on a failed save, or half as much damage on a successful one.",
+      "recharge": "5-6",
+      "area": "15-foot line, 5 feet wide",
+      "save": {
+        "ability": "Dexterity",
+        "dc": 11,
+        "on_failure": "22 (5d8) Acid damage",
+        "on_success": "Half damage"
+      }
+    }
+  ],
+  "tactical_info": {
+    "role": "Artillery/Skirmisher",
+    "environment": "Swamps, marshes, ruined settlements near water",
+    "tactics": "Uses breath weapon from range, retreats when threatened, uses swim speed for escape",
+    "weaknesses": "Young and impetuous, moderate hit points for dragon",
+    "signature_abilities": ["Acid breath weapon", "Flight and swim speeds", "Amphibious nature", "Acid damage bite"]
+  }
+}

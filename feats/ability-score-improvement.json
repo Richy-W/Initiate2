@@ -1,0 +1,24 @@
+{
+  "name": "Ability Score Improvement",
+  "category": "General",
+  "prerequisite": {
+    "level": 4
+  },
+  "benefits": [
+    {
+      "name": "Ability Score Increase",
+      "description": "Increase one ability score of your choice by 2, or increase two ability scores of your choice by 1. This feat can't increase an ability score above 20.",
+      "type": "abilityScoreIncrease"
+    }
+  ],
+  "repeatable": true,
+  "repeatableNotes": "You can take this feat more than once.",
+  "choices": [
+    {
+      "name": "Ability Score Method",
+      "options": ["Single +2", "Two +1"],
+      "count": 1
+    }
+  ],
+  "sourceBook": "Player's Handbook 2024"
+}

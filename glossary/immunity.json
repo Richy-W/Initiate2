@@ -1,0 +1,12 @@
+{
+  "name": "Immunity",
+  "slug": "immunity",
+  "definition": "Complete protection from a damage type or condition",
+  "category": "Abilities",
+  "tags": ["protection", "condition", "damage"],
+  "full_text": "If you have Immunity to a damage type or a condition, it doesn't affect you in any way.",
+  "mechanics": {
+    "effect": "Damage type or condition has no effect whatsoever"
+  },
+  "see_also": ["resistance", "vulnerability"]
+}

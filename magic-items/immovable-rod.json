@@ -1,0 +1,20 @@
+{
+  "name": "Immovable Rod",
+  "type": "Rod",
+  "rarity": "Uncommon",
+  "attunement": false,
+  "description": "This iron rod has a button on one end. You can take a Utilize action to press the button, which causes the rod to become magically fixed in place. Until you or another creature takes a Utilize action to push the button again, the rod doesn't move, even if it defies gravity.",
+  "properties": {
+    "activation": "Utilize action",
+    "action": "Press the button",
+    "effect": "Rod becomes magically fixed in place",
+    "deactivation": "Another Utilize action to push button again",
+    "weight_capacity": "8,000 pounds",
+    "overload": "More weight causes rod to deactivate and fall",
+    "movement": {
+      "action": "Utilize action",
+      "requirement": "DC 30 Strength (Athletics) check",
+      "effect": "Move fixed rod up to 10 feet on successful check"
+    }
+  }
+}

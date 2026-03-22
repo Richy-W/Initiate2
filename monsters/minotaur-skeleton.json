@@ -1,0 +1,54 @@
+{
+  "name": "Minotaur Skeleton",
+  "size": "Large",
+  "type": "Undead",
+  "alignment": "Lawful Evil",
+  "armor_class": 12,
+  "hit_points": {
+    "average": 45,
+    "formula": "6d10 + 12"
+  },
+  "speed": {
+    "walk": 40
+  },
+  "initiative": 10,
+  "ability_scores": {
+    "strength": 18,
+    "dexterity": 11,
+    "constitution": 15,
+    "intelligence": 6,
+    "wisdom": 8,
+    "charisma": 5
+  },
+  "saving_throws": {},
+  "skills": {},
+  "damage_vulnerabilities": ["bludgeoning"],
+  "damage_resistances": [],
+  "damage_immunities": ["poison"],
+  "condition_immunities": ["exhaustion", "poisoned"],
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 9
+  },
+  "languages": ["Understands Abyssal but can't speak"],
+  "challenge_rating": 2,
+  "proficiency_bonus": 2,
+  "traits": [],
+  "actions": [
+    {
+      "name": "Gore",
+      "description": "Melee Attack Roll: +6, reach 5 ft. Hit: 11 (2d6 + 4) Piercing damage. If the target is a Large or smaller creature and the skeleton moved 20+ feet straight toward it immediately before the hit, the target takes an extra 9 (2d8) Piercing damage and has the Prone condition."
+    },
+    {
+      "name": "Slam",
+      "description": "Melee Attack Roll: +6, reach 5 ft. Hit: 15 (2d10 + 4) Bludgeoning damage."
+    }
+  ],
+  "tactical_info": {
+    "combat_role": "Large Undead Bruiser/Charge Attacker",
+    "preferred_range": "Melee with charging tactics",
+    "key_abilities": ["Devastating charge attack", "High damage slam", "Large size advantage", "Enhanced speed"],
+    "weaknesses": ["Vulnerable to bludgeoning", "No ranged attacks", "Cannot coordinate attacks"],
+    "tactics": "Uses enhanced speed for charging gore attacks with knockdown, follows up with powerful slam attacks, relies on large size to dominate melee combat."
+  }
+}

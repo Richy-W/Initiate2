@@ -1,0 +1,29 @@
+{
+  "name": "Wand of Fear",
+  "type": "Wand",
+  "rarity": "Rare",
+  "attunement": true,
+  "description": "This wand has 7 charges.",
+  "properties": {
+    "charges": {
+      "max_charges": 7,
+      "current_charges": 7
+    },
+    "spells": [
+      {
+        "spell": "Command (flee or grovel only)",
+        "charges": 1
+      },
+      {
+        "spell": "Fear (60-foot Cone)",
+        "charges": 3
+      }
+    ],
+    "spell_save_dc": 15,
+    "regaining_charges": {
+      "recharge": "1d6 + 1 daily at dawn",
+      "destruction_condition": "Expend last charge and roll 1d20",
+      "on_roll_1": "Wand crumbles into ashes and is destroyed"
+    }
+  }
+}

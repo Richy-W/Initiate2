@@ -1,0 +1,95 @@
+{
+  "name": "Hobgoblin Warrior",
+  "size": "Medium",
+  "type": "Fey (Goblinoid)",
+  "alignment": "Lawful Evil",
+  "armor_class": {
+    "value": 18,
+    "source": "Half-Plate Armor and Shield"
+  },
+  "initiative": {
+    "bonus": 3,
+    "total": 13
+  },
+  "hit_points": {
+    "average": 11,
+    "formula": "2d8 + 2"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "charisma": {
+      "score": 9,
+      "modifier": -1,
+      "saving_throw": -1
+    }
+  },
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 10
+  },
+  "languages": ["Common", "Goblin"],
+  "challenge_rating": {
+    "cr": 0.5,
+    "xp": 100,
+    "proficiency_bonus": 2
+  },
+  "equipment": ["Half-Plate Armor", "Longbow", "Longsword", "Shield"],
+  "traits": [
+    {
+      "name": "Pack Tactics",
+      "description": "The hobgoblin has Advantage on an attack roll against a creature if at least one of the hobgoblin's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Longsword",
+      "description": "Melee Attack Roll: +3, reach 5 ft. Hit: 12 (2d10 + 1) Slashing damage.",
+      "attack_roll": 3,
+      "reach": 5,
+      "damage": "12 (2d10 + 1)",
+      "damage_type": "Slashing"
+    },
+    {
+      "name": "Longbow",
+      "description": "Ranged Attack Roll: +3, range 150/600 ft. Hit: 5 (1d8 + 1) Piercing damage plus 7 (3d4) Poison damage.",
+      "attack_roll": 3,
+      "range": "150/600",
+      "damage": "5 (1d8 + 1) Piercing plus 7 (3d4) Poison",
+      "damage_type": "Piercing + Poison"
+    }
+  ],
+  "tactical_info": {
+    "role": "Disciplined Soldier",
+    "environment": "Military formations, hobgoblin strongholds, disciplined raids, organized war parties",
+    "tactics": "Uses pack tactics for advantage, switches between melee and ranged as needed, high AC from armor",
+    "weaknesses": "Low hit points despite heavy armor, relies on allies for pack tactics advantage",
+    "signature_abilities": ["Exceptional AC for CR", "Pack tactics advantage", "Poison arrow attacks", "Versatile weapon options"]
+  }
+}

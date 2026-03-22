@@ -1,0 +1,355 @@
+{
+  "name": "Monk",
+  "description": "Monks use rigorous combat training and mental discipline to align themselves with the multiverse and focus their internal reservoirs of power. Different Monks conceptualize this power in various ways: as breath, energy, life force, essence, or self, for example. Whether channeled as a striking display of martial prowess or as a subtler focus of defensive ability and speed, this power infuses all of a Monk's abilities. Monks harness and focus their internal power to create extraordinary, even supernatural, effects. They channel uncanny speed and strength into their attacks, with or without the use of weapons. As they gain experience, their martial training and their mastery of their internal power make them more formidable with each passing day. A Monk's internal power is called ki in some traditions, but it has many names, such as chi, od, prana, and pneuma.",
+  "primaryAbility": ["Dexterity", "Wisdom"],
+  "hitPointDie": "D8",
+  "proficiencies": {
+    "savingThrows": ["Strength", "Dexterity"],
+    "skills": {
+      "choose": 2,
+      "from": ["Acrobatics", "Athletics", "History", "Insight", "Religion", "Stealth"]
+    },
+    "weapons": ["Simple weapons", "Martial weapons that have the Light property"],
+    "armor": [],
+    "tools": ["One type of Artisan's Tools or one Musical Instrument"]
+  },
+  "startingEquipment": {
+    "options": [
+      {
+        "choice": "A",
+        "items": ["Spear", "5 Darts", "Explorer's Pack", "Artisan's Tools", "Handaxe"],
+        "gold": 11
+      },
+      {
+        "choice": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  "classFeatures": {
+    "1": {
+      "proficiencyBonus": 2,
+      "martialArtsDie": "1d6",
+      "disciplePoints": 0,
+      "unarmoredMovement": 0,
+      "features": [
+        {
+          "name": "Martial Arts",
+          "description": "Your practice of martial arts gives you mastery of combat styles that use your Unarmed Strike and Monk weapons, which are the following: Simple Melee weapons and Martial Melee weapons that have the Light property. You gain the following benefits: Bonus Unarmed Strike: When you use the Attack action on your turn to attack with an Unarmed Strike or a Monk weapon, you can make one Unarmed Strike as a Bonus Action. Enhanced Damage: You can roll a d6 in place of the normal damage of your Unarmed Strike. This die changes as you gain Monk levels, as shown in the Martial Arts column of the Monk Features table. Dexterous Attacks: You can use Dexterity instead of Strength for the attack and damage rolls of your Unarmed Strikes and Monk weapons.",
+          "type": "feature"
+        },
+        {
+          "name": "Unarmored Defense",
+          "description": "While you aren't wearing armor or wielding a Shield, your base Armor Class equals 10 plus your Dexterity and Wisdom modifiers.",
+          "type": "feature"
+        }
+      ]
+    },
+    "2": {
+      "proficiencyBonus": 2,
+      "martialArtsDie": "1d6",
+      "disciplePoints": 2,
+      "unarmoredMovement": 10,
+      "features": [
+        {
+          "name": "Disciple of the Elements",
+          "description": "You have learned to harness your internal power to create extraordinary effects. This power is represented by Disciple Points, which fuel various features. You have 2 Disciple Points, and you gain more as you reach higher levels, as shown in the Disciple Points column of the Monk Features table. When you expend a Disciple Point, it is unavailable until you finish a Short or Long Rest, at the end of which you regain all expended Disciple Points. Some features require your target to make a saving throw. The save DC equals 8 plus your Proficiency Bonus plus your Wisdom modifier.",
+          "type": "feature"
+        },
+        {
+          "name": "Patient Defense",
+          "description": "You can take the Dodge action as a Bonus Action. Alternatively, you can expend 1 Disciple Point to take both the Dodge and Disengage actions as a Bonus Action.",
+          "type": "feature"
+        },
+        {
+          "name": "Step of the Wind",
+          "description": "You can take the Dash action as a Bonus Action. Alternatively, you can expend 1 Disciple Point to take the Dash action as a Bonus Action and double your jump distance for the turn.",
+          "type": "feature"
+        },
+        {
+          "name": "Unarmored Movement",
+          "description": "Your speed increases by 10 feet while you aren't wearing armor or wielding a Shield. This bonus increases as you reach higher Monk levels, as shown on the Monk Features table.",
+          "type": "feature"
+        }
+      ]
+    },
+    "3": {
+      "proficiencyBonus": 2,
+      "martialArtsDie": "1d6",
+      "disciplePoints": 3,
+      "unarmoredMovement": 10,
+      "features": [
+        {
+          "name": "Deflect Attacks",
+          "description": "When an attack roll hits you and its damage includes Bludgeoning, Piercing, or Slashing damage, you can take a Reaction to reduce the attack's total damage against you. The reduction equals 1d10 plus your Dexterity modifier plus your Monk level. If you reduce the damage to 0 and the attack was a Ranged Attack, you can expend 1 Disciple Point to deflect the projectile back at the attacker, using the attack roll of the original attack.",
+          "type": "feature"
+        },
+        {
+          "name": "Monk Subclass",
+          "description": "You gain a Monk subclass of your choice. A subclass represents the monastery where you learned, or are learning, your disciplines.",
+          "type": "subclass"
+        }
+      ]
+    },
+    "4": {
+      "proficiencyBonus": 2,
+      "martialArtsDie": "1d8",
+      "disciplePoints": 4,
+      "unarmoredMovement": 10,
+      "features": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        },
+        {
+          "name": "Slow Fall",
+          "description": "You can take a Reaction when you fall to reduce any damage you take from the fall by an amount equal to five times your Monk level.",
+          "type": "feature"
+        }
+      ]
+    },
+    "5": {
+      "proficiencyBonus": 3,
+      "martialArtsDie": "1d8",
+      "disciplePoints": 5,
+      "unarmoredMovement": 15,
+      "features": [
+        {
+          "name": "Extra Attack",
+          "description": "You can attack twice instead of once whenever you take the Attack action on your turn.",
+          "type": "feature"
+        },
+        {
+          "name": "Stunning Strike",
+          "description": "Once per turn when you hit a creature with a Monk weapon or an Unarmed Strike, you can expend 1 Disciple Point to attempt a stunning strike. The target must succeed on a Constitution saving throw or have the Stunned condition until the start of your next turn.",
+          "type": "feature"
+        }
+      ]
+    },
+    "6": {
+      "proficiencyBonus": 3,
+      "martialArtsDie": "1d8",
+      "disciplePoints": 6,
+      "unarmoredMovement": 15,
+      "features": [
+        {
+          "name": "Empowered Strikes",
+          "description": "Your Unarmed Strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.",
+          "type": "feature"
+        }
+      ]
+    },
+    "7": {
+      "proficiencyBonus": 3,
+      "martialArtsDie": "1d8",
+      "disciplePoints": 7,
+      "unarmoredMovement": 15,
+      "features": [
+        {
+          "name": "Evasion",
+          "description": "When you're subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw and only half damage if you fail. You can't use this feature if you have the Incapacitated condition.",
+          "type": "feature"
+        }
+      ]
+    },
+    "8": {
+      "proficiencyBonus": 3,
+      "martialArtsDie": "1d10",
+      "disciplePoints": 8,
+      "unarmoredMovement": 20,
+      "features": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        }
+      ]
+    },
+    "9": {
+      "proficiencyBonus": 4,
+      "martialArtsDie": "1d10",
+      "disciplePoints": 9,
+      "unarmoredMovement": 20,
+      "features": [
+        {
+          "name": "Acrobatic Movement",
+          "description": "While you aren't wearing armor or wielding a Shield, you gain the ability to move along vertical surfaces and across liquids on your turn without falling during the movement.",
+          "type": "feature"
+        }
+      ]
+    },
+    "10": {
+      "proficiencyBonus": 4,
+      "martialArtsDie": "1d10",
+      "disciplePoints": 10,
+      "unarmoredMovement": 20,
+      "features": [
+        {
+          "name": "Heightened Disciple",
+          "description": "Your training has pushed your body and mind to new heights. Your Flurry of Blows, Patient Defense, and Step of the Wind gain additional benefits, detailed in those features' descriptions. In addition, when you finish a Short or Long Rest, you can choose one of the following damage types: Acid, Cold, Fire, Lightning, or Poison. You have Resistance to the chosen damage type until you choose a different one with this feature.",
+          "type": "feature"
+        }
+      ]
+    },
+    "11": {
+      "proficiencyBonus": 4,
+      "martialArtsDie": "1d10",
+      "disciplePoints": 11,
+      "unarmoredMovement": 25,
+      "features": []
+    },
+    "12": {
+      "proficiencyBonus": 4,
+      "martialArtsDie": "1d12",
+      "disciplePoints": 12,
+      "unarmoredMovement": 25,
+      "features": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        }
+      ]
+    },
+    "13": {
+      "proficiencyBonus": 5,
+      "martialArtsDie": "1d12",
+      "disciplePoints": 13,
+      "unarmoredMovement": 25,
+      "features": [
+        {
+          "name": "Deflect Energy",
+          "description": "You can now use your Deflect Attacks feature against attacks that deal any damage type, not just Bludgeoning, Piercing, and Slashing.",
+          "type": "feature"
+        }
+      ]
+    },
+    "14": {
+      "proficiencyBonus": 5,
+      "martialArtsDie": "1d12",
+      "disciplePoints": 14,
+      "unarmoredMovement": 30,
+      "features": [
+        {
+          "name": "Disciplined Survivor",
+          "description": "Your physical and mental discipline grant you proficiency in all saving throws. Additionally, whenever you make a saving throw and fail, you can expend 1 Disciple Point to reroll it, and you must use the new roll.",
+          "type": "feature"
+        }
+      ]
+    },
+    "15": {
+      "proficiencyBonus": 5,
+      "martialArtsDie": "1d12",
+      "disciplePoints": 15,
+      "unarmoredMovement": 30,
+      "features": [
+        {
+          "name": "Perfect Disciple",
+          "description": "When you roll Initiative and have 3 Disciple Points or fewer, you regain expended Disciple Points until you have 4.",
+          "type": "feature"
+        }
+      ]
+    },
+    "16": {
+      "proficiencyBonus": 5,
+      "martialArtsDie": "1d12",
+      "disciplePoints": 16,
+      "unarmoredMovement": 30,
+      "features": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        }
+      ]
+    },
+    "17": {
+      "proficiencyBonus": 6,
+      "martialArtsDie": "1d12",
+      "disciplePoints": 17,
+      "unarmoredMovement": 35,
+      "features": []
+    },
+    "18": {
+      "proficiencyBonus": 6,
+      "martialArtsDie": "1d12",
+      "disciplePoints": 18,
+      "unarmoredMovement": 35,
+      "features": [
+        {
+          "name": "Superior Defense",
+          "description": "At the start of your turn, you can expend 3 Disciple Points to perfectly bolster yourself against harm for 1 minute or until you have the Incapacitated condition. During that time, you have Resistance to all damage except Force damage.",
+          "type": "feature"
+        }
+      ]
+    },
+    "19": {
+      "proficiencyBonus": 6,
+      "martialArtsDie": "1d12",
+      "disciplePoints": 19,
+      "unarmoredMovement": 35,
+      "features": [
+        {
+          "name": "Epic Boon",
+          "description": "You gain an Epic Boon feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        }
+      ]
+    },
+    "20": {
+      "proficiencyBonus": 6,
+      "martialArtsDie": "1d12",
+      "disciplePoints": 20,
+      "unarmoredMovement": 40,
+      "features": [
+        {
+          "name": "Body and Mind",
+          "description": "You have developed your body and mind to new heights. Your Dexterity and Wisdom scores increase by 4, to a maximum of 25.",
+          "type": "feature"
+        }
+      ]
+    }
+  },
+  "subclasses": [
+    {
+      "name": "Warrior of the Open Hand",
+      "description": "Warriors of the Open Hand are masters of unarmed combat. They learn techniques to push and trip their opponents, manipulate their ki to heal damage to their bodies, and practice advanced meditation that can protect them from harm.",
+      "features": {
+        "3": [
+          {
+            "name": "Open Hand Technique",
+            "description": "When you hit a creature with an attack that is part of your Flurry of Blows, you can impose one of the following effects on that target: Addle: The target can't make Opportunity Attacks until the start of its next turn. Push: The target must succeed on a Strength saving throw, or you push it up to 15 feet away from yourself. Topple: The target must succeed on a Dexterity saving throw, or it has the Prone condition."
+          }
+        ],
+        "6": [
+          {
+            "name": "Wholeness of Body",
+            "description": "You gain the ability to heal yourself. As a Bonus Action, you can expend 2 Disciple Points to regain a number of Hit Points equal to your Monk level."
+          }
+        ],
+        "11": [
+          {
+            "name": "Fleet Step",
+            "description": "When you take a Bonus Action other than Step of the Wind, you can also take the Dash action as part of that Bonus Action."
+          }
+        ],
+        "17": [
+          {
+            "name": "Quivering Palm",
+            "description": "You gain the ability to set up lethal vibrations in someone's body. When you hit a creature with an Unarmed Strike, you can expend 4 Disciple Points to start these imperceptible vibrations, which last for a number of days equal to your Monk level. The vibrations are harmless unless you use your action to end them. When you use this action, the creature must make a Constitution saving throw. If it fails, it is reduced to 0 Hit Points. If it succeeds, it takes 10d12 Necrotic damage. You can have only one creature under the effect of this feature at a time. You can choose to end the vibrations harmlessly (no action required)."
+          }
+        ]
+      }
+    }
+  ],
+  "multiclassing": {
+    "requirements": {
+      "Dexterity": 13,
+      "Wisdom": 13
+    },
+    "proficienciesGained": {}
+  },
+  "sourceBook": "Player's Handbook 2024"
+}

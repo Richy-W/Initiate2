@@ -1,0 +1,22 @@
+{
+  "name": "Tome of Understanding",
+  "type": "Wondrous Item",
+  "rarity": "Very Rare",
+  "attunement": false,
+  "description": "This book contains intuition and insight exercises, and its words are charged with magic.",
+  "properties": {
+    "study_requirement": {
+      "hours": 48,
+      "duration": "Over 6 days or fewer"
+    },
+    "effect": {
+      "ability": "Wisdom",
+      "increase": "+2",
+      "maximum": 30
+    },
+    "recharge": {
+      "duration": "1 century",
+      "effect": "Magic regained after book loses it"
+    }
+  }
+}

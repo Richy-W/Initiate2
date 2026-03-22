@@ -1,0 +1,45 @@
+{
+  "name": "Violet Fungus",
+  "size": "Medium",
+  "type": "Plant",
+  "alignment": "Unaligned",
+  "armor_class": 5,
+  "initiative": 5,
+  "hit_points": {
+    "average": 18,
+    "formula": "4d8"
+  },
+  "speed": {
+    "walk": "5 ft."
+  },
+  "ability_scores": {
+    "strength": { "score": 3, "modifier": -4, "save": -4 },
+    "dexterity": { "score": 1, "modifier": -5, "save": -5 },
+    "constitution": { "score": 10, "modifier": 0, "save": 0 },
+    "intelligence": { "score": 1, "modifier": -5, "save": -5 },
+    "wisdom": { "score": 3, "modifier": -4, "save": -4 },
+    "charisma": { "score": 1, "modifier": -5, "save": -5 }
+  },
+  "condition_immunities": ["Blinded", "Charmed", "Deafened", "Frightened"],
+  "senses": "Blindsight 30 ft.; Passive Perception 6",
+  "languages": "None",
+  "challenge_rating": 0.25,
+  "experience_points": 50,
+  "proficiency_bonus": 2,
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The fungus makes two Rotting Touch attacks."
+    },
+    {
+      "name": "Rotting Touch",
+      "description": "Melee Attack Roll: +2, reach 10 ft. Hit: 4 (1d8) Necrotic damage."
+    }
+  ],
+  "tactical_info": {
+    "optimal_range": "Close combat with reach",
+    "key_abilities": ["Rotting touch reach", "Multiattack", "Condition immunities", "Low mobility"],
+    "weaknesses": ["Very low AC", "Minimal mobility", "Low hit points", "No intelligence"],
+    "synergies": ["Dungeon hazards", "Underground encounters", "Area denial", "Plant themes"]
+  }
+}

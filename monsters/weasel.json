@@ -1,0 +1,60 @@
+{
+  "name": "Weasel",
+  "size": "Tiny",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 13,
+  "hit_points": 1,
+  "hit_dice": "1d4 - 1",
+  "speed": {
+    "walk": 30,
+    "climb": 30
+  },
+  "ability_scores": {
+    "strength": 3,
+    "dexterity": 16,
+    "constitution": 8,
+    "intelligence": 2,
+    "wisdom": 12,
+    "charisma": 3
+  },
+  "saving_throws": {
+    "strength": -4,
+    "dexterity": 3,
+    "constitution": -1,
+    "intelligence": -4,
+    "wisdom": 1,
+    "charisma": -4
+  },
+  "skills": {
+    "acrobatics": 5,
+    "perception": 3,
+    "stealth": 5
+  },
+  "senses": [
+    "Darkvision 60 ft.",
+    "Passive Perception 13"
+  ],
+  "languages": "None",
+  "challenge_rating": 0,
+  "experience_points": 10,
+  "proficiency_bonus": 2,
+  "features": [],
+  "actions": [
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 1 Piercing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Tiny Agile Scout - Highly mobile stealth specialist",
+    "positioning": "Uses climbing speed and high stealth for reconnaissance",
+    "damage_output": "1 piercing damage - minimal combat threat",
+    "key_abilities": "Exceptional stealth (+5), acrobatics (+5), darkvision, climbing",
+    "weaknesses": "1 HP makes it extremely fragile, minimal damage output",
+    "synergies": "Perfect familiar or scout, excellent for stealth missions"
+  }
+}

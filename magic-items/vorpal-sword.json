@@ -1,0 +1,30 @@
+{
+  "name": "Vorpal Sword",
+  "type": "Weapon",
+  "weapon_type": "Glaive, Greatsword, Longsword, or Scimitar",
+  "rarity": "Legendary",
+  "attunement": true,
+  "description": "You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon. In addition, the weapon ignores Resistance to Slashing damage.",
+  "properties": {
+    "attack_bonus": "+3",
+    "damage_bonus": "+3",
+    "ignore_resistance": "Ignores Resistance to Slashing damage",
+    "decapitation": {
+      "trigger": "Attack creature with at least one head and roll 20 on attack",
+      "effect": "Cut off one creature's head",
+      "death_condition": "Creature dies if can't survive without lost head",
+      "immunities": {
+        "immune_to_effect": [
+          "Immunity to Slashing damage",
+          "Creature doesn't have or need head",
+          "DM decides creature too big for head to be cut off"
+        ],
+        "alternative_damage": "Takes extra 30 Slashing damage instead"
+      },
+      "legendary_resistance": {
+        "effect": "Can expend one daily use to avoid losing head",
+        "result": "Takes extra damage instead"
+      }
+    }
+  }
+}

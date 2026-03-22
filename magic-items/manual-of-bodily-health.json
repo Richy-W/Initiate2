@@ -1,0 +1,17 @@
+{
+  "name": "Manual of Bodily Health",
+  "type": "Wondrous Item",
+  "rarity": "Very Rare",
+  "attunement": false,
+  "description": "This book contains health and nutrition tips, and its words are charged with magic. If you spend 48 hours over a period of 6 days or fewer studying the book's contents and practicing its guidelines, your Constitution increases by 2, to a maximum of 30.",
+  "properties": {
+    "type": "Book",
+    "study_requirement": "48 hours over 6 days or fewer",
+    "effect": {
+      "ability": "Constitution",
+      "bonus": 2,
+      "maximum": 30
+    },
+    "consumable": "Manual loses magic after use but regains it in a century"
+  }
+}

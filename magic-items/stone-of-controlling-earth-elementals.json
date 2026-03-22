@@ -1,0 +1,28 @@
+{
+  "name": "Stone of Controlling Earth Elementals",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "attunement": false,
+  "description": "While touching this 5-pound stone to the ground, you can take a Magic action to summon an Earth Elemental.",
+  "properties": {
+    "weight": "5 pounds",
+    "summoning": {
+      "action_type": "Magic action",
+      "requirement": "Touch stone to ground",
+      "creature": "Earth Elemental",
+      "range": "30 feet",
+      "obedience": "Elemental obeys your commands",
+      "initiative": "Takes turn immediately after you"
+    },
+    "dismissal": {
+      "action_type": "Bonus Action",
+      "effect": "Elemental disappears"
+    },
+    "end_conditions": [
+      "1 hour duration",
+      "Elemental dies",
+      "You dismiss"
+    ],
+    "recharge": "Next dawn"
+  }
+}

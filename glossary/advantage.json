@@ -1,0 +1,18 @@
+{
+  "name": "Advantage",
+  "slug": "advantage",
+  "definition": "If you have Advantage on a D20 Test, roll two d20s, and use the higher roll.",
+  "category": "Abilities & Attributes",
+  "tags": [],
+  "full_text": "If you have Advantage on a D20 Test, roll two d20s, and use the higher roll. A roll can't be affected by more than one Advantage, and Advantage and Disadvantage on the same roll cancel each other.",
+  "mechanics": {
+    "rolling": "Roll two d20s",
+    "result": "Use the higher roll",
+    "stacking": "A roll can't be affected by more than one Advantage",
+    "cancellation": "Advantage and Disadvantage on the same roll cancel each other"
+  },
+  "see_also": [
+    "Disadvantage",
+    "D20 Test"
+  ]
+}

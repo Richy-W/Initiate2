@@ -1,0 +1,91 @@
+{
+  "name": "Flying Snake",
+  "size": "Tiny",
+  "type": "Monstrosity",
+  "alignment": "Unaligned",
+  "armor_class": 14,
+  "initiative": 2,
+  "hit_points": {
+    "average": 5,
+    "formula": "2d4"
+  },
+  "speed": {
+    "walk": 30,
+    "fly": 60,
+    "swim": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 4,
+      "modifier": -3,
+      "save": -3
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2,
+      "save": 2
+    },
+    "constitution": {
+      "score": 11,
+      "modifier": 0,
+      "save": 0
+    },
+    "intelligence": {
+      "score": 2,
+      "modifier": -4,
+      "save": -4
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1,
+      "save": 1
+    },
+    "charisma": {
+      "score": 5,
+      "modifier": -3,
+      "save": -3
+    }
+  },
+  "skills": {},
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "blindsight": 10,
+    "passive_perception": 11
+  },
+  "languages": [],
+  "challenge_rating": 0.125,
+  "experience_points": 25,
+  "proficiency_bonus": 2,
+  "actions": [
+    {
+      "name": "Bite",
+      "type": "melee_attack",
+      "attack_bonus": 4,
+      "reach": 5,
+      "targets": "one target",
+      "damage": {
+        "damage_dice": "1 + 2d4",
+        "damage_type": "piercing plus poison",
+        "average_damage": 6
+      },
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 1 Piercing damage plus 5 (2d4) Poison damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "traits": [
+    {
+      "name": "Flyby",
+      "description": "The snake doesn't provoke an Opportunity Attack when it flies out of an enemy's reach."
+    }
+  ],
+  "tactical_info": {
+    "optimal_range": "Hit-and-run aerial attacks with flyby",
+    "key_abilities": ["Flyby aerial mobility", "Poison damage", "Multi-environment movement"],
+    "weaknesses": ["Extremely low hit points", "Poor strength and constitution", "Tiny size vulnerability"],
+    "synergies": ["Aerial reconnaissance", "Poison damage support", "Difficult to pin down"]
+  }
+}

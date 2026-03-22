@@ -1,0 +1,132 @@
+{
+  "title": "Core Spell Rules",
+  "description": "Fundamental mechanics for spellcasting in D&D 5e 2024",
+  "version": "2024",
+  "rules": {
+    "gaining_spells": {
+      "requirements": "Must have the spell prepared in your mind or have access to the spell from a magic item",
+      "sources": [
+        "Class features that specify spell access",
+        "Always-prepared spells from features",
+        "Magic items such as Spell Scrolls",
+        "Special abilities that grant spell access"
+      ]
+    },
+    "spell_levels": {
+      "description": "Every spell has a level from 0 to 9, indicating its power",
+      "levels": {
+        "0": {
+          "name": "Cantrips",
+          "description": "Simple spells that can be cast almost by rote",
+          "slot_requirement": false
+        },
+        "1": {
+          "name": "Level 1 Spells",
+          "description": "Basic magic requiring spell slots",
+          "slot_requirement": true
+        },
+        "2": {
+          "name": "Level 2 Spells", 
+          "description": "Intermediate magic requiring level 2+ slots",
+          "slot_requirement": true
+        },
+        "3": {
+          "name": "Level 3 Spells",
+          "description": "Advanced magic requiring level 3+ slots", 
+          "slot_requirement": true
+        },
+        "4": {
+          "name": "Level 4 Spells",
+          "description": "Powerful magic requiring level 4+ slots",
+          "slot_requirement": true
+        },
+        "5": {
+          "name": "Level 5 Spells",
+          "description": "Very powerful magic requiring level 5+ slots",
+          "slot_requirement": true
+        },
+        "6": {
+          "name": "Level 6 Spells", 
+          "description": "High-level magic requiring level 6+ slots",
+          "slot_requirement": true
+        },
+        "7": {
+          "name": "Level 7 Spells",
+          "description": "Exceptional magic requiring level 7+ slots",
+          "slot_requirement": true
+        },
+        "8": {
+          "name": "Level 8 Spells",
+          "description": "Legendary magic requiring level 8+ slots",
+          "slot_requirement": true
+        },
+        "9": {
+          "name": "Level 9 Spells",
+          "description": "The most powerful magic requiring level 9 slots",
+          "slot_requirement": true
+        }
+      }
+    },
+    "spell_slots": {
+      "description": "The main way a spellcaster's magical potential is represented",
+      "mechanics": {
+        "expending_slots": "When you cast a spell, you expend a slot of that spell's level or higher",
+        "slot_sizing": "A level 1 spell fits into a slot of any size, but higher-level spells need appropriately leveled slots",
+        "restoration": "Finishing a Long Rest restores any expended spell slots",
+        "one_slot_per_turn": "On a turn, you can expend only one spell slot to cast a spell"
+      }
+    },
+    "casting_without_slots": {
+      "cantrips": {
+        "description": "A cantrip is cast without a spell slot",
+        "limitation": "None beyond normal casting rules"
+      },
+      "rituals": {
+        "description": "Spells with the Ritual tag can be cast as rituals",
+        "mechanics": {
+          "casting_time_increase": "Takes 10 minutes longer than normal",
+          "slot_requirement": false,
+          "preparation_requirement": "Must have the spell prepared"
+        }
+      },
+      "special_abilities": {
+        "description": "Some features allow casting specific spells without slots",
+        "limitation": "Usually limited by usage per day or similar restrictions"
+      },
+      "magic_items": {
+        "description": "Spell Scrolls and other magic items contain spells",
+        "limitation": "Limited by the item's specific casting rules and charges"
+      }
+    },
+    "higher_level_casting": {
+      "description": "When casting a spell using a higher-level slot than required",
+      "mechanics": {
+        "level_scaling": "The spell takes on the higher level for that casting",
+        "enhanced_effects": "Some spells have more powerful effects when cast at higher levels"
+      }
+    },
+    "casting_in_armor": {
+      "requirement": "You must have training with any armor you are wearing to cast spells while wearing it",
+      "penalty": "Without training, you are too hampered by the armor for spellcasting"
+    },
+    "saving_throws": {
+      "calculation": "Spell save DC = 8 + your spellcasting ability modifier + your Proficiency Bonus",
+      "mechanics": "Many spells specify that a target makes a saving throw to avoid effects"
+    },
+    "attack_rolls": {
+      "calculation": "Spell attack modifier = your spellcasting ability modifier + your Proficiency Bonus",
+      "usage": "Some spells require the caster to make an attack roll to determine if the spell hits"
+    },
+    "combining_effects": {
+      "different_spells": "Effects of different spells add together while their durations overlap",
+      "same_spell": "Effects of the same spell cast multiple times don't combine - only the most potent effect applies",
+      "equal_potency": "If castings are equally potent, the most recent effect applies"
+    },
+    "identifying_spells": {
+      "action": "Study action",
+      "dc": 15,
+      "ability": "Intelligence (Arcana)",
+      "requirement": "Spell must have ongoing duration with observable effects"
+    }
+  }
+}

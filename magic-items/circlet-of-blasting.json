@@ -1,0 +1,14 @@
+{
+  "name": "Circlet of Blasting",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "requires_attunement": false,
+  "overview": "A circlet that allows casting Scorching Ray with increased accuracy.",
+  "properties": {
+    "spell_casting": "While wearing this circlet, you can cast Scorching Ray with it",
+    "attack_bonus": "+5 to hit",
+    "recharge": "The circlet can't cast this spell again until the next dawn"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

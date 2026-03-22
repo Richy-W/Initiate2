@@ -1,0 +1,30 @@
+{
+  "name": "Ring of X-ray Vision",
+  "type": "Ring",
+  "rarity": "Rare",
+  "attunement": true,
+  "description": "While wearing this ring, you can take a Magic action to gain X-ray vision with a range of 30 feet for 1 minute. To you, solid objects within that radius appear transparent and don't prevent light from passing through them. The vision can penetrate 1 foot of stone, 1 inch of common metal, or up to 3 feet of wood or dirt. Thicker substances or a thin sheet of lead block the vision. Whenever you use the ring again before taking a Long Rest, you must succeed on a DC 15 Constitution saving throw or gain 1 Exhaustion level.",
+  "properties": {
+    "xray_vision": {
+      "action_type": "Magic action",
+      "range": "30 feet",
+      "duration": "1 minute",
+      "vision_type": "X-ray",
+      "transparency": "Solid objects appear transparent, don't block light",
+      "penetration": {
+        "stone": "1 foot",
+        "common_metal": "1 inch",
+        "wood_or_dirt": "Up to 3 feet"
+      },
+      "blockage": "Thicker substances or thin sheet of lead blocks vision"
+    },
+    "exhaustion_risk": {
+      "trigger": "Use again before Long Rest",
+      "saving_throw": {
+        "type": "Constitution",
+        "dc": 15
+      },
+      "on_failure": "Gain 1 Exhaustion level"
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "name": "Giant Bat",
+  "size": "Large",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 13,
+  "initiative": 3,
+  "hit_points": {
+    "average": 22,
+    "formula": "4d10"
+  },
+  "speed": {
+    "walk": 10,
+    "fly": 60
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 15,
+      "modifier": 2,
+      "save": 2
+    },
+    "dexterity": {
+      "score": 16,
+      "modifier": 3,
+      "save": 3
+    },
+    "constitution": {
+      "score": 11,
+      "modifier": 0,
+      "save": 0
+    },
+    "intelligence": {
+      "score": 2,
+      "modifier": -4,
+      "save": -4
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1,
+      "save": 1
+    },
+    "charisma": {
+      "score": 6,
+      "modifier": -2,
+      "save": -2
+    }
+  },
+  "skills": {},
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "blindsight": 120,
+    "passive_perception": 11
+  },
+  "languages": [],
+  "challenge_rating": 0.25,
+  "experience_points": 50,
+  "proficiency_bonus": 2,
+  "actions": [
+    {
+      "name": "Bite",
+      "type": "melee_attack",
+      "attack_bonus": 5,
+      "reach": 5,
+      "targets": "one target",
+      "damage": {
+        "damage_dice": "1d6 + 3",
+        "damage_type": "piercing",
+        "average_damage": 6
+      },
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 6 (1d6 + 3) Piercing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "traits": [],
+  "tactical_info": {
+    "optimal_range": "Aerial hit-and-run with exceptional blindsight",
+    "key_abilities": ["Blindsight 120 feet", "Good flight speed", "Decent bite damage"],
+    "weaknesses": ["Poor on ground", "Low constitution", "Single attack option"],
+    "synergies": ["Cave and underground encounters", "Darkness-based tactics", "Aerial mobility"]
+  }
+}

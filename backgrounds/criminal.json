@@ -1,0 +1,44 @@
+{
+  "name": "Criminal",
+  "description": "You eked out a living in dark alleyways, cutting purses or burgling shops. Perhaps you were part of a small gang of like-minded wrongdoers who looked out for each other. Or maybe you were a lone wolf, fending for yourself against the local thieves' guild and more fearsome lawbreakers.",
+  "abilityScoreIncrease": {
+    "choices": ["Dexterity", "Constitution", "Intelligence"],
+    "points": 3
+  },
+  "feat": {
+    "name": "Alert",
+    "type": "Origin",
+    "description": "You gain the following benefits: Initiative Proficiency: When you roll Initiative, you can add your Proficiency Bonus to the roll. Initiative Swap: Immediately after you roll Initiative, you can swap your Initiative with the Initiative of one willing ally in the same combat. You can't make this swap if you or the ally has the Incapacitated condition."
+  },
+  "skillProficiencies": ["Sleight of Hand", "Stealth"],
+  "toolProficiency": {
+    "fixed": "Thieves' Tools"
+  },
+  "languageProficiency": {
+    "choice": {
+      "count": 1,
+      "type": "standard"
+    }
+  },
+  "startingEquipment": {
+    "options": [
+      {
+        "choice": "A",
+        "items": [
+          "2 Daggers",
+          "Thieves' Tools",
+          "Crowbar",
+          "2 Pouches",
+          "Traveler's Clothes"
+        ],
+        "gold": 16
+      },
+      {
+        "choice": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  "sourceBook": "Player's Handbook 2024"
+}

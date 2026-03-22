@@ -1,0 +1,61 @@
+{
+  "name": "Helm of Brilliance",
+  "type": "Wondrous Item",
+  "rarity": "Very Rare",
+  "attunement": true,
+  "description": "This helm is set with 1d10 diamonds, 2d10 rubies, 3d10 fire opals, and 4d10 opals. Any gem pried from the helm crumbles to dust. When all the gems are removed or destroyed, the helm loses its magic.",
+  "properties": {
+    "gems": {
+      "diamonds": "1d10",
+      "rubies": "2d10",
+      "fire_opals": "3d10",
+      "opals": "4d10"
+    },
+    "gem_removal": "Any gem pried loose crumbles to dust; helm loses magic when all gems gone",
+    "benefits": [
+      {
+        "name": "Diamond Light",
+        "requirement": "At least one diamond",
+        "effect": "Helm emits 30-foot Emanation. When Undead in area, Emanation filled with Dim Light. Any Undead starting turn in area takes 1d6 Radiant damage"
+      },
+      {
+        "name": "Fire Opal Flames",
+        "requirement": "At least one fire opal",
+        "activation": "Magic action",
+        "effect": "One weapon you're holding bursts into flames (Bright Light 10 feet, Dim Light additional 10 feet). Flames harmless to you and weapon. Extra 1d6 Fire damage on hit",
+        "duration": "Until Bonus Action to extinguish or drop/stow weapon"
+      },
+      {
+        "name": "Ruby Resistance",
+        "requirement": "At least one ruby",
+        "effect": "Resistance to Fire damage"
+      }
+    ],
+    "spells": {
+      "save_dc": 18,
+      "spells": [
+        {
+          "spell": "Daylight",
+          "component": "opal"
+        },
+        {
+          "spell": "Fireball",
+          "component": "fire opal"
+        },
+        {
+          "spell": "Prismatic Spray",
+          "component": "diamond"
+        },
+        {
+          "spell": "Wall of Fire",
+          "component": "ruby"
+        }
+      ],
+      "note": "Gem destroyed and disappears when spell is cast"
+    },
+    "fire_damage_effect": {
+      "trigger": "Roll 1d20 when taking Fire damage from failed save against spell",
+      "on_roll_1": "Helm emits beams from remaining gems and is destroyed. Each creature within 60-foot Emanation must succeed on DC 17 Dexterity save or be struck by beam, taking Radiant damage equal to number of gems in helm"
+    }
+  }
+}

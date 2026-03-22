@@ -1,0 +1,22 @@
+{
+  "name": "Dagger of Venom",
+  "type": "Weapon (Dagger)",
+  "rarity": "Rare",
+  "requires_attunement": false,
+  "overview": "A magical dagger with a bonus to attacks and the ability to coat itself with poison.",
+  "properties": {
+    "attack_bonus": "You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon"
+  },
+  "poison_coating": {
+    "activation": "You can take a Bonus Action to magically coat the blade with poison",
+    "duration": "The poison remains for 1 minute or until an attack using this weapon hits a creature",
+    "effect": {
+      "saving_throw": "DC 15 Constitution",
+      "damage": "2d10 Poison damage",
+      "condition": "Poisoned for 1 minute on failed save"
+    },
+    "recharge": "The weapon can't be used this way again until the next dawn"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

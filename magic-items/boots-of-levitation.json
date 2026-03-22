@@ -1,0 +1,12 @@
+{
+  "name": "Boots of Levitation",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "requires_attunement": true,
+  "overview": "These boots grant the wearer the ability to cast Levitate on themselves.",
+  "properties": {
+    "spell_casting": "While you wear these boots, you can cast Levitate on yourself"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

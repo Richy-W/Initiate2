@@ -1,0 +1,82 @@
+{
+  "name": "Spell Scroll",
+  "type": "Scroll",
+  "rarity": "Varies",
+  "attunement": false,
+  "description": "A Spell Scroll bears the words of a single spell, written in a mystical cipher. If the spell is on your spell list, you can read the scroll and cast its spell without Material components.",
+  "properties": {
+    "casting": {
+      "requirement": "Spell must be on your spell list",
+      "components_required": "No Material components",
+      "casting_time": "Normal for the spell"
+    },
+    "failure": "If spell not on list, scroll is unintelligible",
+    "interruption": "If casting interrupted, scroll isn't lost",
+    "higher_level": {
+      "condition": "Spell is higher level than you can normally cast",
+      "check": "Ability check using spellcasting ability",
+      "dc": "10 + spell's level",
+      "on_failure": "Spell disappears with no effect"
+    },
+    "destruction": "Scroll crumbles to dust after casting",
+    "spell_levels": {
+      "cantrip": {
+        "rarity": "Common",
+        "save_dc": 13,
+        "attack_bonus": "+5"
+      },
+      "1st": {
+        "rarity": "Common",
+        "save_dc": 13,
+        "attack_bonus": "+5"
+      },
+      "2nd": {
+        "rarity": "Uncommon",
+        "save_dc": 13,
+        "attack_bonus": "+5"
+      },
+      "3rd": {
+        "rarity": "Uncommon",
+        "save_dc": 15,
+        "attack_bonus": "+7"
+      },
+      "4th": {
+        "rarity": "Rare",
+        "save_dc": 15,
+        "attack_bonus": "+7"
+      },
+      "5th": {
+        "rarity": "Rare",
+        "save_dc": 17,
+        "attack_bonus": "+9"
+      },
+      "6th": {
+        "rarity": "Very Rare",
+        "save_dc": 17,
+        "attack_bonus": "+9"
+      },
+      "7th": {
+        "rarity": "Very Rare",
+        "save_dc": 18,
+        "attack_bonus": "+10"
+      },
+      "8th": {
+        "rarity": "Very Rare",
+        "save_dc": 18,
+        "attack_bonus": "+10"
+      },
+      "9th": {
+        "rarity": "Legendary",
+        "save_dc": 19,
+        "attack_bonus": "+11"
+      }
+    },
+    "copying_to_spellbook": {
+      "requirement": "Wizard spell on scroll",
+      "check": "Intelligence (Arcana) check",
+      "dc": "10 + spell's level",
+      "on_success": "Spell copied to spellbook",
+      "result": "Scroll destroyed whether success or failure"
+    }
+  }
+}

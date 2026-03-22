@@ -1,0 +1,43 @@
+{
+  "name": "Condition",
+  "slug": "condition",
+  "definition": "A condition is a temporary game state.",
+  "category": "Conditions",
+  "tags": ["Condition"],
+  "full_text": "A condition is a temporary game state. The definition of a condition says how it affects its recipient, and various rules define how to end a condition.",
+  "note": "A condition doesn't stack with itself; a recipient either has a condition or doesn't. The Exhaustion condition is an exception to that rule.",
+  "condition_list": [
+    "Blinded",
+    "Charmed",
+    "Deafened",
+    "Exhaustion",
+    "Frightened",
+    "Grappled",
+    "Incapacitated",
+    "Invisible",
+    "Paralyzed",
+    "Petrified",
+    "Poisoned",
+    "Prone",
+    "Restrained",
+    "Stunned",
+    "Unconscious"
+  ],
+  "see_also": [
+    "Blinded",
+    "Charmed",
+    "Deafened",
+    "Exhaustion",
+    "Frightened",
+    "Grappled",
+    "Incapacitated",
+    "Invisible",
+    "Paralyzed",
+    "Petrified",
+    "Poisoned",
+    "Prone",
+    "Restrained",
+    "Stunned",
+    "Unconscious"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Restrained",
+  "slug": "restrained",
+  "definition": "A condition where movement is prevented and combat abilities are impaired",
+  "category": "Conditions",
+  "tags": ["[Condition]", "speed"],
+  "full_text": "While you have the Restrained condition, you experience the following effects.\n\nSpeed 0. Your Speed is 0 and can't increase.\n\nAttacks Affected. Attack rolls against you have Advantage, and your attack rolls have Disadvantage.\n\nSaving Throws Affected. You have Disadvantage on Dexterity saving throws.",
+  "mechanics": {
+    "speed": "0 and can't increase",
+    "attacks": "Attacks against you have Advantage; your attacks have Disadvantage",
+    "saving_throws": "Disadvantage on DEX saves"
+  },
+  "see_also": ["condition", "disadvantage", "advantage"]
+}

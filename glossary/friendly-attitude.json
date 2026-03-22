@@ -1,0 +1,12 @@
+{
+  "name": "Friendly",
+  "slug": "friendly",
+  "definition": "An attitude where a creature views you favorably",
+  "category": "Attitudes",
+  "tags": ["[Attitude]", "influence", "advantage"],
+  "full_text": "A Friendly creature views you favorably. You have Advantage on an ability check to influence a Friendly creature.",
+  "mechanics": {
+    "effect": "Advantage on ability checks to influence this creature"
+  },
+  "see_also": ["influence", "attitude", "advantage", "hostile", "indifferent"]
+}

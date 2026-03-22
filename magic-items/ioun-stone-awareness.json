@@ -1,0 +1,16 @@
+{
+  "name": "Ioun Stone: Awareness",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "attunement": true,
+  "description": "While this dark-blue rhomboid orbits your head, you have Advantage on Initiative rolls and Wisdom (Perception) checks.",
+  "properties": {
+    "shape": "Dark-blue rhomboid",
+    "orbit": "1d3 feet from head",
+    "max_concurrent_stones": 3,
+    "benefits": [
+      "Advantage on Initiative rolls",
+      "Advantage on Wisdom (Perception) checks"
+    ]
+  }
+}

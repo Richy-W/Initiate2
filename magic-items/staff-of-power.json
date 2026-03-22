@@ -1,0 +1,83 @@
+{
+  "name": "Staff of Power",
+  "type": "Staff",
+  "rarity": "Very Rare",
+  "attunement": true,
+  "attunement_class": "Sorcerer, Warlock, or Wizard",
+  "description": "This staff has 20 charges and can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it.",
+  "properties": {
+    "weapon": {
+      "type": "Magic Quarterstaff",
+      "attack_bonus": "+2",
+      "damage_bonus": "+2"
+    },
+    "bonuses": {
+      "armor_class": "+2",
+      "saving_throws": "+2",
+      "spell_attack_rolls": "+2"
+    },
+    "charges": {
+      "max_charges": 20,
+      "current_charges": 20
+    },
+    "spells": [
+      {
+        "spell": "Cone of Cold",
+        "charges": 5
+      },
+      {
+        "spell": "Fireball (level 5)",
+        "charges": 5
+      },
+      {
+        "spell": "Globe of Invulnerability",
+        "charges": 6
+      },
+      {
+        "spell": "Hold Monster",
+        "charges": 5
+      },
+      {
+        "spell": "Levitate",
+        "charges": 2
+      },
+      {
+        "spell": "Lightning Bolt (level 5)",
+        "charges": 5
+      },
+      {
+        "spell": "Magic Missile",
+        "charges": 1
+      },
+      {
+        "spell": "Ray of Enfeeblement",
+        "charges": 1
+      },
+      {
+        "spell": "Wall of Force",
+        "charges": 5
+      }
+    ],
+    "spell_save_dc": "Your spell save DC",
+    "regaining_charges": {
+      "recharge": "2d8 + 4 daily at dawn",
+      "destruction_check": "Roll 1d20 when last charge expended",
+      "on_roll_1": "Retains +2 bonus but loses all other properties",
+      "on_roll_20": "Regains 1d8 + 2 charges"
+    },
+    "retributive_strike": {
+      "activation": "Magic action to break staff",
+      "effect": "Staff destroyed, magic released in 30-foot Emanation",
+      "avoidance": "50% chance to instantly travel to random plane avoiding explosion",
+      "caster_damage": "Force damage equal to 16 times number of charges",
+      "other_creatures": {
+        "saving_throw": {
+          "type": "Dexterity",
+          "dc": 17
+        },
+        "on_failure": "4 times number of charges in Force damage",
+        "on_success": "Half damage"
+      }
+    }
+  }
+}

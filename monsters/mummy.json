@@ -1,0 +1,94 @@
+{
+  "name": "Mummy",
+  "size": "Medium",
+  "type": "Undead",
+  "alignment": "Lawful Evil",
+  "armor_class": {
+    "value": 11,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": -1,
+    "total": 9
+  },
+  "hit_points": {
+    "average": 58,
+    "formula": "9d8 + 18"
+  },
+  "speed": {
+    "walk": 20
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "dexterity": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "intelligence": {
+      "score": 6,
+      "modifier": -2,
+      "saving_throw": -2
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 2
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    }
+  },
+  "damage_vulnerabilities": ["Fire"],
+  "damage_resistances": ["Bludgeoning", "Piercing", "Slashing from nonmagical attacks"],
+  "damage_immunities": ["Necrotic", "Poison"],
+  "condition_immunities": ["Charmed", "Exhaustion", "Frightened", "Paralyzed", "Poisoned"],
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 10
+  },
+  "languages": ["The languages it knew in life"],
+  "challenge_rating": {
+    "cr": 3,
+    "xp": 700,
+    "proficiency_bonus": 2
+  },
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The mummy makes two Rotting Fist attacks."
+    },
+    {
+      "name": "Rotting Fist",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 6 (1d6 + 3) Bludgeoning damage plus 10 (3d6) Necrotic damage. If the target is a creature, it must succeed on a DC 12 Constitution saving throw or be cursed with mummy rot. The cursed target can't regain hit points, and its hit point maximum decreases by 10 (3d6) for every 24 hours that elapse. If the curse reduces the target's hit point maximum to 0, the target dies, and its body turns to dust. The curse lasts until removed by the remove curse spell or other magic.",
+      "attack_roll": 5,
+      "reach": 5,
+      "damage": "6 (1d6 + 3) + 10 (3d6)",
+      "damage_type": "Bludgeoning + Necrotic"
+    },
+    {
+      "name": "Dreadful Glare",
+      "description": "The mummy targets one creature it can see within 60 feet of it. If the target can see the mummy, it must succeed on a DC 11 Wisdom saving throw against this magic or have the Frightened condition until the end of the mummy's next turn. If the target fails the saving throw by 5 or more, it also has the Paralyzed condition for the same duration. A target that succeeds on the saving throw is immune to all mummies' Dreadful Glare for the next 24 hours.",
+      "range": 60,
+      "saving_throw": "DC 11 Wisdom"
+    }
+  ],
+  "tactical_info": {
+    "role": "Cursed Guardian/Debuffer",
+    "environment": "Ancient tombs, burial chambers, ruined temples, desert pyramids",
+    "tactics": "Uses dreadful glare to frighten and potentially paralyze, multiattack with cursing rotting fists, relies on curse effects",
+    "weaknesses": "Vulnerable to fire damage, slow movement, limited ranged options beyond glare",
+    "signature_abilities": ["Mummy rot curse", "Frightening/paralyzing glare", "Necrotic damage immunity", "Physical damage resistance"]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "Boon of Truesight",
+  "category": "Epic Boon",
+  "prerequisite": {
+    "level": 19
+  },
+  "benefits": [
+    {
+      "name": "Ability Score Increase",
+      "description": "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 30.",
+      "type": "abilityScoreIncrease"
+    },
+    {
+      "name": "True Seeing",
+      "description": "You have Truesight with a range of 60 feet.",
+      "type": "senses"
+    }
+  ],
+  "repeatable": false,
+  "choices": [
+    {
+      "name": "Ability Score Increase",
+      "options": ["Intelligence", "Wisdom", "Charisma"],
+      "count": 1
+    }
+  ],
+  "sourceBook": "Player's Handbook 2024"
+}

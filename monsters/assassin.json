@@ -1,0 +1,109 @@
+{
+  "name": "Assassin",
+  "size": "Medium",
+  "type": "Humanoid",
+  "alignment": "Neutral",
+  "armor_class": {
+    "value": 16,
+    "source": "Studded Leather Armor"
+  },
+  "initiative": {
+    "bonus": 4,
+    "total": 14
+  },
+  "hit_points": {
+    "average": 97,
+    "formula": "15d8 + 30"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "dexterity": {
+      "score": 18,
+      "modifier": 4,
+      "saving_throw": 7
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "intelligence": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 6
+    },
+    "wisdom": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    }
+  },
+  "skills": {
+    "Acrobatics": 7,
+    "Perception": 6,
+    "Stealth": 10
+  },
+  "damage_resistances": ["Poison"],
+  "senses": {
+    "passive_perception": 16
+  },
+  "languages": ["Common", "Thieves' Cant"],
+  "challenge_rating": {
+    "cr": 8,
+    "xp": 3900,
+    "proficiency_bonus": 3
+  },
+  "equipment": ["Light Crossbow", "Shortsword", "Studded Leather Armor"],
+  "traits": [
+    {
+      "name": "Evasion",
+      "description": "If the assassin is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the assassin instead takes no damage if it succeeds on the save and only half damage if it fails. It can't use this trait if it has the Incapacitated condition."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The assassin makes three attacks, using Shortsword or Light Crossbow in any combination."
+    },
+    {
+      "name": "Shortsword",
+      "description": "Melee Attack Roll: +7, reach 5 ft. Hit: 7 (1d6 + 4) Piercing damage plus 17 (5d6) Poison damage, and the target has the Poisoned condition until the start of the assassin's next turn.",
+      "attack_roll": 7,
+      "reach": 5,
+      "damage": "7 (1d6 + 4) Piercing plus 17 (5d6) Poison",
+      "damage_type": "Piercing/Poison"
+    },
+    {
+      "name": "Light Crossbow",
+      "description": "Ranged Attack Roll: +7, range 80/320 ft. Hit: 8 (1d8 + 4) Piercing damage plus 21 (6d6) Poison damage.",
+      "attack_roll": 7,
+      "range": "80/320 ft",
+      "damage": "8 (1d8 + 4) Piercing plus 21 (6d6) Poison",
+      "damage_type": "Piercing/Poison"
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Cunning Action",
+      "description": "The assassin takes the Dash, Disengage, or Hide action."
+    }
+  ],
+  "tactical_info": {
+    "role": "Striker/Infiltrator",
+    "environment": "Urban, anywhere humanoids gather",
+    "tactics": "Strikes from stealth, uses poison and mobility to avoid retaliation",
+    "weaknesses": "Lower AC and HP than typical CR 8 monsters, relies on stealth"
+  }
+}

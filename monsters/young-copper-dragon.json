@@ -1,0 +1,107 @@
+{
+  "name": "Young Copper Dragon",
+  "size": "Large",
+  "type": "Dragon (Metallic)",
+  "alignment": "Chaotic Good",
+  "armor_class": {
+    "value": 17,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 4,
+    "total": 14
+  },
+  "hit_points": {
+    "average": 119,
+    "formula": "14d10 + 42"
+  },
+  "speed": {
+    "walk": 40,
+    "climb": 40,
+    "fly": 80
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 19,
+      "modifier": 4,
+      "saving_throw": 4
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 4
+    },
+    "constitution": {
+      "score": 17,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "intelligence": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 4
+    },
+    "charisma": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    }
+  },
+  "skills": {
+    "deception": 5,
+    "perception": 7,
+    "stealth": 4
+  },
+  "damage_immunities": ["Acid"],
+  "senses": {
+    "blindsight": 30,
+    "darkvision": 120,
+    "passive_perception": 17
+  },
+  "languages": ["Common", "Draconic"],
+  "challenge_rating": {
+    "cr": 7,
+    "xp": 2900,
+    "proficiency_bonus": 3
+  },
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The dragon makes three Rend attacks. It can replace one attack with a use of Slowing Breath."
+    },
+    {
+      "name": "Rend",
+      "description": "Melee Attack Roll: +7, reach 10 ft. Hit: 15 (2d10 + 4) Slashing damage.",
+      "attack_roll": 7,
+      "reach": 10,
+      "damage": "15 (2d10 + 4)",
+      "damage_type": "Slashing"
+    },
+    {
+      "name": "Acid Breath (Recharge 5–6)",
+      "description": "Dexterity Saving Throw: DC 14, each creature in a 40-foot-long, 5-foot-wide Line. Failure: 40 (9d8) Acid damage. Success: Half damage.",
+      "save_dc": 14,
+      "damage": "40 (9d8)",
+      "damage_type": "Acid",
+      "area": "40-foot Line, 5 feet wide"
+    },
+    {
+      "name": "Slowing Breath",
+      "description": "Constitution Saving Throw: DC 14, each creature in a 30-foot Cone. Failure: The target can't take Reactions; its Speed is halved; and it can take either an action or a Bonus Action on its turn, not both. This effect lasts until the end of its next turn.",
+      "save_dc": 14,
+      "area": "30-foot Cone"
+    }
+  ],
+  "tactical_info": {
+    "role": "Solo Monster/Controller",
+    "environment": "Rocky hills, desert canyons, ancient copper mines",
+    "tactics": "Controls battlefield with slowing breath, uses acid breath on groups, deceptive nature",
+    "weaknesses": "Chaotic nature, enjoys wordplay over combat",
+    "signature_abilities": ["Dual breath weapons", "Battlefield control", "Deception skills", "Climb mobility"]
+  }
+}

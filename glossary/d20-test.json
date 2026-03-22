@@ -1,0 +1,22 @@
+{
+  "name": "D20 Test",
+  "slug": "d20-test",
+  "definition": "D20 Tests encompass the three main d20 rolls of the game: ability checks, attack rolls, and saving throws.",
+  "category": "Game Mechanics",
+  "tags": [],
+  "full_text": "D20 Tests encompass the three main d20 rolls of the game: ability checks, attack rolls, and saving throws. If something in the game affects D20 Tests, it affects all three of these rolls. The DM determines whether a D20 Test is warranted in a given circumstance.",
+  "types_of_tests": [
+    "Ability checks",
+    "Attack rolls",
+    "Saving throws"
+  ],
+  "note": "If something in the game affects D20 Tests, it affects all three of these rolls",
+  "dm_role": "The DM determines whether a D20 Test is warranted in a given circumstance",
+  "see_also": [
+    "Ability Check",
+    "Attack Roll",
+    "Saving Throw",
+    "Advantage",
+    "Disadvantage"
+  ]
+}

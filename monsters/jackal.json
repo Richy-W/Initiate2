@@ -1,0 +1,58 @@
+{
+  "name": "Jackal",
+  "size": "Small",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 12,
+  "hit_points": 3,
+  "hit_dice": "1d6",
+  "speed": {
+    "walk": 40
+  },
+  "ability_scores": {
+    "strength": 8,
+    "dexterity": 15,
+    "constitution": 11,
+    "intelligence": 3,
+    "wisdom": 12,
+    "charisma": 6
+  },
+  "saving_throws": {
+    "strength": -1,
+    "dexterity": 2,
+    "constitution": 0,
+    "intelligence": -4,
+    "wisdom": 1,
+    "charisma": -2
+  },
+  "skills": {
+    "perception": 5,
+    "stealth": 4
+  },
+  "senses": [
+    "Darkvision 90 ft.",
+    "Passive Perception 15"
+  ],
+  "languages": "None",
+  "challenge_rating": 0,
+  "experience_points": 10,
+  "proficiency_bonus": 2,
+  "features": [],
+  "actions": [
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +1, reach 5 ft. Hit: 1 (1d4 - 1) Piercing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Scout - Stealthy pack hunter with exceptional senses",
+    "positioning": "Uses stealth and superior darkvision for ambushes",
+    "damage_output": "1 piercing per hit, minimal damage output",
+    "key_abilities": "Extended darkvision (90 ft), high stealth and perception",
+    "weaknesses": "Extremely low HP and damage, poor STR",
+    "synergies": "Perfect for reconnaissance and early warning systems"
+  }
+}

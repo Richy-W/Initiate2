@@ -1,0 +1,25 @@
+{
+  "name": "Wand of Magic Missiles",
+  "type": "Wand",
+  "rarity": "Uncommon",
+  "attunement": false,
+  "description": "This wand has 7 charges. While holding it, you can expend no more than 3 charges to cast Magic Missile from it. For 1 charge, you cast the level 1 version of the spell. You can increase the spell's level by 1 for each additional charge you expend.",
+  "properties": {
+    "charges": {
+      "max_charges": 7,
+      "current_charges": 7,
+      "max_charges_per_cast": 3
+    },
+    "spell": "Magic Missile",
+    "spell_levels": {
+      "1_charge": "Level 1 Magic Missile",
+      "2_charges": "Level 2 Magic Missile",
+      "3_charges": "Level 3 Magic Missile"
+    },
+    "regaining_charges": {
+      "recharge": "1d6 + 1 daily at dawn",
+      "destruction_condition": "Expend last charge and roll 1d20",
+      "on_roll_1": "Wand crumbles into ashes and is destroyed"
+    }
+  }
+}

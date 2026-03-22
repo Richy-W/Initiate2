@@ -1,0 +1,115 @@
+{
+  "name": "Horned Devil (Malebranche)",
+  "size": "Large",
+  "type": "Fiend",
+  "subtype": "Devil",
+  "alignment": "Lawful Evil",
+  "armor_class": {
+    "value": 18,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 7,
+    "total": 17
+  },
+  "hit_points": {
+    "average": 148,
+    "formula": "17d10 + 55"
+  },
+  "speed": {
+    "walk": 20,
+    "fly": 60
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 22,
+      "modifier": 6,
+      "saving_throw": 10
+    },
+    "dexterity": {
+      "score": 17,
+      "modifier": 3,
+      "saving_throw": 7
+    },
+    "constitution": {
+      "score": 21,
+      "modifier": 5,
+      "saving_throw": 9
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 7
+    },
+    "charisma": {
+      "score": 17,
+      "modifier": 3,
+      "saving_throw": 3
+    }
+  },
+  "damage_resistances": ["Cold", "Bludgeoning, Piercing, and Slashing damage that isn't Silvered"],
+  "damage_immunities": ["Fire", "Poison"],
+  "condition_immunities": ["Poisoned"],
+  "senses": {
+    "darkvision": 120,
+    "passive_perception": 13
+  },
+  "languages": ["Infernal", "Telepathy 120 feet"],
+  "challenge_rating": {
+    "cr": 11,
+    "xp": 7200,
+    "proficiency_bonus": 4
+  },
+  "traits": [
+    {
+      "name": "Devil's Sight",
+      "description": "Magical darkness doesn't impede the devil's darkvision."
+    },
+    {
+      "name": "Magic Resistance",
+      "description": "The devil has advantage on saving throws against spells and other magical effects."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The devil makes three attacks: two with its Fork and one with its Tail, or it makes three Hurl Flame attacks."
+    },
+    {
+      "name": "Fork",
+      "description": "Melee Attack Roll: +10, reach 10 ft. Hit: 15 (2d8 + 6) Piercing damage.",
+      "attack_roll": 10,
+      "reach": 10,
+      "damage": "15 (2d8 + 6)",
+      "damage_type": "Piercing"
+    },
+    {
+      "name": "Tail",
+      "description": "Melee Attack Roll: +10, reach 10 ft. Hit: 10 (1d8 + 6) Piercing damage. If the target is a creature other than an Undead or a Construct, it must make a DC 17 Constitution saving throw. On a failed save, it takes 10 (3d6) Poison damage and has the Poisoned condition until the end of its next turn. On a successful save, the creature takes half as much damage and isn't Poisoned.",
+      "attack_roll": 10,
+      "reach": 10,
+      "damage": "10 (1d8 + 6)",
+      "damage_type": "Piercing"
+    },
+    {
+      "name": "Hurl Flame",
+      "description": "Ranged Attack Roll: +7, range 150 ft. Hit: 14 (2d10 + 3) Fire damage. If the target is a flammable object that isn't being worn or carried, it also catches fire.",
+      "attack_roll": 7,
+      "range": 150,
+      "damage": "14 (2d10 + 3)",
+      "damage_type": "Fire"
+    }
+  ],
+  "tactical_info": {
+    "role": "Elite Devil Enforcer/Frontline Fighter",
+    "environment": "Nine Hells, infernal battlefields, planar convergence zones",
+    "tactics": "Uses multiattack with fork and poison tail, flies to control positioning, hurls flames at range, focuses on overwhelming single targets",
+    "weaknesses": "Vulnerable to silvered weapons, relies on positioning for effectiveness, limited ranged options beyond flame",
+    "signature_abilities": ["Infernal wounds from fork attacks", "Poison tail with constitution drain", "Flight maneuverability", "Flame hurling attacks", "Devil immunities and resistances"]
+  }
+}

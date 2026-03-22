@@ -1,0 +1,12 @@
+{
+  "name": "Spell",
+  "slug": "spell",
+  "definition": "A magical effect with characteristics defined in the Spells section",
+  "category": "Magic & Spells",
+  "tags": ["magic", "magical-effect"],
+  "full_text": "A spell is a magical effect that has the characteristics described in \"Spells\".",
+  "mechanics": {
+    "nature": "Magical effect with defined characteristics"
+  },
+  "see_also": ["magical-effect", "spellcasting"]
+}

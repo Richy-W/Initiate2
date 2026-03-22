@@ -1,0 +1,468 @@
+{
+  "session_management": {
+    "title": "Session Preparation and Running",
+    "overview": "Guidelines for preparing and running effective D&D game sessions"
+  },
+  "card_accessories": {
+    "title": "Card Accessories",
+    "description": "Many players and DMs find cards helpful for quick reference",
+    "types": [
+      "Individual spell cards",
+      "Magic item cards",
+      "Monster stat block cards",
+      "Rules reference cards",
+      "Condition cards",
+      "Action cards"
+    ],
+    "benefits": [
+      "Easy reference during play",
+      "Reduces need to flip through books",
+      "Can be purchased or homemade",
+      "Helps organize information"
+    ]
+  },
+  "one_hour_guideline": {
+    "title": "The One-Hour Guideline",
+    "overview": "Most groups can accomplish at least three 'things' during one hour of active play",
+    "note": "Sessions usually start with out-of-game chatter as everyone settles in",
+    "things_accomplished": [
+      {
+        "activity": "Explore a location",
+        "examples": ["A chamber in a castle", "A cave section", "A room or area"],
+        "count": "1 thing"
+      },
+      {
+        "activity": "Converse with an intelligent creature",
+        "examples": ["NPC interaction", "Negotiation", "Information gathering"],
+        "count": "1 thing"
+      },
+      {
+        "activity": "Reach consensus on a divisive issue",
+        "examples": ["Party debate", "Strategic decision", "Goal setting"],
+        "count": "1 thing"
+      },
+      {
+        "activity": "Solve a tricky riddle or puzzle",
+        "examples": ["Logic puzzle", "Magical riddle", "Environmental puzzle"],
+        "count": "1 thing"
+      },
+      {
+        "activity": "Survive a deadly trap",
+        "examples": ["Triggering hazard", "Avoiding damage", "Escaping danger"],
+        "count": "1 thing"
+      },
+      {
+        "activity": "Fight a low-difficulty combat encounter",
+        "examples": ["Single weak enemy", "Small group of minions"],
+        "count": "1 thing"
+      },
+      {
+        "activity": "Fight a more difficult combat encounter",
+        "examples": ["Boss fight", "Medium-difficulty encounter", "Multiple tough foes"],
+        "count": "2-3 things"
+      },
+      {
+        "activity": "Tense negotiation",
+        "examples": ["High-stakes diplomacy", "Important deal", "Critical conversation"],
+        "count": "Most or all of an hour"
+      }
+    ],
+    "application": "Use this to gauge session pacing and what you can realistically accomplish"
+  },
+  "session_preparation": {
+    "title": "Preparing for a Session",
+    "overview": "Guidelines for preparation time based on available time (using published adventures)",
+    "general_principle": "More preparation leads to smoother play, but there's a point of diminishing returns",
+    "preparation_times": [
+      {
+        "time": "One-Hour Preparation",
+        "steps": [
+          {
+            "step": 1,
+            "title": "Focus on the Story",
+            "actions": [
+              "Read or reread the adventure's introduction",
+              "Review background information",
+              "Create a bulleted list of key plot points",
+              "Ensure a coherent story unfolds"
+            ]
+          },
+          {
+            "step": 2,
+            "title": "Identify Encounters and Likelihood",
+            "actions": [
+              "Determine which encounters you want to run",
+              "Assess how likely each encounter will occur",
+              "Categorize encounters: 'definite,' 'possible,' or 'unlikely'",
+              "Focus preparation on likely encounters"
+            ]
+          },
+          {
+            "step": 3,
+            "title": "Gather Maps and Prepare Definite Encounters",
+            "actions": [
+              "Collect maps for definite and possible encounters",
+              "Focus remaining prep time on definite encounters",
+              "For combat: review monster tactics and stat blocks, note special rules",
+              "For social: note NPC personalities, goals, and tactics",
+              "For exploration: record clues and information, review special rules"
+            ]
+          },
+          {
+            "step": 4,
+            "title": "Connect to Player Motivations",
+            "actions": [
+              "Consider how each definite encounter relates to player motivations",
+              "Think about elements to add to interest players",
+              "Example: open combat with negotiation for social players",
+              "Make encounters personally relevant"
+            ]
+          },
+          {
+            "step": 5,
+            "title": "Skim Possible Encounters",
+            "actions": [
+              "Briefly review encounters flagged as possible",
+              "Prepare enough to run them if they occur"
+            ]
+          }
+        ]
+      },
+      {
+        "time": "Two-Hour Preparation",
+        "additional_steps": [
+          {
+            "step": 6,
+            "title": "Carefully Review Possible Encounters",
+            "actions": [
+              "In-depth review of each 'possible' encounter",
+              "Prepare tactics, NPCs, and key information",
+              "Be ready to run these if they come up"
+            ]
+          },
+          {
+            "step": 7,
+            "title": "Create Improvisational Aids",
+            "actions": [
+              "Devote remaining time to improvisation tools",
+              "Random encounter tables",
+              "NPC personality notes",
+              "Quick reference sheets",
+              "Quick descriptions for unexpected situations"
+            ]
+          }
+        ]
+      },
+      {
+        "time": "Three-Hour Preparation",
+        "additional_steps": [
+          {
+            "step": 8,
+            "title": "Review Unlikely Encounters",
+            "actions": [
+              "Skim each 'unlikely' encounter",
+              "Know the basics in case they're encountered",
+              "Don't spend extensive time here"
+            ]
+          },
+          {
+            "step": 9,
+            "title": "Create Personalized Encounters",
+            "actions": [
+              "Create a new encounter for one player's character",
+              "Or alter an existing encounter to relate to that character's goals",
+              "Over several sessions, do this for all players",
+              "Makes each player feel special"
+            ]
+          }
+        ]
+      }
+    ],
+    "tip": "Prioritize based on available time; don't over-prepare"
+  },
+  "running_a_session": {
+    "title": "How to Run a Session",
+    "overview": "Step-by-step guidance for running a game session"
+  },
+  "session_recap": {
+    "title": "Starting with a Recap",
+    "when": "Start each game session after the first with a recap",
+    "purpose": [
+      "Helps players get back into the story",
+      "Provides information to players who missed previous session",
+      "Refreshes everyone's memory"
+    ],
+    "approaches": [
+      {
+        "approach": "DM Recap",
+        "description": "Provide the recap yourself",
+        "use_when": [
+          "You have specific information to impart",
+          "You want the recap to be concise",
+          "You want to focus on relevant details"
+        ],
+        "benefits": [
+          "Concise and focused",
+          "Controlled information",
+          "Emphasizes important plot points"
+        ]
+      },
+      {
+        "approach": "Player Recap",
+        "description": "Let players provide the recap",
+        "use_when": [
+          "You want to gauge what they think is important",
+          "You want to learn what they're getting from the game",
+          "You want to encourage engagement"
+        ],
+        "benefits": [
+          "Gauges player priorities",
+          "Reveals what's resonating",
+          "Increases engagement",
+          "Can add missing details as needed"
+        ]
+      }
+    ],
+    "tip": "If players miss important details in their recap, you can interject a reminder"
+  },
+  "encounters": {
+    "title": "Encounters and Their Structure",
+    "overview": "The bulk of a typical session consists of a series of encounters, similar to scenes in a movie",
+    "encounter_types": [
+      {
+        "type": "Exploration",
+        "description": "Interacting with environment, solving puzzles",
+        "player_actions": ["Search areas", "Examine objects", "Solve puzzles"]
+      },
+      {
+        "type": "Social Interaction",
+        "description": "Interaction with creatures and NPCs",
+        "player_actions": ["Negotiate", "Persuade", "Deceive", "Gather information"]
+      },
+      {
+        "type": "Combat",
+        "description": "Fighting enemies",
+        "player_actions": ["Attack", "Cast spells", "Use abilities", "Strategize"]
+      }
+    ],
+    "structure": "Each encounter has chances for DM to describe and for characters to make choices"
+  },
+  "encounter_step_1": {
+    "title": "Step 1: Describe the Situation",
+    "overview": "As the DM, you control what information players receive",
+    "core_principle": "Tell players everything they need to know within the rules and limits of character knowledge and senses",
+    "guidance": [
+      {
+        "guideline": "Published Adventure Text",
+        "description": "Text in boxes is meant to be read aloud when characters first arrive",
+        "purpose": "Describes locations so players know what's happening and options available"
+      },
+      {
+        "guideline": "Focus on Perception",
+        "description": "Initial description should focus on what characters can perceive",
+        "note": "Don't reveal every detail at once"
+      },
+      {
+        "guideline": "Manage Information Overload",
+        "attention_span": "Most players lose focus after about three sentences",
+        "approach": "Give initial overview, then provide details as characters search and examine"
+      },
+      {
+        "guideline": "Progressive Detail Revelation",
+        "description": "As characters search rooms, open drawers, examine things, give more details",
+        "progression": [
+          "Initial description (3 sentences max)",
+          "Details from active searching",
+          "Hidden information from careful examination"
+        ]
+      }
+    ]
+  },
+  "encounter_step_2": {
+    "title": "Step 2: Let the Players Talk",
+    "overview": "After describing the situation, ask what the characters want to do",
+    "process": [
+      "Ask what players' characters want to do",
+      "Note what the players say",
+      "Identify how to resolve their actions",
+      "Ask for more information if needed"
+    ],
+    "group_vs_individual_actions": {
+      "group_answer": {
+        "example": "We go through the door",
+        "handling": "Accept and resolve together"
+      },
+      "individual_actions": {
+        "example": "One searches a chest while another examines a bookshelf",
+        "handling": "Outside combat, no initiative turns; give each player a chance to act"
+      }
+    },
+    "outside_combat": [
+      "Characters don't need to take turns",
+      "Give each player a chance to describe what their character does",
+      "Resolve actions together"
+    ],
+    "in_combat": [
+      "Everyone takes turns in Initiative order",
+      "One action at a time following action economy"
+    ]
+  },
+  "encounter_step_3": {
+    "title": "Step 3: Describe What Happens",
+    "overview": "After players describe their actions, resolve them guided by rules and preparation",
+    "resolution_methods": [
+      {
+        "method": "No Rules Required",
+        "when": "Resolving is straightforward",
+        "example": "Adventurer crosses empty room and opens door",
+        "approach": "Simply describe what happens (reference map/notes if needed)"
+      },
+      {
+        "method": "Obstacles to Success",
+        "when": "Something hinders task completion",
+        "examples": ["Lock", "Guard", "Difficult terrain"],
+        "approach": "Usually call for D20 Test (often ability check)",
+        "examples_shown": ["Dexterity (Sleight of Hand) to pick lock", "Charisma (Persuasion) plus coins to bribe"]
+      },
+      {
+        "method": "Roleplaying",
+        "when": "Players interact with creatures",
+        "approach": [
+          "Roleplay based on creature attitude (Friendly, Indifferent, Hostile)",
+          "Improvise based on creature knowledge and motivations",
+          "Bring creatures to life in description"
+        ]
+      },
+      {
+        "method": "One Action at a Time",
+        "when": "Managing what characters can do",
+        "approach": "Keep action economy rules in mind when adjudicating",
+        "guidance": "Limits on simultaneous actions apply"
+      },
+      {
+        "method": "Combat",
+        "when": "Fighting is occurring",
+        "approach": [
+          "Use attack rolls and saving throws",
+          "Follow combat rules for effectiveness",
+          "See 'Running Combat' section for detailed advice"
+        ]
+      },
+      {
+        "method": "Spellcasting",
+        "when": "Characters cast spells",
+        "approach": [
+          "Usually let player tell you spell effects and resolution",
+          "If questions arise, read spell text",
+          "Spell effects are usually clear",
+          "Use general spellcasting rules as backup"
+        ]
+      },
+      {
+        "method": "Exceptions Supersede General Rules",
+        "when": "Rules conflict",
+        "principle": "Class features, spells, magic items, abilities override general rules",
+        "example": "General rule: melee attacks use Strength. Exception: class feature allows Charisma for melee attacks. Exception wins."
+      }
+    ],
+    "narration_guidance": [
+      "Give flavorful description of results",
+      "Clearly communicate what's happening using game language",
+      "Make results feel satisfying and dramatic"
+    ],
+    "cycle": "Describing results often leads to another decision point, returning to Step 1"
+  },
+  "passing_time": {
+    "title": "Passing Time Between Encounters",
+    "overview": "The game has rhythm with periods of action interspersed with lulls",
+    "principle": "Think of how movies show time passing between scenes",
+    "guidance": [
+      {
+        "situation": "Encounter ends",
+        "action": "Move to next encounter"
+      },
+      {
+        "situation": "Hours of travel",
+        "action": "Gloss over with quick narrative summary"
+      },
+      {
+        "situation": "Uneventful rest period",
+        "action": "Tell players it passes uneventfully and move on"
+      },
+      {
+        "situation": "Mundane details (cooking, travel specifics)",
+        "action": "Gloss over unless players specifically enjoy such descriptions"
+      }
+    ],
+    "core_approach": "Return to action as quickly as possible",
+    "player_discussions": [
+      "Expect players to discuss events",
+      "Expect planning discussions",
+      "Expect in-character conversations",
+      "You don't need to be involved unless they have questions",
+      "Let them discuss; you can step back"
+    ],
+    "dm_responsibility": "Learn to recognize when you can take a break as DM and resume when ready"
+  },
+  "taking_breaks": {
+    "title": "Taking Breaks During Play",
+    "when": [
+      "After a lengthy combat encounter",
+      "After a tension-filled scene",
+      "When you need time to think"
+    ],
+    "purpose": [
+      "Give your brain moments to refocus",
+      "Relax and recharge",
+      "Prepare for next encounter"
+    ],
+    "benefit": "It's OK to leave players in suspense while you figure out consequences of their actions"
+  },
+  "ending_a_session": {
+    "title": "Ending a Game Session",
+    "general_guideline": "Try not to end in the middle of an encounter",
+    "reason": "Difficult to track Initiative, round details, and other combat information between sessions",
+    "exception": "You can end with a cliffhanger",
+    "cliffhanger": {
+      "definition": "Story pauses just as something monumental happens or surprising turn of events occurs",
+      "benefits": [
+        "Keeps players intrigued",
+        "Builds excitement for next session",
+        "Can bring back missing player's character"
+      ]
+    },
+    "missing_players": [
+      "If a player missed a session and their character left the party",
+      "Ensure there's a way to bring the character back when player returns",
+      "Cliffhanger can serve this purpose (character charges in to help)"
+    ],
+    "end_of_session_routine": [
+      "Allow a few minutes for everyone to discuss session events",
+      "Ask players what parts they liked",
+      "Ask what they would have liked to see more of",
+      "Take notes on what happened",
+      "Record the situation at session's end",
+      "Refer back to notes when preparing next session"
+    ]
+  },
+  "session_notes": {
+    "title": "Tracking Session Information",
+    "what_to_record": [
+      "Major events that occurred",
+      "NPCs encountered and their reactions",
+      "Clues discovered",
+      "Combat outcomes and tactics observed",
+      "Player decisions and choices",
+      "Current party location and situation",
+      "Unresolved plot threads",
+      "Items acquired or given",
+      "Changes to world state"
+    ],
+    "why_important": [
+      "Ensures continuity between sessions",
+      "Helps remember details players asked about",
+      "Tracks consequences of player actions",
+      "Aids in preparing next session"
+    ]
+  }
+}

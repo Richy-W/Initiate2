@@ -1,0 +1,138 @@
+{
+  "title": "Combat System Index",
+  "description": "Comprehensive combat mechanics for D&D 5e 2024",
+  "version": "2024",
+  "last_updated": "2024-02-04",
+  "overview": {
+    "description": "Adventurers encounter many dangerous monsters and nefarious villains. In those moments, combat often breaks out.",
+    "organization": "Combat is organized into rounds and turns with structured timing and positioning",
+    "time_scale": "Each round represents about 6 seconds in the game world"
+  },
+  "components": [
+    {
+      "file": "combat-structure.json",
+      "title": "Combat Structure and Initiative",
+      "description": "Core framework for organizing and running combat encounters",
+      "contains": [
+        "Combat step-by-step process (Establish Positions, Roll Initiative, Take Turns)",
+        "Initiative system (Dexterity checks, surprise, order determination)",
+        "Turn structure (movement, action, communication, object interaction)",
+        "Combat ending conditions",
+        "Round timing and structure"
+      ]
+    },
+    {
+      "file": "movement-positioning.json",
+      "title": "Movement and Positioning",
+      "description": "Rules for movement, positioning, and spatial relationships in combat",
+      "contains": [
+        "Basic movement rules and speed deduction",
+        "Difficult Terrain (double movement cost)",
+        "Grid rules (5-foot squares, diagonal movement, range calculation)",
+        "Creature sizes (Tiny to Gargantuan) and space occupation",
+        "Moving around other creatures",
+        "Breaking up movement and dropping prone"
+      ]
+    },
+    {
+      "file": "attack-mechanics.json",
+      "title": "Attack Mechanics and Combat Actions",
+      "description": "Rules for making attacks, opportunity attacks, and combat-specific actions",
+      "contains": [
+        "Attack structure (Choose Target, Determine Modifiers, Resolve Attack)",
+        "Cover system (Half +2 AC, Three-Quarters +5 AC, Total immunity)",
+        "Unseen combat (Advantage/Disadvantage for visibility)",
+        "Ranged attacks (range penalties, close combat disadvantage)",
+        "Melee attacks and reach",
+        "Opportunity Attacks (triggers, avoidance, resolution)"
+      ]
+    },
+    {
+      "file": "damage-healing.json",
+      "title": "Damage and Healing Systems", 
+      "description": "Comprehensive rules for damage, healing, hit points, and character survival",
+      "contains": [
+        "Hit Points and Bloodied condition",
+        "Damage rolls and Critical Hits (double dice)",
+        "Damage types and Resistance/Vulnerability/Immunity",
+        "Healing mechanics and hit point maximum limits",
+        "Dropping to 0 HP (death, unconsciousness, massive damage)",
+        "Death Saving Throws (3 successes/failures, special rolls)",
+        "Stabilizing creatures and knockout rules",
+        "Temporary Hit Points (buffer, no stacking, duration)"
+      ]
+    },
+    {
+      "file": "special-combat.json",
+      "title": "Special Combat Situations",
+      "description": "Rules for mounted combat, underwater fighting, and other special scenarios",
+      "contains": [
+        "Mounted Combat (mounting/dismounting, controlling mounts, falling off)",
+        "Underwater Combat (weapon impediment, fire resistance)",
+        "Environmental combat (darkness, difficult terrain, weather)",
+        "Size-based combat and swarm fighting",
+        "Magical combat considerations",
+        "Vehicle and mass combat scenarios"
+      ]
+    }
+  ],
+  "key_mechanics": {
+    "initiative": "Dexterity check to determine turn order (remains same each round)",
+    "turn_structure": "Move (up to Speed) + Action + Bonus Action (if available) + Reaction (any turn)",
+    "attack_resolution": "d20 + ability modifier + proficiency bonus vs AC",
+    "critical_hit": "Natural 20 = automatic hit + double damage dice",
+    "opportunity_attack": "Reaction when creature leaves reach without Disengage",
+    "death_saves": "Three successes = stable, three failures = death (DC 10)"
+  },
+  "cover_summary": {
+    "half_cover": "+2 AC and Dex saves (creature or half-covering object)",
+    "three_quarters_cover": "+5 AC and Dex saves (three-quarters covering object)",
+    "total_cover": "Cannot be targeted directly (fully covering object)"
+  },
+  "damage_summary": {
+    "resistance": "Half damage (round down)",
+    "vulnerability": "Double damage",
+    "immunity": "No damage taken",
+    "order_of_application": "Bonuses/penalties → Resistance → Vulnerability"
+  },
+  "movement_summary": {
+    "base_speed": "Determined by species/class, typically 30 feet",
+    "difficult_terrain": "Costs 2 feet of movement per foot traveled",
+    "creature_spaces": "Small/Medium (1 square), Large (4 squares), Huge (9 squares), Gargantuan (16 squares)",
+    "break_up_movement": "Can move before and after actions"
+  },
+  "combat_actions": {
+    "standard_actions": [
+      "Attack (weapon or unarmed strike)",
+      "Dash (double movement)", 
+      "Disengage (avoid opportunity attacks)",
+      "Dodge (advantage on Dex saves, attacks have disadvantage)",
+      "Help (assist ally or stabilize dying creature)",
+      "Hide (Dexterity Stealth check)",
+      "Ready (prepare action with trigger)",
+      "Search (Wisdom Perception check)",
+      "Use an Object/Utilize (interact with items)"
+    ],
+    "bonus_actions": "Granted by specific class features, spells, or abilities",
+    "reactions": "Immediate responses to triggers (Opportunity Attacks, Counterspell, etc.)"
+  },
+  "survival_mechanics": {
+    "hit_points": "Durability and will to live (0 = unconscious or death)",
+    "bloodied": "Half hit points or fewer (no mechanical effect, triggers other abilities)",
+    "unconscious": "0 HP but not dead, make Death Saving Throws",
+    "stable": "0 HP but not making death saves, regain 1 HP after 1d4 hours",
+    "massive_damage": "Remaining damage ≥ HP maximum = instant death"
+  },
+  "special_situations": {
+    "mounted_combat": "Half Speed to mount/dismount, controlled mounts act on your turn",
+    "underwater": "Disadvantage on non-piercing melee attacks, ranged attacks limited",
+    "unseen_targets": "Disadvantage to attack unseen, advantage when unseen by target",
+    "prone": "Disadvantage on attacks, advantage for melee attacks against you"
+  },
+  "tactical_considerations": {
+    "positioning": "Use cover, control space, coordinate with allies",
+    "action_economy": "Maximize actions/bonus actions/reactions per round",
+    "resource_management": "Balance spell slots, hit points, and special abilities",
+    "teamwork": "Help actions, flanking, combined tactics"
+  }
+}

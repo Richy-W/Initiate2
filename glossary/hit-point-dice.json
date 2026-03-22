@@ -1,0 +1,12 @@
+{
+  "name": "Hit Point Dice",
+  "slug": "hit-point-dice",
+  "definition": "Dice that determine a character's maximum hit points and can be spent during rest",
+  "category": "Hit Points",
+  "tags": ["hit-points", "character-creation", "short-rest"],
+  "full_text": "Hit Point Dice, or Hit Dice for short, help determine a player character's Hit Point maximum, as explained in \"Creating a Character\". Most monsters also have Hit Dice. A creature can spend Hit Dice during a Short Rest to regain Hit Points.",
+  "mechanics": {
+    "usage": "Determines HP maximum; can spend during Short Rest to regain HP"
+  },
+  "see_also": ["hit-points", "short-rest"]
+}

@@ -1,0 +1,196 @@
+{
+  "id": "magic-items",
+  "name": "Magic Items",
+  "description": "Rules for identifying, attuning to, and using magic items, including nine item categories with mechanics",
+  "introduction": "Magic items are gleaned from the hoards of felled monsters or discovered in long-lost vaults. Such items grant capabilities a character could rarely have otherwise, or they complement their owner's capabilities in wondrous ways.",
+  "sections": {
+    "magic_item_rules": {
+      "title": "Magic Item Rules",
+      "overview": "Rules for identifying, attuning to, and using magic items",
+      "rules": {
+        "attunement_prerequisites": {
+          "title": "Attunement Prerequisites",
+          "description": "If a magic item has a class prerequisite, a creature must be a member of that class to attune to the item",
+          "spellcaster_requirement": "If a creature must be a spellcaster to attune to an item, the creature qualifies if it can cast at least one spell using its traits or features, not by using a magic item or the like"
+        },
+        "items_made_for_specific_creatures": {
+          "title": "Items Made for Specific Creatures",
+          "description": "Magic items that are meant to be worn tend to magically adjust themselves to the wearer",
+          "dm_discretion": "You can decide that a magic item doesn't adjust its size to fit any wearer. For example, a particular armorer might make items usable only by folk who are sized and shaped like dwarves"
+        },
+        "unusual_anatomy": {
+          "title": "Unusual Anatomy",
+          "description": "Use your discretion to decide whether a creature can wear an item not made for its anatomy",
+          "examples": [
+            "A ring placed on a tentacle might work",
+            "A yuan-ti with a snakelike tail instead of legs can't wear magic boots"
+          ]
+        },
+        "paired_items": {
+          "title": "Paired Items",
+          "description": "You can allow exceptions to the rule that paired items must both be worn",
+          "example": "A character with only one arm might be able to use a single Glove of Missile Snaring so long as the matching glove is on their person"
+        }
+      }
+    },
+    "magic_item_categories": {
+      "title": "Magic Item Categories",
+      "overview": "Every magic item belongs to a category. The nine categories provide different mechanics and usage rules",
+      "categories": {
+        "armor": {
+          "name": "Armor",
+          "examples": ["+1 Leather Armor", "+1 Shield"],
+          "description": "An item in the Armor category is typically a magical version of armor from Equipment",
+          "mechanics": [
+            "Unless an armor's description notes otherwise, the armor must be worn for its magic to function",
+            "Some suits of magic armor specify the type of armor they are, such as Chain Mail or Plate Armor",
+            "If no type is specified, choose the type or determine it randomly"
+          ]
+        },
+        "potions": {
+          "name": "Potions",
+          "examples": ["Potion of Healing"],
+          "description": "An item in the Potion category might be a magical brew that must be imbibed or an oil that must be applied to a creature or an object",
+          "composition": "A typical potion consists of 1 ounce of liquid in a vial",
+          "using_a_potion": {
+            "title": "Using a Potion",
+            "type": "Consumable item",
+            "action": "Drinking a potion or administering it to another creature requires a Bonus Action",
+            "oils": "Applying an oil might take longer as specified in its description",
+            "effect": "Once used, a potion takes effect immediately, and it is used up"
+          },
+          "mixing_potions": {
+            "title": "Mixing Potions",
+            "description": "A character might drink one potion while still under the effects of another or pour several potions into a single container",
+            "mechanics": "The strange ingredients used in creating potions can result in unpredictable interactions",
+            "procedure": "When a character mixes two potions together, roll on the Potion Miscibility table",
+            "multiple_potions": "If more than two are combined, roll again for each subsequent potion, combining the results",
+            "revelation": "Unless the effects are immediately obvious, reveal them only when they become evident"
+          },
+          "potion_miscibility_table": {
+            "title": "Potion Miscibility",
+            "rolls": [
+              {
+                "roll": "01",
+                "result": "Both potions lose their effects, and the mixture creates a magical explosion in a 5-foot-radius Sphere centered on itself. Each creature in that area takes 4d10 Force damage"
+              },
+              {
+                "roll": "02–08",
+                "result": "Both potions lose their effects, and the mixture becomes an ingested poison of your choice (see Poison)"
+              },
+              {
+                "roll": "09–15",
+                "result": "Both potions lose their effects"
+              },
+              {
+                "roll": "16–25",
+                "result": "One potion loses its effect"
+              },
+              {
+                "roll": "26–35",
+                "result": "Both potions work, but with their numerical effects and durations halved. If a potion has no numerical effect and no duration, it instead loses its effect"
+              },
+              {
+                "roll": "36–90",
+                "result": "Both potions work normally"
+              },
+              {
+                "roll": "91–99",
+                "result": "Both potions work, but the numerical effects and duration of one potion are doubled. If neither potion has anything to double in this way, they work normally"
+              },
+              {
+                "roll": "00",
+                "result": "Only one potion works, but its effects are permanent. Choose the simplest effect to make permanent or the one that seems the most fun. For example, a Potion of Healing might increase the drinker's Hit Point maximum by 2d4 + 2, or a Potion of Invisibility might give the drinker the Invisible condition indefinitely. At your discretion, a Dispel Magic spell or similar magic might end this lasting effect"
+              }
+            ]
+          }
+        },
+        "rings": {
+          "name": "Rings",
+          "examples": ["Ring of Invisibility"],
+          "description": "For its magic to function, an item in the Ring category must be worn on a finger or a similar digit unless its description notes otherwise"
+        },
+        "rods": {
+          "name": "Rods",
+          "examples": ["Immovable Rod"],
+          "description": "An item in the Rod category is a scepter usually made of metal, wood, or bone",
+          "characteristics": "A typical rod weighs 2 to 5 pounds",
+          "default_use": "Unless its description notes otherwise, a rod can be used as an Arcane Focus"
+        },
+        "scrolls": {
+          "name": "Scrolls",
+          "examples": ["Spell Scroll", "Scroll of Protection"],
+          "description": "An item in the Scroll category is a roll of paper or parchment, sometimes attached to wooden rods and typically kept safe in a tube of ivory, jade, leather, metal, or wood",
+          "types": [
+            "Spell Scroll (most prevalent) - a spell stored in written form",
+            "Other scrolls (like Scroll of Protection) - bear an incantation that isn't a spell"
+          ],
+          "using_a_scroll": {
+            "title": "Using a Scroll",
+            "type": "Consumable item",
+            "mechanism": "Unleashing the magic in a scroll requires the user to read the scroll",
+            "consumption": "When its magic has been invoked, the scroll can't be used again. Its words fade, or it crumbles into dust",
+            "accessibility": "Any creature that can understand a written language can read a scroll and attempt to activate it unless its description notes otherwise"
+          }
+        },
+        "staffs": {
+          "name": "Staffs",
+          "examples": ["Staff of Striking"],
+          "description": "Items in the Staff category vary widely in appearance",
+          "appearance_variations": [
+            "Some are of nearly equal diameter throughout and smooth",
+            "Others are gnarled and twisted",
+            "Some are made of wood, others of polished metal or crystal"
+          ],
+          "characteristics": "A staff weighs between 2 and 7 pounds and serves well as a walking stick or cane",
+          "default_uses": [
+            "Unless its description notes otherwise, a staff can be used as a nonmagical Quarterstaff",
+            "Unless its description notes otherwise, a staff can be used as an Arcane Focus"
+          ]
+        },
+        "wands": {
+          "name": "Wands",
+          "examples": ["Wand of Fireballs"],
+          "description": "An item in the Wand category is typically 12 to 15 inches long and crafted of metal, bone, or wood",
+          "construction": "It is tipped with metal, crystal, stone, or some other material",
+          "default_use": "Unless its description notes otherwise, a wand can be used as an Arcane Focus"
+        },
+        "weapons": {
+          "name": "Weapons",
+          "examples": ["+1 Ammunition", "+1 Longsword"],
+          "description": "A magic weapon is typically a magical version of a weapon from Equipment",
+          "type_specification": "Some magic weapons specify the type of weapon they are in their descriptions, such as a Longsword or Longbow",
+          "unspecified_weapons": "If no weapon type is specified, you may choose the type or determine it randomly",
+          "ammunition": {
+            "title": "Ammunition",
+            "mechanics": "If a magic weapon has the Ammunition property, ammunition fired from it is considered magical for the purpose of any rule that cares whether a weapon is magical or not"
+          }
+        },
+        "wondrous_items": {
+          "name": "Wondrous Items",
+          "examples": [
+            "Wearable items such as boots, belts, capes, amulets, brooches, and circlets",
+            "Bags, carpets, figurines, horns, musical instruments, and more"
+          ],
+          "description": "Wondrous Items include a diverse range of magical equipment that doesn't fit other categories"
+        }
+      }
+    }
+  },
+  "contains": [
+    "Magic item rules and attunement prerequisites",
+    "Items made for specific creatures and unusual anatomy rules",
+    "Paired items exceptions and rulings",
+    "Nine magic item categories (Armor, Potions, Rings, Rods, Scrolls, Staffs, Wands, Weapons, Wondrous Items)",
+    "Armor category rules and type selection",
+    "Potion usage (Bonus Action consumption)",
+    "Potion mixing mechanics (Potion Miscibility table with 8 outcomes)",
+    "Ring wearing requirements",
+    "Rod composition and Arcane Focus use",
+    "Scroll consumption mechanics and accessibility",
+    "Staff appearance variations and dual uses (weapon + focus)",
+    "Wand construction and Arcane Focus use",
+    "Weapon type specification and magical ammunition",
+    "Wondrous Items category overview"
+  ]
+}

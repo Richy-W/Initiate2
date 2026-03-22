@@ -1,0 +1,12 @@
+{
+  "name": "Weapon Attack",
+  "slug": "weapon-attack",
+  "definition": "An attack roll made with a weapon",
+  "category": "Combat",
+  "tags": ["attack-roll", "weapon"],
+  "full_text": "A weapon attack is an attack roll made with a weapon.",
+  "mechanics": {
+    "nature": "Attack roll with weapon"
+  },
+  "see_also": ["attack-roll", "weapon"]
+}

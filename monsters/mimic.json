@@ -1,0 +1,111 @@
+{
+  "name": "Mimic",
+  "size": "Medium",
+  "type": "Monstrosity",
+  "alignment": "Chaotic Neutral",
+  "armor_class": {
+    "value": 12,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 1,
+    "total": 11
+  },
+  "hit_points": {
+    "average": 58,
+    "formula": "9d8 + 18"
+  },
+  "speed": {
+    "walk": 15
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 17,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "intelligence": {
+      "score": 5,
+      "modifier": -3,
+      "saving_throw": -3
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    }
+  },
+  "skills": {
+    "stealth": 5
+  },
+  "damage_immunities": ["Acid"],
+  "condition_immunities": ["Prone"],
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 11
+  },
+  "languages": [],
+  "challenge_rating": {
+    "cr": 2,
+    "xp": 450,
+    "proficiency_bonus": 2
+  },
+  "traits": [
+    {
+      "name": "Adhesive (Object Form Only)",
+      "description": "The mimic adheres to anything that touches it. A Huge or smaller creature adhered to the mimic is also Grappled by it (escape DC 13). Ability checks made to escape this grapple have Disadvantage."
+    },
+    {
+      "name": "False Appearance (Object Form Only)",
+      "description": "While the mimic remains motionless, it is indistinguishable from an ordinary object."
+    },
+    {
+      "name": "Grappler",
+      "description": "The mimic has Advantage on attack rolls against any creature Grappled by it."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The mimic makes two Pseudopod attacks."
+    },
+    {
+      "name": "Pseudopod",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 7 (1d8 + 3) Bludgeoning damage. If the mimic is in object form, the target is Grappled (escape DC 13). Until this grapple ends, the target has the Restrained condition, and the mimic can't use its pseudopod on another target.",
+      "attack_roll": 5,
+      "reach": 5,
+      "damage": "7 (1d8 + 3)",
+      "damage_type": "Bludgeoning"
+    },
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 7 (1d8 + 3) Piercing damage plus 4 (1d8) Acid damage.",
+      "attack_roll": 5,
+      "reach": 5,
+      "damage": "7 (1d8 + 3) + 4 (1d8)",
+      "damage_type": "Piercing + Acid"
+    }
+  ],
+  "tactical_info": {
+    "role": "Ambush Predator/Terrain Trap",
+    "environment": "Dungeons, treasure rooms, abandoned structures, anywhere valuable objects might be found",
+    "tactics": "Disguises as valuable object to lure prey, grapples with adhesive pseudopods, advantage against grappled foes",
+    "weaknesses": "Very slow movement, vulnerable when revealed, limited to object-based ambush tactics",
+    "signature_abilities": ["Perfect object mimicry", "Adhesive grappling", "Acid damage bite", "Advantage against grappled targets"]
+  }
+}

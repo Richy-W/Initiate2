@@ -1,0 +1,62 @@
+{
+  "name": "Worg",
+  "size": "Large",
+  "type": "Fey",
+  "alignment": "Neutral Evil",
+  "armor_class": 13,
+  "armor_description": "Natural Armor",
+  "hit_points": 26,
+  "hit_dice": "4d10 + 4",
+  "speed": {
+    "walk": "50 ft."
+  },
+  "ability_scores": {
+    "strength": 16,
+    "dexterity": 13,
+    "constitution": 13,
+    "intelligence": 7,
+    "wisdom": 11,
+    "charisma": 8
+  },
+  "saving_throws": {
+    "strength": "+3",
+    "dexterity": "+1",
+    "constitution": "+1",
+    "intelligence": "-2",
+    "wisdom": "+0",
+    "charisma": "-1"
+  },
+  "skills": {
+    "perception": "+4"
+  },
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "darkvision": "60 ft.",
+    "passive_perception": 14
+  },
+  "languages": ["Goblin", "Worg"],
+  "challenge_rating": "1/2",
+  "experience_points": 100,
+  "proficiency_bonus": 2,
+  "features": [],
+  "actions": [
+    {
+      "name": "Bite",
+      "type": "weapon",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 7 (1d8 + 3) Piercing damage, and the next attack roll made against the target before the start of the worg's next turn has Advantage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "equipment": [],
+  "tactical_info": {
+    "combat_role": "Mount/Support Predator",
+    "preferred_range": "Melee",
+    "key_abilities": ["Advantage granting bite", "High speed", "Darkvision"],
+    "weaknesses": ["Low durability", "Single attack"],
+    "tactics": "Often used as mount by goblins and similar creatures. Bite grants advantage to allies, making it excellent support. Uses speed to position for flanking attacks."
+  }
+}

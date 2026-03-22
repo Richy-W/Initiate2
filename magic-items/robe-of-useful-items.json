@@ -1,0 +1,79 @@
+{
+  "name": "Robe of Useful Items",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "attunement": false,
+  "description": "This robe has cloth patches of various shapes and colors covering it. While wearing the robe, you can take a Magic action to detach one of the patches, causing it to become the object or creature it represents. Once the last patch is removed, the robe becomes an ordinary garment.",
+  "properties": {
+    "activation": {
+      "action_type": "Magic action",
+      "effect": "Detach patch to become object or creature it represents"
+    },
+    "standard_patches": [
+      "Bullseye Lantern (filled and lit) - 2 patches",
+      "Dagger - 2 patches",
+      "Mirror - 2 patches",
+      "Pole - 2 patches",
+      "Rope (coiled) - 2 patches",
+      "Sack - 2 patches"
+    ],
+    "random_patches": {
+      "count": "4d4 additional patches",
+      "selection": "DM chooses or randomly determined"
+    },
+    "random_patch_options": [
+      {
+        "roll": "01-08",
+        "item": "Bag of 100 GP"
+      },
+      {
+        "roll": "09-15",
+        "item": "Silver coffer (1 ft long, 6 in wide/deep) worth 500 GP"
+      },
+      {
+        "roll": "16-22",
+        "item": "Iron door (up to 10 ft wide/high, barred on chosen side)"
+      },
+      {
+        "roll": "23-30",
+        "item": "10 gems worth 100 GP each"
+      },
+      {
+        "roll": "31-44",
+        "item": "Wooden ladder (24 feet long)"
+      },
+      {
+        "roll": "45-51",
+        "item": "Riding Horse with Riding Saddle"
+      },
+      {
+        "roll": "52-59",
+        "item": "Open pit (10-foot Cube)"
+      },
+      {
+        "roll": "60-68",
+        "item": "4 Potions of Healing"
+      },
+      {
+        "roll": "69-75",
+        "item": "Rowboat (12 feet long)"
+      },
+      {
+        "roll": "76-83",
+        "item": "Spell Scroll (level 1, 2, or 3 spell)"
+      },
+      {
+        "roll": "84-90",
+        "item": "2 Mastiffs"
+      },
+      {
+        "roll": "91-96",
+        "item": "Window (2 ft by 4 ft, up to 2 ft deep)"
+      },
+      {
+        "roll": "97-00",
+        "item": "Portable Ram"
+      }
+    ]
+  }
+}

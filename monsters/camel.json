@@ -1,0 +1,84 @@
+{
+  "name": "Camel",
+  "size": "Large",
+  "type": "Beast",
+  "alignment": "Unaligned", 
+  "armor_class": 10,
+  "initiative": -1,
+  "hit_points": {
+    "average": 17,
+    "formula": "2d10 + 6"
+  },
+  "speed": {
+    "walk": 50
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 15,
+      "modifier": 2,
+      "save": 2
+    },
+    "dexterity": {
+      "score": 8,
+      "modifier": -1,
+      "save": -1
+    },
+    "constitution": {
+      "score": 17,
+      "modifier": 3,
+      "save": 5
+    },
+    "intelligence": {
+      "score": 2,
+      "modifier": -4,
+      "save": -4
+    },
+    "wisdom": {
+      "score": 11,
+      "modifier": 0,
+      "save": 0
+    },
+    "charisma": {
+      "score": 5,
+      "modifier": -3,
+      "save": -3
+    }
+  },
+  "skills": {},
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 10
+  },
+  "languages": [],
+  "challenge_rating": 0.125,
+  "experience_points": 25,
+  "proficiency_bonus": 2,
+  "actions": [
+    {
+      "name": "Bite",
+      "type": "melee_attack",
+      "attack_bonus": 4,
+      "reach": 5,
+      "targets": "one target",
+      "damage": {
+        "damage_dice": "1d4 + 2",
+        "damage_type": "bludgeoning",
+        "average_damage": 4
+      },
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 4 (1d4 + 2) Bludgeoning damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "traits": [],
+  "tactical_info": {
+    "optimal_range": "Mount or pack animal, primarily non-combat",
+    "key_abilities": ["Sturdy constitution", "Bite attack when threatened", "Desert adaptation"],
+    "weaknesses": ["Poor dexterity", "Low intelligence", "No special mobility"],
+    "synergies": ["Pack animal for desert travel", "Mount for rough terrain", "Desert survival companion"]
+  }
+}

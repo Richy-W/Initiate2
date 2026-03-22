@@ -1,0 +1,24 @@
+{
+  "name": "Holy Avenger",
+  "type": "Weapon",
+  "weapon_type": ["Any Simple", "Any Martial"],
+  "rarity": "Legendary",
+  "attunement": true,
+  "attunement_class": "Paladin",
+  "attack_bonus": 3,
+  "damage_bonus": 3,
+  "description": "You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon. When you hit a Fiend or an Undead with it, that creature takes an extra 2d10 Radiant damage.",
+  "properties": {
+    "attack_bonus": 3,
+    "damage_bonus": 3,
+    "fiend_undead_bonus": "2d10 Radiant damage",
+    "aura": {
+      "range": "10 feet",
+      "description": "While you hold the drawn weapon, it creates 10-foot Emanation originating from you",
+      "benefits": {
+        "friendly_creatures": "You and all creatures Friendly to you in Emanation have Advantage on saving throws against spells and other magical effects"
+      },
+      "paladin_scaling": "If you have 17+ levels in Paladin class, Emanation size increases to 30 feet"
+    }
+  }
+}

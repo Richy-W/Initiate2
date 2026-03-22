@@ -1,0 +1,13 @@
+{
+  "name": "Bead of Nourishment",
+  "type": "Wondrous Item",
+  "rarity": "Common",
+  "requires_attunement": false,
+  "overview": "This flavorless, gelatinous bead dissolves on your tongue and provides as much nourishment as 1 day of Rations.",
+  "properties": {
+    "consumption": "Dissolves on your tongue",
+    "nutrition_value": "Equivalent to 1 day of Rations"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

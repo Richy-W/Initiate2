@@ -1,0 +1,16 @@
+{
+  "name": "Unarmed Strike",
+  "slug": "unarmed-strike",
+  "definition": "A melee attack using your body instead of a weapon",
+  "category": "Combat",
+  "tags": ["melee-attack", "attack"],
+  "full_text": "Instead of using a weapon to make a melee attack, you can use a punch, kick, headbutt, or similar forceful blow. In game terms, this is an Unarmed Strike—a melee attack that involves you using your body to damage, grapple, or shove a target within 5 feet of you.",
+  "mechanics": {
+    "options": [
+      "Damage: Attack roll vs target; bonus = STR modifier + Proficiency Bonus; hit = 1d0 Bludgeoning + STR modifier",
+      "Grapple: Target makes STR or DEX save (DC 8 + STR + PB); fail = Grappled condition; target no more than 1 size larger; hand free",
+      "Shove: Target makes STR or DEX save (DC 8 + STR + PB); fail = push 5 feet or Prone condition; target no more than 1 size larger"
+    ]
+  },
+  "see_also": ["melee-attack", "grappling"]
+}

@@ -1,0 +1,100 @@
+{
+  "name": "Carrion Crawler",
+  "size": "Large",
+  "type": "Monstrosity",
+  "alignment": "Unaligned",
+  "armor_class": {
+    "value": 13,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 1,
+    "total": 11
+  },
+  "hit_points": {
+    "average": 51,
+    "formula": "6d10 + 18"
+  },
+  "speed": {
+    "walk": 30,
+    "climb": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "constitution": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "intelligence": {
+      "score": 1,
+      "modifier": -5,
+      "saving_throw": -5
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "charisma": {
+      "score": 5,
+      "modifier": -3,
+      "saving_throw": -3
+    }
+  },
+  "skills": {
+    "perception": 5
+  },
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 15
+  },
+  "languages": [],
+  "challenge_rating": {
+    "cr": 2,
+    "xp": 450,
+    "proficiency_bonus": 2
+  },
+  "traits": [
+    {
+      "name": "Spider Climb",
+      "description": "The carrion crawler can climb difficult surfaces, including along ceilings, without needing to make an ability check."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The carrion crawler uses Paralyzing Tentacles and makes one Bite attack."
+    },
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 7 (2d4 + 2) Piercing damage plus 3 (1d6) Poison damage.",
+      "attack_roll": 4,
+      "reach": 5,
+      "damage": "7 (2d4 + 2) Piercing plus 3 (1d6) Poison",
+      "damage_type": "Piercing/Poison"
+    },
+    {
+      "name": "Paralyzing Tentacles",
+      "description": "Constitution Saving Throw: DC 12, one creature the carrion crawler can see within 10 feet. Failure: The target has the Poisoned condition and repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically. While Poisoned, the target has the Paralyzed condition.",
+      "save_dc": 12,
+      "area": "10 feet"
+    }
+  ],
+  "tactical_info": {
+    "role": "Controller/Lurker",
+    "environment": "Dungeons, caverns, underground tunnels",
+    "tactics": "Ambushes from ceiling, paralyzes prey then feeds, uses climb speed for positioning",
+    "weaknesses": "Low intelligence, predictable behavior",
+    "signature_abilities": ["Spider climb", "Paralyzing tentacles", "Scavenger instincts"]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Help",
+  "slug": "help",
+  "definition": "An action that allows you to assist an ally",
+  "category": "Actions",
+  "tags": ["[Action]", "assistance", "advantage"],
+  "full_text": "When you take the Help action, you do one of the following.\n\nAssist an Ability Check. Choose one of your skill or tool proficiencies and one ally who is near enough for you to assist verbally or physically when they make an ability check. That ally has Advantage on the next ability check they make with the chosen skill or tool. This benefit expires if the ally doesn't use it before the start of your next turn. The DM has final say on whether your assistance is possible.\n\nAssist an Attack Roll. You momentarily distract an enemy within 5 feet of you, giving Advantage to the next attack roll by one of your allies against that enemy. This benefit expires at the start of your next turn.",
+  "mechanics": {
+    "assist_check": "Ally gains Advantage on next ability check with chosen skill/tool; expires at start of your next turn",
+    "assist_attack": "Ally gains Advantage on next attack roll against enemy within 5 feet; expires at start of your next turn"
+  },
+  "see_also": ["action", "advantage"]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Boots of Elvenkind",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "requires_attunement": false,
+  "overview": "These magical boots allow silent movement and enhanced stealth.",
+  "properties": {
+    "silent_movement": "While you wear these boots, your steps make no sound, regardless of the surface you are moving across.",
+    "stealth_advantage": "You also have Advantage on Dexterity (Stealth) checks."
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

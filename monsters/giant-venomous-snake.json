@@ -1,0 +1,58 @@
+{
+  "name": "Giant Venomous Snake",
+  "size": "Medium",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 14,
+  "hit_points": 11,
+  "hit_dice": "2d8 + 2",
+  "speed": {
+    "walk": 40,
+    "swim": 40
+  },
+  "ability_scores": {
+    "strength": 10,
+    "dexterity": 18,
+    "constitution": 13,
+    "intelligence": 2,
+    "wisdom": 10,
+    "charisma": 3
+  },
+  "saving_throws": {
+    "strength": 0,
+    "dexterity": 4,
+    "constitution": 1,
+    "intelligence": -4,
+    "wisdom": 0,
+    "charisma": -4
+  },
+  "skills": {
+    "perception": 2
+  },
+  "senses": [
+    "Blindsight 10 ft.",
+    "Passive Perception 12"
+  ],
+  "languages": "None",
+  "challenge_rating": 0.25,
+  "experience_points": 50,
+  "proficiency_bonus": 2,
+  "features": [],
+  "actions": [
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +6, reach 10 ft. Hit: 6 (1d4 + 4) Piercing damage plus 4 (1d8) Poison damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Striker - Fast venomous attacker with extended reach",
+    "positioning": "Uses 10 ft reach to strike from relative safety",
+    "damage_output": "10 damage per hit (6 piercing + 4 poison)",
+    "key_abilities": "High DEX and long reach make it hard to pin down",
+    "weaknesses": "Very low HP makes it fragile despite high AC",
+    "synergies": "Excellent hit-and-run fighter, works well with other mobile creatures"
+  }
+}

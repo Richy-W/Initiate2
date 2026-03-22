@@ -1,0 +1,95 @@
+{
+  "name": "Swarm of Crawling Claws",
+  "size": "Medium",
+  "type": "Undead (Swarm)",
+  "alignment": "Neutral Evil",
+  "armor_class": {
+    "value": 12,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 2,
+    "total": 12
+  },
+  "hit_points": {
+    "average": 38,
+    "formula": "7d8 + 7"
+  },
+  "speed": {
+    "walk": 20,
+    "climb": 20
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "intelligence": {
+      "score": 5,
+      "modifier": -3,
+      "saving_throw": -3
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "charisma": {
+      "score": 5,
+      "modifier": -3,
+      "saving_throw": -3
+    }
+  },
+  "damage_vulnerabilities": ["Bludgeoning"],
+  "damage_resistances": ["Necrotic"],
+  "damage_immunities": ["Poison"],
+  "condition_immunities": ["Charmed", "Exhaustion", "Frightened", "Paralyzed", "Petrified", "Poisoned", "Prone"],
+  "senses": {
+    "blindsight": 60,
+    "passive_perception": 10
+  },
+  "languages": ["Understands Common but can't speak"],
+  "challenge_rating": {
+    "cr": 3,
+    "xp": 700,
+    "proficiency_bonus": 2
+  },
+  "traits": [
+    {
+      "name": "False Appearance",
+      "description": "If the swarm is motionless at the start of combat, it has Advantage on its Initiative roll. Moreover, if a creature hasn't observed the swarm move or act, that creature must succeed on a DC 15 Wisdom (Perception) check to discern that the swarm isn't a collection of severed hands."
+    },
+    {
+      "name": "Swarm",
+      "description": "The swarm can occupy another creature's space and vice versa, and the swarm can move through openings large enough for a Tiny creature. The swarm can't regain Hit Points or gain Temporary Hit Points."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Claw",
+      "description": "Melee Attack Roll: +4, reach 0 ft. Hit: 14 (4d6) Necrotic damage, or 7 (2d6) Necrotic damage if the swarm has half its Hit Points or fewer. Creatures damaged by the swarm can't regain Hit Points until the end of their next turn.",
+      "attack_roll": 4,
+      "reach": 0,
+      "damage": "14 (4d6) or 7 (2d6)",
+      "damage_type": "Necrotic"
+    }
+  ],
+  "tactical_info": {
+    "role": "Harassing Swarm",
+    "environment": "Dungeons, crypts, battlefields, necromancer lairs",
+    "tactics": "Uses false appearance for surprise, swarms enemies to prevent healing, focuses on weakened targets",
+    "weaknesses": "Vulnerable to area damage, reduced damage at half hit points, blind beyond 60 feet",
+    "signature_abilities": ["Healing prevention", "False appearance", "Swarm mobility", "Necrotic damage"]
+  }
+}

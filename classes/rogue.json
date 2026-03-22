@@ -1,0 +1,313 @@
+{
+  "name": "Rogue",
+  "description": "Rogues rely on cunning, stealth, and their foes' vulnerabilities to get the upper hand in any situation. They have a knack for finding the solution to just about any problem, bringing resourcefulness and versatility to their adventuring parties. Rogues devote as much effort to mastering the use of a variety of skills as they do to perfecting their combat abilities, giving them broad capabilities that few other characters can match. Some Rogues who turn to adventuring are former criminals who have decided that dodging monsters is preferable to dodging the law. Others are professional killers in search of a profitable application of their talents between contracts. Some have taken up thievery as a means of acquiring the coin needed to pay for their family's needs. Others are investigators, diplomats, or troubleshooters.",
+  "primaryAbility": ["Dexterity"],
+  "hitPointDie": "D8",
+  "proficiencies": {
+    "savingThrows": ["Dexterity", "Intelligence"],
+    "skills": {
+      "choose": 4,
+      "from": ["Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation", "Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"]
+    },
+    "weapons": ["Simple weapons", "Martial weapons that have the Finesse or Light property"],
+    "armor": ["Light armor"],
+    "tools": ["Thieves' Tools"]
+  },
+  "startingEquipment": {
+    "options": [
+      {
+        "choice": "A",
+        "items": ["Leather Armor", "2 Daggers", "Thieves' Tools", "Shortbow", "20 Arrows", "Quiver", "Burglar's Pack"],
+        "gold": 8
+      },
+      {
+        "choice": "B",
+        "items": [],
+        "gold": 100
+      }
+    ]
+  },
+  "classFeatures": {
+    "1": {
+      "proficiencyBonus": 2,
+      "sneakAttack": "1d6",
+      "features": [
+        {
+          "name": "Expertise",
+          "description": "You gain Expertise in two of your skill proficiencies of your choice. Sleight of Hand and Stealth are recommended if you have proficiency in them.",
+          "type": "feature"
+        },
+        {
+          "name": "Sneak Attack",
+          "description": "You know how to turn a subtle attack into a devastating one. Once per turn when you take the Attack action, you can deal extra damage to one creature you hit with an attack roll if you're using a Finesse weapon or a Ranged weapon and if at least one of the following requirements is met: Advantage: You have Advantage on the attack roll. Ally Adjacent to Target: At least one of your allies is within 5 feet of the target, the ally isn't Incapacitated, and you don't have Disadvantage on the attack roll. The extra damage equals the number on the Sneak Attack column of the Rogue Features table.",
+          "type": "feature"
+        },
+        {
+          "name": "Thieves' Cant",
+          "description": "You picked up various languages in the communities where you plied your roguish talents. You know Thieves' Cant and one other language of your choice.",
+          "type": "feature"
+        }
+      ]
+    },
+    "2": {
+      "proficiencyBonus": 2,
+      "sneakAttack": "1d6",
+      "features": [
+        {
+          "name": "Cunning Action",
+          "description": "Your quick thinking and agility allow you to act fast. On your turn, you can take one of the following actions as a Bonus Action: Dash, Disengage, or Hide.",
+          "type": "feature"
+        }
+      ]
+    },
+    "3": {
+      "proficiencyBonus": 2,
+      "sneakAttack": "2d6",
+      "features": [
+        {
+          "name": "Rogue Subclass",
+          "description": "You gain a Rogue subclass of your choice.",
+          "type": "subclass"
+        }
+      ]
+    },
+    "4": {
+      "proficiencyBonus": 2,
+      "sneakAttack": "2d6",
+      "features": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        }
+      ]
+    },
+    "5": {
+      "proficiencyBonus": 3,
+      "sneakAttack": "3d6",
+      "features": [
+        {
+          "name": "Cunning Strike",
+          "description": "You've developed cunning ways to use your Sneak Attack. When you use your Sneak Attack feature, you can add one of the following effects: Disarm: The target must succeed on a Dexterity saving throw (DC 8 + your Dexterity modifier + your Proficiency Bonus), or it drops one item of your choice that it's holding. Poison: You add a toxin to your strike. The target takes an extra 1d6 Poison damage. Trip: If the target is Large or smaller, it must succeed on a Dexterity saving throw or have the Prone condition until the start of your next turn. Withdraw: Immediately after the attack, you move up to half your Speed without provoking Opportunity Attacks.",
+          "type": "feature"
+        },
+        {
+          "name": "Uncanny Dodge",
+          "description": "When an attacker that you can see deals damage to you with an attack roll, you can take a Reaction to halve the attack's damage against you.",
+          "type": "feature"
+        }
+      ]
+    },
+    "6": {
+      "proficiencyBonus": 3,
+      "sneakAttack": "3d6",
+      "features": [
+        {
+          "name": "Expertise",
+          "description": "You gain Expertise in two more of your skill proficiencies of your choice.",
+          "type": "feature"
+        }
+      ]
+    },
+    "7": {
+      "proficiencyBonus": 3,
+      "sneakAttack": "4d6",
+      "features": [
+        {
+          "name": "Evasion",
+          "description": "You can nimbly dodge out of the way of certain dangers. When you're subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw and only half damage if you fail. You can't use this feature if you have the Incapacitated condition.",
+          "type": "feature"
+        }
+      ]
+    },
+    "8": {
+      "proficiencyBonus": 3,
+      "sneakAttack": "4d6",
+      "features": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        }
+      ]
+    },
+    "9": {
+      "proficiencyBonus": 4,
+      "sneakAttack": "5d6",
+      "features": [
+        {
+          "name": "Improved Cunning Strike",
+          "description": "You can use your Cunning Strike feature twice per turn, but you can use no more than one effect per Sneak Attack. In addition, you can now use the following effect: Daze: The target has the Dazed condition until the start of your next turn.",
+          "type": "feature"
+        }
+      ]
+    },
+    "10": {
+      "proficiencyBonus": 4,
+      "sneakAttack": "5d6",
+      "features": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        }
+      ]
+    },
+    "11": {
+      "proficiencyBonus": 4,
+      "sneakAttack": "6d6",
+      "features": [
+        {
+          "name": "Reliable Talent",
+          "description": "You've refined your talents until they approach perfection. Whenever you make an ability check that uses one of your skill proficiencies, you can treat a d20 roll of 9 or lower as a 10.",
+          "type": "feature"
+        }
+      ]
+    },
+    "12": {
+      "proficiencyBonus": 4,
+      "sneakAttack": "6d6",
+      "features": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        }
+      ]
+    },
+    "13": {
+      "proficiencyBonus": 5,
+      "sneakAttack": "7d6",
+      "features": [
+        {
+          "name": "Improved Cunning Strike",
+          "description": "You can now use the following effects with your Cunning Strike: Knock Out: The target must succeed on a Constitution saving throw, or it has the Unconscious condition for 1 minute or until it takes any damage. The target repeats the save at the end of each of its turns, ending the effect on itself on a success. Slow: The target has the Slowed condition until the start of your next turn.",
+          "type": "feature"
+        }
+      ]
+    },
+    "14": {
+      "proficiencyBonus": 5,
+      "sneakAttack": "7d6",
+      "features": [
+        {
+          "name": "Blindsense",
+          "description": "Your awareness has grown so keen that you sense creatures even when you can't see them. If you can hear, you have Blindsight with a range of 10 feet.",
+          "type": "feature"
+        }
+      ]
+    },
+    "15": {
+      "proficiencyBonus": 5,
+      "sneakAttack": "8d6",
+      "features": [
+        {
+          "name": "Slippery Mind",
+          "description": "Your cunning mind is exceptionally difficult to control. You gain proficiency in Wisdom saving throws if you don't already have it. Additionally, whenever you fail a saving throw, you can expend one use of your Cunning Strike to succeed instead. When you do so, one of the Cunning Strike effects that you could apply occurs as part of the successful save, using the creature that forced the save as the target. You regain all expended uses when you finish a Long Rest.",
+          "type": "feature"
+        }
+      ]
+    },
+    "16": {
+      "proficiencyBonus": 5,
+      "sneakAttack": "8d6",
+      "features": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        }
+      ]
+    },
+    "17": {
+      "proficiencyBonus": 6,
+      "sneakAttack": "9d6",
+      "features": [
+        {
+          "name": "Improved Cunning Strike",
+          "description": "You can now use the following effect with your Cunning Strike: Stun: The target must succeed on a Constitution saving throw, or it has the Stunned condition until the start of your next turn.",
+          "type": "feature"
+        }
+      ]
+    },
+    "18": {
+      "proficiencyBonus": 6,
+      "sneakAttack": "9d6",
+      "features": [
+        {
+          "name": "Elusive",
+          "description": "You're so evasive that attackers rarely gain the upper hand against you. No attack roll has Advantage against you while you don't have the Incapacitated condition.",
+          "type": "feature"
+        }
+      ]
+    },
+    "19": {
+      "proficiencyBonus": 6,
+      "sneakAttack": "10d6",
+      "features": [
+        {
+          "name": "Epic Boon",
+          "description": "You gain an Epic Boon feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        }
+      ]
+    },
+    "20": {
+      "proficiencyBonus": 6,
+      "sneakAttack": "10d6",
+      "features": [
+        {
+          "name": "Stroke of Luck",
+          "description": "You have an uncanny knack for turning failure into success. If your attack misses a target within range, you can turn the miss into a hit. Alternatively, if you fail an ability check, you can treat the d20 roll as a 20. Once you use this feature, you can't use it again until you finish a Short or Long Rest.",
+          "type": "feature"
+        }
+      ]
+    }
+  },
+  "subclasses": [
+    {
+      "name": "Thief",
+      "description": "You hone your skills in the larcenous arts. Burglars, bandits, cutpurses, and other criminals typically follow this archetype, but so do rogues who prefer to think of themselves as professional treasure seekers, explorers, delvers, and investigators. In addition to improving your agility and stealth, you learn skills useful for delving into ancient ruins, reading unfamiliar languages, and using magic items you normally couldn't employ.",
+      "features": {
+        "3": [
+          {
+            "name": "Fast Hands",
+            "description": "You gain an additional way to use your Cunning Action: you can take the Utilize action as a Bonus Action."
+          },
+          {
+            "name": "Second-Story Work",
+            "description": "You've learned to get to hard-to-reach places. You gain a Climb Speed equal to your Speed. Additionally, when you make a running jump, the distance you cover increases by a number of feet equal to your Dexterity modifier."
+          }
+        ],
+        "9": [
+          {
+            "name": "Supreme Sneak",
+            "description": "You have Advantage on Dexterity (Stealth) checks if you don't move more than half your Speed on the same turn."
+          }
+        ],
+        "13": [
+          {
+            "name": "Use Magic Device",
+            "description": "You've learned enough about the workings of magic that you can improvise the use of items even when they are not intended for you. You ignore all class, species, and level requirements on the use of magic items."
+          }
+        ],
+        "17": [
+          {
+            "name": "Thief's Reflexes",
+            "description": "You've become adept at laying ambushes and quickly escaping danger. You can take two turns during the first round of any combat. You take your first turn at your normal initiative and your second turn at your initiative minus 10. You can't use this feature when you are surprised."
+          }
+        ]
+      }
+    }
+  ],
+  "multiclassing": {
+    "requirements": {
+      "Dexterity": 13
+    },
+    "proficienciesGained": {
+      "armor": ["Light armor"],
+      "tools": ["Thieves' Tools"]
+    }
+  },
+  "sourceBook": "Player's Handbook 2024"
+}

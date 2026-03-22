@@ -1,0 +1,33 @@
+{
+  "name": "Decanter of Endless Water",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "requires_attunement": false,
+  "overview": "A stoppered flask that produces fresh or salt water using command words.",
+  "properties": {
+    "physical_description": "This stoppered flask sloshes when shaken, as if it contains water. The decanter weighs 2 pounds.",
+    "activation": "You can take a Magic action to remove the stopper and issue one of three command words, whereupon an amount of fresh water or salt water (your choice) pours out of the flask",
+    "duration": "The water stops pouring out at the start of your next turn"
+  },
+  "command_words": [
+    {
+      "word": "Splash",
+      "effect": "The decanter produces 1 gallon of water"
+    },
+    {
+      "word": "Fountain",
+      "effect": "The decanter produces 5 gallons of water"
+    },
+    {
+      "word": "Geyser",
+      "effect": "The decanter produces 30 gallons of water that gushes forth in a Line 30 feet long and 1 foot wide"
+    }
+  ],
+  "geyser_effect": {
+    "aiming": "If you're holding the decanter, you can aim the geyser in one direction (no action required)",
+    "creature_target": "One creature of your choice in the Line must succeed on a DC 13 Strength saving throw or take 1d4 Bludgeoning damage and have the Prone condition",
+    "object_target": "Instead of a creature, you can target one object in the Line that isn't being worn or carried and that weighs no more than 200 pounds. The object is knocked over by the geyser"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

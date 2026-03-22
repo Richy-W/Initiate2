@@ -1,0 +1,11 @@
+{
+  "name": "Mantle of Spell Resistance",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "attunement": true,
+  "description": "You have Advantage on saving throws against spells while you wear this cloak.",
+  "properties": {
+    "type": "Cloak",
+    "spell_resistance": "Advantage on saving throws against spells"
+  }
+}

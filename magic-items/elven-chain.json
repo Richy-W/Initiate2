@@ -1,0 +1,13 @@
+{
+  "name": "Elven Chain",
+  "type": "Armor",
+  "armor_type": ["Chain Mail", "Chain Shirt"],
+  "rarity": "Rare",
+  "attunement": false,
+  "ac_bonus": 1,
+  "description": "You gain a +1 bonus to Armor Class while you wear this armor. You are considered trained with this armor even if you lack training with Medium or Heavy armor.",
+  "properties": {
+    "ac_bonus": 1,
+    "proficiency": "You are considered trained with this armor even if you lack training with Medium or Heavy armor"
+  }
+}

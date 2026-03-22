@@ -1,0 +1,96 @@
+{
+  "name": "Nightmare",
+  "size": "Large",
+  "type": "Fiend",
+  "alignment": "Neutral Evil",
+  "armor_class": {
+    "value": 13,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 2,
+    "total": 12
+  },
+  "hit_points": {
+    "average": 68,
+    "formula": "8d10 + 24"
+  },
+  "speed": {
+    "walk": 60,
+    "fly": "90 (hover)"
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 18,
+      "modifier": 4,
+      "saving_throw": 4
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "constitution": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "charisma": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    }
+  },
+  "damage_immunities": ["Fire"],
+  "senses": {
+    "passive_perception": 11
+  },
+  "languages": ["Understands Abyssal, Common, and Infernal but can't speak"],
+  "challenge_rating": {
+    "cr": 3,
+    "xp": 700,
+    "proficiency_bonus": 2
+  },
+  "traits": [
+    {
+      "name": "Confer Fire Resistance",
+      "description": "The nightmare can grant Resistance to Fire damage to a rider while it is on the nightmare."
+    },
+    {
+      "name": "Illumination",
+      "description": "The nightmare sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Hooves",
+      "description": "Melee Attack Roll: +6, reach 5 ft. Hit: 13 (2d8 + 4) Bludgeoning damage plus 10 (3d6) Fire damage.",
+      "attack_roll": 6,
+      "reach": 5,
+      "damage": "13 (2d8 + 4) + 10 (3d6)",
+      "damage_type": "Bludgeoning + Fire"
+    },
+    {
+      "name": "Ethereal Stride",
+      "description": "The nightmare and up to three willing creatures within 5 feet of it teleport to the Ethereal Plane from the Material Plane or vice versa.",
+      "range": 5
+    }
+  ],
+  "tactical_info": {
+    "role": "Fiendish Mount/Planar Transport",
+    "environment": "Lower planes, haunted battlefields, ethereal crossings, infernal stables",
+    "tactics": "Serves as mount for fiendish riders, uses ethereal stride for tactical positioning, fire immunity makes it ideal for hellish environments",
+    "weaknesses": "Relatively low AC and HP for size, limited attack options, primarily support role",
+    "signature_abilities": ["Ethereal plane travel", "Fire immunity and damage", "Mount capabilities", "Illumination aura"]
+  }
+}

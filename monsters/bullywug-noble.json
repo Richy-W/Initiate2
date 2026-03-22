@@ -1,0 +1,114 @@
+{
+  "name": "Bullywug Noble",
+  "size": "Medium",
+  "type": "Humanoid",
+  "alignment": "Neutral Evil",
+  "armor_class": {
+    "value": 15,
+    "source": "Studded Leather, Shield"
+  },
+  "initiative": {
+    "bonus": 2,
+    "total": 12
+  },
+  "hit_points": {
+    "average": 26,
+    "formula": "4d8 + 8"
+  },
+  "speed": {
+    "walk": 20,
+    "swim": 40
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "wisdom": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "charisma": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    }
+  },
+  "skills": {
+    "stealth": 4,
+    "intimidation": 4
+  },
+  "senses": {
+    "passive_perception": 10
+  },
+  "languages": ["Bullywug", "Common"],
+  "challenge_rating": {
+    "cr": 2,
+    "xp": 450,
+    "proficiency_bonus": 2
+  },
+  "equipment": ["Trident", "Studded Leather", "Shield"],
+  "traits": [
+    {
+      "name": "Amphibious",
+      "description": "The bullywug can breathe air and water."
+    },
+    {
+      "name": "Speak with Frogs and Toads",
+      "description": "The bullywug can communicate simple concepts to frogs and toads when it speaks in Bullywug."
+    },
+    {
+      "name": "Swamp Camouflage",
+      "description": "The bullywug has Advantage on Dexterity (Stealth) checks made to hide in swampy terrain."
+    },
+    {
+      "name": "Standing Leap",
+      "description": "The bullywug's long jump is up to 20 feet and its high jump is up to 10 feet, with or without a running start."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The bullywug makes two Trident attacks."
+    },
+    {
+      "name": "Trident",
+      "description": "Melee or Ranged Attack Roll: +4, reach 5 ft. or range 20/60 ft. Hit: 5 (1d6 + 2) Piercing damage, or 6 (1d8 + 2) Piercing damage if used with two hands to make a melee attack.",
+      "attack_roll": 4,
+      "reach": 5,
+      "range": "20/60",
+      "damage": "5 (1d6 + 2) one-handed, 6 (1d8 + 2) two-handed",
+      "damage_type": "Piercing"
+    },
+    {
+      "name": "Croaking Command",
+      "description": "The bullywug lets out a commanding croak. Each bullywug within 30 feet of it can use its reaction to move up to its speed or make one attack.",
+      "range": 30,
+      "special": "Allies can move or attack as reaction"
+    }
+  ],
+  "tactical_info": {
+    "role": "Leader/Controller",
+    "environment": "Swamps, marshes, bullywug settlements",
+    "tactics": "Commands other bullywugs, uses croaking command for battlefield control, fights from water when possible",
+    "weaknesses": "Relies on minions, slow land speed",
+    "signature_abilities": ["Multiattack", "Command ability", "Amphibious leader", "Trident mastery"]
+  }
+}

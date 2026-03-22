@@ -1,0 +1,13 @@
+{
+  "name": "Ioun Stone: Protection",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "attunement": true,
+  "description": "You gain a +1 bonus to Armor Class while this dusty-rose prism orbits your head.",
+  "properties": {
+    "shape": "Dusty-rose prism",
+    "orbit": "1d3 feet from head",
+    "max_concurrent_stones": 3,
+    "ac_bonus": 1
+  }
+}

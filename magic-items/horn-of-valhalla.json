@@ -1,0 +1,48 @@
+{
+  "name": "Horn of Valhalla",
+  "type": "Wondrous Item",
+  "rarity": "Rare/Very Rare/Legendary",
+  "attunement": false,
+  "description": "You can take a Magic action to blow this horn. In response, warrior spirits from the plane of Ysgard appear in unoccupied spaces within 60 feet of you. Each spirit uses the Berserker stat block and returns to Ysgard after 1 hour or when it drops to 0 Hit Points.",
+  "properties": {
+    "activation": "Magic action",
+    "summoning": {
+      "location": "Unoccupied spaces within 60 feet",
+      "spirits": "Berserker stat blocks",
+      "appearance": "Living, breathing warriors",
+      "immunities": ["Charmed", "Frightened"],
+      "duration": "1 hour or when drops to 0 HP"
+    },
+    "reuse_duration": "Can't be used again until 7 days have passed",
+    "horn_types": [
+      {
+        "type": "Silver",
+        "rarity": "Rare",
+        "spirits_summoned": 2,
+        "requirement": "None"
+      },
+      {
+        "type": "Brass",
+        "rarity": "Rare",
+        "spirits_summoned": 3,
+        "requirement": "Proficiency with all Simple weapons"
+      },
+      {
+        "type": "Bronze",
+        "rarity": "Very Rare",
+        "spirits_summoned": 4,
+        "requirement": "Training with all Medium armor"
+      },
+      {
+        "type": "Iron",
+        "rarity": "Legendary",
+        "spirits_summoned": 5,
+        "requirement": "Proficiency with all Martial weapons"
+      }
+    ],
+    "requirement_effect": {
+      "met": "Summoned spirits are Friendly and follow your commands",
+      "unmet": "Summoned spirits attack you"
+    }
+  }
+}

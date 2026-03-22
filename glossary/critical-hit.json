@@ -1,0 +1,17 @@
+{
+  "name": "Critical Hit",
+  "slug": "critical-hit",
+  "definition": "If you roll a 20 on the d20 for an attack roll, you score a Critical Hit, and the attack hits regardless of any modifiers or the target's AC.",
+  "category": "Combat & Movement",
+  "tags": [],
+  "full_text": "If you roll a 20 on the d20 for an attack roll, you score a Critical Hit, and the attack hits regardless of any modifiers or the target's AC. A Critical Hit lets you roll extra dice for the attack's damage against the target. Roll all of the attack's damage dice twice and add them together. Then add any relevant modifiers.",
+  "mechanics": {
+    "trigger": "Roll a 20 on the d20 for an attack roll",
+    "result": "Attack hits regardless of modifiers or target AC",
+    "damage": "Roll all damage dice twice and add together, then add modifiers"
+  },
+  "see_also": [
+    "Attack Roll",
+    "Damage Roll"
+  ]
+}

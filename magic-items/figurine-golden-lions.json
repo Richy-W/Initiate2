@@ -1,0 +1,23 @@
+{
+  "name": "Figurine of Wondrous Power: Golden Lions",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "attunement": false,
+  "description": "These gold statuettes of lions are always created in pairs. You can use one figurine or both simultaneously. Each can become a Lion for up to 1 hour. Once a lion has been used, it can't be used again until 7 days have passed.",
+  "properties": {
+    "item_type": "Figurine of Wondrous Power",
+    "quantity": "Pair of figurines",
+    "simultaneous_use": true,
+    "activation": "Magic action",
+    "activation_type": "throw to a point on the ground within 60 feet",
+    "creature_form": "Lion",
+    "duration": "1 hour",
+    "reuse_duration": "7 days",
+    "creature_traits": {
+      "friendly": true,
+      "understands_languages": true,
+      "obeys_commands": true,
+      "initiative": "Immediately after you"
+    }
+  }
+}

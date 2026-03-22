@@ -1,0 +1,22 @@
+{
+  "name": "Wand of Polymorph",
+  "type": "Wand",
+  "rarity": "Very Rare",
+  "attunement": true,
+  "attunement_class": "Spellcaster",
+  "description": "This wand has 7 charges. While holding it, you can expend 1 charge to cast Polymorph from it.",
+  "properties": {
+    "charges": {
+      "max_charges": 7,
+      "current_charges": 7
+    },
+    "spell": "Polymorph",
+    "spell_save_dc": 15,
+    "charges_cost": 1,
+    "regaining_charges": {
+      "recharge": "1d6 + 1 daily at dawn",
+      "destruction_condition": "Expend last charge and roll 1d20",
+      "on_roll_1": "Wand crumbles into ashes and is destroyed"
+    }
+  }
+}

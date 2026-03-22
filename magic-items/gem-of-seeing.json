@@ -1,0 +1,15 @@
+{
+  "name": "Gem of Seeing",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "attunement": true,
+  "description": "This gem has 3 charges. As a Magic action, you can expend 1 charge. For the next 10 minutes, you have Truesight out to 120 feet when you peer through the gem.",
+  "properties": {
+    "charges": 3,
+    "activation": "Magic action",
+    "charges_expended": 1,
+    "effect": "Truesight out to 120 feet",
+    "duration": "10 minutes",
+    "activation_requirement": "Peer through the gem"
+  }
+}

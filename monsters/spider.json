@@ -1,0 +1,67 @@
+{
+  "name": "Spider",
+  "size": "Tiny",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 12,
+  "hit_points": 1,
+  "hit_dice": "1d4 - 1",
+  "speed": {
+    "walk": 20,
+    "climb": 20
+  },
+  "ability_scores": {
+    "strength": 2,
+    "dexterity": 14,
+    "constitution": 8,
+    "intelligence": 1,
+    "wisdom": 10,
+    "charisma": 2
+  },
+  "saving_throws": {
+    "strength": -4,
+    "dexterity": 2,
+    "constitution": -1,
+    "intelligence": -5,
+    "wisdom": 0,
+    "charisma": -4
+  },
+  "skills": {
+    "stealth": 4
+  },
+  "senses": [
+    "Darkvision 30 ft.",
+    "Passive Perception 10"
+  ],
+  "languages": "None",
+  "challenge_rating": 0,
+  "experience_points": 10,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Spider Climb",
+      "description": "The spider can climb difficult surfaces, including along ceilings, without needing to make an ability check."
+    },
+    {
+      "name": "Web Walker",
+      "description": "The spider ignores movement restrictions caused by webs, and the spider knows the location of any other creature in contact with the same web."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 1 Piercing damage plus 2 (1d4) Poison damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Ambush Predator - Tiny venomous climber",
+    "positioning": "Uses Spider Climb for ceiling ambushes and web navigation",
+    "damage_output": "3 total damage (1 piercing + 2 poison) per hit",
+    "key_abilities": "Spider Climb and Web Walker for superior positioning",
+    "weaknesses": "Extremely low HP, minimal individual threat",
+    "synergies": "Effective in web-filled areas or as environmental hazards"
+  }
+}

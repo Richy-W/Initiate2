@@ -1,0 +1,13 @@
+{
+  "name": "Cloak of the Manta Ray",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "requires_attunement": true,
+  "overview": "A cloak that grants underwater breathing and swimming speed.",
+  "properties": {
+    "underwater_breathing": "While wearing this cloak, you can breathe underwater",
+    "swim_speed": "You have a Swim Speed of 60 feet"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

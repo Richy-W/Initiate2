@@ -1,0 +1,108 @@
+{
+  "name": "Priest Acolyte",
+  "size": "Medium",
+  "type": "Humanoid (Cleric)",
+  "alignment": "Neutral",
+  "armor_class": {
+    "value": 13,
+    "source": "Chain Shirt"
+  },
+  "initiative": {
+    "bonus": 0,
+    "total": 10
+  },
+  "hit_points": {
+    "average": 11,
+    "formula": "2d8 + 2"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "dexterity": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "charisma": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    }
+  },
+  "skills": {
+    "medicine": 4,
+    "religion": 2
+  },
+  "senses": {
+    "passive_perception": 12
+  },
+  "languages": ["Common"],
+  "challenge_rating": {
+    "cr": 0.25,
+    "xp": 50,
+    "proficiency_bonus": 2
+  },
+  "equipment": ["Chain Shirt", "Holy Symbol", "Mace"],
+  "spellcasting": {
+    "description": "The priest casts one of the following spells, using Wisdom as the spellcasting ability:",
+    "spells": {
+      "at_will": ["Light", "Thaumaturgy"]
+    }
+  },
+  "actions": [
+    {
+      "name": "Mace",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 5 (1d6 + 2) Bludgeoning damage plus 2 (1d4) Radiant damage.",
+      "attack_roll": 4,
+      "reach": 5,
+      "damage": "5 (1d6 + 2) + 2 (1d4)",
+      "damage_type": "Bludgeoning + Radiant"
+    },
+    {
+      "name": "Radiant Flame",
+      "description": "Ranged Attack Roll: +4, range 60 ft. Hit: 7 (2d6) Radiant damage.",
+      "attack_roll": 4,
+      "range": 60,
+      "damage": "7 (2d6)",
+      "damage_type": "Radiant"
+    },
+    {
+      "name": "Spellcasting",
+      "description": "The priest casts one of the following spells, using Wisdom as the spellcasting ability: At Will: Light, Thaumaturgy"
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Divine Aid (1/Day)",
+      "description": "The priest casts Bless, Healing Word, or Sanctuary, using the same spellcasting ability as Spellcasting."
+    }
+  ],
+  "tactical_info": {
+    "role": "Low-Level Divine Support/Temple Guardian",
+    "environment": "Temples, shrines, religious communities, pilgrimage sites",
+    "tactics": "Uses radiant flame for ranged attacks, divine aid for healing support, mace for close combat with radiant damage",
+    "weaknesses": "Very low HP and AC, limited spellcasting, vulnerable to sustained combat",
+    "signature_abilities": ["Radiant damage attacks", "Basic divine spellcasting", "Healing support", "Religious knowledge"]
+  }
+}

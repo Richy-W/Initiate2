@@ -1,0 +1,54 @@
+{
+  "name": "Pony",
+  "size": "Medium",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 10,
+  "hit_points": 11,
+  "hit_dice": "2d8 + 2",
+  "speed": {
+    "walk": 40
+  },
+  "ability_scores": {
+    "strength": 15,
+    "dexterity": 10,
+    "constitution": 13,
+    "intelligence": 2,
+    "wisdom": 11,
+    "charisma": 7
+  },
+  "saving_throws": {
+    "strength": 4,
+    "dexterity": 0,
+    "constitution": 1,
+    "intelligence": -4,
+    "wisdom": 0,
+    "charisma": -2
+  },
+  "skills": {},
+  "senses": [
+    "Passive Perception 10"
+  ],
+  "languages": "None",
+  "challenge_rating": 0.125,
+  "experience_points": 25,
+  "proficiency_bonus": 2,
+  "features": [],
+  "actions": [
+    {
+      "name": "Hooves",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 4 (1d4 + 2) Bludgeoning damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Mount - Small riding animal with basic defensive capability",
+    "positioning": "Primarily non-combat, uses hoof attacks when threatened",
+    "damage_output": "4 bludgeoning per hit, modest defensive strikes",
+    "key_abilities": "Good speed (40 ft), suitable mount size",
+    "weaknesses": "Low AC and combat training, primarily utility creature",
+    "synergies": "Perfect for young riders, light cavalry, and personal transport"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Alert",
+  "category": "Origin",
+  "benefits": [
+    {
+      "name": "Initiative Proficiency",
+      "description": "When you roll Initiative, you can add your Proficiency Bonus to the roll.",
+      "type": "combat"
+    },
+    {
+      "name": "Initiative Swap",
+      "description": "Immediately after you roll Initiative, you can swap your Initiative with the Initiative of one willing ally in the same combat. You can't make this swap if you or the ally has the Incapacitated condition.",
+      "type": "combat"
+    }
+  ],
+  "repeatable": false,
+  "sourceBook": "Player's Handbook 2024"
+}

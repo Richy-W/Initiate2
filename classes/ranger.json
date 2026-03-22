@@ -1,0 +1,338 @@
+{
+  "name": "Ranger",
+  "description": "Rangers are warriors of the wilderness, specializing in tracking, survival, and combat. They are skilled in fighting the enemies that threaten the edges of civilization—humanoid raiders, rampaging beasts and monstrosities, terrible giants, and deadly dragons. Rangers learn to track their quarry as a predator does, moving stealthily through the wilds and hiding themselves in brush and rubble. Thanks to their connection with nature, Rangers can cast spells that harness primal forces to aid them in their pursuits. A Ranger's talents and abilities are honed with deadly focus on the grim task of protecting the borderlands and the people who live there.",
+  "primaryAbility": ["Dexterity", "Wisdom"],
+  "hitPointDie": "D10",
+  "proficiencies": {
+    "savingThrows": ["Strength", "Dexterity"],
+    "skills": {
+      "choose": 3,
+      "from": ["Animal Handling", "Athletics", "Insight", "Investigation", "Nature", "Perception", "Stealth", "Survival"]
+    },
+    "weapons": ["Simple weapons", "Martial weapons"],
+    "armor": ["Light armor", "Medium armor", "Shields"]
+  },
+  "startingEquipment": {
+    "options": [
+      {
+        "choice": "A",
+        "items": ["Studded Leather Armor", "Shield", "Scimitar", "Handaxe (2)", "Longbow", "Arrows (20)", "Quiver", "Druidcraft Focus", "Explorer's Pack"],
+        "gold": 7
+      },
+      {
+        "choice": "B",
+        "items": [],
+        "gold": 150
+      }
+    ]
+  },
+  "classFeatures": {
+    "1": {
+      "proficiencyBonus": 2,
+      "features": [
+        {
+          "name": "Favored Enemy",
+          "description": "You always have the Hunter's Mark spell prepared. It doesn't count against the number of spells you can prepare, and you can cast it without expending a spell slot. You can cast it in this way a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest.",
+          "type": "feature"
+        },
+        {
+          "name": "Spellcasting",
+          "description": "You have learned to cast spells through your connection to nature. You know two cantrips of your choice from the Ranger spell list and can prepare two level 1 spells.",
+          "type": "spell"
+        },
+        {
+          "name": "Weapon Mastery",
+          "description": "Your training with weapons allows you to use the mastery properties of two kinds of weapons of your choice with which you have proficiency, such as Longbows and Scimitars.",
+          "type": "feature"
+        }
+      ]
+    },
+    "2": {
+      "proficiencyBonus": 2,
+      "features": [
+        {
+          "name": "Deft Explorer",
+          "description": "Thanks to your travels, you gain the following benefits: Expertise: Choose two of your skill proficiencies. Your Proficiency Bonus is doubled for ability checks using the chosen skills. Languages: You know two languages of your choice from the Standard Languages table.",
+          "type": "feature"
+        },
+        {
+          "name": "Fighting Style",
+          "description": "You gain a Fighting Style feat of your choice. Instead of choosing one of those feats, you can choose the option below: Druidic Warrior: You learn two cantrips of your choice from the Druid spell list. The cantrips count as Ranger spells for you, and Wisdom is your spellcasting ability for them. Whenever you gain a Ranger level, you can replace one of these cantrips with another cantrip from the Druid spell list.",
+          "type": "feature"
+        }
+      ]
+    },
+    "3": {
+      "proficiencyBonus": 2,
+      "features": [
+        {
+          "name": "Ranger Subclass",
+          "description": "You gain a Ranger subclass of your choice. A subclass represents a particular focus for your ranging techniques.",
+          "type": "subclass"
+        }
+      ]
+    },
+    "4": {
+      "proficiencyBonus": 2,
+      "features": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        }
+      ]
+    },
+    "5": {
+      "proficiencyBonus": 3,
+      "features": [
+        {
+          "name": "Extra Attack",
+          "description": "You can attack twice instead of once whenever you take the Attack action on your turn.",
+          "type": "feature"
+        }
+      ]
+    },
+    "6": {
+      "proficiencyBonus": 3,
+      "features": [
+        {
+          "name": "Roving",
+          "description": "Your Speed increases by 10 feet, and you gain a Climb Speed and a Swim Speed equal to your Speed.",
+          "type": "feature"
+        }
+      ]
+    },
+    "8": {
+      "proficiencyBonus": 3,
+      "features": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        }
+      ]
+    },
+    "9": {
+      "proficiencyBonus": 4,
+      "features": [
+        {
+          "name": "Expertise Improvement",
+          "description": "Choose two more of your skill proficiencies to gain Expertise in them.",
+          "type": "feature"
+        }
+      ]
+    },
+    "10": {
+      "proficiencyBonus": 4,
+      "features": [
+        {
+          "name": "Tireless",
+          "description": "Primal forces now help sustain you. As a Bonus Action, you can give yourself a number of Temporary Hit Points equal to 1d8 plus your Wisdom modifier (minimum of 1). You can use this feature a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest.",
+          "type": "feature"
+        }
+      ]
+    },
+    "11": {
+      "proficiencyBonus": 4,
+      "features": [
+        {
+          "name": "Nature's Veil",
+          "description": "You invoke spirits of nature to magically hide yourself. As a Bonus Action, you can give yourself the Invisible condition until the start of your next turn. You can use this feature a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest.",
+          "type": "feature"
+        }
+      ]
+    },
+    "12": {
+      "proficiencyBonus": 4,
+      "features": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        }
+      ]
+    },
+    "13": {
+      "proficiencyBonus": 5,
+      "features": [
+        {
+          "name": "Relentless Hunter",
+          "description": "Taking damage can't break your Concentration on Hunter's Mark.",
+          "type": "feature"
+        }
+      ]
+    },
+    "14": {
+      "proficiencyBonus": 5,
+      "features": [
+        {
+          "name": "Vanish",
+          "description": "You can take the Hide action as a Bonus Action. Also, you can't be tracked by nonmagical means unless you choose to leave a trail.",
+          "type": "feature"
+        }
+      ]
+    },
+    "15": {
+      "proficiencyBonus": 5,
+      "features": []
+    },
+    "16": {
+      "proficiencyBonus": 5,
+      "features": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        }
+      ]
+    },
+    "17": {
+      "proficiencyBonus": 6,
+      "features": [
+        {
+          "name": "Precise Hunter",
+          "description": "Your Hunter's Mark is more precise than before. When you hit the target of your Hunter's Mark with an attack roll and deal damage to it, you can change the damage type to Force damage, and if the target is reduced to 0 Hit Points by this damage, you can move the Hunter's Mark to another creature within 30 feet of the target without expending a spell slot.",
+          "type": "feature"
+        }
+      ]
+    },
+    "18": {
+      "proficiencyBonus": 6,
+      "features": [
+        {
+          "name": "Feral Senses",
+          "description": "Your senses are especially sharp. If you can hear, you have Blindsight with a range of 30 feet.",
+          "type": "feature"
+        }
+      ]
+    },
+    "19": {
+      "proficiencyBonus": 6,
+      "features": [
+        {
+          "name": "Epic Boon",
+          "description": "You gain an Epic Boon feat or another feat of your choice for which you qualify.",
+          "type": "feat"
+        }
+      ]
+    },
+    "20": {
+      "proficiencyBonus": 6,
+      "features": [
+        {
+          "name": "Legendary Tracker",
+          "description": "Your hunting abilities have reached legendary status. Your Hunter's Mark spell now has a range of 120 feet, and its duration increases to 24 hours. Additionally, you always know the distance and direction to any creature marked by your Hunter's Mark as long as it's on the same plane of existence as you.",
+          "type": "feature"
+        }
+      ]
+    }
+  },
+  "spellcasting": {
+    "ability": "Wisdom",
+    "type": "half",
+    "cantripsKnown": {
+      "1": 2,
+      "7": 3,
+      "13": 4
+    },
+    "spellSlots": {
+      "2": {"1": 2},
+      "3": {"1": 3},
+      "4": {"1": 3},
+      "5": {"1": 4, "2": 2},
+      "6": {"1": 4, "2": 2},
+      "7": {"1": 4, "2": 3},
+      "8": {"1": 4, "2": 3},
+      "9": {"1": 4, "2": 3, "3": 2},
+      "10": {"1": 4, "2": 3, "3": 2},
+      "11": {"1": 4, "2": 3, "3": 3},
+      "12": {"1": 4, "2": 3, "3": 3},
+      "13": {"1": 4, "2": 3, "3": 3, "4": 1},
+      "14": {"1": 4, "2": 3, "3": 3, "4": 1},
+      "15": {"1": 4, "2": 3, "3": 3, "4": 2},
+      "16": {"1": 4, "2": 3, "3": 3, "4": 2},
+      "17": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 1},
+      "18": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 1},
+      "19": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2},
+      "20": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2}
+    },
+    "spellsPrepared": {
+      "1": 2, "2": 3, "3": 4, "4": 4, "5": 5, "6": 5, "7": 6, "8": 6, "9": 7, "10": 7,
+      "11": 8, "12": 8, "13": 9, "14": 9, "15": 10, "16": 10, "17": 11, "18": 11, "19": 12, "20": 12
+    },
+    "ritualCasting": true,
+    "spellcastingFocus": ["Druidcraft Focus"]
+  },
+  "subclasses": [
+    {
+      "name": "Hunter",
+      "description": "You stalk your prey with supernatural focus, learning specialized techniques for hunting the kinds of threats you face in the wilds. Your techniques are unusually effective against your favored enemies, but they're also useful against creatures that share some of those enemies' characteristics.",
+      "features": {
+        "3": [
+          {
+            "name": "Hunter's Prey",
+            "description": "You gain one of the following feature options of your choice: Colossus Slayer: Your tenacity can wear down the most potent foes. When you hit a creature with a weapon attack, the creature takes an extra 1d8 damage if it's missing Hit Points. You can deal this extra damage only once per turn. Giant Killer: When a Large or larger creature within 5 feet of you hits or misses you with an attack, you can take a Reaction to attack that creature immediately after its attack, provided that you can see the creature. Horde Breaker: Once on each of your turns when you make an attack with a weapon, you can make another attack with the same weapon against a different creature that is within 5 feet of the original target, that is within range of your weapon, and that you haven't attacked this turn."
+          }
+        ],
+        "7": [
+          {
+            "name": "Defensive Tactics",
+            "description": "You gain one of the following feature options of your choice: Escape the Horde: Opportunity Attacks against you are made with Disadvantage. Multiattack Defense: When a creature hits you with an attack, you gain a +4 bonus to AC against all subsequent attacks made by that creature for the rest of the turn. Steel Will: You have Advantage on saving throws to avoid or end the Frightened condition on yourself."
+          }
+        ],
+        "11": [
+          {
+            "name": "Superior Hunter's Defense",
+            "description": "You gain one of the following feature options of your choice: Evasion: When you're subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw and only half damage if you fail. You can't use this feature if you have the Incapacitated condition. Stand Against the Tide: When a hostile creature misses you with a melee attack, you can take a Reaction to force that creature to repeat the same attack against another creature (other than you) of your choice. Uncanny Dodge: When an attacker that you can see deals damage to you with an attack roll, you can take a Reaction to halve the attack's damage against you."
+          }
+        ],
+        "15": [
+          {
+            "name": "Superior Hunter's Offense",
+            "description": "You gain one of the following feature options of your choice: Improved Colossus Slayer: Your Colossus Slayer deals 2d8 extra damage instead of 1d8. Improved Giant Killer: Your Giant Killer now triggers when a Large or larger creature within 10 feet of you hits or misses you with an attack. Improved Horde Breaker: You can now make two additional attacks when you use Horde Breaker, but each attack must target a different creature."
+          }
+        ]
+      }
+    }
+  ],
+  "spellList": {
+    "cantrips": [
+      {"name": "Druidcraft", "school": "Transmutation"},
+      {"name": "Guidance", "school": "Divination", "special": "C"},
+      {"name": "Light", "school": "Evocation"},
+      {"name": "Mending", "school": "Transmutation"},
+      {"name": "Produce Flame", "school": "Conjuration"},
+      {"name": "Resistance", "school": "Abjuration", "special": "C"},
+      {"name": "Shillelagh", "school": "Transmutation"},
+      {"name": "Thorn Whip", "school": "Transmutation"}
+    ],
+    "levels": {
+      "1": [
+        {"name": "Alarm", "school": "Abjuration", "special": "R"},
+        {"name": "Animal Friendship", "school": "Enchantment"},
+        {"name": "Cure Wounds", "school": "Evocation"},
+        {"name": "Detect Magic", "school": "Divination", "special": "C, R"},
+        {"name": "Detect Poison and Disease", "school": "Divination", "special": "C, R"},
+        {"name": "Entangle", "school": "Conjuration", "special": "C"},
+        {"name": "Faerie Fire", "school": "Evocation", "special": "C"},
+        {"name": "Fog Cloud", "school": "Conjuration", "special": "C"},
+        {"name": "Goodberry", "school": "Transmutation"},
+        {"name": "Hunter's Mark", "school": "Divination", "special": "C"},
+        {"name": "Jump", "school": "Transmutation"},
+        {"name": "Longstrider", "school": "Transmutation"},
+        {"name": "Speak with Animals", "school": "Divination", "special": "R"}
+      ]
+    }
+  },
+  "multiclassing": {
+    "requirements": {
+      "Dexterity": 13,
+      "Wisdom": 13
+    },
+    "proficienciesGained": {
+      "armor": ["Light armor", "Medium armor", "Shields"],
+      "weapons": ["Simple weapons", "Martial weapons"]
+    }
+  },
+  "sourceBook": "Player's Handbook 2024"
+}

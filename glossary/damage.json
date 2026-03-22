@@ -1,0 +1,15 @@
+{
+  "name": "Damage",
+  "slug": "damage",
+  "definition": "Damage represents harm that causes a creature or an object to lose Hit Points.",
+  "category": "Game Mechanics",
+  "tags": [],
+  "full_text": "Damage represents harm that causes a creature or an object to lose Hit Points.",
+  "see_also": [
+    "Damage Roll",
+    "Damage Types",
+    "Hit Points",
+    "Resistance",
+    "Vulnerability"
+  ]
+}

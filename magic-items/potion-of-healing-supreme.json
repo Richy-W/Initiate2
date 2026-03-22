@@ -1,0 +1,11 @@
+{
+  "name": "Potion of Healing (Supreme)",
+  "type": "Potion",
+  "rarity": "Very Rare",
+  "attunement": false,
+  "description": "You regain Hit Points when you drink this potion. This supreme potion restores 10d4 + 20 Hit Points. Whatever its potency, the potion's red liquid glimmers when agitated.",
+  "properties": {
+    "hit_points_restored": "10d4 + 20",
+    "appearance": "Red liquid that glimmers when agitated"
+  }
+}

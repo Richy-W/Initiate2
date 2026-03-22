@@ -1,0 +1,26 @@
+{
+  "name": "Bead of Force",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "requires_attunement": false,
+  "overview": "This small black sphere measures 3/4 of an inch in diameter and weighs an ounce. Typically, 1d4 + 4 Beads of Force are found together.",
+  "properties": {
+    "activation": "You can take a Magic action to throw the bead up to 60 feet.",
+    "explosion": {
+      "radius": "10-foot-radius Sphere",
+      "impact": "The bead explodes on impact and is destroyed",
+      "saving_throw": "DC 15 Dexterity",
+      "damage": "5d4 Force damage on failed save"
+    },
+    "force_sphere": {
+      "description": "A sphere of transparent force encloses the area for 1 minute.",
+      "containment": "Any creature that failed the save and is completely within the area is trapped inside this sphere.",
+      "partial_containment": "Creatures that succeeded on the save or are partially within the area are pushed away from the center of the sphere until they are no longer inside it.",
+      "air_only": "Only breathable air can pass through the sphere's wall. No attack or other effect can pass through."
+    },
+    "movement": "An enclosed creature can take a Utilize action to push against the sphere's wall, moving the sphere up to half the creature's Speed.",
+    "portability": "The sphere can be picked up, and its magic causes it to weigh only 1 pound, regardless of the weight of creatures inside."
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

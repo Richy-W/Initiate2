@@ -1,0 +1,12 @@
+{
+  "name": "Swim Speed",
+  "slug": "swim-speed",
+  "definition": "A speed that allows swimming without extra movement cost",
+  "category": "Movement",
+  "tags": ["speed", "swimming", "movement"],
+  "full_text": "A Swim Speed can be used to swim without expending the extra movement normally associated with swimming.",
+  "mechanics": {
+    "benefit": "No extra movement cost when swimming"
+  },
+  "see_also": ["swimming", "speed"]
+}

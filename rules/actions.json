@@ -1,0 +1,153 @@
+{
+  "title": "Actions System",
+  "description": "Standard actions available to characters and monsters during gameplay",
+  "version": "2024",
+  "overview": {
+    "description": "When you do something other than moving or communicating, you typically take an action",
+    "reference": "The Action table lists the game's main actions, which are defined in more detail in the Rules Glossary",
+    "flexibility": "Player characters and monsters can also do things not covered by these actions. Many class features and other abilities provide additional action options, and you can improvise other actions."
+  },
+  "standard_actions": [
+    {
+      "name": "Attack",
+      "summary": "Attack with a weapon or an Unarmed Strike",
+      "category": "Combat",
+      "description": "Make one or more weapon attacks or unarmed strikes against targets within range"
+    },
+    {
+      "name": "Dash", 
+      "summary": "For the rest of the turn, give yourself extra movement equal to your Speed",
+      "category": "Movement",
+      "description": "Double your movement for the turn by gaining additional movement equal to your current Speed"
+    },
+    {
+      "name": "Disengage",
+      "summary": "Your movement doesn't provoke Opportunity Attacks for the rest of the turn",
+      "category": "Movement", 
+      "description": "Move away from enemies without triggering opportunity attacks"
+    },
+    {
+      "name": "Dodge",
+      "summary": "Until the start of your next turn, attack rolls against you have Disadvantage, and you make Dexterity saving throws with Advantage. You lose this benefit if you have the Incapacitated condition or if your Speed is 0",
+      "category": "Defense",
+      "description": "Focus entirely on avoiding attacks and area effects"
+    },
+    {
+      "name": "Help",
+      "summary": "Help another creature's ability check or attack roll, or administer first aid",
+      "category": "Support",
+      "description": "Assist an ally with their next attempt or provide basic medical care"
+    },
+    {
+      "name": "Hide",
+      "summary": "Make a Dexterity (Stealth) check",
+      "category": "Stealth",
+      "description": "Attempt to become hidden from enemies by using cover or concealment"
+    },
+    {
+      "name": "Influence",
+      "summary": "Make a Charisma (Deception, Intimidation, Performance, or Persuasion) or Wisdom (Animal Handling) check to alter a creature's attitude",
+      "category": "Social",
+      "description": "Use social skills to change how creatures react to you or your party"
+    },
+    {
+      "name": "Magic",
+      "summary": "Cast a spell, use a magic item, or use a magical feature",
+      "category": "Magic",
+      "description": "Activate any magical ability, whether from spells, items, or class features"
+    },
+    {
+      "name": "Ready",
+      "summary": "Prepare to take an action in response to a trigger you define",
+      "category": "Tactical",
+      "description": "Hold your action until a specific condition occurs, then react immediately"
+    },
+    {
+      "name": "Search",
+      "summary": "Make a Wisdom (Insight, Medicine, Perception, or Survival) check",
+      "category": "Investigation", 
+      "description": "Look for hidden objects, creatures, or information using careful observation"
+    },
+    {
+      "name": "Study",
+      "summary": "Make an Intelligence (Arcana, History, Investigation, Nature, or Religion) check",
+      "category": "Investigation",
+      "description": "Examine something closely to understand its properties, history, or function"
+    },
+    {
+      "name": "Utilize",
+      "summary": "Use a nonmagical object",
+      "category": "Utility",
+      "description": "Interact with mundane items like tools, equipment, or environmental objects"
+    }
+  ],
+  "action_categories": {
+    "combat": {
+      "actions": ["Attack", "Dodge"],
+      "focus": "Direct engagement in battle"
+    },
+    "movement": {
+      "actions": ["Dash", "Disengage"],
+      "focus": "Positioning and tactical movement"
+    },
+    "social": {
+      "actions": ["Help", "Influence"], 
+      "focus": "Interacting with other creatures"
+    },
+    "investigation": {
+      "actions": ["Search", "Study"],
+      "focus": "Gathering information and understanding"
+    },
+    "stealth": {
+      "actions": ["Hide"],
+      "focus": "Avoiding detection"
+    },
+    "magic": {
+      "actions": ["Magic"],
+      "focus": "Using supernatural abilities"
+    },
+    "support": {
+      "actions": ["Help"],
+      "focus": "Assisting allies"
+    },
+    "tactical": {
+      "actions": ["Ready"],
+      "focus": "Strategic timing and positioning"
+    },
+    "utility": {
+      "actions": ["Utilize"],
+      "focus": "Using equipment and objects"
+    }
+  },
+  "skill_associations": {
+    "influence_skills": ["Deception", "Intimidation", "Performance", "Persuasion", "Animal Handling"],
+    "search_skills": ["Insight", "Medicine", "Perception", "Survival"],
+    "study_skills": ["Arcana", "History", "Investigation", "Nature", "Religion"],
+    "hide_skills": ["Stealth"]
+  },
+  "improvised_actions": {
+    "description": "When you describe an action not detailed elsewhere in the rules, the Dungeon Master tells you whether that action is possible and what kind of D20 Test you need to make, if any",
+    "dm_authority": "The DM has final say on whether improvised actions are possible",
+    "resolution": "DM determines if a D20 Test is needed and sets the DC",
+    "examples": [
+      "Attempting to swing from a chandelier",
+      "Trying to reason with a wild animal",
+      "Improvising a distraction",
+      "Creating a makeshift tool"
+    ]
+  },
+  "additional_action_sources": [
+    "Class features that grant unique actions",
+    "Feats that provide new action options", 
+    "Spells that can be cast as actions",
+    "Magic items with activated abilities",
+    "Racial traits with action-based effects",
+    "Environmental interactions specific to locations"
+  ],
+  "total_standard_actions": 12,
+  "action_economy": {
+    "description": "Most characters can take one action per turn, plus movement and various bonus actions or reactions as available",
+    "limitation": "Generally limited to one action per turn unless specific features grant additional actions",
+    "interaction": "Actions work alongside bonus actions, reactions, and free object interactions to create tactical choices"
+  }
+}

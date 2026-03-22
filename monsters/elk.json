@@ -1,0 +1,87 @@
+{
+  "name": "Elk",
+  "size": "Large",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 10,
+  "initiative": 0,
+  "hit_points": {
+    "average": 11,
+    "formula": "2d10"
+  },
+  "speed": {
+    "walk": 50
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 16,
+      "modifier": 3,
+      "save": 3
+    },
+    "dexterity": {
+      "score": 10,
+      "modifier": 0,
+      "save": 0
+    },
+    "constitution": {
+      "score": 11,
+      "modifier": 0,
+      "save": 0
+    },
+    "intelligence": {
+      "score": 2,
+      "modifier": -4,
+      "save": -4
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0,
+      "save": 0
+    },
+    "charisma": {
+      "score": 6,
+      "modifier": -2,
+      "save": -2
+    }
+  },
+  "skills": {
+    "perception": 2
+  },
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 12
+  },
+  "languages": [],
+  "challenge_rating": 0.25,
+  "experience_points": 50,
+  "proficiency_bonus": 2,
+  "actions": [
+    {
+      "name": "Ram",
+      "type": "melee_attack",
+      "attack_bonus": 5,
+      "reach": 5,
+      "targets": "one target",
+      "damage": {
+        "damage_dice": "1d6 + 3",
+        "damage_type": "bludgeoning",
+        "average_damage": 6
+      },
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 6 (1d6 + 3) Bludgeoning damage. If the target is a Large or smaller creature and the elk moved 20+ feet straight toward it immediately before the hit, the target takes an extra 3 (1d6) Bludgeoning damage and has the Prone condition.",
+      "conditions_applied": ["prone"]
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "traits": [],
+  "tactical_info": {
+    "optimal_range": "Charging distance for momentum-based attacks",
+    "key_abilities": ["Charging ram with extra damage", "Prone-inducing attack", "High speed"],
+    "weaknesses": ["Low AC and constitution", "Predictable charging tactics", "No special defenses"],
+    "synergies": ["Forest and plains encounters", "Charging cavalry tactics", "Prone setup for allies"]
+  }
+}

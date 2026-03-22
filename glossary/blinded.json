@@ -1,0 +1,18 @@
+{
+  "name": "Blinded",
+  "slug": "blinded",
+  "definition": "While you have the Blinded condition, you experience the following effects.",
+  "category": "Conditions",
+  "tags": ["Condition"],
+  "full_text": "While you have the Blinded condition, you experience the following effects. You can't see and automatically fail any ability check that requires sight. Attack rolls against you have Advantage, and your attack rolls have Disadvantage.",
+  "effects": {
+    "can_not_see": "You can't see and automatically fail any ability check that requires sight",
+    "attacks_affected": "Attack rolls against you have Advantage, and your attack rolls have Disadvantage"
+  },
+  "see_also": [
+    "Condition",
+    "Advantage",
+    "Disadvantage",
+    "Blindsight"
+  ]
+}

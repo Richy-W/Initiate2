@@ -1,0 +1,112 @@
+{
+  "name": "Bronze Dragon Wyrmling",
+  "size": "Medium",
+  "type": "Dragon (Metallic)",
+  "alignment": "Lawful Good",
+  "armor_class": {
+    "value": 15,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 2,
+    "total": 12
+  },
+  "hit_points": {
+    "average": 39,
+    "formula": "6d8 + 12"
+  },
+  "speed": {
+    "walk": 30,
+    "fly": 60,
+    "swim": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 17,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "dexterity": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 2
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "wisdom": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 2
+    },
+    "charisma": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    }
+  },
+  "skills": {
+    "perception": 4,
+    "stealth": 2
+  },
+  "damage_immunities": ["Lightning"],
+  "senses": {
+    "blindsight": 10,
+    "darkvision": 60,
+    "passive_perception": 14
+  },
+  "languages": ["Draconic"],
+  "challenge_rating": {
+    "cr": 2,
+    "xp": 450,
+    "proficiency_bonus": 2
+  },
+  "traits": [
+    {
+      "name": "Amphibious",
+      "description": "The dragon can breathe air and water."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The dragon makes two Rend attacks."
+    },
+    {
+      "name": "Rend",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 8 (1d10 + 3) Slashing damage.",
+      "attack_roll": 5,
+      "reach": 5,
+      "damage": "8 (1d10 + 3)",
+      "damage_type": "Slashing"
+    },
+    {
+      "name": "Lightning Breath (Recharge 5–6)",
+      "description": "Dexterity Saving Throw: DC 12, each creature in a 40-foot-long, 5-foot-wide Line. Failure: 16 (3d10) Lightning damage. Success: Half damage.",
+      "save_dc": 12,
+      "damage": "16 (3d10)",
+      "damage_type": "Lightning",
+      "area": "40-foot Line, 5 feet wide"
+    },
+    {
+      "name": "Repulsion Breath",
+      "description": "Strength Saving Throw: DC 12, each creature in a 30-foot Cone. Failure: The target is pushed up to 30 feet straight away from the dragon and has the Prone condition.",
+      "save_dc": 12,
+      "area": "30-foot Cone"
+    }
+  ],
+  "tactical_info": {
+    "role": "Young Dragon/Controller",
+    "environment": "Coastal regions, underwater lairs, bronze hoards",
+    "tactics": "Uses repulsion breath for positioning, lightning breath for damage",
+    "weaknesses": "Young and inexperienced, lawful nature",
+    "signature_abilities": ["Dual breath weapons", "Amphibious", "Lightning immunity"]
+  }
+}

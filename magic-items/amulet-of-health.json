@@ -1,0 +1,38 @@
+{
+  "id": "amulet-of-health",
+  "name": "Amulet of Health",
+  "rarity": "Rare",
+  "category": "Wondrous Item",
+  "attunement_required": true,
+  "weight": "Negligible",
+  "value": "3000 GP",
+  "description": "Your Constitution is 19 while you wear this amulet. It has no effect on you if your Constitution is 19 or higher without it.",
+  "properties": [
+    "Enchanted",
+    "Ability Score Setting",
+    "Constitution Bonus"
+  ],
+  "effect": {
+    "type": "Constitution Setting",
+    "effect": "Constitution becomes 19",
+    "condition": "While wearing the amulet",
+    "limitation": "No effect if your natural Constitution is already 19 or higher"
+  },
+  "attunement": {
+    "required": true,
+    "description": "You must attune to this amulet by wearing it for 1 hour."
+  },
+  "activation": {
+    "type": "Passive",
+    "description": "The magic functions automatically while attuned and wearing the amulet"
+  },
+  "consumable": false,
+  "source": "Player's Handbook",
+  "mechanical_implications": {
+    "hit_points_increase": "Increases HP if Constitution modifier improves",
+    "constitution_modifier": "Becomes +4 if previous score was lower",
+    "saving_throws": "CON saves benefit from higher score",
+    "spell_save_dc": "If spellcaster with CON-based spells"
+  },
+  "notes": "This item is particularly valuable for classes with poor Constitution or those needing maximum HP."
+}

@@ -1,0 +1,36 @@
+{
+  "name": "Heward's Handy Haversack",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "attunement": false,
+  "weight": "5 pounds",
+  "description": "This backpack has a central pouch and two side pouches, each of which is an extradimensional space. Each side pouch can hold up to 200 pounds of material, not exceeding a volume of 25 cubic feet. The central pouch can hold up to 500 pounds of material, not exceeding a volume of 64 cubic feet.",
+  "properties": {
+    "weight": "5 pounds (regardless of contents)",
+    "pouches": [
+      {
+        "name": "Side Pouches (2)",
+        "capacity": "200 pounds each",
+        "volume": "25 cubic feet each"
+      },
+      {
+        "name": "Central Pouch",
+        "capacity": "500 pounds",
+        "volume": "64 cubic feet"
+      }
+    ],
+    "retrieval": {
+      "action": "Utilize action or Bonus Action (your choice)",
+      "feature": "When reaching for specific item, it's always magically on top"
+    },
+    "destruction": {
+      "conditions": "If pouch is overloaded, pierced, torn, or haversack turned inside out",
+      "effect": "If destroyed, contents lost forever (except Artifacts always return)"
+    },
+    "air": "Each pouch holds enough air for 10 minutes of breathing, divided by number of breathing creatures",
+    "extradimensional_interaction": {
+      "effect": "Placing haversack inside Bag of Holding, Portable Hole, or similar instantly destroys both items",
+      "gate_effect": "Opens one-way gate to Astral Plane. Any creature within 10 feet not behind Total Cover is sucked through and deposited at random location. Gate closes and can't be reopened."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Object",
+  "slug": "object",
+  "definition": "A nonliving, distinct thing in the game world",
+  "category": "Objects & Items",
+  "tags": ["thing", "nonliving"],
+  "full_text": "An object is a nonliving, distinct thing. Composite things, like buildings, comprise more than one object.",
+  "mechanics": {
+    "nature": "Nonliving and distinct",
+    "composition": "Buildings and complex structures are multiple objects"
+  },
+  "see_also": ["breaking-objects", "occupied-space"]
+}

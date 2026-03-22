@@ -1,0 +1,323 @@
+{
+  "title": "D&D 5e 2024 Tools",
+  "version": "2024",
+  "description": "Complete list of all tools with abilities, uses, and crafting capabilities",
+  "tools": [
+    {
+      "name": "Alchemist's Supplies",
+      "category": "Artisan's Tools",
+      "cost": { "amount": 50, "currency": "gp" },
+      "weight": 8,
+      "ability": "intelligence",
+      "utilize": [
+        { "action": "Identify a substance", "dc": 15 },
+        { "action": "Start a fire", "dc": 15 }
+      ],
+      "craft": ["Acid", "Alchemist's Fire", "Component Pouch", "Oil", "Paper", "Perfume"]
+    },
+    {
+      "name": "Brewer's Supplies",
+      "category": "Artisan's Tools",
+      "cost": { "amount": 20, "currency": "gp" },
+      "weight": 9,
+      "ability": "intelligence",
+      "utilize": [
+        { "action": "Detect poisoned drink", "dc": 15 },
+        { "action": "Identify alcohol", "dc": 10 }
+      ],
+      "craft": ["Antitoxin"]
+    },
+    {
+      "name": "Calligrapher's Supplies",
+      "category": "Artisan's Tools",
+      "cost": { "amount": 10, "currency": "gp" },
+      "weight": 5,
+      "ability": "dexterity",
+      "utilize": [
+        { "action": "Write text with impressive flourishes that guard against forgery", "dc": 15 }
+      ],
+      "craft": ["Ink", "Spell Scroll"]
+    },
+    {
+      "name": "Carpenter's Tools",
+      "category": "Artisan's Tools",
+      "cost": { "amount": 8, "currency": "gp" },
+      "weight": 6,
+      "ability": "strength",
+      "utilize": [
+        { "action": "Seal or pry open a door or container", "dc": 20 }
+      ],
+      "craft": ["Club", "Greatclub", "Quarterstaff", "Barrel", "Chest", "Ladder", "Pole", "Portable Ram", "Torch"]
+    },
+    {
+      "name": "Cartographer's Tools",
+      "category": "Artisan's Tools",
+      "cost": { "amount": 15, "currency": "gp" },
+      "weight": 6,
+      "ability": "wisdom",
+      "utilize": [
+        { "action": "Draft a map of a small area", "dc": 15 }
+      ],
+      "craft": ["Map"]
+    },
+    {
+      "name": "Cobbler's Tools",
+      "category": "Artisan's Tools",
+      "cost": { "amount": 5, "currency": "gp" },
+      "weight": 5,
+      "ability": "dexterity",
+      "utilize": [
+        { "action": "Modify footwear to give Advantage on the wearer's next Dexterity (Acrobatics) check", "dc": 10 }
+      ],
+      "craft": ["Climber's Kit"]
+    },
+    {
+      "name": "Cook's Utensils",
+      "category": "Artisan's Tools",
+      "cost": { "amount": 1, "currency": "gp" },
+      "weight": 8,
+      "ability": "wisdom",
+      "utilize": [
+        { "action": "Improve food's flavor", "dc": 10 },
+        { "action": "Detect spoiled or poisoned food", "dc": 15 }
+      ],
+      "craft": ["Rations"]
+    },
+    {
+      "name": "Glassblower's Tools",
+      "category": "Artisan's Tools",
+      "cost": { "amount": 30, "currency": "gp" },
+      "weight": 5,
+      "ability": "intelligence",
+      "utilize": [
+        { "action": "Discern what a glass object held in the past 24 hours", "dc": 15 }
+      ],
+      "craft": ["Glass Bottle", "Magnifying Glass", "Spyglass", "Vial"]
+    },
+    {
+      "name": "Jeweler's Tools",
+      "category": "Artisan's Tools",
+      "cost": { "amount": 25, "currency": "gp" },
+      "weight": 2,
+      "ability": "intelligence",
+      "utilize": [
+        { "action": "Discern a gem's value", "dc": 15 }
+      ],
+      "craft": ["Arcane Focus", "Holy Symbol"]
+    },
+    {
+      "name": "Leatherworker's Tools",
+      "category": "Artisan's Tools",
+      "cost": { "amount": 5, "currency": "gp" },
+      "weight": 5,
+      "ability": "dexterity",
+      "utilize": [
+        { "action": "Add a design to a leather item", "dc": 10 }
+      ],
+      "craft": ["Sling", "Whip", "Hide Armor", "Leather Armor", "Studded Leather Armor", "Backpack", "Crossbow Bolt Case", "Map or Scroll Case", "Parchment", "Pouch", "Quiver", "Waterskin"]
+    },
+    {
+      "name": "Mason's Tools",
+      "category": "Artisan's Tools",
+      "cost": { "amount": 10, "currency": "gp" },
+      "weight": 8,
+      "ability": "strength",
+      "utilize": [
+        { "action": "Chisel a symbol or hole in stone", "dc": 10 }
+      ],
+      "craft": ["Block and Tackle"]
+    },
+    {
+      "name": "Painter's Supplies",
+      "category": "Artisan's Tools",
+      "cost": { "amount": 10, "currency": "gp" },
+      "weight": 5,
+      "ability": "wisdom",
+      "utilize": [
+        { "action": "Paint a recognizable image of something you've seen", "dc": 10 }
+      ],
+      "craft": ["Druidic Focus", "Holy Symbol"]
+    },
+    {
+      "name": "Potter's Tools",
+      "category": "Artisan's Tools",
+      "cost": { "amount": 10, "currency": "gp" },
+      "weight": 3,
+      "ability": "intelligence",
+      "utilize": [
+        { "action": "Discern what a ceramic object held in the past 24 hours", "dc": 15 }
+      ],
+      "craft": ["Jug", "Lamp"]
+    },
+    {
+      "name": "Smith's Tools",
+      "category": "Artisan's Tools",
+      "cost": { "amount": 20, "currency": "gp" },
+      "weight": 8,
+      "ability": "strength",
+      "utilize": [
+        { "action": "Pry open a door or container", "dc": 20 }
+      ],
+      "craft": ["Any Melee weapon (except Club, Greatclub, Quarterstaff, and Whip)", "Medium armor (except Hide)", "Heavy armor", "Ball Bearings", "Bucket", "Caltrops", "Chain", "Crowbar", "Firearm Bullets", "Grappling Hook", "Iron Pot", "Iron Spikes", "Sling Bullets"]
+    },
+    {
+      "name": "Tinker's Tools",
+      "category": "Artisan's Tools",
+      "cost": { "amount": 50, "currency": "gp" },
+      "weight": 10,
+      "ability": "dexterity",
+      "utilize": [
+        { "action": "Assemble a Tiny item composed of scrap, which falls apart in 1 minute", "dc": 20 }
+      ],
+      "craft": ["Musket", "Pistol", "Bell", "Bullseye Lantern", "Flask", "Hooded Lantern", "Hunting Trap", "Lock", "Manacles", "Mirror", "Shovel", "Signal Whistle", "Tinderbox"]
+    },
+    {
+      "name": "Weaver's Tools",
+      "category": "Artisan's Tools",
+      "cost": { "amount": 1, "currency": "gp" },
+      "weight": 5,
+      "ability": "dexterity",
+      "utilize": [
+        { "action": "Mend a tear in clothing", "dc": 10 },
+        { "action": "Sew a Tiny design", "dc": 10 }
+      ],
+      "craft": ["Padded Armor", "Basket", "Bedroll", "Blanket", "Fine Clothes", "Net", "Robe", "Rope", "Sack", "String", "Tent", "Traveler's Clothes"]
+    },
+    {
+      "name": "Woodcarver's Tools",
+      "category": "Artisan's Tools",
+      "cost": { "amount": 1, "currency": "gp" },
+      "weight": 5,
+      "ability": "dexterity",
+      "utilize": [
+        { "action": "Carve a pattern in wood", "dc": 10 }
+      ],
+      "craft": ["Club", "Greatclub", "Quarterstaff", "Ranged weapons (except Pistol, Musket, and Sling)", "Arcane Focus", "Arrows", "Bolts", "Druidic Focus", "Ink Pen", "Needles"]
+    },
+    {
+      "name": "Disguise Kit",
+      "category": "Other Tools",
+      "cost": { "amount": 25, "currency": "gp" },
+      "weight": 3,
+      "ability": "charisma",
+      "utilize": [
+        { "action": "Apply makeup", "dc": 10 }
+      ],
+      "craft": ["Costume"]
+    },
+    {
+      "name": "Forgery Kit",
+      "category": "Other Tools",
+      "cost": { "amount": 15, "currency": "gp" },
+      "weight": 5,
+      "ability": "dexterity",
+      "utilize": [
+        { "action": "Mimic 10 or fewer words of someone else's handwriting", "dc": 15 },
+        { "action": "Duplicate a wax seal", "dc": 20 }
+      ],
+      "craft": []
+    },
+    {
+      "name": "Gaming Set",
+      "category": "Other Tools",
+      "cost": { "amount": "Varies", "currency": "varies" },
+      "weight": 0,
+      "ability": "wisdom",
+      "utilize": [
+        { "action": "Discern whether someone is cheating", "dc": 10 },
+        { "action": "Win the game", "dc": 20 }
+      ],
+      "craft": [],
+      "variants": [
+        { "name": "Dice", "cost": { "amount": 1, "currency": "sp" }, "weight": 0 },
+        { "name": "Dragonchess", "cost": { "amount": 1, "currency": "gp" }, "weight": 0 },
+        { "name": "Playing Cards", "cost": { "amount": 5, "currency": "sp" }, "weight": 0 },
+        { "name": "Three-Dragon Ante", "cost": { "amount": 1, "currency": "gp" }, "weight": 0 }
+      ]
+    },
+    {
+      "name": "Herbalism Kit",
+      "category": "Other Tools",
+      "cost": { "amount": 5, "currency": "gp" },
+      "weight": 3,
+      "ability": "intelligence",
+      "utilize": [
+        { "action": "Identify a plant", "dc": 10 }
+      ],
+      "craft": ["Antitoxin", "Candle", "Healer's Kit", "Potion of Healing"]
+    },
+    {
+      "name": "Musical Instrument",
+      "category": "Other Tools",
+      "cost": { "amount": "Varies", "currency": "varies" },
+      "weight": "Varies",
+      "ability": "charisma",
+      "utilize": [
+        { "action": "Play a known tune", "dc": 10 },
+        { "action": "Improvise a song", "dc": 15 }
+      ],
+      "craft": [],
+      "variants": [
+        { "name": "Bagpipes", "cost": { "amount": 30, "currency": "gp" }, "weight": 6 },
+        { "name": "Drum", "cost": { "amount": 6, "currency": "gp" }, "weight": 3 },
+        { "name": "Dulcimer", "cost": { "amount": 25, "currency": "gp" }, "weight": 10 },
+        { "name": "Flute", "cost": { "amount": 2, "currency": "gp" }, "weight": 1 },
+        { "name": "Horn", "cost": { "amount": 3, "currency": "gp" }, "weight": 2 },
+        { "name": "Lute", "cost": { "amount": 35, "currency": "gp" }, "weight": 2 },
+        { "name": "Lyre", "cost": { "amount": 30, "currency": "gp" }, "weight": 2 },
+        { "name": "Pan Flute", "cost": { "amount": 12, "currency": "gp" }, "weight": 2 },
+        { "name": "Shawm", "cost": { "amount": 2, "currency": "gp" }, "weight": 1 },
+        { "name": "Viol", "cost": { "amount": 30, "currency": "gp" }, "weight": 1 }
+      ]
+    },
+    {
+      "name": "Navigator's Tools",
+      "category": "Other Tools",
+      "cost": { "amount": 25, "currency": "gp" },
+      "weight": 2,
+      "ability": "wisdom",
+      "utilize": [
+        { "action": "Plot a course", "dc": 10 },
+        { "action": "Determine position by stargazing", "dc": 15 }
+      ],
+      "craft": []
+    },
+    {
+      "name": "Poisoner's Kit",
+      "category": "Other Tools",
+      "cost": { "amount": 50, "currency": "gp" },
+      "weight": 2,
+      "ability": "intelligence",
+      "utilize": [
+        { "action": "Detect a poisoned object", "dc": 10 }
+      ],
+      "craft": ["Basic Poison"]
+    },
+    {
+      "name": "Thieves' Tools",
+      "category": "Other Tools",
+      "cost": { "amount": 25, "currency": "gp" },
+      "weight": 1,
+      "ability": "dexterity",
+      "utilize": [
+        { "action": "Pick a lock", "dc": 15 },
+        { "action": "Disarm a trap", "dc": 15 }
+      ],
+      "craft": []
+    }
+  ],
+  "totalTools": 25,
+  "toolCategories": {
+    "artisans": 17,
+    "other": 8
+  },
+  "toolProficiency": {
+    "description": "If you have proficiency with a tool, add your Proficiency Bonus to any ability check you make that uses the tool. If you have proficiency in a skill that's used with that check, you have Advantage on the check too.",
+    "separateProficiencies": "Each Artisan's Tool requires a separate proficiency"
+  },
+  "craftingRules": {
+    "description": "Tools can be used to craft various items during downtime or with specific features",
+    "requirements": "Crafting typically requires time, materials, and sometimes specific conditions"
+  },
+  "sourceBook": "Player's Handbook 2024"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Potion of Poison",
+  "type": "Potion",
+  "rarity": "Uncommon",
+  "attunement": false,
+  "description": "This concoction looks, smells, and tastes like a Potion of Healing or another beneficial potion. However, it is actually poison masked by illusion magic. Identify reveals its true nature. If you drink this potion, you take 4d6 Poison damage and must succeed on a DC 13 Constitution saving throw or have the Poisoned condition for 1 hour.",
+  "properties": {
+    "deception": "Appears as beneficial potion (Healing or similar), but is actually poison",
+    "detection": "Identify spell reveals true nature",
+    "effect": {
+      "damage": "4d6 Poison damage",
+      "saving_throw": {
+        "type": "Constitution",
+        "dc": 13
+      },
+      "on_failure": {
+        "condition": "Poisoned",
+        "duration": "1 hour"
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Wand of Paralysis",
+  "type": "Wand",
+  "rarity": "Rare",
+  "attunement": true,
+  "attunement_class": "Spellcaster",
+  "description": "This wand has 7 charges. While holding it, you can take a Magic action to expend 1 charge to cause a thin blue ray to streak from the tip toward a creature you can see within 60 feet of yourself.",
+  "properties": {
+    "charges": {
+      "max_charges": 7,
+      "current_charges": 7
+    },
+    "paralysis": {
+      "action_type": "Magic action",
+      "charges_cost": 1,
+      "range": "60 feet",
+      "target": "Creature you can see",
+      "effect": "Thin blue ray from wand tip",
+      "saving_throw": {
+        "type": "Constitution",
+        "dc": 15
+      },
+      "on_failure": {
+        "condition": "Paralyzed",
+        "duration": "1 minute",
+        "repeat_save": "End of each turn"
+      }
+    },
+    "regaining_charges": {
+      "recharge": "1d6 + 1 daily at dawn",
+      "destruction_condition": "Expend last charge and roll 1d20",
+      "on_roll_1": "Wand crumbles into ashes and is destroyed"
+    }
+  }
+}

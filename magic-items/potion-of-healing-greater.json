@@ -1,0 +1,11 @@
+{
+  "name": "Potion of Healing (Greater)",
+  "type": "Potion",
+  "rarity": "Uncommon",
+  "attunement": false,
+  "description": "You regain Hit Points when you drink this potion. This greater potion restores 4d4 + 4 Hit Points. Whatever its potency, the potion's red liquid glimmers when agitated.",
+  "properties": {
+    "hit_points_restored": "4d4 + 4",
+    "appearance": "Red liquid that glimmers when agitated"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Suffocation",
+  "slug": "suffocation",
+  "definition": "A hazard where creatures lose breath and gain exhaustion",
+  "category": "Hazards",
+  "tags": ["[Hazard]", "exhaustion", "breathing"],
+  "full_text": "A creature can hold its breath for a number of minutes equal to 1 plus its Constitution modifier (minimum of 30 seconds) before suffocation begins. When a creature runs out of breath or is choking, it gains 1 Exhaustion level at the end of each of its turns. When a creature can breathe again, it removes all levels of Exhaustion it gained from suffocating.",
+  "mechanics": {
+    "breath_hold": "1 + CON modifier minutes (minimum 30 seconds)",
+    "suffocation_effect": "1 Exhaustion level at end of each turn",
+    "recovery": "All Exhaustion from suffocation removed when breathing resumes"
+  },
+  "see_also": ["exhaustion", "hazard"]
+}

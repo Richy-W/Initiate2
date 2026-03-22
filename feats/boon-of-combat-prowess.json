@@ -1,0 +1,28 @@
+{
+  "name": "Boon of Combat Prowess",
+  "category": "Epic Boon",
+  "prerequisite": {
+    "level": 19
+  },
+  "benefits": [
+    {
+      "name": "Ability Score Increase",
+      "description": "Increase one ability score of your choice by 1, to a maximum of 30.",
+      "type": "abilityScoreIncrease"
+    },
+    {
+      "name": "Peerless Aim",
+      "description": "When you miss with an attack roll, you can hit instead. Once you use this benefit, you can't use it again until the start of your next turn.",
+      "type": "combat"
+    }
+  ],
+  "repeatable": false,
+  "choices": [
+    {
+      "name": "Ability Score Increase",
+      "options": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
+      "count": 1
+    }
+  ],
+  "sourceBook": "Player's Handbook 2024"
+}

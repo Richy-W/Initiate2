@@ -1,0 +1,125 @@
+{
+  "title": "Spell Components and Casting",
+  "description": "Physical and temporal requirements for casting spells",
+  "version": "2024",
+  "casting_time": {
+    "description": "Specifies the time required to cast a spell",
+    "types": {
+      "magic_action": {
+        "description": "Most spells require the Magic action to cast",
+        "duration": "Part of your action on your turn"
+      },
+      "bonus_action": {
+        "description": "Some spells can be cast as a Bonus Action",
+        "duration": "Quick casting using your bonus action",
+        "trigger_based": "Some bonus action spells are cast in response to specific triggers"
+      },
+      "reaction": {
+        "description": "Cast in response to a specific trigger",
+        "duration": "Immediate response to the triggering event",
+        "trigger_requirement": "Must meet the specific trigger defined in the spell"
+      },
+      "longer_times": {
+        "description": "Some spells require minutes or hours to cast",
+        "mechanics": {
+          "action_requirement": "Must take the Magic action on each of your turns",
+          "concentration_requirement": "Must maintain Concentration while casting",
+          "failure_condition": "If Concentration is broken, the spell fails but no spell slot is expended",
+          "restart_requirement": "Must start over if the casting is interrupted"
+        }
+      }
+    },
+    "one_slot_per_turn_rule": "On a turn, you can expend only one spell slot to cast a spell"
+  },
+  "range": {
+    "description": "How far from the spellcaster the spell's effect can originate",
+    "types": {
+      "distance": {
+        "description": "The range is expressed in feet",
+        "example": "120 feet, 30 feet, 1 mile"
+      },
+      "touch": {
+        "description": "Must touch something within your reach",
+        "mechanics": "The spell's effect originates on the touched target"
+      },
+      "self": {
+        "description": "Cast on the spellcaster or emanates from them",
+        "mechanics": "Caster is the origin point of the spell"
+      }
+    },
+    "movable_effects": "If a spell has movable effects, they aren't restricted by its range unless stated otherwise"
+  },
+  "components": {
+    "description": "Physical requirements the spellcaster must meet to cast the spell",
+    "types": {
+      "verbal": {
+        "abbreviation": "V",
+        "description": "The chanting of esoteric words",
+        "requirements": {
+          "voice": "Must be uttered in a normal speaking voice",
+          "freedom": "Cannot be gagged or in an area of magical silence"
+        },
+        "mechanics": {
+          "power_source": "The specific combination of sounds, pitch, and resonance sets threads of magic in motion",
+          "meaningless": "The words sound like nonsense to the uninitiated"
+        },
+        "creation_method": {
+          "description": "Optional method for creating verbal components",
+          "steps": [
+            "Take the name of the spell",
+            "Keep only one instance of each letter", 
+            "Rearrange remaining letters into words",
+            "Example: 'Fireball' becomes 'Ber Fila' or 'Fel Bira'"
+          ]
+        }
+      },
+      "somatic": {
+        "abbreviation": "S", 
+        "description": "A forceful gesticulation or an intricate set of gestures",
+        "requirements": {
+          "hands": "Must use at least one hand to perform these movements",
+          "freedom": "Hand must be free to gesture"
+        }
+      },
+      "material": {
+        "abbreviation": "M",
+        "description": "A particular material used in the spell's casting",
+        "requirements": {
+          "specification": "Materials are specified in parentheses in the Components entry",
+          "consumption": "Materials aren't consumed unless the spell's description states otherwise",
+          "hand_requirement": "Must have a hand free to access materials"
+        },
+        "substitutions": {
+          "component_pouch": {
+            "description": "Can substitute for materials without specific cost",
+            "requirement": "Must have a hand free to reach into the pouch"
+          },
+          "spellcasting_focus": {
+            "description": "Can substitute if the caster has a feature allowing it",
+            "requirement": "Must hold the focus unless its description says otherwise"
+          },
+          "same_hand": "The hand used for materials can be the same used for Somatic components"
+        }
+      }
+    },
+    "failure_condition": "If the spellcaster can't provide one or more components, the spell cannot be cast"
+  },
+  "duration": {
+    "description": "The length of time the spell persists after it is cast",
+    "types": {
+      "concentration": {
+        "description": "Requires ongoing mental focus to maintain",
+        "mechanics": "Follows the Concentration rules in the Rules Glossary"
+      },
+      "instantaneous": {
+        "description": "The spell's magic appears only for a moment",
+        "mechanics": "Effects happen immediately and then the magic disappears"
+      },
+      "time_span": {
+        "description": "Specifies how long the spell lasts",
+        "units": ["rounds", "minutes", "hours", "days"],
+        "dismissal": "While ongoing, you can dismiss it (no action required) if you don't have the Incapacitated condition"
+      }
+    }
+  }
+}

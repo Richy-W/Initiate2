@@ -1,0 +1,63 @@
+{
+  "name": "Wolf",
+  "size": "Medium",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 12,
+  "hit_points": 11,
+  "hit_dice": "2d8 + 2",
+  "speed": {
+    "walk": 40
+  },
+  "ability_scores": {
+    "strength": 14,
+    "dexterity": 15,
+    "constitution": 12,
+    "intelligence": 3,
+    "wisdom": 12,
+    "charisma": 6
+  },
+  "saving_throws": {
+    "strength": 2,
+    "dexterity": 2,
+    "constitution": 1,
+    "intelligence": -4,
+    "wisdom": 1,
+    "charisma": -2
+  },
+  "skills": {
+    "perception": 5,
+    "stealth": 4
+  },
+  "senses": [
+    "Darkvision 60 ft.",
+    "Passive Perception 15"
+  ],
+  "languages": "None",
+  "challenge_rating": 0.25,
+  "experience_points": 50,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Pack Tactics",
+      "description": "The wolf has Advantage on attack rolls against a creature if at least one of the wolf's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 5 (1d6 + 2) Piercing damage. If the target is a Medium or smaller creature, it has the Prone condition."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Pack Hunter - Classic pack predator with prone control",
+    "positioning": "Uses Pack Tactics for advantage when grouped with allies",
+    "damage_output": "5 piercing damage with prone effect on Medium or smaller targets",
+    "key_abilities": "Pack Tactics advantage, prone-inducing bite, high perception (15)",
+    "weaknesses": "Low HP individually, relies on pack for effectiveness",
+    "synergies": "Devastating in groups, pairs well with dire wolves and werewolves"
+  }
+}

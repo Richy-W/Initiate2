@@ -1,0 +1,22 @@
+{
+  "name": "Oil of Sharpness",
+  "type": "Potion",
+  "rarity": "Very Rare",
+  "attunement": false,
+  "description": "One vial of this oil can coat one Melee weapon or twenty pieces of ammunition. Only nonmagical ammunition and Melee weapons that deal Slashing or Piercing damage are affected.",
+  "properties": {
+    "coverage_options": [
+      "One Melee weapon",
+      "Twenty pieces of ammunition"
+    ],
+    "requirements": [
+      "Nonmagical",
+      "Deals Slashing or Piercing damage"
+    ],
+    "application_time": "1 minute",
+    "effect": "Oil magically seeps into whatever it coats",
+    "weapon_bonus": "+3 Weapon",
+    "ammunition_bonus": "+3 Ammunition",
+    "appearance": "Clear, gelatinous oil sparkling with tiny, ultrathin silver shards"
+  }
+}

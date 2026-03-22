@@ -1,0 +1,94 @@
+{
+  "name": "Cultist Fanatic",
+  "size": "Medium",
+  "type": "Humanoid",
+  "alignment": "Any Non-Good",
+  "armor_class": {
+    "value": 13,
+    "source": "Studded Leather Armor"
+  },
+  "initiative": {
+    "bonus": 1,
+    "total": 11
+  },
+  "hit_points": {
+    "average": 33,
+    "formula": "6d8 + 6"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "charisma": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    }
+  },
+  "skills": {
+    "deception": 4,
+    "insight": 3,
+    "religion": 4
+  },
+  "senses": {
+    "passive_perception": 11
+  },
+  "languages": ["Two languages (usually Common and one other)"],
+  "challenge_rating": {
+    "cr": 2,
+    "xp": 450,
+    "proficiency_bonus": 2
+  },
+  "traits": [
+    {
+      "name": "Dark Devotion",
+      "description": "The fanatic has Advantage on saving throws against being Charmed or Frightened."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Pact Blade",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 6 (1d6 + 3) Slashing damage plus 3 (1d6) Necrotic or Psychic damage (the fanatic's choice).",
+      "attack_roll": 4,
+      "reach": 5,
+      "damage": "6 (1d6 + 3) + 3 (1d6)",
+      "damage_type": "Slashing plus Necrotic or Psychic"
+    },
+    {
+      "name": "Spellcasting",
+      "description": "The fanatic casts one of the following spells, using Charisma as the spellcasting ability (spell save DC 12): At Will: Light, Sacred Flame, Thaumaturgy; 1/Day Each: Command, Inflict Wounds, Shield of Faith"
+    }
+  ],
+  "tactical_info": {
+    "role": "Elite Cultist/Spellcaster",
+    "environment": "Cult leadership, dark temples, ritual sites, corrupted settlements",
+    "tactics": "Uses spellcasting for battlefield control, enhances melee with pact blade, commands lesser cultists",
+    "weaknesses": "Limited spell slots, moderate armor class, vulnerable when isolated from followers",
+    "signature_abilities": ["Pact blade with necrotic/psychic damage", "Divine spellcasting", "Leadership presence", "Dark devotion"]
+  }
+}

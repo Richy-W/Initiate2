@@ -1,0 +1,98 @@
+{
+  "name": "Hell Hound",
+  "size": "Medium",
+  "type": "Fiend",
+  "alignment": "Lawful Evil",
+  "armor_class": {
+    "value": 15,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 1,
+    "total": 11
+  },
+  "hit_points": {
+    "average": 58,
+    "formula": "9d8 + 18"
+  },
+  "speed": {
+    "walk": 50
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 17,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "intelligence": {
+      "score": 6,
+      "modifier": -2,
+      "saving_throw": -2
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "charisma": {
+      "score": 6,
+      "modifier": -2,
+      "saving_throw": -2
+    }
+  },
+  "skills": {
+    "perception": 5
+  },
+  "damage_immunities": ["Fire"],
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 15
+  },
+  "languages": ["Understands Infernal but can't speak"],
+  "challenge_rating": {
+    "cr": 3,
+    "xp": 700,
+    "proficiency_bonus": 2
+  },
+  "traits": [
+    {
+      "name": "Pack Tactics",
+      "description": "The hound has Advantage on an attack roll against a creature if at least one of the hound's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The hound makes two Bite attacks."
+    },
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 7 (1d8 + 3) Piercing damage plus 3 (1d6) Fire damage.",
+      "attack_roll": 5,
+      "reach": 5,
+      "damage": "7 (1d8 + 3) Piercing plus 3 (1d6) Fire",
+      "damage_type": "Piercing + Fire"
+    },
+    {
+      "name": "Fire Breath (Recharge 5-6)",
+      "description": "Dexterity Saving Throw: DC 12, each creature in a 15-foot Cone. Failure: 17 (5d6) Fire damage. Success: Half damage."
+    }
+  ],
+  "tactical_info": {
+    "role": "Infernal Pack Hunter",
+    "environment": "Nine Hells, fiendish strongholds, summoned to Material Plane, areas of infernal influence",
+    "tactics": "Hunts in packs for advantage, uses fire breath for area control, high speed for pursuit",
+    "weaknesses": "Relies on pack tactics for effectiveness, vulnerable to cold damage, limited intelligence",
+    "signature_abilities": ["Pack tactics advantage", "Fire breath weapon", "High movement speed", "Fire immunity"]
+  }
+}

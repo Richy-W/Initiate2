@@ -1,0 +1,112 @@
+{
+  "name": "Chimera",
+  "size": "Large",
+  "type": "Monstrosity",
+  "alignment": "Chaotic Evil",
+  "armor_class": {
+    "value": 14,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 0,
+    "total": 10
+  },
+  "hit_points": {
+    "average": 114,
+    "formula": "12d10 + 48"
+  },
+  "speed": {
+    "walk": 30,
+    "fly": 60
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 19,
+      "modifier": 4,
+      "saving_throw": 4
+    },
+    "dexterity": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "constitution": {
+      "score": 19,
+      "modifier": 4,
+      "saving_throw": 4
+    },
+    "intelligence": {
+      "score": 3,
+      "modifier": -4,
+      "saving_throw": -4
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    }
+  },
+  "skills": {
+    "perception": 8
+  },
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 18
+  },
+  "languages": ["Understands Draconic but can't speak"],
+  "challenge_rating": {
+    "cr": 6,
+    "xp": 2300,
+    "proficiency_bonus": 3
+  },
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The chimera makes one Ram attack, one Bite attack, and one Claw attack. It can replace the Claw attack with a use of Fire Breath if available."
+    },
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +7, reach 5 ft. Hit: 11 (2d6 + 4) Piercing damage, or 18 (4d6 + 4) Piercing damage if the chimera had Advantage on the attack roll.",
+      "attack_roll": 7,
+      "reach": 5,
+      "damage": "11 (2d6 + 4) or 18 (4d6 + 4)",
+      "damage_type": "Piercing"
+    },
+    {
+      "name": "Claw",
+      "description": "Melee Attack Roll: +7, reach 5 ft. Hit: 7 (1d6 + 4) Slashing damage.",
+      "attack_roll": 7,
+      "reach": 5,
+      "damage": "7 (1d6 + 4)",
+      "damage_type": "Slashing"
+    },
+    {
+      "name": "Ram",
+      "description": "Melee Attack Roll: +7, reach 5 ft. Hit: 10 (1d12 + 4) Bludgeoning damage. If the target is a Medium or smaller creature, it has the Prone condition.",
+      "attack_roll": 7,
+      "reach": 5,
+      "damage": "10 (1d12 + 4)",
+      "damage_type": "Bludgeoning"
+    },
+    {
+      "name": "Fire Breath (Recharge 5–6)",
+      "description": "Dexterity Saving Throw: DC 15, each creature in a 15-foot Cone. Failure: 31 (7d8) Fire damage. Success: Half damage.",
+      "save_dc": 15,
+      "damage": "31 (7d8)",
+      "damage_type": "Fire",
+      "area": "15-foot Cone"
+    }
+  ],
+  "tactical_info": {
+    "role": "Solo Monster/Brute",
+    "environment": "Mountain lairs, ancient ruins, chaotic wilderness",
+    "tactics": "Multiattack combinations, fire breath on groups, flies to gain advantage",
+    "weaknesses": "Low dexterity, chaotic nature",
+    "signature_abilities": ["Triple attack multiattack", "Fire breath", "Flight mobility", "Keen senses"]
+  }
+}

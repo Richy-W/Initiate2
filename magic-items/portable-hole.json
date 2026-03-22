@@ -1,0 +1,46 @@
+{
+  "name": "Portable Hole",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "attunement": false,
+  "description": "This fine black cloth, soft as silk, is folded up to the dimensions of a handkerchief. It unfolds into a circular sheet 6 feet in diameter.",
+  "properties": {
+    "extradimensional_space": {
+      "size": "6 feet diameter circular sheet",
+      "depth": "10 feet",
+      "plane": "Different plane of existence"
+    },
+    "unfold": {
+      "action_type": "Magic action",
+      "effect": "Unfold and place on solid surface to create hole",
+      "placement": "On or against a solid surface"
+    },
+    "fold": {
+      "action_type": "Magic action",
+      "effect": "Close hole by taking hold of edges and folding up",
+      "contents_trapped": "Creatures or objects inside remain in extradimensional space"
+    },
+    "escape_from_closed": {
+      "requirement": "Creature inside closed hole",
+      "action_type": "Action",
+      "saving_throw": {
+        "type": "Strength (Athletics)",
+        "dc": 10
+      },
+      "on_success": "Creature forces way out, appears within 5 feet",
+      "on_failure": "Remains trapped"
+    },
+    "air_supply": {
+      "closed_hole_air": "1 hour of breathing divided by number of breathing creatures"
+    },
+    "weight": "Weighs next to nothing",
+    "danger_astral_gate": {
+      "warning": "Placing inside Bag of Holding, Heward's Handy Haversack, or similar extradimensional item",
+      "effect": "Destroys both items and opens gate to Astral Plane",
+      "gate_location": "Where item was placed inside other",
+      "suction": "Creatures within 10 feet without Total Cover sucked through",
+      "destination": "Random location on Astral Plane",
+      "gate_properties": "One-way only, can't be reopened"
+    }
+  }
+}

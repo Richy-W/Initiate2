@@ -1,0 +1,105 @@
+{
+  "name": "Adult Silver Dragon",
+  "size": "Huge",
+  "type": "Dragon (Metallic)",
+  "alignment": "Lawful Good",
+  "armor_class": 19,
+  "hit_points": {
+    "average": 216,
+    "formula": "16d12 + 112"
+  },
+  "speed": {
+    "walk": 40,
+    "fly": 80
+  },
+  "initiative": 20,
+  "ability_scores": {
+    "strength": 27,
+    "dexterity": 10,
+    "constitution": 25,
+    "intelligence": 16,
+    "wisdom": 13,
+    "charisma": 22
+  },
+  "saving_throws": {
+    "dexterity": 5,
+    "constitution": 12,
+    "wisdom": 6,
+    "charisma": 11
+  },
+  "skills": {
+    "history": 8,
+    "perception": 11,
+    "stealth": 5
+  },
+  "damage_resistances": [],
+  "damage_immunities": ["cold"],
+  "condition_immunities": [],
+  "senses": {
+    "blindsight": 60,
+    "darkvision": 120,
+    "passive_perception": 21
+  },
+  "languages": ["Common", "Draconic"],
+  "challenge_rating": 16,
+  "proficiency_bonus": 5,
+  "traits": [
+    {
+      "name": "Legendary Resistance (3/Day, or 4/Day in Lair)",
+      "description": "If the dragon fails a saving throw, it can choose to succeed instead."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The dragon makes three Rend attacks. It can replace one attack with a use of (A) Paralyzing Breath or (B) Spellcasting to cast Ice Knife."
+    },
+    {
+      "name": "Rend",
+      "description": "Melee Attack Roll: +13, reach 10 ft. Hit: 17 (2d8 + 8) Slashing damage plus 4 (1d8) Cold damage."
+    },
+    {
+      "name": "Cold Breath (Recharge 5–6)",
+      "description": "Constitution Saving Throw: DC 20, each creature in a 60-foot Cone. Failure: 54 (12d8) Cold damage. Success: Half damage."
+    },
+    {
+      "name": "Paralyzing Breath",
+      "description": "Constitution Saving Throw: DC 20, each creature in a 60-foot Cone. First Failure: The target has the Incapacitated condition until the end of its next turn, when it repeats the save. Second Failure: The target has the Paralyzed condition, and it repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically."
+    }
+  ],
+  "spellcasting": {
+    "ability": "charisma",
+    "save_dc": 19,
+    "attack_bonus": 11,
+    "spells": {
+      "at_will": ["detect magic", "hold monster", "ice knife", "shapechange (Beast or Humanoid form only, no Temporary Hit Points gained from the spell, and no Concentration or Temporary Hit Points required to maintain the spell)"],
+      "1_per_day_each": ["ice storm (level 5 version)", "zone of truth"]
+    },
+    "notes": "Requires no Material components"
+  },
+  "legendary_actions": {
+    "per_turn": 3,
+    "lair_bonus": 1,
+    "actions": [
+      {
+        "name": "Chill",
+        "description": "The dragon uses Spellcasting to cast Hold Monster. The dragon can't take this action again until the start of its next turn."
+      },
+      {
+        "name": "Cold Gale",
+        "description": "Dexterity Saving Throw: DC 19, each creature in a 60-foot-long, 10-foot-wide Line. Failure: 14 (4d6) Cold damage, and the target is pushed up to 30 feet straight away from the dragon. Success: Half damage only. Failure or Success: The dragon can't take this action again until the start of its next turn."
+      },
+      {
+        "name": "Pounce",
+        "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
+      }
+    ]
+  },
+  "tactical_info": {
+    "combat_role": "Legendary Metallic Dragon/Cold Controller",
+    "preferred_range": "Mixed - breath weapons, spells, and legendary actions",
+    "key_abilities": ["Dual breath weapons", "Shape-changing ability", "Legendary cold attacks", "Hold monster control"],
+    "weaknesses": ["Good alignment limits tactics", "Recharge-dependent breath", "Vulnerable to fire attacks"],
+    "tactics": "Uses shapechange for infiltration, paralyzing breath for crowd control, hold monster via legendary actions, cold gale for positioning and knockback effects."
+  }
+}

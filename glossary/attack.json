@@ -1,0 +1,24 @@
+{
+  "name": "Attack",
+  "slug": "attack",
+  "definition": "When you take the Attack action, you can make one attack roll with a weapon or an Unarmed Strike.",
+  "category": "Actions",
+  "tags": ["Action"],
+  "full_text": "When you take the Attack action, you can make one attack roll with a weapon or an Unarmed Strike.",
+  "equipping_weapons": {
+    "description": "You can either equip or unequip one weapon when you make an attack as part of this action.",
+    "timing": "You do so either before or after the attack",
+    "equipping": "Drawing from sheath or picking it up",
+    "unequipping": "Sheathing, stowing, or dropping it",
+    "note": "If you equip a weapon before an attack, you don't need to use it for that attack"
+  },
+  "moving_between_attacks": {
+    "description": "If you move on your turn and have a feature that gives you more than one attack as part of the Attack action, you can use some or all of that movement to move between those attacks",
+    "examples": "Extra Attack feature"
+  },
+  "see_also": [
+    "Attack Roll",
+    "Unarmed Strike",
+    "Action"
+  ]
+}

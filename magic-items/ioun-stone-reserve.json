@@ -1,0 +1,27 @@
+{
+  "name": "Ioun Stone: Reserve",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "attunement": true,
+  "description": "This vibrant purple prism stores spells cast into it, holding them until you use them. The stone can store up to 4 levels of spells at a time. When found, it contains 1d4 levels of stored spells chosen by the DM.",
+  "properties": {
+    "shape": "Vibrant purple prism",
+    "orbit": "1d3 feet from head",
+    "max_concurrent_stones": 3,
+    "spell_storage": {
+      "capacity": "4 levels of spells",
+      "initial_storage": "1d4 levels (DM's choice)",
+      "casting_into_stone": {
+        "activation": "Touch stone as spell is cast",
+        "effect": "Spell stored in stone with no other effect",
+        "restriction": "Level 1-4 spells only",
+        "condition": "Must have available space"
+      },
+      "casting_from_stone": {
+        "availability": "While stone orbits head",
+        "effect": "Cast any stored spell using original caster's slot level, save DC, attack bonus, and ability",
+        "removal": "Spell no longer stored after casting, freeing up space"
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Ioun Stone: Sustenance",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "attunement": true,
+  "description": "You don't need to eat or drink while this clear spindle orbits your head.",
+  "properties": {
+    "shape": "Clear spindle",
+    "orbit": "1d3 feet from head",
+    "max_concurrent_stones": 3,
+    "sustenance": "No need to eat or drink"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Staff of Frost",
+  "type": "Staff",
+  "rarity": "Very Rare",
+  "attunement": true,
+  "attunement_class": "Druid, Sorcerer, Warlock, or Wizard",
+  "description": "You have Resistance to Cold damage while you hold this staff.",
+  "properties": {
+    "resistance": "Cold damage",
+    "charges": {
+      "max_charges": 10,
+      "current_charges": 10
+    },
+    "spells": [
+      {
+        "spell": "Cone of Cold",
+        "charges": 5
+      },
+      {
+        "spell": "Fog Cloud",
+        "charges": 1
+      },
+      {
+        "spell": "Ice Storm",
+        "charges": 4
+      },
+      {
+        "spell": "Wall of Ice",
+        "charges": 4
+      }
+    ],
+    "spell_save_dc": "Your spell save DC",
+    "regaining_charges": {
+      "recharge": "1d6 + 4 daily at dawn",
+      "destruction_condition": "Expend last charge and roll 1d20",
+      "on_roll_1": "Staff turns to water and is destroyed"
+    }
+  }
+}

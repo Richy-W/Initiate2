@@ -1,0 +1,15 @@
+{
+  "name": "Ritual",
+  "slug": "ritual",
+  "definition": "A way to cast a spell you have prepared without using a spell slot",
+  "category": "Magic & Spells",
+  "tags": ["spellcasting", "preparation"],
+  "full_text": "If you have a spell prepared that has the Ritual tag, you can cast that spell as a Ritual. The Ritual version of a spell takes 10 minutes longer to cast than normal. It also doesn't expend a spell slot, which means the ritual version of a spell can't be cast at a higher level.",
+  "mechanics": {
+    "requirement": "Spell must be prepared with Ritual tag",
+    "benefit": "No spell slot expended",
+    "casting_time": "10 minutes longer than normal",
+    "limitation": "Can't be cast at higher level"
+  },
+  "see_also": ["spell", "spellcasting"]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Oathbow",
+  "type": "Weapon",
+  "weapon_type": ["Longbow", "Shortbow"],
+  "rarity": "Very Rare",
+  "attunement": true,
+  "description": "When you nock an arrow on this bow, it whispers in Elvish, 'Swift defeat to my enemies.' When you use this weapon to make a ranged attack, you can utter or sign the following command words: 'Swift death to you who have wronged me.' The target of your attack becomes your sworn enemy.",
+  "properties": {
+    "activation_message": "Whispers in Elvish: 'Swift defeat to my enemies'",
+    "command_words": "Swift death to you who have wronged me",
+    "sworn_enemy": {
+      "activation": "Ranged attack with command words",
+      "duration": "Until enemy dies or dawn 7 days later",
+      "limit": "Only one at a time",
+      "renewal": "Choose new one after next dawn when current dies"
+    },
+    "combat_benefits": {
+      "advantage": "Advantage on attack rolls against sworn enemy",
+      "cover_bypass": "Target gains no benefit from Half Cover or Three-Quarters Cover",
+      "range_penalty": "No Disadvantage due to long range",
+      "extra_damage": "3d6 Piercing damage on hit"
+    },
+    "penalty": "Disadvantage on attack rolls with all other weapons while sworn enemy lives"
+  }
+}

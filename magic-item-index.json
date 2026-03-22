@@ -1,0 +1,2373 @@
+{
+  "magic_items_index": {
+    "title": "D&D 2024 Magic Items API",
+    "description": "Comprehensive collection of magic items organized by category, rarity, and type",
+    "version": "2024",
+    "total_items": "Growing collection",
+    "organization": "Individual JSON files for each magic item with consistent schema"
+  },
+  "all_items": [
+    {
+      "name": "Adamantine Armor",
+      "file": "adamantine-armor.json",
+      "rarity": "Uncommon",
+      "category": "Armor",
+      "attunement": false
+    },
+    {
+      "name": "Ammunition, +1, +2, or +3",
+      "file": "ammunition-plus.json",
+      "rarity": "Uncommon/Rare/Very Rare",
+      "category": "Weapon",
+      "attunement": false
+    },
+    {
+      "name": "Ammunition of Slaying",
+      "file": "ammunition-of-slaying.json",
+      "rarity": "Very Rare",
+      "category": "Weapon",
+      "attunement": false
+    },
+    {
+      "name": "Amulet of Health",
+      "file": "amulet-of-health.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Amulet of Proof against Detection and Location",
+      "file": "amulet-of-proof-against-detection.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Animated Shield",
+      "file": "animated-shield.json",
+      "rarity": "Very Rare",
+      "category": "Armor",
+      "attunement": true
+    },
+    {
+      "name": "Apparatus of Kwalish",
+      "file": "apparatus-of-kwalish.json",
+      "rarity": "Legendary",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Armor, +1, +2, or +3",
+      "file": "armor-plus.json",
+      "rarity": "Rare/Very Rare/Legendary",
+      "category": "Armor",
+      "attunement": false
+    },
+    {
+      "name": "Armor of Resistance",
+      "file": "armor-of-resistance.json",
+      "rarity": "Rare",
+      "category": "Armor",
+      "attunement": true
+    },
+    {
+      "name": "Armor of Invulnerability",
+      "file": "armor-of-invulnerability.json",
+      "rarity": "Legendary",
+      "category": "Armor",
+      "attunement": true
+    },
+    {
+      "name": "Armor of Vulnerability",
+      "file": "armor-of-vulnerability.json",
+      "rarity": "Rare",
+      "category": "Armor",
+      "attunement": true
+    },
+    {
+      "name": "Arrow-Catching Shield",
+      "file": "arrow-catching-shield.json",
+      "rarity": "Rare",
+      "category": "Armor",
+      "attunement": true
+    },
+    {
+      "name": "Bag of Beans",
+      "file": "bag-of-beans.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Bag of Devouring",
+      "file": "bag-of-devouring.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Bag of Holding",
+      "file": "bag-of-holding.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Bag of Tricks",
+      "file": "bag-of-tricks.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Bead of Force",
+      "file": "bead-of-force.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Bead of Nourishment",
+      "file": "bead-of-nourishment.json",
+      "rarity": "Common",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Belt of Dwarvenkind",
+      "file": "belt-of-dwarvenkind.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Belt of Giant Strength",
+      "file": "belt-of-giant-strength.json",
+      "rarity": "Varies",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Berserker Axe",
+      "file": "berserker-axe.json",
+      "rarity": "Rare",
+      "category": "Weapon",
+      "attunement": true
+    },
+    {
+      "name": "Boots of Elvenkind",
+      "file": "boots-of-elvenkind.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Boots of Levitation",
+      "file": "boots-of-levitation.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Boots of Speed",
+      "file": "boots-of-speed.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Boots of Striding and Springing",
+      "file": "boots-of-striding-and-springing.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Boots of the Winterlands",
+      "file": "boots-of-the-winterlands.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Bowl of Commanding Water Elementals",
+      "file": "bowl-of-commanding-water-elementals.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Bracers of Archery",
+      "file": "bracers-of-archery.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Bracers of Defense",
+      "file": "bracers-of-defense.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Brazier of Commanding Fire Elementals",
+      "file": "brazier-of-commanding-fire-elementals.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Brooch of Shielding",
+      "file": "brooch-of-shielding.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Broom of Flying",
+      "file": "broom-of-flying.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Candle of Invocation",
+      "file": "candle-of-invocation.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Cape of the Mountebank",
+      "file": "cape-of-the-mountebank.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Carpet of Flying",
+      "file": "carpet-of-flying.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Censer of Controlling Air Elementals",
+      "file": "censer-of-controlling-air-elementals.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Chime of Opening",
+      "file": "chime-of-opening.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Circlet of Blasting",
+      "file": "circlet-of-blasting.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Cloak of Arachnida",
+      "file": "cloak-of-arachnida.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Cloak of Displacement",
+      "file": "cloak-of-displacement.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Cloak of Elvenkind",
+      "file": "cloak-of-elvenkind.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Cloak of Invisibility",
+      "file": "cloak-of-invisibility.json",
+      "rarity": "Legendary",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Cloak of Protection",
+      "file": "cloak-of-protection.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Cloak of the Bat",
+      "file": "cloak-of-the-bat.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Cloak of the Manta Ray",
+      "file": "cloak-of-the-manta-ray.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Crystal Ball",
+      "file": "crystal-ball.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Crystal Ball of Mind Reading",
+      "file": "crystal-ball-of-mind-reading.json",
+      "rarity": "Legendary",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Crystal Ball of Telepathy",
+      "file": "crystal-ball-of-telepathy.json",
+      "rarity": "Legendary",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Crystal Ball of True Seeing",
+      "file": "crystal-ball-of-true-seeing.json",
+      "rarity": "Legendary",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Cube of Force",
+      "file": "cube-of-force.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Cubic Gate",
+      "file": "cubic-gate.json",
+      "rarity": "Legendary",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Daern's Instant Fortress",
+      "file": "daerns-instant-fortress.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Dagger of Venom",
+      "file": "dagger-of-venom.json",
+      "rarity": "Rare",
+      "category": "Weapon",
+      "attunement": false
+    },
+    {
+      "name": "Dancing Sword",
+      "file": "dancing-sword.json",
+      "rarity": "Very Rare",
+      "category": "Weapon",
+      "attunement": true
+    },
+    {
+      "name": "Decanter of Endless Water",
+      "file": "decanter-of-endless-water.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Deck of Illusions",
+      "file": "deck-of-illusions.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Deck of Many Things",
+      "file": "deck-of-many-things.json",
+      "rarity": "Legendary",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Defender",
+      "file": "defender.json",
+      "rarity": "Legendary",
+      "category": "Weapon",
+      "attunement": true
+    },
+    {
+      "name": "Demon Armor",
+      "file": "demon-armor.json",
+      "rarity": "Very Rare",
+      "category": "Armor",
+      "attunement": true
+    },
+    {
+      "name": "Dimensional Shackles",
+      "file": "dimensional-shackles.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Dragon Scale Mail",
+      "file": "dragon-scale-mail.json",
+      "rarity": "Very Rare",
+      "category": "Armor",
+      "attunement": true
+    },
+    {
+      "name": "Dragon Slayer",
+      "file": "dragon-slayer.json",
+      "rarity": "Rare",
+      "category": "Weapon",
+      "attunement": false
+    },
+    {
+      "name": "Dust of Disappearance",
+      "file": "dust-of-disappearance.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Dust of Dryness",
+      "file": "dust-of-dryness.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Dust of Sneezing and Choking",
+      "file": "dust-of-sneezing-and-choking.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Dwarven Plate",
+      "file": "dwarven-plate.json",
+      "rarity": "Very Rare",
+      "category": "Armor",
+      "attunement": false
+    },
+    {
+      "name": "Dwarven Thrower",
+      "file": "dwarven-thrower.json",
+      "rarity": "Very Rare",
+      "category": "Weapon",
+      "attunement": true
+    },
+    {
+      "name": "Efreeti Bottle",
+      "file": "efreeti-bottle.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Efreeti Chain",
+      "file": "efreeti-chain.json",
+      "rarity": "Legendary",
+      "category": "Armor",
+      "attunement": true
+    },
+    {
+      "name": "Elemental Gem",
+      "file": "elemental-gem.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Elixir of Health",
+      "file": "elixir-of-health.json",
+      "rarity": "Rare",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Elven Chain",
+      "file": "elven-chain.json",
+      "rarity": "Rare",
+      "category": "Armor",
+      "attunement": false
+    },
+    {
+      "name": "Energy Bow",
+      "file": "energy-bow.json",
+      "rarity": "Very Rare",
+      "category": "Weapon",
+      "attunement": true
+    },
+    {
+      "name": "Eyes of the Eagle",
+      "file": "eyes-of-the-eagle.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Eversmoking Bottle",
+      "file": "eversmoking-bottle.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Eyes of Charming",
+      "file": "eyes-of-charming.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Eyes of Minute Seeing",
+      "file": "eyes-of-minute-seeing.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Figurine of Wondrous Power: Bronze Griffon",
+      "file": "figurine-bronze-griffon.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Figurine of Wondrous Power: Ebony Fly",
+      "file": "figurine-ebony-fly.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Figurine of Wondrous Power: Golden Lions",
+      "file": "figurine-golden-lions.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Figurine of Wondrous Power: Ivory Goats",
+      "file": "figurine-ivory-goats.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Figurine of Wondrous Power: Marble Elephant",
+      "file": "figurine-marble-elephant.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Figurine of Wondrous Power: Obsidian Steed",
+      "file": "figurine-obsidian-steed.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Figurine of Wondrous Power: Onyx Dog",
+      "file": "figurine-onyx-dog.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Figurine of Wondrous Power: Serpentine Owl",
+      "file": "figurine-serpentine-owl.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Figurine of Wondrous Power: Silver Raven",
+      "file": "figurine-silver-raven.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Flame Tongue",
+      "file": "flame-tongue.json",
+      "rarity": "Rare",
+      "category": "Weapon",
+      "attunement": true
+    },
+    {
+      "name": "Folding Boat",
+      "file": "folding-boat.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Frost Brand",
+      "file": "frost-brand.json",
+      "rarity": "Very Rare",
+      "category": "Weapon",
+      "attunement": true
+    },
+    {
+      "name": "Gauntlets of Ogre Power",
+      "file": "gauntlets-of-ogre-power.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Gem of Brightness",
+      "file": "gem-of-brightness.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Gem of Seeing",
+      "file": "gem-of-seeing.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Giant Slayer",
+      "file": "giant-slayer.json",
+      "rarity": "Rare",
+      "category": "Weapon",
+      "attunement": false
+    },
+    {
+      "name": "Glamoured Studded Leather",
+      "file": "glamoured-studded-leather.json",
+      "rarity": "Rare",
+      "category": "Armor",
+      "attunement": false
+    },
+    {
+      "name": "Gloves of Missile Snaring",
+      "file": "gloves-of-missile-snaring.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Gloves of Swimming and Climbing",
+      "file": "gloves-of-swimming-and-climbing.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Gloves of Thievery",
+      "file": "gloves-of-thievery.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Goggles of Night",
+      "file": "goggles-of-night.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Hammer of Thunderbolts",
+      "file": "hammer-of-thunderbolts.json",
+      "rarity": "Legendary",
+      "category": "Weapon",
+      "attunement": true
+    },
+    {
+      "name": "Heward's Handy Haversack",
+      "file": "hewards-handy-haversack.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Hat of Disguise",
+      "file": "hat-of-disguise.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Hat of Many Spells",
+      "file": "hat-of-many-spells.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Headband of Intellect",
+      "file": "headband-of-intellect.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Helm of Brilliance",
+      "file": "helm-of-brilliance.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Helm of Comprehending Languages",
+      "file": "helm-of-comprehending-languages.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Helm of Telepathy",
+      "file": "helm-of-telepathy.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Helm of Teleportation",
+      "file": "helm-of-teleportation.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Holy Avenger",
+      "file": "holy-avenger.json",
+      "rarity": "Legendary",
+      "category": "Weapon",
+      "attunement": true
+    },
+    {
+      "name": "Horn of Blasting",
+      "file": "horn-of-blasting.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Horn of Valhalla",
+      "file": "horn-of-valhalla.json",
+      "rarity": "Rare/Very Rare/Legendary",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Horseshoes of a Zephyr",
+      "file": "horseshoes-of-a-zephyr.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Horseshoes of Speed",
+      "file": "horseshoes-of-speed.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Immovable Rod",
+      "file": "immovable-rod.json",
+      "rarity": "Uncommon",
+      "category": "Rod",
+      "attunement": false
+    },
+    {
+      "name": "Ioun Stone: Absorption",
+      "file": "ioun-stone-absorption.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Ioun Stone: Agility",
+      "file": "ioun-stone-agility.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Ioun Stone: Awareness",
+      "file": "ioun-stone-awareness.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Ioun Stone: Fortitude",
+      "file": "ioun-stone-fortitude.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Ioun Stone: Greater Absorption",
+      "file": "ioun-stone-greater-absorption.json",
+      "rarity": "Legendary",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Ioun Stone: Insight",
+      "file": "ioun-stone-insight.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Ioun Stone: Intellect",
+      "file": "ioun-stone-intellect.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Ioun Stone: Leadership",
+      "file": "ioun-stone-leadership.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Ioun Stone: Mastery",
+      "file": "ioun-stone-mastery.json",
+      "rarity": "Legendary",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Ioun Stone: Protection",
+      "file": "ioun-stone-protection.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Ioun Stone: Regeneration",
+      "file": "ioun-stone-regeneration.json",
+      "rarity": "Legendary",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Ioun Stone: Reserve",
+      "file": "ioun-stone-reserve.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Ioun Stone: Strength",
+      "file": "ioun-stone-strength.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Ioun Stone: Sustenance",
+      "file": "ioun-stone-sustenance.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Iron Bands of Bilarro",
+      "file": "iron-bands-of-bilarro.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Iron Flask",
+      "file": "iron-flask.json",
+      "rarity": "Legendary",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Javelin of Lightning",
+      "file": "javelin-of-lightning.json",
+      "rarity": "Uncommon",
+      "category": "Weapon",
+      "attunement": false
+    },
+    {
+      "name": "Lantern of Revealing",
+      "file": "lantern-of-revealing.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Luck Blade",
+      "file": "luck-blade.json",
+      "rarity": "Legendary",
+      "category": "Weapon",
+      "attunement": true
+    },
+    {
+      "name": "Mace of Disruption",
+      "file": "mace-of-disruption.json",
+      "rarity": "Rare",
+      "category": "Weapon",
+      "attunement": true
+    },
+    {
+      "name": "Mace of Smiting",
+      "file": "mace-of-smiting.json",
+      "rarity": "Rare",
+      "category": "Weapon",
+      "attunement": false
+    },
+    {
+      "name": "Mantle of Spell Resistance",
+      "file": "mantle-of-spell-resistance.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Manual of Bodily Health",
+      "file": "manual-of-bodily-health.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Manual of Gainful Exercise",
+      "file": "manual-of-gainful-exercise.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Manual of Golems",
+      "file": "manual-of-golems.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Manual of Quickness of Action",
+      "file": "manual-of-quickness-of-action.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Medallion of Thoughts",
+      "file": "medallion-of-thoughts.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Mirror of Life Trapping",
+      "file": "mirror-of-life-trapping.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Mithral Armor",
+      "file": "mithral-armor.json",
+      "rarity": "Uncommon",
+      "category": "Armor",
+      "attunement": false
+    },
+    {
+      "name": "Necklace of Adaptation",
+      "file": "necklace-of-adaptation.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Necklace of Fireballs",
+      "file": "necklace-of-fireballs.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Necklace of Prayer Beads",
+      "file": "necklace-of-prayer-beads.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Nine Lives Stealer",
+      "file": "nine-lives-stealer.json",
+      "rarity": "Very Rare",
+      "category": "Weapon",
+      "attunement": true
+    },
+    {
+      "name": "Nolzur's Marvelous Pigments",
+      "file": "nolzurs-marvelous-pigments.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Oathbow",
+      "file": "oathbow.json",
+      "rarity": "Very Rare",
+      "category": "Weapon",
+      "attunement": true
+    },
+    {
+      "name": "Oil of Etherealness",
+      "file": "oil-of-etherealness.json",
+      "rarity": "Rare",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Oil of Sharpness",
+      "file": "oil-of-sharpness.json",
+      "rarity": "Very Rare",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Oil of Slipperiness",
+      "file": "oil-of-slipperiness.json",
+      "rarity": "Uncommon",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Orb of Dragonkind",
+      "file": "orb-of-dragonkind.json",
+      "rarity": "Artifact",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Pearl of Power",
+      "file": "pearl-of-power.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Periapt of Health",
+      "file": "periapt-of-health.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Periapt of Proof against Poison",
+      "file": "periapt-of-proof-against-poison.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Periapt of Wound Closure",
+      "file": "periapt-of-wound-closure.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Philter of Love",
+      "file": "philter-of-love.json",
+      "rarity": "Uncommon",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Pipes of Haunting",
+      "file": "pipes-of-haunting.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Pipes of the Sewers",
+      "file": "pipes-of-the-sewers.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Plate Armor of Etherealness",
+      "file": "plate-armor-of-etherealness.json",
+      "rarity": "Legendary",
+      "category": "Armor",
+      "attunement": true
+    },
+    {
+      "name": "Portable Hole",
+      "file": "portable-hole.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Animal Friendship",
+      "file": "potion-of-animal-friendship.json",
+      "rarity": "Uncommon",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Clairvoyance",
+      "file": "potion-of-clairvoyance.json",
+      "rarity": "Rare",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Climbing",
+      "file": "potion-of-climbing.json",
+      "rarity": "Common",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Diminution",
+      "file": "potion-of-diminution.json",
+      "rarity": "Rare",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Flying",
+      "file": "potion-of-flying.json",
+      "rarity": "Very Rare",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Gaseous Form",
+      "file": "potion-of-gaseous-form.json",
+      "rarity": "Rare",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Giant Strength (Hill)",
+      "file": "potion-of-giant-strength-hill.json",
+      "rarity": "Uncommon",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Giant Strength (Frost/Stone)",
+      "file": "potion-of-giant-strength-frost-stone.json",
+      "rarity": "Rare",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Giant Strength (Fire)",
+      "file": "potion-of-giant-strength-fire.json",
+      "rarity": "Rare",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Giant Strength (Cloud)",
+      "file": "potion-of-giant-strength-cloud.json",
+      "rarity": "Very Rare",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Giant Strength (Storm)",
+      "file": "potion-of-giant-strength-storm.json",
+      "rarity": "Legendary",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Growth",
+      "file": "potion-of-growth.json",
+      "rarity": "Uncommon",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Healing",
+      "file": "potion-of-healing.json",
+      "rarity": "Common",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Healing (Greater)",
+      "file": "potion-of-healing-greater.json",
+      "rarity": "Uncommon",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Healing (Superior)",
+      "file": "potion-of-healing-superior.json",
+      "rarity": "Rare",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Healing (Supreme)",
+      "file": "potion-of-healing-supreme.json",
+      "rarity": "Very Rare",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Heroism",
+      "file": "potion-of-heroism.json",
+      "rarity": "Rare",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Invisibility",
+      "file": "potion-of-invisibility.json",
+      "rarity": "Rare",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Invulnerability",
+      "file": "potion-of-invulnerability.json",
+      "rarity": "Rare",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Longevity",
+      "file": "potion-of-longevity.json",
+      "rarity": "Very Rare",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Mind Reading",
+      "file": "potion-of-mind-reading.json",
+      "rarity": "Rare",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Poison",
+      "file": "potion-of-poison.json",
+      "rarity": "Uncommon",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Resistance",
+      "file": "potion-of-resistance.json",
+      "rarity": "Uncommon",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Speed",
+      "file": "potion-of-speed.json",
+      "rarity": "Very Rare",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Vitality",
+      "file": "potion-of-vitality.json",
+      "rarity": "Very Rare",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Potion of Water Breathing",
+      "file": "potion-of-water-breathing.json",
+      "rarity": "Uncommon",
+      "category": "Potion",
+      "attunement": false
+    },
+    {
+      "name": "Quaal's Feather Token (Anchor)",
+      "file": "quaal-feather-token-anchor.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Quaal's Feather Token (Bird)",
+      "file": "quaal-feather-token-bird.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Quaal's Feather Token (Fan)",
+      "file": "quaal-feather-token-fan.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Quaal's Feather Token (Swan Boat)",
+      "file": "quaal-feather-token-swan-boat.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Quaal's Feather Token (Tree)",
+      "file": "quaal-feather-token-tree.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Quaal's Feather Token (Whip)",
+      "file": "quaal-feather-token-whip.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Quarterstaff of the Acrobat",
+      "file": "quarterstaff-of-the-acrobat.json",
+      "rarity": "Very Rare",
+      "category": "Weapon",
+      "attunement": true
+    },
+    {
+      "name": "Quiver of Ehlonna",
+      "file": "quiver-of-ehlonna.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Ring of Animal Influence",
+      "file": "ring-of-animal-influence.json",
+      "rarity": "Rare",
+      "category": "Ring",
+      "attunement": false
+    },
+    {
+      "name": "Ring of Djinni Summoning",
+      "file": "ring-of-djinni-summoning.json",
+      "rarity": "Legendary",
+      "category": "Ring",
+      "attunement": true
+    },
+    {
+      "name": "Ring of Elemental Command",
+      "file": "ring-of-elemental-command.json",
+      "rarity": "Legendary",
+      "category": "Ring",
+      "attunement": true
+    },
+    {
+      "name": "Ring of Evasion",
+      "file": "ring-of-evasion.json",
+      "rarity": "Rare",
+      "category": "Ring",
+      "attunement": true
+    },
+    {
+      "name": "Ring of Feather Falling",
+      "file": "ring-of-feather-falling.json",
+      "rarity": "Rare",
+      "category": "Ring",
+      "attunement": true
+    },
+    {
+      "name": "Ring of Free Action",
+      "file": "ring-of-free-action.json",
+      "rarity": "Rare",
+      "category": "Ring",
+      "attunement": true
+    },
+    {
+      "name": "Ring of Invisibility",
+      "file": "ring-of-invisibility.json",
+      "rarity": "Legendary",
+      "category": "Ring",
+      "attunement": true
+    },
+    {
+      "name": "Ring of Jumping",
+      "file": "ring-of-jumping.json",
+      "rarity": "Uncommon",
+      "category": "Ring",
+      "attunement": true
+    },
+    {
+      "name": "Ring of Mind Shielding",
+      "file": "ring-of-mind-shielding.json",
+      "rarity": "Uncommon",
+      "category": "Ring",
+      "attunement": true
+    },
+    {
+      "name": "Ring of Protection",
+      "file": "ring-of-protection.json",
+      "rarity": "Rare",
+      "category": "Ring",
+      "attunement": true
+    },
+    {
+      "name": "Ring of Regeneration",
+      "file": "ring-of-regeneration.json",
+      "rarity": "Very Rare",
+      "category": "Ring",
+      "attunement": true
+    },
+    {
+      "name": "Ring of Resistance",
+      "file": "ring-of-resistance.json",
+      "rarity": "Rare",
+      "category": "Ring",
+      "attunement": false
+    },
+    {
+      "name": "Ring of Shooting Stars",
+      "file": "ring-of-shooting-stars.json",
+      "rarity": "Very Rare",
+      "category": "Ring",
+      "attunement": true
+    },
+    {
+      "name": "Ring of Spell Storing",
+      "file": "ring-of-spell-storing.json",
+      "rarity": "Rare",
+      "category": "Ring",
+      "attunement": true
+    },
+    {
+      "name": "Ring of Spell Turning",
+      "file": "ring-of-spell-turning.json",
+      "rarity": "Legendary",
+      "category": "Ring",
+      "attunement": true
+    },
+    {
+      "name": "Ring of Swimming",
+      "file": "ring-of-swimming.json",
+      "rarity": "Uncommon",
+      "category": "Ring",
+      "attunement": false
+    },
+    {
+      "name": "Ring of Telekinesis",
+      "file": "ring-of-telekinesis.json",
+      "rarity": "Very Rare",
+      "category": "Ring",
+      "attunement": true
+    },
+    {
+      "name": "Ring of the Ram",
+      "file": "ring-of-the-ram.json",
+      "rarity": "Rare",
+      "category": "Ring",
+      "attunement": true
+    },
+    {
+      "name": "Ring of Three Wishes",
+      "file": "ring-of-three-wishes.json",
+      "rarity": "Legendary",
+      "category": "Ring",
+      "attunement": false
+    },
+    {
+      "name": "Ring of Warmth",
+      "file": "ring-of-warmth.json",
+      "rarity": "Uncommon",
+      "category": "Ring",
+      "attunement": true
+    },
+    {
+      "name": "Ring of Water Walking",
+      "file": "ring-of-water-walking.json",
+      "rarity": "Uncommon",
+      "category": "Ring",
+      "attunement": false
+    },
+    {
+      "name": "Ring of X-ray Vision",
+      "file": "ring-of-x-ray-vision.json",
+      "rarity": "Rare",
+      "category": "Ring",
+      "attunement": true
+    },
+    {
+      "name": "Ring of Wizardry",
+      "file": "ring-of-wizardry.json",
+      "rarity": "Rare",
+      "category": "Ring",
+      "attunement": true
+    },
+    {
+      "name": "Robe of the Archmagi",
+      "file": "robe-of-the-archmagi.json",
+      "rarity": "Legendary",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Robe of Eyes",
+      "file": "robe-of-eyes.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Robe of Scintillating Colors",
+      "file": "robe-of-scintillating-colors.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Robe of Stars",
+      "file": "robe-of-stars.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Robe of Useful Items",
+      "file": "robe-of-useful-items.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Rod of Absorption",
+      "file": "rod-of-absorption.json",
+      "rarity": "Very Rare",
+      "category": "Rod",
+      "attunement": true
+    },
+    {
+      "name": "Rod of Alertness",
+      "file": "rod-of-alertness.json",
+      "rarity": "Very Rare",
+      "category": "Rod",
+      "attunement": true
+    },
+    {
+      "name": "Rod of Lordly Might",
+      "file": "rod-of-lordly-might.json",
+      "rarity": "Legendary",
+      "category": "Rod",
+      "attunement": true
+    },
+    {
+      "name": "Rod of Resurrection",
+      "file": "rod-of-resurrection.json",
+      "rarity": "Legendary",
+      "category": "Rod",
+      "attunement": true
+    },
+    {
+      "name": "Rod of Rulership",
+      "file": "rod-of-rulership.json",
+      "rarity": "Rare",
+      "category": "Rod",
+      "attunement": true
+    },
+    {
+      "name": "Rod of Security",
+      "file": "rod-of-security.json",
+      "rarity": "Very Rare",
+      "category": "Rod",
+      "attunement": false
+    },
+    {
+      "name": "Rope of Climbing",
+      "file": "rope-of-climbing.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Rope of Entanglement",
+      "file": "rope-of-entanglement.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Scarab of Protection",
+      "file": "scarab-of-protection.json",
+      "rarity": "Legendary",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Scimitar of Speed",
+      "file": "scimitar-of-speed.json",
+      "rarity": "Very Rare",
+      "category": "Weapon",
+      "attunement": true
+    },
+    {
+      "name": "Sending Stones",
+      "file": "sending-stones.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Sentinel Shield",
+      "file": "sentinel-shield.json",
+      "rarity": "Uncommon",
+      "category": "Armor",
+      "attunement": false
+    },
+    {
+      "name": "Shield +1",
+      "file": "shield-plus-1.json",
+      "rarity": "Uncommon",
+      "category": "Armor",
+      "attunement": false
+    },
+    {
+      "name": "Shield +2",
+      "file": "shield-plus-2.json",
+      "rarity": "Rare",
+      "category": "Armor",
+      "attunement": false
+    },
+    {
+      "name": "Shield +3",
+      "file": "shield-plus-3.json",
+      "rarity": "Very Rare",
+      "category": "Armor",
+      "attunement": false
+    },
+    {
+      "name": "Shield of Missile Attraction",
+      "file": "shield-of-missile-attraction.json",
+      "rarity": "Rare",
+      "category": "Armor",
+      "attunement": true
+    },
+    {
+      "name": "Shield of the Cavalier",
+      "file": "shield-of-the-cavalier.json",
+      "rarity": "Very Rare",
+      "category": "Armor",
+      "attunement": true
+    },
+    {
+      "name": "Slippers of Spider Climbing",
+      "file": "slippers-of-spider-climbing.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Sovereign Glue",
+      "file": "sovereign-glue.json",
+      "rarity": "Legendary",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Spellguard Shield",
+      "file": "spellguard-shield.json",
+      "rarity": "Very Rare",
+      "category": "Armor",
+      "attunement": true
+    },
+    {
+      "name": "Spell Scroll",
+      "file": "spell-scroll.json",
+      "rarity": "Varies",
+      "category": "Scroll",
+      "attunement": false
+    },
+    {
+      "name": "Sphere of Annihilation",
+      "file": "sphere-of-annihilation.json",
+      "rarity": "Legendary",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Staff of Charming",
+      "file": "staff-of-charming.json",
+      "rarity": "Rare",
+      "category": "Staff",
+      "attunement": true
+    },
+    {
+      "name": "Staff of Fire",
+      "file": "staff-of-fire.json",
+      "rarity": "Very Rare",
+      "category": "Staff",
+      "attunement": true
+    },
+    {
+      "name": "Staff of Frost",
+      "file": "staff-of-frost.json",
+      "rarity": "Very Rare",
+      "category": "Staff",
+      "attunement": true
+    },
+    {
+      "name": "Staff of Healing",
+      "file": "staff-of-healing.json",
+      "rarity": "Rare",
+      "category": "Staff",
+      "attunement": true
+    },
+    {
+      "name": "Staff of Power",
+      "file": "staff-of-power.json",
+      "rarity": "Very Rare",
+      "category": "Staff",
+      "attunement": true
+    },
+    {
+      "name": "Staff of Striking",
+      "file": "staff-of-striking.json",
+      "rarity": "Very Rare",
+      "category": "Staff",
+      "attunement": true
+    },
+    {
+      "name": "Staff of Swarming Insects",
+      "file": "staff-of-swarming-insects.json",
+      "rarity": "Rare",
+      "category": "Staff",
+      "attunement": true
+    },
+    {
+      "name": "Staff of the Magi",
+      "file": "staff-of-the-magi.json",
+      "rarity": "Legendary",
+      "category": "Staff",
+      "attunement": true
+    },
+    {
+      "name": "Staff of the Python",
+      "file": "staff-of-the-python.json",
+      "rarity": "Uncommon",
+      "category": "Staff",
+      "attunement": true
+    },
+    {
+      "name": "Staff of the Woodlands",
+      "file": "staff-of-the-woodlands.json",
+      "rarity": "Rare",
+      "category": "Staff",
+      "attunement": true
+    },
+    {
+      "name": "Staff of Thunder and Lightning",
+      "file": "staff-of-thunder-and-lightning.json",
+      "rarity": "Very Rare",
+      "category": "Staff",
+      "attunement": true
+    },
+    {
+      "name": "Staff of Withering",
+      "file": "staff-of-withering.json",
+      "rarity": "Rare",
+      "category": "Staff",
+      "attunement": true
+    },
+    {
+      "name": "Stone of Controlling Earth Elementals",
+      "file": "stone-of-controlling-earth-elementals.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Stone of Good Luck (Luckstone)",
+      "file": "stone-of-good-luck.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Sun Blade",
+      "file": "sun-blade.json",
+      "rarity": "Rare",
+      "category": "Weapon",
+      "attunement": true
+    },
+    {
+      "name": "Sword of Life Stealing",
+      "file": "sword-of-life-stealing.json",
+      "rarity": "Rare",
+      "category": "Weapon",
+      "attunement": true
+    },
+    {
+      "name": "Sword of Sharpness",
+      "file": "sword-of-sharpness.json",
+      "rarity": "Very Rare",
+      "category": "Weapon",
+      "attunement": true
+    },
+    {
+      "name": "Sword of Wounding",
+      "file": "sword-of-wounding.json",
+      "rarity": "Rare",
+      "category": "Weapon",
+      "attunement": true
+    },
+    {
+      "name": "Talisman of Pure Good",
+      "file": "talisman-of-pure-good.json",
+      "rarity": "Legendary",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Talisman of the Sphere",
+      "file": "talisman-of-the-sphere.json",
+      "rarity": "Legendary",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Talisman of Ultimate Evil",
+      "file": "talisman-of-ultimate-evil.json",
+      "rarity": "Legendary",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Thunderous Greatclub",
+      "file": "thunderous-greatclub.json",
+      "rarity": "Very Rare",
+      "category": "Weapon",
+      "attunement": true
+    },
+    {
+      "name": "Tome of Clear Thought",
+      "file": "tome-of-clear-thought.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Tome of Leadership and Influence",
+      "file": "tome-of-leadership-and-influence.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Tome of Understanding",
+      "file": "tome-of-understanding.json",
+      "rarity": "Very Rare",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Trident of Fish Command",
+      "file": "trident-of-fish-command.json",
+      "rarity": "Uncommon",
+      "category": "Weapon",
+      "attunement": true
+    },
+    {
+      "name": "Universal Solvent",
+      "file": "universal-solvent.json",
+      "rarity": "Legendary",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Vicious Weapon",
+      "file": "vicious-weapon.json",
+      "rarity": "Rare",
+      "category": "Weapon",
+      "attunement": false
+    },
+    {
+      "name": "Vorpal Sword",
+      "file": "vorpal-sword.json",
+      "rarity": "Legendary",
+      "category": "Weapon",
+      "attunement": true
+    },
+    {
+      "name": "Wand of Binding",
+      "file": "wand-of-binding.json",
+      "rarity": "Rare",
+      "category": "Wand",
+      "attunement": true
+    },
+    {
+      "name": "Wand of Enemy Detection",
+      "file": "wand-of-enemy-detection.json",
+      "rarity": "Rare",
+      "category": "Wand",
+      "attunement": true
+    },
+    {
+      "name": "Wand of Fear",
+      "file": "wand-of-fear.json",
+      "rarity": "Rare",
+      "category": "Wand",
+      "attunement": true
+    },
+    {
+      "name": "Wand of Fireballs",
+      "file": "wand-of-fireballs.json",
+      "rarity": "Rare",
+      "category": "Wand",
+      "attunement": true
+    },
+    {
+      "name": "Wand of Lightning Bolts",
+      "file": "wand-of-lightning-bolts.json",
+      "rarity": "Rare",
+      "category": "Wand",
+      "attunement": true
+    },
+    {
+      "name": "Wand of Magic Detection",
+      "file": "wand-of-magic-detection.json",
+      "rarity": "Uncommon",
+      "category": "Wand",
+      "attunement": false
+    },
+    {
+      "name": "Wand of Magic Missiles",
+      "file": "wand-of-magic-missiles.json",
+      "rarity": "Uncommon",
+      "category": "Wand",
+      "attunement": false
+    },
+    {
+      "name": "Wand of Paralysis",
+      "file": "wand-of-paralysis.json",
+      "rarity": "Rare",
+      "category": "Wand",
+      "attunement": true
+    },
+    {
+      "name": "Wand of Polymorph",
+      "file": "wand-of-polymorph.json",
+      "rarity": "Very Rare",
+      "category": "Wand",
+      "attunement": true
+    },
+    {
+      "name": "Wand of Secrets",
+      "file": "wand-of-secrets.json",
+      "rarity": "Uncommon",
+      "category": "Wand",
+      "attunement": false
+    },
+    {
+      "name": "Wand of Web",
+      "file": "wand-of-web.json",
+      "rarity": "Uncommon",
+      "category": "Wand",
+      "attunement": true
+    },
+    {
+      "name": "Wand of Wonder",
+      "file": "wand-of-wonder.json",
+      "rarity": "Rare",
+      "category": "Wand",
+      "attunement": true
+    },
+    {
+      "name": "Wand of the War Mage +1",
+      "file": "wand-of-the-war-mage-plus-1.json",
+      "rarity": "Uncommon",
+      "category": "Wand",
+      "attunement": true
+    },
+    {
+      "name": "Wand of the War Mage +2",
+      "file": "wand-of-the-war-mage-plus-2.json",
+      "rarity": "Rare",
+      "category": "Wand",
+      "attunement": true
+    },
+    {
+      "name": "Wand of the War Mage +3",
+      "file": "wand-of-the-war-mage-plus-3.json",
+      "rarity": "Very Rare",
+      "category": "Wand",
+      "attunement": true
+    },
+    {
+      "name": "Weapon +1",
+      "file": "weapon-plus-1.json",
+      "rarity": "Uncommon",
+      "category": "Weapon",
+      "attunement": false
+    },
+    {
+      "name": "Weapon +2",
+      "file": "weapon-plus-2.json",
+      "rarity": "Rare",
+      "category": "Weapon",
+      "attunement": false
+    },
+    {
+      "name": "Weapon +3",
+      "file": "weapon-plus-3.json",
+      "rarity": "Very Rare",
+      "category": "Weapon",
+      "attunement": false
+    },
+    {
+      "name": "Well of Many Worlds",
+      "file": "well-of-many-worlds.json",
+      "rarity": "Legendary",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Wind Fan",
+      "file": "wind-fan.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": false
+    },
+    {
+      "name": "Winged Boots",
+      "file": "winged-boots.json",
+      "rarity": "Uncommon",
+      "category": "Wondrous Item",
+      "attunement": true
+    },
+    {
+      "name": "Wings of Flying",
+      "file": "wings-of-flying.json",
+      "rarity": "Rare",
+      "category": "Wondrous Item",
+      "attunement": true
+    }
+  ],
+  "categories": {
+    "armor": {
+      "name": "Armor",
+      "description": "Magical versions of armor from Equipment. Must be worn for magic to function",
+      "items": [],
+      "count": 0,
+      "examples": [
+        "+1 Armor (various types)",
+        "Armor of Resistance",
+        "Cloak of Protection"
+      ]
+    },
+    "potions": {
+      "name": "Potions",
+      "description": "Magical brews or oils that must be imbibed or applied. Consumable items",
+      "items": [],
+      "count": 0,
+      "examples": [
+        "Potion of Healing",
+        "Potion of Invisibility",
+        "Potion of Giant Strength"
+      ]
+    },
+    "rings": {
+      "name": "Rings",
+      "description": "Rings worn on fingers or similar digits. Must be worn for magic to function",
+      "items": [],
+      "count": 0,
+      "examples": [
+        "Ring of Invisibility",
+        "Ring of Protection",
+        "Ring of Wizardry"
+      ]
+    },
+    "rods": {
+      "name": "Rods",
+      "description": "Scepters made of metal, wood, or bone. Can usually be used as Arcane Focus",
+      "items": [],
+      "count": 0,
+      "examples": [
+        "Immovable Rod",
+        "Rod of Rulership",
+        "Rod of the Pact Keeper"
+      ]
+    },
+    "scrolls": {
+      "name": "Scrolls",
+      "description": "Rolls of paper or parchment containing spells or incantations. Consumable items",
+      "items": [],
+      "count": 0,
+      "examples": [
+        "Spell Scroll",
+        "Scroll of Protection",
+        "Spell Scroll (various levels)"
+      ]
+    },
+    "staffs": {
+      "name": "Staffs",
+      "description": "Staffs of varying appearance (wood, metal, crystal). Can be used as Quarterstaff and Arcane Focus",
+      "items": [],
+      "count": 0,
+      "examples": [
+        "Staff of Striking",
+        "Staff of Fire",
+        "Staff of the Magi"
+      ]
+    },
+    "wands": {
+      "name": "Wands",
+      "description": "Typically 12-15 inches long, crafted of metal, bone, or wood. Can usually be used as Arcane Focus",
+      "items": [],
+      "count": 0,
+      "examples": [
+        "Wand of Fireballs",
+        "Wand of Wonder",
+        "Wand of Web"
+      ]
+    },
+    "weapons": {
+      "name": "Weapons",
+      "description": "Magical versions of weapons from Equipment. Some specify weapon type",
+      "items": [],
+      "count": 0,
+      "examples": [
+        "+1 Weapons (various types)",
+        "Flaming Longsword",
+        "Frost Brand"
+      ]
+    },
+    "wondrous": {
+      "name": "Wondrous Items",
+      "description": "Diverse category including boots, belts, capes, amulets, bags, carpets, figurines, horns, etc.",
+      "items": [],
+      "count": 0,
+      "examples": [
+        "Bag of Holding",
+        "Boots of Levitation",
+        "Cloak of Billowing"
+      ]
+    }
+  },
+  "by_rarity": {
+    "common": {
+      "rarity": "Common",
+      "value": "100 GP",
+      "description": "Most plentiful, often bought in towns or cities",
+      "items": [],
+      "count": 0
+    },
+    "uncommon": {
+      "rarity": "Uncommon",
+      "value": "400 GP",
+      "description": "Usually found in cities",
+      "items": [],
+      "count": 0
+    },
+    "rare": {
+      "rarity": "Rare",
+      "value": "4,000 GP",
+      "description": "Found mainly in cities, rare locations",
+      "items": [],
+      "count": 0
+    },
+    "very_rare": {
+      "rarity": "Very Rare",
+      "value": "40,000 GP",
+      "description": "Might be sold only in wondrous locations",
+      "items": [],
+      "count": 0
+    },
+    "legendary": {
+      "rarity": "Legendary",
+      "value": "200,000 GP",
+      "description": "Extremely rare, high-level campaigns",
+      "items": [],
+      "count": 0
+    },
+    "artifact": {
+      "rarity": "Artifact",
+      "value": "Priceless",
+      "description": "Priceless, unique, difficult to acquire",
+      "items": [],
+      "count": 0
+    }
+  },
+  "by_attunement": {
+    "requires_attunement": {
+      "description": "Items that require attunement to function",
+      "items": [],
+      "count": 0
+    },
+    "no_attunement": {
+      "description": "Items that do not require attunement",
+      "items": [],
+      "count": 0
+    }
+  },
+  "consumable_items": {
+    "description": "Single-use items that are consumed upon activation",
+    "items": [],
+    "count": 0,
+    "examples": [
+      "Potions",
+      "Scrolls (except reusable)",
+      "Other consumable items"
+    ]
+  },
+  "sentient_items": {
+    "description": "Magic items with sentience and personality",
+    "items": [],
+    "count": 0,
+    "note": "Single-use items like potions and scrolls are never sentient"
+  },
+  "cursed_items": {
+    "description": "Items bearing curses that affect their users",
+    "items": [],
+    "count": 0,
+    "note": "Most identification methods fail to reveal curses"
+  },
+  "crafting_by_tool": {
+    "alchemists_supplies": {
+      "tool": "Alchemist's Supplies",
+      "categories": ["Potion"],
+      "items": []
+    },
+    "herbalism_kit": {
+      "tool": "Herbalism Kit",
+      "categories": ["Potion"],
+      "items": []
+    },
+    "jewelers_tools": {
+      "tool": "Jeweler's Tools",
+      "categories": ["Ring"],
+      "items": []
+    },
+    "woodcarvers_tools": {
+      "tool": "Woodcarver's Tools",
+      "categories": ["Rod", "Staff", "Wand"],
+      "items": []
+    },
+    "calligraphers_supplies": {
+      "tool": "Calligrapher's Supplies",
+      "categories": ["Scroll"],
+      "items": []
+    },
+    "leatherworker_tools": {
+      "tool": "Leatherworker's Tools",
+      "categories": ["Armor", "Weapon"],
+      "items": []
+    },
+    "smiths_tools": {
+      "tool": "Smith's Tools",
+      "categories": ["Armor", "Weapon"],
+      "items": []
+    },
+    "weavers_tools": {
+      "tool": "Weaver's Tools",
+      "categories": ["Armor"],
+      "items": []
+    },
+    "tinkers_tools": {
+      "tool": "Tinker's Tools",
+      "categories": ["Wondrous Item"],
+      "items": []
+    }
+  },
+  "special_properties": {
+    "magical_ammunition": {
+      "description": "Weapons that make ammunition magical",
+      "items": []
+    },
+    "requires_spellcaster": {
+      "description": "Items requiring spellcaster attunement",
+      "items": []
+    },
+    "class_restricted": {
+      "description": "Items restricted to specific classes",
+      "items": []
+    },
+    "resistance_providing": {
+      "description": "Items providing damage resistance or immunity",
+      "items": []
+    },
+    "spell_storing": {
+      "description": "Items that can store and cast spells",
+      "items": []
+    },
+    "ability_score_boosting": {
+      "description": "Items that improve ability scores",
+      "items": []
+    },
+    "ac_improving": {
+      "description": "Items that improve Armor Class",
+      "items": []
+    }
+  },
+  "starting_character_by_tier": {
+    "tier_1": {
+      "levels": "1-4",
+      "suggested_items": 0,
+      "suggested_rarities": ["Common", "Uncommon"]
+    },
+    "tier_2": {
+      "levels": "5-10",
+      "suggested_items": 1,
+      "suggested_rarities": ["Uncommon", "Rare"]
+    },
+    "tier_3": {
+      "levels": "11-16",
+      "suggested_items": 2,
+      "suggested_rarities": ["Rare", "Very Rare"]
+    },
+    "tier_4": {
+      "levels": "17-20",
+      "suggested_items": 3,
+      "suggested_rarities": ["Very Rare", "Legendary"]
+    }
+  },
+  "contains": [
+    "Complete magic item categorization (9 categories)",
+    "Rarity organization (Common to Artifact)",
+    "Attunement tracking (requires vs non-attunement)",
+    "Consumable vs permanent items",
+    "Sentient items tracking",
+    "Cursed items registry",
+    "Crafting tool organization",
+    "Special properties index",
+    "Starting character allocation by tier",
+    "Quick reference organization"
+  ]
+}

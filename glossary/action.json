@@ -1,0 +1,37 @@
+{
+  "name": "Action",
+  "slug": "action",
+  "definition": "On your turn, you can take one action. Choose which action to take from those below or from the special actions provided by your features.",
+  "category": "Actions",
+  "tags": ["Action"],
+  "full_text": "On your turn, you can take one action. Choose which action to take from those below or from the special actions provided by your features.",
+  "available_actions": [
+    "Attack",
+    "Dash",
+    "Disengage",
+    "Dodge",
+    "Help",
+    "Hide",
+    "Influence",
+    "Magic",
+    "Ready",
+    "Search",
+    "Study",
+    "Utilize"
+  ],
+  "see_also": [
+    "Bonus Action",
+    "Attack",
+    "Dash",
+    "Disengage",
+    "Dodge",
+    "Help",
+    "Hide",
+    "Influence",
+    "Magic",
+    "Ready",
+    "Search",
+    "Study",
+    "Utilize"
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "name": "Mage",
+  "size": "Medium",
+  "type": "Humanoid",
+  "subtype": "Wizard",
+  "alignment": "Neutral",
+  "armor_class": {
+    "value": 15,
+    "source": "Mage Armor"
+  },
+  "initiative": {
+    "bonus": 2,
+    "total": 12
+  },
+  "hit_points": {
+    "average": 81,
+    "formula": "18d8"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 9,
+      "modifier": -1,
+      "saving_throw": -1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "constitution": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "intelligence": {
+      "score": 17,
+      "modifier": 3,
+      "saving_throw": 6
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 4
+    },
+    "charisma": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    }
+  },
+  "skills": {
+    "Arcana": 6,
+    "History": 6,
+    "Perception": 4
+  },
+  "equipment": ["Wand"],
+  "senses": {
+    "passive_perception": 14
+  },
+  "languages": ["Common plus three other languages"],
+  "challenge_rating": {
+    "cr": 6,
+    "xp": 2300,
+    "proficiency_bonus": 3
+  },
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The mage makes three Arcane Burst attacks."
+    },
+    {
+      "name": "Arcane Burst",
+      "description": "Melee or Ranged Attack Roll: +6, reach 5 ft. or range 120 ft. Hit: 16 (3d8 + 3) Force damage.",
+      "attack_roll": 6,
+      "reach": 5,
+      "range": 120,
+      "damage": "16 (3d8 + 3)",
+      "damage_type": "Force"
+    },
+    {
+      "name": "Spellcasting",
+      "description": "The mage casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 14): At Will: Detect Magic, Light, Mage Armor (included in AC), Mage Hand, Prestidigitation; 2/Day Each: Fireball (level 4 version), Invisibility; 1/Day Each: Cone of Cold, Fly"
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Misty Step (3/Day)",
+      "description": "The mage casts Misty Step, using the same spellcasting ability as Spellcasting."
+    }
+  ],
+  "reactions": [
+    {
+      "name": "Protective Magic (3/Day)",
+      "description": "The mage casts Counterspell or Shield in response to the spell's trigger, using the same spellcasting ability as Spellcasting."
+    }
+  ],
+  "tactical_info": {
+    "role": "Versatile Spellcaster/Artillery",
+    "environment": "Wizard schools, magical academies, urban centers, adventuring parties",
+    "tactics": "Uses arcane burst for consistent damage, protective magic for defense, misty step for positioning, variety of spells for different situations",
+    "weaknesses": "Low physical stats and hit points, dependent on spell resources, vulnerable when spells are exhausted",
+    "signature_abilities": ["Versatile spell selection", "Arcane burst attacks", "Misty step mobility", "Protective magic reactions"]
+  }
+}

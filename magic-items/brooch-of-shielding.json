@@ -1,0 +1,13 @@
+{
+  "name": "Brooch of Shielding",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "requires_attunement": true,
+  "overview": "A brooch that provides protection against force and magic missile damage.",
+  "properties": {
+    "force_resistance": "You have Resistance to Force damage",
+    "magic_missile_immunity": "You have Immunity to damage from the Magic Missile spell"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

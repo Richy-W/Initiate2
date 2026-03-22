@@ -1,0 +1,14 @@
+{
+  "name": "Opportunity Attacks",
+  "slug": "opportunity-attacks",
+  "definition": "A reaction to make a melee attack when an enemy leaves your reach",
+  "category": "Combat",
+  "tags": ["reaction", "melee-attack"],
+  "full_text": "You can make an Opportunity Attack when a creature that you can see leaves your reach using its action, its Bonus Action, its Reaction, or one of its speeds. To make the Opportunity Attack, take a Reaction to make one melee attack with a weapon or an Unarmed Strike against the provoking creature. The attack occurs right before the creature leaves your reach.",
+  "mechanics": {
+    "trigger": "Creature leaves your reach via action, Bonus Action, Reaction, or speed",
+    "action": "Reaction to make 1 melee attack (weapon or Unarmed Strike)",
+    "timing": "Right before creature leaves reach"
+  },
+  "see_also": ["reaction", "reach", "melee-attack", "unarmed-strike"]
+}

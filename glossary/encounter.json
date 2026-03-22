@@ -1,0 +1,20 @@
+{
+  "name": "Encounter",
+  "slug": "encounter",
+  "definition": "An encounter is a scene in an adventure that is part of at least one of the game's three pillars.",
+  "category": "Gameplay Structure",
+  "tags": [],
+  "full_text": "An encounter is a scene in an adventure that is part of at least one of the game's three pillars: social interaction, exploration, or combat.",
+  "three_pillars": [
+    "Social interaction",
+    "Exploration",
+    "Combat"
+  ],
+  "see_also": [
+    "Adventure",
+    "Campaign",
+    "Combat",
+    "Exploration",
+    "Social Interaction"
+  ]
+}

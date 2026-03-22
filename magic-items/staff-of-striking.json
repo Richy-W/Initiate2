@@ -1,0 +1,48 @@
+{
+  "id": "staff-of-striking",
+  "name": "Staff of Striking",
+  "rarity": "Rare",
+  "category": "Staff",
+  "attunement_required": true,
+  "weight": "4 lbs",
+  "value": "1,200 GP",
+  "description": "This staff can be wielded as a magic quarterstaff that grants a +1 bonus to attack and damage rolls made with it. The staff has 10 charges. When you hit with a melee attack using the staff, you can expend 1 charge to deal an extra 1d6 force damage to the target. The staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff loses its magic and becomes a nonmagical quarterstaff.",
+  "properties": [
+    "Enchanted",
+    "Quarterstaff",
+    "Spell-Storing",
+    "Damage-Dealing"
+  ],
+  "as_weapon": {
+    "type": "Quarterstaff",
+    "bonus_attack": 1,
+    "bonus_damage": 1
+  },
+  "charges": {
+    "maximum": 10,
+    "current": 10,
+    "recharge": {
+      "frequency": "dawn",
+      "recharge_formula": "1d6 + 4",
+      "destruction_risk": true,
+      "destruction_roll": "d20 on last charge, 1 makes it nonmagical"
+    }
+  },
+  "special_ability": {
+    "name": "Striking Force",
+    "cost": "1 charge",
+    "trigger": "When you hit with a melee attack",
+    "effect": "Deal an extra 1d6 force damage to the target"
+  },
+  "attunement": {
+    "required": true,
+    "description": "You must attune to this staff by holding it for 1 hour during which you must maintain concentration as if you were casting a spell."
+  },
+  "activation": {
+    "type": "Passive (weapon use) or Reaction (special ability)",
+    "description": "Use as a quarterstaff or expend charge when making melee hit"
+  },
+  "consumable": false,
+  "source": "Player's Handbook",
+  "notes": "This staff combines a magical weapon with a limited-use special ability. It's suitable for martial characters who want some magical power without being a spellcaster."
+}

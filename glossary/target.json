@@ -1,0 +1,12 @@
+{
+  "name": "Target",
+  "slug": "target",
+  "definition": "A creature or object affected by an attack, save, spell, or phenomenon",
+  "category": "Game Mechanics",
+  "tags": ["attack", "spell", "effect"],
+  "full_text": "A target is the creature or object targeted by an attack roll, forced to make a saving throw by an effect, or selected to receive the effects of a spell or another phenomenon.",
+  "mechanics": {
+    "selection": "By attack roll, saving throw, spell, or phenomenon"
+  },
+  "see_also": ["attack-roll", "saving-throw", "spell"]
+}

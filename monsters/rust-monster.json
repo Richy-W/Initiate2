@@ -1,0 +1,72 @@
+{
+  "name": "Rust Monster",
+  "size": "Medium",
+  "type": "Monstrosity",
+  "alignment": "Unaligned",
+  "armor_class": 14,
+  "hit_points": {
+    "average": 33,
+    "formula": "6d8 + 6"
+  },
+  "speed": {
+    "walk": 40
+  },
+  "initiative": 11,
+  "ability_scores": {
+    "strength": 13,
+    "dexterity": 12,
+    "constitution": 13,
+    "intelligence": 2,
+    "wisdom": 13,
+    "charisma": 6
+  },
+  "saving_throws": {},
+  "skills": {},
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 11
+  },
+  "languages": [],
+  "challenge_rating": 0.5,
+  "proficiency_bonus": 2,
+  "traits": [
+    {
+      "name": "Iron Scent",
+      "description": "The rust monster can pinpoint the location of ferrous metal within 30 feet of itself."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The rust monster makes one Bite attack and uses Antennae twice."
+    },
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +3, reach 5 ft. Hit: 5 (1d8 + 1) Piercing damage."
+    },
+    {
+      "name": "Antennae",
+      "description": "The rust monster targets one nonmagical metal object—armor or a weapon—worn or carried by a creature within 5 feet of itself. Dexterity Saving Throw: DC 11, the creature with the object. Failure: The object takes a −1 penalty to the AC it offers (armor) or to its attack rolls (weapon). Armor is destroyed if the penalty reduces its AC to 10, and a weapon is destroyed if its penalty reaches −5. The penalty can be removed by casting the Mending spell on the armor or weapon."
+    },
+    {
+      "name": "Destroy Metal",
+      "description": "The rust monster touches a nonmagical metal object within 5 feet of itself that isn't being worn or carried. The touch destroys a 1-foot Cube of the object."
+    }
+  ],
+  "reactions": [
+    {
+      "name": "Reflexive Antennae",
+      "description": "Trigger: An attack roll hits the rust monster. Response: The rust monster uses Antennae."
+    }
+  ],
+  "tactical_info": {
+    "combat_role": "Equipment Destroyer/Metal Predator",
+    "preferred_range": "Close melee for antennae contact",
+    "key_abilities": ["Metal detection scent", "Equipment degradation", "Automatic equipment response", "Metal destruction"],
+    "weaknesses": ["Low hit points", "Only threatens metal equipment", "No damage to non-metal users"],
+    "tactics": "Seeks out heavily armored opponents using iron scent, focuses on destroying weapons and armor rather than direct damage, uses reflexive antennae when attacked to degrade attacker's equipment."
+  }
+}

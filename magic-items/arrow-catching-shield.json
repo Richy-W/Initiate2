@@ -1,0 +1,51 @@
+{
+  "id": "arrow-catching-shield",
+  "name": "Arrow-Catching Shield",
+  "rarity": "Rare",
+  "category": "Armor",
+  "armor_type": "Shield",
+  "attunement_required": true,
+  "weight": "6 lbs",
+  "value": "5000 GP",
+  "description": "You gain a +2 bonus to Armor Class against ranged attack rolls while you wield this Shield. This bonus is in addition to the Shield's normal bonus to AC. Whenever an attacker makes a ranged attack roll against a target within 5 feet of you, you can take a Reaction to become the target of the attack instead.",
+  "properties": [
+    "Enchanted",
+    "Shield",
+    "Ranged Protection",
+    "Reactive"
+  ],
+  "effect": {
+    "type": "Ranged Protection",
+    "ac_bonus_against_ranged": "+2 (in addition to shield's normal +2)",
+    "total_ac_vs_ranged": "+4 against ranged attacks with this shield"
+  },
+  "special_ability": {
+    "name": "Ranged Attack Interception",
+    "trigger": "Attacker makes ranged attack against target within 5 feet",
+    "action_type": "Reaction",
+    "effect": "You become the target of the attack instead",
+    "uses": "Unlimited"
+  },
+  "attunement": {
+    "required": true,
+    "description": "You must attune to this shield by holding it for 1 hour."
+  },
+  "activation": {
+    "passive": {
+      "type": "Passive",
+      "description": "AC bonus applies automatically"
+    },
+    "reactive": {
+      "type": "Reaction",
+      "description": "Intercept ranged attacks against nearby allies"
+    }
+  },
+  "consumable": false,
+  "tactical_uses": [
+    "Protect allies standing next to you",
+    "Tank ranged damage for party",
+    "Use in formation with melee combatants"
+  ],
+  "source": "Player's Handbook",
+  "notes": "This shield excels at protecting nearby allies from ranged attacks by allowing you to intercept them as a reaction."
+}

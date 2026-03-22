@@ -1,0 +1,13 @@
+{
+  "name": "Sentinel Shield",
+  "type": "Armor",
+  "armor_type": "Shield",
+  "rarity": "Uncommon",
+  "attunement": false,
+  "description": "While holding this Shield, you have Advantage on Initiative rolls and Wisdom (Perception) checks. The Shield is emblazoned with a symbol of an eye.",
+  "properties": {
+    "initiative_advantage": "Advantage on Initiative rolls",
+    "perception_advantage": "Advantage on Wisdom (Perception) checks",
+    "appearance": "Emblazoned with symbol of an eye"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "id": "animated-shield",
+  "name": "Animated Shield",
+  "rarity": "Very Rare",
+  "category": "Armor",
+  "armor_type": "Shield",
+  "attunement_required": true,
+  "weight": "6 lbs",
+  "value": "8000 GP",
+  "description": "While holding this Shield, you can take a Bonus Action to cause it to animate. The Shield leaps into the air and hovers in your space to protect you as if you were wielding it, leaving your hands free. The Shield remains animate for 1 minute, until you take a Bonus Action to end this effect, or until you die or have the Incapacitated condition, at which point the Shield falls to the ground or into your hand if you have one free.",
+  "properties": [
+    "Enchanted",
+    "Shield",
+    "Autonomous",
+    "Hands-Free Protection"
+  ],
+  "effect": {
+    "type": "Shield Animation",
+    "activation_cost": "1 bonus action",
+    "ac_bonus": "+2 (standard shield bonus)",
+    "duration": "1 minute or until ended",
+    "position": "Hovers in your space",
+    "hands_free": true
+  },
+  "attunement": {
+    "required": true,
+    "description": "You must attune to this shield by holding it for 1 hour."
+  },
+  "activation": {
+    "type": "Bonus Action",
+    "description": "Use a bonus action to animate the shield; use another bonus action to end the effect"
+  },
+  "deactivation": {
+    "triggers": [
+      "You use a bonus action to end it",
+      "1 minute passes",
+      "You die",
+      "You become Incapacitated"
+    ],
+    "result": "Shield falls to ground or into your hand if one is free"
+  },
+  "consumable": false,
+  "source": "Player's Handbook",
+  "tactical_uses": [
+    "Free up hands for two-weapon fighting",
+    "Hold shield while casting spells",
+    "Use both hands for two-handed weapons",
+    "Combine with ranged weapons"
+  ],
+  "notes": "This shield can be animated once per turn and remains animated for 1 minute, freeing your hands for other activities."
+}

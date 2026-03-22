@@ -1,0 +1,102 @@
+{
+  "name": "Centaur Trooper",
+  "size": "Large",
+  "type": "Fey",
+  "alignment": "Neutral Good",
+  "armor_class": {
+    "value": 16,
+    "source": "Breastplate"
+  },
+  "initiative": {
+    "bonus": 2,
+    "total": 12
+  },
+  "hit_points": {
+    "average": 45,
+    "formula": "6d10 + 12"
+  },
+  "speed": {
+    "walk": 50
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 18,
+      "modifier": 4,
+      "saving_throw": 4
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "intelligence": {
+      "score": 9,
+      "modifier": -1,
+      "saving_throw": -1
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "charisma": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 0
+    }
+  },
+  "skills": {
+    "athletics": 6,
+    "perception": 3
+  },
+  "equipment": ["Breastplate", "Longbow", "Pike"],
+  "senses": {
+    "passive_perception": 13
+  },
+  "languages": ["Elvish", "Sylvan"],
+  "challenge_rating": {
+    "cr": 2,
+    "xp": 450,
+    "proficiency_bonus": 2
+  },
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The centaur makes two attacks, using Pike or Longbow in any combination."
+    },
+    {
+      "name": "Pike",
+      "description": "Melee Attack Roll: +6, reach 10 ft. Hit: 9 (1d10 + 4) Piercing damage.",
+      "attack_roll": 6,
+      "reach": 10,
+      "damage": "9 (1d10 + 4)",
+      "damage_type": "Piercing"
+    },
+    {
+      "name": "Longbow",
+      "description": "Ranged Attack Roll: +4, range 150/600 ft. Hit: 6 (1d8 + 2) Piercing damage.",
+      "attack_roll": 4,
+      "range": "150/600",
+      "damage": "6 (1d8 + 2)",
+      "damage_type": "Piercing"
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Trampling Charge (Recharge 5–6)",
+      "description": "The centaur moves up to its Speed without provoking Opportunity Attacks and can move through the spaces of Medium or smaller creatures. Each creature whose space the centaur enters is targeted once by the following effect. Strength Saving Throw: DC 14. Failure: 7 (1d6 + 4) Bludgeoning damage, and the target has the Prone condition."
+    }
+  ],
+  "tactical_info": {
+    "role": "Mobile Striker/Ranged Support",
+    "environment": "Forests, plains, fey crossings",
+    "tactics": "Uses mobility for hit-and-run, trampling charge to scatter enemies, longbow from distance",
+    "weaknesses": "Large size in tight spaces, good alignment can be exploited",
+    "signature_abilities": ["High speed", "Reach weapons", "Trampling charge", "Fey nature"]
+  }
+}

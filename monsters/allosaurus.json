@@ -1,0 +1,67 @@
+{
+  "name": "Allosaurus",
+  "size": "Large",
+  "type": "Beast",
+  "subtype": "Dinosaur",
+  "alignment": "Unaligned",
+  "armor_class": 13,
+  "armor_description": "Natural Armor",
+  "hit_points": 51,
+  "hit_dice": "6d10 + 18",
+  "speed": {
+    "walk": "60 ft."
+  },
+  "ability_scores": {
+    "strength": 19,
+    "dexterity": 13,
+    "constitution": 17,
+    "intelligence": 2,
+    "wisdom": 12,
+    "charisma": 5
+  },
+  "saving_throws": {
+    "strength": "+4",
+    "dexterity": "+1",
+    "constitution": "+3",
+    "intelligence": "-4",
+    "wisdom": "+1",
+    "charisma": "-3"
+  },
+  "skills": {
+    "perception": "+5"
+  },
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "passive_perception": 15
+  },
+  "languages": [],
+  "challenge_rating": "2",
+  "experience_points": 450,
+  "proficiency_bonus": 2,
+  "features": [],
+  "actions": [
+    {
+      "name": "Bite",
+      "type": "weapon",
+      "description": "Melee Attack Roll: +6, reach 5 ft. Hit: 15 (2d10 + 4) Piercing damage."
+    },
+    {
+      "name": "Claws",
+      "type": "weapon",
+      "description": "Melee Attack Roll: +6, reach 5 ft. Hit: 8 (1d8 + 4) Slashing damage. If the target is a Large or smaller creature and the allosaurus moved 30+ feet straight toward it immediately before the hit, the target has the Prone condition, and the allosaurus can make one Bite attack against it."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "equipment": [],
+  "tactical_info": {
+    "combat_role": "Large Predator",
+    "preferred_range": "Melee",
+    "key_abilities": ["High speed charge", "Prone knockdown", "Follow-up bite attack"],
+    "weaknesses": ["Animal intelligence", "No ranged attacks"],
+    "tactics": "Uses high speed to charge enemies, knocking them prone with claws, then follows up with devastating bite attacks."
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "Cubic Gate",
+  "type": "Wondrous Item",
+  "rarity": "Legendary",
+  "requires_attunement": false,
+  "overview": "A legendary 3-inch cube that provides planar access and transportation.",
+  "properties": {
+    "physical_description": "This cube is 3 inches across and radiates palpable magical energy",
+    "planar_keying": "The six sides of the cube are each keyed to a different plane of existence, one of which is the Material Plane. The other sides are linked to planes determined by the DM."
+  },
+  "charges": {
+    "total": 3,
+    "recharge": "1d3 expended charges daily at dawn"
+  },
+  "abilities": {
+    "gate_spell": {
+      "description": "Pressing one side of the cube, you cast Gate, opening a portal to the plane of existence keyed to that side",
+      "charge_cost": 1
+    },
+    "plane_shift": {
+      "description": "Pressing one side of the cube twice, you cast Plane Shift, transporting the targets to the plane of existence keyed to that side",
+      "charge_cost": 1
+    }
+  },
+  "activation": "As a Magic action, you can expend 1 of the cube's charges to cast one of the following spells using the cube",
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

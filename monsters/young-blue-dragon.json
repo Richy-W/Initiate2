@@ -1,0 +1,119 @@
+{
+  "name": "Young Blue Dragon",
+  "size": "Large",
+  "type": "Dragon",
+  "subtype": "Chromatic",
+  "alignment": "Lawful Evil",
+  "armor_class": {
+    "value": 18,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 0,
+    "total": 10
+  },
+  "hit_points": {
+    "average": 152,
+    "formula": "16d10 + 64"
+  },
+  "speed": {
+    "walk": 40,
+    "fly": 80,
+    "burrow": 20
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 21,
+      "modifier": 5,
+      "saving_throw": 5
+    },
+    "dexterity": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 4
+    },
+    "constitution": {
+      "score": 19,
+      "modifier": 4,
+      "saving_throw": 8
+    },
+    "intelligence": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 5
+    },
+    "charisma": {
+      "score": 17,
+      "modifier": 3,
+      "saving_throw": 7
+    }
+  },
+  "saving_throws": {
+    "dexterity": 4,
+    "constitution": 8,
+    "wisdom": 5,
+    "charisma": 7
+  },
+  "skills": {
+    "perception": 9,
+    "stealth": 4
+  },
+  "damage_immunities": ["Lightning"],
+  "senses": {
+    "blindsight": 30,
+    "darkvision": 120,
+    "passive_perception": 19
+  },
+  "languages": ["Common", "Draconic"],
+  "challenge_rating": {
+    "cr": 9,
+    "xp": 5000,
+    "proficiency_bonus": 4
+  },
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The dragon makes three attacks: one Bite attack and two Claw attacks."
+    },
+    {
+      "name": "Bite",
+      "description": "Melee Attack Roll: +9, reach 10 ft. Hit: 16 (2d10 + 5) Piercing damage plus 5 (1d10) Lightning damage.",
+      "attack_roll": 9,
+      "reach": 10,
+      "damage": "16 (2d10 + 5) Piercing plus 5 (1d10) Lightning",
+      "damage_type": "Piercing, Lightning"
+    },
+    {
+      "name": "Claw",
+      "description": "Melee Attack Roll: +9, reach 5 ft. Hit: 12 (2d6 + 5) Slashing damage.",
+      "attack_roll": 9,
+      "reach": 5,
+      "damage": "12 (2d6 + 5)",
+      "damage_type": "Slashing"
+    },
+    {
+      "name": "Lightning Breath (Recharge 5-6)",
+      "description": "The dragon exhales lightning in a 60-foot line that is 5 feet wide. Each creature in that line must make a DC 16 Dexterity saving throw, taking 55 (10d10) Lightning damage on a failed save, or half as much damage on a successful one.",
+      "recharge": "5-6",
+      "area": "60-foot line, 5 feet wide",
+      "save": {
+        "ability": "Dexterity",
+        "dc": 16,
+        "on_failure": "55 (10d10) Lightning damage",
+        "on_success": "Half damage"
+      }
+    }
+  ],
+  "tactical_info": {
+    "role": "Solo Monster/Controller",
+    "environment": "Desert lairs, coastal cliffs, underground complexes",
+    "tactics": "Opens with lightning breath, uses multiattack in melee, burrows to control battlefield positioning",
+    "weaknesses": "Arrogant, vulnerable to coordinated ranged attacks",
+    "signature_abilities": ["Devastating lightning breath", "Multiattack sequence", "Burrow mobility", "High perception"]
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "name": "Goblin Warrior",
+  "size": "Small",
+  "type": "Fey (Goblinoid)",
+  "alignment": "Chaotic Neutral",
+  "armor_class": {
+    "value": 15,
+    "source": "Leather Armor and Shield"
+  },
+  "initiative": {
+    "bonus": 2,
+    "total": 12
+  },
+  "hit_points": {
+    "average": 10,
+    "formula": "3d6"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "constitution": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "wisdom": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    }
+  },
+  "skills": {
+    "stealth": 6
+  },
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 9
+  },
+  "languages": ["Common", "Goblin"],
+  "challenge_rating": {
+    "cr": 0.25,
+    "xp": 50,
+    "proficiency_bonus": 2
+  },
+  "equipment": ["Leather Armor", "Scimitar", "Shield", "Shortbow"],
+  "actions": [
+    {
+      "name": "Scimitar",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 5 (1d6 + 2) Slashing damage, plus 2 (1d4) Slashing damage if the attack roll had Advantage.",
+      "attack_roll": 4,
+      "reach": 5,
+      "damage": "5 (1d6 + 2), plus 2 (1d4) with Advantage",
+      "damage_type": "Slashing"
+    },
+    {
+      "name": "Shortbow",
+      "description": "Ranged Attack Roll: +4, range 80/320 ft. Hit: 5 (1d6 + 2) Piercing damage, plus 2 (1d4) Piercing damage if the attack roll had Advantage.",
+      "attack_roll": 4,
+      "range": "80/320",
+      "damage": "5 (1d6 + 2), plus 2 (1d4) with Advantage",
+      "damage_type": "Piercing"
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Nimble Escape",
+      "description": "The goblin takes the Disengage or Hide action."
+    }
+  ],
+  "tactical_info": {
+    "role": "Skirmisher/Archer",
+    "environment": "Forest raids, cave networks, tribal territories, bandit camps with goblin allies",
+    "tactics": "Uses advantage-based bonus damage, switches between melee and ranged as needed, nimble escape for repositioning",
+    "weaknesses": "Still fragile despite armor, relies heavily on positioning and advantage for effectiveness",
+    "signature_abilities": ["Advantage bonus damage", "Versatile weapon options", "Nimble escape mobility", "Stealth specialization"]
+  }
+}

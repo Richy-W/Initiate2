@@ -1,0 +1,36 @@
+{
+  "name": "Robe of Scintillating Colors",
+  "type": "Wondrous Item",
+  "rarity": "Very Rare",
+  "attunement": true,
+  "description": "This robe has 3 charges, and it regains 1d3 expended charges daily at dawn.",
+  "properties": {
+    "charges": {
+      "max_charges": 3,
+      "current_charges": 3,
+      "recharge": "1d3 daily at dawn"
+    },
+    "dazzling_display": {
+      "action_type": "Magic action",
+      "charges_cost": 1,
+      "effect": "Display shifting pattern of dazzling hues",
+      "duration": "Until end of next turn"
+    },
+    "light_and_disadvantage": {
+      "bright_light": "30-foot radius",
+      "dim_light": "Additional 30 feet",
+      "effect": "Creatures that can see you have Disadvantage on attack rolls"
+    },
+    "stun_effect": {
+      "trigger": "Creature in Bright Light that can see you when activated",
+      "saving_throw": {
+        "type": "Wisdom",
+        "dc": 15
+      },
+      "on_failure": {
+        "condition": "Stunned",
+        "duration": "Until effect ends"
+      }
+    }
+  }
+}

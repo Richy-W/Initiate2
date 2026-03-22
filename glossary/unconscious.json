@@ -1,0 +1,17 @@
+{
+  "name": "Unconscious",
+  "slug": "unconscious",
+  "definition": "A condition where you are inert and unaware of your surroundings",
+  "category": "Conditions",
+  "tags": ["[Condition]", "incapacitated", "prone"],
+  "full_text": "While you have the Unconscious condition, you experience the following effects.\n\nInert. You have the Incapacitated and Prone conditions, and you drop whatever you're holding. When this condition ends, you remain Prone.\n\nSpeed 0. Your Speed is 0 and can't increase.\n\nAttacks Affected. Attack rolls against you have Advantage.\n\nSaving Throws Affected. You automatically fail Strength and Dexterity saving throws.\n\nAutomatic Critical Hits. Any attack roll that hits you is a Critical Hit if the attacker is within 5 feet of you.\n\nUnaware. You're unaware of your surroundings.",
+  "mechanics": {
+    "inert": "Incapacitated and Prone conditions; drop held objects; remain Prone when condition ends",
+    "speed": "0 and can't increase",
+    "attacks": "Attacks against you have Advantage",
+    "saving_throws": "Automatically fail STR and DEX saves",
+    "critical_hits": "Automatic Critical Hits from within 5 feet",
+    "awareness": "Unaware of surroundings"
+  },
+  "see_also": ["condition", "incapacitated", "prone"]
+}

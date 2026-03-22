@@ -1,0 +1,181 @@
+{
+  "name": "Deck of Many Things",
+  "type": "Wondrous Item",
+  "rarity": "Legendary",
+  "requires_attunement": false,
+  "overview": "A legendary deck of cards that produce powerful and often dangerous magical effects when drawn.",
+  "properties": {
+    "material": "Cards made of ivory or vellum, usually found in a box or pouch",
+    "composition": "Most (75 percent) of these decks have thirteen cards, but some have twenty-two",
+    "declaration": "Before you draw a card, you must declare how many cards you intend to draw and then draw them randomly. Any cards drawn in excess of this number have no effect",
+    "timing": "As soon as you draw a card from the deck, its magic takes effect. You must draw each card no more than 1 hour after the previous draw",
+    "auto_draw": "If you fail to draw the chosen number, the remaining number of cards fly from the deck on their own and take effect all at once"
+  },
+  "card_mechanics": {
+    "permanence": "Once a card is drawn, it disappears",
+    "reappearance": "Unless the card is the Fool or Jester, the card reappears in the deck, making it possible to draw the same card twice",
+    "exception": "Once the Fool or Jester has left the deck, reroll on the table if that card comes up again"
+  },
+  "cards_13_deck": [
+    { "roll": "01-08", "card": "Euryale" },
+    { "roll": "09-16", "card": "Flames" },
+    { "roll": "17-24", "card": "Jester" },
+    { "roll": "25-32", "card": "Key" },
+    { "roll": "33-40", "card": "Knight" },
+    { "roll": "41-48", "card": "Moon" },
+    { "roll": "49-56", "card": "Rogue" },
+    { "roll": "57-64", "card": "Ruin" },
+    { "roll": "65-72", "card": "Skull" },
+    { "roll": "73-80", "card": "Star" },
+    { "roll": "81-88", "card": "Sun" },
+    { "roll": "89-96", "card": "Throne" },
+    { "roll": "97-00", "card": "Void" }
+  ],
+  "cards_22_deck": [
+    { "roll": "01-05", "card": "Balance" },
+    { "roll": "06-10", "card": "Comet" },
+    { "roll": "11-14", "card": "Donjon" },
+    { "roll": "15-18", "card": "Euryale" },
+    { "roll": "19-23", "card": "Fates" },
+    { "roll": "24-27", "card": "Flames" },
+    { "roll": "28-31", "card": "Fool" },
+    { "roll": "32-36", "card": "Gem" },
+    { "roll": "37-41", "card": "Jester" },
+    { "roll": "42-46", "card": "Key" },
+    { "roll": "47-51", "card": "Knight" },
+    { "roll": "52-56", "card": "Moon" },
+    { "roll": "57-60", "card": "Puzzle" },
+    { "roll": "61-64", "card": "Rogue" },
+    { "roll": "65-68", "card": "Ruin" },
+    { "roll": "69-73", "card": "Sage" },
+    { "roll": "74-77", "card": "Skull" },
+    { "roll": "78-82", "card": "Star" },
+    { "roll": "83-87", "card": "Sun" },
+    { "roll": "88-91", "card": "Talons" },
+    { "roll": "92-96", "card": "Throne" },
+    { "roll": "97-00", "card": "Void" }
+  ],
+  "card_effects": {
+    "balance": {
+      "effect": "Ability Score Adjustment",
+      "description": "You can increase one of your ability scores by 2, to a maximum of 22, provided you also decrease another one of your ability scores by 2. You can't decrease an ability that has a score of 5 or lower. Alternatively, you can choose not to adjust your ability scores, in which case this card has no effect."
+    },
+    "comet": {
+      "effect": "Combat Advantage",
+      "description": "The next time you enter combat against one or more Hostile creatures, you can select one of them as your foe when you roll Initiative. If you reduce your foe to 0 Hit Points during that combat, you have Advantage on Death Saving Throws for 1 year. If someone else reduces your chosen foe to 0 Hit Points or you don't choose a foe, this card has no effect."
+    },
+    "donjon": {
+      "effect": "Imprisonment",
+      "description": "You disappear and become entombed in a state of suspended animation in an extradimensional sphere. Everything you're wearing and carrying disappears with you except for Artifacts, which stay behind in the space you occupied when you disappeared. You remain imprisoned until you are found and removed from the sphere. You can't be located by any Divination magic, but a Wish spell can reveal the location of your prison. You draw no more cards."
+    },
+    "euryale": {
+      "effect": "Medusa Curse",
+      "description": "The card's medusa-like visage curses you. You take a −2 penalty to saving throws while cursed in this way. Only a god or the magic of the Fates card can end this curse."
+    },
+    "fates": {
+      "effect": "Reality Rewrite",
+      "description": "Reality's fabric unravels and spins anew, allowing you to avoid or erase one event as if it never happened. You can use the card's magic as soon as you draw the card or at any other time before you die."
+    },
+    "flames": {
+      "effect": "Infernal Enmity",
+      "description": "A powerful devil becomes your enemy. The devil seeks your ruin and torments you, savoring your suffering before attempting to slay you. This enmity lasts until either you or the devil dies."
+    },
+    "fool": {
+      "effect": "Disadvantage & Extra Draw",
+      "description": "You have Disadvantage on D20 Tests for the next 72 hours. Draw another card; this draw doesn't count as one of your declared draws."
+    },
+    "gem": {
+      "effect": "Wealth",
+      "description": "Twenty-five pieces of jewelry worth 2,000 GP each or fifty gems worth 1,000 GP each appear at your feet."
+    },
+    "jester": {
+      "effect": "Advantage or Extra Draws",
+      "description": "You have Advantage on D20 Tests for the next 72 hours, or you can draw two additional cards beyond your declared draws."
+    },
+    "key": {
+      "effect": "Magic Weapon",
+      "description": "A Rare or rarer magic weapon with which you are proficient appears on your person. The DM chooses the weapon."
+    },
+    "knight": {
+      "effect": "Loyal Follower",
+      "description": "You gain the service of a Knight, who magically appears in an unoccupied space you choose within 30 feet of yourself. The knight has the same alignment as you and serves you loyally until death, believing the two of you have been drawn together by fate."
+    },
+    "moon": {
+      "effect": "Wish Casting",
+      "description": "You gain the ability to cast Wish 1d3 times."
+    },
+    "puzzle": {
+      "effect": "Mental Penalty & Extra Draw",
+      "description": "Permanently reduce your Intelligence or Wisdom by 1d4 + 1 (to a minimum score of 1). You can draw one additional card beyond your declared draws."
+    },
+    "rogue": {
+      "effect": "Secret Enmity",
+      "description": "An NPC of the DM's choice becomes Hostile toward you. You don't know the identity of this NPC until they or someone else reveals it. Nothing less than a Wish spell or divine intervention can end the NPC's hostility toward you."
+    },
+    "ruin": {
+      "effect": "Wealth Loss",
+      "description": "All forms of wealth that you carry or own, other than magic items, are lost to you. Portable property vanishes. Businesses, buildings, and land you own are lost in a way that alters reality the least. If you have a Bastion, it is destroyed by some calamity beyond your control. Any documentation that proves you should own something lost to this card also disappears."
+    },
+    "sage": {
+      "effect": "Question Answered",
+      "description": "At any time you choose within one year of drawing this card, you can ask a question in meditation and mentally receive a truthful answer to that question."
+    },
+    "skull": {
+      "effect": "Avatar of Death Summoned",
+      "description": "An Avatar of Death appears in an unoccupied space as close to you as possible. The avatar targets only you with its attacks, appearing as a ghostly skeleton clad in a tattered black robe and carrying a spectral scythe. The avatar disappears when it drops to 0 Hit Points or you die. If an ally of yours deals damage to the avatar, that ally summons another Avatar of Death. The new avatar appears in an unoccupied space as close to that ally as possible and targets only that ally with its attacks. You and your allies can each summon only one avatar as a consequence of this draw. A creature slain by an avatar can't be restored to life."
+    },
+    "star": {
+      "effect": "Ability Score Increase",
+      "description": "Increase one of your ability scores by 2, to a maximum of 24."
+    },
+    "sun": {
+      "effect": "Magic Item & Temporary HP",
+      "description": "A magic item (chosen by the DM) appears on your person. In addition, you gain 10 Temporary Hit Points daily at dawn until you die."
+    },
+    "talons": {
+      "effect": "Item Disintegration",
+      "description": "Every magic item you wear or carry disintegrates. Artifacts in your possession vanish instead."
+    },
+    "throne": {
+      "effect": "Skill Expertise & Keep Ownership",
+      "description": "You gain proficiency and Expertise in your choice of History, Insight, Intimidation, or Persuasion. In addition, you gain rightful ownership of a small keep somewhere in the world. However, the keep is currently home to one or more monsters, which must be cleared out before you can claim the keep as yours."
+    },
+    "void": {
+      "effect": "Soul Imprisonment",
+      "description": "Your soul is drawn from your body and contained in an object in a place of the DM's choice. One or more powerful beings guard the place. While your soul is trapped in this way, your body is inert, ceases aging, and requires no food, air, or water. A Wish spell can't return your soul to your body, but the spell reveals the location of the object that holds your soul. You draw no more cards."
+    }
+  },
+  "avatar_of_death": {
+    "name": "Avatar of Death",
+    "type": "Medium Undead, Neutral Evil",
+    "ac": 20,
+    "initiative": 3,
+    "hp": "Half the HP maximum of its summoner",
+    "speed": "60 ft., Fly 60 ft. (hover)",
+    "abilities": {
+      "str": { "score": 16, "modifier": 3, "save": 3 },
+      "dex": { "score": 16, "modifier": 3, "save": 3 },
+      "con": { "score": 16, "modifier": 3, "save": 3 },
+      "int": { "score": 16, "modifier": 3, "save": 3 },
+      "wis": { "score": 16, "modifier": 3, "save": 3 },
+      "cha": { "score": 16, "modifier": 3, "save": 3 }
+    },
+    "immunities": "Necrotic, Poison; Charmed, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned, Unconscious",
+    "senses": "Truesight 60 ft.; Passive Perception 13",
+    "languages": "All languages known to its summoner",
+    "traits": {
+      "incorporeal_movement": "The avatar can move through other creatures and objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage if it ends its turn inside an object."
+    },
+    "actions": {
+      "multiattack": "The avatar makes a number of Reaping Scythe attacks equal to half the summoner's Proficiency Bonus (rounded up)",
+      "reaping_scythe": {
+        "type": "Melee Attack Roll",
+        "hit": "Automatic hit",
+        "reach": "5 ft.",
+        "damage": "7 (1d8 + 3) Slashing damage plus 4 (1d8) Necrotic damage"
+      }
+    }
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

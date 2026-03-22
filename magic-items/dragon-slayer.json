@@ -1,0 +1,13 @@
+{
+  "name": "Dragon Slayer",
+  "type": "Weapon (Any Simple or Martial)",
+  "rarity": "Rare",
+  "requires_attunement": false,
+  "overview": "A weapon specifically effective against dragons.",
+  "properties": {
+    "attack_bonus": "You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon",
+    "dragon_damage": "The weapon deals an extra 3d6 damage of the weapon's type if the target is a Dragon"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

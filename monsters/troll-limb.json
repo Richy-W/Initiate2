@@ -1,0 +1,50 @@
+{
+  "name": "Troll Limb",
+  "size": "Small",
+  "type": "Giant",
+  "alignment": "Chaotic Evil",
+  "armor_class": 13,
+  "initiative": 11,
+  "hit_points": {
+    "average": 14,
+    "formula": "4d6"
+  },
+  "speed": {
+    "walk": "20 ft."
+  },
+  "ability_scores": {
+    "strength": { "score": 18, "modifier": 4, "save": 4 },
+    "dexterity": { "score": 12, "modifier": 1, "save": 1 },
+    "constitution": { "score": 10, "modifier": 0, "save": 0 },
+    "intelligence": { "score": 1, "modifier": -5, "save": -5 },
+    "wisdom": { "score": 9, "modifier": -1, "save": -1 },
+    "charisma": { "score": 1, "modifier": -5, "save": -5 }
+  },
+  "senses": "Darkvision 60 ft.; Passive Perception 9",
+  "languages": "None",
+  "challenge_rating": 0.5,
+  "experience_points": 100,
+  "proficiency_bonus": 2,
+  "traits": [
+    {
+      "name": "Regeneration",
+      "description": "The limb regains 5 Hit Points at the start of each of its turns. If the limb takes Acid or Fire damage, this trait doesn't function on the limb's next turn. The limb dies only if it starts its turn with 0 Hit Points and doesn't regenerate."
+    },
+    {
+      "name": "Troll Spawn",
+      "description": "The limb uncannily has the same senses as a whole troll. If the limb isn't destroyed within 24 hours, roll 1d12. On a 12, the limb turns into a Troll. Otherwise, the limb withers away."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Rend",
+      "description": "Melee Attack Roll: +6, reach 5 ft. Hit: 9 (2d4 + 4) Slashing damage."
+    }
+  ],
+  "tactical_info": {
+    "optimal_range": "Close combat harassment",
+    "key_abilities": ["Regeneration", "Troll spawn transformation", "Surprising strength", "Low hit points"],
+    "weaknesses": ["Very low hit points", "Vulnerable to acid/fire", "Limited reach"],
+    "synergies": ["Troll encounters", "Persistent threats", "Battlefield chaos", "Time pressure mechanics"]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Potion of Healing (Superior)",
+  "type": "Potion",
+  "rarity": "Rare",
+  "attunement": false,
+  "description": "You regain Hit Points when you drink this potion. This superior potion restores 8d4 + 8 Hit Points. Whatever its potency, the potion's red liquid glimmers when agitated.",
+  "properties": {
+    "hit_points_restored": "8d4 + 8",
+    "appearance": "Red liquid that glimmers when agitated"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Demon Armor",
+  "type": "Armor (Any Light, Medium, or Heavy)",
+  "rarity": "Very Rare",
+  "requires_attunement": true,
+  "overview": "A cursed armor that grants bonuses but comes with infernal limitations.",
+  "properties": {
+    "ac_bonus": "You gain a +1 bonus to Armor Class",
+    "language": "You know Abyssal",
+    "unarmed_damage": "The armor's clawed gauntlets allow your Unarmed Strikes to deal 1d8 Slashing damage instead of the usual Bludgeoning damage",
+    "unarmed_bonus": "You gain a +1 bonus to the attack and damage rolls of your Unarmed Strikes"
+  },
+  "curse": {
+    "description": "This armor is cursed",
+    "donning": "Once you don this cursed armor, you can't doff it unless you are targeted by a Remove Curse spell or similar magic",
+    "disadvantage": "While wearing the armor, you have Disadvantage on attack rolls against demons and on saving throws against their spells and special abilities"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

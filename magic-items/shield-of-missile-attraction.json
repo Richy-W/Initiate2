@@ -1,0 +1,20 @@
+{
+  "name": "Shield of Missile Attraction",
+  "type": "Armor",
+  "armor_type": "Shield",
+  "rarity": "Rare",
+  "attunement": true,
+  "description": "While holding this Shield, you have Resistance to damage from attacks made with Ranged weapons.",
+  "properties": {
+    "resistance": "Ranged weapon damage",
+    "curse": {
+      "effect": "Cursed item",
+      "removal": "Remove Curse spell or similar magic",
+      "shield_removal_ineffective": "Removing shield doesn't end curse"
+    },
+    "curse_effect": {
+      "trigger": "Ranged weapon attack targets creature within 10 feet of you",
+      "result": "You become the target instead"
+    }
+  }
+}

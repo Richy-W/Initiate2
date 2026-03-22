@@ -1,0 +1,12 @@
+{
+  "name": "Spellguard Shield",
+  "type": "Armor",
+  "armor_type": "Shield",
+  "rarity": "Very Rare",
+  "attunement": true,
+  "description": "While holding this Shield, you have Advantage on saving throws against spells and other magical effects, and spell attack rolls have Disadvantage against you.",
+  "properties": {
+    "spell_save_advantage": "Advantage on saving throws against spells and magical effects",
+    "spell_attack_disadvantage": "Spell attack rolls have Disadvantage against you"
+  }
+}

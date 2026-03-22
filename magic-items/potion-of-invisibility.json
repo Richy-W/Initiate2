@@ -1,0 +1,19 @@
+{
+  "name": "Potion of Invisibility",
+  "type": "Potion",
+  "rarity": "Rare",
+  "attunement": false,
+  "description": "This potion's container looks empty but feels as though it holds liquid. When you drink the potion, you have the Invisible condition for 1 hour. The effect ends early if you make an attack roll, deal damage, or cast a spell.",
+  "properties": {
+    "invisibility": {
+      "condition": "Invisible",
+      "duration": "1 hour",
+      "early_termination": [
+        "Make an attack roll",
+        "Deal damage",
+        "Cast a spell"
+      ]
+    },
+    "appearance": "Container looks empty but feels as though it holds liquid"
+  }
+}

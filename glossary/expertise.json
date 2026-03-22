@@ -1,0 +1,19 @@
+{
+  "name": "Expertise",
+  "slug": "expertise",
+  "definition": "Expertise is a feature that enhances your use of a skill proficiency.",
+  "category": "Game Mechanics",
+  "tags": [],
+  "full_text": "Expertise is a feature that enhances your use of a skill proficiency. When you make an ability check with a skill proficiency in which you have Expertise, your Proficiency Bonus is doubled for that check unless the bonus is doubled by another feature. If you gain Expertise, you gain it in one skill in which you have proficiency. You can't have Expertise in the same skill proficiency more than once.",
+  "mechanics": {
+    "bonus": "Your Proficiency Bonus is doubled for that check",
+    "condition": "Unless the bonus is doubled by another feature",
+    "acquisition": "If you gain Expertise, you gain it in one skill in which you have proficiency",
+    "limitation": "You can't have Expertise in the same skill proficiency more than once"
+  },
+  "see_also": [
+    "Proficiency",
+    "Proficiency Bonus",
+    "Skill"
+  ]
+}

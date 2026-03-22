@@ -1,0 +1,14 @@
+{
+  "name": "Frightened",
+  "slug": "frightened",
+  "definition": "A condition where fear affects your ability checks and movement",
+  "category": "Conditions",
+  "tags": ["[Condition]", "disadvantage", "fear"],
+  "full_text": "While you have the Frightened condition, you experience the following effects.\n\nAbility Checks and Attacks Affected. You have Disadvantage on ability checks and attack rolls while the source of fear is within line of sight.\n\nCan't Approach. You can't willingly move closer to the source of fear.",
+  "mechanics": {
+    "ability_checks": "Disadvantage while fear source in line of sight",
+    "attack_rolls": "Disadvantage while fear source in line of sight",
+    "movement": "Can't willingly move closer to fear source"
+  },
+  "see_also": ["condition", "disadvantage"]
+}

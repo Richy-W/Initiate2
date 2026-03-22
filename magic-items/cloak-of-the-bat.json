@@ -1,0 +1,21 @@
+{
+  "name": "Cloak of the Bat",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "requires_attunement": true,
+  "overview": "A cloak that grants enhanced stealth, flight in darkness, and the ability to shapeshift into a bat.",
+  "properties": {
+    "stealth_advantage": "You have Advantage on Dexterity (Stealth) checks",
+    "flight": {
+      "description": "In an area of Dim Light or Darkness, you can grip the edges of the cloak and use it to gain a Fly Speed of 40 feet",
+      "conditions": "If you ever fail to grip the cloak's edges while flying in this way, or if you are no longer in Dim Light or Darkness, you lose this Fly Speed"
+    }
+  },
+  "polymorph": {
+    "description": "While wearing the cloak in an area of Dim Light or Darkness, you can cast Polymorph on yourself, shape-shifting into a Bat",
+    "retained_scores": "While in that form, you retain your Intelligence, Wisdom, and Charisma scores",
+    "recharge": "The cloak can't be used this way again until the next dawn"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

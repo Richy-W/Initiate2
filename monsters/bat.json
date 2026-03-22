@@ -1,0 +1,61 @@
+{
+  "name": "Bat",
+  "size": "Tiny",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 12,
+  "armor_description": "Natural Armor",
+  "hit_points": 1,
+  "hit_dice": "1d4 − 1",
+  "speed": {
+    "walk": "5 ft.",
+    "fly": "30 ft."
+  },
+  "ability_scores": {
+    "strength": 2,
+    "dexterity": 15,
+    "constitution": 8,
+    "intelligence": 2,
+    "wisdom": 12,
+    "charisma": 4
+  },
+  "saving_throws": {
+    "strength": "-4",
+    "dexterity": "+2",
+    "constitution": "-1",
+    "intelligence": "-4",
+    "wisdom": "+1",
+    "charisma": "-3"
+  },
+  "skills": {},
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "blindsight": "60 ft.",
+    "passive_perception": 11
+  },
+  "languages": [],
+  "challenge_rating": "0",
+  "experience_points": 10,
+  "proficiency_bonus": 2,
+  "features": [],
+  "actions": [
+    {
+      "name": "Bite",
+      "type": "weapon",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 1 Piercing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "equipment": [],
+  "tactical_info": {
+    "combat_role": "Scout/Familiar",
+    "preferred_range": "Melee",
+    "key_abilities": ["Flight mobility", "Blindsight", "Small target", "High dexterity"],
+    "weaknesses": ["Extremely low HP", "Minimal damage", "Very weak physically"],
+    "tactics": "Primarily used for scouting and reconnaissance. Blindsight makes it excellent in darkness. Flight provides superior mobility but too fragile for combat."
+  }
+}

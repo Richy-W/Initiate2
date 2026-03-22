@@ -1,0 +1,103 @@
+{
+  "name": "Green Dragon Wyrmling",
+  "size": "Medium",
+  "type": "Dragon (Chromatic)",
+  "alignment": "Lawful Evil",
+  "armor_class": {
+    "value": 17,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 3,
+    "total": 13
+  },
+  "hit_points": {
+    "average": 38,
+    "formula": "7d8 + 7"
+  },
+  "speed": {
+    "walk": 30,
+    "fly": 60,
+    "swim": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 3
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "intelligence": {
+      "score": 14,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "wisdom": {
+      "score": 11,
+      "modifier": 0,
+      "saving_throw": 2
+    },
+    "charisma": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    }
+  },
+  "skills": {
+    "perception": 4,
+    "stealth": 3
+  },
+  "damage_immunities": ["Poison"],
+  "condition_immunities": ["Poisoned"],
+  "senses": {
+    "blindsight": 10,
+    "darkvision": 60,
+    "passive_perception": 14
+  },
+  "languages": ["Draconic"],
+  "challenge_rating": {
+    "cr": 2,
+    "xp": 450,
+    "proficiency_bonus": 2
+  },
+  "traits": [
+    {
+      "name": "Amphibious",
+      "description": "The dragon can breathe air and water."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The dragon makes two Rend attacks."
+    },
+    {
+      "name": "Rend",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 7 (1d10 + 2) Slashing damage plus 3 (1d6) Poison damage.",
+      "attack_roll": 4,
+      "reach": 5,
+      "damage": "7 (1d10 + 2) Slashing plus 3 (1d6) Poison",
+      "damage_type": "Slashing + Poison"
+    },
+    {
+      "name": "Poison Breath (Recharge 5-6)",
+      "description": "Constitution Saving Throw: DC 11, each creature in a 15-foot Cone. Failure: 21 (6d6) Poison damage. Success: Half damage."
+    }
+  ],
+  "tactical_info": {
+    "role": "Young Toxic Dragon/Artillery",
+    "environment": "Forest strongholds, poisonous swamps, ancient woodland ruins, territorial hunting grounds",
+    "tactics": "Uses poison breath for area control, amphibious mobility to escape or ambush, prefers hit-and-run tactics",
+    "weaknesses": "Still young and learning, lacks legendary actions, relatively low hit points for a dragon",
+    "signature_abilities": ["Poison breath weapon", "Amphibious nature", "Poison immunity", "Combined slashing and poison damage"]
+  }
+}

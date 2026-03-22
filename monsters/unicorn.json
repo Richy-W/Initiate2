@@ -1,0 +1,80 @@
+{
+  "name": "Unicorn",
+  "size": "Large",
+  "type": "Celestial",
+  "alignment": "Lawful Good",
+  "armor_class": 12,
+  "initiative": 18,
+  "hit_points": {
+    "average": 97,
+    "formula": "13d10 + 26"
+  },
+  "speed": {
+    "walk": "50 ft."
+  },
+  "ability_scores": {
+    "strength": { "score": 18, "modifier": 4, "save": 4 },
+    "dexterity": { "score": 14, "modifier": 2, "save": 2 },
+    "constitution": { "score": 15, "modifier": 2, "save": 2 },
+    "intelligence": { "score": 11, "modifier": 0, "save": 0 },
+    "wisdom": { "score": 17, "modifier": 3, "save": 3 },
+    "charisma": { "score": 16, "modifier": 3, "save": 3 }
+  },
+  "immunities": ["Poison"],
+  "condition_immunities": ["Charmed", "Paralyzed", "Poisoned"],
+  "senses": "Darkvision 60 ft.; Passive Perception 13",
+  "languages": "Celestial, Elvish, Sylvan; telepathy 120 ft.",
+  "challenge_rating": 5,
+  "experience_points": 1800,
+  "proficiency_bonus": 3,
+  "traits": [
+    {
+      "name": "Legendary Resistance (3/Day)",
+      "description": "If the unicorn fails a saving throw, it can choose to succeed instead."
+    },
+    {
+      "name": "Magic Resistance",
+      "description": "The unicorn has Advantage on saving throws against spells and other magical effects."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The unicorn makes one Hooves attack and one Radiant Horn attack."
+    },
+    {
+      "name": "Hooves",
+      "description": "Melee Attack Roll: +7, reach 5 ft. Hit: 11 (2d6 + 4) Bludgeoning damage."
+    },
+    {
+      "name": "Radiant Horn",
+      "description": "Melee Attack Roll: +7, reach 5 ft. Hit: 9 (1d10 + 4) Radiant damage."
+    },
+    {
+      "name": "Spellcasting",
+      "description": "The unicorn casts one of the following spells, requiring no spell components and using Charisma as the spellcasting ability (spell save DC 14): At Will: Detect Evil and Good, Druidcraft; 1/Day Each: Calm Emotions, Dispel Evil and Good, Entangle, Pass without Trace, Word of Recall"
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Unicorn's Blessing (3/Day)",
+      "description": "The unicorn touches another creature with its horn and casts Cure Wounds or Lesser Restoration on that creature, using the same spellcasting ability as Spellcasting."
+    }
+  ],
+  "legendary_actions": [
+    {
+      "name": "Charging Horn",
+      "description": "The unicorn moves up to half its Speed without provoking Opportunity Attacks, and it makes one Radiant Horn attack."
+    },
+    {
+      "name": "Shimmering Shield",
+      "description": "The unicorn targets itself or one creature it can see within 60 feet of itself. The target gains 10 (3d6) Temporary Hit Points, and its AC increases by 2 until the end of the unicorn's next turn. The unicorn can't take this action again until the start of its next turn."
+    }
+  ],
+  "tactical_info": {
+    "optimal_range": "Close combat with charging attacks",
+    "key_abilities": ["Legendary actions", "Healing support", "Magic resistance", "Radiant damage"],
+    "weaknesses": ["Low armor class", "Limited ranged options", "Vulnerable to physical damage"],
+    "synergies": ["Divine encounters", "Forest guardians", "Support role", "Purity themes"]
+  }
+}

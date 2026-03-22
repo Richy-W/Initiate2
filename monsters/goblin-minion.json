@@ -1,0 +1,90 @@
+{
+  "name": "Goblin Minion",
+  "size": "Small",
+  "type": "Fey (Goblinoid)",
+  "alignment": "Chaotic Neutral",
+  "armor_class": {
+    "value": 12,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 2,
+    "total": 12
+  },
+  "hit_points": {
+    "average": 7,
+    "formula": "2d6"
+  },
+  "speed": {
+    "walk": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "constitution": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0,
+      "saving_throw": 0
+    },
+    "wisdom": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    }
+  },
+  "skills": {
+    "stealth": 6
+  },
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 9
+  },
+  "languages": ["Common", "Goblin"],
+  "challenge_rating": {
+    "cr": 0.125,
+    "xp": 25,
+    "proficiency_bonus": 2
+  },
+  "equipment": ["Daggers (3)"],
+  "actions": [
+    {
+      "name": "Dagger",
+      "description": "Melee or Ranged Attack Roll: +4, reach 5 ft. or range 20/60 ft. Hit: 4 (1d4 + 2) Piercing damage.",
+      "attack_roll": 4,
+      "reach": "5 ft. or range 20/60",
+      "damage": "4 (1d4 + 2)",
+      "damage_type": "Piercing"
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Nimble Escape",
+      "description": "The goblin takes the Disengage or Hide action."
+    }
+  ],
+  "tactical_info": {
+    "role": "Scout/Harasser",
+    "environment": "Forests, caves, ruins, goblin settlements, anywhere shadows provide cover",
+    "tactics": "Uses stealth and nimble escape to hit-and-run, fights in groups for pack tactics advantage",
+    "weaknesses": "Very low hit points, poor physical strength, vulnerable when caught alone",
+    "signature_abilities": ["Nimble escape", "Stealth expertise", "Ranged and melee dagger attacks", "Pack coordination"]
+  }
+}

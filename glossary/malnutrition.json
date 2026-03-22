@@ -1,0 +1,22 @@
+{
+  "name": "Malnutrition",
+  "slug": "malnutrition",
+  "definition": "A hazard where lack of food causes exhaustion",
+  "category": "Hazards",
+  "tags": ["[Hazard]", "exhaustion", "food"],
+  "full_text": "A creature needs an amount of food per day based on its size. A creature that eats but consumes less than half the required food for a day must succeed on a DC 10 Constitution saving throw or gain 1 Exhaustion level at the day's end. A creature that eats nothing for 5 days automatically gains 1 Exhaustion level at the end of the fifth day as well as an additional level at the end of each subsequent day without food.\n\nExhaustion caused by malnutrition can't be removed until the creature eats the full amount of food required for a day.",
+  "mechanics": {
+    "insufficient_food": "DC 10 CON save or 1 Exhaustion level (if less than half required)",
+    "no_food": "Automatic 1 Exhaustion level after 5 days, then 1 per day after",
+    "recovery": "Full daily food intake required before Exhaustion can be removed"
+  },
+  "food_needs_per_day": {
+    "tiny": "1/4 pound",
+    "small": "1 pound",
+    "medium": "1 pound",
+    "large": "4 pounds",
+    "huge": "16 pounds",
+    "gargantuan": "64 pounds"
+  },
+  "see_also": ["exhaustion", "hazard", "constitution"]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Potion of Healing",
+  "type": "Potion",
+  "rarity": "Common",
+  "attunement": false,
+  "description": "You regain Hit Points when you drink this potion. This common potion restores 2d4 + 2 Hit Points. Whatever its potency, the potion's red liquid glimmers when agitated.",
+  "properties": {
+    "hit_points_restored": "2d4 + 2",
+    "appearance": "Red liquid that glimmers when agitated"
+  }
+}

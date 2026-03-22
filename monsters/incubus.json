@@ -1,0 +1,109 @@
+{
+  "name": "Incubus",
+  "size": "Medium",
+  "type": "Fiend",
+  "alignment": "Neutral Evil",
+  "armor_class": {
+    "value": 15,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 3,
+    "total": 13
+  },
+  "hit_points": {
+    "average": 66,
+    "formula": "12d8 + 12"
+  },
+  "speed": {
+    "walk": 30,
+    "fly": 60
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    },
+    "dexterity": {
+      "score": 17,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "intelligence": {
+      "score": 15,
+      "modifier": 2,
+      "saving_throw": 2
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "charisma": {
+      "score": 20,
+      "modifier": 5,
+      "saving_throw": 5
+    }
+  },
+  "skills": {
+    "Deception": 9,
+    "Insight": 5,
+    "Perception": 5,
+    "Persuasion": 9,
+    "Stealth": 7
+  },
+  "damage_resistances": ["Cold", "Fire", "Poison", "Psychic"],
+  "senses": {
+    "darkvision": 60,
+    "passive_perception": 15
+  },
+  "languages": ["Abyssal", "Common", "Infernal", "Telepathy 60 feet"],
+  "challenge_rating": {
+    "cr": 4,
+    "xp": 1100,
+    "proficiency_bonus": 2
+  },
+  "traits": [
+    {
+      "name": "Succubus Form",
+      "description": "When the incubus finishes a Long Rest, it can shape-shift into a Succubus, using that stat block instead of this one. Any equipment it is wearing or carrying isn't transformed."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The incubus makes two Restless Touch attacks."
+    },
+    {
+      "name": "Restless Touch",
+      "description": "Melee Attack Roll: +7, reach 5 ft. Hit: 15 (3d6 + 5) Psychic damage, and the target is cursed for 24 hours or until the incubus dies. Until the curse ends, the target gains no benefit from finishing Short Rests.",
+      "attack_roll": 7,
+      "reach": 5,
+      "damage": "15 (3d6 + 5)",
+      "damage_type": "Psychic"
+    },
+    {
+      "name": "Spellcasting",
+      "description": "The incubus casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 15): At Will: Disguise Self, Etherealness; 1/Day Each: Dream, Hypnotic Pattern"
+    }
+  ],
+  "bonus_actions": [
+    {
+      "name": "Nightmare (Recharge 6)",
+      "description": "Wisdom Saving Throw: DC 15, one creature the incubus can see within 60 feet. Failure: If the target has 20 Hit Points or fewer, it has the Unconscious condition for 1 hour, until it takes damage, or until a creature within 5 feet of it takes an action to wake it. Otherwise, the target takes 18 (4d8) Psychic damage."
+    }
+  ],
+  "tactical_info": {
+    "role": "Seductive Controller/Psychic Manipulator",
+    "environment": "Urban areas, courts, bedchambers, dream realm",
+    "tactics": "Uses disguise self and etherealness for infiltration, curses targets to prevent rest recovery, nightmare ability for crowd control",
+    "weaknesses": "Moderate hit points, relies on charm and deception rather than direct combat",
+    "signature_abilities": ["Rest-preventing curse touch", "Unconsciousness-inducing nightmare", "At-will etherealness", "Succubus transformation"]
+  }
+}

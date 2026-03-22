@@ -1,0 +1,25 @@
+{
+  "name": "Rod of Absorption",
+  "type": "Rod",
+  "rarity": "Very Rare",
+  "attunement": true,
+  "description": "While holding this rod, you can take a Reaction to absorb a spell that is targeting only you and doesn't create an area of effect. The absorbed spell's effect is canceled, and the spell's energy—not the spell itself—is stored in the rod. The energy has the same level as the spell when it was cast. A canceled spell dissipates with no effect, and any resources used to cast it are wasted.",
+  "properties": {
+    "absorption": {
+      "action_type": "Reaction",
+      "target_restriction": "Spell targeting only you",
+      "effect_restriction": "No area of effect",
+      "result": "Spell canceled, energy stored in rod"
+    },
+    "storage_capacity": "Up to 50 levels of energy over existence",
+    "knowledge": "You know how many levels stored and currently available when attuned",
+    "spell_slot_conversion": {
+      "requirement": "You must be spellcaster holding rod",
+      "conversion": "Convert stored energy into spell slots",
+      "slot_levels": "Up to level 5, only levels you can normally create",
+      "usage": "Use stored levels in place of your slots, cast spell normally"
+    },
+    "new_rod": "Typically has 1d10 levels when found",
+    "destruction": "Becomes nonmagical when can't absorb and has no energy"
+  }
+}

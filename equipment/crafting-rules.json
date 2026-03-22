@@ -1,0 +1,110 @@
+{
+  "title": "D&D 5e 2024 Crafting Rules",
+  "version": "2024",
+  "description": "Complete rules for crafting nonmagical items, potions, and spell scrolls",
+  "nonmagicalItems": {
+    "description": "To craft a nonmagical item, you need tools, raw materials, and time",
+    "requirements": {
+      "tools": {
+        "description": "You must use the required tool to make an item and have proficiency with that tool. Anyone who helps you must also have proficiency with it.",
+        "assignment": "The DM assigns required tools for items not specifically listed in the Tools section."
+      },
+      "rawMaterials": {
+        "cost": "To make an item, you need raw materials worth half its purchase cost (round down)",
+        "example": "You need 750 GP of raw materials to make Plate Armor, which sells for 1,500 GP",
+        "availability": "The DM determines whether appropriate raw materials are available"
+      },
+      "time": {
+        "calculation": "To determine how many days (working 8 hours a day) it takes to make an item, divide its purchase cost in GP by 10 (round a fraction up to a day)",
+        "example": "You need 5 days to make a Heavy Crossbow, which sells for 50 GP",
+        "flexibility": "If an item requires multiple days, the days needn't be consecutive"
+      }
+    },
+    "collaboration": {
+      "description": "Characters can combine their efforts to shorten the crafting time",
+      "calculation": "Divide the time needed to create an item by the number of characters working on it",
+      "limitation": "Normally, only one other character can assist you, but the DM might allow more assistants"
+    }
+  },
+  "potionsOfHealing": {
+    "description": "A character who has proficiency with the Herbalism Kit can create a Potion of Healing",
+    "requirements": {
+      "proficiency": "Herbalism Kit proficiency",
+      "materials": "25 GP of raw material",
+      "time": "1 day (8 hours of work)"
+    }
+  },
+  "spellScrolls": {
+    "description": "A spellcaster can transfer a spell to a scroll and create a Spell Scroll",
+    "prerequisites": {
+      "skills": "You must have proficiency in the Arcana skill or with Calligrapher's Supplies",
+      "spellPreparation": "You must have the spell prepared on each day of the inscription",
+      "materialComponents": "You must have at hand any Material components required by the spell; if the spell consumes its Material components, they are consumed only when you complete the scroll",
+      "spellParameters": "The scroll's spell uses your spell save DC and spell attack bonus"
+    },
+    "cantrips": {
+      "description": "If the scribed spell is a cantrip, the version on the scroll works as if the caster were your level"
+    },
+    "costs": [
+      {
+        "spellLevel": "Cantrip",
+        "time": "1 day",
+        "cost": { "amount": 15, "currency": "gp" }
+      },
+      {
+        "spellLevel": "1",
+        "time": "1 day",
+        "cost": { "amount": 25, "currency": "gp" }
+      },
+      {
+        "spellLevel": "2",
+        "time": "3 days",
+        "cost": { "amount": 100, "currency": "gp" }
+      },
+      {
+        "spellLevel": "3",
+        "time": "5 days",
+        "cost": { "amount": 150, "currency": "gp" }
+      },
+      {
+        "spellLevel": "4",
+        "time": "10 days",
+        "cost": { "amount": 1000, "currency": "gp" }
+      },
+      {
+        "spellLevel": "5",
+        "time": "25 days",
+        "cost": { "amount": 1500, "currency": "gp" }
+      },
+      {
+        "spellLevel": "6",
+        "time": "40 days",
+        "cost": { "amount": 10000, "currency": "gp" }
+      },
+      {
+        "spellLevel": "7",
+        "time": "50 days",
+        "cost": { "amount": 12500, "currency": "gp" }
+      },
+      {
+        "spellLevel": "8",
+        "time": "60 days",
+        "cost": { "amount": 15000, "currency": "gp" }
+      },
+      {
+        "spellLevel": "9",
+        "time": "120 days",
+        "cost": { "amount": 50000, "currency": "gp" }
+      }
+    ],
+    "timeRequirement": "For each day of inscription, you must work for 8 hours. If a scroll requires multiple days, those days needn't be consecutive."
+  },
+  "generalRules": {
+    "workingHours": "Crafting requires 8 hours of work per day",
+    "consecutiveDays": "Days spent crafting need not be consecutive",
+    "proficiencyRequirement": "All participants in crafting must have proficiency with the required tools",
+    "materialAvailability": "The DM determines whether appropriate raw materials are available",
+    "sellingCraftedItems": "Crafted items can be used or sold at their normal price"
+  },
+  "sourceBook": "Player's Handbook 2024"
+}

@@ -1,0 +1,166 @@
+{
+  "title": "Exploration and Environment",
+  "description": "Rules for interacting with the environment, objects, hazards, and travel",
+  "version": "2024",
+  "overview": {
+    "description": "Exploration involves delving into places that are dangerous and full of mystery. The rules in this section detail some of the ways adventurers interact with the environment in such places."
+  },
+  "adventuring_equipment": {
+    "description": "As adventurers explore, their equipment can help them in many ways",
+    "examples": [
+      {
+        "item": "Ladder",
+        "use": "Reach out-of-the-way places"
+      },
+      {
+        "item": "Torch or other light source",
+        "use": "Perceive things they wouldn't otherwise notice"
+      },
+      {
+        "item": "Thieves' Tools",
+        "use": "Bypass locked doors and containers"
+      },
+      {
+        "item": "Caltrops",
+        "use": "Create obstacles for pursuers"
+      },
+      {
+        "item": "Quarterstaff",
+        "use": "Push a sinister-looking button that you're reluctant to touch"
+      }
+    ],
+    "references": "See 'Equipment' for rules on many items that are useful on adventures. The items in the 'Tools' and 'Adventuring Gear' sections are especially useful. The weapons in that chapter can also be used for more than battle."
+  },
+  "vision_and_light": {
+    "description": "Some adventuring tasks—such as noticing danger, hitting an enemy, and targeting certain spells—are affected by sight, so effects that obscure vision can hinder you",
+    "obscured_areas": {
+      "lightly_obscured": {
+        "description": "In a Lightly Obscured area—such as an area with Dim Light, patchy fog, or moderate foliage—you have Disadvantage on Wisdom (Perception) checks that rely on sight",
+        "examples": ["Dim Light", "patchy fog", "moderate foliage"],
+        "effect": "Disadvantage on sight-based Wisdom (Perception) checks"
+      },
+      "heavily_obscured": {
+        "description": "A Heavily Obscured area—such as an area with Darkness, heavy fog, or dense foliage—is opaque. You have the Blinded condition when trying to see something there",
+        "examples": ["Darkness", "heavy fog", "dense foliage"],
+        "effect": "Blinded condition when trying to see"
+      }
+    },
+    "light_categories": {
+      "bright_light": {
+        "description": "Bright Light lets most creatures see normally. Even gloomy days provide Bright Light, as do torches, lanterns, fires, and other sources of illumination within a specific radius",
+        "sources": ["gloomy days", "torches", "lanterns", "fires", "other illumination sources"],
+        "effect": "Normal vision for most creatures"
+      },
+      "dim_light": {
+        "description": "Dim Light, also called shadows, creates a Lightly Obscured area. An area of Dim Light is usually a boundary between Bright Light and surrounding Darkness. The soft light of twilight and dawn also counts as Dim Light. A full moon might bathe the land in Dim Light",
+        "alternate_name": "shadows",
+        "sources": ["twilight", "dawn", "full moon", "boundary areas"],
+        "effect": "Creates Lightly Obscured area"
+      },
+      "darkness": {
+        "description": "Darkness creates a Heavily Obscured area. Characters face Darkness outdoors at night (even most moonlit nights), within the confines of an unlit dungeon, or in an area of magical Darkness",
+        "sources": ["night outdoors", "most moonlit nights", "unlit dungeons", "magical Darkness"],
+        "effect": "Creates Heavily Obscured area"
+      }
+    },
+    "special_senses": {
+      "description": "Some creatures have special senses that help them perceive things in certain situations. The rules glossary defines the following special senses:",
+      "types": ["Blindsight", "Darkvision", "Tremorsense", "Truesight"]
+    }
+  },
+  "hiding": {
+    "description": "Adventurers and monsters often hide, whether to spy on one another, sneak past a guardian, or set an ambush",
+    "dm_authority": "The Dungeon Master decides when circumstances are appropriate for hiding",
+    "action_required": "When you try to hide, you take the Hide action",
+    "common_reasons": [
+      "Spy on other creatures",
+      "Sneak past a guardian", 
+      "Set an ambush",
+      "Avoid detection during exploration",
+      "Escape from pursuers"
+    ]
+  },
+  "object_interaction": {
+    "overview": {
+      "description": "Interacting with objects is often simple to resolve. The player tells the DM that their character is doing something, such as moving a lever or opening a door, and the DM describes what happens",
+      "complexity": "Sometimes, however, rules govern what you can do with an object"
+    },
+    "object_definition": {
+      "description": "For the purpose of the rules, an object is a discrete, inanimate item like a window, door, sword, book, table, chair, or stone",
+      "exclusions": "It isn't a building or a vehicle, which are composed of many objects",
+      "examples": ["window", "door", "sword", "book", "table", "chair", "stone"]
+    },
+    "time_limited_interactions": {
+      "description": "When time is short, such as in combat, interactions with objects are limited: one free interaction per turn",
+      "timing": "That interaction must occur during a creature's movement or action",
+      "additional_interactions": "Any additional interactions require the Utilize action"
+    },
+    "finding_hidden_objects": {
+      "typical_check": "When your character searches for hidden things, such as a secret door or a trap, the DM typically asks you to make a Wisdom (Perception) check, provided you describe the character searching in the hidden object's vicinity",
+      "success": "On a success, you find the object, other important details, or both",
+      "location_requirement": "If you describe your character searching nowhere near a hidden object, a Wisdom (Perception) check won't reveal the object, no matter the check's total",
+      "examples": ["secret door", "trap", "hidden compartment", "concealed switch"]
+    },
+    "carrying_objects": {
+      "normal_gear": "You can usually carry your gear and treasure without worrying about the weight of those objects",
+      "heavy_loads": "If you try to haul an unusually heavy object or a massive number of lighter objects, the DM might require you to abide by the rules for carrying capacity in the Rules Glossary"
+    },
+    "breaking_objects": {
+      "fragile_objects": "As an action, you can automatically break or otherwise destroy a fragile, nonmagical object, such as a glass container or a piece of paper",
+      "resilient_objects": "If you try to damage something more resilient, the DM might use the rules on breaking objects in the Rules Glossary",
+      "examples": {
+        "automatically_breakable": ["glass container", "piece of paper", "rope", "cloth"],
+        "requires_rules": ["stone door", "metal chest", "thick wooden barrier"]
+      }
+    }
+  },
+  "hazards": {
+    "description": "Monsters are the main perils characters face, but other dangers await. The rules glossary defines the following hazards:",
+    "types": ["Burning", "Dehydration", "Falling", "Malnutrition", "Suffocation"],
+    "reference": "See Rules Glossary for detailed mechanics"
+  },
+  "travel": {
+    "overview": {
+      "description": "During an adventure, the characters might travel long distances on trips that could take hours or days",
+      "dm_options": "The DM can summarize this travel without calculating exact distances or travel times, or the DM might have you use the travel pace rules below"
+    },
+    "marching_order": {
+      "importance": "The adventurers should establish a marching order while they travel, whether indoors or outdoors",
+      "benefits": "A marching order makes it easier to determine which characters are affected by traps, which ones can spot hidden enemies, and which ones are the closest to those enemies if a fight breaks out",
+      "flexibility": "You can change your marching order outside combat and record the order any way you like: write it down, for example, or arrange miniatures to show it"
+    },
+    "travel_pace": {
+      "description": "While traveling outside combat, a group can move at a Fast, Normal, or Slow pace",
+      "paces": [
+        {
+          "pace": "Fast",
+          "per_minute": "400 feet",
+          "per_hour": "4 miles",
+          "per_day": "30 miles",
+          "effect": "Traveling at a Fast pace imposes Disadvantage on a traveler's Wisdom (Perception or Survival) and Dexterity (Stealth) checks"
+        },
+        {
+          "pace": "Normal", 
+          "per_minute": "300 feet",
+          "per_hour": "3 miles",
+          "per_day": "24 miles",
+          "effect": "Traveling at a Normal pace imposes Disadvantage on Dexterity (Stealth) checks"
+        },
+        {
+          "pace": "Slow",
+          "per_minute": "200 feet", 
+          "per_hour": "2 miles",
+          "per_day": "18 miles",
+          "effect": "Traveling at a Slow pace grants Advantage on Wisdom (Perception or Survival) checks"
+        }
+      ],
+      "mounts": "If riding horses or other mounts, the group can move twice that distance for 1 hour, after which the mounts need a Short or Long Rest before they can move at that increased pace again"
+    },
+    "vehicles": {
+      "land_vehicles": "Travelers in wagons, carriages, or other land vehicles choose a pace as normal",
+      "waterborne_vessels": "Characters in a waterborne vessel are limited to the speed of the vessel, and they don't choose a travel pace",
+      "ship_endurance": "Depending on the vessel and the size of the crew, ships might be able to travel for up to 24 hours per day",
+      "reference": "'Equipment' includes vehicles for sale"
+    }
+  }
+}

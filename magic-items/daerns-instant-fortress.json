@@ -1,0 +1,40 @@
+{
+  "name": "Daern's Instant Fortress",
+  "type": "Wondrous Item",
+  "rarity": "Rare",
+  "requires_attunement": true,
+  "overview": "A 1-inch adamantine statuette that magically expands into a fortified tower.",
+  "properties": {
+    "physical_form": "1-inch adamantine statuette",
+    "activation": "As a Magic action, you can place this statuette on the ground and, using a command word, cause it to grow rapidly into a square adamantine tower",
+    "reversion": "Repeating the command word causes the tower to revert to statuette form, which works only if the tower is empty"
+  },
+  "expansion_effect": {
+    "description": "Each creature in the area where the tower appears is pushed to an unoccupied space outside but next to the tower. Objects in the area that aren't being worn or carried are also pushed clear of the tower."
+  },
+  "tower_structure": {
+    "dimensions": "20 feet on a side and 30 feet high",
+    "features": "Arrow slits on all sides and a battlement atop it",
+    "interior": "Divided into two floors, with a ladder, staircase, or ramp (your choice) connecting them",
+    "roof_access": "Ladder/staircase/ramp ends at a trapdoor leading to the roof",
+    "entrance": "When created, the tower has a single door at ground level on the side facing you"
+  },
+  "door": {
+    "control": "The door opens only at your command, which you can issue as a Bonus Action",
+    "resistance": "Immune to the Knock spell and similar magic"
+  },
+  "defensive_properties": {
+    "stability": "Magic prevents the tower from being tipped over",
+    "ac": 20,
+    "hit_points": 100,
+    "immunities": "Bludgeoning, Piercing, and Slashing damage except that which is dealt by siege equipment",
+    "resistances": "Resistance to all other damage"
+  },
+  "damage_and_repair": {
+    "note": "Shrinking the tower back down to statuette form doesn't repair damage to the tower",
+    "repair": "Only a Wish spell can repair the tower (this use of the spell counts as replicating a spell of level 8 or lower)",
+    "healing": "Each casting of Wish causes the tower to regain all its Hit Points"
+  },
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

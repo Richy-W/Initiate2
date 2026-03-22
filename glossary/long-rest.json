@@ -1,0 +1,31 @@
+{
+  "name": "Long Rest",
+  "slug": "long-rest",
+  "definition": "A period of 8+ hours of downtime with specific benefits and restrictions",
+  "category": "Rest & Recovery",
+  "tags": ["rest", "recovery", "sleep"],
+  "full_text": "A Long Rest is a period of extended downtime—at least 8 hours—available to any creature. During a Long Rest, you sleep for at least 6 hours and perform no more than 2 hours of light activity, such as reading, talking, eating, or standing watch.\n\nDuring sleep, you have the Unconscious condition. After you finish a Long Rest, you must wait at least 16 hours before starting another one.",
+  "mechanics": {
+    "duration": "At least 8 hours total",
+    "sleep": "At least 6 hours",
+    "light_activity": "No more than 2 hours (reading, talking, eating, standing watch)",
+    "cooldown": "Must wait at least 16 hours before another Long Rest",
+    "sleep_condition": "Unconscious condition during sleep",
+    "requirements_to_start": "Must have at least 1 HP"
+  },
+  "effects": {
+    "hp_recovery": "Regain all lost Hit Points and all spent Hit Point Dice; reduced HP maximum returns to normal",
+    "ability_scores": "Any reduced ability scores return to normal",
+    "exhaustion": "Exhaustion level decreases by 1 if applicable",
+    "special_features": "Features recharged per their descriptions"
+  },
+  "interruptions": {
+    "rolling_initiative": "Stops rest",
+    "casting_spell": "Stops rest (other than cantrip)",
+    "taking_damage": "Stops rest",
+    "physical_exertion": "1+ hour of walking or other exertion stops rest",
+    "partial_benefit": "Resting at least 1 hour before interruption grants Short Rest benefits",
+    "resuming": "Can resume immediately; adds 1 hour per interruption"
+  },
+  "see_also": ["short-rest", "unconscious", "exhaustion"]
+}

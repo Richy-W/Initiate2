@@ -1,0 +1,86 @@
+{
+  "name": "Grimlock",
+  "size": "Medium",
+  "type": "Aberration",
+  "alignment": "Neutral Evil",
+  "armor_class": {
+    "value": 11,
+    "source": "Natural Armor"
+  },
+  "initiative": {
+    "bonus": 1,
+    "total": 11
+  },
+  "hit_points": {
+    "average": 11,
+    "formula": "2d8 + 2"
+  },
+  "speed": {
+    "walk": 30,
+    "climb": 30
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 16,
+      "modifier": 3,
+      "saving_throw": 3
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1,
+      "saving_throw": 1
+    },
+    "intelligence": {
+      "score": 9,
+      "modifier": -1,
+      "saving_throw": -1
+    },
+    "wisdom": {
+      "score": 8,
+      "modifier": -1,
+      "saving_throw": -1
+    },
+    "charisma": {
+      "score": 6,
+      "modifier": -2,
+      "saving_throw": -2
+    }
+  },
+  "skills": {
+    "athletics": 5,
+    "perception": 3,
+    "stealth": 5
+  },
+  "senses": {
+    "blindsight": 30,
+    "passive_perception": 13
+  },
+  "languages": [],
+  "challenge_rating": {
+    "cr": 0.25,
+    "xp": 50,
+    "proficiency_bonus": 2
+  },
+  "actions": [
+    {
+      "name": "Bone Cudgel",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 6 (1d6 + 3) Bludgeoning damage plus 2 (1d4) Psychic damage.",
+      "attack_roll": 5,
+      "reach": 5,
+      "damage": "6 (1d6 + 3) Bludgeoning plus 2 (1d4) Psychic",
+      "damage_type": "Bludgeoning + Psychic"
+    }
+  ],
+  "tactical_info": {
+    "role": "Underground Warrior/Climber",
+    "environment": "Deep caves, underground networks, aberrant settlements, mind flayer colonies",
+    "tactics": "Uses blindsight to navigate in darkness, climbs walls and ceilings for advantage, ambushes with stealth",
+    "weaknesses": "Low hit points, limited intelligence, vulnerable outside familiar underground terrain",
+    "signature_abilities": ["Blindsight navigation", "Wall climbing", "Psychic damage cudgel", "Stealth expertise"]
+  }
+}

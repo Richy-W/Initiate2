@@ -1,0 +1,45 @@
+{
+  "name": "Belt of Giant Strength",
+  "type": "Wondrous Item",
+  "rarity": "Varies",
+  "requires_attunement": true,
+  "overview": "While wearing this belt, your Strength changes to a score granted by the belt. The type of giant determines the score.",
+  "properties": {
+    "strength_change": "Your Strength score becomes the value determined by the belt type",
+    "no_effect": "The item has no effect on you if your Strength without the belt is equal to or greater than the belt's score"
+  },
+  "variants": [
+    {
+      "name": "Belt of Giant Strength (Hill)",
+      "strength_score": 21,
+      "rarity": "Rare"
+    },
+    {
+      "name": "Belt of Giant Strength (Frost)",
+      "strength_score": 23,
+      "rarity": "Very Rare"
+    },
+    {
+      "name": "Belt of Giant Strength (Stone)",
+      "strength_score": 23,
+      "rarity": "Very Rare"
+    },
+    {
+      "name": "Belt of Giant Strength (Fire)",
+      "strength_score": 25,
+      "rarity": "Very Rare"
+    },
+    {
+      "name": "Belt of Giant Strength (Cloud)",
+      "strength_score": 27,
+      "rarity": "Legendary"
+    },
+    {
+      "name": "Belt of Giant Strength (Storm)",
+      "strength_score": 29,
+      "rarity": "Legendary"
+    }
+  ],
+  "source": "Player's Handbook",
+  "publication_date": "2024"
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Wand of Lightning Bolts",
+  "type": "Wand",
+  "rarity": "Rare",
+  "attunement": true,
+  "attunement_class": "Spellcaster",
+  "description": "This wand has 7 charges. While holding it, you can expend no more than 3 charges to cast Lightning Bolt from it. For 1 charge, you cast the level 3 version of the spell. You can increase the spell's level by 1 for each additional charge you expend.",
+  "properties": {
+    "charges": {
+      "max_charges": 7,
+      "current_charges": 7,
+      "max_charges_per_cast": 3
+    },
+    "spell": "Lightning Bolt",
+    "spell_save_dc": 15,
+    "spell_levels": {
+      "1_charge": "Level 3 Lightning Bolt",
+      "2_charges": "Level 4 Lightning Bolt",
+      "3_charges": "Level 5 Lightning Bolt"
+    },
+    "regaining_charges": {
+      "recharge": "1d6 + 1 daily at dawn",
+      "destruction_condition": "Expend last charge and roll 1d20",
+      "on_roll_1": "Wand crumbles into ashes and is destroyed"
+    }
+  }
+}

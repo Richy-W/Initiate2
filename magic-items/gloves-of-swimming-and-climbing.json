@@ -1,0 +1,13 @@
+{
+  "name": "Gloves of Swimming and Climbing",
+  "type": "Wondrous Item",
+  "rarity": "Uncommon",
+  "attunement": true,
+  "description": "While wearing these gloves, you have a Climb Speed and a Swim Speed equal to your Speed, and you gain a +5 bonus to Strength (Athletics) checks made to climb or swim.",
+  "properties": {
+    "climb_speed": "Equal to your Speed",
+    "swim_speed": "Equal to your Speed",
+    "athletics_bonus": 5,
+    "athletics_bonus_type": "Strength (Athletics) checks made to climb or swim"
+  }
+}

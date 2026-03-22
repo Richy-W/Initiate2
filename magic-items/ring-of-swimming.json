@@ -1,0 +1,10 @@
+{
+  "name": "Ring of Swimming",
+  "type": "Ring",
+  "rarity": "Uncommon",
+  "attunement": false,
+  "description": "You have a Swim Speed of 40 feet while wearing this ring.",
+  "properties": {
+    "swim_speed": "40 feet"
+  }
+}

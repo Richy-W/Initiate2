@@ -1,0 +1,18 @@
+{
+  "name": "Disadvantage",
+  "slug": "disadvantage",
+  "definition": "If you have Disadvantage on a D20 Test, roll two d20s and use the lower roll.",
+  "category": "Abilities & Attributes",
+  "tags": [],
+  "full_text": "If you have Disadvantage on a D20 Test, roll two d20s and use the lower roll. A roll can't be affected by more than one Disadvantage, and Advantage and Disadvantage on the same roll cancel each other.",
+  "mechanics": {
+    "rolling": "Roll two d20s",
+    "result": "Use the lower roll",
+    "stacking": "A roll can't be affected by more than one Disadvantage",
+    "cancellation": "Advantage and Disadvantage on the same roll cancel each other"
+  },
+  "see_also": [
+    "Advantage",
+    "D20 Test"
+  ]
+}

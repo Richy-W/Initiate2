@@ -1,0 +1,94 @@
+{
+  "name": "Giant Eagle",
+  "size": "Large",
+  "type": "Celestial",
+  "alignment": "Neutral Good",
+  "armor_class": 13,
+  "initiative": 3,
+  "hit_points": {
+    "average": 26,
+    "formula": "4d10 + 4"
+  },
+  "speed": {
+    "walk": 10,
+    "fly": 80
+  },
+  "ability_scores": {
+    "strength": {
+      "score": 16,
+      "modifier": 3,
+      "save": 3
+    },
+    "dexterity": {
+      "score": 17,
+      "modifier": 3,
+      "save": 3
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1,
+      "save": 1
+    },
+    "intelligence": {
+      "score": 8,
+      "modifier": -1,
+      "save": -1
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2,
+      "save": 2
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0,
+      "save": 0
+    }
+  },
+  "skills": {
+    "perception": 6
+  },
+  "damage_resistances": ["necrotic", "radiant"],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "passive_perception": 16
+  },
+  "languages": ["Celestial; understands Common and Primordial (Auran) but can't speak them"],
+  "challenge_rating": 1,
+  "experience_points": 200,
+  "proficiency_bonus": 2,
+  "actions": [
+    {
+      "name": "Multiattack",
+      "type": "multiattack",
+      "description": "The eagle makes two Rend attacks.",
+      "attacks": [
+        {"name": "Rend", "count": 2}
+      ]
+    },
+    {
+      "name": "Rend",
+      "type": "melee_attack",
+      "attack_bonus": 5,
+      "reach": 5,
+      "targets": "one target",
+      "damage": {
+        "damage_dice": "1d4 + 3 slashing + 1d6 radiant",
+        "damage_type": "slashing plus radiant",
+        "average_damage": 8
+      },
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 5 (1d4 + 3) Slashing damage plus 3 (1d6) Radiant damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "traits": [],
+  "tactical_info": {
+    "optimal_range": "Aerial combat with excellent flight speed",
+    "key_abilities": ["Multiattack rend", "Radiant damage", "High flight speed"],
+    "weaknesses": ["Poor on ground", "Modest hit points", "No special defenses"],
+    "synergies": ["Mountain encounters", "Good-aligned campaigns", "Celestial themes"]
+  }
+}

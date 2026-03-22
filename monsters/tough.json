@@ -1,0 +1,51 @@
+{
+  "name": "Tough",
+  "size": "Medium or Small",
+  "type": "Humanoid",
+  "alignment": "Neutral",
+  "armor_class": 12,
+  "initiative": 11,
+  "hit_points": {
+    "average": 32,
+    "formula": "5d8 + 10"
+  },
+  "speed": {
+    "walk": "30 ft."
+  },
+  "ability_scores": {
+    "strength": { "score": 15, "modifier": 2, "save": 2 },
+    "dexterity": { "score": 12, "modifier": 1, "save": 1 },
+    "constitution": { "score": 14, "modifier": 2, "save": 2 },
+    "intelligence": { "score": 10, "modifier": 0, "save": 0 },
+    "wisdom": { "score": 10, "modifier": 0, "save": 0 },
+    "charisma": { "score": 11, "modifier": 0, "save": 0 }
+  },
+  "equipment": ["Heavy Crossbow", "Leather Armor", "Mace"],
+  "senses": "Passive Perception 10",
+  "languages": "Common",
+  "challenge_rating": 0.5,
+  "experience_points": 100,
+  "proficiency_bonus": 2,
+  "traits": [
+    {
+      "name": "Pack Tactics",
+      "description": "The tough has Advantage on an attack roll against a creature if at least one of the tough's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Mace",
+      "description": "Melee Attack Roll: +4, reach 5 ft. Hit: 5 (1d6 + 2) Bludgeoning damage."
+    },
+    {
+      "name": "Heavy Crossbow",
+      "description": "Ranged Attack Roll: +3, range 100/400 ft. Hit: 6 (1d10 + 1) Piercing damage."
+    }
+  ],
+  "tactical_info": {
+    "optimal_range": "Mixed range with crossbow preference",
+    "key_abilities": ["Pack tactics", "Heavy crossbow range", "Basic melee capability"],
+    "weaknesses": ["Low armor class", "No special defenses", "Relies on allies"],
+    "synergies": ["Group tactics", "Ranged support", "Urban encounters", "Guard duty"]
+  }
+}

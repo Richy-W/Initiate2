@@ -1,0 +1,64 @@
+{
+  "name": "Swarm of Rats",
+  "size": "Medium",
+  "type": "Beast (Swarm)",
+  "alignment": "Unaligned",
+  "armor_class": 10,
+  "hit_points": 14,
+  "hit_dice": "4d8 - 4",
+  "speed": {
+    "walk": 30,
+    "climb": 30
+  },
+  "ability_scores": {
+    "strength": 9,
+    "dexterity": 11,
+    "constitution": 9,
+    "intelligence": 2,
+    "wisdom": 10,
+    "charisma": 3
+  },
+  "saving_throws": {
+    "strength": -1,
+    "dexterity": 0,
+    "constitution": -1,
+    "intelligence": -4,
+    "wisdom": 0,
+    "charisma": -4
+  },
+  "skills": {},
+  "damage_resistances": ["Bludgeoning", "Piercing", "Slashing"],
+  "damage_immunities": [],
+  "condition_immunities": ["Charmed", "Frightened", "Grappled", "Paralyzed", "Petrified", "Prone", "Restrained", "Stunned"],
+  "senses": [
+    "Darkvision 30 ft.",
+    "Passive Perception 10"
+  ],
+  "languages": "None",
+  "challenge_rating": 0.25,
+  "experience_points": 50,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Swarm",
+      "description": "The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny rat. The swarm can't regain Hit Points or gain Temporary Hit Points."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Bites",
+      "description": "Melee Attack Roll: +2, reach 5 ft. Hit: 5 (2d4) Piercing damage, or 2 (1d4) Piercing damage if the swarm is Bloodied."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Urban Pest Swarm - Basic harassment unit with climbing",
+    "positioning": "Uses climbing speed for walls and urban vertical movement",
+    "damage_output": "5 piercing damage (2 when bloodied) with basic swarm tactics",
+    "key_abilities": "Climb speed for urban environments, darkvision",
+    "weaknesses": "Low AC and HP, minimal special abilities",
+    "synergies": "Good for sewer encounters and urban dungeon harassment"
+  }
+}

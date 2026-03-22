@@ -1,0 +1,14 @@
+{
+  "name": "Initiative",
+  "slug": "initiative",
+  "definition": "The order of turns during combat",
+  "category": "Combat",
+  "tags": ["combat", "turn-order", "dexterity"],
+  "full_text": "Initiative determines the order of turns during combat. The combat rules explain how to roll Initiative.\n\nSometimes a DM might have combatants use their Initiative scores instead of rolling Initiative. Your Initiative score equals 10 plus your Dexterity modifier. If you have Advantage on Initiative rolls, increase your Initiative score by 5. If you have Disadvantage on those rolls, decrease that score by 5.",
+  "mechanics": {
+    "score": "10 + DEX modifier",
+    "advantage_bonus": "+5 to score",
+    "disadvantage_penalty": "-5 to score"
+  },
+  "see_also": ["combat", "advantage", "disadvantage"]
+}

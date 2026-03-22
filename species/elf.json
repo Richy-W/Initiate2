@@ -1,0 +1,91 @@
+{
+  "name": "Elf",
+  "description": "Created by the god Corellon, the first elves could change their forms at will. They lost this ability when Corellon cursed them for plotting with the deity Lolth, who tried and failed to usurp Corellon's dominion. When Lolth was cast into the Abyss, most elves renounced her and earned Corellon's forgiveness, but that which Corellon had taken from them was lost forever. No longer able to shape-shift at will, the elves retreated to the Feywild, where their sorrow was deepened by that plane's influence. Over time, curiosity led many of them to explore other planes of existence, including worlds in the Material Plane. Elves have pointed ears and lack facial and body hair. They live for around 750 years, and they don't sleep but instead enter a trance when they need to rest.",
+  "creatureType": "Humanoid",
+  "size": {
+    "category": "Medium",
+    "height": "about 5–6 feet tall"
+  },
+  "speed": 30,
+  "lifespan": "around 750 years",
+  "traits": [
+    {
+      "name": "Darkvision",
+      "description": "You have Darkvision with a range of 60 feet.",
+      "type": "passive"
+    },
+    {
+      "name": "Elven Lineage",
+      "description": "You are part of a lineage that grants you supernatural abilities. Choose a lineage from the Elven Lineages table. You gain the level 1 benefit of that lineage. When you reach character levels 3 and 5, you learn a higher-level spell, as shown on the table. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage).",
+      "type": "passive"
+    },
+    {
+      "name": "Fey Ancestry",
+      "description": "You have Advantage on saving throws you make to avoid or end the Charmed condition.",
+      "type": "advantage"
+    },
+    {
+      "name": "Keen Senses",
+      "description": "You have proficiency in the Insight, Perception, or Survival skill.",
+      "type": "proficiency"
+    },
+    {
+      "name": "Trance",
+      "description": "You don't need to sleep, and magic can't put you to sleep. You can finish a Long Rest in 4 hours if you spend those hours in a trancelike meditation, during which you retain consciousness.",
+      "type": "passive"
+    }
+  ],
+  "variants": [
+    {
+      "name": "Drow",
+      "description": "Drow typically dwell in the Underdark and have been shaped by it. Some drow individuals and societies avoid the Underdark altogether yet carry its magic.",
+      "traits": [
+        {
+          "name": "Enhanced Darkvision",
+          "description": "The range of your Darkvision increases to 120 feet.",
+          "type": "passive"
+        }
+      ],
+      "spellProgression": {
+        "spellcastingAbility": ["Intelligence", "Wisdom", "Charisma"],
+        "level1": ["Dancing Lights"],
+        "level3": "Faerie Fire",
+        "level5": "Darkness"
+      }
+    },
+    {
+      "name": "High Elf",
+      "description": "High elves have been infused with the magic of crossings between the Feywild and the Material Plane. On some worlds, high elves refer to themselves by other names.",
+      "spellProgression": {
+        "spellcastingAbility": ["Intelligence", "Wisdom", "Charisma"],
+        "level1": ["Prestidigitation"],
+        "level3": "Detect Magic",
+        "level5": "Misty Step"
+      }
+    },
+    {
+      "name": "Wood Elf",
+      "description": "Wood elves carry the magic of primeval forests within themselves. They are known by many other names, including wild elves, green elves, and forest elves.",
+      "traits": [
+        {
+          "name": "Enhanced Speed",
+          "description": "Your Speed increases to 35 feet.",
+          "type": "passive"
+        }
+      ],
+      "spellProgression": {
+        "spellcastingAbility": ["Intelligence", "Wisdom", "Charisma"],
+        "level1": ["Druidcraft"],
+        "level3": "Longstrider",
+        "level5": "Pass without Trace"
+      }
+    }
+  ],
+  "proficiencies": {
+    "skills": ["Insight", "Perception", "Survival"]
+  },
+  "senses": {
+    "darkvision": 60
+  },
+  "sourceBook": "Player's Handbook 2024"
+}

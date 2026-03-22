@@ -1,0 +1,93 @@
+{
+  "species": [
+    {
+      "id": "dragonborn",
+      "name": "Dragonborn",
+      "file": "./species/dragonborn.json",
+      "variants": [
+        "Black Dragon Ancestry",
+        "Blue Dragon Ancestry", 
+        "Brass Dragon Ancestry",
+        "Bronze Dragon Ancestry",
+        "Copper Dragon Ancestry",
+        "Gold Dragon Ancestry",
+        "Green Dragon Ancestry",
+        "Red Dragon Ancestry",
+        "Silver Dragon Ancestry",
+        "White Dragon Ancestry"
+      ]
+    },
+    {
+      "id": "dwarf",
+      "name": "Dwarf",
+      "file": "./species/dwarf.json",
+      "variants": []
+    },
+    {
+      "id": "elf",
+      "name": "Elf",
+      "file": "./species/elf.json",
+      "variants": [
+        "Drow",
+        "High Elf",
+        "Wood Elf"
+      ]
+    },
+    {
+      "id": "gnome",
+      "name": "Gnome",
+      "file": "./species/gnome.json",
+      "variants": [
+        "Forest Gnome",
+        "Rock Gnome"
+      ]
+    },
+    {
+      "id": "goliath",
+      "name": "Goliath",
+      "file": "./species/goliath.json",
+      "variants": [
+        "Cloud Giant Ancestry",
+        "Fire Giant Ancestry",
+        "Frost Giant Ancestry",
+        "Hill Giant Ancestry",
+        "Stone Giant Ancestry",
+        "Storm Giant Ancestry"
+      ]
+    },
+    {
+      "id": "halfling",
+      "name": "Halfling",
+      "file": "./species/halfling.json",
+      "variants": []
+    },
+    {
+      "id": "human",
+      "name": "Human",
+      "file": "./species/human.json",
+      "variants": []
+    },
+    {
+      "id": "orc",
+      "name": "Orc",
+      "file": "./species/orc.json",
+      "variants": []
+    },
+    {
+      "id": "tiefling",
+      "name": "Tiefling",
+      "file": "./species/tiefling.json",
+      "variants": [
+        "Abyssal Legacy",
+        "Chthonic Legacy",
+        "Infernal Legacy"
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0",
+    "sourceBook": "Player's Handbook 2024",
+    "lastUpdated": "2026-02-04",
+    "totalSpecies": 9
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "name": "Vulture",
+  "size": "Medium",
+  "type": "Beast",
+  "alignment": "Unaligned",
+  "armor_class": 10,
+  "hit_points": 5,
+  "hit_dice": "1d8 + 1",
+  "speed": {
+    "walk": 10,
+    "fly": 50
+  },
+  "ability_scores": {
+    "strength": 7,
+    "dexterity": 10,
+    "constitution": 13,
+    "intelligence": 2,
+    "wisdom": 12,
+    "charisma": 4
+  },
+  "saving_throws": {
+    "strength": -2,
+    "dexterity": 0,
+    "constitution": 1,
+    "intelligence": -4,
+    "wisdom": 1,
+    "charisma": -3
+  },
+  "skills": {
+    "perception": 3
+  },
+  "senses": [
+    "Passive Perception 13"
+  ],
+  "languages": "None",
+  "challenge_rating": 0,
+  "experience_points": 10,
+  "proficiency_bonus": 2,
+  "features": [
+    {
+      "name": "Pack Tactics",
+      "description": "The vulture has Advantage on an attack roll against a creature if at least one of the vulture's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition."
+    }
+  ],
+  "actions": [
+    {
+      "name": "Beak",
+      "description": "Melee Attack Roll: +2, reach 5 ft. Hit: 2 (1d4) Piercing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [],
+  "legendary_actions": [],
+  "tactical_info": {
+    "combat_role": "Aerial Scavenger - Flying pack hunter with excellent perception",
+    "positioning": "Uses high flight speed and pack tactics for group aerial attacks",
+    "damage_output": "2 piercing damage with pack tactics advantage when grouped",
+    "key_abilities": "Pack Tactics, high perception (+3), excellent flight speed",
+    "weaknesses": "Very low HP and AC, minimal individual damage",
+    "synergies": "Effective in flocks, good for desert/wilderness encounters"
+  }
+}

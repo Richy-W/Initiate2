@@ -1,0 +1,76 @@
+{
+  "name": "Warrior Veteran",
+  "size": "Medium or Small",
+  "type": "Humanoid",
+  "alignment": "Neutral",
+  "armor_class": 17,
+  "armor_description": "Splint Armor",
+  "hit_points": 65,
+  "hit_dice": "10d8 + 20",
+  "speed": {
+    "walk": "30 ft."
+  },
+  "ability_scores": {
+    "strength": 16,
+    "dexterity": 13,
+    "constitution": 14,
+    "intelligence": 10,
+    "wisdom": 11,
+    "charisma": 10
+  },
+  "saving_throws": {
+    "strength": "+3",
+    "dexterity": "+1",
+    "constitution": "+2",
+    "intelligence": "+0",
+    "wisdom": "+0",
+    "charisma": "+0"
+  },
+  "skills": {
+    "athletics": "+5",
+    "perception": "+2"
+  },
+  "damage_resistances": [],
+  "damage_immunities": [],
+  "condition_immunities": [],
+  "senses": {
+    "passive_perception": 12
+  },
+  "languages": ["Common", "one other language"],
+  "challenge_rating": "3",
+  "experience_points": 700,
+  "proficiency_bonus": 2,
+  "features": [],
+  "actions": [
+    {
+      "name": "Multiattack",
+      "description": "The warrior makes two Greatsword or Heavy Crossbow attacks."
+    },
+    {
+      "name": "Greatsword",
+      "type": "weapon",
+      "description": "Melee Attack Roll: +5, reach 5 ft. Hit: 10 (2d6 + 3) Slashing damage."
+    },
+    {
+      "name": "Heavy Crossbow",
+      "type": "weapon",
+      "description": "Ranged Attack Roll: +3, range 100/400 ft. Hit: 12 (2d10 + 1) Piercing damage."
+    }
+  ],
+  "bonus_actions": [],
+  "reactions": [
+    {
+      "name": "Parry",
+      "description": "Trigger: The warrior is hit by a melee attack roll while holding a weapon. Response: The warrior adds 2 to its AC against that attack, possibly causing it to miss."
+    }
+  ],
+  "legendary_actions": [],
+  "equipment": ["Greatsword", "Heavy Crossbow", "Splint Armor"],
+  "tactical_info": {
+    "combat_role": "Elite Combatant",
+    "preferred_range": "Melee with Ranged Backup",
+    "key_abilities": ["Multiattack", "Parry defense", "Weapon versatility"],
+    "weaknesses": ["Heavy armor limits mobility", "Vulnerable to magic"],
+    "tactics": "Engages in melee with greatsword for maximum damage. Uses crossbow when enemies are at range. Parry reaction provides excellent defense."
+  }
+}

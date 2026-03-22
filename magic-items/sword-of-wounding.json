@@ -1,0 +1,23 @@
+{
+  "name": "Sword of Wounding",
+  "type": "Weapon",
+  "weapon_type": "Glaive, Greatsword, Longsword, Rapier, Scimitar, or Shortsword",
+  "rarity": "Rare",
+  "attunement": true,
+  "description": "When you hit a creature with an attack using this magic weapon, the target takes an extra 2d6 Necrotic damage and must succeed on a DC 15 Constitution saving throw or be unable to regain Hit Points for 1 hour.",
+  "properties": {
+    "wounding_effect": {
+      "trigger": "Hit creature with attack",
+      "damage": "Extra 2d6 Necrotic damage",
+      "saving_throw": {
+        "type": "Constitution",
+        "dc": 15
+      },
+      "on_failure": {
+        "effect": "Unable to regain Hit Points",
+        "duration": "1 hour",
+        "repeat_save": "End of each turn"
+      }
+    }
+  }
+}

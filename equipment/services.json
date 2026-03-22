@@ -1,0 +1,200 @@
+{
+  "title": "D&D 5e 2024 Services",
+  "version": "2024",
+  "description": "Complete list of services, lifestyle expenses, and hireling costs",
+  "lifestyles": [
+    {
+      "name": "Wretched",
+      "cost": { "amount": 0, "currency": "gp", "period": "day" },
+      "description": "You survive via chance and charity. You're often exposed to natural dangers as a result of sleeping outside."
+    },
+    {
+      "name": "Squalid",
+      "cost": { "amount": 1, "currency": "sp", "period": "day" },
+      "description": "You spend the bare minimum for your necessities. You might be exposed to unhealthy conditions and opportunistic criminals."
+    },
+    {
+      "name": "Poor",
+      "cost": { "amount": 2, "currency": "sp", "period": "day" },
+      "description": "You spend frugally for your necessities."
+    },
+    {
+      "name": "Modest",
+      "cost": { "amount": 1, "currency": "gp", "period": "day" },
+      "description": "You support yourself at an average level."
+    },
+    {
+      "name": "Comfortable",
+      "cost": { "amount": 2, "currency": "gp", "period": "day" },
+      "description": "You spend modestly for your necessities and enjoy a few luxuries."
+    },
+    {
+      "name": "Wealthy",
+      "cost": { "amount": 4, "currency": "gp", "period": "day" },
+      "description": "You're accustomed to the finer things in life and might have servants."
+    },
+    {
+      "name": "Aristocratic",
+      "cost": { "amount": 10, "currency": "gp", "period": "day" },
+      "description": "You pay for the best and might have a staff that supports your lifestyle. Others notice your wealth and might encourage you to share it, either legally or otherwise."
+    }
+  ],
+  "foodDrinkLodging": [
+    {
+      "name": "Ale (mug)",
+      "category": "Drink",
+      "cost": { "amount": 4, "currency": "cp" }
+    },
+    {
+      "name": "Bread (loaf)",
+      "category": "Food",
+      "cost": { "amount": 2, "currency": "cp" }
+    },
+    {
+      "name": "Cheese (wedge)",
+      "category": "Food",
+      "cost": { "amount": 1, "currency": "sp" }
+    },
+    {
+      "name": "Wine, Common (bottle)",
+      "category": "Drink",
+      "cost": { "amount": 2, "currency": "sp" }
+    },
+    {
+      "name": "Wine, Fine (bottle)",
+      "category": "Drink",
+      "cost": { "amount": 10, "currency": "gp" }
+    }
+  ],
+  "innStays": [
+    {
+      "quality": "Squalid",
+      "cost": { "amount": 7, "currency": "cp", "period": "day" }
+    },
+    {
+      "quality": "Poor",
+      "cost": { "amount": 1, "currency": "sp", "period": "day" }
+    },
+    {
+      "quality": "Modest",
+      "cost": { "amount": 5, "currency": "sp", "period": "day" }
+    },
+    {
+      "quality": "Comfortable",
+      "cost": { "amount": 8, "currency": "sp", "period": "day" }
+    },
+    {
+      "quality": "Wealthy",
+      "cost": { "amount": 2, "currency": "gp", "period": "day" }
+    },
+    {
+      "quality": "Aristocratic",
+      "cost": { "amount": 4, "currency": "gp", "period": "day" }
+    }
+  ],
+  "meals": [
+    {
+      "quality": "Squalid",
+      "cost": { "amount": 1, "currency": "cp" }
+    },
+    {
+      "quality": "Poor",
+      "cost": { "amount": 2, "currency": "cp" }
+    },
+    {
+      "quality": "Modest",
+      "cost": { "amount": 1, "currency": "sp" }
+    },
+    {
+      "quality": "Comfortable",
+      "cost": { "amount": 2, "currency": "sp" }
+    },
+    {
+      "quality": "Wealthy",
+      "cost": { "amount": 3, "currency": "sp" }
+    },
+    {
+      "quality": "Aristocratic",
+      "cost": { "amount": 6, "currency": "sp" }
+    }
+  ],
+  "travel": [
+    {
+      "service": "Coach ride between towns",
+      "cost": { "amount": 3, "currency": "cp", "per": "mile" }
+    },
+    {
+      "service": "Coach ride within a city",
+      "cost": { "amount": 1, "currency": "cp", "per": "mile" }
+    },
+    {
+      "service": "Road or gate toll",
+      "cost": { "amount": 1, "currency": "cp" }
+    },
+    {
+      "service": "Ship's passage",
+      "cost": { "amount": 1, "currency": "sp", "per": "mile" }
+    }
+  ],
+  "hirelings": [
+    {
+      "type": "Skilled hireling",
+      "description": "Anyone hired to perform a service that involves a proficiency: a mercenary, an artisan, a scribe, etc.",
+      "cost": { "amount": 2, "currency": "gp", "period": "day" },
+      "note": "This is a minimum; some expert hirelings require more pay"
+    },
+    {
+      "type": "Untrained hireling",
+      "description": "Hired for work that requires no particular proficiencies; includes laborers and porters",
+      "cost": { "amount": 2, "currency": "sp", "period": "day" }
+    },
+    {
+      "type": "Messenger",
+      "description": "Hired to deliver messages or small items",
+      "cost": { "amount": 2, "currency": "cp", "per": "mile" }
+    }
+  ],
+  "spellcastingServices": [
+    {
+      "spellLevel": "Cantrip",
+      "availability": "Village, town, or city",
+      "cost": { "amount": 30, "currency": "gp" }
+    },
+    {
+      "spellLevel": "1",
+      "availability": "Village, town, or city",
+      "cost": { "amount": 50, "currency": "gp" }
+    },
+    {
+      "spellLevel": "2",
+      "availability": "Village, town, or city",
+      "cost": { "amount": 200, "currency": "gp" }
+    },
+    {
+      "spellLevel": "3",
+      "availability": "Town or city only",
+      "cost": { "amount": 300, "currency": "gp" }
+    },
+    {
+      "spellLevel": "4-5",
+      "availability": "Town or city only",
+      "cost": { "amount": 2000, "currency": "gp" }
+    },
+    {
+      "spellLevel": "6-8",
+      "availability": "City only",
+      "cost": { "amount": 20000, "currency": "gp" }
+    },
+    {
+      "spellLevel": "9",
+      "availability": "City only",
+      "cost": { "amount": 100000, "currency": "gp" }
+    }
+  ],
+  "notes": {
+    "lifestyles": "At the start of each week or month (DM's choice), choose a lifestyle and pay the price to sustain it. Lifestyles have no inherent consequences, but the DM might take them into account when determining risks or how others perceive your character.",
+    "spellcasting": "If a spell has expensive components, add the cost of those components to the listed cost. The higher the level of a desired spell, the harder it is to find someone to cast it.",
+    "foodAndLodging": "Prices for daily lodging and meals are included in your lifestyle's expenses."
+  },
+  "sourceBook": "Player's Handbook 2024"
+}
