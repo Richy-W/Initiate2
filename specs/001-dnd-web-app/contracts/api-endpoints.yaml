@@ -1,0 +1,819 @@
+openapi: 3.0.0
+info:
+  title: D&D Character and Campaign Management API
+  version: 1.0.0
+  description: RESTful API for D&D character creation, campaign management, and combat tracking
+
+servers:
+  - url: http://localhost:8000/api
+    description: Development server
+
+paths:
+  # Authentication endpoints
+  /auth/register:
+    post:
+      summary: Create new user account
+      tags: [Authentication]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                  minLength: 8
+                username:
+                  type: string
+                  maxLength: 50
+      responses:
+        201:
+          description: Account created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+        400:
+          description: Validation error
+
+  /auth/login:
+    post:
+      summary: Authenticate user
+      tags: [Authentication]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        200:
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                  refresh_token:
+                    type: string
+                  user:
+                    $ref: '#/components/schemas/UserProfile'
+        401:
+          description: Invalid credentials
+
+  # Character management
+  /characters:
+    get:
+      summary: List user's characters
+      tags: [Characters]
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: campaign
+          in: query
+          schema:
+            type: string
+            format: uuid
+          description: Filter by campaign ID
+      responses:
+        200:
+          description: List of characters
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CharacterSummary'
+
+    post:
+      summary: Create new character
+      tags: [Characters]
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CharacterCreate'
+      responses:
+        201:
+          description: Character created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CharacterDetail'
+        400:
+          description: Validation error
+
+  /characters/{id}:
+    get:
+      summary: Get character details
+      tags: [Characters]
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        200:
+          description: Character details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CharacterDetail'
+        403:
+          description: Access denied
+        404:
+          description: Character not found
+
+    put:
+      summary: Update character
+      tags: [Characters]
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CharacterUpdate'
+      responses:
+        200:
+          description: Character updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CharacterDetail'
+
+    delete:
+      summary: Delete character
+      tags: [Characters]
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        204:
+          description: Character deleted
+        403:
+          description: Access denied
+
+  # Campaign management
+  /campaigns:
+    get:
+      summary: List user's campaigns
+      tags: [Campaigns]
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: role
+          in: query
+          schema:
+            type: string
+            enum: [dm, player, all]
+            default: all
+      responses:
+        200:
+          description: List of campaigns
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CampaignSummary'
+
+    post:
+      summary: Create new campaign
+      tags: [Campaigns]
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CampaignCreate'
+      responses:
+        201:
+          description: Campaign created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CampaignDetail'
+
+  /campaigns/{id}/join:
+    post:
+      summary: Join campaign
+      tags: [Campaigns]
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [character_id]
+              properties:
+                character_id:
+                  type: string
+                  format: uuid
+                join_code:
+                  type: string
+      responses:
+        200:
+          description: Successfully joined campaign
+        400:
+          description: Invalid character or join code
+        403:
+          description: Campaign full or invitation required
+
+  # Combat tracking
+  /campaigns/{id}/initiative:
+    post:
+      summary: Start combat initiative
+      tags: [Combat]
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name]
+              properties:
+                name:
+                  type: string
+                participants:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      character_id:
+                        type: string
+                        format: uuid
+                      npc_name:
+                        type: string
+                      hit_points:
+                        type: integer
+                      initiative:
+                        type: integer
+      responses:
+        201:
+          description: Combat initiative started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InitiativeTracker'
+
+  /initiative/{id}/next-turn:
+    post:
+      summary: Advance to next turn
+      tags: [Combat]
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        200:
+          description: Turn advanced
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InitiativeTracker'
+
+  # Content management
+  /content/species:
+    get:
+      summary: List available species
+      tags: [Content]
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: include_homebrew
+          in: query
+          schema:
+            type: boolean
+            default: true
+      responses:
+        200:
+          description: List of species
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Species'
+
+  /content/classes:
+    get:
+      summary: List available classes
+      tags: [Content]
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: List of classes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CharacterClass'
+
+  /content/equipment:
+    get:
+      summary: List equipment items
+      tags: [Content]
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: type
+          in: query
+          schema:
+            type: string
+            enum: [weapon, armor, tool, consumable, magical, misc]
+        - name: search
+          in: query
+          schema:
+            type: string
+      responses:
+        200:
+          description: List of equipment
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Equipment'
+
+  # Homebrew content
+  /homebrew:
+    get:
+      summary: List user's homebrew content
+      tags: [Homebrew]
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: List of homebrew content
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/HomebrewContent'
+
+    post:
+      summary: Create homebrew content
+      tags: [Homebrew]
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HomebrewCreate'
+      responses:
+        201:
+          description: Homebrew content created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HomebrewContent'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    UserProfile:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        email:
+          type: string
+          format: email
+        username:
+          type: string
+        is_admin:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+
+    CharacterSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        level:
+          type: integer
+        species:
+          type: string
+        character_class:
+          type: string
+        campaign:
+          type: string
+          nullable: true
+
+    CharacterDetail:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        level:
+          type: integer
+        experience_points:
+          type: integer
+        species:
+          $ref: '#/components/schemas/Species'
+        character_class:
+          $ref: '#/components/schemas/CharacterClass'
+        background:
+          $ref: '#/components/schemas/Background'
+        ability_scores:
+          type: object
+          properties:
+            strength:
+              type: integer
+            dexterity:
+              type: integer
+            constitution:
+              type: integer
+            intelligence:
+              type: integer
+            wisdom:
+              type: integer
+            charisma:
+              type: integer
+        hit_points_current:
+          type: integer
+        hit_points_maximum:
+          type: integer
+        armor_class:
+          type: integer
+        proficiency_bonus:
+          type: integer
+        skills:
+          type: object
+        equipment:
+          type: array
+          items:
+            type: object
+
+    CharacterCreate:
+      type: object
+      required: [name, species_id, class_id, background_id, ability_scores]
+      properties:
+        name:
+          type: string
+          maxLength: 100
+        species_id:
+          type: string
+          format: uuid
+        class_id:
+          type: string
+          format: uuid
+        background_id:
+          type: string
+          format: uuid
+        ability_scores:
+          type: object
+          required: [strength, dexterity, constitution, intelligence, wisdom, charisma]
+          properties:
+            strength:
+              type: integer
+              minimum: 8
+              maximum: 18
+            dexterity:
+              type: integer
+              minimum: 8
+              maximum: 18
+            constitution:
+              type: integer
+              minimum: 8
+              maximum: 18
+            intelligence:
+              type: integer
+              minimum: 8
+              maximum: 18
+            wisdom:
+              type: integer
+              minimum: 8
+              maximum: 18
+            charisma:
+              type: integer
+              minimum: 8
+              maximum: 18
+
+    CharacterUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 100
+        experience_points:
+          type: integer
+        hit_points_current:
+          type: integer
+        equipment:
+          type: array
+        notes:
+          type: string
+
+    CampaignSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        dm:
+          type: string
+        is_active:
+          type: boolean
+        player_count:
+          type: integer
+        user_role:
+          type: string
+          enum: [dm, player]
+
+    CampaignDetail:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        dm:
+          $ref: '#/components/schemas/UserProfile'
+        is_active:
+          type: boolean
+        join_mode:
+          type: string
+          enum: [invitation_only, approval_required]
+        encumbrance_rules:
+          type: string
+          enum: [disabled, simple, variant]
+        rule_validation:
+          type: string
+          enum: [strict, warnings, permissive]
+        players:
+          type: array
+          items:
+            type: object
+        settings:
+          type: object
+        created_at:
+          type: string
+          format: date-time
+
+    CampaignCreate:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+          maxLength: 100
+        description:
+          type: string
+        join_mode:
+          type: string
+          enum: [invitation_only, approval_required]
+          default: invitation_only
+        encumbrance_rules:
+          type: string
+          enum: [disabled, simple, variant]
+          default: disabled
+        rule_validation:
+          type: string
+          enum: [strict, warnings, permissive]
+          default: warnings
+        settings:
+          type: object
+
+    InitiativeTracker:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        round_number:
+          type: integer
+        active_participant:
+          type: object
+        participants:
+          type: array
+          items:
+            type: object
+        spell_effects:
+          type: array
+          items:
+            type: object
+        is_active:
+          type: boolean
+
+    Species:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        ability_score_bonuses:
+          type: object
+        traits:
+          type: array
+        languages:
+          type: array
+        proficiencies:
+          type: array
+        is_official:
+          type: boolean
+
+    CharacterClass:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        hit_die:
+          type: string
+          enum: [d6, d8, d10, d12]
+        primary_abilities:
+          type: array
+        saving_throw_proficiencies:
+          type: array
+        spellcasting:
+          type: object
+          nullable: true
+        features_by_level:
+          type: object
+        is_official:
+          type: boolean
+
+    Background:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        skill_proficiencies:
+          type: array
+        languages:
+          type: array
+        equipment:
+          type: array
+        feature:
+          type: object
+
+    Equipment:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        item_type:
+          type: string
+          enum: [weapon, armor, tool, consumable, magical, misc]
+        weight:
+          type: number
+        cost:
+          type: number
+        properties:
+          type: object
+        is_official:
+          type: boolean
+
+    HomebrewContent:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        content_type:
+          type: string
+          enum: [species, class, spell, equipment, background]
+        data:
+          type: object
+        creator:
+          $ref: '#/components/schemas/UserProfile'
+        sharing_level:
+          type: string
+          enum: [private, specific_users, specific_campaigns, public]
+        version:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+
+    HomebrewCreate:
+      type: object
+      required: [name, content_type, data]
+      properties:
+        name:
+          type: string
+        content_type:
+          type: string
+          enum: [species, class, spell, equipment, background]
+        data:
+          type: object
+        sharing_level:
+          type: string
+          enum: [private, specific_users, specific_campaigns, public]
+          default: private
+
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+        errors:
+          type: object
+          additionalProperties: true
