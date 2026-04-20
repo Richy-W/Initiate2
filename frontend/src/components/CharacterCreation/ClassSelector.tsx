@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { contentAPI } from '../../services/apiClient';
+﻿import React, { useState, useEffect } from 'react';
+import styles from './CharacterWizard.module.css';import { contentAPI } from '../../services/apiClient';
 
 // Complete list of D&D 5e skills
 const ALL_SKILLS = [
@@ -179,24 +179,24 @@ export const ClassSelector: React.FC<ClassSelectorProps> = ({
   };
 
   if (loading) {
-    return <div className="loading">Loading classes...</div>;
+    return <div className={styles['loading']}>Loading classes...</div>;
   }
 
   if (error) {
-    return <div className="error">Error: {error}</div>;
+    return <div className={styles['error']}>Error: {error}</div>;
   }
 
   return (
-    <div className="class-selector">
+    <div className={styles['class-selector']}>
       <h2>Choose Your Class</h2>
       
-      <div className="class-dropdown">
+      <div className={styles['class-dropdown']}>
         <label htmlFor="class-select">Select a class:</label>
         <select
           id="class-select"
           value={selectedClass?.id || ''}
           onChange={handleClassChange}
-          className="class-select"
+          className={styles['class-select']}
         >
           <option value="">-- Choose a class --</option>
           {classes.map((cls) => (
@@ -208,29 +208,29 @@ export const ClassSelector: React.FC<ClassSelectorProps> = ({
       </div>
 
       {selectedClass && (
-        <div className="class-details">
-          <div className="class-card selected">
+        <div className={styles['class-details']}>
+          <div className={[styles['class-card'], styles['selected']].filter(Boolean).join(' ')}>
             <h3>{selectedClass.name}</h3>
-            <p className="description">{selectedClass.description}</p>
+            <p className={styles['description']}>{selectedClass.description}</p>
             
-            <div className="class-info">
-              <div className="hit-die">
+            <div className={styles['class-info']}>
+              <div className={styles['hit-die']}>
                 <strong>Hit Die:</strong> {selectedClass.hitPointDie || 'Unknown'}
               </div>
               
-              <div className="primary-abilities">
+              <div className={styles['primary-abilities']}>
                 <strong>Primary Ability:</strong> {
                   (selectedClass.primaryAbility || []).join(', ') || 'None specified'
                 }
               </div>
               
-              <div className="proficiencies">
-                <div className="saving-throws">
+              <div className={styles['proficiencies']}>
+                <div className={styles['saving-throws']}>
                   <strong>Saving Throw Proficiencies:</strong>
                   <p>{(selectedClass.proficiencies?.savingThrows || []).join(', ') || 'None'}</p>
                 </div>
                 
-                <div className="skills">
+                <div className={styles['skills']}>
                   <strong>Skill Proficiencies:</strong>
                   {selectedClass.proficiencies?.skills?.choose ? (() => {
                     const skillsFrom = selectedClass.proficiencies.skills.from || [];
@@ -242,25 +242,19 @@ export const ClassSelector: React.FC<ClassSelectorProps> = ({
                     const availableSkills = isAnySkill ? ALL_SKILLS : skillsFrom;
                     
                     return (
-                      <div className="skill-selection">
-                        <p className="skill-instruction">
+                      <div className={styles['skill-selection']}>
+                        <p className={styles['skill-instruction']}>
                           Choose {selectedClass.proficiencies.skills.choose} from {isAnySkill ? 'any skills' : 'the following skills'}:
-                          <span className="skill-counter">
+                          <span className={styles['skill-counter']}>
                             ({selectedSkills.length}/{selectedClass.proficiencies.skills.choose} selected)
                           </span>
                         </p>
-                        <div className="skill-options">
+                        <div className={styles['skill-options']}>
                           {availableSkills.map(skill => (
                             <button
                               key={skill}
                               type="button"
-                              className={`skill-option ${
-                                selectedSkills.includes(skill) ? 'selected' : ''
-                              } ${
-                                !selectedSkills.includes(skill) && 
-                                selectedSkills.length >= selectedClass.proficiencies.skills.choose 
-                                  ? 'disabled' : ''
-                              }`}
+                              className={[styles['skill-option'], selectedSkills.includes(skill) ? styles['selected'] : '', !selectedSkills.includes(skill) && selectedSkills.length >= selectedClass.proficiencies.skills.choose ? styles['disabled'] : ''].filter(Boolean).join(' ')}
                               onClick={() => handleSkillToggle(skill)}
                               disabled={
                                 !selectedSkills.includes(skill) && 
@@ -278,18 +272,18 @@ export const ClassSelector: React.FC<ClassSelectorProps> = ({
                   )}
                 </div>
                 
-                <div className="armor">
+                <div className={styles['armor']}>
                   <strong>Armor Proficiencies:</strong>
                   <p>{(selectedClass.proficiencies?.armor || []).join(', ') || 'None'}</p>
                 </div>
                 
-                <div className="weapons">
+                <div className={styles['weapons']}>
                   <strong>Weapon Proficiencies:</strong>
                   <p>{(selectedClass.proficiencies?.weapons || []).join(', ') || 'None'}</p>
                 </div>
                 
                 {selectedClass.proficiencies?.tools && selectedClass.proficiencies.tools.length > 0 && (
-                  <div className="tools">
+                  <div className={styles['tools']}>
                     <strong>Tool Proficiencies:</strong>
                     <p>{selectedClass.proficiencies.tools.join(', ')}</p>
                   </div>
@@ -297,14 +291,12 @@ export const ClassSelector: React.FC<ClassSelectorProps> = ({
               </div>
               
               {selectedClass.startingEquipment && selectedClass.startingEquipment.options.length > 0 && (
-                <div className="starting-equipment">
+                <div className={styles['starting-equipment']}>
                   <h4>Starting Equipment</h4>
-                  <p className="equipment-instruction">Choose your starting equipment package:</p>
-                  <div className="equipment-options">
+                  <p className={styles['equipment-instruction']}>Choose your starting equipment package:</p>
+                  <div className={styles['equipment-options']}>
                     {selectedClass.startingEquipment.options.map((option) => (
-                      <label key={option.choice} className={`equipment-option ${
-                        selectedEquipment === option.choice ? 'selected' : ''
-                      }`}>
+                      <label key={option.choice} className={[styles['equipment-option'], selectedEquipment === option.choice ? styles['selected'] : ''].filter(Boolean).join(' ')}>
                         <input
                           type="radio"
                           name="starting-equipment"
@@ -312,13 +304,13 @@ export const ClassSelector: React.FC<ClassSelectorProps> = ({
                           checked={selectedEquipment === option.choice}
                           onChange={(e) => handleEquipmentSelect(e.target.value)}
                         />
-                        <div className="equipment-details">
-                          <div className="equipment-header">
+                        <div className={styles['equipment-details']}>
+                          <div className={styles['equipment-header']}>
                             <strong>Choice {option.choice}</strong>
-                            <span className="equipment-gold">+ {option.gold} GP</span>
+                            <span className={styles['equipment-gold']}>+ {option.gold} GP</span>
                           </div>
                           {option.items.length > 0 ? (
-                            <div className="equipment-items">
+                            <div className={styles['equipment-items']}>
                               <ul>
                                 {option.items.map((item, index) => (
                                   <li key={index}>{item}</li>
@@ -326,7 +318,7 @@ export const ClassSelector: React.FC<ClassSelectorProps> = ({
                               </ul>
                             </div>
                           ) : (
-                            <div className="equipment-gold-only">
+                            <div className={styles['equipment-gold-only']}>
                               <p>Start with {option.gold} gold pieces to buy your own equipment</p>
                             </div>
                           )}
@@ -338,7 +330,7 @@ export const ClassSelector: React.FC<ClassSelectorProps> = ({
               )}
               
               {selectedClass.classFeatures && selectedClass.classFeatures['1'] && (
-                <div className="first-level-features">
+                <div className={styles['first-level-features']}>
                   <h4>1st Level Features</h4>
                   <ul>
                     {selectedClass.classFeatures['1'].features
@@ -358,20 +350,20 @@ export const ClassSelector: React.FC<ClassSelectorProps> = ({
               {selectedClass.classFeatures?.['1']?.features.some(f => f.name === 'Weapon Mastery') && (() => {
                 const pool = getWeaponMasteryPool(selectedClass.proficiencies?.weapons || []);
                 return (
-                  <div className="weapon-mastery-selection">
+                  <div className={styles['weapon-mastery-selection']}>
                     <h4>Weapon Mastery Choices</h4>
-                    <p className="weapon-mastery-instruction">
+                    <p className={styles['weapon-mastery-instruction']}>
                       Choose 2 weapons to apply your Weapon Mastery properties to:
                     </p>
-                    <div className="weapon-mastery-dropdowns">
+                    <div className={styles['weapon-mastery-dropdowns']}>
                       {[0, 1].map((i) => (
-                        <div key={i} className="weapon-mastery-dropdown">
+                        <div key={i} className={styles['weapon-mastery-dropdown']}>
                           <label htmlFor={`weapon-mastery-${i}`}>Weapon {i + 1}:</label>
                           <select
                             id={`weapon-mastery-${i}`}
                             value={weaponMasteryChoices[i] || ''}
                             onChange={(e) => handleWeaponMasterySelect(i, e.target.value)}
-                            className="weapon-mastery-select"
+                            className={styles['weapon-mastery-select']}
                           >
                             <option value="">-- Choose a weapon --</option>
                             {pool
@@ -391,7 +383,7 @@ export const ClassSelector: React.FC<ClassSelectorProps> = ({
               {selectedClass.classFeatures && 
                selectedClass.classFeatures['1'] && 
                selectedClass.classFeatures['1'].features.some(f => f.type === 'spell') && (
-                <div className="spellcasting">
+                <div className={styles['spellcasting']}>
                   <h4>Spellcasting</h4>
                   <p>This class has spellcasting abilities.</p>
                 </div>

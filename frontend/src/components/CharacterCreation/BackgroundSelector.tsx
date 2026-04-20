@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { contentAPI } from '../../services/apiClient';
+﻿import React, { useState, useEffect } from 'react';
+import styles from './CharacterWizard.module.css';import { contentAPI } from '../../services/apiClient';
 
 // Standard D&D languages - Updated for cache clear
 const STANDARD_LANGUAGES = [
@@ -146,24 +146,24 @@ export const BackgroundSelector: React.FC<BackgroundSelectorProps> = ({
   };
 
   if (loading) {
-    return <div className="loading">Loading backgrounds...</div>;
+    return <div className={styles['loading']}>Loading backgrounds...</div>;
   }
 
   if (error) {
-    return <div className="error">Error: {error}</div>;
+    return <div className={styles['error']}>Error: {error}</div>;
   }
 
   return (
-    <div className="background-selector">
+    <div className={styles['background-selector']}>
       <h2>Choose Your Background</h2>
       
-      <div className="background-dropdown">
+      <div className={styles['background-dropdown']}>
         <label htmlFor="background-select">Select a background:</label>
         <select
           id="background-select"
           value={selectedBackground?.id || ''}
           onChange={handleBackgroundChange}
-          className="background-select"
+          className={styles['background-select']}
         >
           <option value="">-- Choose a background --</option>
           {backgrounds.map((bg) => (
@@ -175,43 +175,43 @@ export const BackgroundSelector: React.FC<BackgroundSelectorProps> = ({
       </div>
 
       {selectedBackground && (
-        <div className="background-details">
-          <div className="background-card selected">
+        <div className={styles['background-details']}>
+          <div className={[styles['background-card'], styles['selected']].filter(Boolean).join(' ')}>
             <h3>{selectedBackground.name}</h3>
-            <p className="description">{selectedBackground.description}</p>
+            <p className={styles['description']}>{selectedBackground.description}</p>
             
-            <div className="background-info">
+            <div className={styles['background-info']}>
               {selectedBackground.abilityScoreIncrease && (
-                <div className="ability-increases">
+                <div className={styles['ability-increases']}>
                   <strong>Ability Score Increase:</strong>
                   <p>
                     Distribute {selectedBackground.abilityScoreIncrease.points} points among the following abilities 
                     (max +3 per ability):
                   </p>
-                  <div className="ability-point-distribution">
+                  <div className={styles['ability-point-distribution']}>
                     {selectedBackground.abilityScoreIncrease.choices.map(ability => {
                       const currentPoints = abilityPointDistribution[ability] || 0;
                       const totalAssigned = Object.values(abilityPointDistribution).reduce((sum, points) => sum + points, 0);
                       const maxPoints = selectedBackground.abilityScoreIncrease!.points;
                       
                       return (
-                        <div key={ability} className="ability-point-row">
-                          <label className="ability-name">{ability}</label>
-                          <div className="point-controls">
+                        <div key={ability} className={styles['ability-point-row']}>
+                          <label className={styles['ability-name']}>{ability}</label>
+                          <div className={styles['point-controls']}>
                             <button
                               type="button"
-                              className="point-btn decrease"
+                              className={[styles['point-btn'], styles['decrease']].filter(Boolean).join(' ')}
                               onClick={() => handleAbilityPointChange(ability, -1)}
                               disabled={currentPoints === 0}
                             >
                               −
                             </button>
-                            <div className="point-display">
-                              <span className="points">+{currentPoints}</span>
+                            <div className={styles['point-display']}>
+                              <span className={styles['points']}>+{currentPoints}</span>
                             </div>
                             <button
                               type="button"
-                              className="point-btn increase"
+                              className={[styles['point-btn'], styles['increase']].filter(Boolean).join(' ')}
                               onClick={() => handleAbilityPointChange(ability, 1)}
                               disabled={currentPoints >= 3 || totalAssigned >= maxPoints}
                             >
@@ -222,22 +222,22 @@ export const BackgroundSelector: React.FC<BackgroundSelectorProps> = ({
                       );
                     })}
                   </div>
-                  <div className="points-summary">
-                    <span className="points-used">
+                  <div className={styles['points-summary']}>
+                    <span className={styles['points-used']}>
                       {Object.values(abilityPointDistribution).reduce((sum, points) => sum + points, 0)} / {selectedBackground.abilityScoreIncrease.points} points used
                     </span>
                   </div>
                 </div>
               )}
               
-              <div className="proficiencies">
-                <div className="skills">
+              <div className={styles['proficiencies']}>
+                <div className={styles['skills']}>
                   <strong>Skill Proficiencies:</strong>
                   <p>{selectedBackground.skillProficiencies?.join(', ') || 'None'}</p>
                 </div>
                 
                 {selectedBackground.toolProficiency && (
-                  <div className="tools">
+                  <div className={styles['tools']}>
                     <strong>Tool Proficiencies:</strong>
                     <p>{
                       selectedBackground.toolProficiency.fixed ||
@@ -250,13 +250,13 @@ export const BackgroundSelector: React.FC<BackgroundSelectorProps> = ({
                 )}
                 
                 {selectedBackground.languageProficiency?.choice && (
-                  <div className="languages">
+                  <div className={styles['languages']}>
                     <strong>Languages:</strong>
                     <p>Choose {selectedBackground.languageProficiency.choice.count} {selectedBackground.languageProficiency.choice.type} language:</p>
                     <select
                       value={selectedLanguage}
                       onChange={(e) => setSelectedLanguage(e.target.value)}
-                      className="language-select"
+                      className={styles['language-select']}
                     >
                       <option value="">-- Choose a language --</option>
                       {STANDARD_LANGUAGES.map(language => (
@@ -270,21 +270,21 @@ export const BackgroundSelector: React.FC<BackgroundSelectorProps> = ({
               </div>
               
               {selectedBackground.feat && (
-                <div className="background-feat">
+                <div className={styles['background-feat']}>
                   <h4>Origin Feat: {selectedBackground.feat.name}</h4>
                   <p>{selectedBackground.feat.description}</p>
                 </div>
               )}
               
               {selectedBackground.startingEquipment && (
-                <div className="starting-equipment">
+                <div className={styles['starting-equipment']}>
                   <h4>Starting Equipment</h4>
-                  <div className="equipment-choice">
+                  <div className={styles['equipment-choice']}>
                     <p><strong>Choose your starting equipment option:</strong></p>
-                    <div className="equipment-options">
+                    <div className={styles['equipment-options']}>
                       {selectedBackground.startingEquipment.options.map((option) => (
-                        <div key={option.choice} className="equipment-option-container">
-                          <label className="equipment-option-label">
+                        <div key={option.choice} className={styles['equipment-option-container']}>
+                          <label className={styles['equipment-option-label']}>
                             <input
                               type="radio"
                               name="equipment-option"
@@ -294,9 +294,7 @@ export const BackgroundSelector: React.FC<BackgroundSelectorProps> = ({
                             />
                             <strong>Option {option.choice}:</strong>
                           </label>
-                          <div className={`equipment-option-details ${
-                            selectedEquipmentOption === option.choice ? 'selected' : ''
-                          }`}>
+                          <div className={[styles['equipment-option-details'], selectedEquipmentOption === option.choice ? styles['selected'] : ''].filter(Boolean).join(' ')}>
                             {option.items.length > 0 ? (
                               <ul>
                                 {option.items.map((item, itemIndex) => (
