@@ -1,5 +1,6 @@
 ﻿import React, { useState, useEffect } from 'react';
-import styles from './CharacterWizard.module.css';import { contentAPI } from '../../services/apiClient';
+import styles from './CharacterWizard.module.css';
+import { contentAPI } from '../../services/apiClient';
 
 interface Species {
   pk?: number;
@@ -133,24 +134,24 @@ export const SpeciesSelector: React.FC<SpeciesSelectorProps> = ({
   });
 
   if (loading) {
-    return <div className={styles['loading']}>Loading species...</div>;
+    return <div className="loading">Loading species...</div>;
   }
 
   if (error) {
-    return <div className={styles['error']}>Error: {error}</div>;
+    return <div className="error">Error: {error}</div>;
   }
 
   return (
-    <div className={styles['species-selector']}>
+    <div className="species-selector">
       <h2>Choose Your Species</h2>
       
-      <div className={styles['species-dropdown']}>
+      <div className="species-dropdown">
         <label htmlFor="species-select">Select a species:</label>
         <select
           id="species-select"
           value={selectedSpecies?.id || ''}
           onChange={handleSpeciesChange}
-          className={styles['species-select']}
+          className="species-select"
         >
           <option value="">-- Choose a species --</option>
           {species.map((sp) => (
@@ -162,18 +163,18 @@ export const SpeciesSelector: React.FC<SpeciesSelectorProps> = ({
       </div>
 
       {selectedSpecies && (
-        <div className={styles['species-details']}>
-          <div className={[styles['species-card'], styles['selected']].filter(Boolean).join(' ')}>
+        <div className="species-details">
+          <div className="species-card selected">
             <h3>{selectedSpecies.name}</h3>
-            <p className={styles['description']}>{selectedSpecies.description}</p>
+            <p className="description">{selectedSpecies.description}</p>
             
-            <div className={styles['species-traits']}>
+            <div className="species-traits">
               {selectedSpecies.abilityScoreIncrease && Object.keys(selectedSpecies.abilityScoreIncrease).length > 0 && (
-                <div className={styles['ability-increases']}>
+                <div className="ability-increases">
                   <h4>Ability Score Increases</h4>
-                  <div className={styles['ability-increases-list']}>
+                  <div className="ability-increases-list">
                     {Object.entries(selectedSpecies.abilityScoreIncrease).map(([ability, increase]) => (
-                      <span key={ability} className={styles['ability-increase']}>
+                      <span key={ability} className="ability-increase">
                         {ability} +{String(increase)}
                       </span>
                     ))}
@@ -181,23 +182,23 @@ export const SpeciesSelector: React.FC<SpeciesSelectorProps> = ({
                 </div>
               )}
               
-              <div className={styles['basic-info']}>
-                <span className={styles['size']}>
+              <div className="basic-info">
+                <span className="size">
                   Size: {selectedSpecies.size.category}
                   {selectedSpecies.size.height && ` (${selectedSpecies.size.height})`}
                 </span>
-                <span className={styles['speed']}>Speed: {selectedSpecies.speed} ft.</span>
+                <span className="speed">Speed: {selectedSpecies.speed} ft.</span>
               </div>
               
               {selectedSpecies.languages && selectedSpecies.languages.length > 0 && (
-                <div className={styles['languages']}>
+                <div className="languages">
                   <h4>Languages</h4>
                   <p>{selectedSpecies.languages.join(', ')}</p>
                 </div>
               )}
               
               {selectedSpecies.traits && selectedSpecies.traits.length > 0 && (
-                <div className={styles['traits']}>
+                <div className="traits">
                   <h4>Traits</h4>
                   <ul>
                     {selectedSpecies.traits.slice(0, 5).map((trait, index) => (
@@ -207,7 +208,7 @@ export const SpeciesSelector: React.FC<SpeciesSelectorProps> = ({
                     ))}
                   </ul>
                   {selectedSpecies.traits.length > 5 && (
-                    <p className={styles['more-traits']}>
+                    <p className="more-traits">
                       <em>And {selectedSpecies.traits.length - 5} more trait{selectedSpecies.traits.length - 5 !== 1 ? 's' : ''}...</em>
                     </p>
                   )}
@@ -215,15 +216,15 @@ export const SpeciesSelector: React.FC<SpeciesSelectorProps> = ({
               )}
 
               {onSpeciesOptionsChange && (
-                <div className={styles['species-options']}>
+                <div className="species-options">
                   <h4>Species Options</h4>
 
                   {variantOptions.length > 0 && (
-                    <div className={styles['form-group']}>
+                    <div className="form-group">
                       <label htmlFor="species-variant">Lineage / Variant</label>
                       <select
                         id="species-variant"
-                        className={styles['species-select']}
+                        className="species-select"
                         value={selectedVariant}
                         onChange={(e) =>
                           onSpeciesOptionsChange({
@@ -296,11 +297,11 @@ export const SpeciesSelector: React.FC<SpeciesSelectorProps> = ({
                   )}
 
                   {skillOptions.length > 0 && (
-                    <div className={styles['form-group']}>
+                    <div className="form-group">
                       <label htmlFor="species-skill-choice">Skill Proficiency Choice</label>
                       <select
                         id="species-skill-choice"
-                        className={styles['species-select']}
+                        className="species-select"
                         value={speciesOptions?.skillChoice || skillOptions[0] || ''}
                         onChange={(e) =>
                           onSpeciesOptionsChange({
@@ -319,11 +320,11 @@ export const SpeciesSelector: React.FC<SpeciesSelectorProps> = ({
                   )}
 
                   {sizeOptions.length > 0 && (
-                    <div className={styles['form-group']}>
+                    <div className="form-group">
                       <label htmlFor="species-size">Size Choice</label>
                       <select
                         id="species-size"
-                        className={styles['species-select']}
+                        className="species-select"
                         value={speciesOptions?.sizeCategory || sizeOptions[0]?.category || ''}
                         onChange={(e) =>
                           onSpeciesOptionsChange({
@@ -347,11 +348,11 @@ export const SpeciesSelector: React.FC<SpeciesSelectorProps> = ({
                   )}
 
                   {spellcastingAbilityOptions.length > 0 && (
-                    <div className={styles['form-group']}>
+                    <div className="form-group">
                       <label htmlFor="species-casting-ability">Spellcasting Ability Choice</label>
                       <select
                         id="species-casting-ability"
-                        className={styles['species-select']}
+                        className="species-select"
                         value={speciesOptions?.spellcastingAbility || spellcastingAbilityOptions[0] || ''}
                         onChange={(e) =>
                           onSpeciesOptionsChange({
@@ -370,12 +371,12 @@ export const SpeciesSelector: React.FC<SpeciesSelectorProps> = ({
                   )}
 
                   {offersFeatChoice && (
-                    <div className={styles['form-group']}>
+                    <div className="form-group">
                       <label htmlFor="species-feat-choice">Origin Feat Choice</label>
                       <input
                         id="species-feat-choice"
                         type="text"
-                        className={styles['form-input']}
+                        className="form-input"
                         value={speciesOptions?.featChoice || ''}
                         onChange={(e) =>
                           onSpeciesOptionsChange({

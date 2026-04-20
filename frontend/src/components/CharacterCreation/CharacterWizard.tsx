@@ -906,7 +906,7 @@ export const CharacterWizard: React.FC = () => {
   };
 
   return (
-    <div className={styles['character-wizard']} role="main" aria-label="Character Creation Wizard">
+    <div className={`character-wizard ${styles['character-wizard']}`} role="main" aria-label="Character Creation Wizard">
       <div className={styles['wizard-header']}>
         <h1>Create New Character</h1>
         

@@ -1,5 +1,4 @@
 ﻿import React, { useState, useEffect } from 'react';
-import styles from './CharacterWizard.module.css';
 interface AbilityScoresType {
   strength: number;
   dexterity: number;
@@ -214,46 +213,46 @@ export const AbilityScores: React.FC<AbilityScoresProps> = ({
   };
 
   return (
-    <div className={styles['ability-scores']}>
+    <div className="ability-scores">
       <h2>Ability Scores</h2>
       
-      <div className={styles['ability-method-selection']}>
+      <div className="ability-method-selection">
         <h3>Choose Assignment Method</h3>
-        <div className={styles['method-options']}>
-          <label className={styles['method-option']}>
+        <div className="method-options">
+          <label className="method-option">
             <input
               type="radio"
               value="standard-array"
               checked={method === 'standard-array'}
               onChange={(e) => handleMethodChange(e.target.value as AssignmentMethod)}
             />
-            <div className={styles['method-info']}>
+            <div className="method-info">
               <strong>Standard Array</strong>
               <p>Use the standard array: 15, 14, 13, 12, 10, 8</p>
             </div>
           </label>
           
-          <label className={styles['method-option']}>
+          <label className="method-option">
             <input
               type="radio"
               value="point-buy"
               checked={method === 'point-buy'}
               onChange={(e) => handleMethodChange(e.target.value as AssignmentMethod)}
             />
-            <div className={styles['method-info']}>
+            <div className="method-info">
               <strong>Point Buy</strong>
               <p>Customize your scores with 27 points</p>
             </div>
           </label>
           
-          <label className={styles['method-option']}>
+          <label className="method-option">
             <input
               type="radio"
               value="roll"
               checked={method === 'roll'}
               onChange={(e) => handleMethodChange(e.target.value as AssignmentMethod)}
             />
-            <div className={styles['method-info']}>
+            <div className="method-info">
               <strong>Roll Dice</strong>
               <p>Roll 4d6, drop lowest for each ability</p>
             </div>
@@ -261,35 +260,35 @@ export const AbilityScores: React.FC<AbilityScoresProps> = ({
         </div>
       </div>
 
-      <div className={styles['ability-assignment']}>
+      <div className="ability-assignment">
         {method === 'standard-array' && (
-          <div className={styles['ability-details']}>
-            <div className={styles['standard-array-section']}>
-              <div className={styles['available-scores-card']}>
+          <div className="ability-details">
+            <div className="standard-array-section">
+              <div className="available-scores-card">
                 <h4>Available Scores</h4>
-                <div className={styles['scores-grid']}>
+                <div className="scores-grid">
                   {arrayValues.map((score, index) => {
                     const assignedTo = Object.entries(assignments).find(([, arrIndex]) => arrIndex === index)?.[0];
                     return (
-                      <div key={index} className={[styles['score-badge'], assignedTo ? styles['assigned'] : styles['available']].filter(Boolean).join(' ')}>
-                        <span className={styles['score']}>{score}</span>
-                        {assignedTo && <span className={styles['assigned-to']}>{assignedTo.charAt(0).toUpperCase() + assignedTo.slice(1)}</span>}
+                      <div key={index} className={`score-badge ${assignedTo ? 'assigned' : 'available'}`}>
+                        <span className="score">{score}</span>
+                        {assignedTo && <span className="assigned-to">{assignedTo.charAt(0).toUpperCase() + assignedTo.slice(1)}</span>}
                       </div>
                     );
                   })}
                 </div>
               </div>
               
-              <div className={styles['ability-assignments-card']}>
+              <div className="ability-assignments-card">
                 <h4>Assign to Abilities</h4>
-                <div className={styles['assignments-grid']}>
+                <div className="assignments-grid">
                   {abilities.map((ability) => (
-                    <div key={ability} className={styles['ability-assignment-row']}>
-                      <label className={styles['ability-label']}>{ability.charAt(0).toUpperCase() + ability.slice(1)}</label>
+                    <div key={ability} className="ability-assignment-row">
+                      <label className="ability-label">{ability.charAt(0).toUpperCase() + ability.slice(1)}</label>
                       <select
                         value={assignments[ability] || ''}
                         onChange={(e) => handleArrayAssignment(ability, parseInt(e.target.value))}
-                        className={styles['score-select']}
+                        className="score-select"
                       >
                         <option value="">Select...</option>
                         {arrayValues.map((score, index) => (
@@ -298,9 +297,9 @@ export const AbilityScores: React.FC<AbilityScoresProps> = ({
                           </option>
                         ))}
                       </select>
-                      <div className={styles['final-score-display']}>
-                        <span className={styles['score']}>{arrayValues[assignments[ability]] || '—'}</span>
-                        <span className={styles['modifier']}>({getModifier(arrayValues[assignments[ability]] || 10)})</span>
+                      <div className="final-score-display">
+                        <span className="score">{arrayValues[assignments[ability]] || '—'}</span>
+                        <span className="modifier">({getModifier(arrayValues[assignments[ability]] || 10)})</span>
                       </div>
                     </div>
                   ))}
@@ -311,34 +310,34 @@ export const AbilityScores: React.FC<AbilityScoresProps> = ({
         )}
 
         {method === 'point-buy' && (
-          <div className={styles['ability-details']}>
-            <div className={styles['point-buy-section']}>
-              <div className={styles['points-tracker']}>
+          <div className="ability-details">
+            <div className="point-buy-section">
+              <div className="points-tracker">
                 <h4>Point Buy Budget</h4>
-                <div className={styles['points-remaining']}>
-                  <span className={styles['points-number']}>{remainingPoints}</span>
-                  <span className={styles['points-label']}>/ {POINT_BUY_TOTAL} points remaining</span>
+                <div className="points-remaining">
+                  <span className="points-number">{remainingPoints}</span>
+                  <span className="points-label">/ {POINT_BUY_TOTAL} points remaining</span>
                 </div>
               </div>
               
-              <div className={styles['point-assignments-card']}>
+              <div className="point-assignments-card">
                 <h4>Adjust Ability Scores</h4>
-                <div className={styles['point-buy-grid']}>
+                <div className="point-buy-grid">
                   {abilities.map((ability) => (
-                    <div key={ability} className={styles['point-buy-row']}>
-                      <label className={styles['ability-label']}>{ability.charAt(0).toUpperCase() + ability.slice(1)}</label>
-                      <div className={styles['point-buy-controls']}>
+                    <div key={ability} className="point-buy-row">
+                      <label className="ability-label">{ability.charAt(0).toUpperCase() + ability.slice(1)}</label>
+                      <div className="point-buy-controls">
                         <button
                           type="button"
                           onClick={() => handlePointBuyChange(ability, -1)}
                           disabled={pointBuyScores[ability] <= 8}
-                          className={[styles['point-btn'], styles['decrease']].filter(Boolean).join(' ')}
+                          className="point-btn decrease"
                         >
                           −
                         </button>
-                        <div className={styles['score-display']}>
-                          <span className={styles['score']}>{pointBuyScores[ability]}</span>
-                          <span className={styles['modifier']}>({getModifier(pointBuyScores[ability])})</span>
+                        <div className="score-display">
+                          <span className="score">{pointBuyScores[ability]}</span>
+                          <span className="modifier">({getModifier(pointBuyScores[ability])})</span>
                         </div>
                         <button
                           type="button"
@@ -347,11 +346,11 @@ export const AbilityScores: React.FC<AbilityScoresProps> = ({
                             pointBuyScores[ability] >= 15 || 
                             remainingPoints - ((POINT_COSTS[pointBuyScores[ability] + 1] || 0) - (POINT_COSTS[pointBuyScores[ability]] || 0)) < 0
                           }
-                          className={[styles['point-btn'], styles['increase']].filter(Boolean).join(' ')}
+                          className="point-btn increase"
                         >
                           +
                         </button>
-                        <span className={styles['cost-display']}>Cost: {POINT_COSTS[pointBuyScores[ability]] || 0}</span>
+                        <span className="cost-display">Cost: {POINT_COSTS[pointBuyScores[ability]] || 0}</span>
                       </div>
                     </div>
                   ))}
@@ -362,49 +361,49 @@ export const AbilityScores: React.FC<AbilityScoresProps> = ({
         )}
 
         {method === 'roll' && (
-          <div className={styles['ability-details']}>
-            <div className={styles['roll-section']}>
-              <div className={styles['roll-controls']}>
+          <div className="ability-details">
+            <div className="roll-section">
+              <div className="roll-controls">
                 <h4>Roll for Abilities</h4>
                 <button
                   type="button"
                   onClick={rollAllAbilities}
-                  className={styles['roll-all-btn']}
+                  className="roll-all-btn"
                 >
                   🎲 Roll 6 Scores (4d6 drop lowest)
                 </button>
               </div>
               
-              <div className={styles['rolled-values-card']}>
-                <h4>Rolled Values <span className={styles['rolled-values-hint']}>(or enter your own)</span></h4>
-                <div className={styles['rolled-values-display']}>
+              <div className="rolled-values-card">
+                <h4>Rolled Values <span className="rolled-values-hint">(or enter your own)</span></h4>
+                <div className="rolled-values-display">
                   {rolledValues.map((value, index) => (
-                    <div key={index} className={styles['rolled-value-badge']}>
+                    <div key={index} className="rolled-value-badge">
                       <input
                         type="number"
                         min={3}
                         max={18}
                         value={value || ''}
                         onChange={(e) => handleEditRolledValue(index, e.target.value)}
-                        className={styles['rolled-value-input']}
+                        className="rolled-value-input"
                         aria-label={`Rolled value ${index + 1}`}
                       />
-                      <span className={styles['modifier']}>({getModifier(value || 10)})</span>
+                      <span className="modifier">({getModifier(value || 10)})</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className={styles['roll-assignments-card']}>
+              <div className="roll-assignments-card">
                 <h4>Assign Rolled Values</h4>
-                <div className={styles['roll-assignments-grid']}>
+                <div className="roll-assignments-grid">
                   {abilities.map((ability) => (
-                    <div key={ability} className={styles['assignment-row']}>
-                      <label className={styles['ability-label']}>{ability.charAt(0).toUpperCase() + ability.slice(1)}</label>
+                    <div key={ability} className="assignment-row">
+                      <label className="ability-label">{ability.charAt(0).toUpperCase() + ability.slice(1)}</label>
                       <select
                         value={rollAssignments[ability]}
                         onChange={(e) => handleRollAssignment(ability, parseInt(e.target.value))}
-                        className={styles['assignment-select']}
+                        className="assignment-select"
                       >
                         <option value={-1}>Select a value</option>
                         {rolledValues.map((value, index) => (
@@ -417,9 +416,9 @@ export const AbilityScores: React.FC<AbilityScoresProps> = ({
                           </option>
                         ))}
                       </select>
-                      <div className={styles['final-score-display']}>
-                        <span className={styles['score']}>{rollAssignments[ability] >= 0 ? rolledValues[rollAssignments[ability]] : '—'}</span>
-                        <span className={styles['modifier']}>({getModifier(rollAssignments[ability] >= 0 ? rolledValues[rollAssignments[ability]] : 10)})</span>
+                      <div className="final-score-display">
+                        <span className="score">{rollAssignments[ability] >= 0 ? rolledValues[rollAssignments[ability]] : '—'}</span>
+                        <span className="modifier">({getModifier(rollAssignments[ability] >= 0 ? rolledValues[rollAssignments[ability]] : 10)})</span>
                       </div>
                     </div>
                   ))}
@@ -430,14 +429,14 @@ export const AbilityScores: React.FC<AbilityScoresProps> = ({
         )}
       </div>
 
-      <div className={styles['final-scores-summary']}>
+      <div className="final-scores-summary">
         <h3>Final Ability Scores</h3>
-        <div className={styles['final-scores-grid']}>
+        <div className="final-scores-grid">
           {abilities.map((ability) => (
-            <div key={ability} className={styles['final-score-card']}>
-              <div className={styles['ability-name']}>{ability.charAt(0).toUpperCase() + ability.slice(1)}</div>
-              <div className={styles['ability-score']}>{abilityScores[ability]}</div>
-              <div className={styles['ability-modifier']}>{getModifier(abilityScores[ability])}</div>
+            <div key={ability} className="final-score-card">
+              <div className="ability-name">{ability.charAt(0).toUpperCase() + ability.slice(1)}</div>
+              <div className="ability-score">{abilityScores[ability]}</div>
+              <div className="ability-modifier">{getModifier(abilityScores[ability])}</div>
             </div>
           ))}
         </div>
