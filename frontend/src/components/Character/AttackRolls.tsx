@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
+import styles from './CharacterSheet.module.css';
 
 interface Character {
   strength: number;
@@ -37,7 +38,7 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character }) => {
 
   // Don't render if character data isn't ready
   if (!character) {
-    return <div className="attack-rolls">Loading attack rolls...</div>;
+    return <div className={styles['attack-rolls']}>Loading attack rolls...</div>;
   }
 
   const getAbilityModifier = (score: number): number => {
@@ -218,14 +219,14 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character }) => {
   const allWeapons = [unarmedAttack, ...weapons];
 
   return (
-    <div className="attack-rolls">
+    <div className={styles['attack-rolls']}>
       <h3>Combat</h3>
       
-      <div className="attack-modifiers">
+      <div className={styles['attack-modifiers']}>
         <h4>Attack Modifiers</h4>
-        <div className="modifier-buttons">
+        <div className={styles['modifier-buttons']}>
           <button
-            className={`btn btn-small ${advantage ? 'active' : ''}`}
+            className={['btn', styles['btn-small'], advantage ? styles['active'] : ''].filter(Boolean).join(' ')}
             onClick={() => {
               setAdvantage(!advantage);
               setDisadvantage(false);
@@ -234,7 +235,7 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character }) => {
             Advantage
           </button>
           <button
-            className={`btn btn-small ${disadvantage ? 'active' : ''}`}
+            className={['btn', styles['btn-small'], disadvantage ? styles['active'] : ''].filter(Boolean).join(' ')}
             onClick={() => {
               setDisadvantage(!disadvantage);
               setAdvantage(false);
@@ -245,27 +246,24 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character }) => {
         </div>
       </div>
 
-      <div className="weapons-list">
+      <div className={styles['weapons-list']}>
         <h4>Weapons</h4>
         {allWeapons.map((weapon, index) => {
           const attackBonus = getWeaponAttackBonus(weapon);
           const damageBonus = getWeaponDamageBonus(weapon);
           
           return (
-            <div key={index} className="weapon-row">
-              <div className="weapon-info">
-                <span className="weapon-name">{weapon.name}</span>
-                <span className="weapon-stats">
+            <div key={index} className={styles['weapon-row']}>
+              <div className={styles['weapon-info']}>
+                <span className={styles['weapon-name']}>{weapon.name}</span>
+                <span className={styles['weapon-stats']}>
                   Attack: {attackBonus >= 0 ? '+' : ''}{attackBonus} | 
                   Damage: {weapon.damage || '1d1'}{damageBonus >= 0 ? '+' : ''}{damageBonus} {weapon.damage_type}
                 </span>
               </div>
               
               <button
-                className={`btn btn-attack ${
-                  advantage ? 'advantage' :
-                  disadvantage ? 'disadvantage' : ''
-                }`}
+                className={['btn', styles['btn-attack'], advantage ? styles['advantage'] : disadvantage ? styles['disadvantage'] : ''].filter(Boolean).join(' ')}
                 onClick={() => makeAttack(weapon)}
               >
                 Attack
@@ -276,22 +274,22 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character }) => {
       </div>
 
       {attackResults.length > 0 && (
-        <div className="attack-history">
+        <div className={styles['attack-history']}>
           <h4>Recent Attacks</h4>
-          <div className="attack-results">
+          <div className={styles['attack-results']}>
             {attackResults.map((result) => (
-              <div key={`${result.weapon}-${result.timestamp}`} className="attack-result">
-                <div className="attack-header">
-                  <span className="weapon-name">{result.weapon}</span>
-                  {result.isCritical && <span className="critical">CRITICAL!</span>}
+              <div key={`${result.weapon}-${result.timestamp}`} className={styles['attack-result']}>
+                <div className={styles['attack-header']}>
+                  <span className={styles['weapon-name']}>{result.weapon}</span>
+                  {result.isCritical && <span className={styles['critical']}>CRITICAL!</span>}
                 </div>
                 
-                <div className="attack-details">
-                  <div className="attack-roll">
+                <div className={styles['attack-details']}>
+                  <div className={styles['attack-roll']}>
                     Attack: d20({result.attackRoll}) + {result.attackBonus} = {result.attackTotal}
                   </div>
                   
-                  <div className="damage-roll">
+                  <div className={styles['damage-roll']}>
                     Damage: {result.damageRolls.map(roll => `d${roll}`).join(' + ')}
                     {result.damageBonus !== 0 && ` + ${result.damageBonus}`}
                     = {result.damageTotal} {result.damageType}
@@ -303,13 +301,13 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character }) => {
         </div>
       )}
       
-      <div className="spell-attacks">
+      <div className={styles['spell-attacks']}>
         <h4>Spell Attacks</h4>
-        <div className="spell-attack-stats">
-          <div className="spell-attack-bonus">
+        <div className={styles['spell-attack-stats']}>
+          <div className={styles['spell-attack-bonus']}>
             <strong>Spell Attack Bonus:</strong> +{character.proficiency_bonus + getAbilityModifier(character.charisma || 10)}
           </div>
-          <div className="spell-save-dc">
+          <div className={styles['spell-save-dc']}>
             <strong>Spell Save DC:</strong> {8 + character.proficiency_bonus + getAbilityModifier(character.charisma || 10)}
           </div>
         </div>

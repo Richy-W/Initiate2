@@ -1,6 +1,6 @@
-import React from 'react';
+﻿import React from 'react';
 import { Equipment } from '../../types';
-import './MagicalProperties.css';
+import styles from './MagicalProperties.module.css';
 
 interface MagicalPropertiesProps {
   equipment: Equipment;
@@ -144,9 +144,9 @@ const MagicalProperties: React.FC<MagicalPropertiesProps> = ({
 
   if (!isMagical() || properties.length === 0) {
     return (
-      <div className={`magical-properties empty ${className}`}>
-        <div className="no-magic-message">
-          <span className="no-magic-icon">⚫</span>
+      <div className={[styles['magical-properties'], styles['empty'], className].filter(Boolean).join(' ')}>
+        <div className={styles['no-magic-message']}>
+          <span className={styles['no-magic-icon']}>⚫</span>
           <span>Non-magical item</span>
         </div>
       </div>
@@ -154,15 +154,15 @@ const MagicalProperties: React.FC<MagicalPropertiesProps> = ({
   }
 
   return (
-    <div className={`magical-properties ${className}`}>
+    <div className={[styles['magical-properties'], className].filter(Boolean).join(' ')}>
       {showTitle && (
-        <div className="magical-properties-header">
-          <h4 className="properties-title">
-            <span className="magic-icon">✨</span>
+        <div className={styles['magical-properties-header']}>
+          <h4 className={styles['properties-title']}>
+            <span className={styles['magic-icon']}>✨</span>
             Magical Properties
           </h4>
           <div 
-            className="rarity-badge"
+            className={styles['rarity-badge']}
             style={{ 
               backgroundColor: getRarityColor(equipment.rarity || 'common'),
               color: 'white'
@@ -173,30 +173,30 @@ const MagicalProperties: React.FC<MagicalPropertiesProps> = ({
         </div>
       )}
 
-      <div className="properties-list">
+      <div className={styles['properties-list']}>
         {properties.map((property, index) => (
           <div 
             key={index}
-            className={`property-item ${property.type}`}
+            className={[styles['property-item'], styles[property.type] || ''].filter(Boolean).join(' ')}
             style={{ borderLeftColor: getPropertyColor(property.type) }}
           >
-            <div className="property-header">
-              <span className="property-icon">
+            <div className={styles['property-header']}>
+              <span className={styles['property-icon']}>
                 {getPropertyIcon(property.type)}
               </span>
-              <span className="property-name">{property.name}</span>
+              <span className={styles['property-name']}>{property.name}</span>
               {property.charges && (
-                <div className="property-charges">
-                  <span className="charges-display">
+                <div className={styles['property-charges']}>
+                  <span className={styles['charges-display']}>
                     {property.charges.current}/{property.charges.max}
                   </span>
-                  <span className="recharge-type">
+                  <span className={styles['recharge-type']}>
                     {property.charges.rechargeType.replace('_', ' ')}
                   </span>
                 </div>
               )}
             </div>
-            <div className="property-description">
+            <div className={styles['property-description']}>
               {property.description}
             </div>
           </div>
@@ -204,17 +204,17 @@ const MagicalProperties: React.FC<MagicalPropertiesProps> = ({
       </div>
 
       {equipment.rarity === 'legendary' || equipment.rarity === 'artifact' && (
-        <div className="legendary-notice">
-          <span className="legendary-icon">⚠️</span>
-          <span className="legendary-text">
+        <div className={styles['legendary-notice']}>
+          <span className={styles['legendary-icon']}>⚠️</span>
+          <span className={styles['legendary-text']}>
             This item may have additional properties revealed through attunement or use.
           </span>
         </div>
       )}
 
-      <div className="attunement-notice">
-        <span className="attunement-icon">🔗</span>
-        <span className="attunement-text">
+      <div className={styles['attunement-notice']}>
+        <span className={styles['attunement-icon']}>🔗</span>
+        <span className={styles['attunement-text']}>
           Requires attunement by {getAttunementRequirement()}
         </span>
       </div>

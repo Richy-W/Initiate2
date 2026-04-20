@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './HelpPage.css';
+import styles from './HelpPage.module.css';
 
 interface Section {
   id: string;
@@ -164,18 +164,18 @@ const HelpPage: React.FC = () => {
   const current = sections.find((s) => s.id === activeSection) ?? sections[0];
 
   return (
-    <div className="help-page" aria-label="Help and documentation">
-      <h1 className="help-title">Help &amp; Documentation</h1>
+    <div className={styles['help-page']} aria-label="Help and documentation">
+      <h1 className={styles['help-title']}>Help &amp; Documentation</h1>
 
-      <div className="help-layout">
+      <div className={styles['help-layout']}>
         {/* Sidebar nav */}
-        <nav className="help-sidebar" aria-label="Help topics">
+        <nav className={styles['help-sidebar']} aria-label="Help topics">
           <ul role="list">
             {sections.map((section) => (
               <li key={section.id} role="listitem">
                 <button
                   type="button"
-                  className={`help-nav-btn ${activeSection === section.id ? 'active' : ''}`}
+                  className={[styles['help-nav-btn'], activeSection === section.id ? styles['active'] : ''].filter(Boolean).join(' ')}
                   aria-current={activeSection === section.id ? 'true' : undefined}
                   onClick={() => setActiveSection(section.id)}
                 >
@@ -187,7 +187,7 @@ const HelpPage: React.FC = () => {
         </nav>
 
         {/* Content panel */}
-        <article className="help-content" aria-labelledby={`help-heading-${current.id}`}>
+        <article className={styles['help-content']} aria-labelledby={`help-heading-${current.id}`}>
           <h2 id={`help-heading-${current.id}`}>{current.title}</h2>
           {current.content}
         </article>

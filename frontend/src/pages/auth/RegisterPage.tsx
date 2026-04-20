@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNotification } from '../../contexts/NotificationContext';
 import { getUserFriendlyErrorMessage } from '../../utils/errorHandling';
-import '../../styles/LoginPage.css';
+import styles from './LoginPage.module.css';
 
 const RegisterPage: React.FC = () => {
   const { register } = useAuth();
@@ -60,37 +60,37 @@ const RegisterPage: React.FC = () => {
   };
 
   return (
-    <div className="login-page">
-      <div className="login-shell register-shell">
-        <aside className="login-brand-pane" aria-hidden="true">
-          <p className="login-kicker">Initiate Platform</p>
+    <div className={styles['login-page']}>
+      <div className={[styles['login-shell'], styles['register-shell']].filter(Boolean).join(' ')}>
+        <aside className={styles['login-brand-pane']} aria-hidden="true">
+          <p className={styles['login-kicker']}>Initiate Platform</p>
           <h1>Create Your Account</h1>
           <p>
             Build characters, join campaigns, and manage encounters in one place.
           </p>
-          <div className="login-orb login-orb-a" />
-          <div className="login-orb login-orb-b" />
+          <div className={[styles['login-orb'], styles['login-orb-a']].filter(Boolean).join(' ')} />
+          <div className={[styles['login-orb'], styles['login-orb-b']].filter(Boolean).join(' ')} />
         </aside>
 
-        <section className="login-form-pane register-form-pane">
-          <div className="login-header">
+        <section className={[styles['login-form-pane'], styles['register-form-pane']].filter(Boolean).join(' ')}>
+          <div className={styles['login-header']}>
             <h2>Create your account</h2>
             <p>
               Or{' '}
-              <Link to="/login" className="login-link-inline">
+              <Link to="/login" className={styles['login-link-inline']}>
                 sign in to existing account
               </Link>
             </p>
           </div>
 
           {error && (
-            <div className="login-error" role="alert">
+            <div className={styles['login-error']} role="alert">
               {error}
             </div>
           )}
 
-          <form className="login-form register-form" onSubmit={handleSubmit}>
-            <div className="login-field">
+          <form className={[styles['login-form'], styles['register-form']].filter(Boolean).join(' ')} onSubmit={handleSubmit}>
+            <div className={styles['login-field']}>
               <label htmlFor="email">Email address</label>
               <input
                 id="email"
@@ -105,7 +105,7 @@ const RegisterPage: React.FC = () => {
               />
             </div>
 
-            <div className="login-field">
+            <div className={styles['login-field']}>
               <label htmlFor="username">Username</label>
               <input
                 id="username"
@@ -120,8 +120,8 @@ const RegisterPage: React.FC = () => {
               />
             </div>
 
-            <div className="register-name-grid">
-              <div className="login-field">
+            <div className={styles['register-name-grid']}>
+              <div className={styles['login-field']}>
                 <label htmlFor="firstName">First name</label>
                 <input
                   id="firstName"
@@ -135,7 +135,7 @@ const RegisterPage: React.FC = () => {
                 />
               </div>
 
-              <div className="login-field">
+              <div className={styles['login-field']}>
                 <label htmlFor="lastName">Last name</label>
                 <input
                   id="lastName"
@@ -150,7 +150,7 @@ const RegisterPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="login-field">
+            <div className={styles['login-field']}>
               <label htmlFor="password">Password</label>
               <input
                 id="password"
@@ -165,7 +165,7 @@ const RegisterPage: React.FC = () => {
               />
             </div>
 
-            <div className="login-field">
+            <div className={styles['login-field']}>
               <label htmlFor="confirmPassword">Confirm password</label>
               <input
                 id="confirmPassword"
@@ -180,12 +180,12 @@ const RegisterPage: React.FC = () => {
               />
             </div>
 
-            <button type="submit" className="login-submit" disabled={isSubmitting}>
+            <button type="submit" className={styles['login-submit']} disabled={isSubmitting}>
               {isSubmitting ? 'Creating account...' : 'Create account'}
             </button>
           </form>
 
-          <div className="login-demo-note">
+          <div className={styles['login-demo-note']}>
             Create an account to start building characters and joining campaigns.
           </div>
         </section>

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
+import styles from './CharacterSheet.module.css';
 
 interface Character {
   strength: number;
@@ -128,7 +129,7 @@ export const SavingThrows: React.FC<SavingThrowsProps> = ({ character }) => {
 
   // Don't render if character data isn't ready
   if (!character) {
-    return <div className="saving-throws">Loading saving throws...</div>;
+    return <div className={styles['saving-throws']}>Loading saving throws...</div>;
   }
 
   const getAbilityModifier = (score: number): number => {
@@ -199,12 +200,12 @@ export const SavingThrows: React.FC<SavingThrowsProps> = ({ character }) => {
   };
 
   return (
-    <div className="saving-throws">
-      <div className="save-modifiers">
+    <div className={styles['saving-throws']}>
+      <div className={styles['save-modifiers']}>
         <h4>Save Modifiers</h4>
-        <div className="modifier-buttons">
+        <div className={styles['modifier-buttons']}>
           <button
-            className={`btn-small ${advantage ? 'active' : ''}`}
+            className={[styles['btn-small'], advantage ? styles['active'] : ''].filter(Boolean).join(' ')}
             onClick={() => {
               setAdvantage(advantage ? null : 'next');
               setDisadvantage(null);
@@ -213,7 +214,7 @@ export const SavingThrows: React.FC<SavingThrowsProps> = ({ character }) => {
             Advantage
           </button>
           <button
-            className={`btn-small ${disadvantage ? 'active' : ''}`}
+            className={[styles['btn-small'], disadvantage ? styles['active'] : ''].filter(Boolean).join(' ')}
             onClick={() => {
               setDisadvantage(disadvantage ? null : 'next');
               setAdvantage(null);
@@ -224,24 +225,22 @@ export const SavingThrows: React.FC<SavingThrowsProps> = ({ character }) => {
         </div>
       </div>
 
-      <div className="saves-list">
+      <div className={styles['saves-list']}>
         {Object.entries(SAVING_THROWS).map(([abilityKey, abilityName]) => {
           const bonus = getSavingThrowBonus(abilityKey);
           const proficient = isProficient(abilityKey);
           const proficiencyState = proficient ? 'proficient' : 'none';
           
           return (
-            <div key={abilityKey} className="save-row">
-              <div className="save-info">
-                <span className={`proficiency-dot ${proficiencyState}`} aria-hidden="true" />
-                <span className="save-name">{abilityName}</span>
+            <div key={abilityKey} className={styles['save-row']}>
+              <div className={styles['save-info']}>
+                <span className={[styles['proficiency-dot'], styles[proficiencyState]].filter(Boolean).join(' ')} aria-hidden="true" />
+                <span className={styles['save-name']}>{abilityName}</span>
               </div>
               
               <button
                 type="button"
-                className={`save-bonus bonus-roll-button ${
-                  advantage === abilityKey ? 'advantage' : disadvantage === abilityKey ? 'disadvantage' : ''
-                }`}
+                className={[styles['save-bonus'], styles['bonus-roll-button'], advantage === abilityKey ? styles['advantage'] : disadvantage === abilityKey ? styles['disadvantage'] : ''].filter(Boolean).join(' ')}
                 onClick={() => {
                   if (advantage === 'next') {
                     setAdvantage(abilityKey);
@@ -259,15 +258,15 @@ export const SavingThrows: React.FC<SavingThrowsProps> = ({ character }) => {
       </div>
 
       {saveResults.length > 0 && (
-        <div className="save-history">
+        <div className={styles['save-history']}>
           <h4>Recent Saves</h4>
-          <div className="save-results">
+          <div className={styles['save-results']}>
             {saveResults.map((result) => (
-              <div key={`${result.ability}-${result.timestamp}`} className="roll-result">
-                <div className="result-header">
+              <div key={`${result.ability}-${result.timestamp}`} className={styles['roll-result']}>
+                <div className={styles['result-header']}>
                   {SAVING_THROWS[result.ability as keyof typeof SAVING_THROWS]} Save: {result.total}
                 </div>
-                <div className="result-details">
+                <div className={styles['result-details']}>
                   d20: {result.roll} + {result.bonus}
                   {result.roll === 20 && ' (Critical Success!)'}
                   {result.roll === 1 && ' (Critical Failure!)'}

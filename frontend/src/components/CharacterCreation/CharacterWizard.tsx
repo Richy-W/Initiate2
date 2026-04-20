@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+﻿import React, { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SpeciesSelector } from './SpeciesSelector';
 import { ClassSelector } from './ClassSelector';
@@ -7,7 +7,7 @@ import { AbilityScores } from './AbilityScores';
 import { characterAPI } from '../../services/apiClient';
 import HomebrewBrowser from '../Homebrew/HomebrewBrowser';
 import { HomebrewContent } from '../../types';
-import '../../styles/CharacterCreation.css';
+import styles from './CharacterWizard.module.css';
 
 export interface CharacterData {
   name: string;
@@ -370,10 +370,10 @@ export const CharacterWizard: React.FC = () => {
     switch (steps[currentStep].component) {
       case 'name':
         return (
-          <div className="step-content">
+          <div className={styles['step-content']}>
             <h2 id="step-name-heading">Character Name</h2>
-            <div className="form-group">
-              <label htmlFor="characterName" className="form-label">
+            <div className={styles['form-group']}>
+              <label htmlFor="characterName" className={styles['form-label']}>
                 Character Name <span aria-hidden="true">*</span>
                 <span className="sr-only">(required)</span>
               </label>
@@ -383,7 +383,7 @@ export const CharacterWizard: React.FC = () => {
                 value={characterData.name}
                 onChange={(e) => setCharacterData({ ...characterData, name: e.target.value })}
                 placeholder="Enter character name"
-                className="form-control"
+                className={styles['form-control']}
                 aria-required="true"
                 aria-describedby={error && currentStep === 0 ? 'wizard-error' : undefined}
                 autoFocus
@@ -423,9 +423,9 @@ export const CharacterWizard: React.FC = () => {
         );
       case 'homebrew':
         return (
-          <div className="step-content">
-            <h2>Homebrew Content <span className="homebrew-optional-tag">(Optional)</span></h2>
-            <p className="homebrew-intro">Select custom homebrew content to unlock additional species, classes, spells, or other options in the steps ahead.</p>
+          <div className={styles['step-content']}>
+            <h2>Homebrew Content <span className={styles['homebrew-optional-tag']}>(Optional)</span></h2>
+            <p className={styles['homebrew-intro']}>Select custom homebrew content to unlock additional species, classes, spells, or other options in the steps ahead.</p>
             <HomebrewBrowser
               onSelect={(item) => {
                 setCharacterData((prev) => {
@@ -438,19 +438,19 @@ export const CharacterWizard: React.FC = () => {
               }}
             />
             {(characterData.selectedHomebrew || []).length > 0 && (
-              <div className="homebrew-selected-list">
+              <div className={styles['homebrew-selected-list']}>
                 <h4>Selected Homebrew</h4>
                 <div>
                   {(characterData.selectedHomebrew || []).map((item) => (
-                    <div key={item.id} className="homebrew-selected-row">
-                      <span>{item.name} <span className="homebrew-type-badge">{item.content_type}</span></span>
+                    <div key={item.id} className={styles['homebrew-selected-row']}>
+                      <span>{item.name} <span className={styles['homebrew-type-badge']}>{item.content_type}</span></span>
                       <button
                         type="button"
                         onClick={() => setCharacterData((prev) => ({
                           ...prev,
                           selectedHomebrew: (prev.selectedHomebrew || []).filter((x) => x.id !== item.id),
                         }))}
-                        className="homebrew-remove-btn"
+                        className={styles['homebrew-remove-btn']}
                       >
                         Remove
                       </button>
@@ -551,7 +551,7 @@ export const CharacterWizard: React.FC = () => {
         });
         
         return (
-          <div className="step-content character-sheet-layout">
+          <div className={[styles['step-content'], 'character-sheet-layout'].filter(Boolean).join(' ')}>
             <div className="sheet-preview-toolbar">
               <h2>D&D 5e Character Sheet Preview</h2>
               <button
@@ -563,64 +563,64 @@ export const CharacterWizard: React.FC = () => {
               </button>
             </div>
             
-            <div className="official-sheet">
+            <div className={styles['official-sheet']}>
               {/* Header Section */}
-              <div className="sheet-header">
-                <div className="header-row-1">
-                  <div className="field-group character-name-group">
+              <div className={styles['sheet-header']}>
+                <div className={styles['header-row-1']}>
+                  <div className={[styles['field-group'], styles['character-name-group']].filter(Boolean).join(' ')}>
                     <label>CHARACTER NAME</label>
-                    <input type="text" value={characterData.name} readOnly className="sheet-field large" />
+                    <input type="text" value={characterData.name} readOnly className={[styles['sheet-field'], styles['large']].filter(Boolean).join(' ')} />
                   </div>
-                  <div className="header-stats">
-                    <div className="stat-circle">
-                      <div className="stat-value">1</div>
-                      <div className="stat-label">LEVEL</div>
+                  <div className={styles['header-stats']}>
+                    <div className={styles['stat-circle']}>
+                      <div className={styles['stat-value']}>1</div>
+                      <div className={styles['stat-label']}>LEVEL</div>
                     </div>
                   </div>
                 </div>
                 
-                <div className="header-row-2">
-                  <div className="field-group">
+                <div className={styles['header-row-2']}>
+                  <div className={styles['field-group']}>
                     <label>BACKGROUND</label>
-                    <input type="text" value={characterData.background?.name || ''} readOnly className="sheet-field" />
+                    <input type="text" value={characterData.background?.name || ''} readOnly className={styles['sheet-field']} />
                   </div>
-                  <div className="field-group">
+                  <div className={styles['field-group']}>
                     <label>CLASS</label>
-                    <input type="text" value={characterData.characterClass?.name || ''} readOnly className="sheet-field" />
+                    <input type="text" value={characterData.characterClass?.name || ''} readOnly className={styles['sheet-field']} />
                   </div>
-                  <div className="field-group">
+                  <div className={styles['field-group']}>
                     <label>SPECIES</label>
-                    <input type="text" value={characterData.species?.name || ''} readOnly className="sheet-field" />
+                    <input type="text" value={characterData.species?.name || ''} readOnly className={styles['sheet-field']} />
                   </div>
-                  <div className="field-group">
+                  <div className={styles['field-group']}>
                     <label>SUBCLASS</label>
-                    <input type="text" value="" readOnly className="sheet-field" />
+                    <input type="text" value="" readOnly className={styles['sheet-field']} />
                   </div>
                 </div>
               </div>
 
               {/* Core Stats Bar */}
               <div className="core-stats-bar">
-                <div className="stat-box">
-                  <div className="stat-circle">
-                    <div className="stat-value">+{proficiencyBonus}</div>
+                <div className={styles['stat-box']}>
+                  <div className={styles['stat-circle']}>
+                    <div className={styles['stat-value']}>+{proficiencyBonus}</div>
                   </div>
-                  <div className="stat-label">PROFICIENCY BONUS</div>
+                  <div className={styles['stat-label']}>PROFICIENCY BONUS</div>
                 </div>
-                <div className="stat-box">
-                  <div className="stat-circle">
-                    <div className="stat-value">{getModifierString(finalAbilityScores.dexterity)}</div>
+                <div className={styles['stat-box']}>
+                  <div className={styles['stat-circle']}>
+                    <div className={styles['stat-value']}>{getModifierString(finalAbilityScores.dexterity)}</div>
                   </div>
-                  <div className="stat-label">INITIATIVE</div>
+                  <div className={styles['stat-label']}>INITIATIVE</div>
                 </div>
-                <div className="stat-box">
-                  <div className="stat-circle">
-                    <div className="stat-value">{characterData.species?.speed || 30}</div>
+                <div className={styles['stat-box']}>
+                  <div className={styles['stat-circle']}>
+                    <div className={styles['stat-value']}>{characterData.species?.speed || 30}</div>
                   </div>
-                  <div className="stat-label">SPEED</div>
+                  <div className={styles['stat-label']}>SPEED</div>
                 </div>
-                <div className="stat-box">
-                  <div className="stat-circle">
+                <div className={styles['stat-box']}>
+                  <div className={styles['stat-circle']}>
                     <input 
                       type="text" 
                       value={characterData.customSize || (
@@ -629,41 +629,41 @@ export const CharacterWizard: React.FC = () => {
                           characterData.species?.size || 'M'
                       )}
                       onChange={(e) => setCharacterData(prev => ({ ...prev, customSize: e.target.value }))}
-                      className="size-input"
+                      className={styles['size-input']}
                       placeholder="Size"
                       maxLength={10}
                     />
                   </div>
-                  <div className="stat-label">SIZE</div>
+                  <div className={styles['stat-label']}>SIZE</div>
                 </div>
-                <div className="stat-box">
-                  <div className="stat-circle">
-                    <div className="stat-value">{10 + getAbilityModifier(finalAbilityScores.wisdom) + (skillMappings['Perception']?.proficient ? proficiencyBonus : 0)}</div>
+                <div className={styles['stat-box']}>
+                  <div className={styles['stat-circle']}>
+                    <div className={styles['stat-value']}>{10 + getAbilityModifier(finalAbilityScores.wisdom) + (skillMappings['Perception']?.proficient ? proficiencyBonus : 0)}</div>
                   </div>
-                  <div className="stat-label">PASSIVE PERCEPTION</div>
+                  <div className={styles['stat-label']}>PASSIVE PERCEPTION</div>
                 </div>
               </div>
 
               <div className="sheet-main">
                 {/* Left Column */}
-                <div className="left-column">
+                <div className={styles['left-column']}>
                   {/* Ability Scores */}
-                  <div className="ability-scores-section">
+                  <div className={styles['ability-scores-section']}>
                     {Object.entries(finalAbilityScores).map(([ability, finalScore]) => {
                       const isProficient = classSavingThrows.includes(ability.charAt(0).toUpperCase() + ability.slice(1));
                       const saveBonus = getAbilityModifier(finalScore) + (isProficient ? proficiencyBonus : 0);
                       
                       return (
-                        <div key={ability} className="ability-score-block">
-                          <div className="ability-header">
-                            <div className="ability-name">{ability.toUpperCase()}</div>
-                            <div className="ability-score">{finalScore}</div>
-                            <div className="ability-modifier">{getModifierString(finalScore)}</div>
+                        <div key={ability} className={styles['ability-score-block']}>
+                          <div className={styles['ability-header']}>
+                            <div className={styles['ability-name']}>{ability.toUpperCase()}</div>
+                            <div className={styles['ability-score']}>{finalScore}</div>
+                            <div className={styles['ability-modifier']}>{getModifierString(finalScore)}</div>
                           </div>
-                          <div className="saving-throw">
+                          <div className={styles['saving-throw']}>
                             <input type="checkbox" checked={isProficient} readOnly />
-                            <span className="save-bonus">{saveBonus >= 0 ? '+' : ''}{saveBonus}</span>
-                            <span className="save-label">Saving Throw</span>
+                            <span className={styles['save-bonus']}>{saveBonus >= 0 ? '+' : ''}{saveBonus}</span>
+                            <span className={styles['save-label']}>Saving Throw</span>
                           </div>
                         </div>
                       );
@@ -671,74 +671,74 @@ export const CharacterWizard: React.FC = () => {
                   </div>
 
                   {/* Equipment & Proficiencies */}
-                  <div className="equipment-proficiencies">
+                  <div className={styles['equipment-proficiencies']}>
                     <h4>EQUIPMENT TRAINING & PROFICIENCIES</h4>
-                    <div className="proficiency-section">
+                    <div className={styles['proficiency-section']}>
                       <strong>Armor:</strong> {(characterData.characterClass?.proficiencies?.armor || []).join(', ') || 'None'}
                     </div>
-                    <div className="proficiency-section">
+                    <div className={styles['proficiency-section']}>
                       <strong>Weapons:</strong> {(characterData.characterClass?.proficiencies?.weapons || []).join(', ') || 'None'}
                     </div>
-                    <div className="proficiency-section">
+                    <div className={styles['proficiency-section']}>
                       <strong>Tools:</strong> {characterData.background?.toolProficiency?.fixed || 'Choice available'}
                     </div>
                   </div>
                 </div>
 
                 {/* Center Column */}
-                <div className="center-column">
+                <div className={styles['center-column']}>
                   {/* Combat Stats Row: AC, HP, Hit Dice + Heroic Inspiration, Death Saves */}
-                  <div className="combat-stats-row">
-                    <div className="vital-stat">
-                      <div className="stat-value">{armorClass}</div>
-                      <div className="stat-label">ARMOR CLASS</div>
+                  <div className={styles['combat-stats-row']}>
+                    <div className={styles['vital-stat']}>
+                      <div className={styles['stat-value']}>{armorClass}</div>
+                      <div className={styles['stat-label']}>ARMOR CLASS</div>
                     </div>
-                    <div className="vital-stat">
-                      <div className="stat-value">{hitPointsMax} / {hitPointsMax}</div>
-                      <div className="stat-label">HIT POINTS</div>
+                    <div className={styles['vital-stat']}>
+                      <div className={styles['stat-value']}>{hitPointsMax} / {hitPointsMax}</div>
+                      <div className={styles['stat-label']}>HIT POINTS</div>
                     </div>
-                    <div className="vital-stat">
-                      <div className="stat-display">
-                        <span className="hd-current">{characterData.characterClass?.name?.charAt(0) || '?'}</span>
-                        <span className="hd-total">1d{hitDie}</span>
+                    <div className={styles['vital-stat']}>
+                      <div className={styles['stat-display']}>
+                        <span className={styles['hd-current']}>{characterData.characterClass?.name?.charAt(0) || '?'}</span>
+                        <span className={styles['hd-total']}>1d{hitDie}</span>
                       </div>
-                      <div className="stat-label">HIT DICE</div>
+                      <div className={styles['stat-label']}>HIT DICE</div>
                     </div>
-                    <div className="vital-stat heroic-inspiration-stat">
+                    <div className={[styles['vital-stat'], styles['heroic-inspiration-stat']].filter(Boolean).join(' ')}>
                       <input type="checkbox" id="heroic-insp" />
                       <label htmlFor="heroic-insp">HEROIC INSPIRATION</label>
                     </div>
-                    <div className="vital-stat death-saves">
-                      <div className="save-section">
+                    <div className={[styles['vital-stat'], styles['death-saves']].filter(Boolean).join(' ')}>
+                      <div className={styles['save-section']}>
                         <span>SUCCESSES:</span>
-                        <div className="save-boxes">
-                          {[1,2,3].map(i => <div key={`s${i}`} className="save-box"></div>)}
+                        <div className={styles['save-boxes']}>
+                          {[1,2,3].map(i => <div key={`s${i}`} className={styles['save-box']}></div>)}
                         </div>
                       </div>
-                      <div className="save-section">
+                      <div className={styles['save-section']}>
                         <span>FAILURES:</span>
-                        <div className="save-boxes">
-                          {[1,2,3].map(i => <div key={`f${i}`} className="save-box"></div>)}
+                        <div className={styles['save-boxes']}>
+                          {[1,2,3].map(i => <div key={`f${i}`} className={styles['save-box']}></div>)}
                         </div>
                       </div>
-                      <div className="stat-label">DEATH SAVES</div>
+                      <div className={styles['stat-label']}>DEATH SAVES</div>
                     </div>
                   </div>
 
                   {/* Skills */}
-                  <div className="skills-section">
+                  <div className={styles['skills-section']}>
                     <h4>SKILLS</h4>
-                    <div className="skills-list">
+                    <div className={styles['skills-list']}>
                       {Object.entries(skillMappings).map(([skillName, skillData]) => {
                         const abilityScore = finalAbilityScores[skillData.ability as keyof typeof finalAbilityScores];
                         const skillBonus = getAbilityModifier(abilityScore) + (skillData.proficient ? proficiencyBonus : 0);
                         
                         return (
-                          <div key={skillName} className="skill-row">
+                          <div key={skillName} className={styles['skill-row']}>
                             <input type="checkbox" checked={skillData.proficient} readOnly />
-                            <span className="skill-bonus">{skillBonus >= 0 ? '+' : ''}{skillBonus}</span>
-                            <span className="skill-name">{skillName}</span>
-                            <span className="skill-ability">({skillData.ability.substring(0, 3)})</span>
+                            <span className={styles['skill-bonus']}>{skillBonus >= 0 ? '+' : ''}{skillBonus}</span>
+                            <span className={styles['skill-name']}>{skillName}</span>
+                            <span className={styles['skill-ability']}>({skillData.ability.substring(0, 3)})</span>
                           </div>
                         );
                       })}
@@ -768,43 +768,43 @@ export const CharacterWizard: React.FC = () => {
                     const totalGold: number = classGold + bgGold;
 
                     return (
-                      <div className="equipment-summary-section">
+                      <div className={styles['equipment-summary-section']}>
                         <h4>STARTING EQUIPMENT</h4>
 
                         {allItems.length === 0 && classOptions.length === 0 ? (
-                          <p className="equip-empty">No equipment data available.</p>
+                          <p className={styles['equip-empty']}>No equipment data available.</p>
                         ) : (
                           <>
                             {/* Class equipment */}
                             {classItems.length > 0 ? (
-                              <div className="equip-group">
-                                <ul className="equip-list">
+                              <div className={styles['equip-group']}>
+                                <ul className={styles['equip-list']}>
                                   {classItems.map((item, i) => (
-                                    <li key={i} className="equip-item">{item}</li>
+                                    <li key={i} className={styles['equip-item']}>{item}</li>
                                   ))}
                                 </ul>
                               </div>
                             ) : classOptions.length > 0 ? (
-                              <div className="equip-group">
-                                <span className="equip-group-label">No class equipment option selected</span>
+                              <div className={styles['equip-group']}>
+                                <span className={styles['equip-group-label']}>No class equipment option selected</span>
                               </div>
                             ) : null}
 
                             {/* Background equipment */}
                             {bgItems.length > 0 && (
-                              <div className="equip-group">
-                                <ul className="equip-list">
+                              <div className={styles['equip-group']}>
+                                <ul className={styles['equip-list']}>
                                   {bgItems.map((item, i) => (
-                                    <li key={i} className="equip-item">{item}</li>
+                                    <li key={i} className={styles['equip-item']}>{item}</li>
                                   ))}
                                 </ul>
                               </div>
                             )}
 
                             {/* Gold summary */}
-                            <div className="equip-gold-row">
-                              <span className="equip-gold-label">Starting Gold:</span>
-                              <span className="equip-gold-value">{totalGold} gp</span>
+                            <div className={styles['equip-gold-row']}>
+                              <span className={styles['equip-gold-label']}>Starting Gold:</span>
+                              <span className={styles['equip-gold-value']}>{totalGold} gp</span>
                             </div>
                           </>
                         )}
@@ -814,17 +814,17 @@ export const CharacterWizard: React.FC = () => {
                 </div>
 
                 {/* Right Column */}
-                <div className="right-column">
+                <div className={styles['right-column']}>
                   {/* Weapons & Cantrips */}
-                  <div className="weapons-section">
+                  <div className={styles['weapons-section']}>
                     <h4>WEAPONS & DAMAGE CANTRIPS</h4>
-                    <div className="weapon-headers">
+                    <div className={styles['weapon-headers']}>
                       <span>Name</span>
                       <span>Atk Bonus/DC</span>
                       <span>Damage/Type</span>
                       <span>Notes</span>
                     </div>
-                    <div className="weapon-row">
+                    <div className={styles['weapon-row']}>
                       <span>Unarmed Strike</span>
                       <span>+{getAbilityModifier(finalAbilityScores.strength) + proficiencyBonus}</span>
                       <span>1 + {getModifierString(finalAbilityScores.strength)} bludgeoning</span>
@@ -834,16 +834,16 @@ export const CharacterWizard: React.FC = () => {
                   </div>
 
                   {/* Features & Traits */}
-                  <div className="features-section">
+                  <div className={styles['features-section']}>
                     <h4>CLASS FEATURES</h4>
-                    <div className="features-content">
+                    <div className={styles['features-content']}>
                       {currentLevelFeatures.length > 0 ? currentLevelFeatures.map((feature: any, index: number) => (
-                        <div key={index} className="feature-item">
+                        <div key={index} className={styles['feature-item']}>
                           <strong>
                             {typeof feature.name === 'object' ? JSON.stringify(feature.name) : feature.name}:
                           </strong> {typeof feature.description === 'object' ? JSON.stringify(feature.description) : feature.description}
                           {feature.name === 'Weapon Mastery' && (characterData.weaponMasteryChoices || []).some(Boolean) && (
-                            <div className="weapon-mastery-summary">
+                            <div className={styles['weapon-mastery-summary']}>
                               Chosen: {(characterData.weaponMasteryChoices || []).filter(Boolean).join(', ')}
                             </div>
                           )}
@@ -852,11 +852,11 @@ export const CharacterWizard: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="traits-section">
+                  <div className={styles['traits-section']}>
                     <h4>SPECIES TRAITS</h4>
-                    <div className="traits-content">
+                    <div className={styles['traits-content']}>
                       {characterData.species?.traits?.map((trait: any, index: number) => (
-                        <div key={index} className="trait-item">
+                        <div key={index} className={styles['trait-item']}>
                           <strong>
                             {typeof trait.name === 'object' ? JSON.stringify(trait.name) : trait.name}:
                           </strong> {typeof trait.description === 'object' ? JSON.stringify(trait.description) : trait.description}
@@ -865,11 +865,11 @@ export const CharacterWizard: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="feats-section">
+                  <div className={styles['feats-section']}>
                     <h4>FEATS</h4>
-                    <div className="feats-content">
+                    <div className={styles['feats-content']}>
                       {characterData.background?.feat && (
-                        <div className="feat-item">
+                        <div className={styles['feat-item']}>
                           <strong>
                             {typeof characterData.background.feat.name === 'object' ? 
                               JSON.stringify(characterData.background.feat.name) : 
@@ -906,14 +906,14 @@ export const CharacterWizard: React.FC = () => {
   };
 
   return (
-    <div className="character-wizard" role="main" aria-label="Character Creation Wizard">
-      <div className="wizard-header">
+    <div className={styles['character-wizard']} role="main" aria-label="Character Creation Wizard">
+      <div className={styles['wizard-header']}>
         <h1>Create New Character</h1>
         
         {/* Authentication Status Check */}
         {!localStorage.getItem('access_token') && (
           <div
-            className="auth-warning"
+            className={styles['auth-warning']}
             role="alert"
             aria-live="assertive"
             style={{
@@ -931,24 +931,21 @@ export const CharacterWizard: React.FC = () => {
         )}
 
         <nav aria-label="Character creation steps">
-          <ol className="wizard-progress" aria-label="Progress">
+          <ol className={styles['wizard-progress']} aria-label="Progress">
             {steps.map((step, index) => {
               const isCompleted = index < currentStep;
               const isCurrent = index === currentStep;
               return (
                 <li
                   key={index}
-                  className={`step ${
-                    isCompleted ? 'completed' : 
-                    isCurrent ? 'current' : 'upcoming'
-                  }`}
+                  className={[styles['step'], isCompleted ? styles['completed'] : isCurrent ? styles['current'] : styles['upcoming']].filter(Boolean).join(' ')}
                   aria-current={isCurrent ? 'step' : undefined}
                 >
-                  <div className="step-number" aria-hidden="true">{index + 1}</div>
-                  <div className="step-info">
-                    <div className="step-title">{step.title}</div>
+                  <div className={styles['step-number']} aria-hidden="true">{index + 1}</div>
+                  <div className={styles['step-info']}>
+                    <div className={styles['step-title']}>{step.title}</div>
                     {(index <= currentStep || isStepComplete(index)) && getStepSelection(index) && (
-                      <div className="step-selection" aria-label={`${step.title}: ${getStepSelection(index)}`}>
+                      <div className={styles['step-selection']} aria-label={`${step.title}: ${getStepSelection(index)}`}>
                         {getStepSelection(index)}
                       </div>
                     )}
@@ -960,7 +957,7 @@ export const CharacterWizard: React.FC = () => {
         </nav>
       </div>
 
-      <div className="wizard-content" role="region" aria-label={`Step ${currentStep + 1}: ${steps[currentStep]?.title ?? ''}`}>
+      <div className={styles['wizard-content']} role="region" aria-label={`Step ${currentStep + 1}: ${steps[currentStep]?.title ?? ''}`}>
         {renderStepContent()}
       </div>
 
@@ -970,7 +967,7 @@ export const CharacterWizard: React.FC = () => {
         </div>
       )}
 
-      <div className="wizard-navigation" role="navigation" aria-label="Wizard navigation">
+      <div className={styles['wizard-navigation']} role="navigation" aria-label="Wizard navigation">
         <button
           type="button"
           onClick={handlePrevious}

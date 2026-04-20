@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useCallback } from 'react';
+﻿import React, { useState, useEffect, useCallback } from 'react';
 import { Equipment } from '../../types';
 import { equipmentService } from '../../services/equipmentService';
-import './EquipmentBrowser.css';
+import styles from './EquipmentBrowser.module.css';
 
 interface EquipmentBrowserProps {
   onSelectEquipment: (equipment: Equipment) => void;
@@ -166,7 +166,7 @@ const EquipmentBrowser: React.FC<EquipmentBrowserProps> = ({
   if (loading) {
     return (
       <div className="equipment-browser loading">
-        <div className="loading-spinner">Loading equipment...</div>
+        <div className={styles['loading-spinner']}>Loading equipment...</div>
       </div>
     );
   }
@@ -174,37 +174,37 @@ const EquipmentBrowser: React.FC<EquipmentBrowserProps> = ({
   if (error) {
     return (
       <div className="equipment-browser error">
-        <div className="error-message">{error}</div>
+        <div className={styles['error-message']}>{error}</div>
         <button onClick={() => window.location.reload()}>Retry</button>
       </div>
     );
   }
 
   return (
-    <div className="equipment-browser">
-      <div className="browser-header">
+    <div className={styles['equipment-browser']}>
+      <div className={styles['browser-header']}>
         <h3>Equipment Browser</h3>
         {onClose && (
-          <button onClick={onClose} className="close-btn">×</button>
+          <button onClick={onClose} className={styles['close-btn']}>×</button>
         )}
       </div>
 
-      <div className="browser-content">
+      <div className={styles['browser-content']}>
         {/* Filters Panel */}
-        <div className="filters-panel">
-          <div className="filter-group">
+        <div className={styles['filters-panel']}>
+          <div className={styles['filter-group']}>
             <label>Search:</label>
             <input
               type="text"
               value={filters.search}
               onChange={(e) => handleFilterChange('search', e.target.value)}
               placeholder="Search equipment..."
-              className="search-input"
+              className={styles['search-input']}
             />
           </div>
 
-          <div className="filter-row">
-            <div className="filter-group">
+          <div className={styles['filter-row']}>
+            <div className={styles['filter-group']}>
               <label>Type:</label>
               <select
                 value={filters.equipmentType}
@@ -219,7 +219,7 @@ const EquipmentBrowser: React.FC<EquipmentBrowserProps> = ({
               </select>
             </div>
 
-            <div className="filter-group">
+            <div className={styles['filter-group']}>
               <label>Rarity:</label>
               <select
                 value={filters.rarity}
@@ -235,7 +235,7 @@ const EquipmentBrowser: React.FC<EquipmentBrowserProps> = ({
               </select>
             </div>
 
-            <div className="filter-group">
+            <div className={styles['filter-group']}>
               <label>Sort By:</label>
               <select
                 value={`${filters.sortBy}-${filters.sortOrder}`}
@@ -257,79 +257,79 @@ const EquipmentBrowser: React.FC<EquipmentBrowserProps> = ({
         </div>
 
         {/* Equipment List */}
-        <div className="equipment-list">
+        <div className={styles['equipment-list']}>
           {filteredEquipment.length > 0 ? (
-            <div className="equipment-grid">
+            <div className={styles['equipment-grid']}>
               {filteredEquipment.map(item => (
                 <div 
                   key={item.id} 
-                  className={`equipment-card ${selectedEquipment?.id === item.id ? 'selected' : ''}`}
+                  className={[styles['equipment-card'], selectedEquipment?.id === item.id ? styles['selected'] : ''].filter(Boolean).join(' ')}
                   onClick={() => setSelectedEquipment(item)}
                 >
-                  <div className="card-header">
+                  <div className={styles['card-header']}>
                     <h4>{item.name}</h4>
                     <span 
-                      className="rarity-badge"
+                      className={styles['rarity-badge']}
                       style={{ backgroundColor: getRarityColor(item.rarity || 'common') }}
                     >
                       {item.rarity || 'common'}
                     </span>
                   </div>
 
-                  <div className="card-details">
-                    <div className="detail-row">
-                      <span className="label">Type:</span>
-                      <span className="value">{item.equipment_type}</span>
+                  <div className={styles['card-details']}>
+                    <div className={styles['detail-row']}>
+                      <span className={styles['label']}>Type:</span>
+                      <span className={styles['value']}>{item.equipment_type}</span>
                     </div>
                     
                     {item.category && (
-                      <div className="detail-row">
-                        <span className="label">Category:</span>
-                        <span className="value">{item.category}</span>
+                      <div className={styles['detail-row']}>
+                        <span className={styles['label']}>Category:</span>
+                        <span className={styles['value']}>{item.category}</span>
                       </div>
                     )}
                     
-                    <div className="detail-row">
-                      <span className="label">Weight:</span>
-                      <span className="value">{item.weight} lbs</span>
+                    <div className={styles['detail-row']}>
+                      <span className={styles['label']}>Weight:</span>
+                      <span className={styles['value']}>{item.weight} lbs</span>
                     </div>
                     
-                    <div className="detail-row">
-                      <span className="label">Cost:</span>
-                      <span className="value">{formatCost(item.cost)}</span>
+                    <div className={styles['detail-row']}>
+                      <span className={styles['label']}>Cost:</span>
+                      <span className={styles['value']}>{formatCost(item.cost)}</span>
                     </div>
 
                     {item.armor_class && (
-                      <div className="detail-row">
-                        <span className="label">AC:</span>
-                        <span className="value">{item.armor_class}</span>
+                      <div className={styles['detail-row']}>
+                        <span className={styles['label']}>AC:</span>
+                        <span className={styles['value']}>{item.armor_class}</span>
                       </div>
                     )}
 
                     {item.damage && (
-                      <div className="detail-row">
-                        <span className="label">Damage:</span>
-                        <span className="value">
+                      <div className={styles['detail-row']}>
+                        <span className={styles['label']}>Damage:</span>
+                        <span className={styles['value']}>
                           {item.damage.dice} {item.damage.type}
                         </span>
                       </div>
                     )}
                   </div>
 
-                  <div className="card-description">
+                  <div className={styles['card-description']}>
                     <p>{item.description}</p>
                   </div>
 
-                  <div className="card-actions">
+                  <div className={styles['card-actions']}>
                     {showAddButton && onAddToInventory && (
-                      <div className="add-section">
+                      <div className={styles['add-section']}>
                         <input
                           type="number"
                           min="1"
                           max="99"
                           value={addQuantity}
                           onChange={(e) => setAddQuantity(parseInt(e.target.value) || 1)}
-                          className="quantity-input"
+                          className={styles['quantity-input']}
                           onClick={(e) => e.stopPropagation()}
                         />
                         <button
@@ -337,7 +337,7 @@ const EquipmentBrowser: React.FC<EquipmentBrowserProps> = ({
                             e.stopPropagation();
                             handleAddToInventory(item);
                           }}
-                          className="add-btn"
+                          className={styles['add-btn']}
                         >
                           Add to Inventory
                         </button>
@@ -350,7 +350,7 @@ const EquipmentBrowser: React.FC<EquipmentBrowserProps> = ({
                           e.stopPropagation();
                           onSelectEquipment(item);
                         }}
-                        className="select-btn"
+                        className={styles['select-btn']}
                       >
                         Select
                       </button>
@@ -360,7 +360,7 @@ const EquipmentBrowser: React.FC<EquipmentBrowserProps> = ({
               ))}
             </div>
           ) : (
-            <div className="no-results">
+            <div className={styles['no-results']}>
               <p>No equipment found matching your filters.</p>
             </div>
           )}
@@ -368,7 +368,7 @@ const EquipmentBrowser: React.FC<EquipmentBrowserProps> = ({
       </div>
 
       {/* Results count */}
-      <div className="results-info">
+      <div className={styles['results-info']}>
         Showing {filteredEquipment.length} of {equipment.length} items
       </div>
     </div>

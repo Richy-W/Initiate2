@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
+import styles from './CharacterSheet.module.css';
 
 interface Character {
   strength: number;
@@ -61,7 +62,7 @@ export const SkillRolls: React.FC<SkillRollsProps> = ({ character }) => {
 
   // Don't render if character data isn't ready
   if (!character) {
-    return <div className="skill-rolls">Loading skill rolls...</div>;
+    return <div className={styles['skill-rolls']}>Loading skill rolls...</div>;
   }
 
   const getAbilityModifier = (score: number): number => {
@@ -213,12 +214,12 @@ export const SkillRolls: React.FC<SkillRollsProps> = ({ character }) => {
   };
 
   return (
-    <div className="skill-rolls">
-      <div className="roll-modifiers">
+    <div className={styles['skill-rolls']}>
+      <div className={styles['roll-modifiers']}>
         <h4>Roll Modifiers</h4>
-        <div className="modifier-buttons">
+        <div className={styles['modifier-buttons']}>
           <button
-            className={`btn-small ${advantage ? 'active' : ''}`}
+            className={[styles['btn-small'], advantage ? styles['active'] : ''].filter(Boolean).join(' ')}
             onClick={() => {
               setAdvantage(advantage ? null : 'next');
               setDisadvantage(null);
@@ -227,7 +228,7 @@ export const SkillRolls: React.FC<SkillRollsProps> = ({ character }) => {
             Advantage
           </button>
           <button
-            className={`btn-small ${disadvantage ? 'active' : ''}`}
+            className={[styles['btn-small'], disadvantage ? styles['active'] : ''].filter(Boolean).join(' ')}
             onClick={() => {
               setDisadvantage(disadvantage ? null : 'next');
               setAdvantage(null);
@@ -238,7 +239,7 @@ export const SkillRolls: React.FC<SkillRollsProps> = ({ character }) => {
         </div>
       </div>
 
-      <div className="skills-list">
+      <div className={styles['skills-list']}>
         {Object.entries(SKILLS).map(([skillKey, skillData]) => {
           const bonus = getSkillBonus(skillKey);
           const proficient = isProficient(skillKey);
@@ -246,20 +247,18 @@ export const SkillRolls: React.FC<SkillRollsProps> = ({ character }) => {
           const proficiencyState = expertise ? 'expertise' : proficient ? 'proficient' : 'none';
           
           return (
-            <div key={skillKey} className="skill-row">
-              <div className="skill-info">
-                <span className={`proficiency-dot ${proficiencyState}`} aria-hidden="true" />
-                <span className="skill-name">{skillData.name}</span>
-                <span className="skill-meta">
+            <div key={skillKey} className={styles['skill-row']}>
+              <div className={styles['skill-info']}>
+                <span className={[styles['proficiency-dot'], styles[proficiencyState]].filter(Boolean).join(' ')} aria-hidden="true" />
+                <span className={styles['skill-name']}>{skillData.name}</span>
+                <span className={styles['skill-meta']}>
                   {skillData.ability.slice(0, 3).toUpperCase()}
                 </span>
               </div>
               
               <button
                 type="button"
-                className={`skill-bonus bonus-roll-button ${
-                  advantage === skillKey ? 'advantage' : disadvantage === skillKey ? 'disadvantage' : ''
-                }`}
+                className={[styles['skill-bonus'], styles['bonus-roll-button'], advantage === skillKey ? styles['advantage'] : disadvantage === skillKey ? styles['disadvantage'] : ''].filter(Boolean).join(' ')}
                 onClick={() => {
                   if (advantage === 'next') {
                     setAdvantage(skillKey);
@@ -277,15 +276,15 @@ export const SkillRolls: React.FC<SkillRollsProps> = ({ character }) => {
       </div>
 
       {rollResults.length > 0 && (
-        <div className="skill-history">
+        <div className={styles['skill-history']}>
           <h4>Recent Rolls</h4>
-          <div className="skill-results">
+          <div className={styles['skill-results']}>
             {rollResults.map((result) => (
-              <div key={`${result.skill}-${result.timestamp}`} className="roll-result">
-                <div className="result-header">
+              <div key={`${result.skill}-${result.timestamp}`} className={styles['roll-result']}>
+                <div className={styles['result-header']}>
                   {SKILLS[result.skill as keyof typeof SKILLS].name}: {result.total}
                 </div>
-                <div className="result-details">
+                <div className={styles['result-details']}>
                   d20: {result.roll} + {result.bonus}
                   {result.roll === 20 && ' (Natural 20!)'}
                   {result.roll === 1 && ' (Natural 1!)'}
