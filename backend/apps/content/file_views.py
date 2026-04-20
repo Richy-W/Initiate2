@@ -8,6 +8,11 @@ from rest_framework.response import Response
 from rest_framework import status
 from drf_spectacular.utils import extend_schema, OpenApiResponse, OpenApiTypes
 
+# All endpoints in this module are public (AllowAny).
+# D&D reference content (species, classes, backgrounds, etc.) is read-only
+# reference data used during character creation and is not user-specific.
+# Requiring authentication would break the character-creation wizard for new users.
+
 
 def get_content_path():
     """Get the path to the content directory."""

@@ -38,6 +38,7 @@ class UserRegistrationView(generics.CreateAPIView):
     """User registration endpoint."""
     queryset = User.objects.all()
     serializer_class = UserCreateSerializer
+    # Public endpoint: unauthenticated users must be able to create an account.
     permission_classes = [permissions.AllowAny]
 
     def create(self, request, *args, **kwargs):
@@ -91,6 +92,7 @@ class PasswordChangeView(generics.GenericAPIView):
 class PasswordResetRequestView(generics.GenericAPIView):
     """Request password reset."""
     serializer_class = PasswordResetRequestSerializer
+    # Public endpoint: a user locked out of their account cannot supply a valid token.
     permission_classes = [permissions.AllowAny]
 
     def post(self, request, *args, **kwargs):
