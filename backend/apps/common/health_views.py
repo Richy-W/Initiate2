@@ -37,6 +37,7 @@ _START_TIME = time.time()
     description="Returns 200 if the application process is running. Use as a Kubernetes liveness probe.",
 )
 @api_view(['GET'])
+# Public endpoint: liveness probes are called by the container orchestrator before any user session exists.
 @permission_classes([AllowAny])
 def health_live(request):
     """Liveness probe — confirms the process is alive."""
@@ -58,6 +59,7 @@ def health_live(request):
     description="Returns 200 when all critical dependencies are healthy. Use as a Kubernetes readiness probe.",
 )
 @api_view(['GET'])
+# Public endpoint: readiness probes are called by the container orchestrator before any user session exists.
 @permission_classes([AllowAny])
 def health_ready(request):
     """Readiness probe — checks database and cache connectivity."""

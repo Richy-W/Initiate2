@@ -2,10 +2,10 @@ from rest_framework import viewsets, status, filters
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from django.db.models import Q
 from drf_spectacular.utils import extend_schema
 
-from apps.campaigns.models import Campaign, CampaignMembership
+from apps.campaigns.models import Campaign
+from apps.campaigns.services import get_accessible_campaigns
 from .models import InitiativeTracker, InitiativeParticipant, SpellEffect
 from .serializers import (
     InitiativeTrackerSerializer,
@@ -27,10 +27,7 @@ class InitiativeTrackerViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
-        # DMs and active members
-        accessible_campaigns = Campaign.objects.filter(
-            Q(dm=user) | Q(memberships__player=user, memberships__status=CampaignMembership.Status.ACTIVE)
-        ).distinct()
+        accessible_campaigns = get_accessible_campaigns(user)
         return InitiativeTracker.objects.filter(
             campaign__in=accessible_campaigns
         ).select_related('campaign', 'active_participant').prefetch_related('participants__character', 'spell_effects')
