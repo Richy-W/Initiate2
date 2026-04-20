@@ -5,13 +5,24 @@ import { ClassSelector } from './ClassSelector';
 import { BackgroundSelector } from './BackgroundSelector';
 import { AbilityScores } from './AbilityScores';
 import { characterAPI } from '../../services/apiClient';
+import HomebrewBrowser from '../Homebrew/HomebrewBrowser';
+import { HomebrewContent } from '../../types';
+import '../../styles/CharacterCreation.css';
 
 export interface CharacterData {
   name: string;
   species: any;
+  selectedSpeciesOptions?: {
+    variant?: string;
+    skillChoice?: string;
+    spellcastingAbility?: string;
+    sizeCategory?: string;
+    featChoice?: string;
+  };
   characterClass: any;
   selectedSkills?: string[];
   selectedEquipment?: { choice: string; items: string[]; gold: number };
+  weaponMasteryChoices?: string[];
   background: any;
   backgroundAbilityDistribution?: Record<string, number>;
   backgroundLanguage?: string;
@@ -37,6 +48,7 @@ export interface CharacterData {
     wisdom: number;
     charisma: number;
   };
+  selectedHomebrew?: HomebrewContent[];
 }
 
 export const CharacterWizard: React.FC = () => {
@@ -45,9 +57,11 @@ export const CharacterWizard: React.FC = () => {
   const [characterData, setCharacterData] = useState<CharacterData>({
     name: '',
     species: null,
+    selectedSpeciesOptions: {},
     characterClass: null,
     selectedSkills: [],
     selectedEquipment: undefined,
+    weaponMasteryChoices: [],
     background: null,
     backgroundAbilityDistribution: {},
     backgroundLanguage: '',
@@ -66,22 +80,58 @@ export const CharacterWizard: React.FC = () => {
     rollAssignments: undefined,
     arrayAssignments: undefined,
     pointBuyScores: undefined,
+    selectedHomebrew: [],
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   // Stable callback functions to prevent infinite re-renders
   const handleSpeciesSelect = useCallback((species: any) => {
-    setCharacterData(prev => ({ ...prev, species }));
+    const variantOptions = species?.variants?.map((variant: any) => variant?.name).filter(Boolean) || [];
+    const defaultVariant = variantOptions[0] || '';
+    const defaultVariantData = species?.variants?.find((variant: any) => variant?.name === defaultVariant);
+    const spellcastingOptions = defaultVariantData?.spellProgression?.spellcastingAbility || [];
+    const skillOptions = species?.proficiencies?.skills || [];
+    const sizeOptions = (species?.size?.canChoose ? species?.size?.options : []) || [];
+
+    setCharacterData(prev => ({
+      ...prev,
+      species,
+      selectedSpeciesOptions: {
+        variant: defaultVariant,
+        skillChoice: skillOptions[0] || '',
+        spellcastingAbility: spellcastingOptions[0] || '',
+        sizeCategory: sizeOptions[0]?.category || species?.size?.category || '',
+        featChoice: '',
+      },
+    }));
   }, []);
+
+  const handleSpeciesOptionsChange = useCallback(
+    (options: {
+      variant?: string;
+      skillChoice?: string;
+      spellcastingAbility?: string;
+      sizeCategory?: string;
+      featChoice?: string;
+    }) => {
+      setCharacterData((prev) => ({ ...prev, selectedSpeciesOptions: options }));
+    },
+    []
+  );
 
   const handleClassSelect = useCallback((characterClass: any, skills?: string[], equipment?: { choice: string; items: string[]; gold: number }) => {
     setCharacterData(prev => ({ 
       ...prev, 
       characterClass,
       selectedSkills: skills || [],
-      selectedEquipment: equipment
+      selectedEquipment: equipment,
+      weaponMasteryChoices: [],
     }));
+  }, []);
+
+  const handleWeaponMasteryChange = useCallback((choices: string[]) => {
+    setCharacterData(prev => ({ ...prev, weaponMasteryChoices: choices }));
   }, []);
 
   const handleBackgroundSelect = useCallback((background: any, distribution?: Record<string, number>, language?: string, equipmentOption?: string) => {
@@ -116,6 +166,7 @@ export const CharacterWizard: React.FC = () => {
 
   const steps = [
     { title: 'Character Name', component: 'name' },
+    { title: 'Homebrew Content', component: 'homebrew' },
     { title: 'Species Selection', component: 'species' },
     { title: 'Class Selection', component: 'class' },
     { title: 'Background Selection', component: 'background' },
@@ -166,41 +217,81 @@ export const CharacterWizard: React.FC = () => {
     setLoading(true);
     setError(null);
     try {
-      console.log('Character data:', characterData);
-      console.log('Species details:', characterData.species);
-      console.log('Class details:', characterData.characterClass);
-      console.log('Background details:', characterData.background);
-      console.log('Authentication token present:', !!token);
-
       // Validate that we have proper objects with IDs
-      if (!characterData.species?.id) {
-        console.error('Species object missing ID:', characterData.species);
+      if (!characterData.species?.pk) {
         setError('Species data is invalid. Please reselect your species.');
         return;
       }
-      if (!characterData.characterClass?.id) {
-        console.error('Class object missing ID:', characterData.characterClass);
+      if (!characterData.characterClass?.pk) {
         setError('Class data is invalid. Please reselect your class.');
         return;
       }
-      if (!characterData.background?.id) {
-        console.error('Background object missing ID:', characterData.background);
+      if (!characterData.background?.pk) {
         setError('Background data is invalid. Please reselect your background.');
         return;
       }
 
-      // MINIMAL PAYLOAD - only required fields
+      const backgroundDistribution = characterData.backgroundAbilityDistribution || {};
+      const finalAbilityScores = {
+        strength: characterData.abilityScores.strength + (backgroundDistribution.Strength || backgroundDistribution.strength || 0),
+        dexterity: characterData.abilityScores.dexterity + (backgroundDistribution.Dexterity || backgroundDistribution.dexterity || 0),
+        constitution: characterData.abilityScores.constitution + (backgroundDistribution.Constitution || backgroundDistribution.constitution || 0),
+        intelligence: characterData.abilityScores.intelligence + (backgroundDistribution.Intelligence || backgroundDistribution.intelligence || 0),
+        wisdom: characterData.abilityScores.wisdom + (backgroundDistribution.Wisdom || backgroundDistribution.wisdom || 0),
+        charisma: characterData.abilityScores.charisma + (backgroundDistribution.Charisma || backgroundDistribution.charisma || 0),
+      };
+
+      const backgroundEquipmentContainer =
+        characterData.background?.startingEquipment ||
+        characterData.background?.starting_equipment ||
+        characterData.background?.equipment ||
+        null;
+
+      const selectedBackgroundEquipment =
+        backgroundEquipmentContainer?.options?.find(
+          (option: { choice: string }) => option.choice === characterData.backgroundEquipmentOption
+        ) ||
+        (Array.isArray(backgroundEquipmentContainer)
+          ? {
+              choice: characterData.backgroundEquipmentOption || 'A',
+              items: backgroundEquipmentContainer,
+              gold: Number(characterData.background?.starting_gold || 0),
+            }
+          : null);
+
+      // Payload with numeric primary keys and selected background ability bonuses applied.
       const characterPayload = {
         name: characterData.name.trim(),
-        species: characterData.species.id,  // String ID like 'elf'
-        character_class: characterData.characterClass.id,  // String ID like 'wizard'  
-        background: characterData.background.id,  // String ID like 'acolyte'
-        strength: characterData.abilityScores.strength,
-        dexterity: characterData.abilityScores.dexterity,
-        constitution: characterData.abilityScores.constitution,
-        intelligence: characterData.abilityScores.intelligence,
-        wisdom: characterData.abilityScores.wisdom,
-        charisma: characterData.abilityScores.charisma,
+        species: characterData.species.pk,  // Use numeric primary key
+        character_class: characterData.characterClass.pk,  // Use numeric primary key  
+        background: characterData.background.pk,  // Use numeric primary key
+        strength: finalAbilityScores.strength,
+        dexterity: finalAbilityScores.dexterity,
+        constitution: finalAbilityScores.constitution,
+        intelligence: finalAbilityScores.intelligence,
+        wisdom: finalAbilityScores.wisdom,
+        charisma: finalAbilityScores.charisma,
+        selected_skills: characterData.selectedSkills || [],
+        selected_class_equipment: characterData.selectedEquipment || null,
+        selected_class_equipment_option: characterData.selectedEquipment?.choice || null,
+        selected_background_equipment: selectedBackgroundEquipment,
+        selected_background_equipment_option: characterData.backgroundEquipmentOption || null,
+        selected_species_options: {
+          ...(characterData.selectedSpeciesOptions || {}),
+          homebrew_content_ids: (characterData.selectedHomebrew || []).map((item) => item.id),
+        },
+        // Starting gold from selected equipment options
+        currency: (() => {
+          const classGold = Number(characterData.selectedEquipment?.gold || 0);
+          const bgOpt = characterData.backgroundEquipmentOption || 'A';
+          const bgOpts: Array<{ choice: string; items: string[]; gold: number }> =
+            characterData.background?.startingEquipment?.options ||
+            characterData.background?.starting_equipment?.options ||
+            [];
+          const bgEquipItem = bgOpts.find((o) => o.choice === bgOpt) || bgOpts[0];
+          const bgGold = Number(bgEquipItem?.gold || 0);
+          return { cp: 0, sp: 0, ep: 0, gp: classGold + bgGold, pp: 0 };
+        })(),
         // Empty optional fields
         personality_traits: '',
         ideals: '',
@@ -208,16 +299,21 @@ export const CharacterWizard: React.FC = () => {
         flaws: '',
         backstory: '',
       };
-      
-      console.log('Creating character with payload:', characterPayload);
+
       const response = await characterAPI.create(characterPayload);
-      console.log('Character created successfully:', response);
-      navigate(`/characters/${response.id}`);
+
+      const createdCharacterId =
+        response?.id ||
+        response?.pk ||
+        response?.character?.id ||
+        response?.data?.id;
+
+      if (!createdCharacterId) {
+        throw new Error('Character was created but no id was returned by the API.');
+      }
+
+      navigate(`/characters/${createdCharacterId}`);
     } catch (err: any) {
-      console.error('Character creation error:', err);
-      console.error('Error response:', err.response?.data);
-      console.error('Error status:', err.response?.status);
-      
       // Extract meaningful error message
       let errorMessage = 'Failed to create character';
       
@@ -238,7 +334,7 @@ export const CharacterWizard: React.FC = () => {
         } else {
           // Try to extract field-specific errors
           const fieldErrors = Object.entries(err.response.data)
-            .filter(([key, value]) => Array.isArray(value))
+            .filter(([_key, value]) => Array.isArray(value))
             .map(([key, value]) => `${key}: ${(value as string[])[0]}`)
             .join(', ');
           if (fieldErrors) {
@@ -258,11 +354,12 @@ export const CharacterWizard: React.FC = () => {
   const isStepComplete = (step: number): boolean => {
     switch (step) {
       case 0: return characterData.name.trim() !== '';
-      case 1: return characterData.species !== null;
-      case 2: return characterData.characterClass !== null;
-      case 3: return characterData.background !== null;
-      case 4: return true; // Ability scores always have default values
-      case 5: return true; // Review step is always complete if we reach it
+      case 1: return true; // Homebrew step is optional
+      case 2: return characterData.species !== null;
+      case 3: return characterData.characterClass !== null;
+      case 4: return characterData.background !== null;
+      case 5: return true; // Ability scores always have default values
+      case 6: return true; // Review step is always complete if we reach it
       default: return false;
     }
   };
@@ -274,8 +371,12 @@ export const CharacterWizard: React.FC = () => {
       case 'name':
         return (
           <div className="step-content">
-            <h2>Character Name</h2>
+            <h2 id="step-name-heading">Character Name</h2>
             <div className="form-group">
+              <label htmlFor="characterName" className="form-label">
+                Character Name <span aria-hidden="true">*</span>
+                <span className="sr-only">(required)</span>
+              </label>
               <input
                 id="characterName"
                 type="text"
@@ -283,6 +384,9 @@ export const CharacterWizard: React.FC = () => {
                 onChange={(e) => setCharacterData({ ...characterData, name: e.target.value })}
                 placeholder="Enter character name"
                 className="form-control"
+                aria-required="true"
+                aria-describedby={error && currentStep === 0 ? 'wizard-error' : undefined}
+                autoFocus
               />
             </div>
           </div>
@@ -292,6 +396,8 @@ export const CharacterWizard: React.FC = () => {
           <SpeciesSelector
             selectedSpecies={characterData.species}
             onSpeciesSelect={handleSpeciesSelect}
+            speciesOptions={characterData.selectedSpeciesOptions}
+            onSpeciesOptionsChange={handleSpeciesOptionsChange}
           />
         );
       case 'class':
@@ -300,7 +406,9 @@ export const CharacterWizard: React.FC = () => {
             selectedClass={characterData.characterClass}
             selectedSkills={characterData.selectedSkills}
             selectedEquipment={characterData.selectedEquipment}
+            selectedWeaponMasteryChoices={characterData.weaponMasteryChoices || []}
             onClassSelect={handleClassSelect}
+            onWeaponMasteryChange={handleWeaponMasteryChange}
           />
         );
       case 'background':
@@ -312,6 +420,46 @@ export const CharacterWizard: React.FC = () => {
             selectedEquipmentOption={characterData.backgroundEquipmentOption}
             onBackgroundSelect={handleBackgroundSelect}
           />
+        );
+      case 'homebrew':
+        return (
+          <div className="step-content">
+            <h2>Homebrew Content <span className="homebrew-optional-tag">(Optional)</span></h2>
+            <p className="homebrew-intro">Select custom homebrew content to unlock additional species, classes, spells, or other options in the steps ahead.</p>
+            <HomebrewBrowser
+              onSelect={(item) => {
+                setCharacterData((prev) => {
+                  const selected = prev.selectedHomebrew || [];
+                  if (selected.some((x) => x.id === item.id)) {
+                    return prev;
+                  }
+                  return { ...prev, selectedHomebrew: [...selected, item] };
+                });
+              }}
+            />
+            {(characterData.selectedHomebrew || []).length > 0 && (
+              <div className="homebrew-selected-list">
+                <h4>Selected Homebrew</h4>
+                <div>
+                  {(characterData.selectedHomebrew || []).map((item) => (
+                    <div key={item.id} className="homebrew-selected-row">
+                      <span>{item.name} <span className="homebrew-type-badge">{item.content_type}</span></span>
+                      <button
+                        type="button"
+                        onClick={() => setCharacterData((prev) => ({
+                          ...prev,
+                          selectedHomebrew: (prev.selectedHomebrew || []).filter((x) => x.id !== item.id),
+                        }))}
+                        className="homebrew-remove-btn"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         );
       case 'abilities':
         return (
@@ -354,7 +502,11 @@ export const CharacterWizard: React.FC = () => {
                       characterData.characterClass?.hitPointDie === 'D8' ? 8 :
                       characterData.characterClass?.hitPointDie === 'D10' ? 10 :
                       characterData.characterClass?.hitPointDie === 'D12' ? 12 : 8;
-        const hitPointsMax = hitDie + getAbilityModifier(finalAbilityScores.constitution);
+        // Check for Tough feat (from background), which adds level+1 HP (+2 at level 1)
+        const backgroundFeat = characterData.background?.feat;
+        const hasTough = (backgroundFeat?.name || '').toLowerCase() === 'tough';
+        const toughBonus = hasTough ? 2 : 0; // level 1 = +2
+        const hitPointsMax = hitDie + getAbilityModifier(finalAbilityScores.constitution) + toughBonus;
         const armorClass = 10 + getAbilityModifier(finalAbilityScores.dexterity);
         
         // Current level class features
@@ -400,9 +552,18 @@ export const CharacterWizard: React.FC = () => {
         
         return (
           <div className="step-content character-sheet-layout">
-            <h2>D&D 5e Character Sheet Preview</h2>
+            <div className="sheet-preview-toolbar">
+              <h2>D&D 5e Character Sheet Preview</h2>
+              <button
+                type="button"
+                className="btn-print-sheet"
+                onClick={() => window.print()}
+              >
+                🖨️ Print / Save as PDF
+              </button>
+            </div>
             
-            <div className="character-sheet">
+            <div className="official-sheet">
               {/* Header Section */}
               <div className="sheet-header">
                 <div className="header-row-1">
@@ -489,8 +650,6 @@ export const CharacterWizard: React.FC = () => {
                   {/* Ability Scores */}
                   <div className="ability-scores-section">
                     {Object.entries(finalAbilityScores).map(([ability, finalScore]) => {
-                      const baseScore = characterData.abilityScores[ability as keyof typeof characterData.abilityScores];
-                      const backgroundBonus = (characterData.backgroundAbilityDistribution && characterData.backgroundAbilityDistribution[ability.charAt(0).toUpperCase() + ability.slice(1)]) || 0;
                       const isProficient = classSavingThrows.includes(ability.charAt(0).toUpperCase() + ability.slice(1));
                       const saveBonus = getAbilityModifier(finalScore) + (isProficient ? proficiencyBonus : 0);
                       
@@ -498,15 +657,7 @@ export const CharacterWizard: React.FC = () => {
                         <div key={ability} className="ability-score-block">
                           <div className="ability-header">
                             <div className="ability-name">{ability.toUpperCase()}</div>
-                            <div className="ability-score">
-                              {baseScore}
-                              {backgroundBonus > 0 && (
-                                <span className="background-bonus"> (+{backgroundBonus})</span>
-                              )}
-                              {backgroundBonus > 0 && (
-                                <div className="final-score">= {finalScore}</div>
-                              )}
-                            </div>
+                            <div className="ability-score">{finalScore}</div>
                             <div className="ability-modifier">{getModifierString(finalScore)}</div>
                           </div>
                           <div className="saving-throw">
@@ -519,20 +670,14 @@ export const CharacterWizard: React.FC = () => {
                     })}
                   </div>
 
-                  {/* Heroic Inspiration */}
-                  <div className="heroic-inspiration">
-                    <input type="checkbox" />
-                    <label>HEROIC INSPIRATION</label>
-                  </div>
-
                   {/* Equipment & Proficiencies */}
                   <div className="equipment-proficiencies">
                     <h4>EQUIPMENT TRAINING & PROFICIENCIES</h4>
                     <div className="proficiency-section">
-                      <strong>Armor:</strong> {characterData.characterClass?.armor_proficiencies?.join(', ') || 'None'}
+                      <strong>Armor:</strong> {(characterData.characterClass?.proficiencies?.armor || []).join(', ') || 'None'}
                     </div>
                     <div className="proficiency-section">
-                      <strong>Weapons:</strong> {characterData.characterClass?.weapon_proficiencies?.join(', ') || 'None'}
+                      <strong>Weapons:</strong> {(characterData.characterClass?.proficiencies?.weapons || []).join(', ') || 'None'}
                     </div>
                     <div className="proficiency-section">
                       <strong>Tools:</strong> {characterData.background?.toolProficiency?.fixed || 'Choice available'}
@@ -542,6 +687,44 @@ export const CharacterWizard: React.FC = () => {
 
                 {/* Center Column */}
                 <div className="center-column">
+                  {/* Combat Stats Row: AC, HP, Hit Dice + Heroic Inspiration, Death Saves */}
+                  <div className="combat-stats-row">
+                    <div className="vital-stat">
+                      <div className="stat-value">{armorClass}</div>
+                      <div className="stat-label">ARMOR CLASS</div>
+                    </div>
+                    <div className="vital-stat">
+                      <div className="stat-value">{hitPointsMax} / {hitPointsMax}</div>
+                      <div className="stat-label">HIT POINTS</div>
+                    </div>
+                    <div className="vital-stat">
+                      <div className="stat-display">
+                        <span className="hd-current">{characterData.characterClass?.name?.charAt(0) || '?'}</span>
+                        <span className="hd-total">1d{hitDie}</span>
+                      </div>
+                      <div className="stat-label">HIT DICE</div>
+                    </div>
+                    <div className="vital-stat heroic-inspiration-stat">
+                      <input type="checkbox" id="heroic-insp" />
+                      <label htmlFor="heroic-insp">HEROIC INSPIRATION</label>
+                    </div>
+                    <div className="vital-stat death-saves">
+                      <div className="save-section">
+                        <span>SUCCESSES:</span>
+                        <div className="save-boxes">
+                          {[1,2,3].map(i => <div key={`s${i}`} className="save-box"></div>)}
+                        </div>
+                      </div>
+                      <div className="save-section">
+                        <span>FAILURES:</span>
+                        <div className="save-boxes">
+                          {[1,2,3].map(i => <div key={`f${i}`} className="save-box"></div>)}
+                        </div>
+                      </div>
+                      <div className="stat-label">DEATH SAVES</div>
+                    </div>
+                  </div>
+
                   {/* Skills */}
                   <div className="skills-section">
                     <h4>SKILLS</h4>
@@ -562,43 +745,72 @@ export const CharacterWizard: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Vital Stats */}
-                  <div className="vital-stats">
-                    <div className="vital-stat">
-                      <div className="stat-value">{armorClass}</div>
-                      <div className="stat-label">ARMOR CLASS</div>
-                    </div>
-                    <div className="vital-stat">
-                      <div className="stat-display">
-                        <input type="number" value={hitPointsMax} readOnly className="hp-current" />
-                        <span className="hp-separator">/</span>
-                        <span className="hp-max">{hitPointsMax}</span>
+                  {/* Equipment Section */}
+                  {(() => {
+                    // Class equipment
+                    const classEquip = characterData.selectedEquipment;
+                    const classItems: string[] = classEquip?.items || [];
+                    const classGold: number = classEquip?.gold || 0;
+
+                    // Fallback: show all options if none selected
+                    const classOptions: Array<{ choice: string; items: string[]; gold: number }> =
+                      characterData.characterClass?.startingEquipment?.options || [];
+
+                    // Background equipment
+                    const bgOption = characterData.backgroundEquipmentOption || 'A';
+                    const bgEquipOptions: Array<{ choice: string; items: string[]; gold: number }> =
+                      characterData.background?.startingEquipment?.options || [];
+                    const bgEquip = bgEquipOptions.find((o) => o.choice === bgOption) || bgEquipOptions[0];
+                    const bgItems: string[] = bgEquip?.items || [];
+                    const bgGold: number = bgEquip?.gold || 0;
+
+                    const allItems: string[] = [...classItems, ...bgItems];
+                    const totalGold: number = classGold + bgGold;
+
+                    return (
+                      <div className="equipment-summary-section">
+                        <h4>STARTING EQUIPMENT</h4>
+
+                        {allItems.length === 0 && classOptions.length === 0 ? (
+                          <p className="equip-empty">No equipment data available.</p>
+                        ) : (
+                          <>
+                            {/* Class equipment */}
+                            {classItems.length > 0 ? (
+                              <div className="equip-group">
+                                <ul className="equip-list">
+                                  {classItems.map((item, i) => (
+                                    <li key={i} className="equip-item">{item}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            ) : classOptions.length > 0 ? (
+                              <div className="equip-group">
+                                <span className="equip-group-label">No class equipment option selected</span>
+                              </div>
+                            ) : null}
+
+                            {/* Background equipment */}
+                            {bgItems.length > 0 && (
+                              <div className="equip-group">
+                                <ul className="equip-list">
+                                  {bgItems.map((item, i) => (
+                                    <li key={i} className="equip-item">{item}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+
+                            {/* Gold summary */}
+                            <div className="equip-gold-row">
+                              <span className="equip-gold-label">Starting Gold:</span>
+                              <span className="equip-gold-value">{totalGold} gp</span>
+                            </div>
+                          </>
+                        )}
                       </div>
-                      <div className="stat-label">HIT POINTS</div>
-                    </div>
-                    <div className="vital-stat">
-                      <div className="stat-display">
-                        <span className="hd-current">{characterData.characterClass?.name?.charAt(0) || '?'}</span>
-                        <span className="hd-total">1d{hitDie}</span>
-                      </div>
-                      <div className="stat-label">HIT DICE</div>
-                    </div>
-                    <div className="vital-stat death-saves">
-                      <div className="save-section">
-                        <span>SUCCESSES:</span>
-                        <div className="save-boxes">
-                          {[1,2,3].map(i => <div key={`s${i}`} className="save-box"></div>)}
-                        </div>
-                      </div>
-                      <div className="save-section">
-                        <span>FAILURES:</span>
-                        <div className="save-boxes">
-                          {[1,2,3].map(i => <div key={`f${i}`} className="save-box"></div>)}
-                        </div>
-                      </div>
-                      <div className="stat-label">DEATH SAVES</div>
-                    </div>
-                  </div>
+                    );
+                  })()}
                 </div>
 
                 {/* Right Column */}
@@ -630,6 +842,11 @@ export const CharacterWizard: React.FC = () => {
                           <strong>
                             {typeof feature.name === 'object' ? JSON.stringify(feature.name) : feature.name}:
                           </strong> {typeof feature.description === 'object' ? JSON.stringify(feature.description) : feature.description}
+                          {feature.name === 'Weapon Mastery' && (characterData.weaponMasteryChoices || []).some(Boolean) && (
+                            <div className="weapon-mastery-summary">
+                              Chosen: {(characterData.weaponMasteryChoices || []).filter(Boolean).join(', ')}
+                            </div>
+                          )}
                         </div>
                       )) : <div>No class features available.</div>}
                     </div>
@@ -681,69 +898,85 @@ export const CharacterWizard: React.FC = () => {
       case 1: return characterData.species?.name || '';
       case 2: return characterData.characterClass?.name || '';
       case 3: return characterData.background?.name || '';
-      case 4: return 'Configured';
-      case 5: return 'Ready to Create';
+      case 4: return `${(characterData.selectedHomebrew || []).length} selected`;
+      case 5: return 'Configured';
+      case 6: return 'Ready to Create';
       default: return '';
     }
   };
 
   return (
-    <div className="character-wizard">
+    <div className="character-wizard" role="main" aria-label="Character Creation Wizard">
       <div className="wizard-header">
         <h1>Create New Character</h1>
         
         {/* Authentication Status Check */}
         {!localStorage.getItem('access_token') && (
-          <div className="auth-warning" style={{
-            backgroundColor: '#fef2f2',
-            border: '1px solid #fecaca',
-            borderRadius: '6px',
-            padding: '12px',
-            margin: '16px 0',
-            color: '#dc2626'
-          }}>
+          <div
+            className="auth-warning"
+            role="alert"
+            aria-live="assertive"
+            style={{
+              backgroundColor: '#fef2f2',
+              border: '1px solid #fecaca',
+              borderRadius: '6px',
+              padding: '12px',
+              margin: '16px 0',
+              color: '#dc2626'
+            }}
+          >
             ⚠️ <strong>Authentication Required:</strong> You must be logged in to create a character. 
             Please <a href="/login" style={{textDecoration: 'underline'}}>login</a> before proceeding.
           </div>
         )}
 
-        <div className="wizard-progress">
-          {steps.map((step, index) => (
-            <div
-              key={index}
-              className={`step ${
-                index < currentStep ? 'completed' : 
-                index === currentStep ? 'current' : 'upcoming'
-              }`}
-            >
-              <div className="step-number">{index + 1}</div>
-              <div className="step-info">
-                <div className="step-title">{step.title}</div>
-                {(index <= currentStep || isStepComplete(index)) && getStepSelection(index) && (
-                  <div className="step-selection">{getStepSelection(index)}</div>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+        <nav aria-label="Character creation steps">
+          <ol className="wizard-progress" aria-label="Progress">
+            {steps.map((step, index) => {
+              const isCompleted = index < currentStep;
+              const isCurrent = index === currentStep;
+              return (
+                <li
+                  key={index}
+                  className={`step ${
+                    isCompleted ? 'completed' : 
+                    isCurrent ? 'current' : 'upcoming'
+                  }`}
+                  aria-current={isCurrent ? 'step' : undefined}
+                >
+                  <div className="step-number" aria-hidden="true">{index + 1}</div>
+                  <div className="step-info">
+                    <div className="step-title">{step.title}</div>
+                    {(index <= currentStep || isStepComplete(index)) && getStepSelection(index) && (
+                      <div className="step-selection" aria-label={`${step.title}: ${getStepSelection(index)}`}>
+                        {getStepSelection(index)}
+                      </div>
+                    )}
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+        </nav>
       </div>
 
-      <div className="wizard-content">
+      <div className="wizard-content" role="region" aria-label={`Step ${currentStep + 1}: ${steps[currentStep]?.title ?? ''}`}>
         {renderStepContent()}
       </div>
 
       {error && (
-        <div className="error-message">
+        <div className="error-message" role="alert" aria-live="assertive">
           {error}
         </div>
       )}
 
-      <div className="wizard-navigation">
+      <div className="wizard-navigation" role="navigation" aria-label="Wizard navigation">
         <button
           type="button"
           onClick={handlePrevious}
           disabled={currentStep === 0}
           className="btn btn-secondary"
+          aria-label="Go to previous step"
         >
           Previous
         </button>
@@ -753,6 +986,14 @@ export const CharacterWizard: React.FC = () => {
           onClick={handleNext}
           disabled={!canProceed || loading}
           className="btn btn-primary"
+          aria-label={
+            loading
+              ? 'Creating character, please wait'
+              : currentStep === steps.length - 1
+              ? 'Create Character'
+              : `Go to next step: ${steps[currentStep + 1]?.title ?? ''}`
+          }
+          aria-busy={loading}
         >
           {loading ? 'Creating...' : currentStep === steps.length - 1 ? 'Create Character' : 'Next'}
         </button>

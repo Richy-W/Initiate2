@@ -1,0 +1,392 @@
+/* Equipped Items Component Styles */
+
+.equipped-items-container {
+  background: #ffffff;
+  border: 1px solid #e3e6f0;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+}
+
+.equipped-items-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.equipped-items-header h3 {
+  margin: 0;
+  color: #495057;
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+.equipped-summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.equipped-count {
+  font-size: 0.9em;
+  color: #6c757d;
+  background: #f8f9fa;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid #e9ecef;
+}
+
+.armor-class-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.ac-value {
+  font-size: 1.1em;
+}
+
+.ac-breakdown {
+  cursor: help;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.ac-breakdown:hover {
+  opacity: 1;
+}
+
+/* Equipment Slots Grid */
+.equipment-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.equipment-slot {
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  padding: 12px;
+  transition: all 0.2s ease;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+}
+
+.equipment-slot.equipped {
+  background: #fff;
+  border-color: #28a745;
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.1);
+}
+
+.equipment-slot.empty {
+  background: #f8f9fa;
+  border-color: #dee2e6;
+  border-style: dashed;
+}
+
+.equipment-slot:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.slot-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.slot-icon {
+  font-size: 1.2em;
+  min-width: 24px;
+}
+
+.slot-name {
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.95em;
+}
+
+.slot-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Equipped Item Display */
+.equipped-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-name {
+  font-weight: 700;
+  color: #2d3436;
+  font-size: 1em;
+  margin-bottom: 4px;
+}
+
+.item-type {
+  font-size: 0.8em;
+  color: #6c757d;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.item-ac {
+  font-size: 0.9em;
+  color: #007bff;
+  font-weight: 600;
+  background: #e3f2fd;
+  padding: 2px 8px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.item-damage {
+  font-size: 0.9em;
+  color: #dc3545;
+  font-weight: 600;
+  background: #ffebee;
+  padding: 2px 8px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.item-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: auto;
+}
+
+.unequip-btn {
+  background: #dc3545;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8em;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.unequip-btn:hover {
+  background: #c82333;
+  transform: scale(1.05);
+}
+
+/* Empty Slot Display */
+.empty-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  color: #6c757d;
+}
+
+.empty-text {
+  font-style: italic;
+  font-size: 0.9em;
+  margin-bottom: 4px;
+}
+
+.slot-types {
+  font-size: 0.75em;
+  color: #adb5bd;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Equipment Effects Section */
+.equipment-effects {
+  border-top: 1px solid #e9ecef;
+  padding-top: 20px;
+}
+
+.equipment-effects h4 {
+  margin: 0 0 12px 0;
+  color: #495057;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.effects-list {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.no-effects {
+  color: #6c757d;
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+}
+
+.effects-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.effect-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 12px 16px;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.effect-item.warning {
+  background: #fff3cd;
+  border-color: #ffeaa7;
+  color: #856404;
+}
+
+.effect-label {
+  font-weight: 500;
+  color: #495057;
+}
+
+.effect-item.warning .effect-label {
+  color: #856404;
+}
+
+.effect-value {
+  font-weight: 700;
+  color: #28a745;
+}
+
+.effect-item.warning .effect-value {
+  color: #856404;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .equipment-slots-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .equipped-items-container {
+    padding: 16px;
+    margin: 12px 0;
+  }
+  
+  .equipped-items-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .equipped-summary {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .equipment-slots-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .effects-summary {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .equipped-items-container {
+    padding: 12px;
+  }
+  
+  .equipped-items-header h3 {
+    font-size: 1.2em;
+  }
+  
+  .equipment-slot {
+    padding: 10px;
+    min-height: 100px;
+  }
+  
+  .armor-class-display {
+    padding: 6px 12px;
+    font-size: 0.9em;
+  }
+}
+
+/* Animations */
+.equipment-slot {
+  animation: slot-appear 0.3s ease-out;
+}
+
+@keyframes slot-appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.equipped-item {
+  animation: item-equip 0.4s ease-out;
+}
+
+@keyframes item-equip {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Drag and Drop Support (for future enhancement) */
+.equipment-slot.drop-target {
+  border-color: #007bff;
+  background: #e3f2fd;
+}
+
+.equipment-slot.drop-valid {
+  border-color: #28a745;
+  background: #d4edda;
+}
+
+.equipment-slot.drop-invalid {
+  border-color: #dc3545;
+  background: #f8d7da;
+}

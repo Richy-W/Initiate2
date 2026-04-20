@@ -4,12 +4,17 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from django_filters.rest_framework import DjangoFilterBackend
 from django.db.models import Q
+from django.http import HttpResponse
+from django.utils.text import slugify
+from drf_spectacular.utils import extend_schema
 
 from .models import Character, CharacterSpell
 from .serializers import CharacterSerializer, CharacterDetailSerializer, CharacterCreateSerializer, CharacterSpellSerializer
+from .pdf_export import render_character_sheet_pdf
 from apps.content.models import Species, CharacterClass, Background
 
 
+@extend_schema(tags=['characters'])
 class CharacterViewSet(viewsets.ModelViewSet):
     """API endpoints for character management."""
     
@@ -38,6 +43,9 @@ class CharacterViewSet(viewsets.ModelViewSet):
     
     def get_queryset(self):
         """Filter to user's own characters or public characters."""
+        # Guard for drf-spectacular schema generation
+        if getattr(self, 'swagger_fake_view', False):
+            return Character.objects.none()
         if self.action == 'list':
             # Show user's own characters plus public characters
             return Character.objects.filter(
@@ -256,6 +264,379 @@ class CharacterViewSet(viewsets.ModelViewSet):
                 'saving_throws': character.saving_throw_proficiencies
             }
         })
+
+    @action(detail=True, methods=['get'])
+    def export_pdf(self, request, pk=None):
+        """Export the character sheet as a PDF file."""
+        character = self.get_object()
+        try:
+            pdf_bytes = render_character_sheet_pdf(character, base_url=request.build_absolute_uri('/'))
+        except RuntimeError as error:
+            return Response(
+                {'error': str(error)},
+                status=status.HTTP_503_SERVICE_UNAVAILABLE,
+            )
+
+        file_slug = slugify(character.name) or f"character-{character.id}"
+        response = HttpResponse(pdf_bytes, content_type='application/pdf')
+        response['Content-Disposition'] = f'attachment; filename="{file_slug}-sheet.pdf"'
+        return response
+    
+    @action(detail=True, methods=['post'])
+    def add_item(self, request, pk=None):
+        """Add a simple item entry to the character inventory."""
+        character = self.get_object()
+        item_name = str(request.data.get('name', '')).strip()
+        quantity = request.data.get('quantity', 1)
+
+        if not item_name:
+            return Response(
+                {'error': 'name is required'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        try:
+            quantity = int(quantity)
+            if quantity <= 0:
+                return Response(
+                    {'error': 'quantity must be positive'},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+        except (TypeError, ValueError):
+            return Response(
+                {'error': 'Invalid quantity'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        equipment = character.equipment or []
+        if not isinstance(equipment, list):
+            equipment = []
+
+        existing = next(
+            (
+                item
+                for item in equipment
+                if isinstance(item, dict) and str(item.get('name', '')).strip().lower() == item_name.lower()
+            ),
+            None,
+        )
+
+        if existing:
+            existing['quantity'] = int(existing.get('quantity', 1) or 1) + quantity
+        else:
+            equipment.append({'name': item_name, 'quantity': quantity})
+
+        character.equipment = equipment
+        character.save(update_fields=['equipment'])
+        character.refresh_from_db()
+
+        serializer = CharacterDetailSerializer(character)
+        return Response({
+            'success': True,
+            'message': f'Added {quantity} x {item_name}',
+            'character': serializer.data,
+        })
+
+    @action(detail=True, methods=['post'])
+    def equip_item(self, request, pk=None):
+        """Equip an item to a character slot."""
+        character = self.get_object()
+        equipment_id = request.data.get('equipment_id')
+        slot = request.data.get('slot')  # Optional - will auto-determine if not provided
+        
+        if not equipment_id:
+            return Response(
+                {'error': 'equipment_id is required'}, 
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            success, message = character.equip_item(equipment_id, slot)
+            
+            if success:
+                # Refresh character data to get updated equipped items
+                character.refresh_from_db()
+                serializer = CharacterDetailSerializer(character)
+                return Response({
+                    'success': True,
+                    'message': message,
+                    'character': serializer.data
+                })
+            else:
+                return Response(
+                    {'success': False, 'error': message}, 
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+        except Exception as e:
+            return Response(
+                {'success': False, 'error': str(e)}, 
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    @action(detail=True, methods=['post'])
+    def unequip_item(self, request, pk=None):
+        """Unequip an item from a character slot."""
+        character = self.get_object()
+        slot = request.data.get('slot')
+        
+        if not slot:
+            return Response(
+                {'error': 'slot is required'}, 
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            success, message = character.unequip_item(slot)
+            
+            if success:
+                # Refresh character data to get updated equipped items
+                character.refresh_from_db()
+                serializer = CharacterDetailSerializer(character)
+                return Response({
+                    'success': True,
+                    'message': message,
+                    'character': serializer.data
+                })
+            else:
+                return Response(
+                    {'success': False, 'error': message}, 
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+        except Exception as e:
+            return Response(
+                {'success': False, 'error': str(e)}, 
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    @action(detail=True, methods=['get'])
+    def equipped_items(self, request, pk=None):
+        """Get detailed information about equipped items."""
+        character = self.get_object()
+        equipped_details = character.get_equipped_items_details()
+        
+        return Response({
+            'equipped_items': equipped_details,
+            'calculated_ac': character.calculated_armor_class,
+            'armor_class': character.armor_class
+        })
+    
+    @action(detail=True, methods=['post'])
+    def add_currency(self, request, pk=None):
+        """Add currency to a character."""
+        character = self.get_object()
+        currency_type = request.data.get('currency_type')
+        amount = request.data.get('amount')
+        
+        if not currency_type or currency_type not in ['cp', 'sp', 'ep', 'gp', 'pp']:
+            return Response(
+                {'error': 'Valid currency_type (cp, sp, ep, gp, pp) is required'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            amount = int(amount)
+            if amount <= 0:
+                return Response(
+                    {'error': 'Amount must be positive'},
+                    status=status.HTTP_400_BAD_REQUEST 
+                )
+        except (ValueError, TypeError):
+            return Response(
+                {'error': 'Invalid amount'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            character.add_currency(currency_type, amount)
+            character.refresh_from_db()
+            
+            return Response({
+                'success': True,
+                'message': f'Added {amount} {currency_type}',
+                'currency': character.currency,
+                'total_gp_value': character.get_currency_total_gp_value()
+            })
+        except Exception as e:
+            return Response(
+                {'success': False, 'error': str(e)},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+    
+    @action(detail=True, methods=['post']) 
+    def remove_currency(self, request, pk=None):
+        """Remove currency from a character."""
+        character = self.get_object()
+        currency_type = request.data.get('currency_type')
+        amount = request.data.get('amount')
+        
+        if not currency_type or currency_type not in ['cp', 'sp', 'ep', 'gp', 'pp']:
+            return Response(
+                {'error': 'Valid currency_type (cp, sp, ep, gp, pp) is required'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            amount = int(amount)
+            if amount <= 0:
+                return Response(
+                    {'error': 'Amount must be positive'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+        except (ValueError, TypeError):
+            return Response(
+                {'error': 'Invalid amount'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            success, message = character.remove_currency(currency_type, amount)
+            
+            if success:
+                character.refresh_from_db()
+                return Response({
+                    'success': True,
+                    'message': message,
+                    'currency': character.currency,
+                    'total_gp_value': character.get_currency_total_gp_value()
+                })
+            else:
+                return Response(
+                    {'success': False, 'error': message},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+        except Exception as e:
+            return Response(
+                {'success': False, 'error': str(e)},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+    @action(detail=True, methods=['post'])
+    def set_currency(self, request, pk=None):
+        """Set absolute currency values for all coin types."""
+        character = self.get_object()
+        payload = request.data or {}
+
+        allowed_types = ['cp', 'sp', 'ep', 'gp', 'pp']
+        existing_currency = character.currency or {}
+        next_currency = {
+            key: int(existing_currency.get(key, 0) or 0)
+            for key in allowed_types
+        }
+
+        for currency_type in allowed_types:
+            if currency_type not in payload:
+                continue
+
+            try:
+                value = int(payload.get(currency_type, 0))
+            except (TypeError, ValueError):
+                return Response(
+                    {'error': f'Invalid value for {currency_type}'},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
+            if value < 0:
+                return Response(
+                    {'error': f'{currency_type} must be 0 or greater'},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
+            next_currency[currency_type] = value
+
+        character.currency = next_currency
+        character.save(update_fields=['currency'])
+        character.refresh_from_db()
+
+        return Response({
+            'success': True,
+            'currency': character.currency,
+            'total_gp_value': character.get_currency_total_gp_value(),
+        })
+    
+    @action(detail=True, methods=['post'])
+    def convert_currency(self, request, pk=None):
+        """Convert currency from one type to another."""
+        character = self.get_object()
+        from_type = request.data.get('from_type')
+        to_type = request.data.get('to_type')
+        amount = request.data.get('amount')
+        
+        if not all([from_type, to_type, amount]):
+            return Response(
+                {'error': 'from_type, to_type, and amount are required'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            amount = int(amount)
+            if amount <= 0:
+                return Response(
+                    {'error': 'Amount must be positive'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+        except (ValueError, TypeError):
+            return Response(
+                {'error': 'Invalid amount'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            success, converted_amount, message = character.convert_currency(from_type, to_type, amount)
+            
+            if success:
+                character.refresh_from_db()
+                return Response({
+                    'success': True,
+                    'message': message,
+                    'converted_amount': converted_amount,
+                    'currency': character.currency,
+                    'total_gp_value': character.get_currency_total_gp_value()
+                })
+            else:
+                return Response(
+                    {'success': False, 'error': message},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+        except Exception as e:
+            return Response(
+                {'success': False, 'error': str(e)},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+    
+    @action(detail=True, methods=['post'])
+    def pay_cost(self, request, pk=None):
+        """Pay a cost using the character's currency."""
+        character = self.get_object()
+        cost = request.data.get('cost')  # Expected format: {'gp': 50, 'sp': 25}
+        auto_convert = request.data.get('auto_convert', True)
+        
+        if not cost or not isinstance(cost, dict):
+            return Response(
+                {'error': 'cost dict is required (e.g., {"gp": 50, "sp": 25})'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            success, message = character.pay_cost(cost, auto_convert)
+            
+            if success:
+                character.refresh_from_db()
+                return Response({
+                    'success': True,
+                    'message': message,
+                    'currency': character.currency,
+                    'total_gp_value': character.get_currency_total_gp_value()
+                })
+            else:
+                return Response(
+                    {'success': False, 'error': message},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+        except Exception as e:
+            return Response(
+                {'success': False, 'error': str(e)},
+                status=status.HTTP_400_BAD_REQUEST
+            )
     
     @action(detail=False, methods=['get'])
     def public(self, request):
@@ -268,6 +649,7 @@ class CharacterViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
 
+@extend_schema(tags=['characters'])
 class CharacterSpellViewSet(viewsets.ModelViewSet):
     """API endpoints for character spell management."""
     

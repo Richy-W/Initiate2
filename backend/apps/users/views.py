@@ -1,12 +1,14 @@
 from rest_framework import generics, status, permissions
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
+from rest_framework.throttling import AnonRateThrottle
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth import get_user_model
 from django.core.mail import send_mail
 from django.conf import settings
 from django.utils.crypto import get_random_string
+from drf_spectacular.utils import extend_schema, OpenApiResponse, OpenApiTypes
 
 from .models import User
 from .serializers import (
@@ -19,11 +21,19 @@ from .serializers import (
 )
 
 
+class LoginRateThrottle(AnonRateThrottle):
+    """Stricter rate limit applied to the login endpoint."""
+    scope = 'login'
+
+
+@extend_schema(tags=['auth'])
 class CustomTokenObtainPairView(TokenObtainPairView):
-    """Custom token obtain view with additional user data."""
+    """Obtain a JWT access + refresh token pair. Rate-limited to 10 requests/minute."""
     serializer_class = CustomTokenObtainPairSerializer
+    throttle_classes = [LoginRateThrottle]
 
 
+@extend_schema(tags=['auth'])
 class UserRegistrationView(generics.CreateAPIView):
     """User registration endpoint."""
     queryset = User.objects.all()
@@ -45,6 +55,7 @@ class UserRegistrationView(generics.CreateAPIView):
         }, status=status.HTTP_201_CREATED)
 
 
+@extend_schema(tags=['auth'])
 class UserProfileView(generics.RetrieveUpdateAPIView):
     """Get and update user profile."""
     serializer_class = UserUpdateSerializer
@@ -60,6 +71,7 @@ class UserProfileView(generics.RetrieveUpdateAPIView):
         return Response(serializer.data)
 
 
+@extend_schema(tags=['auth'])
 class PasswordChangeView(generics.GenericAPIView):
     """Change user password."""
     serializer_class = PasswordChangeSerializer
@@ -75,6 +87,7 @@ class PasswordChangeView(generics.GenericAPIView):
         }, status=status.HTTP_200_OK)
 
 
+@extend_schema(tags=['auth'])
 class PasswordResetRequestView(generics.GenericAPIView):
     """Request password reset."""
     serializer_class = PasswordResetRequestSerializer
@@ -100,6 +113,11 @@ class PasswordResetRequestView(generics.GenericAPIView):
         }, status=status.HTTP_200_OK)
 
 
+@extend_schema(
+    tags=['auth'],
+    request={'application/json': {'type': 'object', 'properties': {'refresh_token': {'type': 'string'}}, 'required': ['refresh_token']}},
+    responses={200: OpenApiTypes.OBJECT, 400: OpenApiTypes.OBJECT},
+)
 @api_view(['POST'])
 @permission_classes([permissions.IsAuthenticated])
 def logout_view(request):
@@ -118,6 +136,7 @@ def logout_view(request):
         }, status=status.HTTP_400_BAD_REQUEST)
 
 
+@extend_schema(tags=['auth'], responses={200: OpenApiTypes.OBJECT})
 @api_view(['GET'])
 @permission_classes([permissions.IsAuthenticated])
 def user_stats_view(request):

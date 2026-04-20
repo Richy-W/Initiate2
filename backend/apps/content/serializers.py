@@ -1,7 +1,11 @@
+import json
+from pathlib import Path
+
 from rest_framework import serializers
 from .models import (
     Species, CharacterClass, Background, Spell, Equipment,
-    ClassFeature, Skill, Condition, DamageType
+    ClassFeature, Skill, Condition, DamageType,
+    HomebrewContent, ContentSharingPermission
 )
 
 
@@ -38,7 +42,7 @@ class SpeciesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Species
         fields = [
-            'id', 'name', 'description', 'source', 'page',
+            'pk', 'id', 'name', 'description', 'source', 'page',
             'size', 'speed', 'darkvision', 'has_darkvision',
             'ability_score_increases', 'lifespan', 'traits',
             'languages', 'proficiencies', 'movement_types', 
@@ -70,7 +74,7 @@ class CharacterClassSerializer(serializers.ModelSerializer):
     class Meta:
         model = CharacterClass
         fields = [
-            'id', 'name', 'description', 'source', 'page',
+            'pk', 'id', 'name', 'description', 'source', 'page',
             'hit_die', 'primary_ability', 'saving_throw_proficiencies',
             'armor_proficiencies', 'weapon_proficiencies', 'tool_proficiencies',
             'skill_proficiency_options', 'skill_choices', 'spellcasting',
@@ -81,10 +85,6 @@ class CharacterClassSerializer(serializers.ModelSerializer):
     
     def get_features_by_level(self, obj):
         """Get features organized by level."""
-        if not hasattr(obj, '_prefetched_features'):
-            # If features aren't prefetched, return empty dict to avoid N+1 queries
-            return {}
-        
         features_by_level = {}
         for feature in obj.features.all():
             level = feature.level
@@ -96,7 +96,63 @@ class CharacterClassSerializer(serializers.ModelSerializer):
                 'uses': feature.uses,
                 'recharge': feature.recharge
             })
-        return features_by_level
+
+        if features_by_level:
+            return features_by_level
+
+        # Fallback to bundled class JSON when DB rows are unavailable.
+        class_slug = obj.name.strip().lower().replace(' ', '-').replace("'", '')
+        repo_root = Path(__file__).resolve().parents[3]
+        class_json_path = repo_root / 'api' / 'content' / 'classes' / f'{class_slug}.json'
+
+        if not class_json_path.exists():
+            return {}
+
+        try:
+            with class_json_path.open('r', encoding='utf-8') as fp:
+                payload = json.load(fp)
+
+            raw_features = payload.get('classFeatures', {})
+            fallback_by_level = {}
+
+            for level_key, level_value in raw_features.items():
+                try:
+                    level = int(level_key)
+                except (TypeError, ValueError):
+                    continue
+
+                if isinstance(level_value, dict):
+                    level_features = level_value.get('features', [])
+                elif isinstance(level_value, list):
+                    level_features = level_value
+                else:
+                    level_features = []
+
+                normalized = []
+                for feature_data in level_features:
+                    if isinstance(feature_data, str):
+                        normalized.append({
+                            'name': feature_data,
+                            'description': '',
+                            'uses': '',
+                            'recharge': ''
+                        })
+                        continue
+
+                    if isinstance(feature_data, dict):
+                        normalized.append({
+                            'name': feature_data.get('name', ''),
+                            'description': feature_data.get('description', ''),
+                            'uses': feature_data.get('uses', ''),
+                            'recharge': feature_data.get('recharge', ''),
+                        })
+
+                if normalized:
+                    fallback_by_level[level] = normalized
+
+            return fallback_by_level
+        except Exception:
+            return {}
 
 
 class BackgroundSerializer(serializers.ModelSerializer):
@@ -104,16 +160,39 @@ class BackgroundSerializer(serializers.ModelSerializer):
     
     skill_proficiency_list = SkillSerializer(source='skill_proficiencies', many=True, read_only=True)
     total_skill_choices = serializers.ReadOnlyField()
+    feat = serializers.SerializerMethodField()
     
     class Meta:
         model = Background
         fields = [
-            'id', 'name', 'description', 'source', 'page',
+            'pk', 'id', 'name', 'description', 'source', 'page',
             'ability_score_increases', 'skill_proficiency_list',
             'skill_choices', 'total_skill_choices', 'languages',
             'equipment', 'tool_proficiencies', 'feature_name',
-            'feature_description', 'starting_gold', 'origin_feats'
+            'feature_description', 'starting_gold', 'origin_feats', 'feat'
         ]
+
+    def get_feat(self, obj):
+        """Return a single feat dict for this background. Reads origin_feats first,
+        then falls back to the bundled JSON file."""
+        if obj.origin_feats:
+            for entry in obj.origin_feats:
+                if isinstance(entry, dict) and entry.get('name'):
+                    return entry
+                if isinstance(entry, str) and entry:
+                    return {'name': entry, 'description': ''}
+
+        slug = obj.name.strip().lower().replace(' ', '-').replace("'", '')
+        repo_root = Path(__file__).resolve().parents[3]
+        json_path = repo_root / 'api' / 'content' / 'backgrounds' / f'{slug}.json'
+        if json_path.exists():
+            try:
+                with json_path.open('r', encoding='utf-8') as fp:
+                    data = json.load(fp)
+                return data.get('feat') or None
+            except Exception:
+                pass
+        return None
 
 
 class SpellSerializer(serializers.ModelSerializer):
@@ -138,5 +217,36 @@ class EquipmentSerializer(serializers.ModelSerializer):
         model = Equipment
         fields = [
             'id', 'name', 'description', 'source', 'page',
-            'category', 'cost', 'weight', 'properties', 'rarity'
+            'equipment_type', 'category', 'cost', 'weight', 'rarity',
+            'armor_class', 'dex_bonus_max', 'strength_requirement', 'stealth_disadvantage',
+            'damage', 'properties', 'tool_type'
         ]
+
+class HomebrewContentSerializer(serializers.ModelSerializer):
+    creator_username = serializers.CharField(source='creator.username', read_only=True)
+
+    class Meta:
+        model = HomebrewContent
+        fields = [
+            'id', 'creator', 'creator_username', 'content_type', 'name',
+            'description', 'data', 'dependencies', 'version', 'status', 'is_public',
+            'created_at', 'updated_at',
+        ]
+        read_only_fields = ['id', 'creator', 'version', 'created_at', 'updated_at']
+
+    def validate_data(self, value):
+        if not isinstance(value, dict):
+            raise serializers.ValidationError('data must be an object.')
+        return value
+
+    def validate_dependencies(self, value):
+        if not isinstance(value, list):
+            raise serializers.ValidationError('dependencies must be a list.')
+        return value
+
+
+class ContentSharingPermissionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ContentSharingPermission
+        fields = ['id', 'content', 'campaign', 'user', 'permission_type', 'granted_at']
+        read_only_fields = ['id', 'granted_at']

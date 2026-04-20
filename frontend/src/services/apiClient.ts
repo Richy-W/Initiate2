@@ -1,4 +1,12 @@
-import axios, { AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
+import { enhanceContentWithPk } from '../utils/idMapping';
+import { parseApiError } from '../utils/errorHandling';
+
+let globalApiErrorHandler: ((message: string) => void) | null = null;
+
+export const setGlobalApiErrorHandler = (handler: ((message: string) => void) | null): void => {
+  globalApiErrorHandler = handler;
+};
 
 // Create axios instance with base configuration
 const apiClient: AxiosInstance = axios.create({
@@ -8,6 +16,10 @@ const apiClient: AxiosInstance = axios.create({
     'Content-Type': 'application/json',
   },
 });
+
+interface ExtendedAxiosRequestConfig extends AxiosRequestConfig {
+  skipGlobalErrorHandler?: boolean;
+}
 
 // Request interceptor to add authentication token
 apiClient.interceptors.request.use(
@@ -67,6 +79,16 @@ apiClient.interceptors.response.use(
       }
     }
 
+    const skipGlobalErrorHandler = Boolean((originalRequest as ExtendedAxiosRequestConfig | undefined)?.skipGlobalErrorHandler);
+
+    if (globalApiErrorHandler && !skipGlobalErrorHandler) {
+      const parsed = parseApiError(error);
+      // Avoid duplicate global toasts for auth redirects and expected auth failures.
+      if (![401, 403].includes(parsed.status)) {
+        globalApiErrorHandler(parsed.message);
+      }
+    }
+
     return Promise.reject(error);
   }
 );
@@ -79,7 +101,7 @@ export const api = {
       const response = await apiClient.post('/users/auth/login/', credentials);
       return response.data;
     },
-    register: async (userData: { email: string; password: string; username: string }) => {
+    register: async (userData: { email: string; password: string; password_confirm: string; username: string; first_name: string; last_name: string }) => {
       const response = await apiClient.post('/users/auth/register/', userData);
       return response.data;
     },
@@ -138,8 +160,28 @@ export const api = {
       const response = await apiClient.post(`/characters/${id}/level-up/`, levelUpData);
       return response.data;
     },
-    getAll: async () => {
-      const response = await apiClient.get('/characters/');
+    takeDamage: async (id: string, payload: { damage: number; damage_type?: string }) => {
+      const response = await apiClient.post(`/characters/${id}/take_damage/`, payload);
+      return response.data;
+    },
+    heal: async (id: string, payload: { healing: number }) => {
+      const response = await apiClient.post(`/characters/${id}/heal/`, payload);
+      return response.data;
+    },
+    addItem: async (id: string, payload: { name: string; quantity?: number }) => {
+      const response = await apiClient.post(`/characters/${id}/add_item/`, payload);
+      return response.data;
+    },
+    addCurrency: async (id: string, payload: { currency_type: 'cp' | 'sp' | 'ep' | 'gp' | 'pp'; amount: number }) => {
+      const response = await apiClient.post(`/characters/${id}/add_currency/`, payload);
+      return response.data;
+    },
+    setCurrency: async (id: string, payload: { cp?: number; sp?: number; ep?: number; gp?: number; pp?: number }) => {
+      const response = await apiClient.post(`/characters/${id}/set_currency/`, payload);
+      return response.data;
+    },
+    getAll: async (config?: ExtendedAxiosRequestConfig) => {
+      const response = await apiClient.get('/characters/', config);
       return response.data;
     },
   },
@@ -199,7 +241,11 @@ export const api = {
     species: {
       list: async () => {
         const response = await apiClient.get('/content/species/');
-        return response.data;
+        const enhancedData = {
+          ...response.data,
+          results: enhanceContentWithPk(response.data.results || [], 'species')
+        };
+        return enhancedData;
       },
       get: async (id: string) => {
         const response = await apiClient.get(`/content/species/${id}/`);
@@ -209,7 +255,11 @@ export const api = {
     classes: {
       list: async () => {
         const response = await apiClient.get('/content/classes/');
-        return response.data;
+        const enhancedData = {
+          ...response.data,
+          results: enhanceContentWithPk(response.data.results || [], 'class')
+        };
+        return enhancedData;
       },
       get: async (id: string) => {
         const response = await apiClient.get(`/content/classes/${id}/`);
@@ -219,7 +269,11 @@ export const api = {
     backgrounds: {
       list: async () => {
         const response = await apiClient.get('/content/backgrounds/');
-        return response.data;
+        const enhancedData = {
+          ...response.data,
+          results: enhanceContentWithPk(response.data.results || [], 'background')
+        };
+        return enhancedData;
       },
       get: async (id: string) => {
         const response = await apiClient.get(`/content/backgrounds/${id}/`);
@@ -275,27 +329,5 @@ export type { AxiosResponse, InternalAxiosRequestConfig };
 
 // Utility function for handling API errors
 export const handleApiError = (error: any) => {
-  if (error.response) {
-    // Server responded with error status
-    const { status, data } = error.response;
-    return {
-      status,
-      message: data?.detail || data?.error || 'An error occurred',
-      errors: data?.errors || null,
-    };
-  } else if (error.request) {
-    // Request was made but no response received
-    return {
-      status: 0,
-      message: 'Network error - unable to connect to server',
-      errors: null,
-    };
-  } else {
-    // Something else happened
-    return {
-      status: 0,
-      message: error.message || 'An unexpected error occurred',
-      errors: null,
-    };
-  }
+  return parseApiError(error);
 };

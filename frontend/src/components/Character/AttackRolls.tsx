@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 
 interface Character {
-  ability_scores: Record<string, number>;
+  strength: number;
+  dexterity: number;
+  constitution: number;
+  intelligence: number;
+  wisdom: number;
+  charisma: number;
   proficiency_bonus: number;
-  equipment: any[];
-  class_primary: any;
+  equipment?: any[] | Record<string, any> | string | null;
+  character_class: any;
   level: number;
 }
 
@@ -27,9 +32,13 @@ interface AttackResult {
 
 export const AttackRolls: React.FC<AttackRollsProps> = ({ character }) => {
   const [attackResults, setAttackResults] = useState<AttackResult[]>([]);
-  const [selectedWeapon, setSelectedWeapon] = useState<any>(null);
   const [advantage, setAdvantage] = useState(false);
   const [disadvantage, setDisadvantage] = useState(false);
+
+  // Don't render if character data isn't ready
+  if (!character) {
+    return <div className="attack-rolls">Loading attack rolls...</div>;
+  }
 
   const getAbilityModifier = (score: number): number => {
     return Math.floor((score - 10) / 2);
@@ -43,17 +52,16 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character }) => {
     return Math.floor(Math.random() * sides) + 1;
   };
 
-  const parseDamage = (damageString: string): { dice: number; sides: number; count: number } => {
+  const parseDamage = (damageString: string): { sides: number; count: number } => {
     // Parse damage like "1d8" or "2d6"
     const match = damageString.match(/(\d+)d(\d+)/);
     if (match) {
       return {
         count: parseInt(match[1]),
         sides: parseInt(match[2]),
-        dice: parseInt(match[2])
       };
     }
-    return { dice: 6, sides: 6, count: 1 }; // Default
+    return { sides: 6, count: 1 }; // Default
   };
 
   const getWeaponAttackBonus = (weapon: any): number => {
@@ -66,17 +74,17 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character }) => {
     
     if (isFinesse) {
       // Finesse weapons can use STR or DEX (use higher)
-      const strMod = getAbilityModifier(character.ability_scores.strength || 10);
-      const dexMod = getAbilityModifier(character.ability_scores.dexterity || 10);
+      const strMod = getAbilityModifier(character.strength || 10);
+      const dexMod = getAbilityModifier(character.dexterity || 10);
       abilityModifier = Math.max(strMod, dexMod);
     } else if (isRanged || isThrownMelee) {
-      abilityModifier = getAbilityModifier(character.ability_scores.dexterity || 10);
+      abilityModifier = getAbilityModifier(character.dexterity || 10);
     } else {
-      abilityModifier = getAbilityModifier(character.ability_scores.strength || 10);
+      abilityModifier = getAbilityModifier(character.strength || 10);
     }
     
     // Check if proficient with this weapon
-    const isProficient = character.class_primary?.weapon_proficiencies?.some((prof: string) => 
+    const isProficient = character.character_class?.weapon_proficiencies?.some((prof: string) => 
       weapon.name.toLowerCase().includes(prof.toLowerCase()) ||
       weapon.weapon_type === prof ||
       prof === 'all'
@@ -94,13 +102,13 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character }) => {
     const isThrownMelee = weapon.properties?.includes('thrown') && weapon.weapon_type === 'melee';
     
     if (isFinesse) {
-      const strMod = getAbilityModifier(character.ability_scores.strength || 10);
-      const dexMod = getAbilityModifier(character.ability_scores.dexterity || 10);
+      const strMod = getAbilityModifier(character.strength || 10);
+      const dexMod = getAbilityModifier(character.dexterity || 10);
       return Math.max(strMod, dexMod);
     } else if (isRanged || isThrownMelee) {
-      return getAbilityModifier(character.ability_scores.dexterity || 10);
+      return getAbilityModifier(character.dexterity || 10);
     } else {
-      return getAbilityModifier(character.ability_scores.strength || 10);
+      return getAbilityModifier(character.strength || 10);
     }
   };
 
@@ -128,7 +136,7 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character }) => {
     const damageInfo = parseDamage(weapon.damage || '1d6');
     const damageBonus = getWeaponDamageBonus(weapon);
     
-    let damageRolls: number[] = [];
+    const damageRolls: number[] = [];
     const rollCount = isCritical ? damageInfo.count * 2 : damageInfo.count;
     
     for (let i = 0; i < rollCount; i++) {
@@ -157,14 +165,46 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character }) => {
     setDisadvantage(false);
   };
 
+  const normalizeEquipment = (equipment: Character['equipment']): any[] => {
+    if (Array.isArray(equipment)) {
+      return equipment;
+    }
+
+    if (typeof equipment === 'string') {
+      try {
+        return normalizeEquipment(JSON.parse(equipment));
+      } catch {
+        return [];
+      }
+    }
+
+    if (equipment && typeof equipment === 'object') {
+      const equipmentObj = equipment as Record<string, any>;
+
+      if (Array.isArray(equipmentObj.items)) {
+        return equipmentObj.items;
+      }
+
+      return Object.values(equipmentObj);
+    }
+
+    return [];
+  };
+
   // Get weapons from equipment
-  const weapons = character.equipment?.filter(item => 
-    item.item_type === 'weapon' || 
-    item.weapon_type ||
-    ['sword', 'dagger', 'bow', 'axe', 'mace', 'spear'].some(weaponType => 
-      item.name?.toLowerCase().includes(weaponType)
-    )
-  ) || [];
+  const weapons = normalizeEquipment(character.equipment).filter(item => {
+    if (!item || typeof item !== 'object') {
+      return false;
+    }
+
+    return (
+      item.item_type === 'weapon' ||
+      item.weapon_type ||
+      ['sword', 'dagger', 'bow', 'axe', 'mace', 'spear'].some(weaponType =>
+        item.name?.toLowerCase().includes(weaponType)
+      )
+    );
+  });
 
   // Add basic unarmed attack
   const unarmedAttack = {
@@ -239,7 +279,7 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character }) => {
         <div className="attack-history">
           <h4>Recent Attacks</h4>
           <div className="attack-results">
-            {attackResults.map((result, index) => (
+            {attackResults.map((result) => (
               <div key={`${result.weapon}-${result.timestamp}`} className="attack-result">
                 <div className="attack-header">
                   <span className="weapon-name">{result.weapon}</span>
@@ -267,10 +307,10 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character }) => {
         <h4>Spell Attacks</h4>
         <div className="spell-attack-stats">
           <div className="spell-attack-bonus">
-            <strong>Spell Attack Bonus:</strong> +{character.proficiency_bonus + getAbilityModifier(character.ability_scores.charisma || 10)}
+            <strong>Spell Attack Bonus:</strong> +{character.proficiency_bonus + getAbilityModifier(character.charisma || 10)}
           </div>
           <div className="spell-save-dc">
-            <strong>Spell Save DC:</strong> {8 + character.proficiency_bonus + getAbilityModifier(character.ability_scores.charisma || 10)}
+            <strong>Spell Save DC:</strong> {8 + character.proficiency_bonus + getAbilityModifier(character.charisma || 10)}
           </div>
         </div>
       </div>

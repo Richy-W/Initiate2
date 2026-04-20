@@ -1,8 +1,23 @@
 import React, { useState } from 'react';
 
 interface Character {
-  ability_scores: Record<string, number>;
-  skills: Record<string, any>;
+  strength: number;
+  dexterity: number;
+  constitution: number;
+  intelligence: number;
+  wisdom: number;
+  charisma: number;
+  total_strength?: number;
+  total_dexterity?: number;
+  total_constitution?: number;
+  total_intelligence?: number;
+  total_wisdom?: number;
+  total_charisma?: number;
+  skills?: Record<string, any>;
+  skill_proficiencies?: any[];
+  skill_expertises?: any[];
+  skill_proficiencies_detail?: any[];
+  skill_expertises_detail?: any[];
   proficiency_bonus: number;
 }
 
@@ -44,18 +59,110 @@ export const SkillRolls: React.FC<SkillRollsProps> = ({ character }) => {
   const [advantage, setAdvantage] = useState<string | null>(null);
   const [disadvantage, setDisadvantage] = useState<string | null>(null);
 
+  // Don't render if character data isn't ready
+  if (!character) {
+    return <div className="skill-rolls">Loading skill rolls...</div>;
+  }
+
   const getAbilityModifier = (score: number): number => {
     return Math.floor((score - 10) / 2);
   };
 
+  const normalizeSkillToken = (value: unknown): string =>
+    String(value || '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]/g, '');
+
+  const normalizeToArray = (value: unknown): any[] => {
+    if (Array.isArray(value)) return value;
+    if (value == null) return [];
+
+    if (typeof value === 'string') {
+      const trimmed = value.trim();
+      if (!trimmed) return [];
+      if (trimmed.startsWith('[') || trimmed.startsWith('{')) {
+        try {
+          return normalizeToArray(JSON.parse(trimmed));
+        } catch {
+          return [value];
+        }
+      }
+      return [value];
+    }
+
+    if (typeof value === 'object') {
+      const obj = value as Record<string, any>;
+      if (Array.isArray(obj.items)) return obj.items;
+      if (Array.isArray(obj.results)) return obj.results;
+      return Object.values(obj);
+    }
+
+    return [value];
+  };
+
+  const proficiencyTokens = new Set(
+    [
+      ...normalizeToArray(character.skill_proficiencies),
+      ...normalizeToArray(character.skill_proficiencies_detail),
+    ]
+      .map((entry) => {
+        if (typeof entry === 'string') return normalizeSkillToken(entry);
+        if (entry?.name) return normalizeSkillToken(entry.name);
+        if (entry?.id) return normalizeSkillToken(entry.id);
+        return '';
+      })
+      .filter(Boolean)
+  );
+
+  const expertiseTokens = new Set(
+    [
+      ...normalizeToArray(character.skill_expertises),
+      ...normalizeToArray(character.skill_expertises_detail),
+    ]
+      .map((entry) => {
+        if (typeof entry === 'string') return normalizeSkillToken(entry);
+        if (entry?.name) return normalizeSkillToken(entry.name);
+        if (entry?.id) return normalizeSkillToken(entry.id);
+        return '';
+      })
+      .filter(Boolean)
+  );
+
+  const hasSkillMatch = (tokens: Set<string>, skillKey: string, skillName: string): boolean => {
+    const normalizedKey = normalizeSkillToken(skillKey);
+    const normalizedName = normalizeSkillToken(skillName);
+    return tokens.has(normalizedKey) || tokens.has(normalizedName);
+  };
+
   const getSkillBonus = (skill: string): number => {
     const skillData = SKILLS[skill as keyof typeof SKILLS];
-    const abilityScore = character.ability_scores[skillData.ability] || 10;
-    const abilityModifier = getAbilityModifier(abilityScore);
-    const proficiencyBonus = character.skills[skill]?.proficient ? character.proficiency_bonus : 0;
-    const expertiseBonus = character.skills[skill]?.expertise ? character.proficiency_bonus : 0;
     
-    return abilityModifier + proficiencyBonus + expertiseBonus;
+    const abilityScores = {
+      strength: character.total_strength ?? character.strength ?? 10,
+      dexterity: character.total_dexterity ?? character.dexterity ?? 10,
+      constitution: character.total_constitution ?? character.constitution ?? 10,
+      intelligence: character.total_intelligence ?? character.intelligence ?? 10,
+      wisdom: character.total_wisdom ?? character.wisdom ?? 10,
+      charisma: character.total_charisma ?? character.charisma ?? 10,
+    };
+    
+    const abilityScore = abilityScores[skillData.ability as keyof typeof abilityScores] || 10;
+    const abilityModifier = getAbilityModifier(abilityScore);
+    
+    // Check if the character is proficient in this skill
+    const isProficient = hasSkillMatch(proficiencyTokens, skill, skillData.name);
+    
+    // Check if the character has expertise in this skill 
+    const hasExpertise = hasSkillMatch(expertiseTokens, skill, skillData.name);
+    
+    let proficiencyBonus = 0;
+    if (hasExpertise) {
+      proficiencyBonus = (character.proficiency_bonus || 0) * 2; // Expertise = double proficiency
+    } else if (isProficient) {
+      proficiencyBonus = character.proficiency_bonus || 0;
+    }
+    
+    return abilityModifier + proficiencyBonus;
   };
 
   const rollD20 = (): number => {
@@ -96,11 +203,13 @@ export const SkillRolls: React.FC<SkillRollsProps> = ({ character }) => {
   };
 
   const isProficient = (skill: string): boolean => {
-    return character.skills[skill]?.proficient || false;
+    const skillData = SKILLS[skill as keyof typeof SKILLS];
+    return hasSkillMatch(proficiencyTokens, skill, skillData.name);
   };
 
   const hasExpertise = (skill: string): boolean => {
-    return character.skills[skill]?.expertise || false;
+    const skillData = SKILLS[skill as keyof typeof SKILLS];
+    return hasSkillMatch(expertiseTokens, skill, skillData.name);
   };
 
   return (
@@ -109,7 +218,7 @@ export const SkillRolls: React.FC<SkillRollsProps> = ({ character }) => {
         <h4>Roll Modifiers</h4>
         <div className="modifier-buttons">
           <button
-            className={`btn btn-small ${advantage ? 'active' : ''}`}
+            className={`btn-small ${advantage ? 'active' : ''}`}
             onClick={() => {
               setAdvantage(advantage ? null : 'next');
               setDisadvantage(null);
@@ -118,7 +227,7 @@ export const SkillRolls: React.FC<SkillRollsProps> = ({ character }) => {
             Advantage
           </button>
           <button
-            className={`btn btn-small ${disadvantage ? 'active' : ''}`}
+            className={`btn-small ${disadvantage ? 'active' : ''}`}
             onClick={() => {
               setDisadvantage(disadvantage ? null : 'next');
               setAdvantage(null);
@@ -134,24 +243,22 @@ export const SkillRolls: React.FC<SkillRollsProps> = ({ character }) => {
           const bonus = getSkillBonus(skillKey);
           const proficient = isProficient(skillKey);
           const expertise = hasExpertise(skillKey);
+          const proficiencyState = expertise ? 'expertise' : proficient ? 'proficient' : 'none';
           
           return (
             <div key={skillKey} className="skill-row">
               <div className="skill-info">
+                <span className={`proficiency-dot ${proficiencyState}`} aria-hidden="true" />
                 <span className="skill-name">{skillData.name}</span>
-                <span className="skill-ability">({skillData.ability.slice(0, 3).toUpperCase()})</span>
-                {proficient && <span className="proficiency-indicator">●</span>}
-                {expertise && <span className="expertise-indicator">◆</span>}
-              </div>
-              
-              <div className="skill-bonus">
-                {bonus >= 0 ? '+' : ''}{bonus}
+                <span className="skill-meta">
+                  {skillData.ability.slice(0, 3).toUpperCase()}
+                </span>
               </div>
               
               <button
-                className={`btn btn-roll ${
-                  advantage === skillKey ? 'advantage' :
-                  disadvantage === skillKey ? 'disadvantage' : ''
+                type="button"
+                className={`skill-bonus bonus-roll-button ${
+                  advantage === skillKey ? 'advantage' : disadvantage === skillKey ? 'disadvantage' : ''
                 }`}
                 onClick={() => {
                   if (advantage === 'next') {
@@ -162,7 +269,7 @@ export const SkillRolls: React.FC<SkillRollsProps> = ({ character }) => {
                   rollSkill(skillKey);
                 }}
               >
-                Roll
+                {bonus >= 0 ? '+' : ''}{bonus}
               </button>
             </div>
           );
@@ -170,33 +277,25 @@ export const SkillRolls: React.FC<SkillRollsProps> = ({ character }) => {
       </div>
 
       {rollResults.length > 0 && (
-        <div className="roll-history">
+        <div className="skill-history">
           <h4>Recent Rolls</h4>
-          <div className="roll-results">
-            {rollResults.map((result, index) => (
+          <div className="skill-results">
+            {rollResults.map((result) => (
               <div key={`${result.skill}-${result.timestamp}`} className="roll-result">
-                <span className="roll-skill">{SKILLS[result.skill as keyof typeof SKILLS].name}:</span>
-                <span className="roll-dice">d20: {result.roll}</span>
-                <span className="roll-bonus">+{result.bonus}</span>
-                <span className={`roll-total ${
-                  result.roll === 20 ? 'critical-success' :
-                  result.roll === 1 ? 'critical-failure' : ''
-                }`}>
-                  = {result.total}
-                </span>
+                <div className="result-header">
+                  {SKILLS[result.skill as keyof typeof SKILLS].name}: {result.total}
+                </div>
+                <div className="result-details">
+                  d20: {result.roll} + {result.bonus}
+                  {result.roll === 20 && ' (Natural 20!)'}
+                  {result.roll === 1 && ' (Natural 1!)'}
+                </div>
               </div>
             ))}
           </div>
         </div>
       )}
       
-      <div className="skill-legend">
-        <h4>Legend</h4>
-        <div className="legend-items">
-          <span>● Proficient</span>
-          <span>◆ Expertise (double proficiency)</span>
-        </div>
-      </div>
     </div>
   );
 };

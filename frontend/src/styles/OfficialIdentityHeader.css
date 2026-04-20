@@ -1,0 +1,130 @@
+.official-sheet-header {
+  background: linear-gradient(180deg, #151b2f, #12182c);
+  color: #eef2ff;
+  border: 1px solid #38446d;
+  border-radius: 0;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.official-sheet-header .official-header-row {
+  display: grid;
+  gap: 10px;
+}
+
+.official-sheet-header .official-header-row-1 {
+  grid-template-columns: minmax(0, 1fr) auto;
+  margin-bottom: 10px;
+}
+
+.official-sheet-header .official-header-row-2 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.official-sheet-header .official-field {
+  border: 1px solid #38446d;
+  background: #11182a;
+  padding: 7px 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.official-sheet-header .official-label {
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.official-sheet-header .official-value {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.official-sheet-header .official-value-large {
+  font-size: 1.5rem;
+}
+
+.official-sheet-header .official-level-circle {
+  width: 66px;
+  height: 66px;
+  border: 1px solid #5c79de;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2a3964, #1f2b4d);
+}
+
+.official-sheet-header .official-level-value {
+  font-size: 1.3rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.official-sheet-header .official-level-label {
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  margin-top: 2px;
+  line-height: 1;
+}
+
+.official-sheet-header.compact {
+  padding: 8px;
+}
+
+.official-sheet-header.compact .official-header-row {
+  gap: 8px;
+}
+
+.official-sheet-header.compact .official-header-row-1 {
+  margin-bottom: 8px;
+}
+
+.official-sheet-header.compact .official-field {
+  padding: 6px 7px;
+}
+
+.official-sheet-header.compact .official-value-large {
+  font-size: 1.1rem;
+}
+
+.official-sheet-header.compact .official-value {
+  font-size: 0.9rem;
+}
+
+.official-sheet-header.compact .official-level-circle {
+  width: 54px;
+  height: 54px;
+}
+
+.official-sheet-header.compact .official-level-value {
+  font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+  .official-sheet-header .official-header-row-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media print {
+  .official-sheet-header {
+    break-inside: avoid;
+    background: #ffffff;
+    color: #000000;
+    border-color: #000000;
+  }
+}

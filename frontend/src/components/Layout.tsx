@@ -1,6 +1,7 @@
 import React from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import '../styles/Layout.css';
 
 const Layout: React.FC = () => {
   const { user, logout } = useAuth();
@@ -11,6 +12,7 @@ const Layout: React.FC = () => {
     { name: 'Characters', href: '/characters', icon: '⚔️' },
     { name: 'Campaigns', href: '/campaigns', icon: '🗺️' },
     { name: 'Content', href: '/content', icon: '📚' },
+    { name: 'Help', href: '/help', icon: '❓' },
   ];
 
   const isActive = (href: string) => {
@@ -18,61 +20,51 @@ const Layout: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="app-shell">
+      {/* Skip to main content — keyboard / screen-reader shortcut */}
+      <a href="#main-content" className="skip-link">Skip to main content</a>
+
       {/* Navigation */}
-      <nav className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex">
-              <div className="flex-shrink-0 flex items-center">
-                <h1 className="text-xl font-bold text-gray-900">D&D Campaign Manager</h1>
+      <nav className="top-nav" aria-label="Primary">
+        <div className="top-nav-inner">
+          <div className="brand-area">
+            <Link to="/dashboard" className="brand-link" aria-label="Go to dashboard">
+              <span className="brand-mark" aria-hidden="true">I</span>
+              <div className="brand-copy">
+                <h1 className="brand-title">Initiate</h1>
+                <p className="brand-subtitle">Campaign Companion</p>
               </div>
-              <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+            </Link>
+          </div>
+
+          <div className="top-nav-right">
+            <ul className="nav-links" role="list">
                 {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className={`${
-                      isActive(item.href)
-                        ? 'border-indigo-500 text-gray-900'
-                        : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
-                    } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
-                  >
-                    <span className="mr-2">{item.icon}</span>
-                    {item.name}
-                  </Link>
+                  <li key={item.name} role="listitem">
+                    <Link
+                      to={item.href}
+                      className={`nav-link ${isActive(item.href) ? 'active' : ''}`}
+                      aria-current={isActive(item.href) ? 'page' : undefined}
+                    >
+                      <span className="nav-icon" aria-hidden="true">{item.icon}</span>
+                      {item.name}
+                    </Link>
+                  </li>
                 ))}
-              </div>
-            </div>
-            
-            <div className="hidden sm:ml-6 sm:flex sm:items-center">
-              <div className="ml-3 relative">
-                <div className="flex items-center space-x-4">
-                  <span className="text-sm text-gray-700">
-                    Welcome, {user?.first_name || user?.username}
-                  </span>
-                  <Link
-                    to="/profile"
-                    className="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Profile
-                  </Link>
-                  <button
-                    onClick={logout}
-                    className="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Logout
-                  </button>
-                </div>
-              </div>
+            </ul>
+
+            <div className="account-controls">
+              <span className="welcome-text" aria-live="polite">Welcome, {user?.first_name || user?.username}</span>
+              <Link to="/profile" className="account-link">Profile</Link>
+              <button onClick={logout} className="logout-button" aria-label="Log out of your account">Logout</button>
             </div>
           </div>
         </div>
       </nav>
 
       {/* Main content */}
-      <main>
-        <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <main id="main-content" className="app-main" tabIndex={-1}>
+        <div className="app-main-inner">
           <Outlet />
         </div>
       </main>

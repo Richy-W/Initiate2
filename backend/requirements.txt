@@ -1,5 +1,6 @@
 Django>=4.2,<5.0
 djangorestframework>=3.14
+drf-spectacular>=0.27
 django-cors-headers>=4.0
 python-decouple>=3.6
 djangorestframework-simplejwt>=5.2
@@ -15,8 +16,9 @@ pytest>=7.3
 pytest-django>=4.5
 factory-boy>=3.2
 
-# Production dependencies (commented out for development)
-# psycopg2-binary>=2.9
-# channels-redis>=4.1  
-# redis>=4.5
-# WeasyPrint>=60.0
+# Production dependencies
+psycopg2-binary>=2.9
+channels-redis>=4.1  
+redis>=4.5
+WeasyPrint>=60.0
+gunicorn>=21.2

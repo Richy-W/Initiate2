@@ -6,6 +6,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework import status
+from drf_spectacular.utils import extend_schema, OpenApiResponse, OpenApiTypes
 
 
 def get_content_path():
@@ -13,6 +14,7 @@ def get_content_path():
     return os.path.join(settings.BASE_DIR, '..', 'api', 'content')
 
 
+@extend_schema(tags=['content'], responses={200: OpenApiTypes.OBJECT, 404: OpenApiTypes.OBJECT})
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def species_list(request):
@@ -43,6 +45,7 @@ def species_list(request):
     })
 
 
+@extend_schema(tags=['content'], responses={200: OpenApiTypes.OBJECT, 404: OpenApiTypes.OBJECT})
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def species_detail(request, species_id):
@@ -61,6 +64,7 @@ def species_detail(request, species_id):
         return Response({'error': 'Error loading species data'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
+@extend_schema(tags=['content'], responses={200: OpenApiTypes.OBJECT, 404: OpenApiTypes.OBJECT})
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def classes_list(request):
@@ -90,6 +94,7 @@ def classes_list(request):
     })
 
 
+@extend_schema(tags=['content'], responses={200: OpenApiTypes.OBJECT, 404: OpenApiTypes.OBJECT})
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def classes_detail(request, class_id):
@@ -108,6 +113,7 @@ def classes_detail(request, class_id):
         return Response({'error': 'Error loading class data'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
+@extend_schema(tags=['content'], responses={200: OpenApiTypes.OBJECT, 404: OpenApiTypes.OBJECT})
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def backgrounds_list(request):
@@ -137,6 +143,7 @@ def backgrounds_list(request):
     })
 
 
+@extend_schema(tags=['content'], responses={200: OpenApiTypes.OBJECT, 404: OpenApiTypes.OBJECT})
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def backgrounds_detail(request, background_id):

@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { characterAPI } from '../services/apiClient';
 import { LevelUp } from '../components/Character/LevelUp';
+import { OfficialIdentityHeader } from '../components/Character/OfficialIdentityHeader';
 import { Character } from '../types';
+import { useAuth } from '../contexts/AuthContext';
+import { getUserFriendlyErrorMessage } from '../utils/errorHandling';
+import '../styles/CharacterList.css';
 
 export const CharacterList: React.FC = () => {
   const [characters, setCharacters] = useState<Character[]>([]);
@@ -11,18 +15,67 @@ export const CharacterList: React.FC = () => {
   const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
   const [showLevelUp, setShowLevelUp] = useState(false);
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
+  const [openMenuCharacterId, setOpenMenuCharacterId] = useState<string | null>(null);
+  const { user, isAuthenticated, isLoading: authLoading } = useAuth();
 
   useEffect(() => {
-    fetchCharacters();
+    // Only fetch characters if auth is complete and user is authenticated
+    if (!authLoading && isAuthenticated && user) {
+      fetchCharacters();
+    }
+  }, [isAuthenticated, user, authLoading]);
+
+  useEffect(() => {
+    const handleDocumentClick = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (!target.closest('.dropdown')) {
+        setOpenMenuCharacterId(null);
+      }
+    };
+
+    const handleEscapeKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setOpenMenuCharacterId(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleDocumentClick);
+    document.addEventListener('keydown', handleEscapeKey);
+
+    return () => {
+      document.removeEventListener('mousedown', handleDocumentClick);
+      document.removeEventListener('keydown', handleEscapeKey);
+    };
   }, []);
+
+  // Redirect to login if not authenticated and not loading
+  if (!authLoading && !isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+
+  // Don't render anything while auth is loading
+  if (authLoading) {
+    return (
+      <div className="character-list-page">
+        <div className="loading">Checking authentication...</div>
+      </div>
+    );
+  }
 
   const fetchCharacters = async () => {
     try {
       setLoading(true);
-      const response = await characterAPI.getAll();
+      setError(null);
+      
+      const response = await characterAPI.getAll({ skipGlobalErrorHandler: true });
+      
       setCharacters(response.results || response);
-    } catch (err: any) {
-      setError(err.response?.data?.detail || 'Failed to load characters');
+    } catch (err: unknown) {
+      const parsedMessage = getUserFriendlyErrorMessage(err, 'Failed to load characters.');
+      const errorMessage = parsedMessage.toLowerCase().includes('network')
+        ? 'Cannot reach the backend service. Make sure the backend server is running on localhost:8000, then retry.'
+        : parsedMessage;
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -89,8 +142,13 @@ export const CharacterList: React.FC = () => {
 
       {error && (
         <div className="error-message">
-          {error}
-          <button onClick={() => setError(null)}>&times;</button>
+          <span className="error-message-text">{error}</span>
+          <div className="error-message-actions">
+            <button onClick={fetchCharacters} className="error-retry-button">
+              Retry
+            </button>
+            <button onClick={() => setError(null)} aria-label="Dismiss error">&times;</button>
+          </div>
         </div>
       )}
 
@@ -106,32 +164,28 @@ export const CharacterList: React.FC = () => {
         <div className="characters-grid">
           {characters.map((character) => (
             <div key={character.id} className="character-card">
-              <div className="character-card-header">
-                <h3 className="character-name">{character.name}</h3>
-                <div className="character-level">
-                  Level {character.level}
-                  {canLevelUp(character) && (
-                    <span className="level-up-indicator">⬆️ Ready to level up!</span>
-                  )}
+              <OfficialIdentityHeader
+                compact
+                name={character.name}
+                level={character.level}
+                background={character.background?.name || (character as any).background_name}
+                characterClass={character.character_class?.name || (character as any).class_name}
+                species={character.species?.name || (character as any).species_name}
+              />
+
+              {canLevelUp(character) && (
+                <div className="character-level-up-row">
+                  <span className="level-up-indicator">Ready to level up</span>
                 </div>
-              </div>
+              )}
 
               <div className="character-card-content">
-                <div className="character-details">
-                  <p className="character-class">
-                    {character.species?.name} {character.class_primary?.name}
-                  </p>
-                  <p className="character-background">
-                    {character.background?.name}
-                  </p>
-                </div>
-
                 <div className="character-stats">
                   <div className="stat-group">
                     <div className="stat">
                       <span className="stat-label">HP</span>
                       <span className="stat-value">
-                        {character.hit_points_current}/{character.hit_points_maximum}
+                        {character.current_hit_points}/{character.max_hit_points}
                       </span>
                     </div>
                     <div className="stat">
@@ -185,13 +239,22 @@ export const CharacterList: React.FC = () => {
                   </button>
                 )}
 
-                <div className="dropdown">
-                  <button className="btn btn-secondary dropdown-toggle">
+                <div className={`dropdown ${openMenuCharacterId === character.id ? 'open' : ''}`}>
+                  <button
+                    className="btn btn-secondary dropdown-toggle"
+                    aria-expanded={openMenuCharacterId === character.id}
+                    aria-haspopup="menu"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      setOpenMenuCharacterId((prev) => (prev === character.id ? null : character.id));
+                    }}
+                  >
                     ⋯
                   </button>
                   <div className="dropdown-menu">
                     <button 
                       onClick={() => {
+                        setOpenMenuCharacterId(null);
                         // Add XP functionality
                         const xp = prompt('Enter experience points to add:');
                         if (xp && !isNaN(Number(xp))) {
@@ -204,9 +267,10 @@ export const CharacterList: React.FC = () => {
                     </button>
                     <button 
                       onClick={() => {
+                        setOpenMenuCharacterId(null);
                         // Rest functionality
                         characterAPI.update(character.id, {
-                          hit_points_current: character.hit_points_maximum
+                          current_hit_points: character.max_hit_points
                         }).then(() => fetchCharacters());
                       }}
                       className="dropdown-item"
@@ -215,7 +279,10 @@ export const CharacterList: React.FC = () => {
                     </button>
                     <div className="dropdown-divider"></div>
                     <button 
-                      onClick={() => setDeleteConfirm(character.id)}
+                      onClick={() => {
+                        setOpenMenuCharacterId(null);
+                        setDeleteConfirm(character.id);
+                      }}
                       className="dropdown-item danger"
                     >
                       Delete Character

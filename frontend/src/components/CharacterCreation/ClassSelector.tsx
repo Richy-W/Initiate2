@@ -9,6 +9,27 @@ const ALL_SKILLS = [
   'Sleight of Hand', 'Stealth', 'Survival'
 ];
 
+const SIMPLE_WEAPONS = [
+  'Club', 'Dagger', 'Greatclub', 'Handaxe', 'Javelin', 'Light Hammer',
+  'Mace', 'Quarterstaff', 'Sickle', 'Spear', 'Dart', 'Light Crossbow',
+  'Shortbow', 'Sling'
+];
+
+const MARTIAL_WEAPONS = [
+  'Battleaxe', 'Flail', 'Glaive', 'Greataxe', 'Greatsword', 'Halberd',
+  'Lance', 'Longsword', 'Maul', 'Morningstar', 'Pike', 'Rapier', 'Scimitar',
+  'Shortsword', 'Trident', 'Warhammer', 'War Pick', 'Whip', 'Blowgun',
+  'Hand Crossbow', 'Heavy Crossbow', 'Longbow', 'Musket', 'Pistol'
+];
+
+function getWeaponMasteryPool(weaponProficiencies: string[]): string[] {
+  const hasMartial = weaponProficiencies.some(w => w.toLowerCase().includes('martial'));
+  const hasSimple = weaponProficiencies.some(w => w.toLowerCase().includes('simple'));
+  if (hasMartial) return [...SIMPLE_WEAPONS, ...MARTIAL_WEAPONS];
+  if (hasSimple) return SIMPLE_WEAPONS;
+  return weaponProficiencies;
+}
+
 interface CharacterClass {
   id: string;
   name: string;
@@ -48,14 +69,18 @@ interface ClassSelectorProps {
   selectedClass: CharacterClass | null;
   selectedSkills?: string[];
   selectedEquipment?: { choice: string; items: string[]; gold: number };
+  selectedWeaponMasteryChoices?: string[];
   onClassSelect: (characterClass: CharacterClass, skills?: string[], equipment?: { choice: string; items: string[]; gold: number }) => void;
+  onWeaponMasteryChange?: (choices: string[]) => void;
 }
 
 export const ClassSelector: React.FC<ClassSelectorProps> = ({
   selectedClass,
   selectedSkills: propSelectedSkills = [],
   selectedEquipment: propSelectedEquipment,
+  selectedWeaponMasteryChoices: propWeaponMasteryChoices = [],
   onClassSelect,
+  onWeaponMasteryChange,
 }) => {
   const [classes, setClasses] = useState<CharacterClass[]>([]);
   const [loading, setLoading] = useState(true);
@@ -63,6 +88,9 @@ export const ClassSelector: React.FC<ClassSelectorProps> = ({
   const [selectedSkills, setSelectedSkills] = useState<string[]>(propSelectedSkills);
   const [selectedEquipment, setSelectedEquipment] = useState<string | null>(
     propSelectedEquipment?.choice || null
+  );
+  const [weaponMasteryChoices, setWeaponMasteryChoices] = useState<string[]>(
+    propWeaponMasteryChoices.length ? propWeaponMasteryChoices : ['', '']
   );
 
   // Sync with incoming props
@@ -73,6 +101,10 @@ export const ClassSelector: React.FC<ClassSelectorProps> = ({
   useEffect(() => {
     setSelectedEquipment(propSelectedEquipment?.choice || null);
   }, [propSelectedEquipment]);
+
+  useEffect(() => {
+    setWeaponMasteryChoices(propWeaponMasteryChoices.length ? propWeaponMasteryChoices : ['', '']);
+  }, [propWeaponMasteryChoices]);
 
   useEffect(() => {
     const fetchClasses = async () => {
@@ -96,11 +128,21 @@ export const ClassSelector: React.FC<ClassSelectorProps> = ({
       const selectedClass = classes.find(cls => cls.id === selectedId);
       if (selectedClass) {
         const resetSkills: string[] = [];
+        const resetMastery = ['', ''];
         setSelectedSkills(resetSkills);
         setSelectedEquipment(null);
+        setWeaponMasteryChoices(resetMastery);
+        onWeaponMasteryChange?.(resetMastery);
         onClassSelect(selectedClass, resetSkills, undefined);
       }
     }
+  };
+
+  const handleWeaponMasterySelect = (index: number, weapon: string) => {
+    const updated = [...weaponMasteryChoices];
+    updated[index] = weapon;
+    setWeaponMasteryChoices(updated);
+    onWeaponMasteryChange?.(updated);
   };
 
   const handleSkillToggle = (skill: string) => {
@@ -312,6 +354,39 @@ export const ClassSelector: React.FC<ClassSelectorProps> = ({
                   </ul>
                 </div>
               )}
+
+              {selectedClass.classFeatures?.['1']?.features.some(f => f.name === 'Weapon Mastery') && (() => {
+                const pool = getWeaponMasteryPool(selectedClass.proficiencies?.weapons || []);
+                return (
+                  <div className="weapon-mastery-selection">
+                    <h4>Weapon Mastery Choices</h4>
+                    <p className="weapon-mastery-instruction">
+                      Choose 2 weapons to apply your Weapon Mastery properties to:
+                    </p>
+                    <div className="weapon-mastery-dropdowns">
+                      {[0, 1].map((i) => (
+                        <div key={i} className="weapon-mastery-dropdown">
+                          <label htmlFor={`weapon-mastery-${i}`}>Weapon {i + 1}:</label>
+                          <select
+                            id={`weapon-mastery-${i}`}
+                            value={weaponMasteryChoices[i] || ''}
+                            onChange={(e) => handleWeaponMasterySelect(i, e.target.value)}
+                            className="weapon-mastery-select"
+                          >
+                            <option value="">-- Choose a weapon --</option>
+                            {pool
+                              .filter(w => w !== weaponMasteryChoices[i === 0 ? 1 : 0])
+                              .map(w => (
+                                <option key={w} value={w}>{w}</option>
+                              ))
+                            }
+                          </select>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })()}
 
               {selectedClass.classFeatures && 
                selectedClass.classFeatures['1'] && 

@@ -1,0 +1,643 @@
+/* Inventory Component Styles */
+
+.inventory-container {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.inventory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.inventory-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.5em;
+}
+
+.encumbrance-info {
+  min-width: 200px;
+}
+
+.weight-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.9em;
+}
+
+.encumbrance-status {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+
+.weight-bar {
+  height: 8px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.weight-fill {
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+/* Inventory Tabs */
+.inventory-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tab {
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  font-size: 1em;
+  color: #666;
+  transition: all 0.2s ease;
+}
+
+.tab.active {
+  color: #007bff;
+  border-bottom-color: #007bff;
+  font-weight: 600;
+}
+
+.tab:hover {
+  color: #007bff;
+  background-color: #f8f9fa;
+}
+
+/* Equipment Section */
+.equipment-section {
+  min-height: 300px;
+}
+
+.equipment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.inventory-item {
+  border: 1px solid #e3e6f0;
+  border-radius: 6px;
+  padding: 16px;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+
+.inventory-item:hover {
+  border-color: #007bff;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
+}
+
+.inventory-item.equipped {
+  border-color: #28a745;
+  background-color: #f8fff9;
+}
+
+.item-info {
+  margin-bottom: 12px;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.item-header h5 {
+  margin: 0;
+  color: #333;
+  font-size: 1.1em;
+}
+
+.equipped-badge {
+  background: #28a745;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.item-details {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.item-type {
+  color: #6c757d;
+  font-size: 0.9em;
+  text-transform: capitalize;
+}
+
+.item-weight {
+  color: #6c757d;
+  font-size: 0.9em;
+}
+
+.item-description {
+  color: #666;
+  font-size: 0.9em;
+  margin: 8px 0 0 0;
+  line-height: 1.4;
+}
+
+.item-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quantity-control label {
+  font-size: 0.9em;
+  color: #666;
+  font-weight: 500;
+}
+
+.quantity-input {
+  width: 60px;
+  padding: 4px 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+.quantity-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.item-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.equip-btn, .unequip-btn {
+  padding: 6px 12px;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85em;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.equip-btn {
+  background: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+
+.equip-btn:hover {
+  background: #0056b3;
+  border-color: #0056b3;
+}
+
+.unequip-btn {
+  background: #6c757d;
+  border-color: #6c757d;
+  color: white;
+}
+
+.unequip-btn:hover {
+  background: #545b62;
+  border-color: #545b62;
+}
+
+.remove-btn {
+  width: 28px;
+  height: 28px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.remove-btn:hover {
+  background: #c82333;
+  transform: scale(1.05);
+}
+
+.empty-inventory {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+.empty-inventory p {
+  margin-bottom: 20px;
+  font-size: 1.1em;
+}
+
+.browse-equipment-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.browse-equipment-btn:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
+
+/* Currency Section Enhanced */
+.currency-section {
+  padding: 16px 0;
+}
+
+.currency-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.currency-header h4 {
+  margin: 0;
+  color: #495057;
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+.currency-total {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.total-label {
+  font-size: 0.8em;
+  color: #6c757d;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.total-value {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #28a745;
+}
+
+.currency-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.currency-item {
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.2s ease;
+}
+
+.currency-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #007bff;
+}
+
+.currency-display {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.currency-icon {
+  font-size: 2em;
+  min-width: 40px;
+  text-align: center;
+}
+
+.currency-info {
+  flex: 1;
+}
+
+.currency-info label {
+  display: block;
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 4px;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.currency-amount {
+  display: block;
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #2d3436;
+}
+
+.currency-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.currency-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1.2em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.currency-btn:hover:not(:disabled) {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+.currency-btn.add {
+  background: #28a745;
+}
+
+.currency-btn.add:hover:not(:disabled) {
+  background: #218838;
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+
+.currency-btn.remove {
+  background: #dc3545;
+}
+
+.currency-btn.remove:hover:not(:disabled) {
+  background: #c82333;
+  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+}
+
+.currency-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.currency-tools {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.currency-tool-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 24px;
+  font-size: 0.9em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.currency-tool-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Currency Modal Styles */
+.currency-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  min-width: 300px;
+  max-width: 90vw;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h5 {
+  margin: 0 0 16px 0;
+  color: #495057;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.modal-content input,
+.modal-content select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 1em;
+  margin-bottom: 16px;
+}
+
+.modal-content input:focus,
+.modal-content select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.convert-form {
+  margin: 16px 0;
+}
+
+.convert-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.convert-row label {
+  min-width: 60px;
+  font-weight: 600;
+  color: #495057;
+}
+
+.convert-row select,
+.convert-row input {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.modal-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 80px;
+}
+
+.modal-actions button:first-child {
+  background: #007bff;
+  color: white;
+}
+
+.modal-actions button:first-child:hover:not(:disabled) {
+  background: #0056b3;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+.modal-actions button:first-child:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+.modal-actions button:last-child {
+  background: #6c757d;
+  color: white;
+}
+
+.modal-actions button:last-child:hover {
+  background: #5a6268;
+  transform: translateY(-1px);
+}
+
+.currency-summary {
+  text-align: center;
+  padding: 16px;
+  background: #e7f3ff;
+  border: 1px solid #b6d4fe;
+  border-radius: 6px;
+  font-size: 1.1em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .inventory-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .encumbrance-info {
+    width: 100%;
+  }
+  
+  .item-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .item-actions {
+    justify-content: center;
+  }
+  
+  /* Currency responsive styles */
+  .currency-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .currency-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .currency-total {
+    align-self: flex-end;
+  }
+  
+  .currency-item {
+    padding: 12px;
+  }
+  
+  .currency-amount {
+    font-size: 1.5em;
+  }
+  
+  .modal-content {
+    padding: 20px;
+    min-width: 260px;
+  }
+  
+  .convert-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  
+  .convert-row label {
+    min-width: auto;
+  }
+  
+  .currency-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

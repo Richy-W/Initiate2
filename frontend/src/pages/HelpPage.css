@@ -1,0 +1,181 @@
+.help-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+.help-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--text-primary, #f1f5f9);
+}
+
+.help-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (max-width: 640px) {
+  .help-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Sidebar */
+.help-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.help-nav-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 9px 14px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-secondary, #94a3b8);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.help-nav-btn:hover {
+  background: rgba(255,255,255,0.07);
+  color: var(--text-primary, #f1f5f9);
+}
+
+.help-nav-btn.active {
+  background: rgba(99, 102, 241, 0.18);
+  color: var(--primary, #818cf8);
+  font-weight: 600;
+}
+
+.help-nav-btn:focus-visible {
+  outline: 2px solid var(--primary, #6366f1);
+  outline-offset: 2px;
+}
+
+/* Content panel */
+.help-content {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 28px 32px;
+  color: var(--text-secondary, #cbd5e1);
+  line-height: 1.7;
+}
+
+.help-content h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary, #f1f5f9);
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.help-content h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary, #e2e8f0);
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.help-content p {
+  margin-bottom: 12px;
+}
+
+.help-content ol,
+.help-content ul {
+  padding-left: 22px;
+  margin-bottom: 12px;
+}
+
+.help-content li {
+  margin-bottom: 6px;
+}
+
+.help-content a {
+  color: var(--primary, #818cf8);
+  text-decoration: underline;
+}
+
+/* Keyboard shortcut table */
+.help-content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  margin-top: 8px;
+}
+
+.help-content th,
+.help-content td {
+  padding: 8px 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  text-align: left;
+}
+
+.help-content th {
+  background: rgba(255,255,255,0.05);
+  font-weight: 600;
+  color: var(--text-primary, #f1f5f9);
+}
+
+.help-content kbd {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.06);
+  font-family: monospace;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+/* FAQ accordions */
+.help-content details {
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+}
+
+.help-content details[open] {
+  background: rgba(255,255,255,0.02);
+}
+
+.help-content summary {
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text-primary, #e2e8f0);
+  list-style: none;
+}
+
+.help-content summary::-webkit-details-marker {
+  display: none;
+}
+
+.help-content summary::before {
+  content: '▶ ';
+  font-size: 0.7rem;
+  margin-right: 4px;
+  color: var(--primary, #818cf8);
+}
+
+.help-content details[open] summary::before {
+  content: '▼ ';
+}
+
+.help-content details p {
+  margin-top: 10px;
+  margin-bottom: 0;
+}

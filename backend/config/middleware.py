@@ -35,8 +35,20 @@ def custom_exception_handler(exc, context):
 
         # Handle different types of errors
         if isinstance(exc, DRFValidationError):
-            custom_response_data['message'] = 'Validation failed'
             custom_response_data['errors'] = response.data
+            # Extract the first useful error message instead of a generic fallback
+            first_message = 'Validation failed'
+            errors = response.data
+            if isinstance(errors, dict):
+                for field, messages in errors.items():
+                    if isinstance(messages, list) and messages:
+                        first_message = f'{messages[0]}'
+                    elif isinstance(messages, str):
+                        first_message = messages
+                    break
+            elif isinstance(errors, list) and errors:
+                first_message = str(errors[0])
+            custom_response_data['message'] = first_message
         elif hasattr(response.data, 'get'):
             # Handle standard DRF errors
             if 'detail' in response.data:

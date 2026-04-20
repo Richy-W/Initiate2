@@ -1,0 +1,348 @@
+/* Encumbrance Status Component Styles */
+
+.encumbrance-status {
+  background: #ffffff;
+  border: 1px solid #e3e6f0;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 8px 0;
+  transition: all 0.2s ease;
+}
+
+.encumbrance-status.warning {
+  border-color: #f6c343;
+  background: #fffbf0;
+}
+
+.encumbrance-status.danger {
+  border-color: #e74a3b;
+  background: #fdf2f2;
+}
+
+/* Header Section */
+.encumbrance-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.encumbrance-icon {
+  font-size: 1.5em;
+  min-width: 32px;
+  text-align: center;
+}
+
+.encumbrance-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.weight-display {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.current-weight {
+  color: #2d3436;
+}
+
+.weight-separator {
+  color: #636e72;
+  margin: 0 4px;
+}
+
+.max-weight {
+  color: #636e72;
+  font-weight: 500;
+}
+
+.encumbrance-label {
+  font-size: 0.85em;
+  color: #6c757d;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.encumbrance-status.warning .encumbrance-label {
+  color: #d68910;
+}
+
+.encumbrance-status.danger .encumbrance-label {
+  color: #c0392b;
+}
+
+.encumbrance-percentage {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #495057;
+  min-width: 50px;
+  text-align: right;
+}
+
+.encumbrance-status.warning .encumbrance-percentage {
+  color: #d68910;
+}
+
+.encumbrance-status.danger .encumbrance-percentage {
+  color: #c0392b;
+}
+
+/* Weight Bar */
+.weight-bar {
+  position: relative;
+  height: 12px;
+  background: #e9ecef;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.weight-fill {
+  height: 100%;
+  background: #28a745;
+  transition: width 0.3s ease, background-color 0.3s ease;
+  border-radius: 6px 0 0 6px;
+}
+
+.weight-fill.warning {
+  background: #ffc107;
+}
+
+.weight-fill.danger {
+  background: #dc3545;
+}
+
+.weight-overflow {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    #dc3545,
+    #dc3545 4px,
+    #ffffff 4px,
+    #ffffff 8px
+  );
+  border-radius: 0 6px 6px 0;
+  animation: overflow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes overflow-pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* Threshold markers */
+.threshold {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+.normal-threshold {
+  left: 100%;
+  background: #495057;
+}
+
+.encumbered-threshold {
+  left: 200%;
+  background: #dc3545;
+  display: none; /* Only show when relevant */
+}
+
+/* Detailed Penalties */
+.encumbrance-details {
+  margin-top: 12px;
+  border-top: 1px solid #e9ecef;
+  padding-top: 12px;
+}
+
+.penalty-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.penalty-item:last-child {
+  margin-bottom: 0;
+}
+
+.speed-penalty {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  color: #856404;
+}
+
+.disadvantage-penalty {
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+
+.no-penalty {
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+
+.penalty-icon {
+  font-size: 1.1em;
+  min-width: 20px;
+}
+
+.penalty-text {
+  flex: 1;
+}
+
+/* Summary for non-detailed view */
+.encumbrance-summary {
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  font-size: 0.85em;
+  color: #495057;
+  font-style: italic;
+}
+
+.encumbrance-status.warning .encumbrance-summary {
+  background: rgba(246, 195, 67, 0.1);
+  color: #d68910;
+}
+
+.encumbrance-status.danger .encumbrance-summary {
+  background: rgba(231, 74, 59, 0.1);
+  color: #c0392b;
+}
+
+/* Compact variant */
+.encumbrance-status.compact {
+  padding: 12px;
+}
+
+.encumbrance-status.compact .encumbrance-header {
+  margin-bottom: 8px;
+}
+
+.encumbrance-status.compact .weight-display {
+  font-size: 1em;
+}
+
+.encumbrance-status.compact .encumbrance-percentage {
+  font-size: 1.1em;
+}
+
+.encumbrance-status.compact .weight-bar {
+  height: 8px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .encumbrance-status {
+    padding: 12px;
+  }
+  
+  .encumbrance-header {
+    gap: 8px;
+  }
+  
+  .weight-display {
+    font-size: 1em;
+  }
+  
+  .encumbrance-percentage {
+    font-size: 1.1em;
+  }
+  
+  .penalty-item {
+    padding: 6px;
+    font-size: 0.85em;
+  }
+}
+
+@media (max-width: 480px) {
+  .encumbrance-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .encumbrance-info {
+    width: 100%;
+  }
+  
+  .encumbrance-percentage {
+    align-self: flex-end;
+  }
+}
+
+/* Hover effects for interactive elements */
+.encumbrance-status:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+/* Animation for status changes */
+.encumbrance-status {
+  animation: status-update 0.3s ease-out;
+}
+
+@keyframes status-update {
+  from {
+    transform: scale(0.98);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Tooltip styles for thresholds */
+.threshold[title] {
+  cursor: help;
+}
+
+.threshold[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75em;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.threshold[title]:hover::before {
+  content: '';
+  position: absolute;
+  bottom: calc(100% - 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid rgba(0, 0, 0, 0.8);
+  z-index: 10;
+}

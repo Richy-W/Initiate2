@@ -1,9 +1,21 @@
 import React, { useState } from 'react';
 
 interface Character {
-  ability_scores: Record<string, number>;
+  strength: number;
+  dexterity: number;
+  constitution: number;
+  intelligence: number;
+  wisdom: number;
+  charisma: number;
+  total_strength?: number;
+  total_dexterity?: number;
+  total_constitution?: number;
+  total_intelligence?: number;
+  total_wisdom?: number;
+  total_charisma?: number;
   proficiency_bonus: number;
-  class_primary: any;
+  saving_throw_proficiencies?: string[] | Record<string, any> | string | null;
+  character_class?: any;
 }
 
 interface SavingThrowsProps {
@@ -27,22 +39,120 @@ const SAVING_THROWS = {
   charisma: 'Charisma',
 };
 
+const ABILITY_ALIAS_MAP: Record<string, string> = {
+  str: 'strength',
+  strength: 'strength',
+  dex: 'dexterity',
+  dexterity: 'dexterity',
+  con: 'constitution',
+  constitution: 'constitution',
+  int: 'intelligence',
+  intelligence: 'intelligence',
+  wis: 'wisdom',
+  wisdom: 'wisdom',
+  cha: 'charisma',
+  charisma: 'charisma',
+};
+
 export const SavingThrows: React.FC<SavingThrowsProps> = ({ character }) => {
   const [saveResults, setSaveResults] = useState<SaveResult[]>([]);
   const [advantage, setAdvantage] = useState<string | null>(null);
   const [disadvantage, setDisadvantage] = useState<string | null>(null);
+
+  const normalizeToArray = (value: unknown): any[] => {
+    if (Array.isArray(value)) return value;
+    if (value == null) return [];
+
+    if (typeof value === 'string') {
+      const trimmed = value.trim();
+      if (!trimmed) return [];
+
+      // Python-style list literal: ['Wisdom', 'Charisma']
+      if (trimmed.startsWith('[')) {
+        // Try standard JSON first
+        try {
+          const parsed = JSON.parse(trimmed);
+          return normalizeToArray(parsed);
+        } catch {
+          // Fall back: treat as Python list with single quotes
+          const inner = trimmed.slice(1, -1).trim();
+          if (!inner) return [];
+          return inner
+            .split(',')
+            .map((s) => s.trim().replace(/^['"]+|['"]+$/g, '').trim())
+            .filter(Boolean);
+        }
+      }
+
+      if (trimmed.startsWith('{')) {
+        try {
+          return normalizeToArray(JSON.parse(trimmed));
+        } catch {
+          return [value];
+        }
+      }
+
+      // Comma-separated plain string e.g. "Wisdom, Charisma"
+      if (trimmed.includes(',')) {
+        return trimmed.split(',').map((s) => s.trim()).filter(Boolean);
+      }
+
+      return [value];
+    }
+
+    if (typeof value === 'object') {
+      const obj = value as Record<string, any>;
+      if (Array.isArray(obj.items)) return obj.items;
+      if (Array.isArray(obj.results)) return obj.results;
+      return Object.values(obj);
+    }
+
+    return [value];
+  };
+
+  const savingThrowProficiencies = normalizeToArray(character?.saving_throw_proficiencies)
+    .map((value) => {
+      const raw =
+        typeof value === 'string'
+          ? value
+          : value?.name || value?.id || value?.ability || null;
+
+      if (!raw) return null;
+
+      const normalized = ABILITY_ALIAS_MAP[String(raw).trim().toLowerCase()];
+      if (normalized) return normalized;
+
+      return null;
+    })
+    .filter(Boolean) as string[];
+
+  // Don't render if character data isn't ready
+  if (!character) {
+    return <div className="saving-throws">Loading saving throws...</div>;
+  }
 
   const getAbilityModifier = (score: number): number => {
     return Math.floor((score - 10) / 2);
   };
 
   const getSavingThrowBonus = (ability: string): number => {
-    const abilityScore = character.ability_scores[ability] || 10;
+    if (!character) return 0;
+    
+    const abilityScores: Record<string, number> = {
+      strength: character.total_strength ?? character.strength ?? 10,
+      dexterity: character.total_dexterity ?? character.dexterity ?? 10,
+      constitution: character.total_constitution ?? character.constitution ?? 10,
+      intelligence: character.total_intelligence ?? character.intelligence ?? 10,
+      wisdom: character.total_wisdom ?? character.wisdom ?? 10,
+      charisma: character.total_charisma ?? character.charisma ?? 10,
+    };
+    
+    const abilityScore = abilityScores[ability] || 10;
     const abilityModifier = getAbilityModifier(abilityScore);
     
-    // Check if proficient in this saving throw (from class)
-    const isProficient = character.class_primary?.saving_throw_proficiencies?.includes(ability) || false;
-    const proficiencyBonus = isProficient ? character.proficiency_bonus : 0;
+    // Check if proficient in this saving throw (from character's saving_throw_proficiencies)
+    const isProficient = savingThrowProficiencies.includes(ability);
+    const proficiencyBonus = isProficient ? (character.proficiency_bonus || 0) : 0;
     
     return abilityModifier + proficiencyBonus;
   };
@@ -85,7 +195,7 @@ export const SavingThrows: React.FC<SavingThrowsProps> = ({ character }) => {
   };
 
   const isProficient = (ability: string): boolean => {
-    return character.class_primary?.saving_throw_proficiencies?.includes(ability) || false;
+    return savingThrowProficiencies.includes(ability);
   };
 
   return (
@@ -94,7 +204,7 @@ export const SavingThrows: React.FC<SavingThrowsProps> = ({ character }) => {
         <h4>Save Modifiers</h4>
         <div className="modifier-buttons">
           <button
-            className={`btn btn-small ${advantage ? 'active' : ''}`}
+            className={`btn-small ${advantage ? 'active' : ''}`}
             onClick={() => {
               setAdvantage(advantage ? null : 'next');
               setDisadvantage(null);
@@ -103,7 +213,7 @@ export const SavingThrows: React.FC<SavingThrowsProps> = ({ character }) => {
             Advantage
           </button>
           <button
-            className={`btn btn-small ${disadvantage ? 'active' : ''}`}
+            className={`btn-small ${disadvantage ? 'active' : ''}`}
             onClick={() => {
               setDisadvantage(disadvantage ? null : 'next');
               setAdvantage(null);
@@ -118,22 +228,19 @@ export const SavingThrows: React.FC<SavingThrowsProps> = ({ character }) => {
         {Object.entries(SAVING_THROWS).map(([abilityKey, abilityName]) => {
           const bonus = getSavingThrowBonus(abilityKey);
           const proficient = isProficient(abilityKey);
+          const proficiencyState = proficient ? 'proficient' : 'none';
           
           return (
             <div key={abilityKey} className="save-row">
               <div className="save-info">
+                <span className={`proficiency-dot ${proficiencyState}`} aria-hidden="true" />
                 <span className="save-name">{abilityName}</span>
-                {proficient && <span className="proficiency-indicator">●</span>}
-              </div>
-              
-              <div className="save-bonus">
-                {bonus >= 0 ? '+' : ''}{bonus}
               </div>
               
               <button
-                className={`btn btn-roll ${
-                  advantage === abilityKey ? 'advantage' :
-                  disadvantage === abilityKey ? 'disadvantage' : ''
+                type="button"
+                className={`save-bonus bonus-roll-button ${
+                  advantage === abilityKey ? 'advantage' : disadvantage === abilityKey ? 'disadvantage' : ''
                 }`}
                 onClick={() => {
                   if (advantage === 'next') {
@@ -144,7 +251,7 @@ export const SavingThrows: React.FC<SavingThrowsProps> = ({ character }) => {
                   rollSavingThrow(abilityKey);
                 }}
               >
-                Roll
+                {bonus >= 0 ? '+' : ''}{bonus}
               </button>
             </div>
           );
@@ -155,29 +262,22 @@ export const SavingThrows: React.FC<SavingThrowsProps> = ({ character }) => {
         <div className="save-history">
           <h4>Recent Saves</h4>
           <div className="save-results">
-            {saveResults.map((result, index) => (
-              <div key={`${result.ability}-${result.timestamp}`} className="save-result">
-                <span className="save-ability">{SAVING_THROWS[result.ability as keyof typeof SAVING_THROWS]}:</span>
-                <span className="save-dice">d20: {result.roll}</span>
-                <span className="save-bonus">+{result.bonus}</span>
-                <span className={`save-total ${
-                  result.roll === 20 ? 'critical-success' :
-                  result.roll === 1 ? 'critical-failure' : ''
-                }`}>
-                  = {result.total}
-                </span>
+            {saveResults.map((result) => (
+              <div key={`${result.ability}-${result.timestamp}`} className="roll-result">
+                <div className="result-header">
+                  {SAVING_THROWS[result.ability as keyof typeof SAVING_THROWS]} Save: {result.total}
+                </div>
+                <div className="result-details">
+                  d20: {result.roll} + {result.bonus}
+                  {result.roll === 20 && ' (Critical Success!)'}
+                  {result.roll === 1 && ' (Critical Failure!)'}
+                </div>
               </div>
             ))}
           </div>
         </div>
       )}
       
-      <div className="save-legend">
-        <h4>Legend</h4>
-        <div className="legend-items">
-          <span>● Proficient</span>
-        </div>
-      </div>
     </div>
   );
 };

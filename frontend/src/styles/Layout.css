@@ -1,0 +1,244 @@
+.app-shell {
+  min-height: 100vh;
+  background: transparent;
+}
+
+/* Skip-to-content link — visible only on focus for keyboard users */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  padding: 8px 16px;
+  background: var(--primary, #6366f1);
+  color: #fff;
+  font-weight: 600;
+  z-index: 9999;
+  border-radius: 0 0 4px 0;
+  transition: top 0.1s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 110;
+  border-bottom: 1px solid var(--app-border);
+  background:
+    linear-gradient(180deg, rgba(16, 22, 40, 0.96), rgba(13, 18, 34, 0.94));
+  backdrop-filter: blur(10px);
+}
+
+.top-nav-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-area {
+  min-width: 0;
+}
+
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--app-ink-0);
+}
+
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, var(--app-accent), #7a9bff);
+  box-shadow: 0 6px 18px rgba(95, 132, 255, 0.35);
+}
+
+.brand-copy {
+  display: grid;
+  gap: 1px;
+}
+
+.brand-title {
+  margin: 0;
+  font-size: 1.45rem;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  color: #f4f7ff;
+}
+
+.brand-subtitle {
+  margin: 0;
+  font-size: 0.73rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--app-ink-1);
+}
+
+.top-nav-right {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--app-ink-1);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 7px 11px;
+  font-size: 0.87rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: all 140ms ease;
+}
+
+.nav-link:hover {
+  color: #eef3ff;
+  border-color: #4f6298;
+  background: rgba(95, 132, 255, 0.12);
+}
+
+.nav-link.active {
+  color: #ffffff;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--app-accent), #7a9bff);
+  box-shadow: 0 7px 18px rgba(95, 132, 255, 0.3);
+}
+
+.nav-icon {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.account-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 12px;
+  margin-left: 4px;
+  border-left: 1px solid var(--app-border);
+}
+
+.welcome-text {
+  color: var(--app-ink-1);
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.account-link,
+.logout-button {
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid var(--app-border);
+  background: #141c31;
+  color: var(--app-ink-0);
+}
+
+.account-link:hover,
+.logout-button:hover {
+  border-color: #6075b5;
+  background: #1d2a4a;
+}
+
+.logout-button {
+  background: #21162b;
+  border-color: #65417b;
+  color: #ffdeef;
+}
+
+.logout-button:hover {
+  border-color: #8f53b1;
+  background: #2c1d39;
+}
+
+.app-main {
+  width: 100%;
+}
+
+.app-main-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 18px 20px 28px;
+}
+
+@media (max-width: 1080px) {
+  .top-nav-inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .top-nav-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .account-controls {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
+@media (max-width: 740px) {
+  .brand-title {
+    font-size: 1.3rem;
+  }
+
+  .top-nav-right {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .nav-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nav-link {
+    justify-content: center;
+  }
+
+  .account-controls {
+    justify-content: space-between;
+  }
+
+  .welcome-text {
+    max-width: 42%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

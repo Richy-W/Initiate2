@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from django.core.validators import MinValueValidator, MaxValueValidator
 import json
 
@@ -303,9 +304,20 @@ class Equipment(BaseContentModel):
         ('mount', 'Mount/Vehicle'),
     ]
     
+    RARITY_CHOICES = [
+        ('common', 'Common'),
+        ('uncommon', 'Uncommon'),
+        ('rare', 'Rare'),
+        ('very_rare', 'Very Rare'),
+        ('legendary', 'Legendary'),
+        ('artifact', 'Artifact'),
+    ]
+    
     equipment_type = models.CharField(max_length=20, choices=TYPE_CHOICES)
-    cost = JSONField(default=dict, help_text="Cost in different currencies")
+    category = models.CharField(max_length=50, default='', help_text="Equipment category")
+    cost = JSONField(default=dict, help_text="Cost in different currencies") 
     weight = models.FloatField(default=0.0, help_text="Weight in pounds")
+    rarity = models.CharField(max_length=20, choices=RARITY_CHOICES, default='common')
     
     # Armor specific
     armor_class = models.PositiveIntegerField(null=True, blank=True)
@@ -415,3 +427,82 @@ class MagicItem(BaseContentModel):
     # Curse information
     cursed = models.BooleanField(default=False)
     curse_description = models.TextField(blank=True)
+    curse_description = models.TextField(blank=True)
+
+
+class HomebrewContent(models.Model):
+    """Custom content created by DMs."""
+
+    CONTENT_TYPES = [
+        ('species', 'Species'),
+        ('class', 'Class'),
+        ('background', 'Background'),
+        ('spell', 'Spell'),
+        ('equipment', 'Equipment'),
+        ('feat', 'Feat'),
+        ('monster', 'Monster'),
+        ('magic_item', 'Magic Item'),
+        ('other', 'Other'),
+    ]
+
+    STATUS_CHOICES = [
+        ('draft', 'Draft'),
+        ('published', 'Published'),
+        ('archived', 'Archived'),
+    ]
+
+    creator = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='homebrew_content',
+    )
+    content_type = models.CharField(max_length=20, choices=CONTENT_TYPES)
+    name = models.CharField(max_length=200)
+    description = models.TextField(blank=True)
+    data = JSONField(default=dict)
+    dependencies = JSONField(default=list)
+    version = models.PositiveIntegerField(default=1)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='draft')
+    is_public = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-updated_at']
+
+    def __str__(self):
+        return f"{self.name} ({self.content_type}) v{self.version}"
+
+    def publish_new_version(self):
+        self.version += 1
+        self.status = 'published'
+        self.save()
+
+
+class ContentSharingPermission(models.Model):
+    """Controls which campaigns can access homebrew content."""
+
+    PERMISSION_TYPES = [
+        ('view', 'View'),
+        ('use', 'Use in characters'),
+    ]
+
+    content = models.ForeignKey(HomebrewContent, on_delete=models.CASCADE, related_name='permissions')
+    campaign = models.ForeignKey(
+        'campaigns.Campaign',
+        on_delete=models.CASCADE,
+        related_name='homebrew_permissions',
+        null=True, blank=True,
+    )
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='received_homebrew_permissions',
+        null=True, blank=True,
+    )
+    permission_type = models.CharField(max_length=10, choices=PERMISSION_TYPES, default='view')
+    granted_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        target = self.campaign or self.user
+        return f"{self.content.name} → {target} ({self.permission_type})"

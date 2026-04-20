@@ -1,38 +1,92 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
+import campaignService from '../services/campaignService';
+import '../styles/pages.css';
 
 const DashboardPage: React.FC = () => {
+  const { user } = useAuth();
+  const [campaignCount, setCampaignCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    campaignService.list().then(c => setCampaignCount(c.length)).catch(() => setCampaignCount(0));
+  }, []);
+
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-        <p className="text-gray-600">Welcome to your D&D Campaign Manager</p>
-      </div>
+    <div className="pg-shell">
+      <div className="pg-inner">
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div className="bg-white p-6 rounded-lg shadow">
-          <h3 className="text-lg font-medium text-gray-900 mb-2">Quick Actions</h3>
-          <div className="space-y-2">
-            <a href="/characters/new" className="block text-indigo-600 hover:text-indigo-800">
-              Create New Character
-            </a>
-            <a href="/campaigns" className="block text-indigo-600 hover:text-indigo-800">
-              View Campaigns
-            </a>
+        {/* Hero */}
+        <div className="pg-hero">
+          <div className="pg-hero-text">
+            <h1>Welcome back{user?.first_name ? `, ${user.first_name}` : user?.username ? `, ${user.username}` : ''}!</h1>
+            <p>Your adventure command centre.</p>
+          </div>
+          <div className="pg-hero-actions">
+            <Link to="/characters/create" className="pg-btn pg-btn--primary">⚔️ New Character</Link>
+            <Link to="/campaigns" className="pg-btn">🗺️ Campaigns</Link>
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow">
-          <h3 className="text-lg font-medium text-gray-900 mb-2">Recent Activity</h3>
-          <p className="text-gray-600">No recent activity</p>
-        </div>
-
-        <div className="bg-white p-6 rounded-lg shadow">
-          <h3 className="text-lg font-medium text-gray-900 mb-2">Statistics</h3>
-          <div className="space-y-1">
-            <p className="text-sm text-gray-600">Characters: 0</p>
-            <p className="text-sm text-gray-600">Campaigns: 0</p>
+        {/* Stat chips */}
+        <div className="pg-stats-row">
+          <div className="pg-stat-chip">
+            <span className="pg-stat-chip__icon">🗺️</span>
+            <span className="pg-stat-chip__value">{campaignCount ?? '—'}</span>
+            <span className="pg-stat-chip__label">Campaigns</span>
+          </div>
+          <div className="pg-stat-chip">
+            <span className="pg-stat-chip__icon">📚</span>
+            <span className="pg-stat-chip__value">12</span>
+            <span className="pg-stat-chip__label">Classes available</span>
+          </div>
+          <div className="pg-stat-chip">
+            <span className="pg-stat-chip__icon">🌿</span>
+            <span className="pg-stat-chip__value">11</span>
+            <span className="pg-stat-chip__label">Species available</span>
+          </div>
+          <div className="pg-stat-chip">
+            <span className="pg-stat-chip__icon">🧙</span>
+            <span className="pg-stat-chip__value">5</span>
+            <span className="pg-stat-chip__label">Backgrounds available</span>
           </div>
         </div>
+
+        {/* Two-col */}
+        <div className="pg-two-col">
+          {/* Quick actions */}
+          <div className="pg-card">
+            <p className="pg-card-title">Quick actions</p>
+            <nav className="pg-action-list" aria-label="Quick actions">
+              <Link to="/characters/create" className="pg-action-item">
+                <span className="pg-action-item__icon">⚔️</span>
+                <span>Create a new character</span>
+              </Link>
+              <Link to="/campaigns" className="pg-action-item">
+                <span className="pg-action-item__icon">🗺️</span>
+                <span>Browse your campaigns</span>
+              </Link>
+              <Link to="/content" className="pg-action-item">
+                <span className="pg-action-item__icon">📚</span>
+                <span>Browse D&D content</span>
+              </Link>
+              <Link to="/help" className="pg-action-item">
+                <span className="pg-action-item__icon">❓</span>
+                <span>Help &amp; documentation</span>
+              </Link>
+            </nav>
+          </div>
+
+          {/* Recent activity */}
+          <div className="pg-card">
+            <p className="pg-card-title">Recent activity</p>
+            <div className="pg-empty" style={{ padding: '32px 0 16px' }}>
+              <span className="pg-empty__icon">🕐</span>
+              <p className="pg-empty__body">Activity will appear here as you create characters and join campaigns.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   );

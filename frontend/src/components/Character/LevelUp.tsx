@@ -34,11 +34,11 @@ export const LevelUp: React.FC<LevelUpProps> = ({ character, onLevelUp, onClose 
   };
 
   const getConstitutionModifier = (): number => {
-    return getAbilityModifier(character.ability_scores.constitution || 10);
+    return getAbilityModifier(character.constitution || 10);
   };
 
   const getHitDie = (): number => {
-    return character.class_primary?.hit_die || 6;
+    return character.character_class?.hit_die || 6;
   };
 
   const rollHitPoints = () => {
@@ -77,7 +77,7 @@ export const LevelUp: React.FC<LevelUpProps> = ({ character, onLevelUp, onClose 
 
   const getNewFeatures = (): any[] => {
     const newLevel = character.level + 1;
-    const classFeatures = character.class_primary?.features || [];
+    const classFeatures = character.character_class?.features || [];
     return classFeatures.filter((feature: any) => feature.level === newLevel);
   };
 
@@ -147,7 +147,7 @@ export const LevelUp: React.FC<LevelUpProps> = ({ character, onLevelUp, onClose 
               <div className="hp-result">
                 <h4>Hit Points Gained: {levelUpData.hitPointsGained}</h4>
                 <p>Roll: {levelUpData.hitPointRoll} + {getConstitutionModifier()} = {levelUpData.hitPointsGained}</p>
-                <p>New Maximum HP: {character.hit_points_maximum + levelUpData.hitPointsGained}</p>
+                <p>New Maximum HP: {character.max_hit_points + levelUpData.hitPointsGained}</p>
                 
                 <button 
                   onClick={() => {
@@ -178,9 +178,16 @@ export const LevelUp: React.FC<LevelUpProps> = ({ character, onLevelUp, onClose 
                     value={levelUpData.abilityScoreImprovement?.ability1 || ''}
                   >
                     <option value="">Choose first ability...</option>
-                    {Object.keys(character.ability_scores).map(ability => (
-                      <option key={ability} value={ability}>
-                        {ability.charAt(0).toUpperCase() + ability.slice(1)} ({character.ability_scores[ability]})
+                    {[
+                      { key: 'strength', name: 'Strength', value: character.strength },
+                      { key: 'dexterity', name: 'Dexterity', value: character.dexterity },
+                      { key: 'constitution', name: 'Constitution', value: character.constitution },
+                      { key: 'intelligence', name: 'Intelligence', value: character.intelligence },
+                      { key: 'wisdom', name: 'Wisdom', value: character.wisdom },
+                      { key: 'charisma', name: 'Charisma', value: character.charisma },
+                    ].map(({ key, name, value }) => (
+                      <option key={key} value={key}>
+                        {name} ({value})
                       </option>
                     ))}
                   </select>
@@ -190,13 +197,20 @@ export const LevelUp: React.FC<LevelUpProps> = ({ character, onLevelUp, onClose 
                     value={levelUpData.abilityScoreImprovement?.ability2 || ''}
                   >
                     <option value="">Choose second ability...</option>
-                    {Object.keys(character.ability_scores).map(ability => (
+                    {[
+                      { key: 'strength', name: 'Strength', value: character.strength },
+                      { key: 'dexterity', name: 'Dexterity', value: character.dexterity },
+                      { key: 'constitution', name: 'Constitution', value: character.constitution },
+                      { key: 'intelligence', name: 'Intelligence', value: character.intelligence },
+                      { key: 'wisdom', name: 'Wisdom', value: character.wisdom },
+                      { key: 'charisma', name: 'Charisma', value: character.charisma },
+                    ].map(({ key, name, value }) => (
                       <option 
-                        key={ability} 
-                        value={ability}
-                        disabled={ability === levelUpData.abilityScoreImprovement?.ability1}
+                        key={key} 
+                        value={key}
+                        disabled={key === levelUpData.abilityScoreImprovement?.ability1}
                       >
-                        {ability.charAt(0).toUpperCase() + ability.slice(1)} ({character.ability_scores[ability]})
+                        {name} ({value})
                       </option>
                     ))}
                   </select>
@@ -210,9 +224,16 @@ export const LevelUp: React.FC<LevelUpProps> = ({ character, onLevelUp, onClose 
                   value={levelUpData.abilityScoreImprovement?.ability1 || ''}
                 >
                   <option value="">Choose ability...</option>
-                  {Object.keys(character.ability_scores).map(ability => (
-                    <option key={ability} value={ability}>
-                      {ability.charAt(0).toUpperCase() + ability.slice(1)} ({character.ability_scores[ability]})
+                  {[
+                    { key: 'strength', name: 'Strength', value: character.strength },
+                    { key: 'dexterity', name: 'Dexterity', value: character.dexterity },
+                    { key: 'constitution', name: 'Constitution', value: character.constitution },
+                    { key: 'intelligence', name: 'Intelligence', value: character.intelligence },
+                    { key: 'wisdom', name: 'Wisdom', value: character.wisdom },
+                    { key: 'charisma', name: 'Charisma', value: character.charisma },
+                  ].map(({ key, name, value }) => (
+                    <option key={key} value={key}>
+                      {name} ({value})
                     </option>
                   ))}
                 </select>
@@ -249,7 +270,7 @@ export const LevelUp: React.FC<LevelUpProps> = ({ character, onLevelUp, onClose 
               <h4>Level {character.level} → {character.level + 1}</h4>
               
               <div className="summary-item">
-                <strong>Hit Points:</strong> {character.hit_points_maximum} → {character.hit_points_maximum + levelUpData.hitPointsGained}
+                <strong>Hit Points:</strong> {character.max_hit_points} → {character.max_hit_points + levelUpData.hitPointsGained}
                 (+{levelUpData.hitPointsGained})
               </div>
               
@@ -258,14 +279,14 @@ export const LevelUp: React.FC<LevelUpProps> = ({ character, onLevelUp, onClose 
                   <strong>Ability Score Improvements:</strong>
                   <div>
                     {levelUpData.abilityScoreImprovement.ability1}: 
-                    {character.ability_scores[levelUpData.abilityScoreImprovement.ability1]} → 
-                    {character.ability_scores[levelUpData.abilityScoreImprovement.ability1] + (levelUpData.abilityScoreImprovement.ability2 ? 1 : 2)}
+                    {(character as any)[levelUpData.abilityScoreImprovement.ability1]} → 
+                    {(character as any)[levelUpData.abilityScoreImprovement.ability1] + (levelUpData.abilityScoreImprovement.ability2 ? 1 : 2)}
                   </div>
                   {levelUpData.abilityScoreImprovement.ability2 && (
                     <div>
                       {levelUpData.abilityScoreImprovement.ability2}: 
-                      {character.ability_scores[levelUpData.abilityScoreImprovement.ability2]} → 
-                      {character.ability_scores[levelUpData.abilityScoreImprovement.ability2] + 1}
+                      {(character as any)[levelUpData.abilityScoreImprovement.ability2]} → 
+                      {(character as any)[levelUpData.abilityScoreImprovement.ability2] + 1}
                     </div>
                   )}
                 </div>

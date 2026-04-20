@@ -4,15 +4,20 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from django_filters.rest_framework import DjangoFilterBackend
 from django.db.models import Q
+from django.core.cache import cache
+from drf_spectacular.utils import extend_schema
+from apps.common.audit import log_audit_event
 
 from .models import (
     Species, CharacterClass, Background, Spell, Equipment, 
-    ClassFeature, Skill, Condition, DamageType
+    ClassFeature, Skill, Condition, DamageType,
+    HomebrewContent, ContentSharingPermission,
 )
 from .serializers import (
     SpeciesSerializer, CharacterClassSerializer, BackgroundSerializer,
     SpellSerializer, EquipmentSerializer, ClassFeatureSerializer,
-    SkillSerializer, ConditionSerializer, DamageTypeSerializer
+    SkillSerializer, ConditionSerializer, DamageTypeSerializer,
+    HomebrewContentSerializer, ContentSharingPermissionSerializer,
 )
 
 
@@ -22,8 +27,35 @@ class ContentViewSetMixin:
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     ordering_fields = ['name']
     ordering = ['name']
+    cache_timeout_seconds = 60
+
+    def _cache_key(self, request):
+        return f"content:{self.__class__.__name__}:{self.action}:{request.get_full_path()}"
+
+    def list(self, request, *args, **kwargs):
+        cache_key = self._cache_key(request)
+        cached_data = cache.get(cache_key)
+        if cached_data is not None:
+            return Response(cached_data)
+
+        response = super().list(request, *args, **kwargs)
+        if response.status_code == status.HTTP_200_OK:
+            cache.set(cache_key, response.data, self.cache_timeout_seconds)
+        return response
+
+    def retrieve(self, request, *args, **kwargs):
+        cache_key = self._cache_key(request)
+        cached_data = cache.get(cache_key)
+        if cached_data is not None:
+            return Response(cached_data)
+
+        response = super().retrieve(request, *args, **kwargs)
+        if response.status_code == status.HTTP_200_OK:
+            cache.set(cache_key, response.data, self.cache_timeout_seconds)
+        return response
 
 
+@extend_schema(tags=['content'])
 class SpeciesViewSet(ContentViewSetMixin, viewsets.ReadOnlyModelViewSet):
     """API endpoints for D&D species (races)."""
     
@@ -62,6 +94,7 @@ class SpeciesViewSet(ContentViewSetMixin, viewsets.ReadOnlyModelViewSet):
         })
 
 
+@extend_schema(tags=['content'])
 class CharacterClassViewSet(ContentViewSetMixin, viewsets.ReadOnlyModelViewSet):
     """API endpoints for D&D character classes."""
     
@@ -121,6 +154,7 @@ class CharacterClassViewSet(ContentViewSetMixin, viewsets.ReadOnlyModelViewSet):
         return Response(serializer.data)
 
 
+@extend_schema(tags=['content'])
 class BackgroundViewSet(ContentViewSetMixin, viewsets.ReadOnlyModelViewSet):
     """API endpoints for D&D character backgrounds."""
     
@@ -157,6 +191,7 @@ class BackgroundViewSet(ContentViewSetMixin, viewsets.ReadOnlyModelViewSet):
         return Response(serializer.data)
 
 
+@extend_schema(tags=['content'])
 class SpellViewSet(ContentViewSetMixin, viewsets.ReadOnlyModelViewSet):
     """API endpoints for D&D spells."""
     
@@ -199,13 +234,32 @@ class SpellViewSet(ContentViewSetMixin, viewsets.ReadOnlyModelViewSet):
         return Response(spells_by_level)
 
 
+@extend_schema(tags=['content'])
 class EquipmentViewSet(ContentViewSetMixin, viewsets.ReadOnlyModelViewSet):
     """API endpoints for D&D equipment."""
     
     queryset = Equipment.objects.all()
     serializer_class = EquipmentSerializer
-    search_fields = ['name', 'description', 'category']
-    filterset_fields = ['category', 'rarity']
+    search_fields = ['name', 'description', 'category', 'equipment_type']
+    filterset_fields = ['equipment_type', 'category', 'rarity']
+    
+    @action(detail=False, methods=['get'])
+    def by_type(self, request):
+        """Get equipment grouped by equipment type."""
+        equipment_type = request.query_params.get('type', None)
+        if equipment_type:
+            equipment = self.get_queryset().filter(equipment_type=equipment_type)
+        else:
+            equipment = self.get_queryset()
+        
+        types = {}
+        for item in equipment:
+            eq_type = item.equipment_type
+            if eq_type not in types:
+                types[eq_type] = []
+            types[eq_type].append(self.get_serializer(item).data)
+        
+        return Response(types)
     
     @action(detail=False, methods=['get'])
     def by_category(self, request):
@@ -226,6 +280,7 @@ class EquipmentViewSet(ContentViewSetMixin, viewsets.ReadOnlyModelViewSet):
         return Response(categories)
 
 
+@extend_schema(tags=['content'])
 class SkillViewSet(ContentViewSetMixin, viewsets.ReadOnlyModelViewSet):
     """API endpoints for D&D skills."""
     
@@ -247,6 +302,7 @@ class SkillViewSet(ContentViewSetMixin, viewsets.ReadOnlyModelViewSet):
         return Response(skills_by_ability)
 
 
+@extend_schema(tags=['content'])
 class ConditionViewSet(ContentViewSetMixin, viewsets.ReadOnlyModelViewSet):
     """API endpoints for D&D conditions."""
     
@@ -255,6 +311,7 @@ class ConditionViewSet(ContentViewSetMixin, viewsets.ReadOnlyModelViewSet):
     search_fields = ['name', 'description']
 
 
+@extend_schema(tags=['content'])
 class DamageTypeViewSet(ContentViewSetMixin, viewsets.ReadOnlyModelViewSet):
     """API endpoints for D&D damage types."""
     
@@ -263,6 +320,7 @@ class DamageTypeViewSet(ContentViewSetMixin, viewsets.ReadOnlyModelViewSet):
     search_fields = ['name', 'description']
 
 
+@extend_schema(tags=['content'])
 class ClassFeatureViewSet(ContentViewSetMixin, viewsets.ReadOnlyModelViewSet):
     """API endpoints for class features."""
     
@@ -297,3 +355,119 @@ class ClassFeatureViewSet(ContentViewSetMixin, viewsets.ReadOnlyModelViewSet):
                 {'error': 'Invalid class or level'}, 
                 status=status.HTTP_400_BAD_REQUEST
             )
+
+
+@extend_schema(tags=['homebrew'])
+class HomebrewContentViewSet(viewsets.ModelViewSet):
+    """API endpoints for homebrew content management."""
+
+    serializer_class = HomebrewContentSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ['name', 'description']
+    ordering_fields = ['name', 'updated_at', 'version']
+
+    def get_queryset(self):
+        user = self.request.user
+        if not user.is_authenticated:
+            return HomebrewContent.objects.filter(is_public=True, status='published')
+        return HomebrewContent.objects.filter(
+            Q(creator=user) | Q(is_public=True, status='published')
+        )
+
+    def perform_create(self, serializer):
+        instance = serializer.save(creator=self.request.user)
+        log_audit_event(
+            request=self.request,
+            action='homebrew.create',
+            target=instance,
+            metadata={
+                'content_type': instance.content_type,
+                'name': instance.name,
+            },
+        )
+
+    @action(detail=True, methods=['post'])
+    def publish(self, request, pk=None):
+        obj = self.get_object()
+        if obj.creator != request.user:
+            return Response({'detail': 'Forbidden.'}, status=status.HTTP_403_FORBIDDEN)
+        obj.publish_new_version()
+        log_audit_event(
+            request=request,
+            action='homebrew.publish',
+            target=obj,
+            metadata={'version': obj.version},
+        )
+        return Response(self.get_serializer(obj).data)
+
+    @action(detail=True, methods=['post'])
+    def new_version(self, request, pk=None):
+        obj = self.get_object()
+        if obj.creator != request.user:
+            return Response({'detail': 'Forbidden.'}, status=status.HTTP_403_FORBIDDEN)
+        obj.version += 1
+        obj.status = 'draft'
+        if 'data' in request.data:
+            obj.data = request.data.get('data')
+        if 'dependencies' in request.data:
+            obj.dependencies = request.data.get('dependencies')
+        obj.save()
+        log_audit_event(
+            request=request,
+            action='homebrew.new_version',
+            target=obj,
+            metadata={'version': obj.version},
+        )
+        return Response(self.get_serializer(obj).data)
+
+    @action(detail=True, methods=['post'])
+    def share(self, request, pk=None):
+        obj = self.get_object()
+        if obj.creator != request.user:
+            return Response({'detail': 'Forbidden.'}, status=status.HTTP_403_FORBIDDEN)
+        serializer = ContentSharingPermissionSerializer(data={**request.data, 'content': obj.pk})
+        serializer.is_valid(raise_exception=True)
+        permission = serializer.save()
+        log_audit_event(
+            request=request,
+            action='homebrew.share',
+            target=obj,
+            metadata={
+                'permission_id': permission.pk,
+                'shared_with_user': permission.shared_with_user_id,
+                'shared_with_campaign': permission.shared_with_campaign_id,
+                'permission_level': permission.permission_level,
+            },
+        )
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    @action(detail=True, methods=['get'])
+    def permissions_list(self, request, pk=None):
+        obj = self.get_object()
+        if obj.creator != request.user:
+            return Response({'detail': 'Forbidden.'}, status=status.HTTP_403_FORBIDDEN)
+        perms = ContentSharingPermission.objects.filter(content=obj)
+        return Response(ContentSharingPermissionSerializer(perms, many=True).data)
+
+    @action(detail=True, methods=['post'])
+    def moderate(self, request, pk=None):
+        if not request.user.is_staff:
+            return Response({'detail': 'Forbidden.'}, status=status.HTTP_403_FORBIDDEN)
+        obj = self.get_object()
+        new_status = request.data.get('status')
+        if new_status not in ['published', 'archived', 'draft']:
+            return Response({'detail': 'Invalid status.'}, status=status.HTTP_400_BAD_REQUEST)
+        previous_status = obj.status
+        obj.status = new_status
+        obj.save(update_fields=['status', 'updated_at'])
+        log_audit_event(
+            request=request,
+            action='homebrew.moderate',
+            target=obj,
+            metadata={
+                'previous_status': previous_status,
+                'new_status': new_status,
+            },
+        )
+        return Response(self.get_serializer(obj).data)

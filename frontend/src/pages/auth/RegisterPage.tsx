@@ -1,124 +1,194 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
+import { useNotification } from '../../contexts/NotificationContext';
+import { getUserFriendlyErrorMessage } from '../../utils/errorHandling';
+import '../../styles/LoginPage.css';
 
 const RegisterPage: React.FC = () => {
+  const { register } = useAuth();
+  const { notifyError, notifySuccess } = useNotification();
+  const navigate = useNavigate();
+
+  const [form, setForm] = useState({
+    email: '',
+    username: '',
+    firstName: '',
+    lastName: '',
+    password: '',
+    confirmPassword: '',
+  });
+  const [error, setError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    setError('');
+
+    if (form.password !== form.confirmPassword) {
+      const message = 'Passwords do not match.';
+      setError(message);
+      notifyError(message);
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      await register({
+        email: form.email,
+        username: form.username,
+        password: form.password,
+        password_confirm: form.confirmPassword,
+        first_name: form.firstName,
+        last_name: form.lastName,
+      });
+
+      notifySuccess('Account created successfully. Welcome to Initiate!');
+      navigate('/dashboard', { replace: true });
+    } catch (submitError: unknown) {
+      const message = getUserFriendlyErrorMessage(submitError, 'Failed to create account.');
+      setError(message);
+      notifyError(message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Create your account
-          </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
-            Or{' '}
-            <Link to="/login" className="font-medium text-indigo-600 hover:text-indigo-500">
-              sign in to existing account
-            </Link>
+    <div className="login-page">
+      <div className="login-shell register-shell">
+        <aside className="login-brand-pane" aria-hidden="true">
+          <p className="login-kicker">Initiate Platform</p>
+          <h1>Create Your Account</h1>
+          <p>
+            Build characters, join campaigns, and manage encounters in one place.
           </p>
-        </div>
-        
-        <form className="mt-8 space-y-6">
-          <div className="rounded-md shadow-sm space-y-4">
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                Email address
-              </label>
+          <div className="login-orb login-orb-a" />
+          <div className="login-orb login-orb-b" />
+        </aside>
+
+        <section className="login-form-pane register-form-pane">
+          <div className="login-header">
+            <h2>Create your account</h2>
+            <p>
+              Or{' '}
+              <Link to="/login" className="login-link-inline">
+                sign in to existing account
+              </Link>
+            </p>
+          </div>
+
+          {error && (
+            <div className="login-error" role="alert">
+              {error}
+            </div>
+          )}
+
+          <form className="login-form register-form" onSubmit={handleSubmit}>
+            <div className="login-field">
+              <label htmlFor="email">Email address</label>
               <input
                 id="email"
                 name="email"
                 type="email"
                 autoComplete="email"
                 required
-                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                value={form.email}
+                onChange={handleChange}
                 placeholder="Email address"
+                disabled={isSubmitting}
               />
             </div>
-            
-            <div>
-              <label htmlFor="username" className="block text-sm font-medium text-gray-700">
-                Username
-              </label>
+
+            <div className="login-field">
+              <label htmlFor="username">Username</label>
               <input
                 id="username"
                 name="username"
                 type="text"
                 autoComplete="username"
                 required
-                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                value={form.username}
+                onChange={handleChange}
                 placeholder="Username"
+                disabled={isSubmitting}
               />
             </div>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
-                  First name
-                </label>
+
+            <div className="register-name-grid">
+              <div className="login-field">
+                <label htmlFor="firstName">First name</label>
                 <input
                   id="firstName"
                   name="firstName"
                   type="text"
                   required
-                  className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  value={form.firstName}
+                  onChange={handleChange}
                   placeholder="First name"
+                  disabled={isSubmitting}
                 />
               </div>
-              
-              <div>
-                <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">
-                  Last name
-                </label>
+
+              <div className="login-field">
+                <label htmlFor="lastName">Last name</label>
                 <input
                   id="lastName"
                   name="lastName"
                   type="text"
                   required
-                  className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  value={form.lastName}
+                  onChange={handleChange}
                   placeholder="Last name"
+                  disabled={isSubmitting}
                 />
               </div>
             </div>
-            
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                Password
-              </label>
+
+            <div className="login-field">
+              <label htmlFor="password">Password</label>
               <input
                 id="password"
                 name="password"
                 type="password"
                 autoComplete="new-password"
                 required
-                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                value={form.password}
+                onChange={handleChange}
                 placeholder="Password"
+                disabled={isSubmitting}
               />
             </div>
-            
-            <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
-                Confirm password
-              </label>
+
+            <div className="login-field">
+              <label htmlFor="confirmPassword">Confirm password</label>
               <input
                 id="confirmPassword"
                 name="confirmPassword"
                 type="password"
                 autoComplete="new-password"
                 required
-                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                value={form.confirmPassword}
+                onChange={handleChange}
                 placeholder="Confirm password"
+                disabled={isSubmitting}
               />
             </div>
-          </div>
 
-          <div>
-            <button
-              type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Create account
+            <button type="submit" className="login-submit" disabled={isSubmitting}>
+              {isSubmitting ? 'Creating account...' : 'Create account'}
             </button>
+          </form>
+
+          <div className="login-demo-note">
+            Create an account to start building characters and joining campaigns.
           </div>
-        </form>
+        </section>
       </div>
     </div>
   );

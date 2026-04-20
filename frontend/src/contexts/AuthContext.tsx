@@ -178,6 +178,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         username: userData.username,
         email: userData.email,
         password: userData.password,
+        password_confirm: userData.password_confirm,
+        first_name: userData.first_name,
+        last_name: userData.last_name,
       });
       
       // Store tokens

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     
     # Third party apps
     "rest_framework",
+    "drf_spectacular",
     "corsheaders",
     "rest_framework_simplejwt",
     "channels",
@@ -95,12 +96,30 @@ ASGI_APPLICATION = "config.asgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+DB_ENGINE = config('DB_ENGINE', default='django.db.backends.sqlite3')
+DB_NAME = config('DB_NAME', default='db.sqlite3')
+
+# Keep SQLite path stable regardless of where manage.py is run from.
+if DB_ENGINE == 'django.db.backends.sqlite3':
+    db_name_path = Path(DB_NAME)
+    if not db_name_path.is_absolute():
+        DB_NAME = BASE_DIR / db_name_path
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": DB_ENGINE,
+        "NAME": DB_NAME,
     }
 }
+
+# PostgreSQL specific settings (when using PostgreSQL)
+if DB_ENGINE == 'django.db.backends.postgresql':
+    DATABASES['default'].update({
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'), 
+        'HOST': config('DB_HOST', default='localhost'),
+        'PORT': config('DB_PORT', default='5432'),
+    })
 
 # Authentication settings
 AUTH_USER_MODEL = 'users.User'
@@ -128,6 +147,11 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
+    'DEFAULT_PARSER_CLASSES': [
+        'apps.common.parsers.SanitizingJSONParser',
+        'apps.common.parsers.SanitizingFormParser',
+        'apps.common.parsers.SanitizingMultiPartParser',
+    ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
@@ -137,6 +161,59 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 20,
     'EXCEPTION_HANDLER': 'config.middleware.custom_exception_handler',
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    # Rate limiting / throttling
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle',
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '60/minute',
+        'user': '300/minute',
+        'login': '10/minute',
+    },
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'D&D Character and Campaign Management API',
+    'DESCRIPTION': (
+        'REST API for character creation, campaign management, real-time combat tracking, '
+        'and homebrew content. Authenticate via JWT: obtain tokens at /api/v1/users/auth/login/ '
+        'and supply the access token as a Bearer header.'
+    ),
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # Security scheme advertised in the OpenAPI spec
+    'SECURITY': [{'bearerAuth': []}],
+    'COMPONENT_SPLIT_REQUEST': True,
+    'POSTPROCESSING_HOOKS': [
+        'drf_spectacular.hooks.postprocess_schema_enums',
+    ],
+    'SWAGGER_UI_SETTINGS': {
+        'deepLinking': True,
+        'persistAuthorization': True,
+        'displayOperationId': False,
+    },
+    'REDOC_UI_SETTINGS': {
+        'hideDownloadButton': False,
+    },
+    'TAGS': [
+        {'name': 'auth', 'description': 'Authentication and user management'},
+        {'name': 'characters', 'description': 'Character creation and management'},
+        {'name': 'campaigns', 'description': 'Campaign management'},
+        {'name': 'combat', 'description': 'Initiative and combat tracking'},
+        {'name': 'content', 'description': 'D&D content (species, classes, spells, etc.)'},
+        {'name': 'homebrew', 'description': 'User-generated homebrew content'},
+    ],
+    'APPEND_COMPONENTS': {
+        'securitySchemes': {
+            'bearerAuth': {
+                'type': 'http',
+                'scheme': 'bearer',
+                'bearerFormat': 'JWT',
+            }
+        }
+    },
 }
 
 # JWT Configuration

@@ -154,6 +154,17 @@ export const AbilityScores: React.FC<AbilityScoresProps> = ({
     });
   };
 
+  const handleEditRolledValue = (index: number, raw: string) => {
+    const parsed = parseInt(raw, 10);
+    if (raw === '' || isNaN(parsed)) {
+      // Allow clearing while typing
+      setRolledValues(prev => { const n = [...prev]; n[index] = 0; return n; });
+      return;
+    }
+    const clamped = Math.max(3, Math.min(18, parsed));
+    setRolledValues(prev => { const n = [...prev]; n[index] = clamped; return n; });
+  };
+
   const handleMethodChange = (newMethod: AssignmentMethod) => {
     setMethod(newMethod);
     if (newMethod === 'roll') {
@@ -365,12 +376,20 @@ export const AbilityScores: React.FC<AbilityScoresProps> = ({
               </div>
               
               <div className="rolled-values-card">
-                <h4>Rolled Values</h4>
+                <h4>Rolled Values <span className="rolled-values-hint">(or enter your own)</span></h4>
                 <div className="rolled-values-display">
                   {rolledValues.map((value, index) => (
                     <div key={index} className="rolled-value-badge">
-                      <span className="rolled-value">{value}</span>
-                      <span className="modifier">({getModifier(value)})</span>
+                      <input
+                        type="number"
+                        min={3}
+                        max={18}
+                        value={value || ''}
+                        onChange={(e) => handleEditRolledValue(index, e.target.value)}
+                        className="rolled-value-input"
+                        aria-label={`Rolled value ${index + 1}`}
+                      />
+                      <span className="modifier">({getModifier(value || 10)})</span>
                     </div>
                   ))}
                 </div>
