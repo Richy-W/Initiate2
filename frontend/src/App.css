@@ -962,11 +962,19 @@
 .character-wizard .first-level-features,
 .character-wizard .spellcasting,
 .character-wizard .ability-point-row,
-.character-wizard .score-badge.available,
-.character-wizard .score-badge.assigned,
 .character-wizard .points-summary {
   background: #11182a;
   border-color: var(--app-border);
+}
+
+.character-wizard .score-badge.available {
+  background: #0d1a2e;
+  border-color: #2196F3;
+}
+
+.character-wizard .score-badge.assigned {
+  background: #0f1f14;
+  border-color: #4CAF50;
 }
 
 .character-wizard .ability-increase,
