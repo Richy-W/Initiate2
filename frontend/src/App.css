@@ -975,10 +975,19 @@
 .character-wizard .languages,
 .character-wizard .first-level-features,
 .character-wizard .spellcasting,
+.character-wizard .weapon-mastery-selection,
 .character-wizard .ability-point-row,
 .character-wizard .points-summary {
   background: #11182a;
   border-color: var(--app-border);
+}
+
+.character-wizard .weapon-mastery-dropdown label {
+  color: var(--app-accent);
+}
+
+.character-wizard .weapon-mastery-instruction {
+  color: var(--app-ink-1);
 }
 
 .character-wizard .score-badge.available {
@@ -2072,6 +2081,7 @@
 .character-wizard .point-display,
 .character-wizard .point-btn,
 .character-wizard .ability-assignment-row select,
+.character-wizard .weapon-mastery-select,
 .character-wizard .score-input {
   background: #11182a;
   color: var(--app-ink-0);
@@ -2085,6 +2095,7 @@
 .character-wizard .form-control:focus,
 .character-wizard .form-input:focus,
 .character-wizard .ability-assignment-row select:focus,
+.character-wizard .weapon-mastery-select:focus,
 .character-wizard .score-input:focus {
   border-color: var(--app-accent);
   box-shadow: 0 0 0 3px rgba(121, 163, 255, 0.3);
