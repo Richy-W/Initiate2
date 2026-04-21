@@ -1,6 +1,6 @@
-import React, { useEffect, useMemo, useState } from 'react';
+﻿import React, { useEffect, useMemo, useState } from 'react';
 import { characterAPI } from '../../services/apiClient';
-import '../../styles/CharacterEditor.css';
+import styles from './CharacterEditor.module.css';
 
 interface CharacterEditorProps {
   characterId: string;
@@ -132,23 +132,23 @@ export const CharacterEditor: React.FC<CharacterEditorProps> = ({ characterId })
   };
 
   if (loading) {
-    return <div className="character-editor-loading">Loading character editor...</div>;
+    return <div className={styles['character-editor-loading']}>Loading character editor...</div>;
   }
 
   if (error && !character) {
-    return <div className="character-editor-error">{error}</div>;
+    return <div className={styles['character-editor-error']}>{error}</div>;
   }
 
   if (!character) {
-    return <div className="character-editor-error">Character not found.</div>;
+    return <div className={styles['character-editor-error']}>Character not found.</div>;
   }
 
   return (
-    <div className="character-editor-page">
-      <div className="editor-canvas">
-        <section className="editor-name-row">
-          <div className="editor-avatar" aria-hidden="true">{className.charAt(0).toUpperCase()}</div>
-          <div className="editor-name-panel">
+    <div className={styles['character-editor-page']}>
+      <div className={styles['editor-canvas']}>
+        <section className={styles['editor-name-row']}>
+          <div className={styles['editor-avatar']} aria-hidden="true">{className.charAt(0).toUpperCase()}</div>
+          <div className={styles['editor-name-panel']}>
             <label htmlFor="editor-character-name">Character Name</label>
             <input
               id="editor-character-name"
@@ -159,13 +159,13 @@ export const CharacterEditor: React.FC<CharacterEditorProps> = ({ characterId })
           </div>
         </section>
 
-        <section className="editor-level-row">
-          <div className="editor-level-summary">
+        <section className={styles['editor-level-row']}>
+          <div className={styles['editor-level-summary']}>
             <h2>Character Level: {level}</h2>
             <p>Milestone Advancement</p>
           </div>
 
-          <div className="editor-hp-box">
+          <div className={styles['editor-hp-box']}>
             <div>
               <strong>Max Hit Points:</strong> {maxHp}
             </div>
@@ -174,7 +174,7 @@ export const CharacterEditor: React.FC<CharacterEditorProps> = ({ characterId })
             </div>
             <button
               type="button"
-              className="manage-hp-btn"
+              className={styles['manage-hp-btn']}
               onClick={() => setShowHpManager((prev) => !prev)}
             >
               {showHpManager ? 'Hide HP' : 'Manage HP'}
@@ -183,12 +183,12 @@ export const CharacterEditor: React.FC<CharacterEditorProps> = ({ characterId })
         </section>
 
         {showHpManager && (
-          <section className="editor-hp-manager">
-            <div className="hp-live-stats">
+          <section className={styles['editor-hp-manager']}>
+            <div className={styles['hp-live-stats']}>
               <span>Current: {character.current_hit_points}</span>
               <span>Temp: {character.temporary_hit_points || 0}</span>
             </div>
-            <div className="hp-actions">
+            <div className={styles['hp-actions']}>
               <input
                 type="number"
                 min={0}
@@ -202,16 +202,16 @@ export const CharacterEditor: React.FC<CharacterEditorProps> = ({ characterId })
           </section>
         )}
 
-        <section className="editor-class-row">
-          <div className="class-identity">
-            <div className="class-icon" aria-hidden="true">✦</div>
+        <section className={styles['editor-class-row']}>
+          <div className={styles['class-identity']}>
+            <div className={styles['class-icon']} aria-hidden="true">✦</div>
             <div>
-              <p className="class-subclass">{subclassName || 'Starting Class'}</p>
+              <p className={styles['class-subclass']}>{subclassName || 'Starting Class'}</p>
               <h3>{className}</h3>
             </div>
           </div>
 
-          <div className="class-level-control">
+          <div className={styles['class-level-control']}>
             <label htmlFor="class-level">Level</label>
             <select
               id="class-level"
@@ -225,20 +225,20 @@ export const CharacterEditor: React.FC<CharacterEditorProps> = ({ characterId })
           </div>
         </section>
 
-        <section className="editor-feature-tabs">
-          <button type="button" className="active">Class Features</button>
+        <section className={styles['editor-feature-tabs']}>
+          <button type="button" className={styles['active']}>Class Features</button>
           <button type="button">Optional Feature Manager</button>
           <button type="button">Spells</button>
         </section>
 
-        <section className="editor-extra-row">
-          <button type="button" className="ghost-link" disabled>
+        <section className={styles['editor-extra-row']}>
+          <button type="button" className={styles['ghost-link']} disabled>
             + Add Another Class (coming soon)
           </button>
         </section>
 
-        <section className="editor-save-row">
-          <div className="editor-inline-edit">
+        <section className={styles['editor-save-row']}>
+          <div className={styles['editor-inline-edit']}>
             <label htmlFor="max-hp-edit">Max HP</label>
             <input
               id="max-hp-edit"
@@ -249,13 +249,13 @@ export const CharacterEditor: React.FC<CharacterEditorProps> = ({ characterId })
             />
           </div>
 
-          <button type="button" className="save-editor-btn" onClick={handleSave} disabled={saving}>
+          <button type="button" className={styles['save-editor-btn']} onClick={handleSave} disabled={saving}>
             {saving ? 'Saving...' : 'Save Changes'}
           </button>
         </section>
 
-        {error && <div className="character-editor-error inline">{error}</div>}
-        {statusMessage && <div className="character-editor-status">{statusMessage}</div>}
+        {error && <div className={[styles['character-editor-error'], styles['inline']].filter(Boolean).join(' ')}>{error}</div>}
+        {statusMessage && <div className={styles['character-editor-status']}>{statusMessage}</div>}
       </div>
     </div>
   );

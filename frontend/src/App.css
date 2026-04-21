@@ -942,6 +942,20 @@
   background: linear-gradient(180deg, #202a49, #17203a);
 }
 
+.character-wizard .ability-method-selection h3,
+.character-wizard .available-scores-card h4,
+.character-wizard .ability-assignments-card h4,
+.character-wizard .point-assignments-card h4,
+.character-wizard .rolled-scores-card h4,
+.character-wizard .class-card h3,
+.character-wizard .species-card h3,
+.character-wizard .background-card h3,
+.character-wizard .method-info strong,
+.character-wizard .ability-name,
+.character-wizard .score-badge .score {
+  color: var(--app-ink-0);
+}
+
 .character-wizard .description,
 .character-wizard .class-card .description,
 .character-wizard .species-card .description,
@@ -962,11 +976,19 @@
 .character-wizard .first-level-features,
 .character-wizard .spellcasting,
 .character-wizard .ability-point-row,
-.character-wizard .score-badge.available,
-.character-wizard .score-badge.assigned,
 .character-wizard .points-summary {
   background: #11182a;
   border-color: var(--app-border);
+}
+
+.character-wizard .score-badge.available {
+  background: #0d1a2e;
+  border-color: #2196F3;
+}
+
+.character-wizard .score-badge.assigned {
+  background: #0f1f14;
+  border-color: #4CAF50;
 }
 
 .character-wizard .ability-increase,
@@ -984,9 +1006,9 @@
   color: var(--app-ink-0);
 }
 
-.character-creation-wrapper .skill-option:hover:not(:disabled),
-.character-creation-wrapper .ability-choice-option:hover,
-.character-creation-wrapper .point-btn:hover:not(:disabled) {
+.character-wizard .skill-option:hover:not(:disabled),
+.character-wizard .ability-choice-option:hover,
+.character-wizard .point-btn:hover:not(:disabled) {
   border-color: var(--app-accent);
   background: #1a2543;
 }

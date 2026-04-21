@@ -1,6 +1,6 @@
-import React from 'react';
+﻿import React from 'react';
 import { Character } from '../../types';
-import './EquippedItems.css';
+import styles from './EquippedItems.module.css';
 
 interface EquippedItemsProps {
   character: Character;
@@ -62,25 +62,25 @@ const EquippedItems: React.FC<EquippedItemsProps> = ({
     return (
       <div
         key={slot.id}
-        className={`equipment-slot ${status}`}
+        className={[styles['equipment-slot'], styles[status] || ''].filter(Boolean).join(' ')}
         title={slot.description}
       >
-        <div className="slot-header">
-          <span className="slot-icon">{slot.icon}</span>
-          <span className="slot-name">{slot.name}</span>
+        <div className={styles['slot-header']}>
+          <span className={styles['slot-icon']}>{slot.icon}</span>
+          <span className={styles['slot-name']}>{slot.name}</span>
         </div>
         
-        <div className="slot-content">
+        <div className={styles['slot-content']}>
           {equippedItem ? (
-            <div className="equipped-item">
-              <div className="item-info">
-                <div className="item-name">{equippedItem.equipment.name}</div>
-                <div className="item-type">{equippedItem.equipment.equipment_type}</div>
+            <div className={styles['equipped-item']}>
+              <div className={styles['item-info']}>
+                <div className={styles['item-name']}>{equippedItem.equipment.name}</div>
+                <div className={styles['item-type']}>{equippedItem.equipment.equipment_type}</div>
                 {equippedItem.equipment.armor_class && (
-                  <div className="item-ac">AC {equippedItem.equipment.armor_class}</div>
+                  <div className={styles['item-ac']}>AC {equippedItem.equipment.armor_class}</div>
                 )}
                 {equippedItem.equipment.damage && (
-                  <div className="item-damage">
+                  <div className={styles['item-damage']}>
                     {Object.entries(equippedItem.equipment.damage).map(([dtype, value]) => (
                       <span key={dtype}>{value} {dtype}</span>
                     )).join(', ')}
@@ -88,10 +88,10 @@ const EquippedItems: React.FC<EquippedItemsProps> = ({
                 )}
               </div>
               
-              <div className="item-actions">
+              <div className={styles['item-actions']}>
                 <button
                   onClick={() => handleUnequipItem(slot.id)}
-                  className="unequip-btn"
+                  className={styles['unequip-btn']}
                   title="Unequip item"
                 >
                   ✖️
@@ -99,9 +99,9 @@ const EquippedItems: React.FC<EquippedItemsProps> = ({
               </div>
             </div>
           ) : (
-            <div className="empty-slot">
-              <span className="empty-text">Empty</span>
-              <span className="slot-types">
+            <div className={styles['empty-slot']}>
+              <span className={styles['empty-text']}>Empty</span>
+              <span className={styles['slot-types']}>
                 {slot.acceptsTypes.slice(0, 2).join(', ')}
                 {slot.acceptsTypes.length > 2 && '...'}
               </span>
@@ -149,43 +149,43 @@ const EquippedItems: React.FC<EquippedItemsProps> = ({
   };
 
   return (
-    <div className="equipped-items-container">
-      <div className="equipped-items-header">
+    <div className={styles['equipped-items-container']}>
+      <div className={styles['equipped-items-header']}>
         <h3>Equipped Items</h3>
-        <div className="equipped-summary">
-          <span className="equipped-count">
+        <div className={styles['equipped-summary']}>
+          <span className={styles['equipped-count']}>
             {getEquippedItemsCount()} / {equipmentSlots.length} slots
           </span>
-          <div className="armor-class-display">
-            <span className="ac-value">AC {calculateTotalArmorClass()}</span>
-            <span className="ac-breakdown" title={getArmorClassBreakdown()}>
+          <div className={styles['armor-class-display']}>
+            <span className={styles['ac-value']}>AC {calculateTotalArmorClass()}</span>
+            <span className={styles['ac-breakdown']} title={getArmorClassBreakdown()}>
               ℹ️
             </span>
           </div>
         </div>
       </div>
 
-      <div className="equipment-slots-grid">
+      <div className={styles['equipment-slots-grid']}>
         {equipmentSlots.map(renderEquipmentSlot)}
       </div>
 
-      <div className="equipment-effects">
+      <div className={styles['equipment-effects']}>
         <h4>Active Effects</h4>
-        <div className="effects-list">
+        <div className={styles['effects-list']}>
           {getEquippedItemsCount() === 0 ? (
-            <div className="no-effects">
+            <div className={styles['no-effects']}>
               No equipped items providing bonuses
             </div>
           ) : (
-            <div className="effects-summary">
-              <div className="effect-item">
-                <span className="effect-label">Armor Class</span>
-                <span className="effect-value">{calculateTotalArmorClass()}</span>
+            <div className={styles['effects-summary']}>
+              <div className={styles['effect-item']}>
+                <span className={styles['effect-label']}>Armor Class</span>
+                <span className={styles['effect-value']}>{calculateTotalArmorClass()}</span>
               </div>
               {character.encumbrance_status !== 'normal' && (
                 <div className="effect-item warning">
-                  <span className="effect-label">Encumbrance</span>
-                  <span className="effect-value">
+                  <span className={styles['effect-label']}>Encumbrance</span>
+                  <span className={styles['effect-value']}>
                     {character.encumbrance_status?.replace('_', ' ')}
                   </span>
                 </div>

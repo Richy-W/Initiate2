@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-
+﻿import React, { useState, useEffect } from 'react';
 interface AbilityScoresType {
   strength: number;
   dexterity: number;
@@ -50,12 +49,12 @@ export const AbilityScores: React.FC<AbilityScoresProps> = ({
   const [method, setMethod] = useState<AssignmentMethod>(propMethod || 'standard-array');
   const arrayValues = STANDARD_ARRAY;
   const [assignments, setAssignments] = useState<Record<string, number>>(propArrayAssignments || {
-    strength: 0,
-    dexterity: 0,
-    constitution: 0,
-    intelligence: 0,
-    wisdom: 0,
-    charisma: 0,
+    strength: -1,
+    dexterity: -1,
+    constitution: -1,
+    intelligence: -1,
+    wisdom: -1,
+    charisma: -1,
   });
   const [pointBuyScores, setPointBuyScores] = useState<AbilityScoresType>(propPointBuyScores || {
     strength: 8,
@@ -287,7 +286,7 @@ export const AbilityScores: React.FC<AbilityScoresProps> = ({
                     <div key={ability} className="ability-assignment-row">
                       <label className="ability-label">{ability.charAt(0).toUpperCase() + ability.slice(1)}</label>
                       <select
-                        value={assignments[ability] || ''}
+                        value={assignments[ability] >= 0 ? assignments[ability] : ''}
                         onChange={(e) => handleArrayAssignment(ability, parseInt(e.target.value))}
                         className="score-select"
                       >
@@ -299,8 +298,8 @@ export const AbilityScores: React.FC<AbilityScoresProps> = ({
                         ))}
                       </select>
                       <div className="final-score-display">
-                        <span className="score">{arrayValues[assignments[ability]] || '—'}</span>
-                        <span className="modifier">({getModifier(arrayValues[assignments[ability]] || 10)})</span>
+                        <span className="score">{assignments[ability] >= 0 ? arrayValues[assignments[ability]] : '—'}</span>
+                        <span className="modifier">({getModifier(assignments[ability] >= 0 ? arrayValues[assignments[ability]] : 10)})</span>
                       </div>
                     </div>
                   ))}

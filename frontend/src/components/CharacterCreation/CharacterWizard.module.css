@@ -650,7 +650,6 @@
 .character-wizard .traits,
 .character-wizard .languages,
 .character-wizard .first-level-features,
-.character-wizard .weapon-mastery-selection,
 .character-wizard .spellcasting,
 .character-wizard .ability-point-row,
 .character-wizard .score-badge.available,
@@ -810,108 +809,6 @@
   color: var(--cc-ink-0, #eef2ff);
 }
 
-/* -- Weapon Mastery dropdowns -------------------------------------------- */
-.character-wizard .weapon-mastery-selection {
-  border-radius: 10px;
-  padding: 14px 16px;
-  margin-top: 14px;
-}
-.character-wizard .weapon-mastery-selection h4 {
-  color: var(--cc-ink-0) !important;
-  margin: 0 0 6px;
-}
-.character-wizard .weapon-mastery-instruction {
-  color: var(--cc-ink-1);
-  font-size: 0.875rem;
-  margin: 0 0 12px;
-}
-.character-wizard .weapon-mastery-dropdowns {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-.character-wizard .weapon-mastery-dropdown {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  flex: 1;
-  min-width: 160px;
-}
-.character-wizard .weapon-mastery-dropdown label {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--cc-accent, #5f84ff);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-.character-wizard .weapon-mastery-select {
-  background: #0e1526;
-  border: 1.5px solid var(--cc-border, #38446d);
-  border-radius: 7px;
-  color: var(--cc-ink-0, #eef2ff);
-  padding: 8px 10px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: border-color 0.2s;
-}
-.character-wizard .weapon-mastery-select:focus {
-  outline: none;
-  border-color: var(--cc-accent, #5f84ff);
-}
-.character-wizard .weapon-mastery-select option {
-  background: #0e1526;
-  color: var(--cc-ink-0, #eef2ff);
-}
+/* -- Weapon Mastery dropdowns: moved to ClassSelector.module.css -- */
 
-/* -- Weapon Mastery dropdowns -------------------------------------------- */
-.character-wizard .weapon-mastery-selection {
-  border-radius: 10px;
-  padding: 14px 16px;
-  margin-top: 14px;
-}
-.character-wizard .weapon-mastery-selection h4 {
-  color: var(--cc-ink-0) !important;
-  margin: 0 0 6px;
-}
-.character-wizard .weapon-mastery-instruction {
-  color: var(--cc-ink-1);
-  font-size: 0.875rem;
-  margin: 0 0 12px;
-}
-.character-wizard .weapon-mastery-dropdowns {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-.character-wizard .weapon-mastery-dropdown {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  flex: 1;
-  min-width: 160px;
-}
-.character-wizard .weapon-mastery-dropdown label {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--cc-accent, #5f84ff);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-.character-wizard .weapon-mastery-select {
-  background: #0e1526;
-  border: 1.5px solid var(--cc-border, #38446d);
-  border-radius: 7px;
-  color: var(--cc-ink-0, #eef2ff);
-  padding: 8px 10px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: border-color 0.2s;
-}
-.character-wizard .weapon-mastery-select:focus {
-  outline: none;
-  border-color: var(--cc-accent, #5f84ff);
-}
-.character-wizard .weapon-mastery-select option {
-  background: #0e1526;
-  color: var(--cc-ink-0, #eef2ff);
-}
+/* -- Weapon Mastery dropdowns: moved to ClassSelector.module.css -- */

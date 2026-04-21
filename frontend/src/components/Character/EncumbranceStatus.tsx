@@ -1,6 +1,6 @@
 import React from 'react';
 import { Character } from '../../types';
-import './EncumbranceStatus.css';
+import styles from './EncumbranceStatus.module.css';
 
 interface EncumbranceStatusProps {
   character: Character;
@@ -58,52 +58,52 @@ const EncumbranceStatus: React.FC<EncumbranceStatusProps> = ({
   const weightPercentage = getWeightPercentage();
 
   return (
-    <div className={`encumbrance-status ${getEncumbranceColor(encumbranceStatus)} ${className}`}>
-      <div className="encumbrance-header">
-        <span className="encumbrance-icon">
+    <div className={[styles['encumbrance-status'], styles[getEncumbranceColor(encumbranceStatus)], className].filter(Boolean).join(' ')}>
+      <div className={styles['encumbrance-header']}>
+        <span className={styles['encumbrance-icon']}>
           {getEncumbranceIcon(encumbranceStatus)}
         </span>
-        <div className="encumbrance-info">
-          <div className="weight-display">
-            <span className="current-weight">
+        <div className={styles['encumbrance-info']}>
+          <div className={styles['weight-display']}>
+            <span className={styles['current-weight']}>
               {formatWeight(character.total_weight || 0)} lb
             </span>
-            <span className="weight-separator">/</span>
-            <span className="max-weight">
+            <span className={styles['weight-separator']}>/</span>
+            <span className={styles['max-weight']}>
               {formatWeight(character.carrying_capacity || 0)} lb
             </span>
           </div>
-          <div className="encumbrance-label">
+          <div className={styles['encumbrance-label']}>
             {encumbranceStatus.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}
           </div>
         </div>
-        <div className="encumbrance-percentage">
+        <div className={styles['encumbrance-percentage']}>
           {Math.round(weightPercentage)}%
         </div>
       </div>
 
-      <div className="weight-bar">
+      <div className={styles['weight-bar']}>
         <div 
-          className={`weight-fill ${getEncumbranceColor(encumbranceStatus)}`}
+          className={[styles['weight-fill'], styles[getEncumbranceColor(encumbranceStatus)]].filter(Boolean).join(' ')}
           style={{ width: `${Math.min(weightPercentage, 100)}%` }}
         />
         {weightPercentage > 100 && (
           <div 
-            className="weight-overflow"
+            className={styles['weight-overflow']}
             style={{ width: `${Math.min(weightPercentage - 100, 100)}%` }}
           />
         )}
         {/* Encumbrance thresholds */}
-        <div className="threshold normal-threshold" title="Normal carrying capacity" />
-        <div className="threshold encumbered-threshold" title="Heavily encumbered at 200%" />
+        <div className={[styles['threshold'], styles['normal-threshold']].filter(Boolean).join(' ')} title="Normal carrying capacity" />
+        <div className={[styles['threshold'], styles['encumbered-threshold']].filter(Boolean).join(' ')} title="Heavily encumbered at 200%" />
       </div>
 
       {detailed && (
-        <div className="encumbrance-details">
+        <div className={styles['encumbrance-details']}>
           {encumbranceEffects.speed_penalty > 0 && (
-            <div className="penalty-item speed-penalty">
-              <span className="penalty-icon">🏃</span>
-              <span className="penalty-text">
+            <div className={[styles['penalty-item'], styles['speed-penalty']].filter(Boolean).join(' ')}>
+              <span className={styles['penalty-icon']}>🏃</span>
+              <span className={styles['penalty-text']}>
                 Speed {character.effective_speed} ft 
                 {encumbranceEffects.speed_penalty > 0 && 
                   ` (-${encumbranceEffects.speed_penalty} ft)`
@@ -113,18 +113,18 @@ const EncumbranceStatus: React.FC<EncumbranceStatusProps> = ({
           )}
           
           {encumbranceEffects.disadvantage_checks && (
-            <div className="penalty-item disadvantage-penalty">
-              <span className="penalty-icon">🎲</span>
-              <span className="penalty-text">
+            <div className={[styles['penalty-item'], styles['disadvantage-penalty']].filter(Boolean).join(' ')}>
+              <span className={styles['penalty-icon']}>🎲</span>
+              <span className={styles['penalty-text']}>
                 Disadvantage on ability checks, attack rolls, and saves using Str, Dex, or Con
               </span>
             </div>
           )}
           
           {encumbranceStatus === 'normal' && (
-            <div className="penalty-item no-penalty">
-              <span className="penalty-icon">✅</span>
-              <span className="penalty-text">
+            <div className={[styles['penalty-item'], styles['no-penalty']].filter(Boolean).join(' ')}>
+              <span className={styles['penalty-icon']}>✅</span>
+              <span className={styles['penalty-text']}>
                 No encumbrance penalties
               </span>
             </div>
@@ -133,7 +133,7 @@ const EncumbranceStatus: React.FC<EncumbranceStatusProps> = ({
       )}
 
       {!detailed && encumbranceStatus !== 'normal' && (
-        <div className="encumbrance-summary">
+        <div className={styles['encumbrance-summary']}>
           {encumbranceEffects.description}
         </div>
       )}

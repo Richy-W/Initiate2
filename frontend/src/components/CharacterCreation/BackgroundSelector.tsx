@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { contentAPI } from '../../services/apiClient';
 
 // Standard D&D languages - Updated for cache clear
@@ -294,9 +294,7 @@ export const BackgroundSelector: React.FC<BackgroundSelectorProps> = ({
                             />
                             <strong>Option {option.choice}:</strong>
                           </label>
-                          <div className={`equipment-option-details ${
-                            selectedEquipmentOption === option.choice ? 'selected' : ''
-                          }`}>
+                          <div className={`equipment-option-details ${selectedEquipmentOption === option.choice ? 'selected' : ''}`}>
                             {option.items.length > 0 ? (
                               <ul>
                                 {option.items.map((item, itemIndex) => (

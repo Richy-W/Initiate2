@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/OfficialIdentityHeader.css';
+import styles from './OfficialIdentityHeader.module.css';
 
 interface OfficialIdentityHeaderProps {
   name: string;
@@ -21,34 +21,34 @@ export const OfficialIdentityHeader: React.FC<OfficialIdentityHeaderProps> = ({
   compact = false,
 }) => {
   return (
-    <div className={`official-sheet-header ${compact ? 'compact' : ''}`}>
-      <div className="official-header-row official-header-row-1">
-        <div className="official-field official-character-name">
-          <span className="official-label">Character Name</span>
-          <span className="official-value official-value-large">{name || 'Unknown Character'}</span>
+    <div className={[styles['official-sheet-header'], compact ? styles['compact'] : ''].filter(Boolean).join(' ')}>
+      <div className={[styles['official-header-row'], styles['official-header-row-1']].filter(Boolean).join(' ')}>
+        <div className={[styles['official-field'], styles['official-character-name']].filter(Boolean).join(' ')}>
+          <span className={styles['official-label']}>Character Name</span>
+          <span className={[styles['official-value'], styles['official-value-large']].filter(Boolean).join(' ')}>{name || 'Unknown Character'}</span>
         </div>
-        <div className="official-level-circle" aria-label={`Level ${level}`}>
-          <span className="official-level-value">{level}</span>
-          <span className="official-level-label">Level</span>
+        <div className={styles['official-level-circle']} aria-label={`Level ${level}`}>
+          <span className={styles['official-level-value']}>{level}</span>
+          <span className={styles['official-level-label']}>Level</span>
         </div>
       </div>
 
-      <div className="official-header-row official-header-row-2">
-        <div className="official-field">
-          <span className="official-label">Background</span>
-          <span className="official-value">{background || '-'}</span>
+      <div className={[styles['official-header-row'], styles['official-header-row-2']].filter(Boolean).join(' ')}>
+        <div className={styles['official-field']}>
+          <span className={styles['official-label']}>Background</span>
+          <span className={styles['official-value']}>{background || '-'}</span>
         </div>
-        <div className="official-field">
-          <span className="official-label">Class</span>
-          <span className="official-value">{characterClass || '-'}</span>
+        <div className={styles['official-field']}>
+          <span className={styles['official-label']}>Class</span>
+          <span className={styles['official-value']}>{characterClass || '-'}</span>
         </div>
-        <div className="official-field">
-          <span className="official-label">Species</span>
-          <span className="official-value">{species || '-'}</span>
+        <div className={styles['official-field']}>
+          <span className={styles['official-label']}>Species</span>
+          <span className={styles['official-value']}>{species || '-'}</span>
         </div>
-        <div className="official-field">
-          <span className="official-label">Subclass</span>
-          <span className="official-value">{subclass || '-'}</span>
+        <div className={styles['official-field']}>
+          <span className={styles['official-label']}>Subclass</span>
+          <span className={styles['official-value']}>{subclass || '-'}</span>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
-import React from 'react';
+﻿import React from 'react';
 import { Equipment } from '../../types';
 import MagicalProperties from './MagicalProperties';
-import './ItemDetail.css';
+import styles from './ItemDetail.module.css';
 
 interface ItemDetailProps {
   equipment: Equipment;
@@ -70,37 +70,37 @@ const ItemDetail: React.FC<ItemDetailProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="item-detail-modal" onClick={(e) => e.stopPropagation()}>
-        <div className="modal-header">
-          <div className="header-content">
+    <div className={styles['modal-overlay']} onClick={onClose}>
+      <div className={styles['item-detail-modal']} onClick={(e) => e.stopPropagation()}>
+        <div className={styles['modal-header']}>
+          <div className={styles['header-content']}>
             <h2>{equipment.name}</h2>
             <span 
-              className="item-rarity"
+              className={styles['item-rarity']}
               style={{ backgroundColor: getRarityColor(equipment.rarity || 'common') }}
             >
               {(equipment.rarity || 'common').replace('_', ' ').toUpperCase()}
             </span>
           </div>
-          <button className="close-button" onClick={onClose}>×</button>
+          <button className={styles['close-button']} onClick={onClose}>×</button>
         </div>
 
-        <div className="modal-body">
-          <div className="item-main-info">
-            <div className="item-type-info">
-              <span className="item-type">{equipment.equipment_type.charAt(0).toUpperCase() + equipment.equipment_type.slice(1)}</span>
+        <div className={styles['modal-body']}>
+          <div className={styles['item-main-info']}>
+            <div className={styles['item-type-info']}>
+              <span className={styles['item-type']}>{equipment.equipment_type.charAt(0).toUpperCase() + equipment.equipment_type.slice(1)}</span>
               {equipment.category && (
-                <span className="item-category"> • {equipment.category}</span>
+                <span className={styles['item-category']}> • {equipment.category}</span>
               )}
             </div>
 
-            <div className="item-stats-grid">
-              <div className="stat-item">
+            <div className={styles['item-stats-grid']}>
+              <div className={styles['stat-item']}>
                 <label>Weight</label>
                 <span>{equipment.weight} lbs</span>
               </div>
               
-              <div className="stat-item">
+              <div className={styles['stat-item']}>
                 <label>Cost</label>
                 <span>{formatCost(equipment.cost)}</span>
               </div>
@@ -123,30 +123,30 @@ const ItemDetail: React.FC<ItemDetailProps> = ({
               )}
 
               {equipment.strength_requirement && (
-                <div className="stat-item">
+                <div className={styles['stat-item']}>
                   <label>Strength Required</label>
                   <span>{equipment.strength_requirement}</span>
                 </div>
               )}
 
-              <div className="stat-item">
+              <div className={styles['stat-item']}>
                 <label>Equipment Slot</label>
                 <span>{getEquipmentSlot()}</span>
               </div>
             </div>
 
             {equipment.stealth_disadvantage && (
-              <div className="warning-message">
+              <div className={styles['warning-message']}>
                 <strong>Stealth Disadvantage:</strong> This armor imposes disadvantage on Dexterity (Stealth) checks.
               </div>
             )}
 
             {equipment.properties && equipment.properties.length > 0 && (
-              <div className="properties-section">
+              <div className={styles['properties-section']}>
                 <h4>Properties</h4>
-                <div className="properties-list">
+                <div className={styles['properties-list']}>
                   {equipment.properties.map((property, index) => (
-                    <span key={index} className="property-tag">
+                    <span key={index} className={styles['property-tag']}>
                       {property.charAt(0).toUpperCase() + property.slice(1)}
                     </span>
                   ))}
@@ -154,13 +154,13 @@ const ItemDetail: React.FC<ItemDetailProps> = ({
               </div>
             )}
 
-            <div className="description-section">
+            <div className={styles['description-section']}>
               <h4>Description</h4>
-              <p className="item-description">{equipment.description}</p>
+              <p className={styles['item-description']}>{equipment.description}</p>
             </div>
 
             {equipment.tool_type && (
-              <div className="tool-info">
+              <div className={styles['tool-info']}>
                 <h4>Tool Type</h4>
                 <p>{equipment.tool_type}</p>
               </div>
@@ -171,7 +171,7 @@ const ItemDetail: React.FC<ItemDetailProps> = ({
               showTitle={true}
             />
 
-            <div className="source-info">
+            <div className={styles['source-info']}>
               <small>
                 <strong>Source:</strong> {equipment.source}
                 {equipment.page && `, p. ${equipment.page}`}
@@ -181,10 +181,10 @@ const ItemDetail: React.FC<ItemDetailProps> = ({
         </div>
 
         {showActions && (
-          <div className="modal-actions">
+          <div className={styles['modal-actions']}>
             {onAddToInventory && (
-              <div className="add-to-inventory-section">
-                <div className="quantity-selector">
+              <div className={styles['add-to-inventory-section']}>
+                <div className={styles['quantity-selector']}>
                   <label htmlFor="quantity">Quantity:</label>
                   <input
                     id="quantity"
@@ -196,7 +196,7 @@ const ItemDetail: React.FC<ItemDetailProps> = ({
                   />
                 </div>
                 <button 
-                  className="add-to-inventory-btn"
+                  className={styles['add-to-inventory-btn']}
                   onClick={handleAddToInventory}
                 >
                   Add to Inventory
@@ -206,7 +206,7 @@ const ItemDetail: React.FC<ItemDetailProps> = ({
 
             {onEquipItem && ['armor', 'weapon', 'shield'].includes(equipment.equipment_type) && (
               <button 
-                className="equip-item-btn"
+                className={styles['equip-item-btn']}
                 onClick={handleEquipItem}
               >
                 Equip Item

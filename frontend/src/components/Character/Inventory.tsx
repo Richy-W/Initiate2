@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Character, Equipment, InventoryItem } from '../../types';
 import EncumbranceStatus from './EncumbranceStatus';
 import EquippedItems from '../Equipment/EquippedItems';
 import { equipmentService } from '../../services/equipmentService';
-import './Inventory.css';
+import styles from './Inventory.module.css';
 
 interface InventoryProps {
   character: Character;
@@ -186,38 +186,38 @@ const Inventory: React.FC<InventoryProps> = ({
     };
     
     return (
-      <div className="currency-section">
-        <div className="currency-header">
+      <div className={styles['currency-section']}>
+        <div className={styles['currency-header']}>
           <h4>Currency Purse</h4>
-          <div className="currency-total">
-            <span className="total-label">Total Value:</span>
-            <span className="total-value">{totalValue.toFixed(2)} gp</span>
+          <div className={styles['currency-total']}>
+            <span className={styles['total-label']}>Total Value:</span>
+            <span className={styles['total-value']}>{totalValue.toFixed(2)} gp</span>
           </div>
         </div>
         
-        <div className="currency-grid">
+        <div className={styles['currency-grid']}>
           {currencyTypes.map(currencyType => (
-            <div key={currencyType.code} className="currency-item">
-              <div className="currency-display">
-                <div className="currency-icon" style={{ color: currencyType.color }}>
+            <div key={currencyType.code} className={styles['currency-item']}>
+              <div className={styles['currency-display']}>
+                <div className={styles['currency-icon']} style={{ color: currencyType.color }}>
                   {currencyType.icon}
                 </div>
-                <div className="currency-info">
+                <div className={styles['currency-info']}>
                   <label>{currencyType.name}</label>
-                  <span className="currency-amount">{currency[currencyType.code as keyof typeof currency] || 0}</span>
+                  <span className={styles['currency-amount']}>{currency[currencyType.code as keyof typeof currency] || 0}</span>
                 </div>
               </div>
               
-              <div className="currency-actions">
+              <div className={styles['currency-actions']}>
                 <button 
-                  className="currency-btn add"
+                  className={[styles['currency-btn'], styles['add']].filter(Boolean).join(' ')}
                   onClick={() => setAddMode({ active: true, type: currencyType.code })}
                   title={`Add ${currencyType.name}`}
                 >
                   +
                 </button>
                 <button 
-                  className="currency-btn remove"
+                  className={[styles['currency-btn'], styles['remove']].filter(Boolean).join(' ')}
                   onClick={() => setRemoveMode({ active: true, type: currencyType.code })}
                   title={`Remove ${currencyType.name}`}
                   disabled={(currency[currencyType.code as keyof typeof currency] || 0) === 0}
@@ -229,9 +229,9 @@ const Inventory: React.FC<InventoryProps> = ({
           ))}
         </div>
 
-        <div className="currency-tools">
+        <div className={styles['currency-tools']}>
           <button 
-            className="currency-tool-btn"
+            className={styles['currency-tool-btn']}
             onClick={() => setConvertMode({ active: true, from: '', to: '' })}
           >
             💱 Convert Currency
@@ -240,8 +240,8 @@ const Inventory: React.FC<InventoryProps> = ({
 
         {/* Add Currency Modal */}
         {addMode.active && (
-          <div className="currency-modal">
-            <div className="modal-content">
+          <div className={styles['currency-modal']}>
+            <div className={styles['modal-content']}>
               <h5>Add {currencyTypes.find(c => c.code === addMode.type)?.name}</h5>
               <input 
                 type="number" 
@@ -251,7 +251,7 @@ const Inventory: React.FC<InventoryProps> = ({
                 placeholder="Amount to add"
                 autoFocus
               />
-              <div className="modal-actions">
+              <div className={styles['modal-actions']}>
                 <button onClick={() => handleAddCurrency(addMode.type, amount)}>Add</button>
                 <button onClick={() => { setAddMode({ active: false, type: '' }); setAmount(0); }}>Cancel</button>
               </div>
@@ -261,8 +261,8 @@ const Inventory: React.FC<InventoryProps> = ({
 
         {/* Remove Currency Modal */}
         {removeMode.active && (
-          <div className="currency-modal">
-            <div className="modal-content">
+          <div className={styles['currency-modal']}>
+            <div className={styles['modal-content']}>
               <h5>Remove {currencyTypes.find(c => c.code === removeMode.type)?.name}</h5>
               <p>Available: {currency[removeMode.type as keyof typeof currency] || 0}</p>
               <input 
@@ -274,7 +274,7 @@ const Inventory: React.FC<InventoryProps> = ({
                 placeholder="Amount to remove"
                 autoFocus
               />
-              <div className="modal-actions">
+              <div className={styles['modal-actions']}>
                 <button onClick={() => handleRemoveCurrency(removeMode.type, amount)}>Remove</button>
                 <button onClick={() => { setRemoveMode({ active: false, type: '' }); setAmount(0); }}>Cancel</button>
               </div>
@@ -284,11 +284,11 @@ const Inventory: React.FC<InventoryProps> = ({
 
         {/* Convert Currency Modal */}
         {convertMode.active && (
-          <div className="currency-modal">
-            <div className="modal-content">
+          <div className={styles['currency-modal']}>
+            <div className={styles['modal-content']}>
               <h5>Convert Currency</h5>
-              <div className="convert-form">
-                <div className="convert-row">
+              <div className={styles['convert-form']}>
+                <div className={styles['convert-row']}>
                   <label>From:</label>
                   <select value={convertMode.from} onChange={(e) => setConvertMode({ ...convertMode, from: e.target.value })}>
                     <option value="">Select currency</option>
@@ -297,7 +297,7 @@ const Inventory: React.FC<InventoryProps> = ({
                     ))}
                   </select>
                 </div>
-                <div className="convert-row">
+                <div className={styles['convert-row']}>
                   <label>To:</label>
                   <select value={convertMode.to} onChange={(e) => setConvertMode({ ...convertMode, to: e.target.value })}>
                     <option value="">Select currency</option>
@@ -306,7 +306,7 @@ const Inventory: React.FC<InventoryProps> = ({
                     ))}
                   </select>
                 </div>
-                <div className="convert-row">
+                <div className={styles['convert-row']}>
                   <label>Amount:</label>
                   <input 
                     type="number" 
@@ -318,7 +318,7 @@ const Inventory: React.FC<InventoryProps> = ({
                   />
                 </div>
               </div>
-              <div className="modal-actions">
+              <div className={styles['modal-actions']}>
                 <button 
                   onClick={() => handleConvertCurrency(convertMode.from, convertMode.to, amount)}
                   disabled={!convertMode.from || !convertMode.to || amount <= 0}
@@ -339,42 +339,42 @@ const Inventory: React.FC<InventoryProps> = ({
     const equipped = isItemEquipped(item.equipment_id);
 
     return (
-      <div key={item.equipment_id} className={`inventory-item ${equipped ? 'equipped' : ''}`}>
-        <div className="item-info">
-          <div className="item-header">
+      <div key={item.equipment_id} className={[styles['inventory-item'], equipped ? styles['equipped'] : ''].filter(Boolean).join(' ')}>
+        <div className={styles['item-info']}>
+          <div className={styles['item-header']}>
             <h5>{equipment.name}</h5>
-            {equipped && <span className="equipped-badge">Equipped ({equippedSlot})</span>}
+            {equipped && <span className={styles['equipped-badge']}>Equipped ({equippedSlot})</span>}
           </div>
           
-          <div className="item-details">
-            <span className="item-type">{equipment.equipment_type}</span>
+          <div className={styles['item-details']}>
+            <span className={styles['item-type']}>{equipment.equipment_type}</span>
             {equipment.weight && (
-              <span className="item-weight">{equipment.weight} lb</span>
+              <span className={styles['item-weight']}>{equipment.weight} lb</span>
             )}
           </div>
 
           {equipment.description && (
-            <p className="item-description">{equipment.description}</p>
+            <p className={styles['item-description']}>{equipment.description}</p>
           )}
         </div>
 
-        <div className="item-controls">
-          <div className="quantity-control">
+        <div className={styles['item-controls']}>
+          <div className={styles['quantity-control']}>
             <label>Qty:</label>
             <input
               type="number"
               min="0"
               value={item.quantity}
               onChange={(e) => handleQuantityChange(item.equipment_id, parseInt(e.target.value) || 0)}
-              className="quantity-input"
+              className={styles['quantity-input']}
             />
           </div>
 
-          <div className="item-actions">
+          <div className={styles['item-actions']}>
             {equipment.equipment_type === 'armor' && !equipped && (
               <button 
                 onClick={() => handleEquipItem(item.equipment_id, 'armor')}
-                className="equip-btn"
+                className={styles['equip-btn']}
               >
                 Equip
               </button>
@@ -382,7 +382,7 @@ const Inventory: React.FC<InventoryProps> = ({
             {equipment.equipment_type === 'weapon' && !equipped && (
               <button 
                 onClick={() => handleEquipItem(item.equipment_id, 'main_hand')}
-                className="equip-btn"
+                className={styles['equip-btn']}
               >
                 Equip
               </button>
@@ -390,7 +390,7 @@ const Inventory: React.FC<InventoryProps> = ({
             {equipment.equipment_type === 'shield' && !equipped && (
               <button 
                 onClick={() => handleEquipItem(item.equipment_id, 'shield')}
-                className="equip-btn"
+                className={styles['equip-btn']}
               >
                 Equip
               </button>
@@ -399,7 +399,7 @@ const Inventory: React.FC<InventoryProps> = ({
             {equipped && (
               <button 
                 onClick={() => handleUnequipItem(equippedSlot!)}
-                className="unequip-btn"
+                className={styles['unequip-btn']}
               >
                 Unequip
               </button>
@@ -407,7 +407,7 @@ const Inventory: React.FC<InventoryProps> = ({
 
             <button 
               onClick={() => handleRemoveItem(item.equipment_id)}
-              className="remove-btn"
+              className={styles['remove-btn']}
               title="Remove item"
             >
               ×
@@ -419,39 +419,39 @@ const Inventory: React.FC<InventoryProps> = ({
   };
 
   return (
-    <div className="inventory-container">
-      <div className="inventory-header">
+    <div className={styles['inventory-container']}>
+      <div className={styles['inventory-header']}>
         <h3>Inventory</h3>
         
         <EncumbranceStatus character={character} detailed={false} />
       </div>
 
-      <div className="inventory-tabs">
+      <div className={styles['inventory-tabs']}>
         <button
-          className={`tab ${selectedTab === 'items' ? 'active' : ''}`}
+          className={[styles['tab'], selectedTab === 'items' ? styles['active'] : ''].filter(Boolean).join(' ')}
           onClick={() => setSelectedTab('items')}
         >
           Equipment
         </button>
         <button
-          className={`tab ${selectedTab === 'equipped' ? 'active' : ''}`}
+          className={[styles['tab'], selectedTab === 'equipped' ? styles['active'] : ''].filter(Boolean).join(' ')}
           onClick={() => setSelectedTab('equipped')}
         >
           Equipped
         </button>
         <button
-          className={`tab ${selectedTab === 'currency' ? 'active' : ''}`}
+          className={[styles['tab'], selectedTab === 'currency' ? styles['active'] : ''].filter(Boolean).join(' ')}
           onClick={() => setSelectedTab('currency')}
         >
           Currency
         </button>
       </div>
 
-      <div className="inventory-content">
+      <div className={styles['inventory-content']}>
         {selectedTab === 'items' && (
-          <div className="equipment-section">
+          <div className={styles['equipment-section']}>
             {character.equipment && character.equipment.length > 0 ? (
-              <div className="equipment-list">
+              <div className={styles['equipment-list']}>
                 {character.equipment.map(item => {
                   // In a real implementation, you'd fetch equipment details by ID
                   // For now, we'll create a mock equipment object
@@ -470,12 +470,12 @@ const Inventory: React.FC<InventoryProps> = ({
                 })}
               </div>
             ) : (
-              <div className="empty-inventory">
+              <div className={styles['empty-inventory']}>
                 <p>No equipment in inventory</p>
                 {onShowEquipmentBrowser && (
                   <button 
                     onClick={onShowEquipmentBrowser}
-                    className="browse-equipment-btn"
+                    className={styles['browse-equipment-btn']}
                   >
                     Browse Equipment
                   </button>

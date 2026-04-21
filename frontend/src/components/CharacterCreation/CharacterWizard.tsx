@@ -7,7 +7,7 @@ import { AbilityScores } from './AbilityScores';
 import { characterAPI } from '../../services/apiClient';
 import HomebrewBrowser from '../Homebrew/HomebrewBrowser';
 import { HomebrewContent } from '../../types';
-import '../../styles/CharacterCreation.css';
+import styles from './CharacterWizard.module.css';
 
 export interface CharacterData {
   name: string;
@@ -18,6 +18,14 @@ export interface CharacterData {
     spellcastingAbility?: string;
     sizeCategory?: string;
     featChoice?: string;
+    skillfulChoice?: string;
+    skilledSkillChoices?: string[];
+    skilledToolChoices?: string[];
+    magicInitiateSpellList?: string;
+    magicInitiateAbility?: string;
+    magicInitiateCantrip1?: string;
+    magicInitiateCantrip2?: string;
+    magicInitiateSpell1?: string;
   };
   characterClass: any;
   selectedSkills?: string[];
@@ -103,6 +111,14 @@ export const CharacterWizard: React.FC = () => {
         spellcastingAbility: spellcastingOptions[0] || '',
         sizeCategory: sizeOptions[0]?.category || species?.size?.category || '',
         featChoice: '',
+        skillfulChoice: '',
+        skilledSkillChoices: [],
+        skilledToolChoices: [],
+        magicInitiateSpellList: '',
+        magicInitiateAbility: '',
+        magicInitiateCantrip1: '',
+        magicInitiateCantrip2: '',
+        magicInitiateSpell1: '',
       },
     }));
   }, []);
@@ -114,6 +130,14 @@ export const CharacterWizard: React.FC = () => {
       spellcastingAbility?: string;
       sizeCategory?: string;
       featChoice?: string;
+      skillfulChoice?: string;
+      skilledSkillChoices?: string[];
+      skilledToolChoices?: string[];
+      magicInitiateSpellList?: string;
+      magicInitiateAbility?: string;
+      magicInitiateCantrip1?: string;
+      magicInitiateCantrip2?: string;
+      magicInitiateSpell1?: string;
     }) => {
       setCharacterData((prev) => ({ ...prev, selectedSpeciesOptions: options }));
     },
@@ -355,7 +379,21 @@ export const CharacterWizard: React.FC = () => {
     switch (step) {
       case 0: return characterData.name.trim() !== '';
       case 1: return true; // Homebrew step is optional
-      case 2: return characterData.species !== null;
+      case 2: {
+        if (!characterData.species) return false;
+        const opts = characterData.selectedSpeciesOptions;
+        const hasFeatChoice = !(characterData.species?.traits || []).some((t: any) =>
+          typeof t?.description === 'string' && t.description.toLowerCase().includes('origin feat of your choice')
+        ) || !!(opts?.featChoice);
+        const hasSkillfulChoice = !(characterData.species?.traits || []).some((t: any) =>
+          typeof t?.name === 'string' && t.name.toLowerCase() === 'skillful'
+        ) || !!(opts?.skillfulChoice);
+        const skilledTotal = opts?.featChoice === 'Skilled'
+          ? ((opts?.skilledSkillChoices?.length ?? 0) + (opts?.skilledToolChoices?.length ?? 0))
+          : 3;
+        const hasSkilledChoices = skilledTotal >= 3;
+        return hasFeatChoice && hasSkillfulChoice && hasSkilledChoices;
+      }
       case 3: return characterData.characterClass !== null;
       case 4: return characterData.background !== null;
       case 5: return true; // Ability scores always have default values
@@ -372,8 +410,8 @@ export const CharacterWizard: React.FC = () => {
         return (
           <div className="step-content">
             <h2 id="step-name-heading">Character Name</h2>
-            <div className="form-group">
-              <label htmlFor="characterName" className="form-label">
+            <div className={styles['form-group']}>
+              <label htmlFor="characterName" className={styles['form-label']}>
                 Character Name <span aria-hidden="true">*</span>
                 <span className="sr-only">(required)</span>
               </label>
@@ -424,8 +462,8 @@ export const CharacterWizard: React.FC = () => {
       case 'homebrew':
         return (
           <div className="step-content">
-            <h2>Homebrew Content <span className="homebrew-optional-tag">(Optional)</span></h2>
-            <p className="homebrew-intro">Select custom homebrew content to unlock additional species, classes, spells, or other options in the steps ahead.</p>
+            <h2>Homebrew Content <span className={styles['homebrew-optional-tag']}>(Optional)</span></h2>
+            <p className={styles['homebrew-intro']}>Select custom homebrew content to unlock additional species, classes, spells, or other options in the steps ahead.</p>
             <HomebrewBrowser
               onSelect={(item) => {
                 setCharacterData((prev) => {
@@ -438,19 +476,19 @@ export const CharacterWizard: React.FC = () => {
               }}
             />
             {(characterData.selectedHomebrew || []).length > 0 && (
-              <div className="homebrew-selected-list">
+              <div className={styles['homebrew-selected-list']}>
                 <h4>Selected Homebrew</h4>
                 <div>
                   {(characterData.selectedHomebrew || []).map((item) => (
-                    <div key={item.id} className="homebrew-selected-row">
-                      <span>{item.name} <span className="homebrew-type-badge">{item.content_type}</span></span>
+                    <div key={item.id} className={styles['homebrew-selected-row']}>
+                      <span>{item.name} <span className={styles['homebrew-type-badge']}>{item.content_type}</span></span>
                       <button
                         type="button"
                         onClick={() => setCharacterData((prev) => ({
                           ...prev,
                           selectedHomebrew: (prev.selectedHomebrew || []).filter((x) => x.id !== item.id),
                         }))}
-                        className="homebrew-remove-btn"
+                        className={styles['homebrew-remove-btn']}
                       >
                         Remove
                       </button>
@@ -559,7 +597,7 @@ export const CharacterWizard: React.FC = () => {
                 className="btn-print-sheet"
                 onClick={() => window.print()}
               >
-                🖨️ Print / Save as PDF
+                ??? Print / Save as PDF
               </button>
             </div>
             
@@ -654,7 +692,7 @@ export const CharacterWizard: React.FC = () => {
                       const saveBonus = getAbilityModifier(finalScore) + (isProficient ? proficiencyBonus : 0);
                       
                       return (
-                        <div key={ability} className="ability-score-block">
+                        <div key={ability} className={styles['ability-score-block']}>
                           <div className="ability-header">
                             <div className="ability-name">{ability.toUpperCase()}</div>
                             <div className="ability-score">{finalScore}</div>
@@ -906,8 +944,8 @@ export const CharacterWizard: React.FC = () => {
   };
 
   return (
-    <div className="character-wizard" role="main" aria-label="Character Creation Wizard">
-      <div className="wizard-header">
+    <div className={`character-wizard ${styles['character-wizard']}`} role="main" aria-label="Character Creation Wizard">
+      <div className={styles['wizard-header']}>
         <h1>Create New Character</h1>
         
         {/* Authentication Status Check */}
@@ -925,7 +963,7 @@ export const CharacterWizard: React.FC = () => {
               color: '#dc2626'
             }}
           >
-            ⚠️ <strong>Authentication Required:</strong> You must be logged in to create a character. 
+            ?? <strong>Authentication Required:</strong> You must be logged in to create a character. 
             Please <a href="/login" style={{textDecoration: 'underline'}}>login</a> before proceeding.
           </div>
         )}
@@ -938,10 +976,7 @@ export const CharacterWizard: React.FC = () => {
               return (
                 <li
                   key={index}
-                  className={`step ${
-                    isCompleted ? 'completed' : 
-                    isCurrent ? 'current' : 'upcoming'
-                  }`}
+                  className={`step ${isCompleted ? 'completed' : isCurrent ? 'current' : 'upcoming'}`}
                   aria-current={isCurrent ? 'step' : undefined}
                 >
                   <div className="step-number" aria-hidden="true">{index + 1}</div>
@@ -970,7 +1005,7 @@ export const CharacterWizard: React.FC = () => {
         </div>
       )}
 
-      <div className="wizard-navigation" role="navigation" aria-label="Wizard navigation">
+      <div className={styles['wizard-navigation']} role="navigation" aria-label="Wizard navigation">
         <button
           type="button"
           onClick={handlePrevious}

@@ -1,11 +1,11 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+﻿import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { characterAPI } from '../../services/apiClient';
 import { SkillRolls } from './SkillRolls';
 import { AttackRolls } from './AttackRolls';
 import { SavingThrows } from './SavingThrows';
 import { OfficialIdentityHeader } from './OfficialIdentityHeader';
-import '../../styles/CharacterSheet.css';
+import styles from './CharacterSheet.module.css';
 
 interface Character {
   id: string;
@@ -1120,10 +1120,10 @@ export const CharacterSheet: React.FC = () => {
   ];
 
   return (
-    <div className="character-sheet" role="main" aria-label={`Character sheet for ${character.name}`}>
+    <div className={styles['character-sheet']} role="main" aria-label={`Character sheet for ${character.name}`}>
       {/* Character Header */}
-      <header className="character-header">
-        <div className="character-basic-info">
+      <header className={styles['character-header']}>
+        <div className={styles['character-basic-info']}>
           <OfficialIdentityHeader
             name={character.name}
             level={character.level}
@@ -1132,21 +1132,21 @@ export const CharacterSheet: React.FC = () => {
             species={character.species?.name || (character as any).species_name}
           />
 
-          <div className="header-abilities-grid" role="list" aria-label="Ability scores">
+          <div className={styles['header-abilities-grid']} role="list" aria-label="Ability scores">
             {headerAbilities.map((ability) => (
-              <div key={ability.key} className="header-ability-chip" role="listitem">
-                <span className="header-ability-label" id={`ability-label-${ability.key}`}>{ability.label}</span>
-                <span className="header-ability-score" aria-labelledby={`ability-label-${ability.key}`}>{ability.total || 10}</span>
-                <span className="header-ability-modifier" aria-label={`Modifier: ${getAbilityModifierString(ability.total || 10)}`}>{getAbilityModifierString(ability.total || 10)}</span>
+              <div key={ability.key} className={styles['header-ability-chip']} role="listitem">
+                <span className={styles['header-ability-label']} id={`ability-label-${ability.key}`}>{ability.label}</span>
+                <span className={styles['header-ability-score']} aria-labelledby={`ability-label-${ability.key}`}>{ability.total || 10}</span>
+                <span className={styles['header-ability-modifier']} aria-label={`Modifier: ${getAbilityModifierString(ability.total || 10)}`}>{getAbilityModifierString(ability.total || 10)}</span>
               </div>
             ))}
           </div>
           
-          <div className="character-vital-stats">
-            <div className="vital-stat hp-stat-card">
-              <div className="vital-stat-label" id="hp-label">Hit Points</div>
-              <div className="vital-stat-value" aria-labelledby="hp-label" aria-live="polite">{character.current_hit_points}/{effectiveMaxHp}</div>
-              <div className="hp-adjustment-panel">
+          <div className={styles['character-vital-stats']}>
+            <div className={[styles['vital-stat'], styles['hp-stat-card']].filter(Boolean).join(' ')}>
+              <div className={styles['vital-stat-label']} id="hp-label">Hit Points</div>
+              <div className={styles['vital-stat-value']} aria-labelledby="hp-label" aria-live="polite">{character.current_hit_points}/{effectiveMaxHp}</div>
+              <div className={styles['hp-adjustment-panel']}>
                 <input
                   type="number"
                   min={0}
@@ -1160,7 +1160,7 @@ export const CharacterSheet: React.FC = () => {
                 <button type="button" onClick={() => void applyDamage()}>Damage</button>
                 <button type="button" onClick={() => void applyHealing()}>Heal</button>
               </div>
-              <div className="temp-hp-panel">
+              <div className={styles['temp-hp-panel']}>
                 <span>Temp</span>
                 <input
                   type="number"
@@ -1173,40 +1173,40 @@ export const CharacterSheet: React.FC = () => {
                 />
                 <button type="button" onClick={() => void saveTempHp()}>Save</button>
               </div>
-              {hpActionError && <div className="vital-stat-feedback">{hpActionError}</div>}
+              {hpActionError && <div className={styles['vital-stat-feedback']}>{hpActionError}</div>}
             </div>
-            <div className="vital-stat">
-              <div className="vital-stat-label">Armor Class</div>
-              <div className="vital-stat-value">{character.armor_class}</div>
+            <div className={styles['vital-stat']}>
+              <div className={styles['vital-stat-label']}>Armor Class</div>
+              <div className={styles['vital-stat-value']}>{character.armor_class}</div>
             </div>
-            <div className="vital-stat">
-              <div className="vital-stat-label">Initiative</div>
-                <div className="vital-stat-value">{getAbilityModifierString(abilityTotals.dexterity)}</div>
+            <div className={styles['vital-stat']}>
+              <div className={styles['vital-stat-label']}>Initiative</div>
+                <div className={styles['vital-stat-value']}>{getAbilityModifierString(abilityTotals.dexterity)}</div>
             </div>
-            <div className="vital-stat">
-              <div className="vital-stat-label">Proficiency</div>
-              <div className="vital-stat-value">+{character.proficiency_bonus || 2}</div>
+            <div className={styles['vital-stat']}>
+              <div className={styles['vital-stat-label']}>Proficiency</div>
+              <div className={styles['vital-stat-value']}>+{character.proficiency_bonus || 2}</div>
             </div>
           </div>
         </div>
       </header>
 
       {/* Mobile Tab Navigation */}
-      <div className="character-tabs">
+      <div className={styles['character-tabs']}>
         <button
-          className={`tab-button ${activeTab === 'stats' ? 'active' : ''}`}
+          className={[styles['tab-button'], activeTab === 'stats' ? styles['active'] : ''].filter(Boolean).join(' ')}
           onClick={() => setActiveTab('stats')}
         >
           Stats
         </button>
         <button
-          className={`tab-button ${activeTab === 'combat' ? 'active' : ''}`}
+          className={[styles['tab-button'], activeTab === 'combat' ? styles['active'] : ''].filter(Boolean).join(' ')}
           onClick={() => setActiveTab('combat')}
         >
           Combat
         </button>
         <button
-          className={`tab-button ${activeTab === 'equipment' ? 'active' : ''}`}
+          className={[styles['tab-button'], activeTab === 'equipment' ? styles['active'] : ''].filter(Boolean).join(' ')}
           onClick={() => setActiveTab('equipment')}
         >
           Equipment
@@ -1214,64 +1214,64 @@ export const CharacterSheet: React.FC = () => {
       </div>
 
       {/* Main Content - D&D Beyond Layout */}
-      <div className="character-content">
+      <div className={styles['character-content']}>
         {/* Left Sidebar - Always visible on desktop */}
-        <div className="character-left-sidebar">
+        <div className={styles['character-left-sidebar']}>
           {/* Saving Throws */}
-          <div className="character-section saving-throws">
-            <div className="section-header">
-              <h3 className="section-title">Saving Throws</h3>
+          <div className={[styles['character-section'], styles['saving-throws']].filter(Boolean).join(' ')}>
+            <div className={styles['section-header']}>
+              <h3 className={styles['section-title']}>Saving Throws</h3>
             </div>
             <SavingThrows character={characterForRollPanels} />
           </div>
 
-          <div className="character-section senses-panel">
-            <div className="passive-list">
+          <div className={[styles['character-section'], styles['senses-panel']].filter(Boolean).join(' ')}>
+            <div className={styles['passive-list']}>
               {passiveSummary.passives.map((item) => (
-                <div key={item.key} className="passive-item">
-                  <span className="passive-value">{item.value}</span>
-                  <span className="passive-label">{item.label}</span>
+                <div key={item.key} className={styles['passive-item']}>
+                  <span className={styles['passive-value']}>{item.value}</span>
+                  <span className={styles['passive-label']}>{item.label}</span>
                 </div>
               ))}
             </div>
-            <div className="senses-list">
+            <div className={styles['senses-list']}>
               {passiveSummary.senses.map((sense) => (
-                <div key={sense} className="sense-line">{sense}</div>
+                <div key={sense} className={styles['sense-line']}>{sense}</div>
               ))}
             </div>
-            <div className="senses-title">Senses</div>
+            <div className={styles['senses-title']}>Senses</div>
           </div>
         </div>
 
         {/* Main Content Area */}
-        <div className="character-main-content">
+        <div className={styles['character-main-content']}>
           {/* Mobile Content Switching */}
           {(activeTab === 'stats' || !isMobile) && (
-            <div className="character-section skills">
-              <div className="section-header">
-                <h3 className="section-title">Skills</h3>
+            <div className={[styles['character-section'], styles['skills']].filter(Boolean).join(' ')}>
+              <div className={styles['section-header']}>
+                <h3 className={styles['section-title']}>Skills</h3>
               </div>
               <SkillRolls character={characterForRollPanels} />
             </div>
           )}
 
           {(activeTab === 'combat' || !isMobile) && (
-            <div className="character-section combat">
-              <div className="section-header">
-                <h3 className="section-title">Combat</h3>
+            <div className={[styles['character-section'], styles['combat']].filter(Boolean).join(' ')}>
+              <div className={styles['section-header']}>
+                <h3 className={styles['section-title']}>Combat</h3>
               </div>
               <AttackRolls character={characterForRollPanels} />
             </div>
           )}
 
           {(activeTab === 'equipment' || !isMobile) && (
-            <div className="character-section equipment">
-              <div className="section-header">
-                <h3 className="section-title">Equipment</h3>
+            <div className={[styles['character-section'], styles['equipment']].filter(Boolean).join(' ')}>
+              <div className={styles['section-header']}>
+                <h3 className={styles['section-title']}>Equipment</h3>
               </div>
-              <div className="currency">
+              <div className={styles['currency']}>
                 <h4>Currency</h4>
-                <div className="currency-display">
+                <div className={styles['currency-display']}>
                   {([
                     ['cp', 'CP'],
                     ['sp', 'SP'],
@@ -1279,8 +1279,8 @@ export const CharacterSheet: React.FC = () => {
                     ['ep', 'EP'],
                     ['pp', 'PP'],
                   ] as const).map(([key, label]) => (
-                    <label key={key} className={`currency-input-box coin-${key}`}>
-                      <span className="coin-badge">{label}</span>
+                    <label key={key} className={[styles['currency-input-box'], styles[`coin-${key}`]].filter(Boolean).join(' ')}>
+                      <span className={styles['coin-badge']}>{label}</span>
                       <input
                         type="number"
                         min={0}
@@ -1297,18 +1297,18 @@ export const CharacterSheet: React.FC = () => {
                     </label>
                   ))}
                 </div>
-                <div className={`notes-save-state ${currencySaveState}`}>
+                <div className={[styles['notes-save-state'], currencySaveState !== 'idle' ? styles[currencySaveState] : ''].filter(Boolean).join(' ')}>
                   {currencySaveState === 'saving' && 'Saving currency...'}
                   {currencySaveState === 'saved' && 'Currency saved'}
                   {currencySaveState === 'error' && 'Could not save currency'}
                 </div>
               </div>
               
-              <div className="equipment-list">
+              <div className={styles['equipment-list']}>
                 <h4>Items</h4>
-                <div className="equipment-add-controls">
+                <div className={styles['equipment-add-controls']}>
                   <h5>Add Item</h5>
-                  <div className="equipment-add-row">
+                  <div className={styles['equipment-add-row']}>
                     <input
                       type="text"
                       value={newItemName}
@@ -1352,27 +1352,27 @@ export const CharacterSheet: React.FC = () => {
                 ) : (
                   <p>No equipment</p>
                 )}
-                {inventoryActionError && <p className="traits-empty">{inventoryActionError}</p>}
+                {inventoryActionError && <p className={styles['traits-empty']}>{inventoryActionError}</p>}
               </div>
             </div>
           )}
         </div>
 
         {/* Right Sidebar - Desktop only */}
-        <div className="character-right-sidebar">
-          <div className="character-section traits-pane">
-            <div className="section-header">
-              <h3 className="section-title">Features & Traits</h3>
+        <div className={styles['character-right-sidebar']}>
+          <div className={[styles['character-section'], styles['traits-pane']].filter(Boolean).join(' ')}>
+            <div className={styles['section-header']}>
+              <h3 className={styles['section-title']}>Features & Traits</h3>
             </div>
-            <div className="traits-tabs">
+            <div className={styles['traits-tabs']}>
               <button
-                className={`traits-tab ${activeInfoTab === 'features' ? 'active' : ''}`}
+                className={[styles['traits-tab'], activeInfoTab === 'features' ? styles['active'] : ''].filter(Boolean).join(' ')}
                 onClick={() => setActiveInfoTab('features')}
               >
                 Features
               </button>
               <button
-                className={`traits-tab ${activeInfoTab === 'proficiencies' ? 'active' : ''}`}
+                className={[styles['traits-tab'], activeInfoTab === 'proficiencies' ? styles['active'] : ''].filter(Boolean).join(' ')}
                 onClick={() => setActiveInfoTab('proficiencies')}
               >
                 Proficiencies
@@ -1380,9 +1380,9 @@ export const CharacterSheet: React.FC = () => {
             </div>
 
             {activeInfoTab === 'features' && (
-              <div className="traits-content">
+              <div className={styles['traits-content']}>
                 <h4>Features Browser</h4>
-                <div className="feature-filter-row">
+                <div className={styles['feature-filter-row']}>
                   {([
                     ['all', 'All'],
                     ['class', 'Class'],
@@ -1393,7 +1393,7 @@ export const CharacterSheet: React.FC = () => {
                     <button
                       key={key}
                       type="button"
-                      className={`feature-filter-pill ${activeFeatureFilter === key ? 'active' : ''}`}
+                      className={[styles['feature-filter-pill'], activeFeatureFilter === key ? styles['active'] : ''].filter(Boolean).join(' ')}
                       onClick={() => setActiveFeatureFilter(key)}
                     >
                       {label}
@@ -1402,12 +1402,12 @@ export const CharacterSheet: React.FC = () => {
                 </div>
 
                 {filteredFeatures.length > 0 ? (
-                  <ul className="traits-list">
+                  <ul className={styles['traits-list']}>
                     {filteredFeatures.map((feature) => (
-                      <li key={feature.key} className="feature-item">
+                      <li key={feature.key} className={styles['feature-item']}>
                         <button
                           type="button"
-                          className="feature-toggle"
+                          className={styles['feature-toggle']}
                           onClick={() => {
                             setSelectedFeature(feature);
                           }}
@@ -1419,22 +1419,22 @@ export const CharacterSheet: React.FC = () => {
                     ))}
                   </ul>
                 ) : (
-                  <p className="traits-empty">No features found for this section yet.</p>
+                  <p className={styles['traits-empty']}>No features found for this section yet.</p>
                 )}
               </div>
             )}
 
             {activeInfoTab === 'proficiencies' && (
-              <div className="traits-content">
+              <div className={styles['traits-content']}>
                 <h4>Class & Background Proficiencies</h4>
-                <div className="proficiency-groups">
+                <div className={styles['proficiency-groups']}>
                   {([
                     ['Armor', proficienciesSummary.armor],
                     ['Weapons', proficienciesSummary.weapons],
                     ['Tools', proficienciesSummary.tools],
                     ['Languages', proficienciesSummary.languages],
                   ] as const).map(([label, values]) => (
-                    <div className="proficiency-group" key={label}>
+                    <div className={styles['proficiency-group']} key={label}>
                       <h5>{label}</h5>
                       <p>{values.length ? values.join(', ') : 'None listed'}</p>
                     </div>
@@ -1444,11 +1444,11 @@ export const CharacterSheet: React.FC = () => {
             )}
           </div>
 
-          <div className="character-section notes">
-            <div className="section-header">
-              <h3 className="section-title">Notes</h3>
+          <div className={[styles['character-section'], styles['notes']].filter(Boolean).join(' ')}>
+            <div className={styles['section-header']}>
+              <h3 className={styles['section-title']}>Notes</h3>
             </div>
-            <div className={`notes-save-state ${notesSaveState}`}> 
+            <div className={[styles['notes-save-state'], notesSaveState !== 'idle' ? styles[notesSaveState] : ''].filter(Boolean).join(' ')}> 
               {notesSaveState === 'saving' && 'Saving notes...'}
               {notesSaveState === 'saved' && 'Notes saved'}
               {notesSaveState === 'error' && 'Could not save notes'}
@@ -1458,7 +1458,7 @@ export const CharacterSheet: React.FC = () => {
               onChange={(e) => {
                 setNotesDraft(e.target.value);
               }}
-              className="notes-textarea"
+              className={styles['notes-textarea']}
               placeholder="Add character notes here..."
             />
           </div>
@@ -1467,22 +1467,22 @@ export const CharacterSheet: React.FC = () => {
 
       {selectedFeature && (
         <div
-          className="feature-modal-overlay"
+          className={styles['feature-modal-overlay']}
           onClick={() => setSelectedFeature(null)}
           role="presentation"
         >
           <div
-            className="feature-modal"
+            className={styles['feature-modal']}
             role="dialog"
             aria-modal="true"
             aria-labelledby="feature-modal-title"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="feature-modal-header">
+            <div className={styles['feature-modal-header']}>
               <h4 id="feature-modal-title">{selectedFeature.name}</h4>
               <button
                 type="button"
-                className="feature-modal-close"
+                className={styles['feature-modal-close']}
                 onClick={() => setSelectedFeature(null)}
                 aria-label="Close feature details"
               >
@@ -1490,7 +1490,7 @@ export const CharacterSheet: React.FC = () => {
               </button>
             </div>
 
-            <div className="feature-modal-body">
+            <div className={styles['feature-modal-body']}>
               {selectedFeature.description ? (
                 <p>{selectedFeature.description}</p>
               ) : (
