@@ -1,0 +1,814 @@
+/* Character Creation Wizard Styles */
+.character-wizard {
+  --cc-bg-0: var(--app-bg-0);
+  --cc-bg-1: var(--app-bg-1);
+  --cc-bg-2: var(--app-bg-2);
+  --cc-ink-0: var(--app-ink-0);
+  --cc-ink-1: var(--app-ink-1);
+  --cc-border: var(--app-border);
+  --cc-accent: var(--app-accent);
+}
+
+/* ── Homebrew step ──────────────────────────────────────────────────────── */
+.homebrew-optional-tag {
+  font-size: 0.7em;
+  font-weight: 400;
+  color: var(--cc-ink-1);
+  margin-left: 6px;
+}
+
+.homebrew-intro {
+  color: var(--cc-ink-1);
+  font-size: 0.9rem;
+  margin: 0 0 16px;
+  line-height: 1.55;
+}
+
+.homebrew-browser {
+  background: #11182a;
+  border: 1px solid var(--cc-border);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+
+.homebrew-search {
+  width: 100%;
+  box-sizing: border-box;
+  background: #0d1322;
+  border: 1px solid var(--cc-border);
+  border-radius: 6px;
+  color: var(--cc-ink-0);
+  font-size: 0.9rem;
+  padding: 9px 12px;
+  margin-bottom: 12px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.homebrew-search:focus {
+  border-color: var(--cc-accent);
+  box-shadow: 0 0 0 3px rgba(95, 132, 255, 0.2);
+}
+
+.homebrew-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.homebrew-item {
+  width: 100%;
+  text-align: left;
+  background: #141f3a;
+  border: 1px solid var(--cc-border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.homebrew-item:hover {
+  border-color: var(--cc-accent);
+  background: #1a2545;
+}
+
+.homebrew-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.homebrew-item-name {
+  font-weight: 600;
+  color: var(--cc-ink-0);
+  font-size: 0.95rem;
+}
+
+.homebrew-version-badge {
+  font-size: 0.72rem;
+  background: #1e2d50;
+  color: var(--cc-ink-1);
+  border: 1px solid var(--cc-border);
+  border-radius: 4px;
+  padding: 2px 7px;
+}
+
+.homebrew-item-meta {
+  font-size: 0.8rem;
+  color: var(--cc-ink-1);
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.homebrew-empty {
+  font-size: 0.875rem;
+  color: var(--cc-ink-1);
+  text-align: center;
+  padding: 20px 0;
+  line-height: 1.5;
+}
+
+.homebrew-selected-list {
+  background: #11182a;
+  border: 1px solid var(--cc-border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-top: 14px;
+}
+
+.homebrew-selected-list h4 {
+  color: var(--cc-ink-0);
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.homebrew-selected-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--cc-ink-1);
+  padding: 5px 0;
+  border-bottom: 1px solid #1e2a45;
+}
+
+.homebrew-selected-row:last-child {
+  border-bottom: none;
+}
+
+.homebrew-type-badge {
+  font-size: 0.72rem;
+  background: #1e2d50;
+  color: var(--cc-accent);
+  border-radius: 4px;
+  padding: 1px 6px;
+  margin-left: 6px;
+  text-transform: capitalize;
+}
+
+.homebrew-remove-btn {
+  background: none;
+  border: none;
+  color: #f87171;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: background 0.15s;
+}
+
+.homebrew-remove-btn:hover {
+  background: rgba(248, 113, 113, 0.12);
+}
+
+.character-wizard {
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 700px at 100% -10%, rgba(95, 132, 255, 0.2), transparent 60%),
+    linear-gradient(180deg, var(--cc-bg-0) 0%, #0b0e19 100%);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.character-wizard-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: rgba(23, 29, 51, 0.94);
+  border-radius: 20px;
+  border: 1px solid var(--cc-border);
+  box-shadow: 0 14px 46px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+/* Progress Indicator */
+.wizard-header {
+  background: linear-gradient(135deg, #1b2542, #283866);
+  color: white;
+  padding: 24px 32px;
+  text-align: center;
+  border-bottom: 1px solid var(--cc-border);
+}
+
+.wizard-title {
+  margin: 0 0 16px 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.progress-bar {
+  background: rgba(255, 255, 255, 0.2);
+  height: 8px;
+  border-radius: 4px;
+  margin: 16px 0;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background: white;
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.step-indicator {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  gap: 8px;
+}
+
+.step-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.step-dot.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+.step-dot.completed {
+  background: #48bb78;
+}
+
+/* Step Content */
+.character-wizard .wizard-content {
+  padding: 32px 40px;
+  min-height: 500px;
+  margin: 0;
+  border-radius: 0;
+  background: linear-gradient(180deg, #141b31, #11182a);
+  border-top: 1px solid var(--cc-border);
+  box-shadow: none;
+}
+
+.character-wizard .step-title {
+  margin: 0 0 24px 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--cc-ink-0);
+  text-align: center;
+}
+
+.character-wizard .step-description {
+  margin: 0 0 32px 0;
+  font-size: 1rem;
+  color: var(--cc-ink-1);
+  text-align: center;
+  line-height: 1.6;
+}
+
+.character-wizard .step-content {
+  color: var(--cc-ink-0);
+}
+
+.character-wizard .step-content h2 {
+  color: var(--cc-ink-0);
+}
+
+/* Selection Grid */
+.selection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.selection-card {
+  background: linear-gradient(180deg, #1a2036, #151b2f);
+  border: 2px solid var(--cc-border);
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.selection-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-color: #667eea;
+}
+
+.selection-card.selected {
+  border-color: var(--cc-accent);
+  background: linear-gradient(180deg, #202a49, #17203a);
+  box-shadow: 0 8px 25px rgba(95, 132, 255, 0.24);
+}
+
+.selection-card .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.selection-card .card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--cc-ink-0);
+  margin: 0;
+}
+
+.selection-card .card-subtitle {
+  font-size: 0.9rem;
+  color: var(--cc-ink-1);
+  margin: 4px 0 0 0;
+}
+
+.selection-card .card-description {
+  color: var(--cc-ink-1);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.selection-checkmark {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  background: var(--cc-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.3s ease;
+}
+
+.selection-card.selected .selection-checkmark {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.selection-checkmark::after {
+  content: '✓';
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Ability Scores */
+.ability-scores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin: 32px 0;
+}
+
+.ability-score-block {
+  background: linear-gradient(180deg, #1a2036, #151b2f);
+  border: 2px solid var(--cc-border);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.ability-score-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--cc-ink-0);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ability-score-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--cc-accent);
+  margin-bottom: 8px;
+}
+
+.ability-score-modifier {
+  font-size: 1rem;
+  color: var(--cc-ink-0);
+  background: rgba(95, 132, 255, 0.15);
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 24px;
+}
+
+.character-wizard .form-group label {
+  color: var(--cc-ink-0);
+  font-weight: 700;
+}
+
+.character-wizard .species-options h4 {
+  margin: 0 0 12px;
+  color: var(--cc-ink-0);
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  color: var(--cc-ink-0);
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--cc-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  background: #11182a;
+  color: var(--cc-ink-0);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--cc-accent);
+  box-shadow: 0 0 0 3px rgba(95, 132, 255, 0.2);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+}
+
+/* Navigation Buttons */
+.wizard-navigation {
+  background: #141a2e;
+  padding: 24px 40px;
+  border-top: 1px solid var(--cc-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-button {
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nav-button.primary {
+  background: linear-gradient(135deg, var(--cc-accent), #7a9bff);
+  color: white;
+}
+
+.nav-button.primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(95, 132, 255, 0.35);
+}
+
+.nav-button.secondary {
+  background: #212a47;
+  color: var(--cc-ink-0);
+  border: 1px solid var(--cc-border);
+}
+
+.nav-button.secondary:hover {
+  background: #2a3558;
+}
+
+.nav-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Character Summary */
+.character-summary {
+  background: linear-gradient(180deg, #1a2036, #151b2f);
+  border: 1px solid var(--cc-border);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
+}
+
+.summary-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--cc-ink-0);
+  margin: 0 0 16px 0;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.summary-item {
+  padding: 12px;
+  background: #11182a;
+  border-radius: 8px;
+  border: 1px solid var(--cc-border);
+}
+
+.summary-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--cc-ink-1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.summary-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--cc-ink-0);
+}
+
+/* Loading States */
+.wizard-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: var(--cc-ink-1);
+  font-size: 1.1rem;
+}
+
+.loading-spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid #243055;
+  border-top: 3px solid var(--cc-accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 12px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .character-wizard {
+    padding: 12px;
+  }
+  
+  .character-wizard-container {
+    border-radius: 12px;
+  }
+  
+  .wizard-header {
+    padding: 20px 24px;
+  }
+  
+  .wizard-title {
+    font-size: 1.5rem;
+  }
+  
+  .wizard-content {
+    padding: 24px 20px;
+  }
+  
+  .wizard-navigation {
+    padding: 20px 24px;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .nav-button {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .selection-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ability-scores-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .ability-scores-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .step-indicator {
+    display: none;
+  }
+}
+
+/* Readability hardening for legacy selector panels */
+.character-wizard .class-card,
+.character-wizard .species-card,
+.character-wizard .background-card,
+.character-wizard .ability-method-selection,
+.character-wizard .available-scores-card,
+.character-wizard .ability-assignments-card,
+.character-wizard .point-assignments-card,
+.character-wizard .rolled-scores-card,
+.character-wizard .equipment-option-container {
+  background: linear-gradient(180deg, #1a2036, #151b2f) !important;
+  border-color: var(--cc-border) !important;
+  color: var(--cc-ink-0) !important;
+}
+
+.character-wizard .class-card.selected,
+.character-wizard .species-card.selected,
+.character-wizard .background-card.selected,
+.character-wizard .method-option:has(input[type='radio']:checked),
+.character-wizard .equipment-option-container:has(input[type='radio']:checked) {
+  background: linear-gradient(180deg, #202a49, #17203a) !important;
+  border-color: var(--cc-accent) !important;
+}
+
+.character-wizard .hit-die,
+.character-wizard .primary-abilities,
+.character-wizard .basic-info,
+.character-wizard .proficiencies,
+.character-wizard .ability-increases,
+.character-wizard .traits,
+.character-wizard .languages,
+.character-wizard .first-level-features,
+.character-wizard .spellcasting,
+.character-wizard .ability-point-row,
+.character-wizard .score-badge.available,
+.character-wizard .score-badge.assigned,
+.character-wizard .points-summary {
+  background: #11182a !important;
+  border-color: var(--cc-border) !important;
+}
+
+.character-wizard .class-card h3,
+.character-wizard .species-card h3,
+.character-wizard .background-card h3,
+.character-wizard .ability-method-selection h3,
+.character-wizard .available-scores-card h4,
+.character-wizard .ability-assignments-card h4,
+.character-wizard .point-assignments-card h4,
+.character-wizard .rolled-scores-card h4,
+.character-wizard .method-info strong,
+.character-wizard .ability-name,
+.character-wizard .score-badge .score,
+.character-wizard .traits strong,
+.character-wizard .proficiencies strong,
+.character-wizard .ability-increases strong,
+.character-wizard .languages h4,
+.character-wizard .traits h4,
+.character-wizard .first-level-features h4,
+.character-wizard .spellcasting h4,
+.character-wizard .size,
+.character-wizard .speed {
+  color: var(--cc-ink-0) !important;
+}
+
+.character-wizard .description,
+.character-wizard .class-card .description,
+.character-wizard .species-card .description,
+.character-wizard .background-card .description,
+.character-wizard .method-info p,
+.character-wizard .proficiencies p,
+.character-wizard .background-info p,
+.character-wizard .traits li,
+.character-wizard .traits li strong + * {
+  color: var(--cc-ink-1) !important;
+}
+
+.character-wizard .class-select,
+.character-wizard .species-select,
+.character-wizard .background-select,
+.character-wizard .language-select,
+.character-wizard .method-option,
+.character-wizard .point-display,
+.character-wizard .point-btn,
+.character-wizard .ability-assignment-row select,
+.character-wizard .score-input,
+.character-wizard .form-control {
+  background: #11182a !important;
+  color: var(--cc-ink-0) !important;
+  border-color: var(--cc-border) !important;
+}
+
+/* -- Equipment option cards (label-based radio cards) ------------------- */
+.character-wizard .equipment-option {
+  background: linear-gradient(180deg, #1a2036, #151b2f) !important;
+  border: 2px solid var(--cc-border) !important;
+  border-radius: 10px;
+  color: var(--cc-ink-0) !important;
+  cursor: pointer;
+  display: block;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.character-wizard .equipment-option:hover {
+  border-color: var(--cc-accent) !important;
+}
+.character-wizard .equipment-option.selected {
+  background: linear-gradient(180deg, #202a49, #17203a) !important;
+  border-color: var(--cc-accent) !important;
+  box-shadow: 0 4px 16px rgba(95,132,255,0.2);
+}
+.character-wizard .equipment-option strong,
+.character-wizard .equipment-option p,
+.character-wizard .equipment-option li,
+.character-wizard .equipment-details,
+.character-wizard .equipment-header strong {
+  color: var(--cc-ink-0) !important;
+}
+.character-wizard .equipment-gold {
+  color: #f6d860 !important;
+  font-weight: 700;
+}
+.character-wizard .equipment-gold-only p {
+  color: var(--cc-ink-1) !important;
+}
+.character-wizard .starting-equipment h4 {
+  color: var(--cc-ink-0) !important;
+}
+.character-wizard .equipment-instruction {
+  color: var(--cc-ink-1) !important;
+}
+
+/* -- First-level features (and spellcasting section) --------------------- */
+.character-wizard .first-level-features h4,
+.character-wizard .first-level-features strong {
+  color: var(--cc-ink-0) !important;
+}
+.character-wizard .first-level-features li,
+.character-wizard .first-level-features li strong + *,
+.character-wizard .first-level-features p {
+  color: var(--cc-ink-1) !important;
+}
+
+/* -- Variant info panel --------------------------------------------------- */
+.variant-info-panel {
+  background: #11182a;
+  border: 1px solid var(--cc-border, #38446d);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-top: 14px;
+}
+.variant-info-panel__desc {
+  font-size: 0.875rem;
+  color: var(--cc-ink-1, #b7c1e6);
+  margin: 0 0 14px;
+  line-height: 1.55;
+}
+.variant-info-panel__section-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--cc-accent, #5f84ff);
+  margin: 0 0 8px;
+}
+.variant-info-panel__spell-table {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 14px;
+  margin-bottom: 12px;
+}
+.variant-info-panel__spell-level {
+  font-size: 0.75rem;
+  color: var(--cc-ink-1, #b7c1e6);
+  white-space: nowrap;
+}
+.variant-info-panel__spell-name {
+  font-size: 0.875rem;
+  color: var(--cc-ink-0, #eef2ff);
+  font-weight: 500;
+}
+.variant-info-panel__trait {
+  font-size: 0.875rem;
+  color: var(--cc-ink-1, #b7c1e6);
+  margin: 4px 0;
+  line-height: 1.5;
+}
+.variant-info-panel__trait strong {
+  color: var(--cc-ink-0, #eef2ff);
+}
+
+/* -- Weapon Mastery dropdowns: moved to ClassSelector.module.css -- */
+
+/* -- Weapon Mastery dropdowns: moved to ClassSelector.module.css -- */

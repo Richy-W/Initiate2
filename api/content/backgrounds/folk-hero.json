@@ -1,0 +1,46 @@
+{
+  "name": "Folk Hero",
+  "description": "You come from humble social rank, but you are destined for so much more. Already the people of your home village regard you as their champion, and your destiny calls you to stand against the tyrants and monsters that threaten the common folk everywhere.",
+  "abilityScoreIncrease": {
+    "choices": ["Strength", "Dexterity", "Constitution"],
+    "points": 3
+  },
+  "feat": {
+    "name": "Tough",
+    "type": "Origin",
+    "description": "Your hit point maximum increases by 2, and it increases by 1 every time you gain a level."
+  },
+  "skillProficiencies": ["Animal Handling", "Survival"],
+  "toolProficiency": {
+    "fixed": "Smith's Tools"
+  },
+  "languageProficiency": {
+    "choice": {
+      "count": 1,
+      "type": "standard"
+    }
+  },
+  "startingEquipment": {
+    "options": [
+      {
+        "choice": "A",
+        "items": [
+          "Smith's Tools",
+          "Artisan's Tools",
+          "Gaming Set",
+          "Iron Pot",
+          "Shovel",
+          "Set of Artisan Clothes",
+          "Belt Pouch"
+        ],
+        "gold": 10
+      },
+      {
+        "choice": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  "sourceBook": "Player's Handbook 2024"
+}

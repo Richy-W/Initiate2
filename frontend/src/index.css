@@ -1,0 +1,44 @@
+:root {
+  --app-bg-0: #0f1220;
+  --app-bg-1: #171d33;
+  --app-bg-2: #212a47;
+  --app-ink-0: #eef2ff;
+  --app-ink-1: #b7c1e6;
+  --app-border: #38446d;
+  --app-accent: #5f84ff;
+  --app-accent-2: #30c3d8;
+  --app-danger: #d64762;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Trebuchet MS', 'Segoe UI Variable', 'Palatino Linotype', serif;
+  color: var(--app-ink-0);
+  background:
+    radial-gradient(1200px 700px at 100% -10%, rgba(95, 132, 255, 0.18), transparent 60%),
+    linear-gradient(180deg, var(--app-bg-0) 0%, #0b0e19 100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

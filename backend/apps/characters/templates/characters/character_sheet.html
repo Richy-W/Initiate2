@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ character.name }} Character Sheet</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 16mm;
+      }
+
+      body {
+        margin: 0;
+        font-family: DejaVu Sans, Arial, sans-serif;
+        color: #0f172a;
+        font-size: 12px;
+      }
+
+      h1, h2, h3 {
+        margin: 0;
+      }
+
+      .header {
+        border-bottom: 2px solid #0f172a;
+        padding-bottom: 10px;
+        margin-bottom: 12px;
+      }
+
+      .header h1 {
+        font-size: 24px;
+      }
+
+      .meta {
+        margin-top: 6px;
+        color: #334155;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+
+      .card {
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        padding: 8px;
+      }
+
+      .card h3 {
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        color: #334155;
+        margin-bottom: 6px;
+      }
+
+      .big {
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th {
+        text-align: left;
+        background: #f1f5f9;
+        padding: 6px;
+        border-bottom: 1px solid #cbd5e1;
+      }
+
+      td {
+        padding: 6px;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .section {
+        margin-bottom: 12px;
+      }
+
+      .muted {
+        color: #475569;
+      }
+
+      .list-item {
+        padding: 4px 0;
+        border-bottom: 1px dashed #cbd5e1;
+      }
+
+      .list-item:last-child {
+        border-bottom: 0;
+      }
+
+      .caption {
+        font-size: 10px;
+        color: #64748b;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>{{ character.name }}</h1>
+      <div class="meta">
+        Level {{ character.level }} {{ character.species.name }} {{ character.character_class.name }}
+      </div>
+      <div class="meta">Background: {{ character.background.name }}</div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Armor Class</h3>
+        <div class="big">{{ character.armor_class }}</div>
+      </div>
+      <div class="card">
+        <h3>Initiative</h3>
+        <div class="big">{{ initiative }}</div>
+      </div>
+      <div class="card">
+        <h3>Speed</h3>
+        <div class="big">{{ character.speed }} ft</div>
+      </div>
+      <div class="card">
+        <h3>HP Current</h3>
+        <div class="big">{{ character.current_hit_points }}</div>
+      </div>
+      <div class="card">
+        <h3>HP Max</h3>
+        <div class="big">{{ character.max_hit_points }}</div>
+      </div>
+      <div class="card">
+        <h3>Proficiency</h3>
+        <div class="big">{{ proficiency_bonus }}</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Ability Scores</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Ability</th>
+            <th>Score</th>
+            <th>Modifier</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in ability_rows %}
+          <tr>
+            <td>{{ row.label }}</td>
+            <td>{{ row.score }}</td>
+            <td>{{ row.modifier }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>Equipment</h2>
+      {% if character.equipment %}
+        {% for item in character.equipment %}
+          <div class="list-item">
+            <strong>{{ item.name|default:"Item" }}</strong>
+            <span class="muted">x{{ item.quantity|default:1 }}</span>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="muted">No equipment listed.</p>
+      {% endif %}
+    </div>
+
+    <div class="section">
+      <h2>Features</h2>
+      {% if character.features %}
+        {% for feature in character.features %}
+          <div class="list-item">
+            <strong>{{ feature.name|default:"Feature" }}</strong>
+            {% if feature.source %}<span class="caption">({{ feature.source }})</span>{% endif %}
+            {% if feature.description %}
+              <div class="muted">{{ feature.description }}</div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="muted">No features listed.</p>
+      {% endif %}
+    </div>
+
+    {% if character.notes %}
+    <div class="section">
+      <h2>Notes</h2>
+      <p>{{ character.notes }}</p>
+    </div>
+    {% endif %}
+  </body>
+</html>

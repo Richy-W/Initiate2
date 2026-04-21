@@ -1,0 +1,517 @@
+/* ─────────────────────────────────────────────────────────────────────
+   Shared page chrome — used by Dashboard, Campaigns, Content, Profile,
+   Combat, etc.  Extends the global CSS variables from index.css.
+───────────────────────────────────────────────────────────────────── */
+
+/* ── Page wrapper ─────────────────────────────────────────────────── */
+.pg-shell {
+  min-height: calc(100vh - 64px);
+  padding: 28px 20px 48px;
+}
+
+.pg-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ── Page hero (title row) ─────────────────────────────────────────── */
+.pg-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.pg-hero--centered {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start;
+}
+
+.pg-hero-text h1 {
+  margin: 0 0 4px;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--app-ink-0);
+  letter-spacing: -0.02em;
+}
+
+.pg-hero-text p {
+  margin: 0;
+  color: var(--app-ink-1);
+  font-size: 0.9rem;
+}
+
+.pg-hero-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* ── Stat chips row ────────────────────────────────────────────────── */
+.pg-stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+}
+
+.pg-stat-chip {
+  background: var(--app-bg-1);
+  border: 1px solid var(--app-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pg-stat-chip__icon {
+  font-size: 1.3rem;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.pg-stat-chip__value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--app-ink-0);
+  line-height: 1;
+}
+
+.pg-stat-chip__label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--app-ink-1);
+}
+
+/* ── Generic card ──────────────────────────────────────────────────── */
+.pg-card {
+  background: var(--app-bg-1);
+  border: 1px solid var(--app-border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.28);
+}
+
+.pg-card-title {
+  margin: 0 0 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--app-ink-1);
+}
+
+/* ── Clickable entity card (campaigns, encounters …) ──────────────── */
+.pg-entity-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.pg-entity-card {
+  background: var(--app-bg-1);
+  border: 1px solid var(--app-border);
+  border-radius: 14px;
+  padding: 20px 22px;
+  cursor: pointer;
+  transition: border-color 160ms, box-shadow 160ms, transform 120ms;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pg-entity-card:hover {
+  border-color: var(--app-accent);
+  box-shadow: 0 8px 28px rgba(95, 132, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+.pg-entity-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.pg-entity-card__title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--app-ink-0);
+}
+
+.pg-entity-card__body {
+  font-size: 0.875rem;
+  color: var(--app-ink-1);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.pg-entity-card__footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--app-ink-1);
+  padding-top: 6px;
+  border-top: 1px solid var(--app-border);
+}
+
+/* ── Badge / pill ─────────────────────────────────────────────────── */
+.pg-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.pg-badge--green {
+  background: rgba(28, 164, 110, 0.18);
+  color: #38d49b;
+  border: 1px solid rgba(28, 164, 110, 0.35);
+}
+
+.pg-badge--gray {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--app-ink-1);
+  border: 1px solid var(--app-border);
+}
+
+.pg-badge--red {
+  background: rgba(214, 71, 98, 0.16);
+  color: #f07286;
+  border: 1px solid rgba(214, 71, 98, 0.35);
+}
+
+.pg-badge--blue {
+  background: rgba(95, 132, 255, 0.16);
+  color: #8aabff;
+  border: 1px solid rgba(95, 132, 255, 0.35);
+}
+
+/* ── Tab bar ──────────────────────────────────────────────────────── */
+.pg-tabs {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+  border-bottom: 1px solid var(--app-border);
+  margin-bottom: 20px;
+}
+
+.pg-tab {
+  padding: 10px 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--app-ink-1);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: capitalize;
+  letter-spacing: 0.02em;
+  transition: color 140ms, border-color 140ms;
+  margin-bottom: -1px;
+}
+
+.pg-tab:hover {
+  color: var(--app-ink-0);
+}
+
+.pg-tab.active {
+  color: var(--app-accent);
+  border-bottom-color: var(--app-accent);
+}
+
+.pg-tab:focus-visible {
+  outline: 2px solid var(--app-accent);
+  outline-offset: 2px;
+  border-radius: 4px 4px 0 0;
+}
+
+/* ── Empty state ─────────────────────────────────────────────────── */
+.pg-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 64px 24px;
+  text-align: center;
+}
+
+.pg-empty__icon {
+  font-size: 3rem;
+  line-height: 1;
+  opacity: 0.5;
+}
+
+.pg-empty__title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--app-ink-0);
+}
+
+.pg-empty__body {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--app-ink-1);
+  max-width: 340px;
+}
+
+/* ── Skeleton / loading pulse ─────────────────────────────────────── */
+.pg-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 80px 24px;
+  color: var(--app-ink-1);
+  font-size: 0.9rem;
+}
+
+.pg-pulse-row {
+  display: flex;
+  gap: 14px;
+}
+
+.pg-pulse {
+  background: var(--app-bg-2);
+  border-radius: 8px;
+  animation: pg-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pg-pulse {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 0.25; }
+}
+
+/* ── Back / breadcrumb link ──────────────────────────────────────── */
+.pg-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--app-accent);
+  text-decoration: none;
+  margin-bottom: 6px;
+  opacity: 0.85;
+  transition: opacity 140ms;
+}
+
+.pg-back-link:hover { opacity: 1; }
+
+/* ── Buttons ─────────────────────────────────────────────────────── */
+.pg-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  border: 1px solid var(--app-border);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 140ms, border-color 140ms, box-shadow 140ms;
+  background: var(--app-bg-2);
+  color: var(--app-ink-0);
+  text-decoration: none;
+}
+
+.pg-btn:hover {
+  border-color: #6075b5;
+  background: #25305a;
+  box-shadow: 0 4px 14px rgba(95, 132, 255, 0.15);
+}
+
+.pg-btn:focus-visible {
+  outline: 2px solid var(--app-accent);
+  outline-offset: 2px;
+}
+
+.pg-btn--primary {
+  background: var(--app-accent);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(95, 132, 255, 0.3);
+}
+
+.pg-btn--primary:hover {
+  background: #7a9bff;
+  border-color: transparent;
+  box-shadow: 0 8px 22px rgba(95, 132, 255, 0.4);
+}
+
+.pg-btn--danger {
+  background: rgba(214, 71, 98, 0.14);
+  border-color: rgba(214, 71, 98, 0.4);
+  color: #f07286;
+}
+
+.pg-btn--danger:hover {
+  background: rgba(214, 71, 98, 0.26);
+  border-color: #d64762;
+}
+
+.pg-btn--sm {
+  padding: 6px 13px;
+  font-size: 0.8rem;
+}
+
+/* ── Section divider ─────────────────────────────────────────────── */
+.pg-section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--app-ink-1);
+  margin: 0 0 12px;
+}
+
+/* ── Profile field ────────────────────────────────────────────────── */
+.pg-field-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.pg-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pg-field__label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--app-ink-1);
+}
+
+.pg-field__value {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--app-ink-0);
+}
+
+/* ── Quick action link card ──────────────────────────────────────── */
+.pg-action-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pg-action-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: 9px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  color: var(--app-ink-1);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 140ms;
+}
+
+.pg-action-item:hover {
+  background: rgba(95, 132, 255, 0.1);
+  border-color: rgba(95, 132, 255, 0.3);
+  color: var(--app-accent);
+}
+
+.pg-action-item__icon {
+  font-size: 1.05rem;
+  width: 24px;
+  text-align: center;
+}
+
+/* ── Two-column layout ────────────────────────────────────────────── */
+.pg-two-col {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 680px) {
+  .pg-two-col { grid-template-columns: 1fr; }
+  .pg-hero { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 520px) {
+  .pg-shell { padding: 16px 12px 40px; }
+  .pg-entity-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Pending Invitations ─────────────────────────────── */
+.pg-invite-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.pg-invite-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--surface-2, #1e1e2e);
+  border: 1px solid var(--border, rgba(255,255,255,0.08));
+  border-left: 3px solid var(--accent, #7c6af7);
+  border-radius: 8px;
+  padding: 14px 16px;
+  flex-wrap: wrap;
+}
+
+.pg-invite-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.pg-invite-card__name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-primary, #e2e2f0);
+}
+
+.pg-invite-card__from {
+  font-size: 0.82rem;
+  color: var(--text-muted, #888);
+}
+
+.pg-invite-card__msg {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--text-muted, #888);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 420px;
+}
+
+.pg-invite-card__actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}

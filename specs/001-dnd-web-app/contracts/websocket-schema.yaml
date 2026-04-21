@@ -1,0 +1,422 @@
+# WebSocket Message Schema
+
+WebSocket communication for real-time features in the D&D web application.
+
+## Connection
+
+**URL**: `ws://localhost:8000/ws/campaign/{campaign_id}/`  
+**Authentication**: JWT token in query parameter or Authorization header
+
+## Message Format
+
+All WebSocket messages follow this structure:
+
+```json
+{
+  "type": "message_type",
+  "data": { /* message-specific data */ },
+  "timestamp": "2026-04-11T10:30:00.000Z",
+  "user_id": "uuid",
+  "message_id": "unique_id"
+}
+```
+
+## Message Types
+
+### Campaign Management
+
+#### `campaign.player_joined`
+Sent when a player joins the campaign.
+
+```json
+{
+  "type": "campaign.player_joined",
+  "data": {
+    "player": {
+      "id": "uuid",
+      "username": "player_name",
+      "character": {
+        "id": "uuid",
+        "name": "Character Name",
+        "level": 5,
+        "class": "Fighter"
+      }
+    }
+  }
+}
+```
+
+#### `campaign.player_left`
+Sent when a player leaves the campaign.
+
+```json
+{
+  "type": "campaign.player_left",
+  "data": {
+    "player_id": "uuid",
+    "character_id": "uuid",
+    "reason": "voluntary|kicked|timeout"
+  }
+}
+```
+
+#### `campaign.settings_updated`
+Sent when DM updates campaign settings.
+
+```json
+{
+  "type": "campaign.settings_updated",
+  "data": {
+    "settings": {
+      "encumbrance_rules": "simple",
+      "rule_validation": "warnings",
+      "house_rules": {}
+    },
+    "updated_by": "dm_user_id"
+  }
+}
+```
+
+### Initiative Tracking
+
+#### `initiative.combat_started`
+Sent when DM initiates combat.
+
+```json
+{
+  "type": "initiative.combat_started",
+  "data": {
+    "encounter_id": "uuid",
+    "name": "Goblin Ambush",
+    "participants": [
+      {
+        "id": "uuid",
+        "type": "character|npc",
+        "name": "Fighter",
+        "character_id": "uuid",
+        "initiative": 18,
+        "hit_points": 45,
+        "max_hit_points": 45,
+        "is_visible": true
+      }
+    ]
+  }
+}
+```
+
+#### `initiative.turn_changed`
+Sent when active turn changes.
+
+```json
+{
+  "type": "initiative.turn_changed",
+  "data": {
+    "encounter_id": "uuid",
+    "round_number": 2,
+    "active_participant": {
+      "id": "uuid",
+      "name": "Rogue",
+      "initiative": 16
+    },
+    "previous_participant": {
+      "id": "uuid",
+      "name": "Fighter"
+    }
+  }
+}
+```
+
+#### `initiative.participant_updated`
+Sent when participant stats change (HP, conditions, etc.).
+
+```json
+{
+  "type": "initiative.participant_updated",
+  "data": {
+    "encounter_id": "uuid",
+    "participant": {
+      "id": "uuid",
+      "hit_points": 32,
+      "conditions": ["poisoned"],
+      "notes": "Took 13 poison damage"
+    },
+    "updated_by": "user_id"
+  }
+}
+```
+
+#### `initiative.spell_effect_added`
+Sent when a spell effect is created.
+
+```json
+{
+  "type": "initiative.spell_effect_added",
+  "data": {
+    "encounter_id": "uuid",
+    "effect": {
+      "id": "uuid",
+      "spell_name": "Bless",
+      "caster_id": "participant_uuid",
+      "duration_rounds": 10,
+      "concentration": true,
+      "description": "+1d4 to attack rolls and saves",
+      "targets": ["participant_uuid"],
+      "is_visible": true
+    }
+  }
+}
+```
+
+#### `initiative.spell_effect_updated`
+Sent when spell effect duration decreases or is modified.
+
+```json
+{
+  "type": "initiative.spell_effect_updated",
+  "data": {
+    "encounter_id": "uuid",
+    "effect_id": "uuid",
+    "duration_rounds": 7,
+    "ended": false
+  }
+}
+```
+
+#### `initiative.combat_ended`
+Sent when combat encounter concludes.
+
+```json
+{
+  "type": "initiative.combat_ended",
+  "data": {
+    "encounter_id": "uuid",
+    "end_reason": "victory|defeat|fled|ended_by_dm",
+    "summary": {
+      "rounds": 5,
+      "duration_minutes": 23
+    }
+  }
+}
+```
+
+### Character Sheet Updates
+
+#### `character.sheet_updated`
+Sent when character stats change during session.
+
+```json
+{
+  "type": "character.sheet_updated",
+  "data": {
+    "character_id": "uuid",
+    "changes": {
+      "hit_points_current": 28,
+      "spell_slots": {
+        "level_1": 2,
+        "level_2": 1
+      },
+      "equipment": {
+        "added": [],
+        "removed": ["item_id"],
+        "quantity_changed": {
+          "item_id": 5
+        }
+      }
+    },
+    "updated_by": "user_id",
+    "reason": "combat|rest|level_up|equipment_change"
+  }
+}
+```
+
+#### `character.level_up`
+Sent when character gains a level.
+
+```json
+{
+  "type": "character.level_up",
+  "data": {
+    "character_id": "uuid",
+    "old_level": 4,
+    "new_level": 5,
+    "hp_gain": 8,
+    "features_gained": [
+      {
+        "name": "Extra Attack",
+        "description": "You can attack twice when you take the Attack action"
+      }
+    ],
+    "spell_slots_gained": {
+      "level_3": 2
+    }
+  }
+}
+```
+
+### Chat and Notifications
+
+#### `chat.message`
+In-game chat messages.
+
+```json
+{
+  "type": "chat.message",
+  "data": {
+    "message": "I cast Fireball at the center of the room",
+    "sender": {
+      "id": "user_id",
+      "username": "wizard_player",
+      "character_name": "Gandalf"
+    },
+    "chat_type": "ic|ooc|dm_only",
+    "dice_roll": {
+      "expression": "8d6",
+      "result": 28,
+      "rolls": [3, 6, 2, 4, 1, 5, 6, 1]
+    }
+  }
+}
+```
+
+#### `notification.system`
+System notifications for important events.
+
+```json
+{
+  "type": "notification.system",
+  "data": {
+    "message": "New player request to join campaign",
+    "severity": "info|warning|error",
+    "action_required": true,
+    "action_data": {
+      "type": "approve_player",
+      "player_id": "uuid",
+      "character_id": "uuid"
+    }
+  }
+}
+```
+
+## Client Actions
+
+Clients can send these message types to the server:
+
+### `action.join_initiative`
+Player submits initiative roll.
+
+```json
+{
+  "type": "action.join_initiative",
+  "data": {
+    "character_id": "uuid",
+    "initiative_roll": 15
+  }
+}
+```
+
+### `action.update_hp`
+Update character hit points.
+
+```json
+{
+  "type": "action.update_hp",
+  "data": {
+    "character_id": "uuid",
+    "hit_points": 35,
+    "change_reason": "damage|healing|temporary"
+  }
+}
+```
+
+### `action.cast_spell`
+Cast spell with effect tracking.
+
+```json
+{
+  "type": "action.cast_spell",
+  "data": {
+    "caster_id": "uuid",
+    "spell_name": "Shield of Faith",
+    "target_ids": ["uuid"],
+    "duration_rounds": 100,
+    "concentration": true,
+    "spell_level": 1
+  }
+}
+```
+
+### `action.send_chat`
+Send chat message.
+
+```json
+{
+  "type": "action.send_chat",
+  "data": {
+    "message": "Hello everyone!",
+    "chat_type": "ic|ooc|dm_only",
+    "dice_expression": "1d20+5"
+  }
+}
+```
+
+### `action.request_permission`
+Request DM permission for action.
+
+```json
+{
+  "type": "action.request_permission",
+  "data": {
+    "action_type": "level_up|add_equipment|modify_stats",
+    "details": {
+      "character_id": "uuid",
+      "requested_changes": {}
+    },
+    "reason": "Gained enough XP for level 6"
+  }
+}
+```
+
+## Error Handling
+
+WebSocket errors are sent with this format:
+
+```json
+{
+  "type": "error",
+  "data": {
+    "code": "PERMISSION_DENIED|INVALID_ACTION|NOT_FOUND",
+    "message": "You don't have permission to perform this action",
+    "original_message_id": "uuid",
+    "retry_possible": false
+  }
+}
+```
+
+## Connection Management
+
+### Heartbeat
+Clients should send ping messages every 30 seconds:
+
+```json
+{
+  "type": "ping",
+  "data": {}
+}
+```
+
+Server responds with:
+
+```json
+{
+  "type": "pong",
+  "data": {
+    "server_time": "2026-04-11T10:30:00.000Z"
+  }
+}
+```
+
+### Reconnection
+On connection loss, clients should:
+1. Attempt reconnection with exponential backoff
+2. Send `action.sync_state` to get current campaign state
+3. Handle any missed messages indicated in the sync response

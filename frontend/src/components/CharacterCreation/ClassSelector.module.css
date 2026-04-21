@@ -1,0 +1,67 @@
+.weaponMasterySelection {
+  background: #11182a;
+  border: 1px solid var(--app-border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-top: 14px;
+}
+
+.weaponMasterySelection h4 {
+  color: var(--app-ink-0);
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.weaponMasteryInstruction {
+  color: var(--app-ink-1);
+  font-size: 0.875rem;
+  margin: 0 0 12px;
+}
+
+.weaponMasteryDropdowns {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.weaponMasteryDropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 160px;
+}
+
+.weaponMasteryDropdown label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--app-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.weaponMasterySelect {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid var(--app-border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background: #11182a;
+  color: var(--app-ink-0);
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+  appearance: auto;
+}
+
+.weaponMasterySelect:focus {
+  outline: none;
+  border-color: var(--app-accent);
+  box-shadow: 0 0 0 3px rgba(95, 132, 255, 0.2);
+}
+
+.weaponMasterySelect option {
+  background: #11182a;
+  color: var(--app-ink-0);
+}
