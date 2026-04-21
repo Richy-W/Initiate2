@@ -18,6 +18,14 @@ export interface CharacterData {
     spellcastingAbility?: string;
     sizeCategory?: string;
     featChoice?: string;
+    skillfulChoice?: string;
+    skilledSkillChoices?: string[];
+    skilledToolChoices?: string[];
+    magicInitiateSpellList?: string;
+    magicInitiateAbility?: string;
+    magicInitiateCantrip1?: string;
+    magicInitiateCantrip2?: string;
+    magicInitiateSpell1?: string;
   };
   characterClass: any;
   selectedSkills?: string[];
@@ -103,6 +111,14 @@ export const CharacterWizard: React.FC = () => {
         spellcastingAbility: spellcastingOptions[0] || '',
         sizeCategory: sizeOptions[0]?.category || species?.size?.category || '',
         featChoice: '',
+        skillfulChoice: '',
+        skilledSkillChoices: [],
+        skilledToolChoices: [],
+        magicInitiateSpellList: '',
+        magicInitiateAbility: '',
+        magicInitiateCantrip1: '',
+        magicInitiateCantrip2: '',
+        magicInitiateSpell1: '',
       },
     }));
   }, []);
@@ -114,6 +130,14 @@ export const CharacterWizard: React.FC = () => {
       spellcastingAbility?: string;
       sizeCategory?: string;
       featChoice?: string;
+      skillfulChoice?: string;
+      skilledSkillChoices?: string[];
+      skilledToolChoices?: string[];
+      magicInitiateSpellList?: string;
+      magicInitiateAbility?: string;
+      magicInitiateCantrip1?: string;
+      magicInitiateCantrip2?: string;
+      magicInitiateSpell1?: string;
     }) => {
       setCharacterData((prev) => ({ ...prev, selectedSpeciesOptions: options }));
     },
@@ -355,7 +379,21 @@ export const CharacterWizard: React.FC = () => {
     switch (step) {
       case 0: return characterData.name.trim() !== '';
       case 1: return true; // Homebrew step is optional
-      case 2: return characterData.species !== null;
+      case 2: {
+        if (!characterData.species) return false;
+        const opts = characterData.selectedSpeciesOptions;
+        const hasFeatChoice = !(characterData.species?.traits || []).some((t: any) =>
+          typeof t?.description === 'string' && t.description.toLowerCase().includes('origin feat of your choice')
+        ) || !!(opts?.featChoice);
+        const hasSkillfulChoice = !(characterData.species?.traits || []).some((t: any) =>
+          typeof t?.name === 'string' && t.name.toLowerCase() === 'skillful'
+        ) || !!(opts?.skillfulChoice);
+        const skilledTotal = opts?.featChoice === 'Skilled'
+          ? ((opts?.skilledSkillChoices?.length ?? 0) + (opts?.skilledToolChoices?.length ?? 0))
+          : 3;
+        const hasSkilledChoices = skilledTotal >= 3;
+        return hasFeatChoice && hasSkillfulChoice && hasSkilledChoices;
+      }
       case 3: return characterData.characterClass !== null;
       case 4: return characterData.background !== null;
       case 5: return true; // Ability scores always have default values

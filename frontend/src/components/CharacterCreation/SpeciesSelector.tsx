@@ -2,6 +2,55 @@
 import styles from './CharacterWizard.module.css';
 import { contentAPI } from '../../services/apiClient';
 
+// Origin feats sourced from feat-index.json > categories.origin.feats
+// Note: 'Tough' is absent from feat-index.json and has no content file; omitted pending content authoring.
+const ORIGIN_FEATS: Array<{ name: string; summary: string }> = [
+  { name: 'Alert', summary: 'Increase Initiative and immunity to surprise' },
+  { name: 'Magic Initiate', summary: "Learn spells from another class's spell list" },
+  { name: 'Savage Attacker', summary: 'Reroll damage dice once per turn' },
+  { name: 'Skilled', summary: 'Gain proficiency in three skills or tools of your choice' },
+];
+
+// Tools sourced from api/content/equipment/tools.json
+const DND_TOOLS: string[] = [
+  "Alchemist's Supplies",
+  "Brewer's Supplies",
+  "Calligrapher's Supplies",
+  "Carpenter's Tools",
+  "Cartographer's Tools",
+  "Cobbler's Tools",
+  "Cook's Utensils",
+  'Disguise Kit',
+  'Forgery Kit',
+  'Gaming Set (Dice)',
+  'Gaming Set (Dragonchess)',
+  'Gaming Set (Playing Cards)',
+  'Gaming Set (Three-Dragon Ante)',
+  "Glassblower's Tools",
+  'Herbalism Kit',
+  "Jeweler's Tools",
+  "Leatherworker's Tools",
+  "Mason's Tools",
+  'Musical Instrument (Bagpipes)',
+  'Musical Instrument (Drum)',
+  'Musical Instrument (Flute)',
+  'Musical Instrument (Horn)',
+  'Musical Instrument (Lute)',
+  'Musical Instrument (Lyre)',
+  'Musical Instrument (Pan Flute)',
+  'Musical Instrument (Shawm)',
+  'Musical Instrument (Viol)',
+  "Navigator's Tools",
+  "Painter's Supplies",
+  "Poisoner's Kit",
+  "Potter's Tools",
+  "Smith's Tools",
+  "Thieves' Tools",
+  "Tinker's Tools",
+  "Weaver's Tools",
+  "Woodcarver's Tools",
+];
+
 interface Species {
   pk?: number;
   id: string;
@@ -39,6 +88,14 @@ interface SpeciesOptions {
   spellcastingAbility?: string;
   sizeCategory?: string;
   featChoice?: string;
+  skillfulChoice?: string;
+  skilledSkillChoices?: string[];
+  skilledToolChoices?: string[];
+  magicInitiateSpellList?: string;
+  magicInitiateAbility?: string;
+  magicInitiateCantrip1?: string;
+  magicInitiateCantrip2?: string;
+  magicInitiateSpell1?: string;
 }
 
 interface SpeciesSelectorProps {
@@ -57,6 +114,20 @@ export const SpeciesSelector: React.FC<SpeciesSelectorProps> = ({
   const [species, setSpecies] = useState<Species[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [skillList, setSkillList] = useState<string[]>([]);
+
+  useEffect(() => {
+    const fetchSkills = async () => {
+      try {
+        const response = await contentAPI.skills.list();
+        const skills = response.results || response;
+        setSkillList(skills.map((s: any) => String(s.name)));
+      } catch {
+        setSkillList([]);
+      }
+    };
+    fetchSkills();
+  }, []);
 
   useEffect(() => {
     const fetchSpecies = async () => {
@@ -132,6 +203,10 @@ export const SpeciesSelector: React.FC<SpeciesSelectorProps> = ({
     const description = typeof trait?.description === 'string' ? trait.description.toLowerCase() : '';
     return description.includes('origin feat of your choice');
   });
+
+  const offersSkillfulChoice = (selectedSpecies?.traits || []).some(
+    (trait: any) => typeof trait?.name === 'string' && trait.name.toLowerCase() === 'skillful'
+  );
 
   if (loading) {
     return <div className="loading">Loading species...</div>;
@@ -370,24 +445,232 @@ export const SpeciesSelector: React.FC<SpeciesSelectorProps> = ({
                     </div>
                   )}
 
+                  {offersSkillfulChoice && (
+                    <div className="form-group">
+                      <label htmlFor="species-skillful-choice">Skillful: Choose a Skill Proficiency</label>
+                      <select
+                        id="species-skillful-choice"
+                        className="species-select"
+                        value={speciesOptions?.skillfulChoice || ''}
+                        onChange={(e) =>
+                          onSpeciesOptionsChange({
+                            ...speciesOptions,
+                            skillfulChoice: e.target.value,
+                          })
+                        }
+                      >
+                        <option value="">-- Choose a skill --</option>
+                        {skillList.map((skill) => (
+                          <option key={skill} value={skill}>
+                            {skill}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  )}
+
                   {offersFeatChoice && (
                     <div className="form-group">
                       <label htmlFor="species-feat-choice">Origin Feat Choice</label>
-                      <input
+                      <select
                         id="species-feat-choice"
-                        type="text"
-                        className="form-input"
+                        className="species-select"
                         value={speciesOptions?.featChoice || ''}
                         onChange={(e) =>
                           onSpeciesOptionsChange({
                             ...speciesOptions,
                             featChoice: e.target.value,
+                            skillfulChoice: '',
+                            skilledSkillChoices: [],
+                            skilledToolChoices: [],
+                            magicInitiateSpellList: '',
+                            magicInitiateAbility: '',
+                            magicInitiateCantrip1: '',
+                            magicInitiateCantrip2: '',
+                            magicInitiateSpell1: '',
                           })
                         }
-                        placeholder="Enter chosen feat (e.g. Skilled)"
-                      />
+                      >
+                        <option value="">-- Choose an origin feat --</option>
+                        {ORIGIN_FEATS.map((feat) => (
+                          <option key={feat.name} value={feat.name}>
+                            {feat.name}
+                          </option>
+                        ))}
+                      </select>
+                      {speciesOptions?.featChoice && (() => {
+                        const feat = ORIGIN_FEATS.find((f) => f.name === speciesOptions.featChoice);
+                        return feat ? (
+                          <div className={styles['variant-info-panel']}>
+                            <p className={styles['variant-info-panel__desc']}>{feat.summary}</p>
+                          </div>
+                        ) : null;
+                      })()}
+
+                      {speciesOptions?.featChoice === 'Magic Initiate' && (
+                        <>
+                          <div className="form-group">
+                            <label htmlFor="mi-spell-list">Spell List</label>
+                            <select
+                              id="mi-spell-list"
+                              className="species-select"
+                              value={speciesOptions?.magicInitiateSpellList || ''}
+                              onChange={(e) =>
+                                onSpeciesOptionsChange({ ...speciesOptions, magicInitiateSpellList: e.target.value })
+                              }
+                            >
+                              <option value="">-- Choose a spell list --</option>
+                              {['Cleric', 'Druid', 'Wizard'].map((l) => (
+                                <option key={l} value={l}>{l}</option>
+                              ))}
+                            </select>
+                          </div>
+
+                          <div className="form-group">
+                            <label htmlFor="mi-ability">Spellcasting Ability</label>
+                            <select
+                              id="mi-ability"
+                              className="species-select"
+                              value={speciesOptions?.magicInitiateAbility || ''}
+                              onChange={(e) =>
+                                onSpeciesOptionsChange({ ...speciesOptions, magicInitiateAbility: e.target.value })
+                              }
+                            >
+                              <option value="">-- Choose an ability --</option>
+                              {['Intelligence', 'Wisdom', 'Charisma'].map((a) => (
+                                <option key={a} value={a}>{a}</option>
+                              ))}
+                            </select>
+                          </div>
+
+                          <div className="form-group">
+                            <label htmlFor="mi-cantrip-1">
+                              Cantrip 1{speciesOptions?.magicInitiateSpellList ? ` (${speciesOptions.magicInitiateSpellList})` : ''}
+                            </label>
+                            <input
+                              id="mi-cantrip-1"
+                              type="text"
+                              className="form-control"
+                              value={speciesOptions?.magicInitiateCantrip1 || ''}
+                              onChange={(e) =>
+                                onSpeciesOptionsChange({ ...speciesOptions, magicInitiateCantrip1: e.target.value })
+                              }
+                              placeholder="Cantrip name"
+                            />
+                          </div>
+
+                          <div className="form-group">
+                            <label htmlFor="mi-cantrip-2">
+                              Cantrip 2{speciesOptions?.magicInitiateSpellList ? ` (${speciesOptions.magicInitiateSpellList})` : ''}
+                            </label>
+                            <input
+                              id="mi-cantrip-2"
+                              type="text"
+                              className="form-control"
+                              value={speciesOptions?.magicInitiateCantrip2 || ''}
+                              onChange={(e) =>
+                                onSpeciesOptionsChange({ ...speciesOptions, magicInitiateCantrip2: e.target.value })
+                              }
+                              placeholder="Cantrip name"
+                            />
+                          </div>
+
+                          <div className="form-group">
+                            <label htmlFor="mi-spell-1">
+                              1st-Level Spell{speciesOptions?.magicInitiateSpellList ? ` (${speciesOptions.magicInitiateSpellList})` : ''}
+                            </label>
+                            <input
+                              id="mi-spell-1"
+                              type="text"
+                              className="form-control"
+                              value={speciesOptions?.magicInitiateSpell1 || ''}
+                              onChange={(e) =>
+                                onSpeciesOptionsChange({ ...speciesOptions, magicInitiateSpell1: e.target.value })
+                              }
+                              placeholder="Spell name"
+                            />
+                          </div>
+                        </>
+                      )}
                     </div>
                   )}
+
+                  {offersFeatChoice && speciesOptions?.featChoice === 'Skilled' && (() => {
+                    const picks: Array<{ label: string; id: string; key: 'skill' | 'tool' }> = [
+                      { label: 'Skilled Pick 1', id: 'skilled-pick-0', key: 'skill' },
+                      { label: 'Skilled Pick 2', id: 'skilled-pick-1', key: 'skill' },
+                      { label: 'Skilled Pick 3', id: 'skilled-pick-2', key: 'skill' },
+                    ];
+                    const skillChoices = speciesOptions?.skilledSkillChoices || [];
+                    const toolChoices = speciesOptions?.skilledToolChoices || [];
+                    const allPicks = [
+                      ...skillChoices.map((v) => ({ value: v, type: 'skill' as const })),
+                      ...toolChoices.map((v) => ({ value: v, type: 'tool' as const })),
+                    ];
+
+                    const handleSkilledPickChange = (index: number, value: string) => {
+                      // Derive whether new value is a skill or tool
+                      const isSkill = skillList.includes(value);
+                      const newAllPicks = [...allPicks];
+                      newAllPicks[index] = { value, type: isSkill ? 'skill' : 'tool' };
+                      const newSkillChoices = newAllPicks
+                        .filter((p) => p.value && p.type === 'skill')
+                        .map((p) => p.value);
+                      const newToolChoices = newAllPicks
+                        .filter((p) => p.value && p.type === 'tool')
+                        .map((p) => p.value);
+                      onSpeciesOptionsChange({
+                        ...speciesOptions,
+                        skilledSkillChoices: newSkillChoices,
+                        skilledToolChoices: newToolChoices,
+                      });
+                    };
+
+                    const currentValues = picks.map((_, i) => allPicks[i]?.value || '');
+
+                    return (
+                      <>
+                        {picks.map((pick, index) => (
+                          <div key={pick.id} className="form-group">
+                            <label htmlFor={pick.id}>{pick.label}</label>
+                            <select
+                              id={pick.id}
+                              className="species-select"
+                              value={currentValues[index]}
+                              onChange={(e) => handleSkilledPickChange(index, e.target.value)}
+                            >
+                              <option value="">-- Choose a skill or tool --</option>
+                              <optgroup label="Skills">
+                                {skillList.map((skill) => (
+                                  <option
+                                    key={skill}
+                                    value={skill}
+                                    disabled={
+                                      skill === speciesOptions?.skillfulChoice ||
+                                      currentValues.some((v, i) => i !== index && v === skill)
+                                    }
+                                  >
+                                    {skill}
+                                  </option>
+                                ))}
+                              </optgroup>
+                              <optgroup label="Tools">
+                                {DND_TOOLS.map((tool) => (
+                                  <option
+                                    key={tool}
+                                    value={tool}
+                                    disabled={currentValues.some((v, i) => i !== index && v === tool)}
+                                  >
+                                    {tool}
+                                  </option>
+                                ))}
+                              </optgroup>
+                            </select>
+                          </div>
+                        ))}
+                      </>
+                    );
+                  })()}
                 </div>
               )}
             </div>

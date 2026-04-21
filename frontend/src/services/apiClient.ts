@@ -310,6 +310,12 @@ export const api = {
         return response.data;
       },
     },
+    skills: {
+      list: async (params?: any) => {
+        const response = await apiClient.get('/content/skills/', { params });
+        return response.data;
+      },
+    },
   },
 };
 
