@@ -423,12 +423,56 @@ class CharacterCreateSerializer(serializers.ModelSerializer):
                     'source': 'Species Choice',
                 })
 
-            if selected_feat:
+            # Unpack Magic Initiate choices before building the feat feature
+            mi_spell_list = str(selected_species_options.get('magicInitiateSpellList', '') or '').strip()
+            mi_ability = str(selected_species_options.get('magicInitiateAbility', '') or '').strip()
+            mi_cantrip1 = str(selected_species_options.get('magicInitiateCantrip1', '') or '').strip()
+            mi_cantrip2 = str(selected_species_options.get('magicInitiateCantrip2', '') or '').strip()
+            mi_spell1 = str(selected_species_options.get('magicInitiateSpell1', '') or '').strip()
+
+            if selected_feat == 'Magic Initiate':
+                mi_parts = []
+                if mi_spell_list:
+                    mi_parts.append(f"Spell List: {mi_spell_list}")
+                if mi_ability:
+                    mi_parts.append(f"Spellcasting Ability: {mi_ability}")
+                if mi_cantrip1:
+                    mi_parts.append(f"Cantrip: {mi_cantrip1}")
+                if mi_cantrip2:
+                    mi_parts.append(f"Cantrip: {mi_cantrip2}")
+                if mi_spell1:
+                    mi_parts.append(f"1st-Level Spell: {mi_spell1}")
+                features.append({
+                    'name': 'Magic Initiate',
+                    'description': '; '.join(mi_parts),
+                    'source': 'Feat',
+                })
+            elif selected_feat:
                 features.append({
                     'name': f"Species Feat Choice: {selected_feat}",
                     'description': '',
                     'source': 'Feat',
                 })
+
+            # T017: Unpack new species-option keys
+            selected_skillful_choice = str(selected_species_options.get('skillfulChoice', '') or '').strip()
+            skilled_skill_choices = [
+                str(v).strip()
+                for v in (selected_species_options.get('skilledSkillChoices') or [])
+                if str(v).strip()
+            ]
+            skilled_tool_choices = [
+                str(v).strip()
+                for v in (selected_species_options.get('skilledToolChoices') or [])
+                if str(v).strip()
+            ]
+
+            # T018: Add Skillful + Skilled skills to selected_skills (with deduplication)
+            if selected_skillful_choice and selected_skillful_choice not in selected_skills:
+                selected_skills.append(selected_skillful_choice)
+            for skill_name in skilled_skill_choices:
+                if skill_name not in selected_skills:
+                    selected_skills.append(skill_name)
 
             if selected_skill_choice and selected_skill_choice not in selected_skills:
                 selected_skills.append(selected_skill_choice)
@@ -479,6 +523,40 @@ class CharacterCreateSerializer(serializers.ModelSerializer):
                 skill_obj = Skill.objects.filter(name__iexact=str(skill_name).strip()).first()
                 if skill_obj:
                     character.skill_proficiencies.add(skill_obj)
+
+            # T019: Persist Skilled tool proficiencies (deduplication guard).
+            existing_tools = list(character.tool_proficiencies or [])
+            for tool_name in skilled_tool_choices:
+                if tool_name not in existing_tools:
+                    existing_tools.append(tool_name)
+            character.tool_proficiencies = existing_tools
+
+            # Persist Magic Initiate cantrips and spell into spells_known
+            if selected_feat == 'Magic Initiate':
+                mi_spells = []
+                for cantrip_name in [mi_cantrip1, mi_cantrip2]:
+                    if cantrip_name:
+                        mi_spells.append({
+                            'name': cantrip_name,
+                            'level': 0,
+                            'source': 'Magic Initiate',
+                            'prepared': True,
+                            'spellcasting_ability': mi_ability,
+                        })
+                if mi_spell1:
+                    mi_spells.append({
+                        'name': mi_spell1,
+                        'level': 1,
+                        'source': 'Magic Initiate',
+                        'prepared': True,
+                        'spellcasting_ability': mi_ability,
+                    })
+                if mi_spells:
+                    existing_spells = list(character.spells_known or [])
+                    existing_spells.extend(mi_spells)
+                    character.spells_known = existing_spells
+
+            character.save(update_fields=['tool_proficiencies', 'spells_known'])
 
             logger.info(f"Character created successfully: {character.id}")
             return character

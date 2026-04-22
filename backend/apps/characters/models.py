@@ -43,6 +43,7 @@ class Character(models.Model):
     skill_proficiencies = models.ManyToManyField(Skill, blank=True, related_name='proficient_characters')
     skill_expertises = models.ManyToManyField(Skill, blank=True, related_name='expert_characters')
     saving_throw_proficiencies = JSONField(default=list, help_text="List of ability names")
+    tool_proficiencies = JSONField(default=list, help_text="List of tool proficiency names")
     
     # Equipment and features
     equipment = JSONField(default=list, help_text="Character's equipment items with quantities")
