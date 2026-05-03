@@ -5,6 +5,9 @@ import { SkillRolls } from './SkillRolls';
 import { AttackRolls } from './AttackRolls';
 import { SavingThrows } from './SavingThrows';
 import { OfficialIdentityHeader } from './OfficialIdentityHeader';
+import SpellsTab from './SpellsTab';
+import SpellPrintPage from './SpellPrintPage';
+import { isSpellcaster } from '../../utils/spellUtils';
 import styles from './CharacterSheet.module.css';
 
 interface Character {
@@ -131,23 +134,22 @@ export const CharacterSheet: React.FC = () => {
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
 
-  useEffect(() => {
-    const fetchCharacter = async () => {
-      if (!characterId) return;
-      
-      try {
-        setLoading(true);
-        const response = await characterAPI.get(characterId);
-        setCharacter(response);
-      } catch (err: any) {
-        setError(err.response?.data?.detail || 'Failed to load character');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchCharacter();
+  const fetchCharacter = useCallback(async () => {
+    if (!characterId) return;
+    try {
+      setLoading(true);
+      const response = await characterAPI.get(characterId);
+      setCharacter(response);
+    } catch (err: any) {
+      setError(err.response?.data?.detail || 'Failed to load character');
+    } finally {
+      setLoading(false);
+    }
   }, [characterId]);
+
+  useEffect(() => {
+    fetchCharacter();
+  }, [fetchCharacter]);
 
   useEffect(() => {
     setNotesDraft(character?.notes || '');
@@ -1211,6 +1213,14 @@ export const CharacterSheet: React.FC = () => {
         >
           Equipment
         </button>
+        {isSpellcaster(character as any, character.character_class) && (
+          <button
+            className={[styles['tab-button'], activeTab === 'spells' ? styles['active'] : ''].filter(Boolean).join(' ')}
+            onClick={() => setActiveTab('spells')}
+          >
+            Spells
+          </button>
+        )}
       </div>
 
       {/* Main Content - D&D Beyond Layout */}
@@ -1354,6 +1364,15 @@ export const CharacterSheet: React.FC = () => {
                 )}
                 {inventoryActionError && <p className={styles['traits-empty']}>{inventoryActionError}</p>}
               </div>
+            </div>
+          )}
+
+          {(activeTab === 'spells' || !isMobile) && isSpellcaster(character as any, character.character_class) && (
+            <div className={[styles['character-section']].filter(Boolean).join(' ')}>
+              <div className={styles['section-header']}>
+                <h3 className={styles['section-title']}>Spells</h3>
+              </div>
+              <SpellsTab character={character as any} onRefresh={fetchCharacter} />
             </div>
           )}
         </div>
@@ -1500,6 +1519,9 @@ export const CharacterSheet: React.FC = () => {
             </div>
           </div>
         </div>
+      )}
+      {isSpellcaster(character as any, character.character_class) && (
+        <SpellPrintPage character={character as any} />
       )}
     </div>
   );

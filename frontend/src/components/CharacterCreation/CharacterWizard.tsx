@@ -4,7 +4,7 @@ import { SpeciesSelector } from './SpeciesSelector';
 import { ClassSelector } from './ClassSelector';
 import { BackgroundSelector } from './BackgroundSelector';
 import { AbilityScores } from './AbilityScores';
-import { characterAPI } from '../../services/apiClient';
+import { characterAPI, characterSpellsAPI } from '../../services/apiClient';
 import HomebrewBrowser from '../Homebrew/HomebrewBrowser';
 import { HomebrewContent } from '../../types';
 import styles from './CharacterWizard.module.css';
@@ -334,6 +334,30 @@ export const CharacterWizard: React.FC = () => {
 
       if (!createdCharacterId) {
         throw new Error('Character was created but no id was returned by the API.');
+      }
+
+      // Post Magic Initiate spells if selected
+      const miOpts = characterData.selectedSpeciesOptions;
+      if (
+        miOpts?.featChoice === 'Magic Initiate' &&
+        miOpts.magicInitiateCantrip1 &&
+        miOpts.magicInitiateCantrip2 &&
+        miOpts.magicInitiateSpell1
+      ) {
+        const spellIds = [
+          miOpts.magicInitiateCantrip1,
+          miOpts.magicInitiateCantrip2,
+          miOpts.magicInitiateSpell1,
+        ];
+        await Promise.allSettled(
+          spellIds.map((spellId) =>
+            characterSpellsAPI.create({
+              character: createdCharacterId,
+              spell: spellId,
+              source: 'magic_initiate',
+            })
+          )
+        );
       }
 
       navigate(`/characters/${createdCharacterId}`);

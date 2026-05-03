@@ -1,6 +1,7 @@
 ﻿import React, { useState, useEffect } from 'react';
 import styles from './CharacterWizard.module.css';
 import { contentAPI } from '../../services/apiClient';
+import MagicInitiateSpellPicker, { MagicInitiateSelections } from './MagicInitiateSpellPicker';
 
 // Origin feats sourced from feat-index.json > categories.origin.feats
 // Note: 'Tough' is absent from feat-index.json and has no content file; omitted pending content authoring.
@@ -508,89 +509,17 @@ export const SpeciesSelector: React.FC<SpeciesSelectorProps> = ({
                       })()}
 
                       {speciesOptions?.featChoice === 'Magic Initiate' && (
-                        <>
-                          <div className="form-group">
-                            <label htmlFor="mi-spell-list">Spell List</label>
-                            <select
-                              id="mi-spell-list"
-                              className="species-select"
-                              value={speciesOptions?.magicInitiateSpellList || ''}
-                              onChange={(e) =>
-                                onSpeciesOptionsChange({ ...speciesOptions, magicInitiateSpellList: e.target.value })
-                              }
-                            >
-                              <option value="">-- Choose a spell list --</option>
-                              {['Cleric', 'Druid', 'Wizard'].map((l) => (
-                                <option key={l} value={l}>{l}</option>
-                              ))}
-                            </select>
-                          </div>
-
-                          <div className="form-group">
-                            <label htmlFor="mi-ability">Spellcasting Ability</label>
-                            <select
-                              id="mi-ability"
-                              className="species-select"
-                              value={speciesOptions?.magicInitiateAbility || ''}
-                              onChange={(e) =>
-                                onSpeciesOptionsChange({ ...speciesOptions, magicInitiateAbility: e.target.value })
-                              }
-                            >
-                              <option value="">-- Choose an ability --</option>
-                              {['Intelligence', 'Wisdom', 'Charisma'].map((a) => (
-                                <option key={a} value={a}>{a}</option>
-                              ))}
-                            </select>
-                          </div>
-
-                          <div className="form-group">
-                            <label htmlFor="mi-cantrip-1">
-                              Cantrip 1{speciesOptions?.magicInitiateSpellList ? ` (${speciesOptions.magicInitiateSpellList})` : ''}
-                            </label>
-                            <input
-                              id="mi-cantrip-1"
-                              type="text"
-                              className="form-control"
-                              value={speciesOptions?.magicInitiateCantrip1 || ''}
-                              onChange={(e) =>
-                                onSpeciesOptionsChange({ ...speciesOptions, magicInitiateCantrip1: e.target.value })
-                              }
-                              placeholder="Cantrip name"
-                            />
-                          </div>
-
-                          <div className="form-group">
-                            <label htmlFor="mi-cantrip-2">
-                              Cantrip 2{speciesOptions?.magicInitiateSpellList ? ` (${speciesOptions.magicInitiateSpellList})` : ''}
-                            </label>
-                            <input
-                              id="mi-cantrip-2"
-                              type="text"
-                              className="form-control"
-                              value={speciesOptions?.magicInitiateCantrip2 || ''}
-                              onChange={(e) =>
-                                onSpeciesOptionsChange({ ...speciesOptions, magicInitiateCantrip2: e.target.value })
-                              }
-                              placeholder="Cantrip name"
-                            />
-                          </div>
-
-                          <div className="form-group">
-                            <label htmlFor="mi-spell-1">
-                              1st-Level Spell{speciesOptions?.magicInitiateSpellList ? ` (${speciesOptions.magicInitiateSpellList})` : ''}
-                            </label>
-                            <input
-                              id="mi-spell-1"
-                              type="text"
-                              className="form-control"
-                              value={speciesOptions?.magicInitiateSpell1 || ''}
-                              onChange={(e) =>
-                                onSpeciesOptionsChange({ ...speciesOptions, magicInitiateSpell1: e.target.value })
-                              }
-                              placeholder="Spell name"
-                            />
-                          </div>
-                        </>
+                        <MagicInitiateSpellPicker
+                          onConfirm={(sel: MagicInitiateSelections) => {
+                            onSpeciesOptionsChange({
+                              ...speciesOptions,
+                              magicInitiateSpellList: sel.sourceClass,
+                              magicInitiateCantrip1: sel.cantrips[0]?.id ?? '',
+                              magicInitiateCantrip2: sel.cantrips[1]?.id ?? '',
+                              magicInitiateSpell1: sel.firstLevel?.id ?? '',
+                            });
+                          }}
+                        />
                       )}
                     </div>
                   )}

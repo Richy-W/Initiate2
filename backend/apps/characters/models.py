@@ -783,21 +783,59 @@ class Character(models.Model):
 
 class CharacterSpell(models.Model):
     """Track spells known/prepared by a character."""
-    
+
+    SOURCE_CLASS = 'class'
+    SOURCE_MAGIC_INITIATE = 'magic_initiate'
+    SOURCE_CHOICES = [
+        (SOURCE_CLASS, 'Class'),
+        (SOURCE_MAGIC_INITIATE, 'Magic Initiate'),
+    ]
+
     character = models.ForeignKey(Character, on_delete=models.CASCADE, related_name='character_spells')
     spell = models.ForeignKey('content.Spell', on_delete=models.CASCADE)
-    
+
     # Spell preparation status
     is_prepared = models.BooleanField(default=True)
     is_always_prepared = models.BooleanField(default=False, help_text="Spells that are always prepared (domain spells, etc.)")
-    
+
+    # Spell source — distinguishes class spells from Magic Initiate grants
+    source = models.CharField(
+        max_length=20,
+        choices=SOURCE_CHOICES,
+        default=SOURCE_CLASS,
+        help_text="Where this spell comes from (class spell list or Magic Initiate feat)",
+    )
+
     # Spell customization
     spell_level = models.PositiveIntegerField(help_text="Level at which the spell is cast")
     notes = models.TextField(blank=True)
-    
+
     class Meta:
         unique_together = ['character', 'spell']
         ordering = ['spell__level', 'spell__name']
-    
+
     def __str__(self):
         return f"{self.character.name} - {self.spell.name}"
+
+
+class SpellSlotState(models.Model):
+    """Track spent spell slots per level for a character."""
+
+    character = models.ForeignKey(
+        Character,
+        on_delete=models.CASCADE,
+        related_name='spell_slot_states',
+    )
+    slot_level = models.PositiveIntegerField(
+        validators=[MinValueValidator(1), MaxValueValidator(9)],
+        help_text="Spell slot level (1–9)",
+    )
+    total = models.PositiveIntegerField(help_text="Maximum slots available at this level")
+    used = models.PositiveIntegerField(default=0, help_text="How many slots are currently spent")
+
+    class Meta:
+        unique_together = ['character', 'slot_level']
+        ordering = ['slot_level']
+
+    def __str__(self):
+        return f"{self.character.name} - Level {self.slot_level} slots ({self.used}/{self.total})"

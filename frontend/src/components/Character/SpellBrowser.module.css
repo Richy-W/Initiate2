@@ -1,0 +1,112 @@
+.browser {
+  border: 1px solid #c8b89a;
+  border-radius: 6px;
+  background: #faf7f2;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.browserTitle {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #7a6a52;
+  margin-bottom: 12px;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.filterInput,
+.filterSelect {
+  padding: 5px 10px;
+  border: 1px solid #c8b89a;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  background: #fff;
+  color: #3a2a1a;
+}
+
+.filterInput {
+  flex: 1;
+  min-width: 140px;
+}
+
+.spellList {
+  max-height: 320px;
+  overflow-y: auto;
+  border: 1px solid #e8dac8;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.spellRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 12px;
+  border-bottom: 1px solid #f0ebe2;
+  font-size: 0.82rem;
+}
+
+.spellRow:last-child {
+  border-bottom: none;
+}
+
+.spellInfo {
+  flex: 1;
+}
+
+.spellName {
+  font-weight: 600;
+  color: #3a2a1a;
+}
+
+.spellMeta {
+  font-size: 0.7rem;
+  color: #8a7a5a;
+  margin-top: 2px;
+}
+
+.addBtn,
+.removeBtn {
+  padding: 3px 10px;
+  border-radius: 4px;
+  border: 1px solid;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.addBtn {
+  background: #8a6a3a;
+  color: #fff;
+  border-color: #8a6a3a;
+}
+
+.addBtn:hover {
+  background: #6a4a2a;
+}
+
+.removeBtn {
+  background: #fff;
+  color: #c04040;
+  border-color: #c04040;
+}
+
+.removeBtn:hover {
+  background: #fff0f0;
+}
+
+.loadingMsg,
+.emptyMsg {
+  padding: 16px;
+  text-align: center;
+  color: #aaa;
+  font-style: italic;
+  font-size: 0.82rem;
+}

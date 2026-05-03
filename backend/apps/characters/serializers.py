@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Character, CharacterSpell
+from .models import Character, CharacterSpell, SpellSlotState
 from apps.content.serializers import SpeciesSerializer, CharacterClassSerializer, BackgroundSerializer, SkillSerializer
 import json
 from pathlib import Path
@@ -566,11 +566,40 @@ class CharacterCreateSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(f"Failed to create character: {str(e)}")
 
 
+class SpellSlotStateSerializer(serializers.ModelSerializer):
+    """Serializer for character spell slot state."""
+
+    class Meta:
+        model = SpellSlotState
+        fields = ['id', 'character', 'slot_level', 'total', 'used']
+        read_only_fields = ['id']
+
+    def validate(self, data):
+        used = data.get('used', getattr(self.instance, 'used', 0))
+        total = data.get('total', getattr(self.instance, 'total', None))
+        if total is not None and used > total:
+            raise serializers.ValidationError(
+                {'used': 'used cannot be greater than total.'}
+            )
+        return data
+
+    def validate_slot_level(self, value):
+        from apps.characters.models import SpellSlotState as _SSL  # noqa: avoid circular
+        validator = _SSL._meta.get_field('slot_level').validators
+        from django.core.exceptions import ValidationError as DjValidationError
+        for v in validator:
+            try:
+                v(value)
+            except DjValidationError as exc:
+                raise serializers.ValidationError(exc.messages)
+        return value
+
+
 class CharacterSpellSerializer(serializers.ModelSerializer):
     """Serializer for character spells."""
     
     spell_name = serializers.CharField(source='spell.name', read_only=True)
-    spell_level = serializers.IntegerField(source='spell.level', read_only=True)
+    spell_base_level = serializers.IntegerField(source='spell.level', read_only=True)
     spell_school = serializers.CharField(source='spell.school', read_only=True)
     character_name = serializers.CharField(source='character.name', read_only=True)
     
@@ -578,8 +607,8 @@ class CharacterSpellSerializer(serializers.ModelSerializer):
         model = CharacterSpell
         fields = [
             'id', 'character', 'character_name', 'spell', 'spell_name',
-            'spell_level', 'spell_school', 'is_prepared', 'is_always_prepared',
-            'notes'
+            'spell_level', 'spell_base_level', 'spell_school',
+            'is_prepared', 'is_always_prepared', 'source', 'notes'
         ]
         read_only_fields = ['id']
     
@@ -588,6 +617,10 @@ class CharacterSpellSerializer(serializers.ModelSerializer):
         character = data['character']
         spell = data['spell']
         
+        # magic_initiate spells are not restricted to class spell lists
+        if data.get('source') == 'magic_initiate':
+            return data
+
         # Check if character's class can learn this spell
         if not spell.classes.filter(id=character.character_class.id).exists():
             raise serializers.ValidationError(
