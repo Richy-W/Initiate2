@@ -1,5 +1,6 @@
 ﻿import React, { useState } from 'react';
 import styles from './CharacterSheet.module.css';
+import { getSpellAttacks, AttackRow } from '../../utils/spellUtils';
 
 interface Character {
   strength: number;
@@ -218,6 +219,8 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character }) => {
 
   const allWeapons = [unarmedAttack, ...weapons];
 
+  const spellAttacks: AttackRow[] = getSpellAttacks(character as any, character.character_class);
+
   return (
     <div className={styles['attack-rolls']}>
       <h3>Combat</h3>
@@ -272,6 +275,24 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character }) => {
           );
         })}
       </div>
+
+      {spellAttacks.length > 0 && (
+        <div className={styles['weapons-list']}>
+          <h4>Spell Attacks</h4>
+          {spellAttacks.map((row, index) => (
+            <div key={index} className={styles['weapon-row']}>
+              <div className={styles['weapon-info']}>
+                <span className={styles['weapon-name']}>{row.name}</span>
+                <span className={styles['weapon-stats']}>
+                  Attack: {row.attackBonus >= 0 ? '+' : ''}{row.attackBonus}
+                  {row.damage ? ` | Damage: ${row.damage} ${row.damageType ?? ''}` : ''}
+                  {row.saveDC ? ` | Save DC ${row.saveDC} ${row.saveAbility ?? ''}` : ''}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
 
       {attackResults.length > 0 && (
         <div className={styles['attack-history']}>

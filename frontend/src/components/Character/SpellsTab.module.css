@@ -1,0 +1,107 @@
+.container {
+  padding: 16px 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.manageBtn {
+  padding: 6px 14px;
+  background: #8a6a3a;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.manageBtn:hover {
+  background: #6a4a2a;
+}
+
+.spellGroup {
+  margin-bottom: 20px;
+}
+
+.groupTitle {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #7a6a52;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+}
+
+.spellTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.spellTable th {
+  text-align: left;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #7a6a52;
+  padding: 4px 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.spellTable td {
+  padding: 5px 8px;
+  border-bottom: 1px solid #f5f0ea;
+  vertical-align: middle;
+}
+
+.spellTable tr:hover td {
+  background: #faf7f2;
+}
+
+.badges {
+  display: flex;
+  gap: 3px;
+}
+
+.badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  padding: 1px 3px;
+  color: #7a6a52;
+}
+
+.badgeConc { color: #e06030; border-color: #e06030; }
+.badgeRitual { color: #3070c0; border-color: #3070c0; }
+.badgeMaterial { color: #508040; border-color: #508040; }
+
+.prepareToggle {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #8a6a3a;
+  font-size: 0.75rem;
+  padding: 0 4px;
+}
+
+.preparedCount {
+  font-size: 0.75rem;
+  color: #7a6a52;
+  margin-bottom: 4px;
+}
+
+.emptyState {
+  color: #aaa;
+  font-style: italic;
+  font-size: 0.85rem;
+  padding: 24px 0;
+  text-align: center;
+}

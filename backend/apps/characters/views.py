@@ -8,8 +8,8 @@ from django.http import HttpResponse
 from django.utils.text import slugify
 from drf_spectacular.utils import extend_schema
 
-from .models import Character, CharacterSpell
-from .serializers import CharacterSerializer, CharacterDetailSerializer, CharacterCreateSerializer, CharacterSpellSerializer
+from .models import Character, CharacterSpell, SpellSlotState
+from .serializers import CharacterSerializer, CharacterDetailSerializer, CharacterCreateSerializer, CharacterSpellSerializer, SpellSlotStateSerializer
 from .pdf_export import render_character_sheet_pdf
 from apps.content.models import Species, CharacterClass, Background
 
@@ -110,11 +110,22 @@ class CharacterViewSet(viewsets.ModelViewSet):
         """Take a rest (short or long)."""
         character = self.get_object()
         rest_type = request.data.get('type', 'short')
-        
+
+        # Pact magic classes restore slots on short rest too
+        PACT_MAGIC_SPELLCASTING_TYPES = {'pact'}
+        spellcasting = character.character_class.spellcasting or {}
+        is_pact_caster = spellcasting.get('type') in PACT_MAGIC_SPELLCASTING_TYPES
+
+        slots_restored = []
+
         if rest_type == 'long':
             # Long rest - restore all HP
             character.current_hit_points = character.max_hit_points
             character.temporary_hit_points = 0
+            # Restore all spell slots
+            used_slots = SpellSlotState.objects.filter(character=character, used__gt=0)
+            slots_restored = list(used_slots.values_list('slot_level', flat=True))
+            used_slots.update(used=0)
         elif rest_type == 'short':
             # Short rest - restore some HP based on hit dice (simplified)
             hit_dice = character.character_class.hit_die
@@ -124,6 +135,11 @@ class CharacterViewSet(viewsets.ModelViewSet):
                 character.max_hit_points,
                 character.current_hit_points + healing
             )
+            # Pact casters restore spell slots on short rest
+            if is_pact_caster:
+                used_slots = SpellSlotState.objects.filter(character=character, used__gt=0)
+                slots_restored = list(used_slots.values_list('slot_level', flat=True))
+                used_slots.update(used=0)
         else:
             return Response(
                 {'error': 'Invalid rest type. Use "short" or "long"'}, 
@@ -136,7 +152,8 @@ class CharacterViewSet(viewsets.ModelViewSet):
             'message': f'{rest_type.title()} rest completed',
             'current_hp': character.current_hit_points,
             'max_hp': character.max_hit_points,
-            'temp_hp': character.temporary_hit_points
+            'temp_hp': character.temporary_hit_points,
+            'slots_restored': slots_restored,
         })
     
     @action(detail=True, methods=['post'])
@@ -668,3 +685,27 @@ class CharacterSpellViewSet(viewsets.ModelViewSet):
         if character.user != self.request.user:
             raise serializers.ValidationError("You can only add spells to your own characters")
         serializer.save()
+
+
+class SpellSlotStateViewSet(viewsets.ModelViewSet):
+    """API endpoints for tracking used spell slots."""
+
+    serializer_class = SpellSlotStateSerializer
+    permission_classes = [IsAuthenticated]
+    http_method_names = ['get', 'post', 'patch', 'delete', 'head', 'options']
+
+    def get_queryset(self):
+        qs = SpellSlotState.objects.filter(character__user=self.request.user)
+        character_id = self.request.query_params.get('character')
+        if character_id:
+            qs = qs.filter(character_id=character_id)
+        return qs.order_by('slot_level')
+
+    def perform_create(self, serializer):
+        character = serializer.validated_data['character']
+        if character.user != self.request.user:
+            raise serializers.ValidationError(
+                "You can only manage spell slots for your own characters."
+            )
+        serializer.save()
+

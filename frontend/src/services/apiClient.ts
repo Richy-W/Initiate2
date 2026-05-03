@@ -184,6 +184,48 @@ export const api = {
       const response = await apiClient.get('/characters/', config);
       return response.data;
     },
+    rest: async (id: string | number, type: 'short' | 'long') => {
+      const response = await apiClient.post(`/characters/${id}/rest/`, { type });
+      return response.data;
+    },
+  },
+
+  // Character spell endpoints
+  characterSpells: {
+    list: async (characterId: string | number) => {
+      const response = await apiClient.get('/character-spells/', { params: { character: characterId } });
+      return response.data;
+    },
+    create: async (data: { character: string | number; spell: string | number; source?: 'class' | 'magic_initiate'; is_prepared?: boolean; spell_level?: number; notes?: string }) => {
+      const response = await apiClient.post('/character-spells/', data);
+      return response.data;
+    },
+    update: async (id: string | number, data: Partial<{ is_prepared: boolean; is_always_prepared: boolean; source: 'class' | 'magic_initiate'; spell_level: number; notes: string }>) => {
+      const response = await apiClient.patch(`/character-spells/${id}/`, data);
+      return response.data;
+    },
+    delete: async (id: string | number) => {
+      await apiClient.delete(`/character-spells/${id}/`);
+    },
+  },
+
+  // Spell slot state endpoints
+  spellSlots: {
+    list: async (characterId: string | number) => {
+      const response = await apiClient.get('/character-spell-slots/', { params: { character: characterId } });
+      return response.data;
+    },
+    create: async (data: { character: string | number; slot_level: number; total: number; used?: number }) => {
+      const response = await apiClient.post('/character-spell-slots/', data);
+      return response.data;
+    },
+    update: async (id: string | number, data: Partial<{ used: number; total: number }>) => {
+      const response = await apiClient.patch(`/character-spell-slots/${id}/`, data);
+      return response.data;
+    },
+    delete: async (id: string | number) => {
+      await apiClient.delete(`/character-spell-slots/${id}/`);
+    },
   },
 
   // Campaign endpoints
@@ -326,6 +368,8 @@ export default apiClient;
 export const authAPI = api.auth;
 export const userAPI = api.user;
 export const characterAPI = api.characters;
+export const characterSpellsAPI = api.characterSpells;
+export const spellSlotsAPI = api.spellSlots;
 export const campaignAPI = api.campaigns;
 export const combatAPI = api.combat;
 export const contentAPI = api.content;

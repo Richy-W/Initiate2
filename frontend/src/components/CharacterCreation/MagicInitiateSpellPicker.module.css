@@ -1,0 +1,124 @@
+.picker {
+  border: 1px solid #c8b89a;
+  border-radius: 6px;
+  background: #faf7f2;
+  padding: 16px;
+  margin: 12px 0;
+}
+
+.pickerTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #3a2a1a;
+  margin-bottom: 12px;
+}
+
+.section {
+  margin-bottom: 14px;
+}
+
+.sectionTitle {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #7a6a52;
+  margin-bottom: 6px;
+}
+
+.classSelect {
+  padding: 5px 10px;
+  border: 1px solid #c8b89a;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  background: #fff;
+  width: 100%;
+  max-width: 240px;
+  color: #3a2a1a;
+  margin-bottom: 10px;
+}
+
+.spellList {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #e8dac8;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.spellRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border-bottom: 1px solid #f0ebe2;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.spellRow:last-child {
+  border-bottom: none;
+}
+
+.spellRow:hover {
+  background: #faf5ee;
+}
+
+.spellRowSelected {
+  background: #f0e8d4;
+}
+
+.checkBox {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #8a6a3a;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #fff;
+}
+
+.checkBoxChecked {
+  background: #8a6a3a;
+}
+
+.spellName {
+  font-weight: 600;
+  color: #3a2a1a;
+}
+
+.spellMeta {
+  font-size: 0.7rem;
+  color: #8a7a5a;
+}
+
+.counter {
+  font-size: 0.72rem;
+  color: #7a6a52;
+  margin-bottom: 4px;
+}
+
+.confirmBtn {
+  padding: 7px 20px;
+  background: #8a6a3a;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.confirmBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.loadingMsg {
+  padding: 12px;
+  color: #aaa;
+  font-style: italic;
+  font-size: 0.82rem;
+}

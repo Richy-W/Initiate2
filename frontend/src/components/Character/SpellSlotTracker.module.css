@@ -1,0 +1,67 @@
+.tracker {
+  margin-bottom: 16px;
+}
+
+.trackerTitle {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #7a6a52;
+  margin-bottom: 8px;
+}
+
+.pactNote {
+  font-size: 0.7rem;
+  color: #8a7a5a;
+  font-style: italic;
+  margin-bottom: 4px;
+}
+
+.slotRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.slotLevel {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #7a6a52;
+  min-width: 80px;
+}
+
+.slots {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.slot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #8a6a3a;
+  cursor: pointer;
+  background: #fff;
+  transition: background 0.15s;
+  padding: 0;
+}
+
+.slot:hover {
+  background: #f0e8d8;
+}
+
+.slotUsed {
+  background: #8a6a3a;
+}
+
+.slotUsed:hover {
+  background: #6a4a2a;
+}
+
+.emptyState {
+  font-size: 0.8rem;
+  color: #aaa;
+  font-style: italic;
+}

@@ -5,6 +5,44 @@ export interface InventoryItem {
   quantity: number;
 }
 
+// ─── Spell-related types ──────────────────────────────────────────────────────
+
+export interface CharacterSpell {
+  id: string;
+  character: string;
+  character_name: string;
+  spell: string;
+  spell_name: string;
+  spell_level: number;       // from spell.level (read-only)
+  spell_school: string;      // from spell.school (read-only)
+  is_prepared: boolean;
+  is_always_prepared: boolean;
+  source: 'class' | 'magic_initiate';
+  notes: string;
+}
+
+export interface SpellSlotState {
+  id: string;
+  character: string;
+  slot_level: number;  // 1–9
+  total: number;
+  used: number;
+}
+
+export interface SpellcastingProfile {
+  ability: string;       // e.g. "Intelligence"
+  abilityKey: string;    // e.g. "intelligence"
+  modifier: number;      // abilityMod + proficiencyBonus
+  saveDC: number;        // 8 + modifier
+  attackBonus: number;   // same as modifier
+  spellcastingType: 'full' | 'half' | 'third' | 'pact' | 'none';
+  maxSpellLevel: number;
+  preparedCount?: number;
+  preparedMax?: number;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+
 export interface Equipment {
   id: string;
   name: string;
@@ -74,6 +112,10 @@ export interface Character {
   is_encumbered?: boolean;
   currency_total_gp_value?: number;
   notes?: string;
+  // Spell-related fields
+  character_spells?: CharacterSpell[];
+  spell_slot_states?: SpellSlotState[];
+  spells_known?: any[];  // legacy JSONField — keep but do not use going forward
   created_at: string;
   updated_at: string;
 }
