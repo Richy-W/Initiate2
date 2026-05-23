@@ -2,6 +2,16 @@
   padding: 16px 0;
 }
 
+.initError {
+  font-size: 0.8rem;
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin-bottom: 10px;
+}
+
 .header {
   display: flex;
   justify-content: space-between;

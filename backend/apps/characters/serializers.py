@@ -92,6 +92,35 @@ class CharacterSpellSerializer(serializers.ModelSerializer):
         return data
 
 
+class SpellSlotStateSerializer(serializers.ModelSerializer):
+    """Serializer for character spell slot state."""
+
+    class Meta:
+        model = SpellSlotState
+        fields = ['id', 'character', 'slot_level', 'total', 'used']
+        read_only_fields = ['id']
+
+    def validate(self, data):
+        used = data.get('used', getattr(self.instance, 'used', 0))
+        total = data.get('total', getattr(self.instance, 'total', None))
+        if total is not None and used > total:
+            raise serializers.ValidationError(
+                {'used': 'used cannot be greater than total.'}
+            )
+        return data
+
+    def validate_slot_level(self, value):
+        from apps.characters.models import SpellSlotState as _SSL  # noqa: avoid circular
+        validator = _SSL._meta.get_field('slot_level').validators
+        from django.core.exceptions import ValidationError as DjValidationError
+        for v in validator:
+            try:
+                v(value)
+            except DjValidationError as exc:
+                raise serializers.ValidationError(exc.messages)
+        return value
+
+
 class CharacterDetailSerializer(CharacterSerializer):
     """Detailed character serializer with full information."""
 
@@ -132,6 +161,7 @@ class CharacterDetailSerializer(CharacterSerializer):
     is_encumbered = serializers.ReadOnlyField()
     
     character_spells = CharacterSpellSerializer(many=True, read_only=True)
+    spell_slot_states = SpellSlotStateSerializer(many=True, read_only=True)
 
     # Equipped items details
     equipped_items_details = serializers.SerializerMethodField()
@@ -156,7 +186,7 @@ class CharacterDetailSerializer(CharacterSerializer):
             'backstory', 'notes', 'carrying_capacity', 'total_weight',
             'encumbrance_status', 'encumbrance_effects', 'effective_speed', 'is_encumbered',
             'equipped_items_details', 'calculated_armor_class',
-            'character_spells',
+            'character_spells', 'spell_slot_states',
         ]
 
 
@@ -616,35 +646,6 @@ class CharacterCreateSerializer(serializers.ModelSerializer):
         except Exception as e:
             logger.error(f"Character creation error: {e}")
             raise serializers.ValidationError(f"Failed to create character: {str(e)}")
-
-
-class SpellSlotStateSerializer(serializers.ModelSerializer):
-    """Serializer for character spell slot state."""
-
-    class Meta:
-        model = SpellSlotState
-        fields = ['id', 'character', 'slot_level', 'total', 'used']
-        read_only_fields = ['id']
-
-    def validate(self, data):
-        used = data.get('used', getattr(self.instance, 'used', 0))
-        total = data.get('total', getattr(self.instance, 'total', None))
-        if total is not None and used > total:
-            raise serializers.ValidationError(
-                {'used': 'used cannot be greater than total.'}
-            )
-        return data
-
-    def validate_slot_level(self, value):
-        from apps.characters.models import SpellSlotState as _SSL  # noqa: avoid circular
-        validator = _SSL._meta.get_field('slot_level').validators
-        from django.core.exceptions import ValidationError as DjValidationError
-        for v in validator:
-            try:
-                v(value)
-            except DjValidationError as exc:
-                raise serializers.ValidationError(exc.messages)
-        return value
 
 
 class CharacterAbilityCheckSerializer(serializers.Serializer):

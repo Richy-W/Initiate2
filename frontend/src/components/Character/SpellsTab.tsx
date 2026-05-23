@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Character, CharacterSpell, SpellSlotState } from '../../types';
 import { computeSpellcastingProfile } from '../../utils/spellUtils';
 import SpellcastingStatBlock from './SpellcastingStatBlock';
@@ -27,12 +27,29 @@ interface Props {
 
 const SpellsTab: React.FC<Props> = ({ character, onRefresh }) => {
   const [showBrowser, setShowBrowser] = useState(false);
+  const [initError, setInitError] = useState<string | null>(null);
   const classJson = (character as any).class_detail ?? character.character_class;
   const profile = computeSpellcastingProfile(character, classJson);
   const isPactCaster = profile.spellcastingType === 'pact';
 
   const characterSpells: CharacterSpell[] = character.character_spells ?? [];
   const slotStates: SpellSlotState[] = character.spell_slot_states ?? [];
+
+  // Auto-initialize spell slots when a spellcaster has none set up yet
+  const isSpellcasterWithSlots =
+    profile.spellcastingType !== 'none' && profile.maxSpellLevel > 0;
+
+  useEffect(() => {
+    if (isSpellcasterWithSlots && slotStates.length === 0) {
+      spellSlotsAPI.initSlots(character.id)
+        .then(() => onRefresh?.())
+        .catch((err: any) => {
+          const msg = err?.response?.data?.error ?? 'Could not initialize spell slots.';
+          setInitError(msg);
+        });
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [character.id, character.level]);
 
   // Group spells by base spell level
   const grouped: Record<number, CharacterSpell[]> = {};
@@ -76,6 +93,10 @@ const SpellsTab: React.FC<Props> = ({ character, onRefresh }) => {
   return (
     <div className={styles.container}>
       <SpellcastingStatBlock profile={profile} />
+
+      {initError && (
+        <div className={styles.initError}>{initError}</div>
+      )}
 
       <div className={styles.header}>
         {showPreparedCount && (

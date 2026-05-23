@@ -227,6 +227,10 @@ export const api = {
     delete: async (id: string | number) => {
       await apiClient.delete(`/character-spell-slots/${id}/`);
     },
+    initSlots: async (characterId: string | number) => {
+      const response = await apiClient.post(`/characters/${characterId}/init_slots/`);
+      return response.data;
+    },
   },
 
   // Campaign endpoints

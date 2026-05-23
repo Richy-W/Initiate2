@@ -157,6 +157,63 @@ class CharacterViewSet(viewsets.ModelViewSet):
         })
     
     @action(detail=True, methods=['post'])
+    def init_slots(self, request, pk=None):
+        """Create or sync spell slot records from the class spellSlots table."""
+        character = self.get_object()
+        spellcasting = character.character_class.spellcasting or {}
+        spell_slots_table = spellcasting.get('spellSlots', {})
+
+        if not spell_slots_table:
+            return Response(
+                {'error': 'This class has no spell slot data.'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        level_key = str(character.level)
+        slots_for_level = spell_slots_table.get(level_key, {})
+
+        if not slots_for_level:
+            return Response(
+                {'error': f'No spell slots defined for level {character.level}.'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # Build the desired slot map {slot_level (int): total (int)}
+        desired = {int(k): int(v) for k, v in slots_for_level.items()}
+
+        # Remove slot records for levels no longer present at this character level
+        SpellSlotState.objects.filter(character=character).exclude(
+            slot_level__in=desired.keys()
+        ).delete()
+
+        created_count = 0
+        updated_count = 0
+        for slot_level, total in desired.items():
+            obj, created = SpellSlotState.objects.get_or_create(
+                character=character,
+                slot_level=slot_level,
+                defaults={'total': total, 'used': 0},
+            )
+            if created:
+                created_count += 1
+            elif obj.total != total:
+                # Update total if the table changed (e.g. after level-up)
+                obj.total = total
+                # Clamp used if total decreased
+                if obj.used > total:
+                    obj.used = total
+                obj.save(update_fields=['total', 'used'])
+                updated_count += 1
+
+        from .serializers import SpellSlotStateSerializer as _SSS
+        slots = SpellSlotState.objects.filter(character=character).order_by('slot_level')
+        return Response({
+            'created': created_count,
+            'updated': updated_count,
+            'slots': _SSS(slots, many=True).data,
+        })
+
+    @action(detail=True, methods=['post'])
     def take_damage(self, request, pk=None):
         """Apply damage to a character."""
         character = self.get_object()
