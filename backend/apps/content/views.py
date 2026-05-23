@@ -198,7 +198,13 @@ class SpellViewSet(ContentViewSetMixin, viewsets.ReadOnlyModelViewSet):
     queryset = Spell.objects.all().prefetch_related('classes')
     serializer_class = SpellSerializer
     search_fields = ['name', 'description']
-    filterset_fields = ['level', 'school', 'ritual', 'concentration']
+    filterset_fields = {
+        'level': ['exact', 'lte'],
+        'school': ['exact'],
+        'ritual': ['exact'],
+        'concentration': ['exact'],
+        'classes__name': ['exact', 'iexact'],
+    }
     
     @action(detail=False, methods=['get'])
     def by_class(self, request):

@@ -6,13 +6,13 @@
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #7a6a52;
+  color: #93a8df;
   margin-bottom: 8px;
 }
 
 .pactNote {
   font-size: 0.7rem;
-  color: #8a7a5a;
+  color: #7d9de8;
   font-style: italic;
   margin-bottom: 4px;
 }
@@ -27,7 +27,7 @@
 .slotLevel {
   font-size: 0.7rem;
   text-transform: uppercase;
-  color: #7a6a52;
+  color: #93a8df;
   min-width: 80px;
 }
 
@@ -41,27 +41,27 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 2px solid #8a6a3a;
+  border: 2px solid #4a6abf;
   cursor: pointer;
-  background: #fff;
+  background: #0e1628;
   transition: background 0.15s;
   padding: 0;
 }
 
 .slot:hover {
-  background: #f0e8d8;
+  background: #1e2e4e;
 }
 
 .slotUsed {
-  background: #8a6a3a;
+  background: #4a6abf;
 }
 
 .slotUsed:hover {
-  background: #6a4a2a;
+  background: #3a5aaf;
 }
 
 .emptyState {
   font-size: 0.8rem;
-  color: #aaa;
+  color: #4a5a7a;
   font-style: italic;
 }

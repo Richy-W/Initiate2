@@ -110,6 +110,7 @@ export const CharacterSheet: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState('stats');
   const [activeInfoTab, setActiveInfoTab] = useState<InfoTab>('features');
+  const [activeSkillsTab, setActiveSkillsTab] = useState<'skills' | 'combat' | 'spells'>('skills');
   const [activeFeatureFilter, setActiveFeatureFilter] = useState<FeatureFilter>('all');
   const [notesDraft, setNotesDraft] = useState('');
   const [notesSaveState, setNotesSaveState] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
@@ -144,6 +145,17 @@ export const CharacterSheet: React.FC = () => {
       setError(err.response?.data?.detail || 'Failed to load character');
     } finally {
       setLoading(false);
+    }
+  }, [characterId]);
+
+  // Silent refresh — updates character data without resetting scroll/loading state
+  const refreshCharacter = useCallback(async () => {
+    if (!characterId) return;
+    try {
+      const response = await characterAPI.get(characterId);
+      setCharacter(response);
+    } catch {
+      // silently ignore
     }
   }, [characterId]);
 
@@ -1202,25 +1214,11 @@ export const CharacterSheet: React.FC = () => {
           Stats
         </button>
         <button
-          className={[styles['tab-button'], activeTab === 'combat' ? styles['active'] : ''].filter(Boolean).join(' ')}
-          onClick={() => setActiveTab('combat')}
-        >
-          Combat
-        </button>
-        <button
           className={[styles['tab-button'], activeTab === 'equipment' ? styles['active'] : ''].filter(Boolean).join(' ')}
           onClick={() => setActiveTab('equipment')}
         >
           Equipment
         </button>
-        {isSpellcaster(character as any, character.character_class) && (
-          <button
-            className={[styles['tab-button'], activeTab === 'spells' ? styles['active'] : ''].filter(Boolean).join(' ')}
-            onClick={() => setActiveTab('spells')}
-          >
-            Spells
-          </button>
-        )}
       </div>
 
       {/* Main Content - D&D Beyond Layout */}
@@ -1259,18 +1257,35 @@ export const CharacterSheet: React.FC = () => {
           {(activeTab === 'stats' || !isMobile) && (
             <div className={[styles['character-section'], styles['skills']].filter(Boolean).join(' ')}>
               <div className={styles['section-header']}>
-                <h3 className={styles['section-title']}>Skills</h3>
+                <h3 className={styles['section-title']}>Actions</h3>
               </div>
-              <SkillRolls character={characterForRollPanels} />
-            </div>
-          )}
-
-          {(activeTab === 'combat' || !isMobile) && (
-            <div className={[styles['character-section'], styles['combat']].filter(Boolean).join(' ')}>
-              <div className={styles['section-header']}>
-                <h3 className={styles['section-title']}>Combat</h3>
+              <div className={styles['traits-tabs']}>
+                <button
+                  className={[styles['traits-tab'], activeSkillsTab === 'skills' ? styles['active'] : ''].filter(Boolean).join(' ')}
+                  onClick={() => setActiveSkillsTab('skills')}
+                >
+                  Skills
+                </button>
+                <button
+                  className={[styles['traits-tab'], activeSkillsTab === 'combat' ? styles['active'] : ''].filter(Boolean).join(' ')}
+                  onClick={() => setActiveSkillsTab('combat')}
+                >
+                  Combat
+                </button>
+                {isSpellcaster(character as any, (character as any).class_detail) && (
+                  <button
+                    className={[styles['traits-tab'], activeSkillsTab === 'spells' ? styles['active'] : ''].filter(Boolean).join(' ')}
+                    onClick={() => setActiveSkillsTab('spells')}
+                  >
+                    Spells
+                  </button>
+                )}
               </div>
-              <AttackRolls character={characterForRollPanels} />
+              {activeSkillsTab === 'skills' && <SkillRolls character={characterForRollPanels} />}
+              {activeSkillsTab === 'combat' && <AttackRolls character={characterForRollPanels} />}
+              {activeSkillsTab === 'spells' && isSpellcaster(character as any, (character as any).class_detail) && (
+                <SpellsTab character={character as any} onRefresh={refreshCharacter} />
+              )}
             </div>
           )}
 
@@ -1367,14 +1382,6 @@ export const CharacterSheet: React.FC = () => {
             </div>
           )}
 
-          {(activeTab === 'spells' || !isMobile) && isSpellcaster(character as any, character.character_class) && (
-            <div className={[styles['character-section']].filter(Boolean).join(' ')}>
-              <div className={styles['section-header']}>
-                <h3 className={styles['section-title']}>Spells</h3>
-              </div>
-              <SpellsTab character={character as any} onRefresh={fetchCharacter} />
-            </div>
-          )}
         </div>
 
         {/* Right Sidebar - Desktop only */}
@@ -1520,8 +1527,10 @@ export const CharacterSheet: React.FC = () => {
           </div>
         </div>
       )}
-      {isSpellcaster(character as any, character.character_class) && (
-        <SpellPrintPage character={character as any} />
+      {isSpellcaster(character as any, (character as any).class_detail) && (
+        <div style={{ display: 'none' }} className="print-only">
+          <SpellPrintPage character={character as any} />
+        </div>
       )}
     </div>
   );

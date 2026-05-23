@@ -97,6 +97,9 @@ interface SpeciesOptions {
   magicInitiateCantrip1?: string;
   magicInitiateCantrip2?: string;
   magicInitiateSpell1?: string;
+  magicInitiateCantripName1?: string;
+  magicInitiateCantripName2?: string;
+  magicInitiateSpellName1?: string;
 }
 
 interface SpeciesSelectorProps {
@@ -481,7 +484,6 @@ export const SpeciesSelector: React.FC<SpeciesSelectorProps> = ({
                           onSpeciesOptionsChange({
                             ...speciesOptions,
                             featChoice: e.target.value,
-                            skillfulChoice: '',
                             skilledSkillChoices: [],
                             skilledToolChoices: [],
                             magicInitiateSpellList: '',
@@ -489,6 +491,9 @@ export const SpeciesSelector: React.FC<SpeciesSelectorProps> = ({
                             magicInitiateCantrip1: '',
                             magicInitiateCantrip2: '',
                             magicInitiateSpell1: '',
+                            magicInitiateCantripName1: '',
+                            magicInitiateCantripName2: '',
+                            magicInitiateSpellName1: '',
                           })
                         }
                       >
@@ -517,6 +522,9 @@ export const SpeciesSelector: React.FC<SpeciesSelectorProps> = ({
                               magicInitiateCantrip1: sel.cantrips[0]?.id ?? '',
                               magicInitiateCantrip2: sel.cantrips[1]?.id ?? '',
                               magicInitiateSpell1: sel.firstLevel?.id ?? '',
+                              magicInitiateCantripName1: sel.cantrips[0]?.name ?? '',
+                              magicInitiateCantripName2: sel.cantrips[1]?.name ?? '',
+                              magicInitiateSpellName1: sel.firstLevel?.name ?? '',
                             });
                           }}
                         />

@@ -21,19 +21,22 @@ export interface MagicInitiateSelections {
 
 interface Props {
   onConfirm: (selections: MagicInitiateSelections) => void;
+  presetClass?: string;
 }
 
-const MagicInitiateSpellPicker: React.FC<Props> = ({ onConfirm }) => {
-  const [sourceClass, setSourceClass] = useState(SOURCE_CLASSES[0]);
+const MagicInitiateSpellPicker: React.FC<Props> = ({ onConfirm, presetClass }) => {
+  const [sourceClass, setSourceClass] = useState(presetClass || SOURCE_CLASSES[0]);
   const [cantrips, setCantrips] = useState<SpellOption[]>([]);
   const [firstLevelSpells, setFirstLevelSpells] = useState<SpellOption[]>([]);
-  const [selectedCantrips, setSelectedCantrips] = useState<SpellOption[]>([]);
+  const [cantrip1, setCantrip1] = useState<SpellOption | null>(null);
+  const [cantrip2, setCantrip2] = useState<SpellOption | null>(null);
   const [selectedFirstLevel, setSelectedFirstLevel] = useState<SpellOption | null>(null);
   const [loading, setLoading] = useState(false);
 
   const fetchSpells = useCallback(async () => {
     setLoading(true);
-    setSelectedCantrips([]);
+    setCantrip1(null);
+    setCantrip2(null);
     setSelectedFirstLevel(null);
     try {
       const [cantripData, firstData] = await Promise.all([
@@ -52,109 +55,110 @@ const MagicInitiateSpellPicker: React.FC<Props> = ({ onConfirm }) => {
 
   useEffect(() => { fetchSpells(); }, [fetchSpells]);
 
-  const toggleCantrip = (spell: SpellOption) => {
-    setSelectedCantrips(prev => {
-      const already = prev.some(s => s.id === spell.id);
-      if (already) return prev.filter(s => s.id !== spell.id);
-      if (prev.length >= 2) return prev; // max 2
-      return [...prev, spell];
-    });
-  };
+  const isReady = cantrip1 !== null && cantrip2 !== null && cantrip1.id !== cantrip2.id && selectedFirstLevel !== null;
 
-  const toggleFirstLevel = (spell: SpellOption) => {
-    setSelectedFirstLevel(prev => (prev?.id === spell.id ? null : spell));
-  };
-
-  const isReady = selectedCantrips.length === 2 && selectedFirstLevel !== null;
-
-  const handleConfirm = () => {
-    if (!isReady) return;
-    onConfirm({
-      sourceClass,
-      cantrips: selectedCantrips,
-      firstLevel: selectedFirstLevel,
-    });
-  };
+  useEffect(() => {
+    if (isReady) {
+      onConfirm({
+        sourceClass,
+        cantrips: [cantrip1!, cantrip2!],
+        firstLevel: selectedFirstLevel,
+      });
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cantrip1, cantrip2, selectedFirstLevel]);
 
   return (
     <div className={styles.picker}>
       <div className={styles.pickerTitle}>Magic Initiate — Choose Spells</div>
 
-      <div className={styles.section}>
-        <div className={styles.sectionTitle}>Source Class</div>
-        <select
-          value={sourceClass}
-          onChange={e => setSourceClass(e.target.value)}
-          className={styles.classSelect}
-        >
-          {SOURCE_CLASSES.map(cls => (
-            <option key={cls} value={cls}>{cls}</option>
-          ))}
-        </select>
-      </div>
+      {!presetClass && (
+        <div className={styles.section}>
+          <label className={styles.sectionLabel} htmlFor="mi-source-class">Source Class</label>
+          <select
+            id="mi-source-class"
+            value={sourceClass}
+            onChange={e => setSourceClass(e.target.value)}
+            className={styles.spellSelect}
+          >
+            {SOURCE_CLASSES.map(cls => (
+              <option key={cls} value={cls}>{cls}</option>
+            ))}
+          </select>
+        </div>
+      )}
 
-      <div className={styles.section}>
-        <div className={styles.sectionTitle}>Cantrips (choose 2)</div>
-        <div className={styles.counter}>{selectedCantrips.length}/2 selected</div>
-        {loading ? (
-          <div className={styles.loadingMsg}>Loading…</div>
-        ) : (
-          <div className={styles.spellList}>
-            {cantrips.map(spell => {
-              const selected = selectedCantrips.some(s => s.id === spell.id);
-              return (
-                <div
-                  key={spell.id}
-                  className={`${styles.spellRow} ${selected ? styles.spellRowSelected : ''}`}
-                  onClick={() => toggleCantrip(spell)}
-                >
-                  <div className={`${styles.checkBox} ${selected ? styles.checkBoxChecked : ''}`} />
-                  <div>
-                    <div className={styles.spellName}>{spell.name}</div>
-                    <div className={styles.spellMeta}>{spell.school}</div>
-                  </div>
-                </div>
-              );
-            })}
+      {loading ? (
+        <div className={styles.loadingMsg}>Loading…</div>
+      ) : (
+        <>
+          <div className={styles.section}>
+            <label className={styles.sectionLabel} htmlFor="mi-cantrip1">Cantrip 1</label>
+            <select
+              id="mi-cantrip1"
+              className={styles.spellSelect}
+              value={cantrip1?.id ?? ''}
+              onChange={e => {
+                const spell = cantrips.find(s => String(s.id) === e.target.value) ?? null;
+                setCantrip1(spell);
+              }}
+            >
+              <option value="">-- Choose a cantrip --</option>
+              {cantrips.map(spell => (
+                <option key={spell.id} value={spell.id} disabled={String(cantrip2?.id) === String(spell.id)}>
+                  {spell.name} ({spell.school})
+                </option>
+              ))}
+            </select>
           </div>
-        )}
-      </div>
 
-      <div className={styles.section}>
-        <div className={styles.sectionTitle}>1st-Level Spell (choose 1)</div>
-        <div className={styles.counter}>{selectedFirstLevel ? '1/1 selected' : '0/1 selected'}</div>
-        {loading ? (
-          <div className={styles.loadingMsg}>Loading…</div>
-        ) : (
-          <div className={styles.spellList}>
-            {firstLevelSpells.map(spell => {
-              const selected = selectedFirstLevel?.id === spell.id;
-              return (
-                <div
-                  key={spell.id}
-                  className={`${styles.spellRow} ${selected ? styles.spellRowSelected : ''}`}
-                  onClick={() => toggleFirstLevel(spell)}
-                >
-                  <div className={`${styles.checkBox} ${selected ? styles.checkBoxChecked : ''}`} />
-                  <div>
-                    <div className={styles.spellName}>{spell.name}</div>
-                    <div className={styles.spellMeta}>{spell.school}</div>
-                  </div>
-                </div>
-              );
-            })}
+          <div className={styles.section}>
+            <label className={styles.sectionLabel} htmlFor="mi-cantrip2">Cantrip 2</label>
+            <select
+              id="mi-cantrip2"
+              className={styles.spellSelect}
+              value={cantrip2?.id ?? ''}
+              onChange={e => {
+                const spell = cantrips.find(s => String(s.id) === e.target.value) ?? null;
+                setCantrip2(spell);
+              }}
+            >
+              <option value="">-- Choose a cantrip --</option>
+              {cantrips.map(spell => (
+                <option key={spell.id} value={spell.id} disabled={String(cantrip1?.id) === String(spell.id)}>
+                  {spell.name} ({spell.school})
+                </option>
+              ))}
+            </select>
           </div>
-        )}
-      </div>
 
-      <button
-        type="button"
-        className={styles.confirmBtn}
-        disabled={!isReady}
-        onClick={handleConfirm}
-      >
-        Confirm Selections
-      </button>
+          <div className={styles.section}>
+            <label className={styles.sectionLabel} htmlFor="mi-firstlevel">1st-Level Spell</label>
+            <select
+              id="mi-firstlevel"
+              className={styles.spellSelect}
+              value={selectedFirstLevel?.id ?? ''}
+              onChange={e => {
+                const spell = firstLevelSpells.find(s => String(s.id) === e.target.value) ?? null;
+                setSelectedFirstLevel(spell);
+              }}
+            >
+              <option value="">-- Choose a spell --</option>
+              {firstLevelSpells.map(spell => (
+                <option key={spell.id} value={spell.id}>
+                  {spell.name} ({spell.school})
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {isReady && (
+            <div className={styles.confirmedBadge}>
+              ✓ Spells confirmed
+            </div>
+          )}
+        </>
+      )}
     </div>
   );
 };

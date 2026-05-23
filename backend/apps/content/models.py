@@ -233,7 +233,7 @@ class CharacterClass(BaseContentModel):
     @property
     def is_spellcaster(self):
         """Check if this class can cast spells."""
-        return bool(self.spellcasting and self.spellcasting.get('spellcasting_ability'))
+        return bool(self.spellcasting and self.spellcasting.get('ability'))
 
     @property
     def spell_slots_at_level(self):

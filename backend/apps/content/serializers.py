@@ -35,7 +35,14 @@ class DamageTypeSerializer(serializers.ModelSerializer):
 
 class SpeciesSerializer(serializers.ModelSerializer):
     """Serializer for character species."""
-    
+
+    # Explicitly declare custom JSONField columns so DRF returns proper JSON, not str()
+    ability_score_increases = serializers.JSONField(required=False, default=dict)
+    traits = serializers.JSONField(required=False, default=list)
+    languages = serializers.JSONField(required=False, default=list)
+    proficiencies = serializers.JSONField(required=False, default=list)
+    movement_types = serializers.JSONField(required=False, default=dict)
+
     movement_summary = serializers.ReadOnlyField()
     has_darkvision = serializers.ReadOnlyField()
     
@@ -65,7 +72,17 @@ class ClassFeatureSerializer(serializers.ModelSerializer):
 
 class CharacterClassSerializer(serializers.ModelSerializer):
     """Serializer for character classes."""
-    
+
+    # Explicitly declare custom JSONField columns so DRF returns proper JSON, not str()
+    primary_ability = serializers.JSONField(required=False, default=list)
+    saving_throw_proficiencies = serializers.JSONField(required=False, default=list)
+    armor_proficiencies = serializers.JSONField(required=False, default=list)
+    weapon_proficiencies = serializers.JSONField(required=False, default=list)
+    tool_proficiencies = serializers.JSONField(required=False, default=list)
+    spellcasting = serializers.JSONField(required=False, default=dict)
+    starting_equipment = serializers.JSONField(required=False, default=dict)
+    starting_wealth = serializers.JSONField(required=False, default=dict)
+
     is_spellcaster = serializers.ReadOnlyField()
     spell_slots_at_level = serializers.ReadOnlyField()
     skill_proficiency_options = SkillSerializer(source='skill_proficiencies', many=True, read_only=True)
@@ -157,7 +174,14 @@ class CharacterClassSerializer(serializers.ModelSerializer):
 
 class BackgroundSerializer(serializers.ModelSerializer):
     """Serializer for character backgrounds."""
-    
+
+    # Explicitly declare custom JSONField columns so DRF returns proper JSON, not str()
+    ability_score_increases = serializers.JSONField(required=False, default=dict)
+    languages = serializers.JSONField(required=False, default=list)
+    equipment = serializers.JSONField(required=False, default=list)
+    tool_proficiencies = serializers.JSONField(required=False, default=list)
+    origin_feats = serializers.JSONField(required=False, default=list)
+
     skill_proficiency_list = SkillSerializer(source='skill_proficiencies', many=True, read_only=True)
     total_skill_choices = serializers.ReadOnlyField()
     feat = serializers.SerializerMethodField()
@@ -197,15 +221,17 @@ class BackgroundSerializer(serializers.ModelSerializer):
 
 class SpellSerializer(serializers.ModelSerializer):
     """Serializer for spells."""
-    
+
     class_names = serializers.StringRelatedField(source='classes', many=True, read_only=True)
-    
+    damage = serializers.JSONField(required=False, default=dict)
+    components = serializers.JSONField(required=False, default=dict)
+
     class Meta:
         model = Spell
         fields = [
             'id', 'name', 'description', 'source', 'page',
             'level', 'school', 'casting_time', 'range', 'components',
-            'duration', 'ritual', 'concentration', 'damage_type',
+            'duration', 'ritual', 'concentration', 'damage', 'higher_levels',
             'class_names'
         ]
 

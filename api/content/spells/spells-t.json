@@ -1,0 +1,326 @@
+{
+  "version": "2024",
+  "source": "SRD 2024",
+  "spells": [
+    {
+      "name": "Tasha's Hideous Laughter",
+      "level": 1,
+      "school": "Enchantment",
+      "casting_time": "Action",
+      "range": "30 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a tart and a feather"
+      },
+      "duration": "1 minute",
+      "concentration": false,
+      "ritual": false,
+      "description": "One creature of your choice that you can see within range makes a Wisdom saving throw. On a failed save, it has the Prone and Incapacitated conditions for the duration. During that time, it laughs uncontrollably if it's capable of laughter, and it can't end the Prone condition on itself.\n\nAt the end of each of its turns and each time it takes damage, it makes another Wisdom saving throw. The target has Advantage on the save if the save is triggered by damage. On a successful save, the spell ends.",
+      "higher_levels": "You can target one additional creature for each spell slot level above 1.",
+      "damage": null,
+      "classes": ["Bard", "Paladin", "Warlock", "Wizard"]
+    },
+    {
+      "name": "Telekinesis",
+      "level": 5,
+      "school": "Transmutation",
+      "casting_time": "Action",
+      "range": "60 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": null
+      },
+      "duration": "Concentration, up to 10 minutes",
+      "concentration": true,
+      "ritual": false,
+      "description": "You gain the ability to move or manipulate creatures or objects by thought. When you cast the spell and as a Magic action on your later turns before the spell ends, you can exert your will on one creature or object that you can see within range.\n\nCreature. You can try to move a Huge or smaller creature. The target must succeed on a Strength saving throw, or you move it up to 30 feet in any direction within the spell's range. Until the end of your next turn, the creature has the Restrained condition, and if you lift it into the air, it is suspended there.\n\nObject. You can try to move a Huge or smaller object. If the object isn't being worn or carried, you automatically move it up to 30 feet in any direction. If worn or carried, the bearer must succeed on a Strength saving throw or you pull the object away. You can exert fine control on objects with your telekinetic grip.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Sorcerer", "Wizard"]
+    },
+    {
+      "name": "Teleport",
+      "level": 7,
+      "school": "Conjuration",
+      "casting_time": "Action",
+      "range": "10 feet",
+      "components": {
+        "verbal": true,
+        "somatic": false,
+        "material": null
+      },
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "description": "This spell instantly transports you and up to eight willing creatures that you can see within range, or a single Large or smaller object within range, to a destination you select on the same plane of existence. Your familiarity with the destination determines whether you arrive there successfully (consult the Teleportation Outcome table). Results range from On Target (arriving as intended), Off Target (arriving 2d12 miles away in a random direction), Similar Area (arriving at a visually similar location), to Mishap (each teleporting creature takes 3d10 Force damage and the DM rerolls on the table).",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Bard", "Sorcerer", "Wizard"]
+    },
+    {
+      "name": "Teleportation Circle",
+      "level": 5,
+      "school": "Conjuration",
+      "casting_time": "1 minute",
+      "range": "10 feet",
+      "components": {
+        "verbal": true,
+        "somatic": false,
+        "material": "rare inks worth 50+ GP, which the spell consumes"
+      },
+      "duration": "1 round",
+      "concentration": false,
+      "ritual": false,
+      "description": "As you cast the spell, you draw a 5-foot-radius circle on the ground inscribed with sigils that link your location to a permanent teleportation circle whose sigil sequence you know on the same plane of existence. A shimmering portal opens within the circle you drew and remains open until the end of your next turn. Any creature that enters the portal instantly appears within 5 feet of the destination circle or in the nearest unoccupied space.\n\nWhen you first gain the ability to cast this spell, you learn the sigil sequences for two destinations on the Material Plane, determined by the DM. You can commit a new sigil sequence to memory after studying it for 1 minute. You can create a permanent teleportation circle by casting this spell in the same location every day for 365 days.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Bard", "Sorcerer", "Warlock", "Wizard"]
+    },
+    {
+      "name": "Tenser's Floating Disk",
+      "level": 1,
+      "school": "Conjuration",
+      "casting_time": "Action",
+      "range": "30 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a drop of mercury"
+      },
+      "duration": "1 hour",
+      "concentration": false,
+      "ritual": true,
+      "description": "This spell creates a circular, horizontal plane of force, 3 feet in diameter and 1 inch thick, that floats 3 feet above the ground in an unoccupied space of your choice within range. The disk remains for the duration and can hold up to 500 pounds. If more weight is placed on it, the spell ends.\n\nThe disk is immobile while you are within 20 feet of it. If you move more than 20 feet away, the disk follows you to remain within 20 feet. It can traverse uneven terrain, stairs, and slopes, but can't cross an elevation change of 10 feet or more. If you move more than 100 feet from the disk, the spell ends.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Wizard"]
+    },
+    {
+      "name": "Thaumaturgy",
+      "level": 0,
+      "school": "Transmutation",
+      "casting_time": "Action",
+      "range": "30 feet",
+      "components": {
+        "verbal": true,
+        "somatic": false,
+        "material": null
+      },
+      "duration": "Up to 1 minute",
+      "concentration": false,
+      "ritual": false,
+      "description": "You manifest a minor wonder within range. If you cast this spell multiple times, you can have up to three of its 1-minute effects active at a time. Choose one of the following effects: Altered Eyes (alter the appearance of your eyes for 1 minute), Booming Voice (your voice booms up to three times as loud for 1 minute; Advantage on Charisma (Intimidation) checks), Fire Play (cause flames to flicker, brighten, dim, or change color for 1 minute), Invisible Hand (instantaneously cause an unlocked door or window to fly open or slam shut), Phantom Sound (create an instantaneous sound from a point within range), or Tremors (cause harmless tremors in the ground for 1 minute).",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Cleric"]
+    },
+    {
+      "name": "Thunderwave",
+      "level": 1,
+      "school": "Evocation",
+      "casting_time": "Action",
+      "range": "Self (15-foot Cube)",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": null
+      },
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "description": "You unleash a wave of thunderous energy. Each creature in a 15-foot Cube originating from you makes a Constitution saving throw. On a failed save, a creature takes 2d8 Thunder damage and is pushed 10 feet away from you. On a successful save, a creature takes half as much damage only.\n\nIn addition, unsecured objects that are entirely within the Cube are pushed 10 feet away from you, and a thunderous boom is audible within 300 feet.",
+      "higher_levels": "The damage increases by 1d8 for each spell slot level above 1.",
+      "damage": {
+        "base": "2d8",
+        "type": "Thunder",
+        "save": "Constitution"
+      },
+      "classes": ["Bard", "Druid", "Sorcerer", "Wizard"]
+    },
+    {
+      "name": "Time Stop",
+      "level": 9,
+      "school": "Transmutation",
+      "casting_time": "Action",
+      "range": "Self",
+      "components": {
+        "verbal": true,
+        "somatic": false,
+        "material": null
+      },
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "description": "You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.\n\nThis spell ends if one of the actions you use during this period, or any effects that you create during it, affects a creature other than you or an object being worn or carried by someone other than you. In addition, the spell ends if you move to a place more than 1,000 feet from the location where you cast it.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Sorcerer", "Wizard"]
+    },
+    {
+      "name": "Tongues",
+      "level": 3,
+      "school": "Divination",
+      "casting_time": "Action",
+      "range": "Touch",
+      "components": {
+        "verbal": true,
+        "somatic": false,
+        "material": "a miniature ziggurat"
+      },
+      "duration": "1 hour",
+      "concentration": false,
+      "ritual": false,
+      "description": "This spell grants the creature you touch the ability to understand any spoken or signed language that it hears or sees. Moreover, when the target communicates by speaking or signing, any creature that knows at least one language can understand it if that creature can hear the speech or see the signing.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Bard", "Cleric", "Sorcerer", "Warlock", "Wizard"]
+    },
+    {
+      "name": "Transport via Plants",
+      "level": 6,
+      "school": "Conjuration",
+      "casting_time": "Action",
+      "range": "10 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": null
+      },
+      "duration": "1 minute",
+      "concentration": false,
+      "ritual": false,
+      "description": "This spell creates a magical link between a Large or larger inanimate plant within range and another plant, at any distance, on the same plane of existence. You must have seen or touched the destination plant at least once before. For the duration, any creature can step into the target plant and exit from the destination plant by using 5 feet of movement.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Druid"]
+    },
+    {
+      "name": "Tree Stride",
+      "level": 5,
+      "school": "Conjuration",
+      "casting_time": "Action",
+      "range": "Self",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": null
+      },
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "description": "You gain the ability to enter a tree and move from inside it to inside another tree of the same kind within 500 feet. Both trees must be living and at least the same size as you. You must use 5 feet of movement to enter a tree. You instantly know the location of all other trees of the same kind within 500 feet and, as part of the move used to enter the tree, can either pass into one of those trees or step out of the tree you're in. You can use this transportation ability only once on each of your turns. You must end each turn outside a tree.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Druid", "Ranger"]
+    },
+    {
+      "name": "True Polymorph",
+      "level": 9,
+      "school": "Transmutation",
+      "casting_time": "Action",
+      "range": "30 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a drop of mercury, a dollop of gum arabic, and a wisp of smoke"
+      },
+      "duration": "Concentration, up to 1 hour",
+      "concentration": true,
+      "ritual": false,
+      "description": "Choose one creature or nonmagical object that you can see within range. The creature shape-shifts into a different creature or a nonmagical object, or the object shape-shifts into a creature. The transformation lasts for the duration, but if you maintain Concentration on this spell for the full duration, the spell lasts until dispelled. An unwilling creature can make a Wisdom saving throw to resist.\n\nCreature into Creature. The new form can be any kind with a Challenge Rating equal to or less than the target's CR or level. The target retains its Hit Points, Hit Point Dice, alignment, and personality but gains Temporary Hit Points equal to the new form's Hit Points. The spell ends early if it has no Temporary Hit Points left.\n\nObject into Creature. The creature must have a CR of 9 or lower and fit within the object's size. It is Friendly to you.\n\nCreature into Object. The creature transforms along with its worn and carried items; it has no memory of time spent in the object form.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Bard", "Warlock", "Wizard"]
+    },
+    {
+      "name": "True Resurrection",
+      "level": 9,
+      "school": "Necromancy",
+      "casting_time": "1 hour",
+      "range": "Touch",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "diamonds worth 25,000+ GP, which the spell consumes"
+      },
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "description": "You touch a creature that has been dead for no longer than 200 years and that died for any reason except old age. The creature is revived with all its Hit Points.\n\nThis spell closes all wounds, neutralizes any poison, cures all magical contagions, and lifts any curses affecting the creature when it died. The spell replaces damaged or missing organs and limbs. If the creature was Undead, it is restored to its non-Undead form.\n\nThe spell can provide a new body if the original no longer exists, in which case you must speak the creature's name. The creature then appears in an unoccupied space you choose within 10 feet of you.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Cleric", "Druid"]
+    },
+    {
+      "name": "True Seeing",
+      "level": 6,
+      "school": "Divination",
+      "casting_time": "Action",
+      "range": "Touch",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "mushroom powder worth 25+ GP, which the spell consumes"
+      },
+      "duration": "1 hour",
+      "concentration": false,
+      "ritual": false,
+      "description": "For the duration, the willing creature you touch has Truesight with a range of 120 feet.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Bard", "Cleric", "Sorcerer", "Warlock", "Wizard"]
+    },
+    {
+      "name": "True Strike",
+      "level": 0,
+      "school": "Divination",
+      "casting_time": "Action",
+      "range": "Self",
+      "components": {
+        "verbal": false,
+        "somatic": true,
+        "material": "a weapon with which you have proficiency and that is worth 1+ CP"
+      },
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "description": "Guided by a flash of magical insight, you make one attack with the weapon used in the spell's casting. The attack uses your spellcasting ability for the attack and damage rolls instead of using Strength or Dexterity. If the attack deals damage, it can be Radiant damage or the weapon's normal damage type (your choice).\n\nCantrip Upgrade. Whether you deal Radiant damage or the weapon's normal damage type, the attack deals extra Radiant damage when you reach levels 5 (1d6), 11 (2d6), and 17 (3d6).",
+      "higher_levels": null,
+      "damage": {
+        "base": "weapon",
+        "type": "Radiant or weapon damage",
+        "cantrip_scaling": {
+          "5": "+1d6 Radiant",
+          "11": "+2d6 Radiant",
+          "17": "+3d6 Radiant"
+        }
+      },
+      "classes": ["Bard", "Sorcerer", "Warlock", "Wizard"]
+    },
+    {
+      "name": "Tsunami",
+      "level": 8,
+      "school": "Conjuration",
+      "casting_time": "1 minute",
+      "range": "1 mile",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": null
+      },
+      "duration": "6 rounds",
+      "concentration": false,
+      "ritual": false,
+      "description": "A wall of water springs into existence at a point you choose within range. You can make the wall up to 300 feet long, 300 feet high, and 50 feet thick.\n\nWhen the wall appears, each creature in its area makes a Strength saving throw, taking 6d10 Bludgeoning damage on a failed save or half on a success.\n\nAt the start of each of your turns, the wall moves 50 feet away from you. Any Huge or smaller creature inside the wall or whose space the wall enters must succeed on a Strength saving throw or take 5d10 Bludgeoning damage (once per round). At the end of each turn, the wall's height is reduced by 50 feet and the damage decreases by 1d10. When the wall reaches 0 feet in height, the spell ends.\n\nA creature caught in the wall can move by swimming, but must succeed on a Strength (Athletics) check against your spell save DC to move at all. A creature that moves out of the wall falls to the ground.",
+      "higher_levels": null,
+      "damage": {
+        "base": "6d10",
+        "type": "Bludgeoning",
+        "save": "Strength"
+      },
+      "classes": ["Druid"]
+    }
+  ]
+}

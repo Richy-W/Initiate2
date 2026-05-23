@@ -219,7 +219,7 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character }) => {
 
   const allWeapons = [unarmedAttack, ...weapons];
 
-  const spellAttacks: AttackRow[] = getSpellAttacks(character as any, character.character_class);
+  const spellAttacks: AttackRow[] = getSpellAttacks(character as any, (character as any).class_detail ?? character.character_class);
 
   return (
     <div className={styles['attack-rolls']}>
@@ -284,8 +284,10 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character }) => {
               <div className={styles['weapon-info']}>
                 <span className={styles['weapon-name']}>{row.name}</span>
                 <span className={styles['weapon-stats']}>
-                  Attack: {row.attackBonus >= 0 ? '+' : ''}{row.attackBonus}
-                  {row.damage ? ` | Damage: ${row.damage} ${row.damageType ?? ''}` : ''}
+                  Attack: {row.toHit}
+                  {row.damage
+                    ? ` | Damage: ${row.damage} ${row.damageType ?? ''}`.trimEnd()
+                    : ' | Damage: —'}
                   {row.saveDC ? ` | Save DC ${row.saveDC} ${row.saveAbility ?? ''}` : ''}
                 </span>
               </div>
@@ -322,17 +324,6 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character }) => {
         </div>
       )}
       
-      <div className={styles['spell-attacks']}>
-        <h4>Spell Attacks</h4>
-        <div className={styles['spell-attack-stats']}>
-          <div className={styles['spell-attack-bonus']}>
-            <strong>Spell Attack Bonus:</strong> +{character.proficiency_bonus + getAbilityModifier(character.charisma || 10)}
-          </div>
-          <div className={styles['spell-save-dc']}>
-            <strong>Spell Save DC:</strong> {8 + character.proficiency_bonus + getAbilityModifier(character.charisma || 10)}
-          </div>
-        </div>
-      </div>
     </div>
   );
 };

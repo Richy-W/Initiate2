@@ -1,13 +1,16 @@
 from rest_framework import serializers
 from .models import Character, CharacterSpell, SpellSlotState
-from apps.content.serializers import SpeciesSerializer, CharacterClassSerializer, BackgroundSerializer, SkillSerializer
+from apps.content.serializers import SpeciesSerializer, CharacterClassSerializer, BackgroundSerializer, SkillSerializer, SpellSerializer
 import json
 from pathlib import Path
 
 
 class CharacterSerializer(serializers.ModelSerializer):
     """Basic character serializer for list views."""
-    
+
+    # Explicitly override custom JSONField columns so DRF returns proper JSON, not str()
+    currency = serializers.JSONField(required=False, default=dict)
+
     species_name = serializers.CharField(source='species.name', read_only=True)
     class_name = serializers.CharField(source='character_class.name', read_only=True)
     background_name = serializers.CharField(source='background.name', read_only=True)
@@ -48,9 +51,55 @@ class CharacterSerializer(serializers.ModelSerializer):
         return data
 
 
+class CharacterSpellSerializer(serializers.ModelSerializer):
+    """Serializer for character spells."""
+
+    spell_name = serializers.CharField(source='spell.name', read_only=True)
+    spell_base_level = serializers.IntegerField(source='spell.level', read_only=True)
+    spell_school = serializers.CharField(source='spell.school', read_only=True)
+    character_name = serializers.CharField(source='character.name', read_only=True)
+    spell_data = SpellSerializer(source='spell', read_only=True)
+
+    class Meta:
+        model = CharacterSpell
+        fields = [
+            'id', 'character', 'character_name', 'spell', 'spell_name',
+            'spell_level', 'spell_base_level', 'spell_school', 'spell_data',
+            'is_prepared', 'is_always_prepared', 'source', 'notes'
+        ]
+        read_only_fields = ['id']
+
+    def validate(self, data):
+        """Validate character spell assignment."""
+        character = data.get('character')
+        spell = data.get('spell')
+
+        # Partial updates (e.g. toggling is_prepared) won't include
+        # character/spell — skip class-list validation in that case.
+        if not character or not spell:
+            return data
+
+        # magic_initiate spells are not restricted to class spell lists
+        if data.get('source') == 'magic_initiate':
+            return data
+
+        # Check if character's class can learn this spell
+        if not spell.classes.filter(id=character.character_class.id).exists():
+            raise serializers.ValidationError(
+                f"{character.character_class.name} cannot learn {spell.name}"
+            )
+
+        return data
+
+
 class CharacterDetailSerializer(CharacterSerializer):
     """Detailed character serializer with full information."""
-    
+
+    features = serializers.JSONField(required=False, default=list)
+    equipment = serializers.JSONField(required=False, default=list)
+    spells_known = serializers.JSONField(required=False, default=list)
+    saving_throw_proficiencies = serializers.JSONField(required=False, default=list)
+
     species_detail = SpeciesSerializer(source='species', read_only=True)
     class_detail = CharacterClassSerializer(source='character_class', read_only=True)
     background_detail = BackgroundSerializer(source='background', read_only=True)
@@ -82,6 +131,8 @@ class CharacterDetailSerializer(CharacterSerializer):
     effective_speed = serializers.ReadOnlyField()
     is_encumbered = serializers.ReadOnlyField()
     
+    character_spells = CharacterSpellSerializer(many=True, read_only=True)
+
     # Equipped items details
     equipped_items_details = serializers.SerializerMethodField()
     calculated_armor_class = serializers.ReadOnlyField()
@@ -104,7 +155,8 @@ class CharacterDetailSerializer(CharacterSerializer):
             'personality_traits', 'ideals', 'bonds', 'flaws',
             'backstory', 'notes', 'carrying_capacity', 'total_weight',
             'encumbrance_status', 'encumbrance_effects', 'effective_speed', 'is_encumbered',
-            'equipped_items_details', 'calculated_armor_class'
+            'equipped_items_details', 'calculated_armor_class',
+            'character_spells',
         ]
 
 
@@ -593,41 +645,6 @@ class SpellSlotStateSerializer(serializers.ModelSerializer):
             except DjValidationError as exc:
                 raise serializers.ValidationError(exc.messages)
         return value
-
-
-class CharacterSpellSerializer(serializers.ModelSerializer):
-    """Serializer for character spells."""
-    
-    spell_name = serializers.CharField(source='spell.name', read_only=True)
-    spell_base_level = serializers.IntegerField(source='spell.level', read_only=True)
-    spell_school = serializers.CharField(source='spell.school', read_only=True)
-    character_name = serializers.CharField(source='character.name', read_only=True)
-    
-    class Meta:
-        model = CharacterSpell
-        fields = [
-            'id', 'character', 'character_name', 'spell', 'spell_name',
-            'spell_level', 'spell_base_level', 'spell_school',
-            'is_prepared', 'is_always_prepared', 'source', 'notes'
-        ]
-        read_only_fields = ['id']
-    
-    def validate(self, data):
-        """Validate character spell assignment."""
-        character = data['character']
-        spell = data['spell']
-        
-        # magic_initiate spells are not restricted to class spell lists
-        if data.get('source') == 'magic_initiate':
-            return data
-
-        # Check if character's class can learn this spell
-        if not spell.classes.filter(id=character.character_class.id).exists():
-            raise serializers.ValidationError(
-                f"{character.character_class.name} cannot learn {spell.name}"
-            )
-        
-        return data
 
 
 class CharacterAbilityCheckSerializer(serializers.Serializer):

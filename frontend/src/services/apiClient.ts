@@ -196,8 +196,9 @@ export const api = {
       const response = await apiClient.get('/character-spells/', { params: { character: characterId } });
       return response.data;
     },
-    create: async (data: { character: string | number; spell: string | number; source?: 'class' | 'magic_initiate'; is_prepared?: boolean; spell_level?: number; notes?: string }) => {
-      const response = await apiClient.post('/character-spells/', data);
+    create: async (data: { character: string | number; spell: string | number; source?: 'class' | 'magic_initiate'; is_prepared?: boolean; spell_level?: number; notes?: string }, options?: { silent?: boolean }) => {
+      const config: ExtendedAxiosRequestConfig | undefined = options?.silent ? { skipGlobalErrorHandler: true } : undefined;
+      const response = await apiClient.post('/character-spells/', data, config);
       return response.data;
     },
     update: async (id: string | number, data: Partial<{ is_prepared: boolean; is_always_prepared: boolean; source: 'class' | 'magic_initiate'; spell_level: number; notes: string }>) => {

@@ -1,0 +1,292 @@
+{
+  "version": "2024",
+  "source": "SRD 2024",
+  "spells": [
+    {
+      "name": "Wall of Fire",
+      "level": 4,
+      "school": "Evocation",
+      "casting_time": "Action",
+      "range": "120 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a piece of charcoal"
+      },
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "description": "You create a wall of fire on a solid surface within range. You can make the wall up to 60 feet long, 20 feet high, and 1 foot thick, or a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. The wall is opaque and lasts for the duration.\n\nWhen the wall appears, each creature in its area makes a Dexterity saving throw, taking 5d8 Fire damage on a failed save or half as much damage on a successful one.\n\nOne side of the wall, selected by you when you cast this spell, deals 5d8 Fire damage to each creature that ends its turn within 10 feet of that side or inside the wall. The other side deals no damage.",
+      "higher_levels": "The damage increases by 1d8 for each spell slot level above 4.",
+      "damage": {
+        "base": "5d8",
+        "type": "Fire",
+        "save": "Dexterity"
+      },
+      "classes": ["Druid", "Sorcerer", "Wizard"]
+    },
+    {
+      "name": "Wall of Force",
+      "level": 5,
+      "school": "Evocation",
+      "casting_time": "Action",
+      "range": "120 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a shard of glass"
+      },
+      "duration": "Concentration, up to 10 minutes",
+      "concentration": true,
+      "ritual": false,
+      "description": "An Invisible wall of force springs into existence at a point you choose within range. The wall appears in any orientation you choose—horizontal, vertical, or at an angle. It can be free floating or resting on a solid surface. You can form it into a hemispherical dome or globe with a radius up to 10 feet, or shape a flat surface of up to ten contiguous 10-foot-by-10-foot panels. The wall is 1/4 inch thick and lasts for the duration. If it cuts through a creature's space, the creature is pushed to one side (your choice).\n\nNothing can physically pass through the wall. It is immune to all damage and can't be dispelled by Dispel Magic. A Disintegrate spell destroys it instantly. The wall also extends into the Ethereal Plane and blocks ethereal travel.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Wizard"]
+    },
+    {
+      "name": "Wall of Ice",
+      "level": 6,
+      "school": "Evocation",
+      "casting_time": "Action",
+      "range": "120 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a piece of quartz"
+      },
+      "duration": "Concentration, up to 10 minutes",
+      "concentration": true,
+      "ritual": false,
+      "description": "You create a wall of ice on a solid surface within range. You can form it into a hemispherical dome or globe with a radius up to 10 feet, or shape a flat surface of up to ten contiguous 10-foot-square panels. The wall is 1 foot thick and lasts for the duration.\n\nIf the wall cuts through a creature's space when it appears, the creature is pushed to one side and makes a Dexterity saving throw, taking 10d6 Cold damage on a failed save or half on a success.\n\nThe wall has AC 12 and 30 Hit Points per 10-foot section, with Immunity to Cold, Poison, and Psychic damage and Vulnerability to Fire damage. When a section is destroyed, it leaves a sheet of frigid air. A creature moving through the sheet for the first time on a turn makes a Constitution saving throw, taking 5d6 Cold damage on a failed save or half on a success.",
+      "higher_levels": "The damage the wall deals when it appears increases by 2d6 and the frigid air damage increases by 1d6 for each spell slot level above 6.",
+      "damage": {
+        "base": "10d6",
+        "type": "Cold",
+        "save": "Dexterity"
+      },
+      "classes": ["Wizard"]
+    },
+    {
+      "name": "Wall of Stone",
+      "level": 5,
+      "school": "Evocation",
+      "casting_time": "Action",
+      "range": "120 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a cube of granite"
+      },
+      "duration": "Concentration, up to 10 minutes",
+      "concentration": true,
+      "ritual": false,
+      "description": "A nonmagical wall of solid stone springs into existence at a point you choose within range. The wall is 6 inches thick and composed of ten contiguous 10-foot-by-10-foot panels (or 10-foot-by-20-foot panels 3 inches thick). If it cuts through a creature's space, the creature is pushed to one side. A creature that would be surrounded can make a Dexterity saving throw to use its Reaction to move out.\n\nThe wall can have any shape along the ground but must merge with existing stone for support. It can bridge chasms or form ramps. Each panel has AC 15 and 30 Hit Points per inch of thickness, with Immunity to Poison and Psychic damage.\n\nIf you maintain Concentration for the full duration, the wall becomes permanent and can't be dispelled.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Druid", "Sorcerer", "Wizard"]
+    },
+    {
+      "name": "Wall of Thorns",
+      "level": 6,
+      "school": "Conjuration",
+      "casting_time": "Action",
+      "range": "120 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a handful of thorns"
+      },
+      "duration": "Concentration, up to 10 minutes",
+      "concentration": true,
+      "ritual": false,
+      "description": "You create a wall of tangled brush bristling with needle-sharp thorns. The wall appears within range on a solid surface and lasts for the duration. You choose to make the wall up to 60 feet long, 10 feet high, and 5 feet thick, or a circle up to 20 feet in diameter, 20 feet high, and 5 feet thick. The wall blocks line of sight.\n\nWhen the wall appears, each creature in its area makes a Dexterity saving throw, taking 7d8 Piercing damage on a failed save or half on a success.\n\nA creature moving through the wall spends 4 feet of movement per foot traveled, and the first time it enters a space in the wall on a turn or ends its turn there, it makes a Dexterity saving throw, taking 7d8 Slashing damage on a failed save or half on a success. A creature makes this save only once per turn.",
+      "higher_levels": "Both types of damage increase by 1d8 for each spell slot level above 6.",
+      "damage": {
+        "base": "7d8",
+        "type": "Piercing",
+        "save": "Dexterity"
+      },
+      "classes": ["Druid"]
+    },
+    {
+      "name": "Warding Bond",
+      "level": 2,
+      "school": "Abjuration",
+      "casting_time": "Action",
+      "range": "Touch",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a pair of platinum rings worth 50+ GP each, which you and the target must wear for the duration"
+      },
+      "duration": "1 hour",
+      "concentration": false,
+      "ritual": false,
+      "description": "You touch another creature that is willing and create a mystic connection between you and the target until the spell ends. While the target is within 60 feet of you, it gains a +1 bonus to AC and saving throws, and it has Resistance to all damage. Also, each time it takes damage, you take the same amount of damage.\n\nThe spell ends if you drop to 0 Hit Points or if you and the target become separated by more than 60 feet. It also ends if the spell is cast again on either of the connected creatures.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Cleric", "Paladin"]
+    },
+    {
+      "name": "Water Breathing",
+      "level": 3,
+      "school": "Transmutation",
+      "casting_time": "Action",
+      "range": "30 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a short reed"
+      },
+      "duration": "24 hours",
+      "concentration": false,
+      "ritual": true,
+      "description": "This spell grants up to ten willing creatures of your choice within range the ability to breathe underwater until the spell ends. Affected creatures also retain their normal mode of respiration.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Druid", "Ranger", "Sorcerer", "Wizard"]
+    },
+    {
+      "name": "Water Walk",
+      "level": 3,
+      "school": "Transmutation",
+      "casting_time": "Action",
+      "range": "30 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a piece of cork"
+      },
+      "duration": "1 hour",
+      "concentration": false,
+      "ritual": true,
+      "description": "This spell grants the ability to move across any liquid surface—such as water, acid, mud, snow, quicksand, or lava—as if it were harmless solid ground (creatures crossing molten lava can still take damage from the heat). Up to ten willing creatures of your choice within range gain this ability for the duration.\n\nAn affected target must take a Bonus Action to pass from the liquid's surface into the liquid itself and vice versa, but if the target falls into the liquid, the target passes through the surface into the liquid below.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Cleric", "Druid", "Ranger", "Sorcerer"]
+    },
+    {
+      "name": "Web",
+      "level": 2,
+      "school": "Conjuration",
+      "casting_time": "Action",
+      "range": "60 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a bit of spiderweb"
+      },
+      "duration": "Concentration, up to 1 hour",
+      "concentration": true,
+      "ritual": false,
+      "description": "You conjure a mass of sticky webbing at a point within range. The webs fill a 20-foot Cube there for the duration. The webs are Difficult Terrain, and the area within them is Lightly Obscured.\n\nIf the webs aren't anchored between two solid masses or layered across a floor, wall, or ceiling, the web collapses and the spell ends at the start of your next turn.\n\nThe first time a creature enters the webs on a turn or starts its turn there, it must succeed on a Dexterity saving throw or have the Restrained condition while in the webs. A Restrained creature can take an action to make a Strength (Athletics) check against your spell save DC to break free.\n\nThe webs are flammable. Any 5-foot Cube of webs exposed to fire burns away in 1 round, dealing 2d4 Fire damage to any creature that starts its turn in the fire.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Sorcerer", "Wizard"]
+    },
+    {
+      "name": "Weird",
+      "level": 9,
+      "school": "Illusion",
+      "casting_time": "Action",
+      "range": "120 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": null
+      },
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "description": "You try to create illusory terrors in others' minds. Each creature of your choice in a 30-foot-radius Sphere centered on a point within range makes a Wisdom saving throw. On a failed save, a target takes 10d10 Psychic damage and has the Frightened condition for the duration. On a successful save, a target takes half as much damage only.\n\nA Frightened target makes a Wisdom saving throw at the end of each of its turns. On a failed save, it takes 5d10 Psychic damage. On a successful save, the spell ends on that target.",
+      "higher_levels": null,
+      "damage": {
+        "base": "10d10",
+        "type": "Psychic",
+        "save": "Wisdom"
+      },
+      "classes": ["Warlock", "Wizard"]
+    },
+    {
+      "name": "Wind Walk",
+      "level": 6,
+      "school": "Transmutation",
+      "casting_time": "1 minute",
+      "range": "30 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a candle"
+      },
+      "duration": "8 hours",
+      "concentration": false,
+      "ritual": false,
+      "description": "You and up to ten willing creatures of your choice within range assume gaseous forms for the duration, appearing as wisps of cloud. While in cloud form, a target has a Fly Speed of 300 feet and can hover; it has Immunity to the Prone condition; and it has Resistance to Bludgeoning, Piercing, and Slashing damage. The only actions a target can take in this form are the Dash action or a Magic action to begin reverting to its normal form. Reverting takes 1 minute, during which the target has the Stunned condition.\n\nIf a target is in cloud form and flying when the effect ends, the target descends 60 feet per round for 1 minute until it lands safely. If it can't land after 1 minute, it falls the remaining distance.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Druid"]
+    },
+    {
+      "name": "Wind Wall",
+      "level": 3,
+      "school": "Evocation",
+      "casting_time": "Action",
+      "range": "120 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a fan and a feather"
+      },
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "description": "A wall of strong wind rises from the ground at a point you choose within range. You can make the wall up to 50 feet long, 15 feet high, and 1 foot thick. You can shape the wall in any way so long as it makes one continuous path along the ground. The wall lasts for the duration.\n\nWhen the wall appears, each creature in its area makes a Strength saving throw, taking 4d8 Bludgeoning damage on a failed save or half on a success.\n\nThe strong wind keeps fog, smoke, and other gases at bay. Small or smaller flying creatures or objects can't pass through the wall. Arrows, bolts, and other ordinary projectiles launched at targets behind the wall are deflected upward and miss automatically. Boulders and similar projectiles are unaffected. Creatures in gaseous form can't pass through it.",
+      "higher_levels": null,
+      "damage": {
+        "base": "4d8",
+        "type": "Bludgeoning",
+        "save": "Strength"
+      },
+      "classes": ["Druid", "Ranger"]
+    },
+    {
+      "name": "Wish",
+      "level": 9,
+      "school": "Conjuration",
+      "casting_time": "Action",
+      "range": "Self",
+      "components": {
+        "verbal": true,
+        "somatic": false,
+        "material": null
+      },
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "description": "Wish is the mightiest spell a mortal can cast. By simply speaking aloud, you can alter reality itself.\n\nThe basic use of this spell is to duplicate any other spell of level 8 or lower without meeting any requirements, including costly components.\n\nAlternatively, you can create one of the following effects: Object Creation (one object worth up to 25,000 GP, not a magic item); Instant Health (you and up to twenty creatures regain all Hit Points and end conditions removed by Greater Restoration); Resistance (up to ten creatures gain permanent Resistance to one damage type); Spell Immunity (up to ten creatures gain immunity to a single spell or magical effect for 8 hours); Sudden Learning (replace one feat with another for which you are eligible); Roll Redo (undo a single recent die roll within the last round, with Advantage or Disadvantage); or Reshape Reality (any other wish, at DM's discretion, with risk of unintended consequences).\n\nUsing Wish for anything other than duplicating a spell weakens you: until you finish a Long Rest, you take 1d10 Necrotic damage per level of each spell you cast (unreducible). Your Strength becomes 3 for 2d4 days (each day of rest decreases recovery by 2 days). There is also a 33 percent chance you can never cast Wish again.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Sorcerer", "Wizard"]
+    },
+    {
+      "name": "Word of Recall",
+      "level": 6,
+      "school": "Conjuration",
+      "casting_time": "Action",
+      "range": "5 feet",
+      "components": {
+        "verbal": true,
+        "somatic": false,
+        "material": null
+      },
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "description": "You and up to five willing creatures within 5 feet of you instantly teleport to a previously designated sanctuary. You and any creatures that teleport with you appear in the nearest unoccupied space to the spot you designated when you prepared your sanctuary.\n\nYou must designate a location, such as a temple, as a sanctuary by casting this spell there. If you cast this spell without first preparing a sanctuary, the spell has no effect.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Cleric"]
+    }
+  ]
+}

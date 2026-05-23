@@ -27,7 +27,7 @@ interface Props {
 
 const SpellsTab: React.FC<Props> = ({ character, onRefresh }) => {
   const [showBrowser, setShowBrowser] = useState(false);
-  const classJson = character.character_class;
+  const classJson = (character as any).class_detail ?? character.character_class;
   const profile = computeSpellcastingProfile(character, classJson);
   const isPactCaster = profile.spellcastingType === 'pact';
 

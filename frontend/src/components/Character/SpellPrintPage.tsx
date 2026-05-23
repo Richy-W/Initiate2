@@ -6,6 +6,7 @@ interface Props {
   character: Character;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function abilityMod(score: number): number {
   return Math.floor((score - 10) / 2);
 }
@@ -15,7 +16,7 @@ function fmt(n: number): string {
 }
 
 const SpellPrintPage: React.FC<Props> = ({ character }) => {
-  const classJson = character.character_class;
+  const classJson = (character as any).class_detail ?? character.character_class;
   const profile = computeSpellcastingProfile(character as any, classJson);
 
   if (profile.spellcastingType === 'none') return null;
@@ -23,8 +24,8 @@ const SpellPrintPage: React.FC<Props> = ({ character }) => {
   const spells = character.character_spells ?? [];
   const slots: SpellSlotState[] = character.spell_slot_states ?? [];
 
-  const cantripSpells = spells.filter(cs => cs.spell?.level === 0);
-  const preparedSpells = spells.filter(cs => (cs.spell?.level ?? 0) > 0);
+  const cantripSpells = spells.filter(cs => cs.spell_level === 0);
+  const preparedSpells = spells.filter(cs => cs.spell_level > 0);
 
   const slotLevels = Array.from({ length: 9 }, (_, i) => i + 1);
 
@@ -38,19 +39,19 @@ const SpellPrintPage: React.FC<Props> = ({ character }) => {
       <div className="spell-print-stat-block">
         <div className="spell-print-stat-box">
           <div className="spell-print-stat-label">Ability</div>
-          <div className="spell-print-stat-value">{profile.spellcastingAbility.toUpperCase()}</div>
+          <div className="spell-print-stat-value">{profile.ability.toUpperCase()}</div>
         </div>
         <div className="spell-print-stat-box">
           <div className="spell-print-stat-label">Modifier</div>
-          <div className="spell-print-stat-value">{fmt(profile.spellcastingModifier)}</div>
+          <div className="spell-print-stat-value">{fmt(profile.modifier)}</div>
         </div>
         <div className="spell-print-stat-box">
           <div className="spell-print-stat-label">Save DC</div>
-          <div className="spell-print-stat-value">{profile.spellSaveDC}</div>
+          <div className="spell-print-stat-value">{profile.saveDC}</div>
         </div>
         <div className="spell-print-stat-box">
           <div className="spell-print-stat-label">Attack Bonus</div>
-          <div className="spell-print-stat-value">{fmt(profile.spellAttackBonus)}</div>
+          <div className="spell-print-stat-value">{fmt(profile.attackBonus)}</div>
         </div>
       </div>
 
@@ -95,11 +96,11 @@ const SpellPrintPage: React.FC<Props> = ({ character }) => {
             <tbody>
               {cantripSpells.map(cs => (
                 <tr key={cs.id}>
-                  <td>{cs.spell?.name ?? '—'}</td>
-                  <td>{cs.spell?.school ?? '—'}</td>
-                  <td>{cs.spell?.casting_time ?? '—'}</td>
-                  <td>{cs.spell?.range ?? '—'}</td>
-                  <td>{cs.spell?.duration ?? '—'}</td>
+                  <td>{cs.spell_name}</td>
+                  <td>{cs.spell_school || '—'}</td>
+                  <td>{'—'}</td>
+                  <td>{'—'}</td>
+                  <td>{'—'}</td>
                 </tr>
               ))}
             </tbody>
@@ -125,12 +126,12 @@ const SpellPrintPage: React.FC<Props> = ({ character }) => {
             <tbody>
               {preparedSpells.map(cs => (
                 <tr key={cs.id}>
-                  <td>{cs.spell?.name ?? '—'}</td>
-                  <td>{cs.spell?.level ?? '—'}</td>
-                  <td>{cs.spell?.school ?? '—'}</td>
-                  <td>{cs.spell?.casting_time ?? '—'}</td>
-                  <td>{cs.spell?.range ?? '—'}</td>
-                  <td>{cs.spell?.duration ?? '—'}</td>
+                  <td>{cs.spell_name}</td>
+                  <td>{cs.spell_level}</td>
+                  <td>{cs.spell_school || '—'}</td>
+                  <td>{'—'}</td>
+                  <td>{'—'}</td>
+                  <td>{'—'}</td>
                 </tr>
               ))}
             </tbody>

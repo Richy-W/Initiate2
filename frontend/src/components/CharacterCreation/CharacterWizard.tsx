@@ -5,6 +5,7 @@ import { ClassSelector } from './ClassSelector';
 import { BackgroundSelector } from './BackgroundSelector';
 import { AbilityScores } from './AbilityScores';
 import { characterAPI, characterSpellsAPI } from '../../services/apiClient';
+import WizardSpellPicker from './WizardSpellPicker';
 import HomebrewBrowser from '../Homebrew/HomebrewBrowser';
 import { HomebrewContent } from '../../types';
 import styles from './CharacterWizard.module.css';
@@ -26,6 +27,9 @@ export interface CharacterData {
     magicInitiateCantrip1?: string;
     magicInitiateCantrip2?: string;
     magicInitiateSpell1?: string;
+    magicInitiateCantripName1?: string;
+    magicInitiateCantripName2?: string;
+    magicInitiateSpellName1?: string;
   };
   characterClass: any;
   selectedSkills?: string[];
@@ -57,6 +61,12 @@ export interface CharacterData {
     charisma: number;
   };
   selectedHomebrew?: HomebrewContent[];
+  initialSpells: string[];
+  initialSpellObjects?: Array<{ id: string; name: string; level: number; school: string }>;
+  backgroundMagicInitiateCantrip1?: string | number;
+  backgroundMagicInitiateCantrip2?: string | number;
+  backgroundMagicInitiateSpell1?: string | number;
+  backgroundMagicInitiateSpellObjects?: Array<{ id: string | number; name: string; level: number; school: string }>;
 }
 
 export const CharacterWizard: React.FC = () => {
@@ -89,6 +99,12 @@ export const CharacterWizard: React.FC = () => {
     arrayAssignments: undefined,
     pointBuyScores: undefined,
     selectedHomebrew: [],
+    initialSpells: [],
+    initialSpellObjects: [],
+    backgroundMagicInitiateCantrip1: '',
+    backgroundMagicInitiateCantrip2: '',
+    backgroundMagicInitiateSpell1: '',
+    backgroundMagicInitiateSpellObjects: [],
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -119,6 +135,9 @@ export const CharacterWizard: React.FC = () => {
         magicInitiateCantrip1: '',
         magicInitiateCantrip2: '',
         magicInitiateSpell1: '',
+        magicInitiateCantripName1: '',
+        magicInitiateCantripName2: '',
+        magicInitiateSpellName1: '',
       },
     }));
   }, []);
@@ -138,6 +157,9 @@ export const CharacterWizard: React.FC = () => {
       magicInitiateCantrip1?: string;
       magicInitiateCantrip2?: string;
       magicInitiateSpell1?: string;
+      magicInitiateCantripName1?: string;
+      magicInitiateCantripName2?: string;
+      magicInitiateSpellName1?: string;
     }) => {
       setCharacterData((prev) => ({ ...prev, selectedSpeciesOptions: options }));
     },
@@ -164,7 +186,25 @@ export const CharacterWizard: React.FC = () => {
       background,
       backgroundAbilityDistribution: distribution || {},
       backgroundLanguage: language || '',
-      backgroundEquipmentOption: equipmentOption || 'A'
+      backgroundEquipmentOption: equipmentOption || 'A',
+      backgroundMagicInitiateCantrip1: '',
+      backgroundMagicInitiateCantrip2: '',
+      backgroundMagicInitiateSpell1: '',
+      backgroundMagicInitiateSpellObjects: [],
+    }));
+  }, []);
+
+  const handleBackgroundMagicInitiateConfirm = useCallback((sel: { sourceClass: string; cantrips: Array<{ id: string | number; name: string; level: number; school: string }>; firstLevel: { id: string | number; name: string; level: number; school: string } | null }) => {
+    setCharacterData(prev => ({
+      ...prev,
+      backgroundMagicInitiateCantrip1: sel.cantrips[0]?.id ?? '',
+      backgroundMagicInitiateCantrip2: sel.cantrips[1]?.id ?? '',
+      backgroundMagicInitiateSpell1: sel.firstLevel?.id ?? '',
+      backgroundMagicInitiateSpellObjects: [
+        ...(sel.cantrips[0] ? [{ id: sel.cantrips[0].id, name: sel.cantrips[0].name, level: 0, school: sel.cantrips[0].school }] : []),
+        ...(sel.cantrips[1] ? [{ id: sel.cantrips[1].id, name: sel.cantrips[1].name, level: 0, school: sel.cantrips[1].school }] : []),
+        ...(sel.firstLevel ? [{ id: sel.firstLevel.id, name: sel.firstLevel.name, level: 1, school: sel.firstLevel.school }] : []),
+      ],
     }));
   }, []);
 
@@ -193,6 +233,7 @@ export const CharacterWizard: React.FC = () => {
     { title: 'Homebrew Content', component: 'homebrew' },
     { title: 'Species Selection', component: 'species' },
     { title: 'Class Selection', component: 'class' },
+    { title: 'Choose Spells', component: 'spells' },
     { title: 'Background Selection', component: 'background' },
     { title: 'Ability Scores', component: 'abilities' },
     { title: 'Review & Create', component: 'review' },
@@ -336,7 +377,7 @@ export const CharacterWizard: React.FC = () => {
         throw new Error('Character was created but no id was returned by the API.');
       }
 
-      // Post Magic Initiate spells if selected
+      // Post Magic Initiate spells if selected (species-choice feat)
       const miOpts = characterData.selectedSpeciesOptions;
       if (
         miOpts?.featChoice === 'Magic Initiate' &&
@@ -344,19 +385,55 @@ export const CharacterWizard: React.FC = () => {
         miOpts.magicInitiateCantrip2 &&
         miOpts.magicInitiateSpell1
       ) {
-        const spellIds = [
-          miOpts.magicInitiateCantrip1,
-          miOpts.magicInitiateCantrip2,
-          miOpts.magicInitiateSpell1,
+        const miSpells = [
+          { id: miOpts.magicInitiateCantrip1, spell_level: 0 },
+          { id: miOpts.magicInitiateCantrip2, spell_level: 0 },
+          { id: miOpts.magicInitiateSpell1, spell_level: 1 },
         ];
         await Promise.allSettled(
-          spellIds.map((spellId) =>
+          miSpells.map(({ id, spell_level }) =>
             characterSpellsAPI.create({
               character: createdCharacterId,
-              spell: spellId,
+              spell: id,
               source: 'magic_initiate',
-            })
+              spell_level,
+            }, { silent: true })
           )
+        );
+      }
+
+      // Post Magic Initiate spells if selected (background fixed feat)
+      if (
+        characterData.backgroundMagicInitiateCantrip1 &&
+        characterData.backgroundMagicInitiateCantrip2 &&
+        characterData.backgroundMagicInitiateSpell1
+      ) {
+        const bgMiSpells = characterData.backgroundMagicInitiateSpellObjects ?? [];
+        await Promise.allSettled(
+          bgMiSpells.map(({ id, level }) =>
+            characterSpellsAPI.create({
+              character: createdCharacterId,
+              spell: id,
+              source: 'magic_initiate',
+              spell_level: level,
+            }, { silent: true })
+          )
+        );
+      }
+
+      // Post initial class spells if any were selected
+      if ((characterData.initialSpells || []).length > 0) {
+        const spellObjs = characterData.initialSpellObjects ?? [];
+        await Promise.allSettled(
+          (characterData.initialSpells || []).map((spellId) => {
+            const spellObj = spellObjs.find((s) => String(s.id) === String(spellId));
+            return characterSpellsAPI.create({
+              character: createdCharacterId,
+              spell: spellId,
+              source: 'class',
+              spell_level: spellObj?.level ?? 0,
+            }, { silent: true });
+          })
         );
       }
 
@@ -416,12 +493,25 @@ export const CharacterWizard: React.FC = () => {
           ? ((opts?.skilledSkillChoices?.length ?? 0) + (opts?.skilledToolChoices?.length ?? 0))
           : 3;
         const hasSkilledChoices = skilledTotal >= 3;
-        return hasFeatChoice && hasSkillfulChoice && hasSkilledChoices;
+        const hasMagicInitiateSpells = opts?.featChoice !== 'Magic Initiate' || !!(
+          opts?.magicInitiateCantrip1 && opts?.magicInitiateCantrip2 && opts?.magicInitiateSpell1
+        );
+        return hasFeatChoice && hasSkillfulChoice && hasSkilledChoices && hasMagicInitiateSpells;
       }
       case 3: return characterData.characterClass !== null;
-      case 4: return characterData.background !== null;
-      case 5: return true; // Ability scores always have default values
-      case 6: return true; // Review step is always complete if we reach it
+      case 4: return true; // Spells step is optional
+      case 5: {
+        if (!characterData.background) return false;
+        const bgFeatName: string = characterData.background?.feat?.name || '';
+        if (bgFeatName.startsWith('Magic Initiate')) {
+          return !!(characterData.backgroundMagicInitiateCantrip1 &&
+            characterData.backgroundMagicInitiateCantrip2 &&
+            characterData.backgroundMagicInitiateSpell1);
+        }
+        return true;
+      }
+      case 6: return true; // Ability scores always have default values
+      case 7: return true; // Review step is always complete if we reach it
       default: return false;
     }
   };
@@ -473,6 +563,39 @@ export const CharacterWizard: React.FC = () => {
             onWeaponMasteryChange={handleWeaponMasteryChange}
           />
         );
+      case 'spells': {
+        const hasSpellcasting = !!characterData.characterClass?.spellcasting?.ability;
+        if (!hasSpellcasting) {
+          return (
+            <div className="step-content">
+              <h2>Choose Spells</h2>
+              <p>
+                {characterData.characterClass
+                  ? `${characterData.characterClass.name} does not have spellcasting at this level. You can skip this step.`
+                  : 'No class selected. Go back to select a class first.'}
+              </p>
+              <p style={{ fontSize: '0.9rem', color: '#666', marginTop: '8px' }}>
+                If you later gain spellcasting through a subclass or feat, you can add spells from the SPELLS tab on your character sheet.
+              </p>
+            </div>
+          );
+        }
+        return (
+          <div className="step-content">
+            <h2>Choose Starting Spells <span className={styles['homebrew-optional-tag']}>(Optional)</span></h2>
+            <p className={styles['homebrew-intro']}>
+              Select starting spells for <strong>{characterData.characterClass.name}</strong>. You can also manage spells any time from the SPELLS tab after creation.
+            </p>
+            <WizardSpellPicker
+              className={characterData.characterClass.name}
+              spellcastingData={characterData.characterClass.spellcasting}
+              selections={characterData.initialSpells || []}
+              onSelectionsChange={(ids) => setCharacterData(prev => ({ ...prev, initialSpells: ids }))}
+              onSpellObjectsChange={(spells) => setCharacterData(prev => ({ ...prev, initialSpellObjects: spells }))}
+            />
+          </div>
+        );
+      }
       case 'background':
         return (
           <BackgroundSelector
@@ -481,6 +604,7 @@ export const CharacterWizard: React.FC = () => {
             selectedLanguage={characterData.backgroundLanguage}
             selectedEquipmentOption={characterData.backgroundEquipmentOption}
             onBackgroundSelect={handleBackgroundSelect}
+            onMagicInitiateConfirm={handleBackgroundMagicInitiateConfirm}
           />
         );
       case 'homebrew':
@@ -946,6 +1070,48 @@ export const CharacterWizard: React.FC = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Spells Section — full-width below the 3-column grid */}
+              {(() => {
+                const miOpts = characterData.selectedSpeciesOptions;
+                const speciesMiSpells: Array<{ name: string; level: number; school: string }> = [];
+                if (miOpts?.featChoice === 'Magic Initiate') {
+                  if (miOpts.magicInitiateCantripName1) speciesMiSpells.push({ name: miOpts.magicInitiateCantripName1, level: 0, school: '' });
+                  if (miOpts.magicInitiateCantripName2) speciesMiSpells.push({ name: miOpts.magicInitiateCantripName2, level: 0, school: '' });
+                  if (miOpts.magicInitiateSpellName1) speciesMiSpells.push({ name: miOpts.magicInitiateSpellName1, level: 1, school: '' });
+                }
+                const bgMiSpells = characterData.backgroundMagicInitiateSpellObjects ?? [];
+                const classSpells = characterData.initialSpellObjects ?? [];
+                const allSpells = [...classSpells, ...speciesMiSpells, ...bgMiSpells];
+                if (allSpells.length === 0) return null;
+                const cantrips = allSpells.filter(s => s.level === 0);
+                const prepared = allSpells.filter(s => s.level > 0);
+                return (
+                  <div className="spells-section">
+                    <h4>SPELLS</h4>
+                    {cantrips.length > 0 && (
+                      <div className="spells-subsection">
+                        <div className="spells-subsection-label">Cantrips</div>
+                        <div className="spells-list">
+                          {cantrips.map((sp, i) => (
+                            <span key={i} className="spell-tag">{sp.name}{(sp as any).school ? ` (${(sp as any).school})` : ''}</span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {prepared.length > 0 && (
+                      <div className="spells-subsection">
+                        <div className="spells-subsection-label">Prepared Spells</div>
+                        <div className="spells-list">
+                          {prepared.map((sp, i) => (
+                            <span key={i} className="spell-tag">{sp.name}{(sp as any).school ? ` (${(sp as any).school})` : ''} <em>Lv{sp.level}</em></span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })()}
             </div>
           </div>
         );
@@ -957,12 +1123,17 @@ export const CharacterWizard: React.FC = () => {
   const getStepSelection = (stepIndex: number): string => {
     switch (stepIndex) {
       case 0: return characterData.name || '';
-      case 1: return characterData.species?.name || '';
-      case 2: return characterData.characterClass?.name || '';
-      case 3: return characterData.background?.name || '';
-      case 4: return `${(characterData.selectedHomebrew || []).length} selected`;
-      case 5: return 'Configured';
-      case 6: return 'Ready to Create';
+      case 1: return (characterData.selectedHomebrew || []).length > 0
+        ? `${(characterData.selectedHomebrew || []).length} selected`
+        : '';
+      case 2: return characterData.species?.name || '';
+      case 3: return characterData.characterClass?.name || '';
+      case 4: return (characterData.initialSpells || []).length > 0
+        ? `${(characterData.initialSpells || []).length} selected`
+        : '';
+      case 5: return characterData.background?.name || '';
+      case 6: return 'Configured';
+      case 7: return 'Ready to Create';
       default: return '';
     }
   };

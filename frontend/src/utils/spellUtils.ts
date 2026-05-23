@@ -145,6 +145,9 @@ export interface AttackRow {
   range: string;
   notes: string;
   isSpell: boolean;
+  attackBonus?: number;
+  saveDC?: number;
+  saveAbility?: string;
 }
 
 /**
@@ -154,27 +157,47 @@ export function getSpellAttacks(character: Character, classJson: any): AttackRow
   const profile = computeSpellcastingProfile(character, classJson);
   const spells = character.character_spells ?? [];
 
+  // Normalise a damage value into a structured result.
+  // Handles: new {base, type, save} format, old {"1d6": "acid"} format, and
+  // JSON strings of either format that the backend may return.
+  const parseDamage = (raw: any): { base: string; type: string; save?: string } | null => {
+    if (!raw) return null;
+    if (typeof raw === 'string') {
+      try { return parseDamage(JSON.parse(raw)); } catch { return null; }
+    }
+    if (typeof raw !== 'object' || Array.isArray(raw)) return null;
+    // New structured format: {base, type, save?, cantrip_scaling?}
+    if (raw.base) {
+      return { base: raw.base as string, type: (raw.type as string) ?? '', save: raw.save as string | undefined };
+    }
+    // Old format: {"1d6": "acid"}
+    const entries = Object.entries(raw as Record<string, string>).filter(
+      ([k]) => /^\d+d\d+$/i.test(k)
+    );
+    if (entries.length > 0) {
+      return { base: entries[0][0], type: entries[0][1] };
+    }
+    return null;
+  };
+
+  const toHit = profile.attackBonus >= 0
+    ? `+${profile.attackBonus}`
+    : `${profile.attackBonus}`;
+
   return spells
     .filter(cs => {
-      const spellData = (cs as any).spell_data ?? cs;
-      return spellData?.damage && Object.keys(spellData.damage).length > 0;
+      const d = parseDamage((cs as any).spell_data?.damage);
+      return d !== null;
     })
     .map(cs => {
-      const spellData = (cs as any).spell_data ?? cs;
-      const damage = spellData?.damage ?? {};
-      const damageString = Object.entries(damage)
-        .map(([dice]) => dice)
-        .join(' + ');
-      const damageType = Object.values(damage as Record<string, string>).join(', ');
-      const toHit = profile.attackBonus >= 0
-        ? `+${profile.attackBonus}`
-        : `${profile.attackBonus}`;
+      const spellData = (cs as any).spell_data!;
+      const d = parseDamage(spellData.damage)!;
 
       return {
         name: cs.spell_name,
-        toHit,
-        damage: damageString,
-        damageType,
+        toHit: d.save ? `DC ${profile.saveDC ?? '?'} ${d.save}` : toHit,
+        damage: d.base,
+        damageType: d.type,
         range: spellData?.range ?? '',
         notes: cs.notes ?? '',
         isSpell: true,

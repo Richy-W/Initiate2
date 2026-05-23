@@ -29,11 +29,24 @@ const SpellBrowser: React.FC<Props> = ({ character, onSpellAdded, onSpellRemoved
   const [search, setSearch] = useState('');
   const [levelFilter, setLevelFilter] = useState<string>('');
   const [schoolFilter, setSchoolFilter] = useState<string>('');
+  const [error, setError] = useState<string | null>(null);
 
-  const className = character.character_class?.name ?? '';
+  const className = (character as any).class_detail?.name ?? '';
   const existingSpellIds = new Set(
     (character.character_spells ?? []).map(cs => String(cs.spell))
   );
+
+  // Determine the highest spell level the character can currently access
+  // using the class spellSlots table keyed by character level.
+  const maxSpellLevel = (() => {
+    const spellSlots: Record<string, Record<string, number>> =
+      (character as any).class_detail?.spellcasting?.spellSlots ?? {};
+    const charLevel = String(character.level ?? 1);
+    const slotsAtLevel = spellSlots[charLevel];
+    if (!slotsAtLevel) return 9; // unknown progression — show all
+    const levels = Object.keys(slotsAtLevel).map(Number);
+    return levels.length > 0 ? Math.max(...levels) : 0;
+  })();
 
   const fetchSpells = useCallback(async () => {
     setLoading(true);
@@ -41,6 +54,7 @@ const SpellBrowser: React.FC<Props> = ({ character, onSpellAdded, onSpellRemoved
       const params: Record<string, any> = {};
       if (className) params.classes__name = className;
       if (levelFilter !== '') params.level = levelFilter;
+      else params.level__lte = maxSpellLevel;
       if (schoolFilter) params.school = schoolFilter;
       const data = await contentAPI.spells.list(params);
       setSpells(data.results ?? data);
@@ -49,7 +63,7 @@ const SpellBrowser: React.FC<Props> = ({ character, onSpellAdded, onSpellRemoved
     } finally {
       setLoading(false);
     }
-  }, [className, levelFilter, schoolFilter]);
+  }, [className, levelFilter, schoolFilter, maxSpellLevel]);
 
   useEffect(() => {
     fetchSpells();
@@ -60,22 +74,36 @@ const SpellBrowser: React.FC<Props> = ({ character, onSpellAdded, onSpellRemoved
   );
 
   const handleAdd = async (spell: SpellResult) => {
-    await characterSpellsAPI.create({
-      character: character.id,
-      spell: spell.id,
-      source: 'class',
-      is_prepared: false,
-      spell_level: spell.level,
-      notes: '',
-    });
-    onSpellAdded?.();
+    setError(null);
+    try {
+      await characterSpellsAPI.create({
+        character: character.id,
+        spell: spell.id,
+        source: 'class',
+        is_prepared: false,
+        spell_level: spell.level,
+        notes: '',
+      });
+      onSpellAdded?.();
+    } catch (err: any) {
+      const msg = err?.response?.data?.non_field_errors?.[0]
+        ?? err?.response?.data?.detail
+        ?? 'Failed to add spell.';
+      setError(msg);
+    }
   };
 
   const handleRemove = async (spell: SpellResult) => {
+    setError(null);
     const cs = (character.character_spells ?? []).find(s => String(s.spell) === String(spell.id));
     if (cs) {
-      await characterSpellsAPI.delete(cs.id);
-      onSpellRemoved?.();
+      try {
+        await characterSpellsAPI.delete(cs.id);
+        onSpellRemoved?.();
+      } catch (err: any) {
+        const msg = err?.response?.data?.detail ?? 'Failed to remove spell.';
+        setError(msg);
+      }
     }
   };
 
@@ -98,7 +126,7 @@ const SpellBrowser: React.FC<Props> = ({ character, onSpellAdded, onSpellRemoved
         >
           <option value="">All Levels</option>
           <option value="0">Cantrips</option>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(l => (
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9].filter(l => l <= maxSpellLevel).map(l => (
             <option key={l} value={String(l)}>Level {l}</option>
           ))}
         </select>
@@ -111,6 +139,8 @@ const SpellBrowser: React.FC<Props> = ({ character, onSpellAdded, onSpellRemoved
           {SCHOOLS.map(s => <option key={s} value={s}>{s}</option>)}
         </select>
       </div>
+
+      {error && <div className={styles.errorMsg}>{error}</div>}
 
       <div className={styles.spellList}>
         {loading ? (
