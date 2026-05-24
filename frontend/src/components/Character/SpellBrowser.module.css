@@ -1,0 +1,132 @@
+.browser {
+  border: 1px solid #2a3553;
+  border-radius: 6px;
+  background: #111827;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.browserTitle {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #93a8df;
+  margin-bottom: 12px;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.filterInput,
+.filterSelect {
+  padding: 5px 10px;
+  border: 1px solid #2a3553;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  background: #0e1628;
+  color: #c8d4f0;
+}
+
+.filterInput {
+  flex: 1;
+  min-width: 140px;
+}
+
+.filterInput::placeholder {
+  color: #4a5a7a;
+}
+
+.spellList {
+  max-height: 320px;
+  overflow-y: auto;
+  border: 1px solid #2a3553;
+  border-radius: 4px;
+  background: #0e1628;
+}
+
+.spellRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 12px;
+  border-bottom: 1px solid #1a2340;
+  font-size: 0.82rem;
+}
+
+.spellRow:last-child {
+  border-bottom: none;
+}
+
+.spellRow:hover {
+  background: #1a2440;
+}
+
+.spellInfo {
+  flex: 1;
+}
+
+.spellName {
+  font-weight: 600;
+  color: #e2e8f9;
+}
+
+.spellMeta {
+  font-size: 0.7rem;
+  color: #7d9de8;
+  margin-top: 2px;
+}
+
+.addBtn,
+.removeBtn {
+  padding: 3px 10px;
+  border-radius: 12px;
+  border: 1px solid;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: opacity 0.15s;
+}
+
+.addBtn {
+  background: linear-gradient(135deg, #7d4fff, #4a8bff);
+  color: #fff;
+  border-color: transparent;
+}
+
+.addBtn:hover {
+  opacity: 0.85;
+}
+
+.removeBtn {
+  background: transparent;
+  color: #e05050;
+  border-color: #e05050;
+}
+
+.removeBtn:hover {
+  background: rgba(224, 80, 80, 0.12);
+}
+
+.loadingMsg,
+.emptyMsg {
+  padding: 16px;
+  text-align: center;
+  color: #4a5a7a;
+  font-style: italic;
+  font-size: 0.82rem;
+}
+
+.errorMsg {
+  padding: 8px 12px;
+  margin: 6px 0;
+  background: rgba(180, 40, 40, 0.18);
+  border: 1px solid #8b2020;
+  border-radius: 4px;
+  color: #f08080;
+  font-size: 0.82rem;
+  text-align: center;
+}

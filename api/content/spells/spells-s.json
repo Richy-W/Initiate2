@@ -1,0 +1,857 @@
+{
+  "version": "2024",
+  "source": "SRD 2024",
+  "spells": [
+    {
+      "name": "Sacred Flame",
+      "level": 0,
+      "school": "Evocation",
+      "casting_time": "Action",
+      "range": "60 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": null
+      },
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "description": "Flame-like radiance descends on a creature that you can see within range. The target must succeed on a Dexterity saving throw or take 1d8 Radiant damage. The target gains no benefit from Half Cover or Three-Quarters Cover for this save.\n\nCantrip Upgrade. The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).",
+      "higher_levels": null,
+      "damage": {
+        "base": "1d8",
+        "type": "Radiant",
+        "save": "Dexterity",
+        "cantrip_scaling": {
+          "5": "2d8",
+          "11": "3d8",
+          "17": "4d8"
+        }
+      },
+      "classes": ["Cleric"]
+    },
+    {
+      "name": "Sanctuary",
+      "level": 1,
+      "school": "Abjuration",
+      "casting_time": "Bonus Action",
+      "range": "30 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a shard of glass from a mirror"
+      },
+      "duration": "1 minute",
+      "concentration": false,
+      "ritual": false,
+      "description": "You ward a creature within range. Until the spell ends, any creature who targets the warded creature with an attack roll or a damaging spell must succeed on a Wisdom saving throw or either choose a new target or lose the attack or spell. This spell doesn't protect the warded creature from areas of effect.\n\nThe spell ends if the warded creature makes an attack roll, casts a spell, or deals damage.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Cleric"]
+    },
+    {
+      "name": "Scorching Ray",
+      "level": 2,
+      "school": "Evocation",
+      "casting_time": "Action",
+      "range": "120 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": null
+      },
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "description": "You hurl three fiery rays. You can hurl them at one target within range or at several. Make a ranged spell attack for each ray. On a hit, the target takes 2d6 Fire damage.",
+      "higher_levels": "You create one additional ray for each spell slot level above 2.",
+      "damage": {
+        "base": "2d6",
+        "type": "Fire"
+      },
+      "classes": ["Sorcerer", "Wizard"]
+    },
+    {
+      "name": "Scrying",
+      "level": 5,
+      "school": "Divination",
+      "casting_time": "10 minutes",
+      "range": "Self",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a focus worth 1,000+ GP, such as a crystal ball, mirror, or water-filled font"
+      },
+      "duration": "Concentration, up to 10 minutes",
+      "concentration": true,
+      "ritual": false,
+      "description": "You can see and hear a creature you choose that is on the same plane of existence as you. The target makes a Wisdom saving throw, modified by how well you know the target and any physical connection you have to it. On a successful save, the target isn't affected, and you can't use this spell on it again for 24 hours.\n\nOn a failed save, the spell creates an Invisible, intangible sensor within 10 feet of the target. You can see and hear through the sensor as if you were there. The sensor moves with the target, remaining within 10 feet of it for the duration. If something can see the sensor, it appears as a luminous orb about the size of your fist.\n\nInstead of targeting a creature, you can target a location you have seen. When you do so, the sensor appears at that location and doesn't move.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Bard", "Cleric", "Druid", "Warlock", "Wizard"]
+    },
+    {
+      "name": "Searing Smite",
+      "level": 1,
+      "school": "Evocation",
+      "casting_time": "Bonus Action",
+      "range": "Self",
+      "components": {
+        "verbal": true,
+        "somatic": false,
+        "material": null
+      },
+      "duration": "1 minute",
+      "concentration": false,
+      "ritual": false,
+      "description": "As you hit the target, it takes an extra 1d6 Fire damage from the attack. At the start of each of its turns until the spell ends, the target takes 1d6 Fire damage and then makes a Constitution saving throw. On a failed save, the spell continues. On a successful save, the spell ends.",
+      "higher_levels": "All the damage increases by 1d6 for each spell slot level above 1.",
+      "damage": {
+        "base": "1d6",
+        "type": "Fire"
+      },
+      "classes": ["Paladin"]
+    },
+    {
+      "name": "See Invisibility",
+      "level": 2,
+      "school": "Divination",
+      "casting_time": "Action",
+      "range": "Self",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a pinch of talc"
+      },
+      "duration": "1 hour",
+      "concentration": false,
+      "ritual": false,
+      "description": "For the duration, you see creatures and objects that have the Invisible condition as if they were visible, and you can see into the Ethereal Plane. Creatures and objects there appear ghostly.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Bard", "Sorcerer", "Wizard"]
+    },
+    {
+      "name": "Seeming",
+      "level": 5,
+      "school": "Illusion",
+      "casting_time": "Action",
+      "range": "30 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": null
+      },
+      "duration": "8 hours",
+      "concentration": false,
+      "ritual": false,
+      "description": "You give an illusory appearance to each creature of your choice that you can see within range. An unwilling target can make a Charisma saving throw, and if it succeeds, it is unaffected by this spell.\n\nYou can give the same appearance or different ones to the targets. The spell can change the appearance of the targets' bodies and equipment. You can make each creature seem 1 foot shorter or taller and appear heavier or lighter. A target's new appearance must have the same basic arrangement of limbs as the target.\n\nThe changes wrought by this spell fail to hold up to physical inspection. A creature that takes the Study action to examine a target can make an Intelligence (Investigation) check against your spell save DC. If it succeeds, it becomes aware that the target is disguised.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Bard", "Sorcerer", "Wizard"]
+    },
+    {
+      "name": "Sending",
+      "level": 3,
+      "school": "Divination",
+      "casting_time": "Action",
+      "range": "Unlimited",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a copper wire"
+      },
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "description": "You send a short message of 25 words or fewer to a creature you have met or a creature described to you by someone who has met it. The target hears the message in its mind, recognizes you as the sender if it knows you, and can answer in a like manner immediately.\n\nYou can send the message across any distance and even to other planes of existence, but if the target is on a different plane than you, there is a 5 percent chance that the message doesn't arrive. You know if the delivery fails.\n\nUpon receiving your message, a creature can block your ability to reach it again with this spell for 8 hours.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Bard", "Cleric", "Wizard"]
+    },
+    {
+      "name": "Sequester",
+      "level": 7,
+      "school": "Transmutation",
+      "casting_time": "Action",
+      "range": "Touch",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "gem dust worth 5,000+ GP, which the spell consumes"
+      },
+      "duration": "Until dispelled",
+      "concentration": false,
+      "ritual": false,
+      "description": "With a touch, you magically sequester an object or a willing creature. For the duration, the target has the Invisible condition and can't be targeted by Divination spells, detected by magic, or viewed remotely with magic.\n\nIf the target is a creature, it enters a state of suspended animation; it has the Unconscious condition, doesn't age, and doesn't need food, water, or air.\n\nYou can set a condition for the spell to end early. The condition can be anything you choose, but it must occur or be visible within 1 mile of the target. This spell also ends if the target takes any damage.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Wizard"]
+    },
+    {
+      "name": "Shapechange",
+      "level": 9,
+      "school": "Transmutation",
+      "casting_time": "Action",
+      "range": "Self",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a jade circlet worth 1,500+ GP"
+      },
+      "duration": "Concentration, up to 1 hour",
+      "concentration": true,
+      "ritual": false,
+      "description": "You shape-shift into another creature for the duration or until you take a Magic action to shape-shift into a different eligible form. The new form must be of a creature that has a Challenge Rating no higher than your level or Challenge Rating. You must have seen the sort of creature before, and it can't be a Construct or an Undead.\n\nWhen you shape-shift, you gain a number of Temporary Hit Points equal to the Hit Points of the form. The spell ends early if you have no Temporary Hit Points left.\n\nYour game statistics are replaced by the stat block of the chosen form, but you retain your creature type; alignment; personality; Intelligence, Wisdom, and Charisma scores; Hit Points; Hit Point Dice; proficiencies; and ability to communicate. If you have the Spellcasting feature, you retain it too.\n\nUpon shape-shifting, you determine whether your equipment drops to the ground or changes in size and shape to fit the new form.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Druid", "Wizard"]
+    },
+    {
+      "name": "Shatter",
+      "level": 2,
+      "school": "Evocation",
+      "casting_time": "Action",
+      "range": "60 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a chip of mica"
+      },
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "description": "A loud noise erupts from a point of your choice within range. Each creature in a 10-foot-radius Sphere centered there makes a Constitution saving throw, taking 3d8 Thunder damage on a failed save or half as much damage on a successful one. A Construct has Disadvantage on the save.\n\nA nonmagical object that isn't being worn or carried also takes the damage if it's in the spell's area.",
+      "higher_levels": "The damage increases by 1d8 for each spell slot level above 2.",
+      "damage": {
+        "base": "3d8",
+        "type": "Thunder",
+        "save": "Constitution"
+      },
+      "classes": ["Bard", "Sorcerer", "Wizard"]
+    },
+    {
+      "name": "Shield",
+      "level": 1,
+      "school": "Abjuration",
+      "casting_time": "Reaction",
+      "range": "Self",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": null
+      },
+      "duration": "1 round",
+      "concentration": false,
+      "ritual": false,
+      "description": "An imperceptible barrier of magical force protects you. Until the start of your next turn, you have a +5 bonus to AC, including against the triggering attack, and you take no damage from Magic Missile.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Sorcerer", "Wizard"]
+    },
+    {
+      "name": "Shield of Faith",
+      "level": 1,
+      "school": "Abjuration",
+      "casting_time": "Bonus Action",
+      "range": "60 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a prayer scroll"
+      },
+      "duration": "Concentration, up to 10 minutes",
+      "concentration": true,
+      "ritual": false,
+      "description": "A shimmering field surrounds a creature of your choice within range, granting it a +2 bonus to AC for the duration.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Cleric", "Paladin"]
+    },
+    {
+      "name": "Shillelagh",
+      "level": 0,
+      "school": "Transmutation",
+      "casting_time": "Bonus Action",
+      "range": "Self",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "mistletoe"
+      },
+      "duration": "1 minute",
+      "concentration": false,
+      "ritual": false,
+      "description": "A Club or Quarterstaff you are holding is imbued with nature's power. For the duration, you can use your spellcasting ability instead of Strength for the attack and damage rolls of melee attacks using that weapon, and the weapon's damage die becomes a d8. If the attack deals damage, it can be Force damage or the weapon's normal damage type (your choice).\n\nThe spell ends early if you cast it again or if you let go of the weapon.\n\nCantrip Upgrade. The damage die changes when you reach levels 5 (d10), 11 (d12), and 17 (2d6).",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Druid"]
+    },
+    {
+      "name": "Shining Smite",
+      "level": 2,
+      "school": "Transmutation",
+      "casting_time": "Bonus Action",
+      "range": "Self",
+      "components": {
+        "verbal": true,
+        "somatic": false,
+        "material": null
+      },
+      "duration": "1 minute",
+      "concentration": false,
+      "ritual": false,
+      "description": "The target hit by the strike takes an extra 2d6 Radiant damage from the attack. Until the spell ends, the target sheds Bright Light in a 5-foot radius, attack rolls against it have Advantage, and it can't benefit from the Invisible condition.",
+      "higher_levels": "The damage increases by 1d6 for each spell slot level above 2.",
+      "damage": {
+        "base": "2d6",
+        "type": "Radiant"
+      },
+      "classes": ["Paladin"]
+    },
+    {
+      "name": "Shocking Grasp",
+      "level": 0,
+      "school": "Evocation",
+      "casting_time": "Action",
+      "range": "Touch",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": null
+      },
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "description": "Lightning springs from you to a creature that you try to touch. Make a melee spell attack against the target. On a hit, the target takes 1d8 Lightning damage, and it can't make Opportunity Attacks until the start of its next turn.\n\nCantrip Upgrade. The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).",
+      "higher_levels": null,
+      "damage": {
+        "base": "1d8",
+        "type": "Lightning",
+        "cantrip_scaling": {
+          "5": "2d8",
+          "11": "3d8",
+          "17": "4d8"
+        }
+      },
+      "classes": ["Sorcerer", "Wizard"]
+    },
+    {
+      "name": "Silence",
+      "level": 2,
+      "school": "Illusion",
+      "casting_time": "Action",
+      "range": "120 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": null
+      },
+      "duration": "Concentration, up to 10 minutes",
+      "concentration": true,
+      "ritual": true,
+      "description": "For the duration, no sound can be created within or pass through a 20-foot-radius Sphere centered on a point you choose within range. Any creature or object entirely inside the Sphere has Immunity to Thunder damage, and creatures have the Deafened condition while entirely inside it. Casting a spell that includes a Verbal component is impossible there.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Bard", "Cleric", "Ranger"]
+    },
+    {
+      "name": "Silent Image",
+      "level": 1,
+      "school": "Illusion",
+      "casting_time": "Action",
+      "range": "60 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a bit of fleece"
+      },
+      "duration": "Concentration, up to 10 minutes",
+      "concentration": true,
+      "ritual": false,
+      "description": "You create the image of an object, a creature, or some other visible phenomenon that is no larger than a 15-foot Cube. The image appears at a spot within range and lasts for the duration. The image is purely visual; it isn't accompanied by sound, smell, or other sensory effects.\n\nAs a Magic action, you can cause the image to move to any spot within range. As the image changes location, you can alter its appearance so that its movements appear natural for the image.\n\nPhysical interaction with the image reveals it to be an illusion, since things can pass through it. A creature that takes a Study action to examine the image can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Bard", "Sorcerer", "Wizard"]
+    },
+    {
+      "name": "Simulacrum",
+      "level": 7,
+      "school": "Illusion",
+      "casting_time": "12 hours",
+      "range": "Touch",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "powdered ruby worth 1,500+ GP, which the spell consumes"
+      },
+      "duration": "Until dispelled",
+      "concentration": false,
+      "ritual": false,
+      "description": "You create a simulacrum of one Beast or Humanoid that is within 10 feet of you for the entire casting of the spell. The pile of ice or snow used in casting turns into the simulacrum, which is a creature. It uses the game statistics of the original creature at the time of casting, except it is a Construct, its Hit Point maximum is half as much, and it can't cast this spell.\n\nThe simulacrum is Friendly to you and creatures you designate. It obeys your commands and acts on your turn in combat. The simulacrum can't gain levels, and it can't take Short or Long Rests.\n\nIf the simulacrum takes damage, the only way to restore its Hit Points is to repair it as you take a Long Rest, during which you expend components worth 100 GP per Hit Point restored. The simulacrum must stay within 5 feet of you for the repair.\n\nThe simulacrum lasts until it drops to 0 Hit Points, at which point it reverts to snow and melts away. If you cast this spell again, any simulacrum you created with this spell is instantly destroyed.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Wizard"]
+    },
+    {
+      "name": "Sleep",
+      "level": 1,
+      "school": "Enchantment",
+      "casting_time": "Action",
+      "range": "60 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a pinch of sand or rose petals"
+      },
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "description": "Each creature of your choice in a 5-foot-radius Sphere centered on a point within range must succeed on a Wisdom saving throw or have the Incapacitated condition until the end of its next turn, at which point it must repeat the save. If the target fails the second save, the target has the Unconscious condition for the duration. The spell ends on a target if it takes damage or someone within 5 feet of it takes an action to shake it out of the spell's effect.\n\nCreatures that don't sleep, such as elves, or that have Immunity to the Exhaustion condition automatically succeed on saves against this spell.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Bard", "Sorcerer", "Wizard"]
+    },
+    {
+      "name": "Sleet Storm",
+      "level": 3,
+      "school": "Conjuration",
+      "casting_time": "Action",
+      "range": "150 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a miniature umbrella"
+      },
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "description": "Until the spell ends, sleet falls in a 40-foot-tall, 20-foot-radius Cylinder centered on a point you choose within range. The area is Heavily Obscured, and exposed flames in the area are doused.\n\nGround in the Cylinder is Difficult Terrain. When a creature enters the Cylinder for the first time on a turn or starts its turn there, it must succeed on a Dexterity saving throw or have the Prone condition and lose Concentration.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Druid", "Sorcerer", "Wizard"]
+    },
+    {
+      "name": "Slow",
+      "level": 3,
+      "school": "Transmutation",
+      "casting_time": "Action",
+      "range": "120 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a drop of molasses"
+      },
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "description": "You alter time around up to six creatures of your choice in a 40-foot Cube within range. Each target must succeed on a Wisdom saving throw or be affected by this spell for the duration.\n\nAn affected target's Speed is halved, it takes a −2 penalty to AC and Dexterity saving throws, and it can't take Reactions. On its turns, it can take either an action or a Bonus Action, not both, and it can make only one attack if it takes the Attack action. If it casts a spell with a Somatic component, there is a 25 percent chance the spell fails as a result of the target making the spell's gestures too slowly.\n\nAn affected target repeats the save at the end of each of its turns, ending the spell on itself on a success.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Bard", "Sorcerer", "Wizard"]
+    },
+    {
+      "name": "Sorcerous Burst",
+      "level": 0,
+      "school": "Evocation",
+      "casting_time": "Action",
+      "range": "120 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": null
+      },
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "description": "You cast sorcerous energy at one creature or object within range. Make a ranged attack roll against the target. On a hit, the target takes 1d8 damage of a type you choose: Acid, Cold, Fire, Lightning, Poison, Psychic, or Thunder.\n\nIf you roll an 8 on a d8 for this spell, you can roll another d8, and add it to the damage. When you cast this spell, the maximum number of these d8s you can add to the spell's damage equals your spellcasting ability modifier.\n\nCantrip Upgrade. The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).",
+      "higher_levels": null,
+      "damage": {
+        "base": "1d8",
+        "type": "Varies (Acid, Cold, Fire, Lightning, Poison, Psychic, Thunder)",
+        "cantrip_scaling": {
+          "5": "2d8",
+          "11": "3d8",
+          "17": "4d8"
+        }
+      },
+      "classes": ["Sorcerer"]
+    },
+    {
+      "name": "Spare the Dying",
+      "level": 0,
+      "school": "Necromancy",
+      "casting_time": "Action",
+      "range": "15 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": null
+      },
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "description": "Choose a creature within range that has 0 Hit Points and isn't dead. The creature becomes Stable.\n\nCantrip Upgrade. The range doubles when you reach levels 5 (30 feet), 11 (60 feet), and 17 (120 feet).",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Cleric", "Druid"]
+    },
+    {
+      "name": "Speak with Animals",
+      "level": 1,
+      "school": "Divination",
+      "casting_time": "Action",
+      "range": "Self",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": null
+      },
+      "duration": "10 minutes",
+      "concentration": false,
+      "ritual": true,
+      "description": "For the duration, you can comprehend and verbally communicate with Beasts, and you can use any of the Influence action's skill options with them.\n\nMost Beasts have little to say about topics that don't pertain to survival or companionship, but at minimum, a Beast can give you information about nearby locations and monsters, including whatever it has perceived within the past day.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Bard", "Druid", "Ranger", "Warlock"]
+    },
+    {
+      "name": "Speak with Dead",
+      "level": 3,
+      "school": "Necromancy",
+      "casting_time": "Action",
+      "range": "10 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "burning incense"
+      },
+      "duration": "10 minutes",
+      "concentration": false,
+      "ritual": false,
+      "description": "You grant the semblance of life to a corpse of your choice within range, allowing it to answer questions you pose. The corpse must have a mouth, and this spell fails if the deceased creature was Undead when it died. The spell also fails if the corpse was the target of this spell within the past 10 days.\n\nUntil the spell ends, you can ask the corpse up to five questions. The corpse knows only what it knew in life, including the languages it knew. Answers are usually brief, cryptic, or repetitive, and the corpse is under no compulsion to offer a truthful answer if you are antagonistic toward it or it recognizes you as an enemy. This spell doesn't return the creature's soul to its body, only its animating spirit.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Bard", "Cleric", "Wizard"]
+    },
+    {
+      "name": "Speak with Plants",
+      "level": 3,
+      "school": "Transmutation",
+      "casting_time": "Action",
+      "range": "Self",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": null
+      },
+      "duration": "10 minutes",
+      "concentration": false,
+      "ritual": false,
+      "description": "You imbue plants in an immobile 30-foot Emanation with limited sentience and animation, giving them the ability to communicate with you and follow your simple commands. You can question plants about events in the spell's area within the past day, gaining information about creatures that have passed, weather, and other circumstances.\n\nYou can also turn Difficult Terrain caused by plant growth into ordinary terrain that lasts for the duration. Or you can turn ordinary terrain where plants are present into Difficult Terrain that lasts for the duration.\n\nThe spell doesn't enable plants to uproot themselves and move about, but they can move their branches, tendrils, and stalks for you. If a Plant creature is in the area, you can communicate with it as if you shared a common language.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Bard", "Druid", "Ranger"]
+    },
+    {
+      "name": "Spider Climb",
+      "level": 2,
+      "school": "Transmutation",
+      "casting_time": "Action",
+      "range": "Touch",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a drop of bitumen and a spider"
+      },
+      "duration": "Concentration, up to 1 hour",
+      "concentration": true,
+      "ritual": false,
+      "description": "Until the spell ends, one willing creature you touch gains the ability to move up, down, and across vertical surfaces and along ceilings, while leaving its hands free. The target also gains a Climb Speed equal to its Speed.",
+      "higher_levels": "You can target one additional creature for each spell slot level above 2.",
+      "damage": null,
+      "classes": ["Sorcerer", "Warlock", "Wizard"]
+    },
+    {
+      "name": "Spike Growth",
+      "level": 2,
+      "school": "Transmutation",
+      "casting_time": "Action",
+      "range": "150 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "seven thorns"
+      },
+      "duration": "Concentration, up to 10 minutes",
+      "concentration": true,
+      "ritual": false,
+      "description": "The ground in a 20-foot-radius Sphere centered on a point within range sprouts hard spikes and thorns. The area becomes Difficult Terrain for the duration. When a creature moves into or within the area, it takes 2d4 Piercing damage for every 5 feet it travels.\n\nThe transformation of the ground is camouflaged to look natural. Any creature that can't see the area when the spell is cast must take a Search action and succeed on a Wisdom (Perception or Survival) check against your spell save DC to recognize the terrain as hazardous before entering it.",
+      "higher_levels": null,
+      "damage": {
+        "base": "2d4",
+        "type": "Piercing"
+      },
+      "classes": ["Druid", "Ranger"]
+    },
+    {
+      "name": "Spirit Guardians",
+      "level": 3,
+      "school": "Conjuration",
+      "casting_time": "Action",
+      "range": "Self",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a prayer scroll"
+      },
+      "duration": "Concentration, up to 10 minutes",
+      "concentration": true,
+      "ritual": false,
+      "description": "Protective spirits flit around you in a 15-foot Emanation for the duration. If you are good or neutral, their spectral form appears angelic or fey (your choice). If you are evil, they appear fiendish.\n\nWhen you cast this spell, you can designate creatures to be unaffected by it. Any other creature's Speed is halved in the Emanation, and whenever the Emanation enters a creature's space and whenever a creature enters the Emanation or ends its turn there, the creature must make a Wisdom saving throw. On a failed save, the creature takes 3d8 Radiant damage (if you are good or neutral) or 3d8 Necrotic damage (if you are evil). On a successful save, the creature takes half as much damage. A creature makes this save only once per turn.",
+      "higher_levels": "The damage increases by 1d8 for each spell slot level above 3.",
+      "damage": {
+        "base": "3d8",
+        "type": "Radiant or Necrotic",
+        "save": "Wisdom"
+      },
+      "classes": ["Cleric"]
+    },
+    {
+      "name": "Spiritual Weapon",
+      "level": 2,
+      "school": "Evocation",
+      "casting_time": "Bonus Action",
+      "range": "60 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": null
+      },
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "description": "You create a floating, spectral force that resembles a weapon of your choice and lasts for the duration. The force appears within range in a space of your choice, and you can immediately make one melee spell attack against one creature within 5 feet of the force. On a hit, the target takes Force damage equal to 1d8 plus your spellcasting ability modifier.\n\nAs a Bonus Action on your later turns, you can move the force up to 20 feet and repeat the attack against a creature within 5 feet of it.",
+      "higher_levels": "The damage increases by 1d8 for every slot level above 2.",
+      "damage": {
+        "base": "1d8",
+        "type": "Force"
+      },
+      "classes": ["Cleric"]
+    },
+    {
+      "name": "Starry Wisp",
+      "level": 0,
+      "school": "Evocation",
+      "casting_time": "Action",
+      "range": "60 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": null
+      },
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "description": "You launch a mote of light at one creature or object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d8 Radiant damage, and until the end of your next turn, it emits Dim Light in a 10-foot radius and can't benefit from the Invisible condition.\n\nCantrip Upgrade. The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).",
+      "higher_levels": null,
+      "damage": {
+        "base": "1d8",
+        "type": "Radiant",
+        "cantrip_scaling": {
+          "5": "2d8",
+          "11": "3d8",
+          "17": "4d8"
+        }
+      },
+      "classes": ["Bard", "Druid"]
+    },
+    {
+      "name": "Stinking Cloud",
+      "level": 3,
+      "school": "Conjuration",
+      "casting_time": "Action",
+      "range": "90 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a rotten egg"
+      },
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "description": "You create a 20-foot-radius Sphere of yellow, nauseating gas centered on a point within range. The cloud is Heavily Obscured. The cloud lingers in the air for the duration or until a strong wind disperses it.\n\nEach creature that starts its turn in the Sphere must succeed on a Constitution saving throw or have the Poisoned condition until the end of the current turn. While Poisoned in this way, the creature can't take an action or a Bonus Action.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Bard", "Sorcerer", "Wizard"]
+    },
+    {
+      "name": "Stone Shape",
+      "level": 4,
+      "school": "Transmutation",
+      "casting_time": "Action",
+      "range": "Touch",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "soft clay"
+      },
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "description": "You touch a stone object of Medium size or smaller or a section of stone no more than 5 feet in any dimension and form it into any shape you like. For example, you could shape a large rock into a weapon, statue, or coffer, or you could make a small passage through a wall that is 5 feet thick. You could also shape a stone door or its frame to seal the door shut. The object you create can have up to two hinges and a latch, but finer mechanical detail isn't possible.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Cleric", "Druid", "Wizard"]
+    },
+    {
+      "name": "Stoneskin",
+      "level": 4,
+      "school": "Transmutation",
+      "casting_time": "Action",
+      "range": "Touch",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "diamond dust worth 100+ GP, which the spell consumes"
+      },
+      "duration": "Concentration, up to 1 hour",
+      "concentration": true,
+      "ritual": false,
+      "description": "Until the spell ends, one willing creature you touch has Resistance to Bludgeoning, Piercing, and Slashing damage.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Druid", "Ranger", "Sorcerer", "Wizard"]
+    },
+    {
+      "name": "Storm of Vengeance",
+      "level": 9,
+      "school": "Conjuration",
+      "casting_time": "Action",
+      "range": "1 mile",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": null
+      },
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "description": "A churning storm cloud forms for the duration, centered on a point within range and spreading to a radius of 300 feet. Each creature under the cloud when it appears must succeed on a Constitution saving throw or take 2d6 Thunder damage and have the Deafened condition for the duration.\n\nAt the start of each of your later turns, the storm produces different effects: Turn 2 — Acidic rain deals 4d6 Acid damage to each creature and object under the cloud. Turn 3 — Six bolts of lightning strike up to six creatures; each makes a Dexterity saving throw, taking 10d6 Lightning damage on a failed save or half on a success. Turn 4 — Hailstones deal 2d6 Bludgeoning damage to each creature under the cloud. Turns 5–10 — Gusts and freezing rain deal 1d6 Cold damage to each creature under the cloud; the area becomes Difficult Terrain and Heavily Obscured, ranged weapon attacks are impossible, and strong wind blows through the area.",
+      "higher_levels": null,
+      "damage": {
+        "base": "2d6",
+        "type": "Thunder",
+        "save": "Constitution"
+      },
+      "classes": ["Druid"]
+    },
+    {
+      "name": "Suggestion",
+      "level": 2,
+      "school": "Enchantment",
+      "casting_time": "Action",
+      "range": "30 feet",
+      "components": {
+        "verbal": true,
+        "somatic": false,
+        "material": "a drop of honey"
+      },
+      "duration": "Concentration, up to 8 hours",
+      "concentration": true,
+      "ritual": false,
+      "description": "You suggest a course of activity—described in no more than 25 words—to one creature you can see within range that can hear and understand you. The suggestion must sound achievable and not involve anything that would obviously deal damage to the target or its allies.\n\nThe target must succeed on a Wisdom saving throw or have the Charmed condition for the duration or until you or your allies deal damage to the target. The Charmed target pursues the suggestion to the best of its ability. The suggested activity can continue for the entire duration, but if the suggested activity can be completed in a shorter time, the spell ends for the target upon completing it.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Bard", "Sorcerer", "Warlock", "Wizard"]
+    },
+    {
+      "name": "Summon Dragon",
+      "level": 5,
+      "school": "Conjuration",
+      "casting_time": "Action",
+      "range": "60 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "an object with the image of a dragon engraved on it worth 500+ GP"
+      },
+      "duration": "Concentration, up to 1 hour",
+      "concentration": true,
+      "ritual": false,
+      "description": "You call forth a Dragon spirit. It manifests in an unoccupied space that you can see within range and uses the Draconic Spirit stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.\n\nThe creature is an ally to you and your allies. In combat, the creature shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.\n\nDraconic Spirit (Large Dragon): AC 14 + spell's level; HP 50 + 10 per slot level above 5; Speed 30 ft., Fly 60 ft., Swim 30 ft. Resistances: Acid, Cold, Fire, Lightning, Poison. Immunities: Charmed, Frightened, Poisoned. Shared Resistances trait lets you choose one of its Resistances to share for the spell's duration. Multiattack: Rend attacks equal to half the spell's level (round down) plus Breath Weapon (30-foot Cone, Dex save vs. your spell save DC, 2d6 damage of a chosen Resistance type).",
+      "higher_levels": "Use the spell slot's level for the spell's level in the stat block.",
+      "damage": null,
+      "classes": ["Wizard"]
+    },
+    {
+      "name": "Sunbeam",
+      "level": 6,
+      "school": "Evocation",
+      "casting_time": "Action",
+      "range": "Self (60-foot Line)",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a magnifying glass"
+      },
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "description": "You launch a sunbeam in a 5-foot-wide, 60-foot-long Line. Each creature in the Line makes a Constitution saving throw. On a failed save, a creature takes 6d8 Radiant damage and has the Blinded condition until the start of your next turn. On a successful save, it takes half as much damage only.\n\nUntil the spell ends, you can take a Magic action to create a new Line of radiance.\n\nFor the duration, a mote of brilliant radiance shines above you. It sheds Bright Light in a 30-foot radius and Dim Light for an additional 30 feet. This light is sunlight.",
+      "higher_levels": null,
+      "damage": {
+        "base": "6d8",
+        "type": "Radiant",
+        "save": "Constitution"
+      },
+      "classes": ["Cleric", "Druid", "Sorcerer", "Wizard"]
+    },
+    {
+      "name": "Sunburst",
+      "level": 8,
+      "school": "Evocation",
+      "casting_time": "Action",
+      "range": "150 feet",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a piece of sunstone"
+      },
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "description": "Brilliant sunlight flashes in a 60-foot-radius Sphere centered on a point you choose within range. Each creature in the Sphere makes a Constitution saving throw. On a failed save, a creature takes 12d6 Radiant damage and has the Blinded condition for 1 minute. On a successful save, it takes half as much damage only.\n\nA creature Blinded by this spell makes another Constitution saving throw at the end of each of its turns, ending the effect on itself on a success.\n\nThis spell dispels Darkness in its area that was created by any spell.",
+      "higher_levels": null,
+      "damage": {
+        "base": "12d6",
+        "type": "Radiant",
+        "save": "Constitution"
+      },
+      "classes": ["Cleric", "Druid", "Sorcerer", "Wizard"]
+    },
+    {
+      "name": "Symbol",
+      "level": 7,
+      "school": "Abjuration",
+      "casting_time": "1 minute",
+      "range": "Touch",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "powdered diamond worth 1,000+ GP, which the spell consumes"
+      },
+      "duration": "Until dispelled or triggered",
+      "concentration": false,
+      "ritual": false,
+      "description": "You inscribe a harmful glyph on a surface or within an object that can be closed. When triggered, the glyph glows and fills a 60-foot-radius Sphere with Dim Light for 10 minutes. Each creature in the Sphere is targeted by one of the following effects you choose when inscribing the glyph:\n\nDeath. Constitution save; failed: 10d10 Necrotic damage, success: half.\nDiscord. Wisdom save; failed: target argues uncontrollably for 1 minute, has Disadvantage on attack rolls and ability checks.\nFear. Wisdom save; failed: Frightened for 1 minute, must move 30+ feet from glyph each turn.\nPain. Constitution save; failed: Incapacitated for 1 minute.\nSleep. Wisdom save; failed: Unconscious for 10 minutes (awakens if damaged or shaken).\nStunning. Wisdom save; failed: Stunned for 1 minute.",
+      "higher_levels": null,
+      "damage": {
+        "base": "10d10",
+        "type": "Necrotic",
+        "save": "Constitution"
+      },
+      "classes": ["Bard", "Cleric", "Druid", "Wizard"]
+    }
+  ]
+}

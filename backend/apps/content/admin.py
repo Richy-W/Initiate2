@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import (
-    DamageType, Condition, Skill, Species, Background, CharacterClass, 
-    ClassFeature, Spell, Equipment, Feat, Monster, MagicItem
+    DamageType, Condition, Skill, Species, Background, CharacterClass,
+    ClassFeature, Spell, Equipment, Feat, Monster, MagicItem, WeaponProperty
 )
 
 
@@ -82,6 +82,14 @@ class EquipmentAdmin(admin.ModelAdmin):
     list_filter = ['equipment_type', 'source']
     search_fields = ['name', 'description']
     ordering = ['equipment_type', 'name']
+
+
+@admin.register(WeaponProperty)
+class WeaponPropertyAdmin(admin.ModelAdmin):
+    list_display = ['name', 'property_type', 'source']
+    list_filter = ['property_type']
+    search_fields = ['name', 'description']
+    ordering = ['property_type', 'name']
 
 
 @admin.register(Feat)

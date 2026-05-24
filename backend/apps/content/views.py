@@ -9,15 +9,16 @@ from drf_spectacular.utils import extend_schema
 from apps.common.audit import log_audit_event
 
 from .models import (
-    Species, CharacterClass, Background, Spell, Equipment, 
+    Species, CharacterClass, Background, Spell, Equipment,
     ClassFeature, Skill, Condition, DamageType,
-    HomebrewContent, ContentSharingPermission,
+    HomebrewContent, ContentSharingPermission, WeaponProperty,
 )
 from .serializers import (
     SpeciesSerializer, CharacterClassSerializer, BackgroundSerializer,
     SpellSerializer, EquipmentSerializer, ClassFeatureSerializer,
     SkillSerializer, ConditionSerializer, DamageTypeSerializer,
     HomebrewContentSerializer, ContentSharingPermissionSerializer,
+    WeaponPropertySerializer,
 )
 
 
@@ -198,7 +199,13 @@ class SpellViewSet(ContentViewSetMixin, viewsets.ReadOnlyModelViewSet):
     queryset = Spell.objects.all().prefetch_related('classes')
     serializer_class = SpellSerializer
     search_fields = ['name', 'description']
-    filterset_fields = ['level', 'school', 'ritual', 'concentration']
+    filterset_fields = {
+        'level': ['exact', 'lte'],
+        'school': ['exact'],
+        'ritual': ['exact'],
+        'concentration': ['exact'],
+        'classes__name': ['exact', 'iexact'],
+    }
     
     @action(detail=False, methods=['get'])
     def by_class(self, request):
@@ -278,6 +285,26 @@ class EquipmentViewSet(ContentViewSetMixin, viewsets.ReadOnlyModelViewSet):
             categories[cat].append(self.get_serializer(item).data)
         
         return Response(categories)
+
+
+@extend_schema(tags=['content'])
+class WeaponPropertyViewSet(ContentViewSetMixin, viewsets.ReadOnlyModelViewSet):
+    """API endpoints for weapon and mastery property definitions."""
+
+    queryset = WeaponProperty.objects.all()
+    serializer_class = WeaponPropertySerializer
+    search_fields = ['name', 'description']
+    filterset_fields = ['property_type']
+
+    @action(detail=False, methods=['get'])
+    def by_type(self, request):
+        """Return properties split into weapon and mastery groups."""
+        weapon_props = self.get_queryset().filter(property_type='weapon')
+        mastery_props = self.get_queryset().filter(property_type='mastery')
+        return Response({
+            'weapon': WeaponPropertySerializer(weapon_props, many=True).data,
+            'mastery': WeaponPropertySerializer(mastery_props, many=True).data,
+        })
 
 
 @extend_schema(tags=['content'])

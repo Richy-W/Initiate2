@@ -1,5 +1,6 @@
 ﻿import React, { useState, useEffect } from 'react';
 import { contentAPI } from '../../services/apiClient';
+import MagicInitiateSpellPicker, { MagicInitiateSelections } from './MagicInitiateSpellPicker';
 
 // Standard D&D languages - Updated for cache clear
 const STANDARD_LANGUAGES = [
@@ -51,6 +52,7 @@ interface BackgroundSelectorProps {
   selectedLanguage?: string;
   selectedEquipmentOption?: string;
   onBackgroundSelect: (background: Background, distribution?: Record<string, number>, language?: string, equipmentOption?: string) => void;
+  onMagicInitiateConfirm?: (selections: MagicInitiateSelections) => void;
 }
 
 export const BackgroundSelector: React.FC<BackgroundSelectorProps> = ({
@@ -59,6 +61,7 @@ export const BackgroundSelector: React.FC<BackgroundSelectorProps> = ({
   selectedLanguage: propLanguage,
   selectedEquipmentOption: propEquipmentOption,
   onBackgroundSelect,
+  onMagicInitiateConfirm,
 }) => {
   const [backgrounds, setBackgrounds] = useState<Background[]>([]);
   const [loading, setLoading] = useState(true);
@@ -273,6 +276,12 @@ export const BackgroundSelector: React.FC<BackgroundSelectorProps> = ({
                 <div className="background-feat">
                   <h4>Origin Feat: {selectedBackground.feat.name}</h4>
                   <p>{selectedBackground.feat.description}</p>
+                  {selectedBackground.feat.name?.startsWith('Magic Initiate') && onMagicInitiateConfirm && (
+                    <MagicInitiateSpellPicker
+                      presetClass={selectedBackground.feat.name.match(/\(([^)]+)\)/)?.[1]}
+                      onConfirm={onMagicInitiateConfirm}
+                    />
+                  )}
                 </div>
               )}
               

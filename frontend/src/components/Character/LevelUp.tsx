@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { characterAPI } from '../../services/apiClient';
+import { characterAPI, characterSpellsAPI } from '../../services/apiClient';
 import { Character } from '../../types';
+import MagicInitiateSpellPicker, { MagicInitiateSelections } from '../CharacterCreation/MagicInitiateSpellPicker';
 
 interface LevelUpProps {
   character: Character;
@@ -28,6 +29,8 @@ export const LevelUp: React.FC<LevelUpProps> = ({ character, onLevelUp, onClose 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [hasRolledHP, setHasRolledHP] = useState(false);
+  const [selectedFeat, setSelectedFeat] = useState<string | null>(null);
+  const [miSelections, setMiSelections] = useState<MagicInitiateSelections | null>(null);
 
   const getAbilityModifier = (score: number): number => {
     return Math.floor((score - 10) / 2);
@@ -75,6 +78,10 @@ export const LevelUp: React.FC<LevelUpProps> = ({ character, onLevelUp, onClose 
     return [4, 8, 12, 16, 19].includes(newLevel);
   };
 
+  const hasMagicInitiateSpells = (): boolean => {
+    return (character.character_spells ?? []).some(cs => cs.source === 'magic_initiate');
+  };
+
   const getNewFeatures = (): any[] => {
     const newLevel = character.level + 1;
     const classFeatures = character.character_class?.features || [];
@@ -100,6 +107,25 @@ export const LevelUp: React.FC<LevelUpProps> = ({ character, onLevelUp, onClose 
       };
       
       const updatedCharacter = await characterAPI.levelUp(character.id, levelUpPayload);
+
+      // Post Magic Initiate spells if feat was selected this level-up
+      if (selectedFeat === 'Magic Initiate' && miSelections && !hasMagicInitiateSpells()) {
+        const spellIds = [
+          miSelections.cantrips[0]?.id,
+          miSelections.cantrips[1]?.id,
+          miSelections.firstLevel?.id,
+        ].filter(Boolean) as string[];
+        await Promise.allSettled(
+          spellIds.map((spellId) =>
+            characterSpellsAPI.create({
+              character: character.id,
+              spell: spellId,
+              source: 'magic_initiate',
+            })
+          )
+        );
+      }
+
       onLevelUp(updatedCharacter);
       onClose();
     } catch (err: any) {
@@ -112,6 +138,7 @@ export const LevelUp: React.FC<LevelUpProps> = ({ character, onLevelUp, onClose 
   const steps = [
     'Hit Points',
     ...(isAbilityScoreImprovementLevel() ? ['Ability Score Improvement'] : []),
+    ...(isAbilityScoreImprovementLevel() && !hasMagicInitiateSpells() ? ['Feat (Optional)'] : []),
     'Features',
     'Confirm',
   ];
@@ -242,6 +269,27 @@ export const LevelUp: React.FC<LevelUpProps> = ({ character, onLevelUp, onClose 
           </div>
         );
         
+      case 'Feat (Optional)':
+        return (
+          <div className="level-up-step">
+            <h3>Optional: Take a Feat</h3>
+            <p>At this level, you may take Magic Initiate to learn 2 cantrips and 1 first-level spell from another class.</p>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={selectedFeat === 'Magic Initiate'}
+                  onChange={(e) => setSelectedFeat(e.target.checked ? 'Magic Initiate' : null)}
+                />
+                {' '}Magic Initiate — Learn 2 cantrips and 1 first-level spell from another class
+              </label>
+            </div>
+            {selectedFeat === 'Magic Initiate' && (
+              <MagicInitiateSpellPicker onConfirm={setMiSelections} />
+            )}
+          </div>
+        );
+
       case 'Features':
         const newFeatures = getNewFeatures();
         return (

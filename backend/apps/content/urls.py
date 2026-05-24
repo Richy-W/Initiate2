@@ -2,7 +2,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import (
     SkillViewSet, ConditionViewSet, DamageTypeViewSet, ClassFeatureViewSet,
-    HomebrewContentViewSet,
+    HomebrewContentViewSet, SpellViewSet, WeaponPropertyViewSet, EquipmentViewSet,
 )
 from .file_views import (
     species_list, species_detail,
@@ -17,6 +17,9 @@ router.register('conditions', ConditionViewSet, basename='conditions')
 router.register('damage-types', DamageTypeViewSet, basename='damage-types')
 router.register('class-features', ClassFeatureViewSet, basename='class-features')
 router.register('homebrew', HomebrewContentViewSet, basename='homebrew')
+router.register('spells', SpellViewSet, basename='spells')
+router.register('weapon-properties', WeaponPropertyViewSet, basename='weapon-properties')
+router.register('equipment', EquipmentViewSet, basename='equipment')
 
 urlpatterns = [
     # File-based content endpoints

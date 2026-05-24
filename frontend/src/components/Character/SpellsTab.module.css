@@ -1,0 +1,207 @@
+.container {
+  padding: 16px 0;
+}
+
+.initError {
+  font-size: 0.8rem;
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin-bottom: 10px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.manageBtn {
+  padding: 6px 14px;
+  background: linear-gradient(135deg, #7d4fff, #4a8bff);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: opacity 0.15s;
+}
+
+.manageBtn:hover {
+  opacity: 0.85;
+}
+
+.spellGroup {
+  margin-bottom: 20px;
+}
+
+.groupTitle {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #93a8df;
+  border-bottom: 1px solid #2a3553;
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+}
+
+.spellTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.spellTable th {
+  text-align: left;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #93a8df;
+  padding: 4px 8px;
+  border-bottom: 1px solid #2a3553;
+}
+
+.spellTable td {
+  padding: 5px 8px;
+  border-bottom: 1px solid #1a2340;
+  vertical-align: middle;
+  color: #c8d4f0;
+}
+
+.spellTable tr:hover td {
+  background: #1a2440;
+}
+
+.badges {
+  display: flex;
+  gap: 3px;
+}
+
+.badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  padding: 1px 3px;
+  color: #93a8df;
+}
+
+.badgeConc { color: #e07050; border-color: #e07050; }
+.badgeRitual { color: #5a9be0; border-color: #5a9be0; }
+.badgeMaterial { color: #60a870; border-color: #60a870; }
+
+.prepareToggle {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #7d9de8;
+  font-size: 0.75rem;
+  padding: 0 4px;
+  transition: color 0.15s;
+}
+
+.prepareToggle:hover {
+  color: #a0b8f8;
+}
+
+.preparedCount {
+  font-size: 0.75rem;
+  color: #93a8df;
+  margin-bottom: 4px;
+}
+
+.emptyState {
+  color: #4a5a7a;
+  font-style: italic;
+  font-size: 0.85rem;
+  padding: 24px 0;
+  text-align: center;
+}
+
+/* ── Spell name tooltip ─────────────────────────────────────────────── */
+
+.spellNameCell {
+  position: relative;
+  cursor: pointer;
+  border-bottom: 1px dotted #4a6a9a;
+  white-space: nowrap;
+}
+
+.spellTooltip {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 4px);
+  z-index: 200;
+  width: 300px;
+  background: #0b1220;
+  border: 1px solid #2a3d66;
+  border-radius: 8px;
+  padding: 10px 14px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  text-align: left;
+  white-space: normal;
+  line-height: 1.5;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Desktop: reveal on hover when the device has a real pointer */
+@media (hover: hover) {
+  .spellNameCell:hover .spellTooltip {
+    display: flex;
+  }
+}
+
+/* Mobile / touch: reveal when the React active class is applied */
+.spellNameCellActive .spellTooltip {
+  display: flex;
+}
+
+.tooltipName {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #e8eeff;
+  margin-bottom: 2px;
+}
+
+.tooltipMeta {
+  font-size: 0.7rem;
+  color: #7d9de8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.tooltipRow {
+  font-size: 0.75rem;
+  color: #c8d4f0;
+}
+
+.tooltipLabel {
+  font-weight: 700;
+  color: #93a8df;
+}
+
+.tooltipDesc {
+  font-size: 0.75rem;
+  color: #a8b8d8;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #1e2e50;
+  line-height: 1.55;
+}
+
+.tooltipHigher {
+  font-size: 0.73rem;
+  color: #8a9ec8;
+  margin-top: 6px;
+  font-style: italic;
+}

@@ -1,0 +1,68 @@
+.picker {
+  border: 1px solid var(--app-border, #1e2d50);
+  border-radius: 8px;
+  background: #11182a;
+  padding: 18px;
+  margin: 12px 0;
+}
+
+.pickerTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--app-ink-0, #e8eaf6);
+  margin-bottom: 16px;
+}
+
+.section {
+  margin-bottom: 14px;
+}
+
+.sectionLabel {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--app-accent, #5f84ff);
+  margin-bottom: 6px;
+}
+
+.spellSelect {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--app-border, #1e2d50);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  background: #0d1322;
+  color: var(--app-ink-0, #e8eaf6);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.spellSelect:focus {
+  border-color: var(--app-accent, #5f84ff);
+  box-shadow: 0 0 0 3px rgba(95, 132, 255, 0.18);
+}
+
+.spellSelect option {
+  background: #0d1322;
+  color: var(--app-ink-0, #e8eaf6);
+}
+
+.confirmedBadge {
+  margin-top: 12px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: rgba(95, 132, 255, 0.12);
+  border: 1px solid rgba(95, 132, 255, 0.35);
+  color: var(--app-accent, #5f84ff);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.loadingMsg {
+  padding: 16px 0;
+  color: var(--app-ink-1, #9aa8c8);
+  font-size: 0.875rem;
+}

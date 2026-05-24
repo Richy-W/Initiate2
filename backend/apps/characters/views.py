@@ -8,10 +8,13 @@ from django.http import HttpResponse
 from django.utils.text import slugify
 from drf_spectacular.utils import extend_schema
 
-from .models import Character, CharacterSpell
-from .serializers import CharacterSerializer, CharacterDetailSerializer, CharacterCreateSerializer, CharacterSpellSerializer
+from .models import Character, CharacterSpell, SpellSlotState
+from .serializers import CharacterSerializer, CharacterDetailSerializer, CharacterCreateSerializer, CharacterSpellSerializer, SpellSlotStateSerializer
 from .pdf_export import render_character_sheet_pdf
 from apps.content.models import Species, CharacterClass, Background
+
+# Classes whose spell slots restore on a short rest (Warlock pact magic, etc.)
+PACT_MAGIC_SPELLCASTING_TYPES = frozenset({'pact'})
 
 
 @extend_schema(tags=['characters'])
@@ -93,11 +96,37 @@ class CharacterViewSet(viewsets.ModelViewSet):
                 status=status.HTTP_400_BAD_REQUEST
             )
         
-        # Simple level up - in a full implementation, this would handle class features, HP, etc.
         character.level += 1
         
-        # Recalculate hit points (simplified)
-        character.max_hit_points = character.hit_point_maximum
+        # Base HP from class progression (average die + CON per level)
+        base_hp = character.hit_point_maximum
+
+        # Tough feat: 5e 2024 = +2 HP per level
+        has_tough = any(
+            isinstance(f, dict) and (f.get('name') or '').lower() == 'tough'
+            for f in (character.features or [])
+        )
+        tough_bonus = character.level * 2 if has_tough else 0
+
+        # Dwarven Toughness (or any scalesWithLevel species HP trait): +1 HP per level
+        species_hp_bonus = 0
+        try:
+            from pathlib import Path as _LPath
+            import json as _ljson
+            species_slug = str(character.species.name or '').strip().lower().replace(' ', '-').replace("'", '')
+            species_json_path = _LPath(__file__).resolve().parents[3] / 'api' / 'content' / 'species' / f'{species_slug}.json'
+            if species_json_path.exists():
+                with species_json_path.open('r', encoding='utf-8') as _lfp:
+                    species_data = _ljson.load(_lfp)
+                for trait in species_data.get('traits', []):
+                    if isinstance(trait, dict) and trait.get('scalesWithLevel'):
+                        trait_name = (trait.get('name') or '').lower()
+                        if 'toughness' in trait_name or 'hit point' in trait_name:
+                            species_hp_bonus = character.level
+        except Exception:
+            pass
+
+        character.max_hit_points = base_hp + tough_bonus + species_hp_bonus
         character.current_hit_points = character.max_hit_points
         
         character.save()
@@ -110,11 +139,21 @@ class CharacterViewSet(viewsets.ModelViewSet):
         """Take a rest (short or long)."""
         character = self.get_object()
         rest_type = request.data.get('type', 'short')
-        
+
+        # Pact magic classes restore slots on short rest too
+        spellcasting = character.character_class.spellcasting or {}
+        is_pact_caster = spellcasting.get('type') in PACT_MAGIC_SPELLCASTING_TYPES
+
+        slots_restored = []
+
         if rest_type == 'long':
             # Long rest - restore all HP
             character.current_hit_points = character.max_hit_points
             character.temporary_hit_points = 0
+            # Restore all spell slots
+            used_slots = SpellSlotState.objects.filter(character=character, used__gt=0)
+            slots_restored = list(used_slots.values_list('slot_level', flat=True))
+            used_slots.update(used=0)
         elif rest_type == 'short':
             # Short rest - restore some HP based on hit dice (simplified)
             hit_dice = character.character_class.hit_die
@@ -124,6 +163,11 @@ class CharacterViewSet(viewsets.ModelViewSet):
                 character.max_hit_points,
                 character.current_hit_points + healing
             )
+            # Pact casters restore spell slots on short rest
+            if is_pact_caster:
+                used_slots = SpellSlotState.objects.filter(character=character, used__gt=0)
+                slots_restored = list(used_slots.values_list('slot_level', flat=True))
+                used_slots.update(used=0)
         else:
             return Response(
                 {'error': 'Invalid rest type. Use "short" or "long"'}, 
@@ -136,9 +180,66 @@ class CharacterViewSet(viewsets.ModelViewSet):
             'message': f'{rest_type.title()} rest completed',
             'current_hp': character.current_hit_points,
             'max_hp': character.max_hit_points,
-            'temp_hp': character.temporary_hit_points
+            'temp_hp': character.temporary_hit_points,
+            'slots_restored': slots_restored,
         })
     
+    @action(detail=True, methods=['post'])
+    def init_slots(self, request, pk=None):
+        """Create or sync spell slot records from the class spellSlots table."""
+        character = self.get_object()
+        spellcasting = character.character_class.spellcasting or {}
+        spell_slots_table = spellcasting.get('spellSlots', {})
+
+        if not spell_slots_table:
+            return Response(
+                {'error': 'This class has no spell slot data.'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        level_key = str(character.level)
+        slots_for_level = spell_slots_table.get(level_key, {})
+
+        if not slots_for_level:
+            return Response(
+                {'error': f'No spell slots defined for level {character.level}.'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # Build the desired slot map {slot_level (int): total (int)}
+        desired = {int(k): int(v) for k, v in slots_for_level.items()}
+
+        # Remove slot records for levels no longer present at this character level
+        SpellSlotState.objects.filter(character=character).exclude(
+            slot_level__in=desired.keys()
+        ).delete()
+
+        created_count = 0
+        updated_count = 0
+        for slot_level, total in desired.items():
+            obj, created = SpellSlotState.objects.get_or_create(
+                character=character,
+                slot_level=slot_level,
+                defaults={'total': total, 'used': 0},
+            )
+            if created:
+                created_count += 1
+            elif obj.total != total:
+                # Update total if the table changed (e.g. after level-up)
+                obj.total = total
+                # Clamp used if total decreased
+                if obj.used > total:
+                    obj.used = total
+                obj.save(update_fields=['total', 'used'])
+                updated_count += 1
+
+        slots = SpellSlotState.objects.filter(character=character).order_by('slot_level')
+        return Response({
+            'created': created_count,
+            'updated': updated_count,
+            'slots': SpellSlotStateSerializer(slots, many=True).data,
+        })
+
     @action(detail=True, methods=['post'])
     def take_damage(self, request, pk=None):
         """Apply damage to a character."""
@@ -408,6 +509,44 @@ class CharacterViewSet(viewsets.ModelViewSet):
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
     
+    @action(detail=True, methods=['post'])
+    def attune_item(self, request, pk=None):
+        """Attune to a magic item (max 3 attuned items)."""
+        character = self.get_object()
+        item_name = request.data.get('item_name', '').strip()
+
+        if not item_name:
+            return Response({'error': 'item_name is required'}, status=status.HTTP_400_BAD_REQUEST)
+
+        attuned = list(character.attuned_items or [])
+        if item_name in attuned:
+            return Response({'success': True, 'attuned_items': attuned})
+        if len(attuned) >= 3:
+            return Response({'error': 'Cannot attune to more than 3 items'}, status=status.HTTP_400_BAD_REQUEST)
+
+        attuned.append(item_name)
+        character.attuned_items = attuned
+        character.save(update_fields=['attuned_items'])
+        character.refresh_from_db()
+        serializer = CharacterDetailSerializer(character)
+        return Response({'success': True, 'character': serializer.data})
+
+    @action(detail=True, methods=['post'])
+    def unattune_item(self, request, pk=None):
+        """End attunement to an item."""
+        character = self.get_object()
+        item_name = request.data.get('item_name', '').strip()
+
+        if not item_name:
+            return Response({'error': 'item_name is required'}, status=status.HTTP_400_BAD_REQUEST)
+
+        attuned = [i for i in (character.attuned_items or []) if i != item_name]
+        character.attuned_items = attuned
+        character.save(update_fields=['attuned_items'])
+        character.refresh_from_db()
+        serializer = CharacterDetailSerializer(character)
+        return Response({'success': True, 'character': serializer.data})
+
     @action(detail=True, methods=['get'])
     def equipped_items(self, request, pk=None):
         """Get detailed information about equipped items."""
@@ -668,3 +807,27 @@ class CharacterSpellViewSet(viewsets.ModelViewSet):
         if character.user != self.request.user:
             raise serializers.ValidationError("You can only add spells to your own characters")
         serializer.save()
+
+
+class SpellSlotStateViewSet(viewsets.ModelViewSet):
+    """API endpoints for tracking used spell slots."""
+
+    serializer_class = SpellSlotStateSerializer
+    permission_classes = [IsAuthenticated]
+    http_method_names = ['get', 'post', 'patch', 'delete', 'head', 'options']
+
+    def get_queryset(self):
+        qs = SpellSlotState.objects.filter(character__user=self.request.user)
+        character_id = self.request.query_params.get('character')
+        if character_id:
+            qs = qs.filter(character_id=character_id)
+        return qs.order_by('slot_level')
+
+    def perform_create(self, serializer):
+        character = serializer.validated_data['character']
+        if character.user != self.request.user:
+            raise serializers.ValidationError(
+                "You can only manage spell slots for your own characters."
+            )
+        serializer.save()
+

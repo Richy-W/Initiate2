@@ -1,0 +1,44 @@
+{
+  "version": "2024",
+  "source": "SRD 2024",
+  "spells": [
+    {
+      "name": "Nondetection",
+      "level": 3,
+      "school": "Abjuration",
+      "casting_time": "Action",
+      "range": "Touch",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a pinch of diamond dust worth 25+ GP, which the spell consumes"
+      },
+      "duration": "8 hours",
+      "concentration": false,
+      "ritual": false,
+      "description": "For the duration, you hide a target that you touch from Divination spells. The target can be a willing creature, or it can be a place or an object no larger than 10 feet in any dimension. The target can't be targeted by any Divination spell or perceived through magical scrying sensors.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Bard", "Ranger", "Wizard"]
+    },
+    {
+      "name": "Nystul's Magic Aura",
+      "level": 2,
+      "school": "Illusion",
+      "casting_time": "Action",
+      "range": "Touch",
+      "components": {
+        "verbal": true,
+        "somatic": true,
+        "material": "a small square of silk"
+      },
+      "duration": "24 hours",
+      "concentration": false,
+      "ritual": false,
+      "description": "With a touch, you place an illusion on a willing creature or an object that isn't being worn or carried. A creature gains the Mask effect below, and an object gains the False Aura effect below. The effect lasts for the duration. If you cast the spell on the same target every day for 30 days, the illusion lasts until dispelled.\n\nMask (Creature). Choose a creature type other than the target's actual type. Spells and other magical effects treat the target as if it were a creature of the chosen type.\n\nFalse Aura (Object). You change the way the target appears to spells and magical effects that detect magical auras, such as Detect Magic. You can make a nonmagical object appear magical, make a magic item appear nonmagical, or change the object's aura so that it appears to belong to a school of magic you choose.",
+      "higher_levels": null,
+      "damage": null,
+      "classes": ["Wizard"]
+    }
+  ]
+}

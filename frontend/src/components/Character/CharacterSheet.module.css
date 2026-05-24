@@ -767,8 +767,9 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  max-height: 180px;
+  max-height: 340px;
   overflow-y: auto;
+  padding-right: 2px;
 }
 
 .character-sheet .traits-list li {
@@ -1118,5 +1119,579 @@
 
   .character-sheet .skill-info {
     align-items: center;
+  }
+}
+
+/* ── Spell attack rows (Combat tab) ──────────────────────────────────────── */
+
+.character-sheet .spell-attacks-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.character-sheet .spell-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 130px 140px;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: 120ms ease;
+  overflow: visible;
+}
+
+.character-sheet .spell-row:hover {
+  border-color: #5f84ff;
+  box-shadow: 0 4px 16px rgba(95, 132, 255, 0.18);
+}
+
+/* Spell name cell with hover/tap tooltip */
+.character-sheet .spell-name-cell {
+  position: relative;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink-0);
+  border-bottom: 1px dotted #4a6a9a;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.character-sheet .spell-tooltip-combat {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 6px);
+  z-index: 300;
+  width: 300px;
+  background: #0b1220;
+  border: 1px solid #2a3d66;
+  border-radius: 8px;
+  padding: 10px 14px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.65);
+  pointer-events: none;
+  text-align: left;
+  white-space: normal;
+  line-height: 1.5;
+  flex-direction: column;
+  gap: 4px;
+}
+
+@media (hover: hover) {
+  .character-sheet .spell-name-cell:hover .spell-tooltip-combat {
+    display: flex;
+  }
+}
+
+.character-sheet .spell-name-cell-active .spell-tooltip-combat {
+  display: flex;
+}
+
+.character-sheet .sptName {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #e8eeff;
+  margin-bottom: 2px;
+}
+
+.character-sheet .sptMeta {
+  font-size: 0.7rem;
+  color: #7d9de8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.character-sheet .sptRow {
+  font-size: 0.75rem;
+  color: #c8d4f0;
+}
+
+.character-sheet .sptLabel {
+  font-weight: 700;
+  color: #93a8df;
+}
+
+.character-sheet .sptDesc {
+  font-size: 0.75rem;
+  color: #a8b8d8;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #1e2e50;
+  line-height: 1.55;
+}
+
+.character-sheet .sptHigher {
+  font-size: 0.73rem;
+  color: #8a9ec8;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+/* Attack roll chip — clickable for attack spells */
+.character-sheet .spell-atk-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 30px;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), #4a74ff);
+  transition: 130ms ease;
+}
+
+.character-sheet .spell-atk-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(95, 132, 255, 0.4);
+}
+
+.character-sheet .spell-atk-btn.advantage {
+  background: linear-gradient(135deg, var(--good), #20a86f);
+}
+
+.character-sheet .spell-atk-btn.disadvantage {
+  background: linear-gradient(135deg, var(--bad), #dc4060);
+}
+
+/* Save DC badge — display only, not a button */
+.character-sheet .spell-dc-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 30px;
+  border-radius: 6px;
+  border: 1px solid #8a6edf;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #c0a8ff;
+  background: rgba(138, 110, 223, 0.12);
+  white-space: nowrap;
+}
+
+/* Damage roll chip */
+.character-sheet .spell-dmg-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  height: 30px;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, #c05030, #e06840);
+  transition: 130ms ease;
+}
+
+.character-sheet .spell-dmg-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(220, 100, 60, 0.4);
+}
+
+.character-sheet .spell-dmg-type {
+  font-size: 0.68rem;
+  font-weight: 400;
+  opacity: 0.85;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 64px;
+  display: inline-block;
+}
+
+/* Results log extras */
+.character-sheet .slot-used-tag {
+  font-size: 0.72rem;
+  color: #c0a8ff;
+  font-style: italic;
+}
+
+.character-sheet .spell-no-slot {
+  font-size: 0.72rem;
+  color: #f87171;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+/* ─── Equipment / Inventory Panel ─────────────────────────────────────── */
+.character-sheet .inventory-section {
+  margin-top: 8px;
+}
+
+.character-sheet .inventory-section-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted, #8a9ec8);
+  margin-bottom: 4px;
+}
+
+.character-sheet .inventory-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  min-height: 30px;
+  flex-wrap: wrap;
+}
+
+.character-sheet .inventory-slot-label {
+  font-size: 0.7rem;
+  color: var(--muted, #8a9ec8);
+  text-transform: capitalize;
+  min-width: 72px;
+}
+
+.character-sheet .inventory-item-name {
+  flex: 1;
+  font-size: 0.82rem;
+  color: var(--text, #e0e6ff);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.character-sheet .equipped-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #6ee7b7;
+  background: rgba(52, 211, 153, 0.12);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  border-radius: 4px;
+  padding: 1px 6px;
+  white-space: nowrap;
+}
+
+.character-sheet .equip-btn,
+.character-sheet .unequip-btn {
+  font-size: 0.72rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  padding: 3px 10px;
+  cursor: pointer;
+  transition: 120ms ease;
+  white-space: nowrap;
+}
+
+.character-sheet .equip-btn {
+  background: linear-gradient(135deg, var(--accent, #5f84ff), #4a74ff);
+  color: #fff;
+}
+
+.character-sheet .equip-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(95, 132, 255, 0.4);
+}
+
+.character-sheet .unequip-btn {
+  background: rgba(220, 80, 60, 0.18);
+  color: #f87171;
+  border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+.character-sheet .unequip-btn:hover:not(:disabled) {
+  background: rgba(220, 80, 60, 0.3);
+}
+
+.character-sheet .equip-btn:disabled,
+.character-sheet .unequip-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Equipment pane inline row styles */
+.character-sheet .inv-equipped-list,
+.character-sheet .inv-items-list {
+  margin-bottom: 12px;
+}
+
+.character-sheet .inv-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  min-height: 32px;
+  flex-wrap: wrap;
+}
+
+.character-sheet .inv-slot-label {
+  font-size: 0.7rem;
+  color: var(--muted, #8a9ec8);
+  text-transform: capitalize;
+  min-width: 72px;
+}
+
+.character-sheet .inv-item-name {
+  flex: 1;
+  font-size: 0.82rem;
+  color: var(--text, #e0e6ff);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.character-sheet .inv-item-name.equipped {
+  color: #a0c4ff;
+  font-weight: 600;
+}
+
+.character-sheet .inv-equipped-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #6ee7b7;
+  background: rgba(52, 211, 153, 0.12);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  border-radius: 4px;
+  padding: 1px 6px;
+  white-space: nowrap;
+}
+
+.character-sheet .inv-magic-badge {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #d4a4ff;
+  background: rgba(180, 80, 255, 0.12);
+  border: 1px solid rgba(180, 80, 255, 0.3);
+  border-radius: 4px;
+  padding: 1px 5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Checkbox-style equip toggle */
+.character-sheet .inv-equip-check {
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  border: 2px solid #4c5f94;
+  background: transparent;
+  color: #e0e6ff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: 120ms ease;
+}
+
+.character-sheet .inv-equip-check.checked {
+  border-color: var(--accent, #5f84ff);
+  background: rgba(95, 132, 255, 0.2);
+  color: var(--accent, #5f84ff);
+}
+
+.character-sheet .inv-equip-check:hover:not(:disabled) {
+  border-color: var(--accent, #5f84ff);
+  transform: scale(1.1);
+}
+
+.character-sheet .inv-equip-check:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Attunement star button */
+.character-sheet .inv-attune-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  border: 1px solid rgba(180, 80, 255, 0.3);
+  background: transparent;
+  color: #9a6ec8;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: 120ms ease;
+}
+
+.character-sheet .inv-attune-btn.attuned {
+  color: #d4a4ff;
+  background: rgba(180, 80, 255, 0.15);
+  border-color: rgba(180, 80, 255, 0.5);
+}
+
+.character-sheet .inv-attune-btn:hover:not(:disabled) {
+  transform: scale(1.15);
+  border-color: #b46aff;
+}
+
+.character-sheet .inv-attune-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Attunement slots */
+.character-sheet .attunement-slots {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.character-sheet .attunement-slot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 7px;
+  border: 1px solid #2a3556;
+  background: rgba(0,0,0,0.2);
+  min-height: 34px;
+}
+
+.character-sheet .attunement-slot.attuned {
+  border-color: rgba(180, 80, 255, 0.4);
+  background: rgba(180, 80, 255, 0.07);
+}
+
+.character-sheet .attunement-index {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--muted, #8a9ec8);
+  min-width: 14px;
+  text-align: center;
+}
+
+.character-sheet .attunement-name {
+  flex: 1;
+  font-size: 0.82rem;
+  color: #d4a4ff;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.character-sheet .attunement-empty {
+  flex: 1;
+  font-size: 0.78rem;
+  color: #4c5f94;
+  font-style: italic;
+}
+
+.character-sheet .attunement-clear-btn {
+  background: transparent;
+  border: none;
+  color: #f87171;
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 2px 5px;
+  border-radius: 4px;
+  opacity: 0.7;
+  transition: 100ms ease;
+  flex-shrink: 0;
+}
+
+.character-sheet .attunement-clear-btn:hover:not(:disabled) {
+  opacity: 1;
+  background: rgba(248, 113, 113, 0.15);
+}
+
+.character-sheet .attunement-clear-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Item search dropdown */
+.character-sheet .item-search-wrap {
+  position: relative;
+}
+
+.character-sheet .item-search-dropdown {
+  position: absolute;
+  top: calc(100% + 3px);
+  left: 0;
+  right: 0;
+  background: #111827;
+  border: 1px solid #3a4d7a;
+  border-radius: 8px;
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 100;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+.character-sheet .item-search-loading {
+  padding: 8px 12px;
+  font-size: 0.78rem;
+  color: var(--muted, #8a9ec8);
+}
+
+.character-sheet .item-search-result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 7px 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  transition: 80ms;
+}
+
+.character-sheet .item-search-result:hover {
+  background: rgba(95, 132, 255, 0.12);
+}
+
+.character-sheet .isr-name {
+  font-size: 0.82rem;
+  color: #e0e6ff;
+}
+
+.character-sheet .isr-meta {
+  font-size: 0.7rem;
+  color: var(--muted, #8a9ec8);
+  text-transform: capitalize;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+@media (max-width: 768px) {
+  .character-sheet .spell-row {
+    grid-template-columns: minmax(0, 1fr) 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .character-sheet .spell-name-cell {
+    grid-column: 1 / -1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .character-sheet .spell-tooltip-combat {
+    width: 260px;
+    left: 0;
+    right: auto;
   }
 }
