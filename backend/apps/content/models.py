@@ -333,6 +333,28 @@ class Equipment(BaseContentModel):
     tool_type = models.CharField(max_length=50, blank=True)
 
 
+class WeaponProperty(models.Model):
+    """Definitions for weapon properties and mastery properties."""
+
+    PROPERTY_TYPE_CHOICES = [
+        ('weapon', 'Weapon Property'),
+        ('mastery', 'Mastery Property'),
+    ]
+
+    name = models.CharField(max_length=100, unique=True, db_index=True)
+    property_type = models.CharField(max_length=10, choices=PROPERTY_TYPE_CHOICES, default='weapon')
+    description = models.TextField()
+    source = models.CharField(max_length=100, default="Player's Handbook 2024")
+
+    class Meta:
+        ordering = ['property_type', 'name']
+        verbose_name = 'Weapon Property'
+        verbose_name_plural = 'Weapon Properties'
+
+    def __str__(self):
+        return f"{self.name} ({self.get_property_type_display()})"
+
+
 class Feat(BaseContentModel):
     """D&D feats."""
     

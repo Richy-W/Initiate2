@@ -13,7 +13,8 @@ export interface CharacterSpell {
   character_name: string;
   spell: string;
   spell_name: string;
-  spell_level: number;       // from spell.level (read-only)
+  spell_level: number;       // cast level (the level at which the spell was added/cast — writable)
+  spell_base_level: number;  // canonical spell level from spell.level (read-only)
   spell_school: string;      // from spell.school (read-only)
   is_prepared: boolean;
   is_always_prepared: boolean;

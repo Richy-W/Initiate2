@@ -123,3 +123,85 @@
   padding: 24px 0;
   text-align: center;
 }
+
+/* ── Spell name tooltip ─────────────────────────────────────────────── */
+
+.spellNameCell {
+  position: relative;
+  cursor: pointer;
+  border-bottom: 1px dotted #4a6a9a;
+  white-space: nowrap;
+}
+
+.spellTooltip {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 4px);
+  z-index: 200;
+  width: 300px;
+  background: #0b1220;
+  border: 1px solid #2a3d66;
+  border-radius: 8px;
+  padding: 10px 14px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  text-align: left;
+  white-space: normal;
+  line-height: 1.5;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Desktop: reveal on hover when the device has a real pointer */
+@media (hover: hover) {
+  .spellNameCell:hover .spellTooltip {
+    display: flex;
+  }
+}
+
+/* Mobile / touch: reveal when the React active class is applied */
+.spellNameCellActive .spellTooltip {
+  display: flex;
+}
+
+.tooltipName {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #e8eeff;
+  margin-bottom: 2px;
+}
+
+.tooltipMeta {
+  font-size: 0.7rem;
+  color: #7d9de8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.tooltipRow {
+  font-size: 0.75rem;
+  color: #c8d4f0;
+}
+
+.tooltipLabel {
+  font-weight: 700;
+  color: #93a8df;
+}
+
+.tooltipDesc {
+  font-size: 0.75rem;
+  color: #a8b8d8;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #1e2e50;
+  line-height: 1.55;
+}
+
+.tooltipHigher {
+  font-size: 0.73rem;
+  color: #8a9ec8;
+  margin-top: 6px;
+  font-style: italic;
+}

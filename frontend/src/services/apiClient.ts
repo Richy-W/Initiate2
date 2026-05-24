@@ -188,6 +188,22 @@ export const api = {
       const response = await apiClient.post(`/characters/${id}/rest/`, { type });
       return response.data;
     },
+    equipItem: async (id: string | number, payload: { equipment_id: string | number; slot?: string }) => {
+      const response = await apiClient.post(`/characters/${id}/equip_item/`, payload);
+      return response.data;
+    },
+    unequipItem: async (id: string | number, slot: string) => {
+      const response = await apiClient.post(`/characters/${id}/unequip_item/`, { slot });
+      return response.data;
+    },
+    attuneItem: async (id: string | number, itemName: string) => {
+      const response = await apiClient.post(`/characters/${id}/attune_item/`, { item_name: itemName });
+      return response.data;
+    },
+    unattuneItem: async (id: string | number, itemName: string) => {
+      const response = await apiClient.post(`/characters/${id}/unattune_item/`, { item_name: itemName });
+      return response.data;
+    },
   },
 
   // Character spell endpoints

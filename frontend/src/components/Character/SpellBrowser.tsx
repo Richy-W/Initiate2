@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { Character } from '../../types';
 import { contentAPI, characterSpellsAPI } from '../../services/apiClient';
 import styles from './SpellBrowser.module.css';
@@ -32,8 +32,9 @@ const SpellBrowser: React.FC<Props> = ({ character, onSpellAdded, onSpellRemoved
   const [error, setError] = useState<string | null>(null);
 
   const className = (character as any).class_detail?.name ?? '';
-  const existingSpellIds = new Set(
-    (character.character_spells ?? []).map(cs => String(cs.spell))
+  const existingSpellIds = useMemo(
+    () => new Set((character.character_spells ?? []).map(cs => String(cs.spell))),
+    [character.character_spells],
   );
 
   // Determine the highest spell level the character can currently access
@@ -58,7 +59,9 @@ const SpellBrowser: React.FC<Props> = ({ character, onSpellAdded, onSpellRemoved
       if (schoolFilter) params.school = schoolFilter;
       const data = await contentAPI.spells.list(params);
       setSpells(data.results ?? data);
-    } catch {
+    } catch (err: any) {
+      const msg = err?.response?.data?.detail ?? 'Failed to load spells.';
+      setError(msg);
       setSpells([]);
     } finally {
       setLoading(false);

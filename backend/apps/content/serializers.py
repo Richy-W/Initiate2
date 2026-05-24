@@ -3,7 +3,7 @@ from pathlib import Path
 
 from rest_framework import serializers
 from .models import (
-    Species, CharacterClass, Background, Spell, Equipment,
+    Species, CharacterClass, Background, Spell, Equipment, WeaponProperty,
     ClassFeature, Skill, Condition, DamageType,
     HomebrewContent, ContentSharingPermission
 )
@@ -247,6 +247,14 @@ class EquipmentSerializer(serializers.ModelSerializer):
             'armor_class', 'dex_bonus_max', 'strength_requirement', 'stealth_disadvantage',
             'damage', 'properties', 'tool_type'
         ]
+
+class WeaponPropertySerializer(serializers.ModelSerializer):
+    """Serializer for weapon and mastery property definitions."""
+
+    class Meta:
+        model = WeaponProperty
+        fields = ['id', 'name', 'property_type', 'description', 'source']
+
 
 class HomebrewContentSerializer(serializers.ModelSerializer):
     creator_username = serializers.CharField(source='creator.username', read_only=True)

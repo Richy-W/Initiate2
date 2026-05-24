@@ -28,6 +28,7 @@ interface Props {
 const SpellsTab: React.FC<Props> = ({ character, onRefresh }) => {
   const [showBrowser, setShowBrowser] = useState(false);
   const [initError, setInitError] = useState<string | null>(null);
+  const [activeTooltipId, setActiveTooltipId] = useState<string | null>(null);
   const classJson = (character as any).class_detail ?? character.character_class;
   const profile = computeSpellcastingProfile(character, classJson);
   const isPactCaster = profile.spellcastingType === 'pact';
@@ -49,12 +50,15 @@ const SpellsTab: React.FC<Props> = ({ character, onRefresh }) => {
         });
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // isSpellcasterWithSlots and slotStates.length are intentionally omitted:
+  // we only want this to fire when the character id or level changes, not on
+  // every render cycle after the first successful init.
   }, [character.id, character.level]);
 
-  // Group spells by base spell level
+  // Group spells by their canonical (base) level, not the cast level
   const grouped: Record<number, CharacterSpell[]> = {};
   for (const cs of characterSpells) {
-    const level = cs.spell_level ?? 0;
+    const level = cs.spell_base_level ?? cs.spell_level ?? 0;
     if (!grouped[level]) grouped[level] = [];
     grouped[level].push(cs);
   }
@@ -64,16 +68,24 @@ const SpellsTab: React.FC<Props> = ({ character, onRefresh }) => {
 
   const handleToggleSlot = useCallback(
     async (slot: SpellSlotState, newUsed: number) => {
-      await spellSlotsAPI.update(slot.id, { used: newUsed });
-      onRefresh?.();
+      try {
+        await spellSlotsAPI.update(slot.id, { used: newUsed });
+        onRefresh?.();
+      } catch (err: any) {
+        console.warn('Failed to update spell slot:', err?.response?.data ?? err);
+      }
     },
     [onRefresh],
   );
 
   const handleTogglePrepared = useCallback(
     async (cs: CharacterSpell) => {
-      await characterSpellsAPI.update(cs.id, { is_prepared: !cs.is_prepared });
-      onRefresh?.();
+      try {
+        await characterSpellsAPI.update(cs.id, { is_prepared: !cs.is_prepared });
+        onRefresh?.();
+      } catch (err: any) {
+        console.warn('Failed to toggle spell prepared:', err?.response?.data ?? err);
+      }
     },
     [onRefresh],
   );
@@ -87,8 +99,8 @@ const SpellsTab: React.FC<Props> = ({ character, onRefresh }) => {
   }, [onRefresh]);
 
   const showPreparedCount =
-    ['full', 'half'].includes(profile.spellcastingType) && profile.spellcastingType !== 'none';
-  const preparedSpells = characterSpells.filter(cs => cs.is_prepared && cs.spell_level > 0);
+    ['full', 'half', 'third'].includes(profile.spellcastingType);
+  const preparedSpells = characterSpells.filter(cs => cs.is_prepared && cs.spell_base_level > 0);
 
   return (
     <div className={styles.container}>
@@ -148,9 +160,54 @@ const SpellsTab: React.FC<Props> = ({ character, onRefresh }) => {
               <tbody>
                 {grouped[level].map(cs => {
                   const spellData = (cs as any).spell_data ?? {};
+                  const compObj = spellData.components ?? {};
+                  const compParts = [
+                    compObj.verbal && 'V',
+                    compObj.somatic && 'S',
+                    compObj.material && 'M',
+                  ].filter(Boolean).join(', ');
                   return (
                     <tr key={cs.id}>
-                      <td>{cs.spell_name}</td>
+                      <td>
+                        <span
+                          className={`${styles.spellNameCell}${activeTooltipId === cs.id ? ` ${styles.spellNameCellActive}` : ''}`}
+                          onClick={() => setActiveTooltipId(id => id === cs.id ? null : cs.id)}
+                        >
+                          {cs.spell_name}
+                          <span className={styles.spellTooltip}>
+                            <span className={styles.tooltipName}>{cs.spell_name}</span>
+                            <span className={styles.tooltipMeta}>
+                              {spellData.level === 0 ? 'Cantrip' : `Level ${spellData.level}`}
+                              {spellData.school ? ` · ${spellData.school}` : ''}
+                              {spellData.ritual ? ' · Ritual' : ''}
+                            </span>
+                            <span className={styles.tooltipRow}>
+                              <span className={styles.tooltipLabel}>Cast:</span> {spellData.casting_time ?? '—'}
+                            </span>
+                            <span className={styles.tooltipRow}>
+                              <span className={styles.tooltipLabel}>Range:</span> {spellData.range ?? '—'}
+                            </span>
+                            <span className={styles.tooltipRow}>
+                              <span className={styles.tooltipLabel}>Duration:</span> {spellData.duration ?? '—'}
+                              {spellData.concentration ? ' (Concentration)' : ''}
+                            </span>
+                            {compParts && (
+                              <span className={styles.tooltipRow}>
+                                <span className={styles.tooltipLabel}>Components:</span> {compParts}
+                                {compObj.materials_needed ? ` (${compObj.materials_needed})` : ''}
+                              </span>
+                            )}
+                            {spellData.description && (
+                              <span className={styles.tooltipDesc}>{spellData.description}</span>
+                            )}
+                            {spellData.higher_levels && (
+                              <span className={styles.tooltipHigher}>
+                                <span className={styles.tooltipLabel}>At Higher Levels:</span> {spellData.higher_levels}
+                              </span>
+                            )}
+                          </span>
+                        </span>
+                      </td>
                       <td>{spellData.casting_time ?? '—'}</td>
                       <td>{spellData.range ?? '—'}</td>
                       <td>

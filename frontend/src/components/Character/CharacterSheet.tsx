@@ -1,6 +1,6 @@
 ﻿import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { characterAPI } from '../../services/apiClient';
+import { characterAPI, api, contentAPI } from '../../services/apiClient';
 import { SkillRolls } from './SkillRolls';
 import { AttackRolls } from './AttackRolls';
 import { SavingThrows } from './SavingThrows';
@@ -73,6 +73,11 @@ interface Character {
   equipment?: any[] | Record<string, any> | string | null;
   currency?: Record<string, number>;
   notes?: string;
+  character_spells?: any[];
+  spell_slot_states?: any[];
+  /** Slot → { equipment: { id, name, equipment_type, ... }, slot, id } */
+  equipped_items_details?: Record<string, { equipment: any; slot: string; id: string }>;
+  attuned_items?: string[];
 }
 
 type InfoTab = 'features' | 'proficiencies';
@@ -124,6 +129,24 @@ export const CharacterSheet: React.FC = () => {
   const [hpAdjustment, setHpAdjustment] = useState(0);
   const [tempHpDraft, setTempHpDraft] = useState(0);
   const [hpActionError, setHpActionError] = useState<string | null>(null);
+  const [dbEquipmentMap, setDbEquipmentMap] = useState<Map<string, any>>(new Map());
+  const [equippingSlot, setEquippingSlot] = useState<string | null>(null);
+  const [itemSearchQuery, setItemSearchQuery] = useState('');
+  const [itemSearchResults, setItemSearchResults] = useState<any[]>([]);
+  const [itemSearchLoading, setItemSearchLoading] = useState(false);
+  const [showSearchDropdown, setShowSearchDropdown] = useState(false);
+  const [attuningItem, setAttuningItem] = useState<string | null>(null);
+
+  useEffect(() => {
+    contentAPI.equipment.list({ limit: 500 })
+      .then((data: any) => {
+        const items: any[] = Array.isArray(data) ? data : (data?.results ?? []);
+        const map = new Map<string, any>();
+        items.forEach((eq: any) => map.set((eq.name as string).toLowerCase(), eq));
+        setDbEquipmentMap(map);
+      })
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     const checkIfMobile = () => {
@@ -262,6 +285,75 @@ export const CharacterSheet: React.FC = () => {
       setInventoryActionError(err?.response?.data?.error || 'Could not add item.');
     }
   }, [character?.id, newItemName, newItemQty]);
+
+  const handleEquipItem = useCallback(async (itemName: string) => {
+    if (!character?.id) return;
+    const dbRecord = dbEquipmentMap.get(itemName.toLowerCase());
+    if (!dbRecord?.id) return;
+    setEquippingSlot(itemName);
+    try {
+      await api.characters.equipItem(character.id, { equipment_id: dbRecord.id });
+      const fresh = await characterAPI.get(character.id);
+      setCharacter(fresh);
+    } finally {
+      setEquippingSlot(null);
+    }
+  }, [character?.id, dbEquipmentMap]);
+
+  const handleUnequipItem = useCallback(async (slot: string) => {
+    if (!character?.id) return;
+    setEquippingSlot(slot);
+    try {
+      await api.characters.unequipItem(character.id, slot);
+      const fresh = await characterAPI.get(character.id);
+      setCharacter(fresh);
+    } finally {
+      setEquippingSlot(null);
+    }
+  }, [character?.id]);
+
+  const handleAttuneItem = useCallback(async (itemName: string) => {
+    if (!character?.id) return;
+    setAttuningItem(itemName);
+    try {
+      await api.characters.attuneItem(character.id, itemName);
+      const fresh = await characterAPI.get(character.id);
+      setCharacter(fresh);
+    } finally {
+      setAttuningItem(null);
+    }
+  }, [character?.id]);
+
+  const handleUnattuneItem = useCallback(async (itemName: string) => {
+    if (!character?.id) return;
+    setAttuningItem(itemName);
+    try {
+      await api.characters.unattuneItem(character.id, itemName);
+      const fresh = await characterAPI.get(character.id);
+      setCharacter(fresh);
+    } finally {
+      setAttuningItem(null);
+    }
+  }, [character?.id]);
+
+  // Debounced item search
+  useEffect(() => {
+    if (!itemSearchQuery.trim()) {
+      setItemSearchResults([]);
+      return;
+    }
+    const t = setTimeout(async () => {
+      setItemSearchLoading(true);
+      try {
+        const data = await contentAPI.equipment.list({ search: itemSearchQuery, limit: 15 });
+        const results: any[] = Array.isArray(data) ? data : (data?.results ?? []);
+        setItemSearchResults(results);
+        setShowSearchDropdown(true);
+      } catch { setItemSearchResults([]); }
+      finally { setItemSearchLoading(false); }
+    }, 300);
+    return () => clearTimeout(t);
+  }, [itemSearchQuery]);
 
   const applyDamage = useCallback(async () => {
     if (!character?.id) return;
@@ -605,10 +697,9 @@ export const CharacterSheet: React.FC = () => {
       return name.trim().toLowerCase() === 'tough';
     });
     if (!hasTough) return storedMax;
-    // Tough gives level+1 bonus. If storedMax already includes it (future chars), don't double-add.
-    const toughBonus = level + 1;
-    // Heuristic: if storedMax equals the raw base (no tough baked in), add the bonus.
-    // Base HP at level 1 = hitDie + conMod.
+    // 5e 2024: Tough gives +2 HP per level = 2×level total.
+    const toughBonus = level * 2;
+    // Heuristic: if storedMax doesn't already include the bonus, add it.
     const conMod = Math.floor(((character.constitution || 10) - 10) / 2);
     const hitDie = character.class_detail?.hit_die || 8;
     const rawBaseHp = hitDie + conMod;
@@ -617,6 +708,37 @@ export const CharacterSheet: React.FC = () => {
     }
     return storedMax;
   }, [character, normalizeToArray]);
+
+  // Compute effective AC, handling Unarmored Defense for Barbarian (10+DEX+CON)
+  // and Monk (10+DEX+WIS) when the character has no armor equipped.
+  // Uses abilityTotals so species/background bonuses are included.
+  const effectiveAC = useMemo(() => {
+    if (!character) return 0;
+    const storedAC = character.armor_class || 10;
+    const hasArmorEquipped = Object.values((character as any).equipped_items_details ?? {}).some(
+      (slot: any) => slot?.equipment?.equipment_type === 'armor'
+    );
+    if (hasArmorEquipped) return storedAC;
+
+    const className = (
+      (character as any).class_detail?.name ||
+      (character as any).character_class?.name ||
+      ''
+    ).toLowerCase();
+
+    const mod = (score: number) => Math.floor((score - 10) / 2);
+    const dexMod = mod(abilityTotals.dexterity || 10);
+
+    // Barbarians and Monks always have Unarmored Defense — check by class name
+    // (more reliable than scanning character.features, which may not include JSON-sourced features)
+    if (className.includes('barbarian')) {
+      return 10 + dexMod + mod(abilityTotals.constitution || 10);
+    }
+    if (className.includes('monk')) {
+      return 10 + dexMod + mod(abilityTotals.wisdom || 10);
+    }
+    return storedAC;
+  }, [character, abilityTotals, normalizeToArray]);
 
   const passiveSummary = useMemo(() => {
     const skillMeta = [
@@ -751,7 +873,11 @@ export const CharacterSheet: React.FC = () => {
     const fromClassProgression = byLevelEntries
       .filter(([level]) => Number(level) <= character.level)
       .flatMap(([, feats]) => normalizeToArray(feats))
-      .map((feature) => toFeature(feature))
+      .map((feature) => {
+        const f = toFeature(feature);
+        if (!f) return null;
+        return { ...f, source: f.source || 'Class' };
+      })
       .filter(Boolean) as CharacterFeature[];
 
     const fromSpeciesTraits = normalizeToArray(character.species_detail?.traits)
@@ -1122,6 +1248,8 @@ export const CharacterSheet: React.FC = () => {
     skill_expertises: normalizeToArray(character?.skill_expertises),
     skill_expertises_detail: normalizeToArray(character?.skill_expertises_detail),
     saving_throw_proficiencies: savingThrowProficiencies,
+    character_spells: character?.character_spells,
+    spell_slot_states: character?.spell_slot_states,
   };
 
   const headerAbilities = [
@@ -1191,7 +1319,7 @@ export const CharacterSheet: React.FC = () => {
             </div>
             <div className={styles['vital-stat']}>
               <div className={styles['vital-stat-label']}>Armor Class</div>
-              <div className={styles['vital-stat-value']}>{character.armor_class}</div>
+              <div className={styles['vital-stat-value']}>{effectiveAC}</div>
             </div>
             <div className={styles['vital-stat']}>
               <div className={styles['vital-stat-label']}>Initiative</div>
@@ -1282,7 +1410,7 @@ export const CharacterSheet: React.FC = () => {
                 )}
               </div>
               {activeSkillsTab === 'skills' && <SkillRolls character={characterForRollPanels} />}
-              {activeSkillsTab === 'combat' && <AttackRolls character={characterForRollPanels} />}
+              {activeSkillsTab === 'combat' && <AttackRolls character={characterForRollPanels} onRefresh={refreshCharacter} />}
               {activeSkillsTab === 'spells' && isSpellcaster(character as any, (character as any).class_detail) && (
                 <SpellsTab character={character as any} onRefresh={refreshCharacter} />
               )}
@@ -1330,50 +1458,152 @@ export const CharacterSheet: React.FC = () => {
               </div>
               
               <div className={styles['equipment-list']}>
+
+                {/* ── Attunement Slots ─────────────────────────── */}
+                <h4>Attunement</h4>
+                <div className={styles['attunement-slots']}>
+                  {[0, 1, 2].map(i => {
+                    const attuned: string[] = Array.isArray(character.attuned_items) ? character.attuned_items : [];
+                    const name = attuned[i];
+                    return (
+                      <div key={i} className={[styles['attunement-slot'], name ? styles['attuned'] : ''].filter(Boolean).join(' ')}>
+                        <span className={styles['attunement-index']}>{i + 1}</span>
+                        {name ? (
+                          <>
+                            <span className={styles['attunement-name']}>{name}</span>
+                            <button
+                              className={styles['attunement-clear-btn']}
+                              title="End attunement"
+                              disabled={attuningItem === name}
+                              onClick={() => void handleUnattuneItem(name)}
+                            >
+                              {attuningItem === name ? '…' : '✕'}
+                            </button>
+                          </>
+                        ) : (
+                          <span className={styles['attunement-empty']}>Empty slot</span>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* ── Item Search ───────────────────────────────── */}
                 <h4>Items</h4>
                 <div className={styles['equipment-add-controls']}>
-                  <h5>Add Item</h5>
-                  <div className={styles['equipment-add-row']}>
-                    <input
-                      type="text"
-                      value={newItemName}
-                      onChange={(e) => {
-                        setNewItemName(e.target.value);
-                        setInventoryActionError(null);
-                      }}
-                      placeholder="Item name"
-                    />
-                    <input
-                      type="number"
-                      min={1}
-                      value={newItemQty}
-                      onChange={(e) => {
-                        setNewItemQty(Math.max(1, Number(e.target.value) || 1));
-                        setInventoryActionError(null);
-                      }}
-                      placeholder="Qty"
-                    />
-                    <button type="button" onClick={() => void handleAddItem()}>
-                      Add
-                    </button>
+                  <h5>Search &amp; Add Item</h5>
+                  <div className={styles['item-search-wrap']}>
+                    <div className={styles['equipment-add-row']}>
+                      <input
+                        type="text"
+                        value={itemSearchQuery}
+                        onChange={(e) => {
+                          setItemSearchQuery(e.target.value);
+                          setNewItemName(e.target.value);
+                          setInventoryActionError(null);
+                          if (!e.target.value.trim()) setShowSearchDropdown(false);
+                        }}
+                        onFocus={() => { if (itemSearchResults.length > 0) setShowSearchDropdown(true); }}
+                        onBlur={() => setTimeout(() => setShowSearchDropdown(false), 150)}
+                        placeholder="Search items or type name"
+                      />
+                      <input
+                        type="number"
+                        min={1}
+                        value={newItemQty}
+                        onChange={(e) => {
+                          setNewItemQty(Math.max(1, Number(e.target.value) || 1));
+                          setInventoryActionError(null);
+                        }}
+                        placeholder="Qty"
+                      />
+                      <button type="button" disabled={!newItemName.trim()} onClick={() => void handleAddItem()}>
+                        Add
+                      </button>
+                    </div>
+                    {showSearchDropdown && itemSearchResults.length > 0 && (
+                      <div className={styles['item-search-dropdown']}>
+                        {itemSearchLoading && <div className={styles['item-search-loading']}>Searching…</div>}
+                        {itemSearchResults.map((eq: any) => (
+                          <button
+                            key={eq.id}
+                            className={styles['item-search-result']}
+                            onMouseDown={(e) => { e.preventDefault(); }}
+                            onClick={() => {
+                              setNewItemName(eq.name);
+                              setItemSearchQuery(eq.name);
+                              setShowSearchDropdown(false);
+                            }}
+                          >
+                            <span className={styles['isr-name']}>{eq.name}</span>
+                            <span className={styles['isr-meta']}>
+                              {eq.equipment_type}{eq.rarity && eq.rarity !== 'common' ? ` · ${eq.rarity}` : ''}
+                            </span>
+                          </button>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
+
+                {/* ── Inventory List ────────────────────────────── */}
                 {equipmentItems.length > 0 ? (
-                  <ul>
-                    {equipmentItems.map((item, index) => {
+                  <div className={styles['inv-items-list']}>
+                    {equipmentItems.map((item: any, index: number) => {
                       const isObject = item && typeof item === 'object';
-                      const itemName = isObject
+                      const itemName: string = isObject
                         ? item.name || item.equipment_id || `Item ${index + 1}`
                         : String(item);
                       const quantity = isObject ? item.quantity : undefined;
+                      const lowerName = itemName.toLowerCase();
+                      const equippedSlot = Object.entries(character.equipped_items_details ?? {})
+                        .find(([, sd]) => (sd.equipment.name as string).toLowerCase() === lowerName)?.[0];
+                      const dbRecord = dbEquipmentMap.get(lowerName);
+                      const isEquippable = !!dbRecord?.id && ['weapon', 'armor', 'shield'].includes(dbRecord.equipment_type ?? '');
+                      const isEquipped = !!equippedSlot;
+                      const attunedArr: string[] = Array.isArray(character.attuned_items) ? character.attuned_items : [];
+                      const isAttuned = attunedArr.includes(itemName);
+                      const isMagic = dbRecord && dbRecord.rarity && dbRecord.rarity !== 'common';
+                      const canAttune = isMagic && !isAttuned && attunedArr.length < 3;
 
                       return (
-                        <li key={item?.id || item?.equipment_id || index}>
-                          {itemName}{typeof quantity === 'number' && quantity > 1 ? ` (${quantity})` : ''}
-                        </li>
+                        <div key={item?.id || item?.equipment_id || index} className={styles['inv-row']}>
+                          {/* Equip checkbox toggle */}
+                          {isEquippable && (
+                            <button
+                              className={[styles['inv-equip-check'], isEquipped ? styles['checked'] : ''].filter(Boolean).join(' ')}
+                              title={isEquipped ? `Unequip (${equippedSlot?.replace(/_/g, ' ')})` : 'Equip'}
+                              disabled={equippingSlot === (equippedSlot ?? lowerName)}
+                              onClick={() => isEquipped
+                                ? void handleUnequipItem(equippedSlot!)
+                                : void handleEquipItem(itemName)
+                              }
+                            >
+                              {equippingSlot === (equippedSlot ?? lowerName) ? '…' : isEquipped ? '✓' : '○'}
+                            </button>
+                          )}
+                          <span className={[styles['inv-item-name'], isEquipped ? styles['equipped'] : ''].filter(Boolean).join(' ')}>
+                            {itemName}{typeof quantity === 'number' && quantity > 1 ? ` ×${quantity}` : ''}
+                            {isMagic && <span className={styles['inv-magic-badge']}>{dbRecord.rarity}</span>}
+                          </span>
+                          {/* Attunement star for magic items */}
+                          {(isMagic || isAttuned) && (
+                            <button
+                              className={[styles['inv-attune-btn'], isAttuned ? styles['attuned'] : ''].filter(Boolean).join(' ')}
+                              title={isAttuned ? 'End attunement' : canAttune ? 'Attune' : 'Attunement slots full'}
+                              disabled={attuningItem === itemName || (!isAttuned && !canAttune)}
+                              onClick={() => isAttuned
+                                ? void handleUnattuneItem(itemName)
+                                : void handleAttuneItem(itemName)
+                              }
+                            >
+                              {attuningItem === itemName ? '…' : isAttuned ? '★' : '☆'}
+                            </button>
+                          )}
+                        </div>
                       );
                     })}
-                  </ul>
+                  </div>
                 ) : (
                   <p>No equipment</p>
                 )}

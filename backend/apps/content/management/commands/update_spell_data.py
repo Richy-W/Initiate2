@@ -20,6 +20,18 @@ from django.db import transaction
 from apps.content.models import Spell, CharacterClass
 
 
+# Normalize old-style 5e casting time strings to canonical 2024 format.
+_CASTING_TIME_MAP = {
+    '1 action': 'Action',
+    '1 bonus action': 'Bonus Action',
+    '1 reaction': 'Reaction',
+}
+
+
+def _normalize_casting_time(value: str) -> str:
+    return _CASTING_TIME_MAP.get(value.strip().lower(), value)
+
+
 class Command(BaseCommand):
     help = 'Update spell data from structured JSON files in api/content/spells/'
 
@@ -75,7 +87,7 @@ class Command(BaseCommand):
                     defaults = {
                         'level': spell_data.get('level', 0),
                         'school': spell_data.get('school', ''),
-                        'casting_time': spell_data.get('casting_time', ''),
+                        'casting_time': _normalize_casting_time(spell_data.get('casting_time', '')),
                         'range': spell_data.get('range', ''),
                         'components': components,
                         'duration': spell_data.get('duration', ''),

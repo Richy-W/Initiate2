@@ -13,6 +13,9 @@ from .serializers import CharacterSerializer, CharacterDetailSerializer, Charact
 from .pdf_export import render_character_sheet_pdf
 from apps.content.models import Species, CharacterClass, Background
 
+# Classes whose spell slots restore on a short rest (Warlock pact magic, etc.)
+PACT_MAGIC_SPELLCASTING_TYPES = frozenset({'pact'})
+
 
 @extend_schema(tags=['characters'])
 class CharacterViewSet(viewsets.ModelViewSet):
@@ -93,11 +96,37 @@ class CharacterViewSet(viewsets.ModelViewSet):
                 status=status.HTTP_400_BAD_REQUEST
             )
         
-        # Simple level up - in a full implementation, this would handle class features, HP, etc.
         character.level += 1
         
-        # Recalculate hit points (simplified)
-        character.max_hit_points = character.hit_point_maximum
+        # Base HP from class progression (average die + CON per level)
+        base_hp = character.hit_point_maximum
+
+        # Tough feat: 5e 2024 = +2 HP per level
+        has_tough = any(
+            isinstance(f, dict) and (f.get('name') or '').lower() == 'tough'
+            for f in (character.features or [])
+        )
+        tough_bonus = character.level * 2 if has_tough else 0
+
+        # Dwarven Toughness (or any scalesWithLevel species HP trait): +1 HP per level
+        species_hp_bonus = 0
+        try:
+            from pathlib import Path as _LPath
+            import json as _ljson
+            species_slug = str(character.species.name or '').strip().lower().replace(' ', '-').replace("'", '')
+            species_json_path = _LPath(__file__).resolve().parents[3] / 'api' / 'content' / 'species' / f'{species_slug}.json'
+            if species_json_path.exists():
+                with species_json_path.open('r', encoding='utf-8') as _lfp:
+                    species_data = _ljson.load(_lfp)
+                for trait in species_data.get('traits', []):
+                    if isinstance(trait, dict) and trait.get('scalesWithLevel'):
+                        trait_name = (trait.get('name') or '').lower()
+                        if 'toughness' in trait_name or 'hit point' in trait_name:
+                            species_hp_bonus = character.level
+        except Exception:
+            pass
+
+        character.max_hit_points = base_hp + tough_bonus + species_hp_bonus
         character.current_hit_points = character.max_hit_points
         
         character.save()
@@ -112,7 +141,6 @@ class CharacterViewSet(viewsets.ModelViewSet):
         rest_type = request.data.get('type', 'short')
 
         # Pact magic classes restore slots on short rest too
-        PACT_MAGIC_SPELLCASTING_TYPES = {'pact'}
         spellcasting = character.character_class.spellcasting or {}
         is_pact_caster = spellcasting.get('type') in PACT_MAGIC_SPELLCASTING_TYPES
 
@@ -205,12 +233,11 @@ class CharacterViewSet(viewsets.ModelViewSet):
                 obj.save(update_fields=['total', 'used'])
                 updated_count += 1
 
-        from .serializers import SpellSlotStateSerializer as _SSS
         slots = SpellSlotState.objects.filter(character=character).order_by('slot_level')
         return Response({
             'created': created_count,
             'updated': updated_count,
-            'slots': _SSS(slots, many=True).data,
+            'slots': SpellSlotStateSerializer(slots, many=True).data,
         })
 
     @action(detail=True, methods=['post'])
@@ -482,6 +509,44 @@ class CharacterViewSet(viewsets.ModelViewSet):
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
     
+    @action(detail=True, methods=['post'])
+    def attune_item(self, request, pk=None):
+        """Attune to a magic item (max 3 attuned items)."""
+        character = self.get_object()
+        item_name = request.data.get('item_name', '').strip()
+
+        if not item_name:
+            return Response({'error': 'item_name is required'}, status=status.HTTP_400_BAD_REQUEST)
+
+        attuned = list(character.attuned_items or [])
+        if item_name in attuned:
+            return Response({'success': True, 'attuned_items': attuned})
+        if len(attuned) >= 3:
+            return Response({'error': 'Cannot attune to more than 3 items'}, status=status.HTTP_400_BAD_REQUEST)
+
+        attuned.append(item_name)
+        character.attuned_items = attuned
+        character.save(update_fields=['attuned_items'])
+        character.refresh_from_db()
+        serializer = CharacterDetailSerializer(character)
+        return Response({'success': True, 'character': serializer.data})
+
+    @action(detail=True, methods=['post'])
+    def unattune_item(self, request, pk=None):
+        """End attunement to an item."""
+        character = self.get_object()
+        item_name = request.data.get('item_name', '').strip()
+
+        if not item_name:
+            return Response({'error': 'item_name is required'}, status=status.HTTP_400_BAD_REQUEST)
+
+        attuned = [i for i in (character.attuned_items or []) if i != item_name]
+        character.attuned_items = attuned
+        character.save(update_fields=['attuned_items'])
+        character.refresh_from_db()
+        serializer = CharacterDetailSerializer(character)
+        return Response({'success': True, 'character': serializer.data})
+
     @action(detail=True, methods=['get'])
     def equipped_items(self, request, pk=None):
         """Get detailed information about equipped items."""

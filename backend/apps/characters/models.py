@@ -48,6 +48,7 @@ class Character(models.Model):
     # Equipment and features
     equipment = JSONField(default=list, help_text="Character's equipment items with quantities")
     equipped_items = JSONField(default=dict, help_text="Currently equipped items by slot")
+    attuned_items = JSONField(default=list, help_text="Attuned magic item names (max 3)")
     currency = JSONField(default=dict, help_text="Character's currency (cp, sp, gp, pp)")
     features = JSONField(default=list, help_text="Character features and traits")
     spells_known = JSONField(default=list, help_text="Known spells")
@@ -451,12 +452,21 @@ class Character(models.Model):
             try:
                 equipment = Equipment.objects.get(id=equipment_id)
                 equipped_details[slot] = {
-                    'equipment': equipment,
+                    'equipment': {
+                        'id': equipment.id,
+                        'name': equipment.name,
+                        'equipment_type': equipment.equipment_type,
+                        'rarity': getattr(equipment, 'rarity', None),
+                        'damage_dice': getattr(equipment, 'damage_dice', None),
+                        'damage_type': getattr(equipment, 'damage_type', None),
+                        'armor_class': getattr(equipment, 'armor_class', None),
+                        'properties': getattr(equipment, 'properties', None),
+                        'weight': getattr(equipment, 'weight', None),
+                    },
                     'slot': slot,
                     'id': equipment_id
                 }
             except Equipment.DoesNotExist:
-                # Remove invalid equipment reference
                 continue
         
         return equipped_details
@@ -491,12 +501,18 @@ class Character(models.Model):
                 return False, f"No available slots for {equipment.equipment_type}"
         
         # Check if character has the item in inventory
+        # Items may be stored as {'name': ..., 'quantity': ...} or {'equipment_id': ..., 'quantity': ...}
         has_item = False
         for item in self.equipment:
-            if item['equipment_id'] == equipment_id and item.get('quantity', 1) > 0:
+            if not isinstance(item, dict):
+                continue
+            if item.get('equipment_id') == equipment_id and item.get('quantity', 1) > 0:
                 has_item = True
                 break
-        
+            if item.get('name', '').strip().lower() == equipment.name.strip().lower() and item.get('quantity', 1) > 0:
+                has_item = True
+                break
+
         if not has_item:
             return False, "Item not in inventory"
         

@@ -5,7 +5,7 @@ from django.conf import settings
 from django.db import transaction
 from apps.content.models import (
     DamageType, Condition, Skill, Species, Background, CharacterClass,
-    ClassFeature, Spell, Equipment, Feat, Monster, MagicItem
+    ClassFeature, Spell, Equipment, Feat, Monster, MagicItem, WeaponProperty
 )
 
 
@@ -30,9 +30,19 @@ class Command(BaseCommand):
         if options['data_dir']:
             data_dir = options['data_dir']
         else:
-            # Look for data in project root
-            project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-            data_dir = project_root
+            # Resolve workspace root (6 levels up from this file), then api/content
+            workspace_root = os.path.dirname(
+                os.path.dirname(
+                    os.path.dirname(
+                        os.path.dirname(
+                            os.path.dirname(
+                                os.path.dirname(os.path.abspath(__file__))
+                            )
+                        )
+                    )
+                )
+            )
+            data_dir = os.path.join(workspace_root, 'api', 'content')
         
         if not os.path.exists(data_dir):
             self.stdout.write(self.style.ERROR(f'Data directory not found: {data_dir}'))
@@ -56,6 +66,7 @@ class Command(BaseCommand):
                 self.load_backgrounds(data_dir)
                 self.load_classes(data_dir)
                 self.load_equipment(data_dir)
+                self.load_weapon_properties(data_dir)
                 self.load_feats(data_dir)
                 # self.load_spells(data_dir)  # TODO: Implement spells loading
                 # self.load_monsters(data_dir)  # TODO: Implement monsters loading
@@ -178,19 +189,24 @@ class Command(BaseCommand):
                     with open(filepath, 'r', encoding='utf-8') as f:
                         data = json.load(f)
                     
+                    size_raw = data.get('size', 'Medium')
+                    size_val = size_raw if isinstance(size_raw, str) else size_raw.get('category', 'Medium')
+                    speed_raw = data.get('speed', 30)
+                    speed_val = speed_raw if isinstance(speed_raw, int) else speed_raw.get('walk', 30)
+
                     # Create species from JSON data
-                    species, created = Species.objects.get_or_create(
+                    species, created = Species.objects.update_or_create(
                         name=data.get('name', ''),
                         defaults={
                             'description': data.get('description', ''),
-                            'size': data.get('size', 'Medium'),
-                            'speed': data.get('speed', {}).get('walk', 30),
-                            'darkvision': data.get('darkvision', 0),
-                            'ability_score_increases': data.get('abilityScoreIncrease', {}),
+                            'size': size_val,
+                            'speed': speed_val,
+                            'darkvision': data.get('senses', {}).get('darkvision', data.get('darkvision', 0)),
+                            'ability_score_increases': data.get('ability_score_increases', data.get('abilityScoreIncrease', {})),
                             'traits': data.get('traits', []),
                             'languages': data.get('languageProficiencies', []),
                             'proficiencies': data.get('skillProficiencies', {}),
-                            'source': data.get('source', 'Unknown'),
+                            'source': data.get('source', data.get('sourceBook', 'Unknown')),
                             'page': data.get('page'),
                         }
                     )
@@ -338,6 +354,14 @@ class Command(BaseCommand):
                         items = data['equipment']
                     elif isinstance(data, dict) and 'items' in data:
                         items = data['items']
+                    elif isinstance(data, dict) and 'weapons' in data:
+                        items = data['weapons']
+                    elif isinstance(data, dict) and 'armor' in data:
+                        items = data['armor']
+                    elif isinstance(data, dict) and 'tools' in data:
+                        items = data['tools']
+                    elif isinstance(data, dict) and 'gear' in data:
+                        items = data['gear']
                     
                     for item_data in items:
                         if not isinstance(item_data, dict):
@@ -352,25 +376,114 @@ class Command(BaseCommand):
                         elif 'tool' in filename.lower():
                             eq_type = 'tool'
                         
+                        # Build armor-specific fields from the JSON structure
+                        armor_class_val = None
+                        dex_bonus_max_val = None
+                        strength_req_val = None
+                        stealth_disadv = False
+
+                        if eq_type == 'armor':
+                            ac_data = item_data.get('armorClass', {})
+                            if isinstance(ac_data, dict):
+                                armor_class_val = ac_data.get('base')
+                                dex_bonus_max_val = ac_data.get('maxDexModifier')
+                            elif isinstance(ac_data, int):
+                                armor_class_val = ac_data
+
+                            strength_req_val = item_data.get('requirements', {}).get('strength')
+
+                            # Stealth disadvantage is in the effects array
+                            for effect in item_data.get('effects', []):
+                                if isinstance(effect, dict) and 'stealth' in effect.get('name', '').lower():
+                                    stealth_disadv = True
+                                    break
+
+                            # Pack extra armor fields (don/doff time, full AC formula) into properties
+                            armor_props = []
+                            if item_data.get('donDoffTime'):
+                                armor_props.append(item_data['donDoffTime'])
+                            ac_data = item_data.get('armorClass', {})
+                            if isinstance(ac_data, dict) and ac_data.get('formula'):
+                                armor_props.append(f"AC: {ac_data['formula']}")
+                            if item_data.get('notes'):
+                                armor_props.append(item_data['notes'])
+                        elif eq_type == 'tool':
+                            armor_props = item_data.get('variants', [])
+                        else:
+                            armor_props = item_data.get('properties', [])
+
+                        # Build damage dict — extend with weapon/tool-specific extras
+                        damage_data = dict(item_data.get('damage', {}))
+                        if eq_type == 'weapon':
+                            if 'versatileDamage' in item_data:
+                                damage_data['versatile'] = item_data['versatileDamage']
+                            if 'mastery' in item_data:
+                                damage_data['mastery'] = item_data['mastery']
+                            if 'range' in item_data:
+                                damage_data['range'] = item_data['range']
+                            if 'ammunition' in item_data:
+                                damage_data['ammunition'] = item_data['ammunition']
+                        elif eq_type == 'tool':
+                            # Store tool-specific fields in the damage JSONField
+                            damage_data = {
+                                'ability': item_data.get('ability', ''),
+                                'utilize': item_data.get('utilize', []),
+                                'craft': item_data.get('craft', []),
+                            }
+
+                        # Weight may be "Varies" for some tools — default to 0
+                        raw_weight = item_data.get('weight', 0)
+                        try:
+                            weight_val = float(raw_weight)
+                        except (TypeError, ValueError):
+                            weight_val = 0.0
+
                         # Create equipment from JSON data
                         equipment, created = Equipment.objects.get_or_create(
                             name=item_data.get('name', ''),
                             defaults={
                                 'description': item_data.get('description', ''),
                                 'equipment_type': eq_type,
+                                'category': item_data.get('category', ''),
                                 'cost': item_data.get('cost', {}),
-                                'weight': item_data.get('weight', 0),
-                                'armor_class': item_data.get('armorClass'),
-                                'dex_bonus_max': item_data.get('dexBonusMax'),
-                                'strength_requirement': item_data.get('strengthRequirement'),
-                                'stealth_disadvantage': item_data.get('stealthDisadvantage', False),
-                                'damage': item_data.get('damage', {}),
-                                'properties': item_data.get('properties', []),
+                                'weight': weight_val,
+                                'armor_class': armor_class_val,
+                                'dex_bonus_max': dex_bonus_max_val,
+                                'strength_requirement': strength_req_val,
+                                'stealth_disadvantage': stealth_disadv,
+                                'damage': damage_data,
+                                'properties': armor_props,
                                 'tool_type': item_data.get('type', ''),
-                                'source': item_data.get('source', 'Unknown'),
+                                'source': item_data.get('source', 'PHB 2024'),
                                 'page': item_data.get('page'),
                             }
                         )
+                        if not created:
+                            update_fields = []
+                            if equipment.armor_class != armor_class_val:
+                                equipment.armor_class = armor_class_val
+                                update_fields.append('armor_class')
+                            if equipment.dex_bonus_max != dex_bonus_max_val:
+                                equipment.dex_bonus_max = dex_bonus_max_val
+                                update_fields.append('dex_bonus_max')
+                            if equipment.strength_requirement != strength_req_val:
+                                equipment.strength_requirement = strength_req_val
+                                update_fields.append('strength_requirement')
+                            if equipment.stealth_disadvantage != stealth_disadv:
+                                equipment.stealth_disadvantage = stealth_disadv
+                                update_fields.append('stealth_disadvantage')
+                            if equipment.damage != damage_data:
+                                equipment.damage = damage_data
+                                update_fields.append('damage')
+                            if equipment.properties != armor_props:
+                                equipment.properties = armor_props
+                                update_fields.append('properties')
+                            new_category = item_data.get('category', '')
+                            if equipment.category != new_category:
+                                equipment.category = new_category
+                                update_fields.append('category')
+                            if update_fields:
+                                equipment.save(update_fields=update_fields)
                         
                         if created:
                             count += 1
@@ -379,6 +492,51 @@ class Command(BaseCommand):
                     self.stdout.write(self.style.ERROR(f'Error loading {filename}: {str(e)}'))
         
         self.stdout.write(f'Loaded {count} equipment items')
+
+    def load_weapon_properties(self, data_dir):
+        """Load weapon property definitions from weapon-properties.json."""
+        filepath = os.path.join(data_dir, 'equipment', 'weapon-properties.json')
+        if not os.path.exists(filepath):
+            self.stdout.write(self.style.WARNING('weapon-properties.json not found'))
+            return
+
+        with open(filepath, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+
+        source = data.get('sourceBook', "Player's Handbook 2024")
+        count = 0
+
+        for prop_key, prop_data in data.get('weaponProperties', {}).items():
+            obj, created = WeaponProperty.objects.get_or_create(
+                name=prop_key,
+                defaults={
+                    'property_type': 'weapon',
+                    'description': prop_data.get('description', ''),
+                    'source': source,
+                }
+            )
+            if not created and obj.description != prop_data.get('description', ''):
+                obj.description = prop_data.get('description', '')
+                obj.save(update_fields=['description'])
+            if created:
+                count += 1
+
+        for prop_key, prop_data in data.get('masteryProperties', {}).items():
+            obj, created = WeaponProperty.objects.get_or_create(
+                name=prop_key,
+                defaults={
+                    'property_type': 'mastery',
+                    'description': prop_data.get('description', ''),
+                    'source': source,
+                }
+            )
+            if not created and obj.description != prop_data.get('description', ''):
+                obj.description = prop_data.get('description', '')
+                obj.save(update_fields=['description'])
+            if created:
+                count += 1
+
+        self.stdout.write(f'Loaded {count} weapon properties')
 
     def load_feats(self, data_dir):
         """Load feat data from JSON files."""

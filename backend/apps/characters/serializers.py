@@ -110,14 +110,8 @@ class SpellSlotStateSerializer(serializers.ModelSerializer):
         return data
 
     def validate_slot_level(self, value):
-        from apps.characters.models import SpellSlotState as _SSL  # noqa: avoid circular
-        validator = _SSL._meta.get_field('slot_level').validators
-        from django.core.exceptions import ValidationError as DjValidationError
-        for v in validator:
-            try:
-                v(value)
-            except DjValidationError as exc:
-                raise serializers.ValidationError(exc.messages)
+        if not (1 <= value <= 9):
+            raise serializers.ValidationError("Slot level must be between 1 and 9.")
         return value
 
 
@@ -128,6 +122,7 @@ class CharacterDetailSerializer(CharacterSerializer):
     equipment = serializers.JSONField(required=False, default=list)
     spells_known = serializers.JSONField(required=False, default=list)
     saving_throw_proficiencies = serializers.JSONField(required=False, default=list)
+    attuned_items = serializers.JSONField(required=False, default=list)
 
     species_detail = SpeciesSerializer(source='species', read_only=True)
     class_detail = CharacterClassSerializer(source='character_class', read_only=True)
@@ -185,7 +180,7 @@ class CharacterDetailSerializer(CharacterSerializer):
             'personality_traits', 'ideals', 'bonds', 'flaws',
             'backstory', 'notes', 'carrying_capacity', 'total_weight',
             'encumbrance_status', 'encumbrance_effects', 'effective_speed', 'is_encumbered',
-            'equipped_items_details', 'calculated_armor_class',
+            'equipped_items_details', 'calculated_armor_class', 'attuned_items',
             'character_spells', 'spell_slot_states',
         ]
 
@@ -283,8 +278,24 @@ class CharacterCreateSerializer(serializers.ModelSerializer):
             character.max_hit_points = character.hit_point_maximum
             character.current_hit_points = character.max_hit_points
             
-            # Set initial armor class (10 + Dex modifier)
-            character.armor_class = 10 + character.dexterity_modifier
+            # Set initial armor class
+            # Default: 10 + DEX modifier
+            # Unarmored Defense: Barbarian = 10+DEX+CON, Monk = 10+DEX+WIS
+            class_name = (character.character_class.name or '').lower()
+            dex_mod = character.dexterity_modifier
+            unarmored_defense_features = [
+                f for f in character.features
+                if isinstance(f, dict) and 'unarmored defense' in (f.get('name') or '').lower()
+            ]
+            if unarmored_defense_features:
+                if 'barbarian' in class_name:
+                    character.armor_class = 10 + dex_mod + character.constitution_modifier
+                elif 'monk' in class_name:
+                    character.armor_class = 10 + dex_mod + character.wisdom_modifier
+                else:
+                    character.armor_class = 10 + dex_mod
+            else:
+                character.armor_class = 10 + dex_mod
 
             # Class saving throw proficiencies.
             class_save_profs = character.character_class.saving_throw_proficiencies or []
@@ -352,15 +363,35 @@ class CharacterCreateSerializer(serializers.ModelSerializer):
 
             character.features = features
 
-            # Apply Tough feat HP bonus: +2 at level 1, +1 per additional level = level+1 total
+            # Apply Tough feat HP bonus: 5e 2024 = +2 per level = 2×level total
             has_tough = any(
                 isinstance(f, dict) and (f.get('name') or '').lower() == 'tough'
                 for f in character.features
             )
             if has_tough:
-                tough_bonus = character.level + 1  # level 1 = +2, level 2 = +3, etc.
-                character.max_hit_points += tough_bonus
+                character.max_hit_points += character.level * 2
                 character.current_hit_points = character.max_hit_points
+
+            # Apply species HP traits (e.g. Dwarven Toughness: +1 HP per level)
+            species_traits = []
+            try:
+                from pathlib import Path as _SpecPath
+                import json as _sjson
+                species_slug = str(character.species.name or '').strip().lower().replace(' ', '-').replace("'", '')
+                species_json_path = _SpecPath(__file__).resolve().parents[3] / 'api' / 'content' / 'species' / f'{species_slug}.json'
+                if species_json_path.exists():
+                    with species_json_path.open('r', encoding='utf-8') as _sfp:
+                        species_data = _sjson.load(_sfp)
+                    species_traits = species_data.get('traits', [])
+            except Exception:
+                pass
+
+            for trait in species_traits:
+                if isinstance(trait, dict) and trait.get('scalesWithLevel'):
+                    trait_name = (trait.get('name') or '').lower()
+                    if 'toughness' in trait_name or 'hit point' in trait_name:
+                        character.max_hit_points += character.level
+                        character.current_hit_points = character.max_hit_points
 
             # Build starting equipment and gold/currency.
             equipment_items = []

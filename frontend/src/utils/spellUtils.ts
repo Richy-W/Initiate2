@@ -148,6 +148,12 @@ export interface AttackRow {
   attackBonus?: number;
   saveDC?: number;
   saveAbility?: string;
+  /** Base spell level (0 = cantrip). Used to find the right slot to expend. */
+  spellLevel?: number;
+  /** Full spell_data object for tooltip display. */
+  spellData?: any;
+  /** True when the spell requires a saving throw instead of an attack roll. */
+  isSaveSpell?: boolean;
 }
 
 /**
@@ -201,6 +207,9 @@ export function getSpellAttacks(character: Character, classJson: any): AttackRow
         range: spellData?.range ?? '',
         notes: cs.notes ?? '',
         isSpell: true,
+        spellLevel: (cs as any).spell_base_level ?? (cs as any).spell_level ?? 0,
+        spellData,
+        isSaveSpell: !!d.save,
       };
     });
 }
