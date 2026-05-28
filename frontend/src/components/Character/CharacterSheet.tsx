@@ -34,6 +34,8 @@ interface Character {
   current_hit_points: number;
   max_hit_points: number;
   temporary_hit_points?: number;
+  death_save_successes?: number;
+  death_save_failures?: number;
   armor_class: number;
   proficiency_bonus: number;
   skills?: Record<string, any>;
@@ -129,6 +131,8 @@ export const CharacterSheet: React.FC = () => {
   const [hpAdjustment, setHpAdjustment] = useState(0);
   const [tempHpDraft, setTempHpDraft] = useState(0);
   const [hpActionError, setHpActionError] = useState<string | null>(null);
+  const [deathSaveError, setDeathSaveError] = useState<string | null>(null);
+  const [deathSavePending, setDeathSavePending] = useState<'success' | 'failure' | 'reset' | null>(null);
   const [dbEquipmentMap, setDbEquipmentMap] = useState<Map<string, any>>(new Map());
   const [equippingSlot, setEquippingSlot] = useState<string | null>(null);
   const [itemSearchQuery, setItemSearchQuery] = useState('');
@@ -371,6 +375,8 @@ export const CharacterSheet: React.FC = () => {
               ...prev,
               current_hit_points: response?.current_hp ?? prev.current_hit_points,
               temporary_hit_points: response?.temp_hp ?? prev.temporary_hit_points,
+              death_save_successes: response?.death_save_successes ?? prev.death_save_successes,
+              death_save_failures: response?.death_save_failures ?? prev.death_save_failures,
             }
           : prev
       );
@@ -397,6 +403,8 @@ export const CharacterSheet: React.FC = () => {
           ? {
               ...prev,
               current_hit_points: response?.current_hp ?? prev.current_hit_points,
+              death_save_successes: response?.death_save_successes ?? prev.death_save_successes,
+              death_save_failures: response?.death_save_failures ?? prev.death_save_failures,
             }
           : prev
       );
@@ -419,6 +427,29 @@ export const CharacterSheet: React.FC = () => {
       setHpActionError(err?.response?.data?.error || 'Could not update temporary hit points.');
     }
   }, [character?.id, tempHpDraft]);
+
+  const trackDeathSave = useCallback(async (result: 'success' | 'failure' | 'reset') => {
+    if (!character?.id) return;
+
+    setDeathSavePending(result);
+    setDeathSaveError(null);
+    try {
+      const response = await api.characters.deathSave(character.id, { result });
+      setCharacter((prev) =>
+        prev
+          ? {
+              ...prev,
+              death_save_successes: response?.death_save_successes ?? prev.death_save_successes,
+              death_save_failures: response?.death_save_failures ?? prev.death_save_failures,
+            }
+          : prev
+      );
+    } catch (err: any) {
+      setDeathSaveError(err?.response?.data?.error || 'Could not update death saves.');
+    } finally {
+      setDeathSavePending(null);
+    }
+  }, [character?.id]);
 
   useEffect(() => {
     if (!character?.id) return;
@@ -892,9 +923,20 @@ export const CharacterSheet: React.FC = () => {
       .filter(Boolean) as CharacterFeature[];
 
     const merged = [...fromCharacterFeatures, ...fromClassProgression, ...fromSpeciesTraits];
+
+    // Filter out character-creation metadata artifacts (size/ability choices, etc.)
+    const filtered = merged.filter((f) => {
+      const source = (f.source ?? '').toLowerCase();
+      if (source === 'species choice') return false;
+      // Remove entries whose name is purely a player-choice annotation with no real description
+      const name = (f.name ?? '').toLowerCase();
+      if ((name.endsWith('choice') || name.endsWith('category')) && (f.description ?? '').length < 40) return false;
+      return true;
+    });
+
     const deduped = new Map<string, CharacterFeature>();
 
-    merged.forEach((feature) => {
+    filtered.forEach((feature) => {
       const existing = deduped.get(feature.key);
       if (!existing) {
         deduped.set(feature.key, feature);
@@ -1250,6 +1292,8 @@ export const CharacterSheet: React.FC = () => {
     saving_throw_proficiencies: savingThrowProficiencies,
     character_spells: character?.character_spells,
     spell_slot_states: character?.spell_slot_states,
+    features: normalizeToArray(character?.features),
+    species_detail: character?.species_detail,
   };
 
   const headerAbilities = [
@@ -1260,6 +1304,10 @@ export const CharacterSheet: React.FC = () => {
     { key: 'wisdom', label: 'WIS', total: abilityTotals.wisdom },
     { key: 'charisma', label: 'CHA', total: abilityTotals.charisma },
   ];
+
+  const deathSaveSuccesses = Math.max(0, Math.min(3, Number(character.death_save_successes || 0)));
+  const deathSaveFailures = Math.max(0, Math.min(3, Number(character.death_save_failures || 0)));
+  const canTrackDeathSaves = Number(character.current_hit_points || 0) === 0;
 
   return (
     <div className={styles['character-sheet']} role="main" aria-label={`Character sheet for ${character.name}`}>
@@ -1315,6 +1363,65 @@ export const CharacterSheet: React.FC = () => {
                 />
                 <button type="button" onClick={() => void saveTempHp()}>Save</button>
               </div>
+              <div className={styles['death-save-panel']}>
+                <div className={styles['death-save-header']}>
+                  <span>Death Saves</span>
+                  {!canTrackDeathSaves && <span className={styles['death-save-hint']}>Track at 0 HP</span>}
+                </div>
+                <div className={styles['death-save-rows']}>
+                  <div className={styles['death-save-row']}>
+                    <span>Success</span>
+                    <div className={styles['death-save-pips']}>
+                      {[0, 1, 2].map((i) => (
+                        <span
+                          key={`success-${i}`}
+                          className={[
+                            styles['death-save-pip'],
+                            i < deathSaveSuccesses ? styles['filled-success'] : '',
+                          ].filter(Boolean).join(' ')}
+                        />
+                      ))}
+                    </div>
+                    <button
+                      type="button"
+                      disabled={!canTrackDeathSaves || deathSavePending !== null || deathSaveSuccesses >= 3}
+                      onClick={() => void trackDeathSave('success')}
+                    >
+                      +
+                    </button>
+                  </div>
+                  <div className={styles['death-save-row']}>
+                    <span>Failure</span>
+                    <div className={styles['death-save-pips']}>
+                      {[0, 1, 2].map((i) => (
+                        <span
+                          key={`failure-${i}`}
+                          className={[
+                            styles['death-save-pip'],
+                            i < deathSaveFailures ? styles['filled-failure'] : '',
+                          ].filter(Boolean).join(' ')}
+                        />
+                      ))}
+                    </div>
+                    <button
+                      type="button"
+                      disabled={!canTrackDeathSaves || deathSavePending !== null || deathSaveFailures >= 3}
+                      onClick={() => void trackDeathSave('failure')}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  className={styles['death-save-reset']}
+                  disabled={deathSavePending !== null || (deathSaveSuccesses === 0 && deathSaveFailures === 0)}
+                  onClick={() => void trackDeathSave('reset')}
+                >
+                  Reset
+                </button>
+              </div>
+              {deathSaveError && <div className={styles['vital-stat-feedback']}>{deathSaveError}</div>}
               {hpActionError && <div className={styles['vital-stat-feedback']}>{hpActionError}</div>}
             </div>
             <div className={styles['vital-stat']}>
@@ -1558,7 +1665,18 @@ export const CharacterSheet: React.FC = () => {
                       const lowerName = itemName.toLowerCase();
                       const equippedSlot = Object.entries(character.equipped_items_details ?? {})
                         .find(([, sd]) => (sd.equipment.name as string).toLowerCase() === lowerName)?.[0];
-                      const dbRecord = dbEquipmentMap.get(lowerName);
+                      // Fuzzy DB lookup: try exact name, then strip leading "N " quantity prefix,
+                      // then strip parenthetical suffix (e.g. "Arcane Focus (Quarterstaff)" → "Quarterstaff")
+                      const resolveDbRecord = (name: string) => {
+                        const exact = dbEquipmentMap.get(name);
+                        if (exact) return exact;
+                        const noQty = name.replace(/^\d+\s+/, '').replace(/s$/, '');
+                        if (noQty !== name) { const r = dbEquipmentMap.get(noQty); if (r) return r; }
+                        const parenContent = name.match(/\((.+)\)$/);
+                        if (parenContent) { const r = dbEquipmentMap.get(parenContent[1].toLowerCase()); if (r) return r; }
+                        return undefined;
+                      };
+                      const dbRecord = resolveDbRecord(lowerName);
                       const isEquippable = !!dbRecord?.id && ['weapon', 'armor', 'shield'].includes(dbRecord.equipment_type ?? '');
                       const isEquipped = !!equippedSlot;
                       const attunedArr: string[] = Array.isArray(character.attuned_items) ? character.attuned_items : [];

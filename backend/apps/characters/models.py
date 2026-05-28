@@ -35,6 +35,8 @@ class Character(models.Model):
     max_hit_points = models.PositiveIntegerField(default=8)
     current_hit_points = models.PositiveIntegerField(default=8)
     temporary_hit_points = models.PositiveIntegerField(default=0)
+    death_save_successes = models.PositiveIntegerField(default=0)
+    death_save_failures = models.PositiveIntegerField(default=0)
     
     # Armor Class
     armor_class = models.PositiveIntegerField(default=10)
@@ -558,13 +560,12 @@ class Character(models.Model):
     
     @property
     def calculated_armor_class(self):
-        """Calculate AC including equipped armor/shield."""
+        """Calculate AC including equipped armor/shield and class Unarmored Defense."""
         from apps.content.models import Equipment
-        
-        base_ac = 10 + self.dexterity_modifier
-        equipped_ac = 10
-        max_dex_bonus = None
-        
+
+        dex_modifier = self.dexterity_modifier
+        class_name = (self.character_class.name if self.character_class else '').lower()
+
         # Check for equipped armor
         armor_id = self.get_equipped_item_in_slot('armor')
         if armor_id:
@@ -573,16 +574,33 @@ class Character(models.Model):
                 if armor.armor_class:
                     equipped_ac = armor.armor_class
                     max_dex_bonus = armor.dex_bonus_max
+                    dex_mod_capped = min(dex_modifier, max_dex_bonus) if max_dex_bonus is not None else dex_modifier
+                    final_ac = equipped_ac + dex_mod_capped
+                    # Add shield bonus even when wearing armor
+                    shield_id = self.get_equipped_item_in_slot('shield')
+                    if shield_id:
+                        try:
+                            shield = Equipment.objects.get(id=shield_id)
+                            if shield.armor_class:
+                                final_ac += shield.armor_class
+                        except Equipment.DoesNotExist:
+                            pass
+                    return final_ac
             except Equipment.DoesNotExist:
                 pass
-        
-        # Apply dexterity modifier with max bonus limit
-        dex_modifier = self.dexterity_modifier
-        if max_dex_bonus is not None:
-            dex_modifier = min(dex_modifier, max_dex_bonus)
-        
-        final_ac = equipped_ac + dex_modifier
-        
+
+        # No armor equipped — apply Unarmored Defense by class
+        if 'barbarian' in class_name:
+            # Barbarian: 10 + DEX mod + CON mod
+            base_ac = 10 + dex_modifier + self.constitution_modifier
+        elif 'monk' in class_name:
+            # Monk: 10 + DEX mod + WIS mod
+            base_ac = 10 + dex_modifier + self.wisdom_modifier
+        else:
+            base_ac = 10 + dex_modifier
+
+        final_ac = base_ac
+
         # Add shield bonus
         shield_id = self.get_equipped_item_in_slot('shield')
         if shield_id:
@@ -592,8 +610,8 @@ class Character(models.Model):
                     final_ac += shield.armor_class
             except Equipment.DoesNotExist:
                 pass
-        
-        return max(final_ac, base_ac)
+
+        return final_ac
     
     def get_currency_total_gp_value(self):
         """Get total currency value in gold pieces."""
@@ -793,6 +811,15 @@ class Character(models.Model):
         if not self.pk and self.current_hit_points == 8:
             self.current_hit_points = self.hit_point_maximum
             self.max_hit_points = self.hit_point_maximum
+
+        # Death saves are only tracked at 0 HP.
+        if self.current_hit_points > 0:
+            self.death_save_successes = 0
+            self.death_save_failures = 0
+
+        # Clamp to valid death save ranges.
+        self.death_save_successes = max(0, min(3, int(self.death_save_successes or 0)))
+        self.death_save_failures = max(0, min(3, int(self.death_save_failures or 0)))
         
         super().save(*args, **kwargs)
 

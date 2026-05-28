@@ -20,6 +20,8 @@ interface Character {
   /** Slot → { equipment: { name, equipment_type, damage?: {dice,type}, properties?, ... }, slot, id } */
   equipped_items_details?: Record<string, { equipment: any; slot: string; id: string }>;
   id?: number | string;
+  features?: any[];
+  species_detail?: { name?: string; traits?: any[] };
 }
 
 interface AttackRollsProps {
@@ -366,6 +368,55 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character, onRefresh }
 
   const allWeapons = [unarmedAttack, ...buildWeaponList()];
 
+  // ── Special Attacks (Breath Weapon, etc.) ──────────────────────────────────
+  const getSpecialAttacks = () => {
+    const specials: Array<{
+      name: string; damageDice: string; damageType: string;
+      saveDC: number; saveType: string; range: string; description?: string;
+    }> = [];
+
+    const features: any[] = Array.isArray((character as any).features) ? (character as any).features : [];
+    const breathFeature = features.find(
+      (f: any) => typeof f?.name === 'string' && f.name.toLowerCase().includes('breath weapon')
+    );
+
+    if (breathFeature) {
+      const searchText = `${breathFeature.name ?? ''} ${breathFeature.description ?? ''}`.toLowerCase();
+      const damageTypes = ['acid', 'cold', 'fire', 'lightning', 'poison'];
+      const damageType = damageTypes.find(dt => searchText.includes(dt)) ?? 'magic';
+      const damageDice = level >= 17 ? '4d10' : level >= 11 ? '3d10' : level >= 5 ? '2d10' : '1d10';
+      const conMod = getAbilityModifier(character.constitution || 10);
+      const saveDC = 8 + conMod + (character.proficiency_bonus || 2);
+      specials.push({
+        name: 'Breath Weapon',
+        damageDice,
+        damageType,
+        saveDC,
+        saveType: 'DEX',
+        range: '15 ft. Cone or 30 ft. Line',
+        description: breathFeature.description,
+      });
+    }
+
+    return specials;
+  };
+
+  const specialAttacks = getSpecialAttacks();
+
+  const makeSpecialDamageRoll = (attack: { name: string; damageDice: string; damageType: string }) => {
+    const { sides, count } = parseDamage(attack.damageDice);
+    const rolls: number[] = [];
+    for (let i = 0; i < count; i++) rolls.push(rollDie(sides));
+    const total = rolls.reduce((s, r) => s + r, 0);
+    setAttackResults(prev => [{
+      weapon: attack.name,
+      attackRoll: 0, attackBonus: 0, attackTotal: 0,
+      damageRolls: rolls, damageBonus: 0,
+      damageTotal: total, damageType: attack.damageType,
+      isCritical: false, timestamp: Date.now(),
+    }, ...prev.slice(0, 4)]);
+  };
+
   const spellAttacks: AttackRow[] = getSpellAttacks(character as any, classDetail);
 
   return (
@@ -468,6 +519,39 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character, onRefresh }
           })}
         </div>
       </div>
+
+      {specialAttacks.length > 0 && (
+        <div className={styles['weapons-list']}>
+          <h4>Special Attacks</h4>
+          <div className={styles['spell-attacks-grid']}>
+            {specialAttacks.map((attack, index) => (
+              <div key={index} className={styles['spell-row']}>
+                <span
+                  className={[styles['spell-name-cell'], activeWeaponTooltipIdx === (index + 1000) ? styles['spell-name-cell-active'] : ''].filter(Boolean).join(' ')}
+                  onClick={() => setActiveWeaponTooltipIdx(i => i === (index + 1000) ? null : (index + 1000))}
+                >
+                  {attack.name}
+                  <span className={styles['spell-tooltip-combat']}>
+                    <span className={styles['sptName']}>{attack.name}</span>
+                    <span className={styles['sptMeta']}>{attack.range} · {attack.damageType}</span>
+                    <span className={styles['sptRow']}><span className={styles['sptLabel']}>Save:</span> DC {attack.saveDC} {attack.saveType}</span>
+                    <span className={styles['sptRow']}><span className={styles['sptLabel']}>Damage:</span> {attack.damageDice} {attack.damageType}</span>
+                    {attack.description && <span className={styles['sptDesc']}>{attack.description}</span>}
+                  </span>
+                </span>
+                <span className={styles['spell-dc-badge']}>DC {attack.saveDC} {attack.saveType}</span>
+                <button
+                  className={styles['spell-dmg-btn']}
+                  onClick={() => makeSpecialDamageRoll(attack)}
+                  title="Roll damage"
+                >
+                  {attack.damageDice} <span className={styles['spell-dmg-type']}>{attack.damageType}</span>
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {spellAttacks.length > 0 && (
         <div className={styles['weapons-list']}>

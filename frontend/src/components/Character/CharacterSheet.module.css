@@ -179,6 +179,89 @@
   font-size: 0.75rem;
 }
 
+.character-sheet .death-save-panel {
+  display: grid;
+  gap: 8px;
+  border-top: 1px dashed rgba(183, 193, 230, 0.28);
+  padding-top: 8px;
+}
+
+.character-sheet .death-save-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--ink-1);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.character-sheet .death-save-hint {
+  color: #8fa2da;
+  font-size: 0.68rem;
+}
+
+.character-sheet .death-save-rows {
+  display: grid;
+  gap: 6px;
+}
+
+.character-sheet .death-save-row {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-0);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.character-sheet .death-save-pips {
+  display: flex;
+  gap: 6px;
+}
+
+.character-sheet .death-save-pip {
+  width: 11px;
+  height: 11px;
+  border-radius: 999px;
+  border: 1px solid #6f80b0;
+  background: #0f1424;
+}
+
+.character-sheet .death-save-pip.filled-success {
+  background: linear-gradient(135deg, #30d58f, #169e67);
+  border-color: #2bc285;
+}
+
+.character-sheet .death-save-pip.filled-failure {
+  background: linear-gradient(135deg, #ff6f89, #d94761);
+  border-color: #ef6d85;
+}
+
+.character-sheet .death-save-row button,
+.character-sheet .death-save-reset {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), #4a74ff);
+  padding: 6px 10px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.character-sheet .death-save-reset {
+  justify-self: end;
+  min-width: 74px;
+}
+
+.character-sheet button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .character-sheet .character-content {
   display: grid;
   grid-template-columns: 250px minmax(0, 0.92fr) 320px;
@@ -767,9 +850,11 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  max-height: 340px;
+  max-height: 520px;
   overflow-y: auto;
   padding-right: 2px;
+  scrollbar-width: thin;
+  scrollbar-color: #3f4f83 transparent;
 }
 
 .character-sheet .traits-list li {

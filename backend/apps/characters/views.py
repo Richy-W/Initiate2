@@ -181,6 +181,8 @@ class CharacterViewSet(viewsets.ModelViewSet):
             'current_hp': character.current_hit_points,
             'max_hp': character.max_hit_points,
             'temp_hp': character.temporary_hit_points,
+            'death_save_successes': character.death_save_successes,
+            'death_save_failures': character.death_save_failures,
             'slots_restored': slots_restored,
         })
     
@@ -277,6 +279,8 @@ class CharacterViewSet(viewsets.ModelViewSet):
             'damage_type': damage_type,
             'current_hp': character.current_hit_points,
             'temp_hp': character.temporary_hit_points,
+            'death_save_successes': character.death_save_successes,
+            'death_save_failures': character.death_save_failures,
             'is_unconscious': character.current_hit_points == 0
         })
     
@@ -308,7 +312,47 @@ class CharacterViewSet(viewsets.ModelViewSet):
         return Response({
             'healing_applied': healing,
             'current_hp': character.current_hit_points,
-            'max_hp': character.max_hit_points
+            'max_hp': character.max_hit_points,
+            'death_save_successes': character.death_save_successes,
+            'death_save_failures': character.death_save_failures,
+        })
+
+    @action(detail=True, methods=['post'])
+    def death_save(self, request, pk=None):
+        """Track death saving throws while the character is at 0 HP."""
+        character = self.get_object()
+        result = str(request.data.get('result', '')).strip().lower()
+
+        if result not in {'success', 'failure', 'reset'}:
+            return Response(
+                {'error': 'result must be one of: success, failure, reset'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        if result == 'reset':
+            character.death_save_successes = 0
+            character.death_save_failures = 0
+            character.save(update_fields=['death_save_successes', 'death_save_failures'])
+        else:
+            if character.current_hit_points > 0:
+                return Response(
+                    {'error': 'Death saves can only be tracked at 0 HP'},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
+            if result == 'success':
+                character.death_save_successes = min(3, int(character.death_save_successes or 0) + 1)
+            else:
+                character.death_save_failures = min(3, int(character.death_save_failures or 0) + 1)
+
+            character.save(update_fields=['death_save_successes', 'death_save_failures'])
+
+        return Response({
+            'current_hp': character.current_hit_points,
+            'death_save_successes': character.death_save_successes,
+            'death_save_failures': character.death_save_failures,
+            'is_stable': character.death_save_successes >= 3,
+            'is_dead': character.death_save_failures >= 3,
         })
     
     @action(detail=True, methods=['get'])

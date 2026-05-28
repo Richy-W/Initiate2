@@ -168,6 +168,10 @@ export const api = {
       const response = await apiClient.post(`/characters/${id}/heal/`, payload);
       return response.data;
     },
+    deathSave: async (id: string, payload: { result: 'success' | 'failure' | 'reset' }) => {
+      const response = await apiClient.post(`/characters/${id}/death_save/`, payload);
+      return response.data;
+    },
     addItem: async (id: string, payload: { name: string; quantity?: number }) => {
       const response = await apiClient.post(`/characters/${id}/add_item/`, payload);
       return response.data;

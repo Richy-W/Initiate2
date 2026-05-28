@@ -30,6 +30,7 @@ class CharacterSerializer(serializers.ModelSerializer):
             'background', 'background_name', 'owner_username',
             'strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma',
             'max_hit_points', 'current_hit_points', 'temporary_hit_points',
+            'death_save_successes', 'death_save_failures',
             'currency',
             'hit_point_maximum', 'armor_class', 'proficiency_bonus',
             'initiative', 'speed', 'is_public', 'created_at', 'updated_at'
@@ -466,6 +467,18 @@ class CharacterCreateSerializer(serializers.ModelSerializer):
                                 return
                             except Exception:
                                 pass
+
+                    # Parse "N ItemName[s]" → single entry with quantity N (e.g. "4 Handaxes" → {name:"Handaxe", qty:4})
+                    import re as _re
+                    qty_name_match = _re.match(r'^(\d+)\s+(.+)$', trimmed)
+                    if qty_name_match:
+                        count = int(qty_name_match.group(1))
+                        item_name = qty_name_match.group(2).strip()
+                        # Strip trailing plural 's' (Handaxes→Handaxe, Arrows→Arrow, skip endings like 'ss','es' compounds)
+                        if count > 1 and item_name.endswith('s') and not item_name.endswith('ss'):
+                            item_name = item_name[:-1]
+                        equipment_items.append({'name': item_name, 'quantity': count})
+                        return
 
                     equipment_items.append({'name': trimmed, 'quantity': 1})
                     return

@@ -249,6 +249,8 @@ class EquipmentViewSet(ContentViewSetMixin, viewsets.ReadOnlyModelViewSet):
     serializer_class = EquipmentSerializer
     search_fields = ['name', 'description', 'category', 'equipment_type']
     filterset_fields = ['equipment_type', 'category', 'rarity']
+    # Disable pagination so the full list is returned when loading the equipment map
+    pagination_class = None
     
     @action(detail=False, methods=['get'])
     def by_type(self, request):
