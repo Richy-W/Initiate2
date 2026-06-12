@@ -1,6 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 import { enhanceContentWithPk } from '../utils/idMapping';
 import { parseApiError } from '../utils/errorHandling';
+import { ThemePreference } from '../utils/themePreference';
 
 let globalApiErrorHandler: ((message: string) => void) | null = null;
 
@@ -10,7 +11,9 @@ export const setGlobalApiErrorHandler = (handler: ((message: string) => void) | 
 
 // Create axios instance with base configuration
 const apiClient: AxiosInstance = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:8000/api/v1',
+  baseURL:
+    process.env.REACT_APP_API_URL ||
+    `${window.location.protocol}//${window.location.hostname}:8000/api/v1`,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
@@ -129,7 +132,7 @@ export const api = {
       const response = await apiClient.get('/users/profile/');
       return response.data;
     },
-    updateProfile: async (userData: Partial<{ username: string; email: string }>) => {
+    updateProfile: async (userData: Partial<{ username: string; email: string; theme_preference: ThemePreference }>) => {
       const response = await apiClient.patch('/users/profile/', userData);
       return response.data;
     },

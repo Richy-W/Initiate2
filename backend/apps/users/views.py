@@ -64,12 +64,25 @@ class UserProfileView(generics.RetrieveUpdateAPIView):
 
     def get_object(self):
         return self.request.user
+
+    def _normalize_theme_preference(self, user):
+        allowed = {User.THEME_DARK, User.THEME_TAVERN_LIGHT}
+        if user.theme_preference not in allowed:
+            user.theme_preference = User.THEME_TAVERN_LIGHT
+            user.save(update_fields=['theme_preference'])
+        return user
     
     def get(self, request, *args, **kwargs):
         """Get user profile with full user data."""
-        user = self.get_object()
+        user = self._normalize_theme_preference(self.get_object())
         serializer = UserSerializer(user)
         return Response(serializer.data)
+
+    def update(self, request, *args, **kwargs):
+        response = super().update(request, *args, **kwargs)
+        user = self._normalize_theme_preference(self.get_object())
+        response.data['theme_preference'] = user.theme_preference
+        return response
 
 
 @extend_schema(tags=['auth'])

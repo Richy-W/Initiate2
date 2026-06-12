@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNotification } from '../../contexts/NotificationContext';
 import { getUserFriendlyErrorMessage } from '../../utils/errorHandling';
+import { BRAND_COPY } from '../../constants/brand';
 import styles from './LoginPage.module.css';
 
 const LoginPage: React.FC = () => {
@@ -51,7 +52,7 @@ const LoginPage: React.FC = () => {
     <div className={styles['login-page']}>
       <div className={styles['login-shell']}>
         <aside className={styles['login-brand-pane']} aria-hidden="true">
-          <p className={styles['login-kicker']}>Initiate Platform</p>
+          <p className={styles['login-kicker']}>{BRAND_COPY.authKicker}</p>
           <h1>Welcome Back</h1>
           <p>
             Pick up your campaign where you left off. Your parties, encounters, and homebrew tools are ready.

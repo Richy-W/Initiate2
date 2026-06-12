@@ -1,5 +1,6 @@
 ﻿import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { APP_NAME } from '../constants/brand';
 import styles from './HelpPage.module.css';
 
 interface Section {
@@ -14,7 +15,7 @@ const sections: Section[] = [
     title: 'Getting Started',
     content: (
       <div>
-        <p>Welcome to <strong>Initiate</strong> — your digital D&D campaign companion. Here's how to get up and running quickly:</p>
+        <p>Welcome to <strong>{APP_NAME}</strong> — your digital D&D campaign companion. Here's how to get up and running quickly:</p>
         <ol>
           <li><strong>Create a character</strong> — Go to <Link to="/characters/create">Characters → New Character</Link> and follow the six-step wizard. You'll pick a species, class, background, ability scores, and optionally attach homebrew content.</li>
           <li><strong>Join or start a campaign</strong> — Head to <Link to="/campaigns">Campaigns</Link>. DMs can create a new campaign and share the invite code; players can join with that code.</li>
@@ -45,7 +46,7 @@ const sections: Section[] = [
         <ul>
           <li>Adjust current HP via the hit-point panel.</li>
           <li>Level up using the <em>Level Up</em> button (your character progresses to the next level).</li>
-          <li>Download a PDF copy with the <em>Export PDF</em> button.</li>
+          <li>Download a TavernKeeper PDF copy with the <em>Export PDF</em> button.</li>
           <li>View equipped items and encumbrance status in the Inventory section.</li>
         </ul>
       </div>
@@ -151,7 +152,7 @@ const sections: Section[] = [
         </details>
         <details>
           <summary>How do I export my character sheet as a PDF?</summary>
-          <p>Open the character detail page and click the <em>Export PDF</em> button in the header actions.</p>
+          <p>Open the character detail page and click the <em>Export PDF</em> button in the header actions to download the TavernKeeper sheet.</p>
         </details>
       </div>
     ),

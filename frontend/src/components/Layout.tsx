@@ -1,10 +1,13 @@
 ﻿import React from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { APP_NAME, APP_TAGLINE } from '../constants/brand';
+import { useTheme } from '../contexts/ThemeContext';
 import styles from './Layout.module.css';
 
 const Layout: React.FC = () => {
   const { user, logout } = useAuth();
+  const { theme, isHydrated, toggleTheme } = useTheme();
   const location = useLocation();
 
   const navigation = [
@@ -31,8 +34,8 @@ const Layout: React.FC = () => {
             <Link to="/dashboard" className={styles['brand-link']} aria-label="Go to dashboard">
               <span className={styles['brand-mark']} aria-hidden="true">I</span>
               <div className={styles['brand-copy']}>
-                <h1 className={styles['brand-title']}>Initiate</h1>
-                <p className={styles['brand-subtitle']}>Campaign Companion</p>
+                <h1 className={styles['brand-title']}>{APP_NAME}</h1>
+                <p className={styles['brand-subtitle']}>{APP_TAGLINE}</p>
               </div>
             </Link>
           </div>
@@ -54,6 +57,17 @@ const Layout: React.FC = () => {
             </ul>
 
             <div className={styles['account-controls']}>
+              <button
+                type="button"
+                className={styles['theme-toggle']}
+                onClick={() => {
+                  void toggleTheme();
+                }}
+                disabled={!isHydrated}
+                aria-label="Toggle between dark and tavern-light theme"
+              >
+                {theme === 'dark' ? 'Switch to Tavern Light' : 'Switch to Dark'}
+              </button>
               <span className={styles['welcome-text']} aria-live="polite">Welcome, {user?.first_name || user?.username}</span>
               <Link to="/profile" className={styles['account-link']}>Profile</Link>
               <button onClick={logout} className={styles['logout-button']} aria-label="Log out of your account">Logout</button>
