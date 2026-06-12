@@ -1,21 +1,21 @@
 /* Character Sheet Styles - readability-first refresh */
 
 .character-sheet {
-  --bg-0: #0f1220;
-  --bg-1: #1a2036;
-  --bg-2: #222a45;
-  --ink-0: #eef2ff;
-  --ink-1: #b7c1e6;
-  --border: #38446d;
-  --accent: #5f84ff;
-  --accent-2: #30c3d8;
+  --bg-0: var(--theme-bg);
+  --bg-1: var(--theme-bg-elevated);
+  --bg-2: var(--theme-bg-accent);
+  --ink-0: var(--theme-text);
+  --ink-1: var(--theme-text-muted);
+  --border: var(--theme-border);
+  --accent: var(--theme-accent);
+  --accent-2: var(--theme-accent-2);
   --good: #1ca46e;
-  --bad: #d64762;
+  --bad: var(--theme-danger);
 
   min-height: 100vh;
   background:
-    radial-gradient(1200px 600px at 100% -10%, rgba(95, 132, 255, 0.2), transparent 60%),
-    linear-gradient(180deg, var(--bg-0) 0%, #0b0e19 100%);
+    radial-gradient(1200px 600px at 100% -10%, color-mix(in srgb, var(--theme-accent) 20%, transparent), transparent 60%),
+    linear-gradient(180deg, var(--bg-0) 0%, var(--theme-surface) 100%);
   color: var(--ink-0);
 }
 
@@ -23,7 +23,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(12, 15, 27, 0.92);
+  background: color-mix(in srgb, var(--bg-0) 92%, transparent);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(8px);
   padding: 16px 20px;
@@ -101,8 +101,8 @@
 }
 
 .character-sheet .header-ability-modifier {
-  color: #ffffff;
-  background: linear-gradient(135deg, #4f75ff, #6f92ff);
+  color: var(--bg-0);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
   border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 999px;
   padding: 3px 9px;
@@ -146,9 +146,9 @@
 .character-sheet .hp-adjustment-panel input,
 .character-sheet .temp-hp-panel input {
   width: 100%;
-  background: #11182a;
-  border: 1px solid #4c5f94;
-  color: #eef2ff;
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  color: var(--ink-0);
   border-radius: 8px;
   padding: 7px 10px;
   font-weight: 700;
@@ -158,8 +158,8 @@
 .character-sheet .temp-hp-panel button {
   border-radius: 8px;
   border: 1px solid transparent;
-  color: #fff;
-  background: linear-gradient(135deg, var(--accent), #4a74ff);
+  color: var(--bg-0);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
   padding: 7px 12px;
   font-size: 0.76rem;
   font-weight: 800;
@@ -175,14 +175,14 @@
 }
 
 .character-sheet .vital-stat-feedback {
-  color: #ff9caf;
+  color: var(--bad);
   font-size: 0.75rem;
 }
 
 .character-sheet .death-save-panel {
   display: grid;
   gap: 8px;
-  border-top: 1px dashed rgba(183, 193, 230, 0.28);
+  border-top: 1px dashed color-mix(in srgb, var(--border) 50%, transparent);
   padding-top: 8px;
 }
 
@@ -198,7 +198,7 @@
 }
 
 .character-sheet .death-save-hint {
-  color: #8fa2da;
+  color: var(--ink-1);
   font-size: 0.68rem;
 }
 
@@ -226,8 +226,8 @@
   width: 11px;
   height: 11px;
   border-radius: 999px;
-  border: 1px solid #6f80b0;
-  background: #0f1424;
+  border: 1px solid var(--border);
+  background: var(--bg-0);
 }
 
 .character-sheet .death-save-pip.filled-success {
@@ -244,8 +244,8 @@
 .character-sheet .death-save-reset {
   border-radius: 8px;
   border: 1px solid transparent;
-  color: #fff;
-  background: linear-gradient(135deg, var(--accent), #4a74ff);
+  color: var(--bg-0);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
   padding: 6px 10px;
   font-size: 0.74rem;
   font-weight: 800;
@@ -313,7 +313,7 @@
 }
 
 .character-sheet .ability-block {
-  background: linear-gradient(180deg, #151b2f, var(--bg-2));
+  background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 10px;
@@ -337,8 +337,8 @@
 
 .character-sheet .ability-modifier {
   display: inline-block;
-  color: #ffffff;
-  background: linear-gradient(135deg, #4f75ff, #6f92ff);
+  color: var(--bg-0);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
   border: 1px solid rgba(255, 255, 255, 0.35);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
   border-radius: 999px;
@@ -351,14 +351,14 @@
 
 /* Force override against global App.css ability-modifier rules */
 .character-sheet .ability-block .ability-modifier {
-  color: #ffffff !important;
-  background: linear-gradient(135deg, #4f75ff, #6f92ff) !important;
+  color: var(--bg-0) !important;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2)) !important;
 }
 
 .character-sheet .ability-source {
   margin-top: 5px;
   font-size: 0.7rem;
-  color: #9fb0e4;
+  color: var(--ink-1);
 }
 
 .character-sheet .save-modifiers,
@@ -411,9 +411,9 @@
 .character-sheet .btn-roll,
 .character-sheet .btn-skill-roll,
 .character-sheet .btn-attack {
-  color: #fff;
+  color: var(--bg-0);
   border-color: transparent;
-  background: linear-gradient(135deg, var(--accent), #4a74ff);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
 }
 
 .character-sheet .btn-roll.advantage,
@@ -448,8 +448,8 @@
 .character-sheet .save-row:hover,
 .character-sheet .skill-row:hover,
 .character-sheet .weapon-row:hover {
-  border-color: #5f84ff;
-  box-shadow: 0 4px 16px rgba(95, 132, 255, 0.22);
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--accent) 22%, transparent);
 }
 
 .character-sheet .skills-list {
@@ -503,7 +503,7 @@
 
 .character-sheet .skill-meta {
   font-size: 0.74rem;
-  color: #9fb0e4;
+  color: var(--ink-1);
   line-height: 1.1;
   letter-spacing: 0.02em;
 }
@@ -532,9 +532,9 @@
   min-width: 54px;
   height: 30px;
   border-radius: 8px;
-  border: 1px solid #4c5f94;
-  color: #eaf0ff;
-  background: #2a3558;
+  border: 1px solid var(--border);
+  color: var(--ink-0);
+  background: var(--bg-2);
   font-size: 0.92rem;
   font-weight: 800;
   cursor: pointer;
@@ -543,19 +543,19 @@
 
 .character-sheet .bonus-roll-button:hover {
   transform: translateY(-1px);
-  border-color: #5f84ff;
-  box-shadow: 0 4px 14px rgba(95, 132, 255, 0.25);
+  border-color: var(--accent);
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--accent) 25%, transparent);
 }
 
 .character-sheet .bonus-roll-button.advantage {
   border-color: transparent;
-  color: #fff;
+  color: var(--bg-0);
   background: linear-gradient(135deg, var(--good), #20a86f);
 }
 
 .character-sheet .bonus-roll-button.disadvantage {
   border-color: transparent;
-  color: #fff;
+  color: var(--bg-0);
   background: linear-gradient(135deg, var(--bad), #dc4060);
 }
 
@@ -590,16 +590,16 @@
 .character-sheet .save-bonus,
 .character-sheet .skill-bonus,
 .character-sheet .currency-display span {
-  color: #eaf0ff;
-  background: #2a3558;
-  border: 1px solid #4c5f94;
+  color: var(--ink-0);
+  background: var(--bg-2);
+  border: 1px solid var(--border);
 }
 
 .character-sheet .proficiency-dot {
   width: 11px;
   height: 11px;
   border-radius: 999px;
-  border: 1px solid #6f7c9f;
+  border: 1px solid var(--border);
   background: transparent;
   flex: 0 0 auto;
 }
@@ -675,11 +675,36 @@
   background: radial-gradient(circle at 35% 28%, #deffff 0%, #a6d5e8 45%, #6798b3 100%);
 }
 
+:root[data-theme='tavern-light'] .character-sheet .currency-input-box.coin-cp .coin-badge {
+  color: #fff;
+  background: radial-gradient(circle at 35% 28%, #d4876b 0%, #8b4513 45%, #654321 100%);
+}
+
+:root[data-theme='tavern-light'] .character-sheet .currency-input-box.coin-sp .coin-badge {
+  color: #fff;
+  background: radial-gradient(circle at 35% 28%, #c0c8d0 0%, #7a8492 45%, #4a5568 100%);
+}
+
+:root[data-theme='tavern-light'] .character-sheet .currency-input-box.coin-gp .coin-badge {
+  color: #fff;
+  background: radial-gradient(circle at 35% 28%, #e6b800 0%, #b8860b 45%, #8b6914 100%);
+}
+
+:root[data-theme='tavern-light'] .character-sheet .currency-input-box.coin-ep .coin-badge {
+  color: #fff;
+  background: radial-gradient(circle at 35% 28%, #c4a87a 0%, #8b7355 45%, #6b5b49 100%);
+}
+
+:root[data-theme='tavern-light'] .character-sheet .currency-input-box.coin-pp .coin-badge {
+  color: #0f2636;
+  background: radial-gradient(circle at 35% 28%, #b8e5f0 0%, #7db8d1 45%, #5a91ad 100%);
+}
+
 .character-sheet .currency-input-box input {
   width: 84px;
-  background: #11182a;
-  border: 1px solid #4c5f94;
-  color: #eef2ff;
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  color: var(--ink-0);
   border-radius: 6px;
   padding: 6px 8px;
   font-weight: 700;
@@ -688,8 +713,8 @@
 
 .character-sheet .currency-input-box input:focus {
   outline: none;
-  border-color: #90adff;
-  box-shadow: 0 0 0 2px rgba(95, 132, 255, 0.25);
+  border-color: var(--theme-focus);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--theme-focus) 25%, transparent);
 }
 
 .character-sheet .equipment-add-controls {
@@ -698,7 +723,7 @@
 
 .character-sheet .equipment-add-controls h5 {
   margin: 0 0 8px;
-  color: #9fb0e4;
+  color: var(--ink-1);
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -717,16 +742,16 @@
 }
 
 .character-sheet .equipment-add-row input {
-  background: #11182a;
-  border: 1px solid #4c5f94;
-  color: #eef2ff;
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  color: var(--ink-0);
   padding: 0 10px;
 }
 
 .character-sheet .equipment-add-row button {
   border: 1px solid transparent;
-  background: linear-gradient(135deg, var(--accent), #4a74ff);
-  color: #ffffff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: var(--bg-0);
   font-weight: 700;
   padding: 0 12px;
   cursor: pointer;
@@ -753,13 +778,13 @@
 }
 
 .character-sheet .notes .notes-textarea::placeholder {
-  color: #8f9ac2;
+  color: var(--ink-1);
 }
 
 .character-sheet .notes .notes-textarea:focus {
   outline: none;
-  border-color: #aac0ff;
-  box-shadow: 0 0 0 3px rgba(45, 91, 255, 0.15);
+  border-color: var(--theme-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--theme-focus) 15%, transparent);
 }
 
 .character-sheet .notes-save-state {
@@ -770,15 +795,15 @@
 }
 
 .character-sheet .notes-save-state.saving {
-  color: #9fb0e4;
+  color: var(--ink-1);
 }
 
 .character-sheet .notes-save-state.saved {
-  color: #7ce2b7;
+  color: var(--good);
 }
 
 .character-sheet .notes-save-state.error {
-  color: #ff9caf;
+  color: var(--bad);
 }
 
 .character-sheet .traits-pane {
@@ -794,7 +819,7 @@
 
 .character-sheet .traits-tab {
   border: 1px solid var(--border);
-  background: #161d31;
+  background: var(--bg-1);
   color: var(--ink-1);
   border-radius: 8px;
   font-size: 0.78rem;
@@ -804,15 +829,15 @@
 }
 
 .character-sheet .traits-tab.active {
-  background: linear-gradient(135deg, var(--accent), #7a9bff);
-  color: #ffffff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: var(--bg-0);
   border-color: transparent;
 }
 
 .character-sheet .traits-content h4 {
   margin: 8px 0 6px;
   font-size: 0.8rem;
-  color: #9fb0e4;
+  color: var(--ink-1);
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -825,9 +850,9 @@
 }
 
 .character-sheet .feature-filter-pill {
-  border: 1px solid #3f4f83;
-  background: #0f1629;
-  color: #cdd8ff;
+  border: 1px solid var(--border);
+  background: var(--bg-0);
+  color: var(--ink-0);
   border-radius: 999px;
   font-size: 0.7rem;
   font-weight: 800;
@@ -839,8 +864,8 @@
 
 .character-sheet .feature-filter-pill.active {
   border-color: transparent;
-  background: linear-gradient(135deg, #7d4fff, #4a8bff);
-  color: #ffffff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: var(--bg-0);
 }
 
 .character-sheet .traits-list {
@@ -854,13 +879,13 @@
   overflow-y: auto;
   padding-right: 2px;
   scrollbar-width: thin;
-  scrollbar-color: #3f4f83 transparent;
+  scrollbar-color: var(--border) transparent;
 }
 
 .character-sheet .traits-list li {
   border: 1px solid var(--border);
   border-radius: 7px;
-  background: #161d31;
+  background: var(--bg-1);
   color: var(--ink-0);
   padding: 6px 8px;
   font-size: 0.85rem;
@@ -891,7 +916,7 @@
 }
 
 .character-sheet .feature-toggle small {
-  color: #93a8df;
+  color: var(--ink-1);
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -900,20 +925,20 @@
 
 .character-sheet .feature-toggle-indicator {
   font-size: 0.72rem;
-  color: #9fb0e4;
+  color: var(--ink-1);
   letter-spacing: 0.03em;
   text-transform: uppercase;
 }
 
 .character-sheet .feature-toggle:hover {
-  background: linear-gradient(180deg, rgba(95, 132, 255, 0.2), rgba(95, 132, 255, 0.04));
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 20%, transparent), color-mix(in srgb, var(--accent) 4%, transparent));
 }
 
 .character-sheet .feature-modal-overlay {
   position: fixed;
   inset: 0;
   z-index: 1200;
-  background: rgba(4, 9, 24, 0.72);
+  background: color-mix(in srgb, var(--bg-0) 72%, transparent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -926,8 +951,8 @@
   max-height: min(82vh, 760px);
   overflow: hidden;
   border-radius: 14px;
-  border: 1px solid #4f64a5;
-  background: linear-gradient(180deg, #101935 0%, #0d1630 100%);
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-0) 100%);
   box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
 }
 
@@ -942,14 +967,14 @@
 
 .character-sheet .feature-modal-header h4 {
   margin: 0;
-  color: #eaf0ff;
+  color: var(--ink-0);
   font-size: 1.05rem;
 }
 
 .character-sheet .feature-modal-close {
-  border: 1px solid #5f7be0;
-  background: rgba(96, 128, 255, 0.14);
-  color: #dbe5ff;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--ink-0);
   border-radius: 8px;
   padding: 6px 10px;
   font-size: 0.78rem;
@@ -958,7 +983,7 @@
 }
 
 .character-sheet .feature-modal-close:hover {
-  background: rgba(96, 128, 255, 0.24);
+  background: color-mix(in srgb, var(--accent) 24%, transparent);
 }
 
 .character-sheet .feature-modal-body {
@@ -969,7 +994,7 @@
 
 .character-sheet .feature-modal-body p {
   margin: 0;
-  color: #d6e0ff;
+  color: var(--ink-0);
   font-size: 0.92rem;
   line-height: 1.5;
   white-space: pre-line;
@@ -978,13 +1003,13 @@
 .character-sheet .feature-modal-body small {
   display: block;
   margin-top: 10px;
-  color: #8ea0d3;
+  color: var(--ink-1);
   font-size: 0.8rem;
 }
 
 .character-sheet .traits-empty {
   margin: 4px 0 10px;
-  color: #9fb0e4;
+  color: var(--ink-1);
   font-size: 0.82rem;
 }
 
@@ -1000,7 +1025,7 @@
 
 .character-sheet .proficiency-group h5 {
   margin: 0 0 6px;
-  color: #9fb0e4;
+  color: var(--ink-1);
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -1029,7 +1054,7 @@
   align-items: center;
   border: 1px solid var(--border);
   border-radius: 999px;
-  background: #121a2d;
+  background: var(--bg-0);
   overflow: hidden;
 }
 
@@ -1039,8 +1064,8 @@
   justify-content: center;
   height: 100%;
   min-height: 34px;
-  background: #1e2a46;
-  color: #ffffff;
+  background: var(--bg-2);
+  color: var(--ink-0);
   font-weight: 800;
 }
 
@@ -1048,7 +1073,7 @@
   padding: 0 10px;
   font-size: 0.73rem;
   font-weight: 800;
-  color: #e7edff;
+  color: var(--ink-0);
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -1060,13 +1085,13 @@
 
 .character-sheet .sense-line {
   text-align: center;
-  color: #e7edff;
+  color: var(--ink-0);
   font-size: 0.95rem;
 }
 
 .character-sheet .senses-title {
   text-align: center;
-  color: #ffffff;
+  color: var(--ink-0);
   font-size: 1rem;
   font-weight: 800;
   letter-spacing: 0.04em;
@@ -1114,16 +1139,16 @@
     flex: 1;
     border: 1px solid var(--border);
     border-radius: 8px;
-    background: #161d31;
+    background: var(--bg-1);
     color: var(--ink-0);
     font-weight: 700;
     padding: 10px 12px;
   }
 
   .character-sheet .tab-button.active {
-    color: #fff;
+    color: var(--bg-0);
     border-color: transparent;
-    background: linear-gradient(135deg, var(--accent), #7a9bff);
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
   }
 }
 
@@ -1207,7 +1232,7 @@
   }
 }
 
-/* ── Spell attack rows (Combat tab) ──────────────────────────────────────── */
+/* G��G�� Spell attack rows (Combat tab) G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G�� */
 
 .character-sheet .spell-attacks-grid {
   display: flex;
@@ -1229,8 +1254,8 @@
 }
 
 .character-sheet .spell-row:hover {
-  border-color: #5f84ff;
-  box-shadow: 0 4px 16px rgba(95, 132, 255, 0.18);
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--accent) 18%, transparent);
 }
 
 /* Spell name cell with hover/tap tooltip */
@@ -1240,7 +1265,7 @@
   font-size: 0.88rem;
   font-weight: 600;
   color: var(--ink-0);
-  border-bottom: 1px dotted #4a6a9a;
+  border-bottom: 1px dotted var(--border);
   white-space: nowrap;
   overflow: visible;
 }
@@ -1252,8 +1277,8 @@
   top: calc(100% + 6px);
   z-index: 300;
   width: 300px;
-  background: #0b1220;
-  border: 1px solid #2a3d66;
+  background: var(--bg-0);
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 10px 14px;
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.65);
@@ -1278,13 +1303,13 @@
 .character-sheet .sptName {
   font-size: 0.85rem;
   font-weight: 700;
-  color: #e8eeff;
+  color: var(--ink-0);
   margin-bottom: 2px;
 }
 
 .character-sheet .sptMeta {
   font-size: 0.7rem;
-  color: #7d9de8;
+  color: var(--ink-1);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 6px;
@@ -1292,31 +1317,31 @@
 
 .character-sheet .sptRow {
   font-size: 0.75rem;
-  color: #c8d4f0;
+  color: var(--ink-0);
 }
 
 .character-sheet .sptLabel {
   font-weight: 700;
-  color: #93a8df;
+  color: var(--ink-1);
 }
 
 .character-sheet .sptDesc {
   font-size: 0.75rem;
-  color: #a8b8d8;
+  color: var(--ink-1);
   margin-top: 8px;
   padding-top: 8px;
-  border-top: 1px solid #1e2e50;
+  border-top: 1px solid var(--border);
   line-height: 1.55;
 }
 
 .character-sheet .sptHigher {
   font-size: 0.73rem;
-  color: #8a9ec8;
+  color: var(--ink-1);
   margin-top: 6px;
   font-style: italic;
 }
 
-/* Attack roll chip — clickable for attack spells */
+/* Attack roll chip G�� clickable for attack spells */
 .character-sheet .spell-atk-btn {
   display: flex;
   align-items: center;
@@ -1329,14 +1354,14 @@
   font-weight: 700;
   letter-spacing: 0.03em;
   cursor: pointer;
-  color: #fff;
-  background: linear-gradient(135deg, var(--accent), #4a74ff);
+  color: var(--bg-0);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
   transition: 130ms ease;
 }
 
 .character-sheet .spell-atk-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 3px 10px rgba(95, 132, 255, 0.4);
+  box-shadow: 0 3px 10px color-mix(in srgb, var(--accent) 40%, transparent);
 }
 
 .character-sheet .spell-atk-btn.advantage {
@@ -1347,7 +1372,7 @@
   background: linear-gradient(135deg, var(--bad), #dc4060);
 }
 
-/* Save DC badge — display only, not a button */
+/* Save DC badge G�� display only, not a button */
 .character-sheet .spell-dc-badge {
   display: flex;
   align-items: center;
@@ -1355,11 +1380,11 @@
   width: 100%;
   height: 30px;
   border-radius: 6px;
-  border: 1px solid #8a6edf;
+  border: 1px solid color-mix(in srgb, var(--accent-2) 60%, transparent);
   font-size: 0.76rem;
   font-weight: 700;
-  color: #c0a8ff;
-  background: rgba(138, 110, 223, 0.12);
+  color: var(--accent-2);
+  background: color-mix(in srgb, var(--accent-2) 12%, transparent);
   white-space: nowrap;
 }
 
@@ -1376,8 +1401,8 @@
   font-size: 0.76rem;
   font-weight: 700;
   cursor: pointer;
-  color: #fff;
-  background: linear-gradient(135deg, #c05030, #e06840);
+  color: var(--bg-0);
+  background: linear-gradient(135deg, var(--bad), color-mix(in srgb, var(--bad) 70%, #e06840));
   transition: 130ms ease;
 }
 
@@ -1400,18 +1425,18 @@
 /* Results log extras */
 .character-sheet .slot-used-tag {
   font-size: 0.72rem;
-  color: #c0a8ff;
+  color: var(--accent-2);
   font-style: italic;
 }
 
 .character-sheet .spell-no-slot {
   font-size: 0.72rem;
-  color: #f87171;
+  color: var(--bad);
   font-weight: 600;
   margin-left: 6px;
 }
 
-/* ─── Equipment / Inventory Panel ─────────────────────────────────────── */
+/* G��G��G�� Equipment / Inventory Panel G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G��G�� */
 .character-sheet .inventory-section {
   margin-top: 8px;
 }
@@ -1421,7 +1446,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--muted, #8a9ec8);
+  color: var(--ink-1);
   margin-bottom: 4px;
 }
 
@@ -1437,7 +1462,7 @@
 
 .character-sheet .inventory-slot-label {
   font-size: 0.7rem;
-  color: var(--muted, #8a9ec8);
+  color: var(--ink-1);
   text-transform: capitalize;
   min-width: 72px;
 }
@@ -1445,7 +1470,7 @@
 .character-sheet .inventory-item-name {
   flex: 1;
   font-size: 0.82rem;
-  color: var(--text, #e0e6ff);
+  color: var(--ink-0);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1476,13 +1501,13 @@
 }
 
 .character-sheet .equip-btn {
-  background: linear-gradient(135deg, var(--accent, #5f84ff), #4a74ff);
-  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: var(--bg-0);
 }
 
 .character-sheet .equip-btn:hover:not(:disabled) {
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(95, 132, 255, 0.4);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--accent) 40%, transparent);
 }
 
 .character-sheet .unequip-btn {
@@ -1519,7 +1544,7 @@
 
 .character-sheet .inv-slot-label {
   font-size: 0.7rem;
-  color: var(--muted, #8a9ec8);
+  color: var(--ink-1);
   text-transform: capitalize;
   min-width: 72px;
 }
@@ -1527,7 +1552,7 @@
 .character-sheet .inv-item-name {
   flex: 1;
   font-size: 0.82rem;
-  color: var(--text, #e0e6ff);
+  color: var(--ink-0);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1537,7 +1562,7 @@
 }
 
 .character-sheet .inv-item-name.equipped {
-  color: #a0c4ff;
+  color: var(--accent);
   font-weight: 600;
 }
 
@@ -1558,9 +1583,9 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #d4a4ff;
-  background: rgba(180, 80, 255, 0.12);
-  border: 1px solid rgba(180, 80, 255, 0.3);
+  color: var(--accent-2);
+  background: color-mix(in srgb, var(--accent-2) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent-2) 30%, transparent);
   border-radius: 4px;
   padding: 1px 5px;
   white-space: nowrap;
@@ -1572,9 +1597,9 @@
   width: 24px;
   height: 24px;
   border-radius: 5px;
-  border: 2px solid #4c5f94;
+  border: 2px solid var(--border);
   background: transparent;
-  color: #e0e6ff;
+  color: var(--ink-0);
   font-size: 0.8rem;
   font-weight: 700;
   cursor: pointer;
@@ -1586,13 +1611,13 @@
 }
 
 .character-sheet .inv-equip-check.checked {
-  border-color: var(--accent, #5f84ff);
-  background: rgba(95, 132, 255, 0.2);
-  color: var(--accent, #5f84ff);
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 20%, transparent);
+  color: var(--accent);
 }
 
 .character-sheet .inv-equip-check:hover:not(:disabled) {
-  border-color: var(--accent, #5f84ff);
+  border-color: var(--accent);
   transform: scale(1.1);
 }
 
@@ -1606,9 +1631,9 @@
   width: 24px;
   height: 24px;
   border-radius: 5px;
-  border: 1px solid rgba(180, 80, 255, 0.3);
+  border: 1px solid color-mix(in srgb, var(--accent-2) 30%, transparent);
   background: transparent;
-  color: #9a6ec8;
+  color: var(--accent);
   font-size: 0.9rem;
   cursor: pointer;
   display: flex;
@@ -1619,14 +1644,14 @@
 }
 
 .character-sheet .inv-attune-btn.attuned {
-  color: #d4a4ff;
-  background: rgba(180, 80, 255, 0.15);
-  border-color: rgba(180, 80, 255, 0.5);
+  color: var(--accent-2);
+  background: color-mix(in srgb, var(--accent-2) 15%, transparent);
+  border-color: color-mix(in srgb, var(--accent-2) 50%, transparent);
 }
 
 .character-sheet .inv-attune-btn:hover:not(:disabled) {
   transform: scale(1.15);
-  border-color: #b46aff;
+  border-color: var(--accent-2);
 }
 
 .character-sheet .inv-attune-btn:disabled {
@@ -1648,20 +1673,20 @@
   gap: 8px;
   padding: 6px 8px;
   border-radius: 7px;
-  border: 1px solid #2a3556;
-  background: rgba(0,0,0,0.2);
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg-0) 80%, transparent);
   min-height: 34px;
 }
 
 .character-sheet .attunement-slot.attuned {
-  border-color: rgba(180, 80, 255, 0.4);
-  background: rgba(180, 80, 255, 0.07);
+  border-color: color-mix(in srgb, var(--accent-2) 40%, transparent);
+  background: color-mix(in srgb, var(--accent-2) 7%, transparent);
 }
 
 .character-sheet .attunement-index {
   font-size: 0.72rem;
   font-weight: 700;
-  color: var(--muted, #8a9ec8);
+  color: var(--ink-1);
   min-width: 14px;
   text-align: center;
 }
@@ -1669,7 +1694,7 @@
 .character-sheet .attunement-name {
   flex: 1;
   font-size: 0.82rem;
-  color: #d4a4ff;
+  color: var(--accent-2);
   font-weight: 600;
   white-space: nowrap;
   overflow: hidden;
@@ -1679,14 +1704,14 @@
 .character-sheet .attunement-empty {
   flex: 1;
   font-size: 0.78rem;
-  color: #4c5f94;
+  color: var(--border);
   font-style: italic;
 }
 
 .character-sheet .attunement-clear-btn {
   background: transparent;
   border: none;
-  color: #f87171;
+  color: var(--bad);
   font-size: 0.75rem;
   cursor: pointer;
   padding: 2px 5px;
@@ -1698,7 +1723,7 @@
 
 .character-sheet .attunement-clear-btn:hover:not(:disabled) {
   opacity: 1;
-  background: rgba(248, 113, 113, 0.15);
+  background: color-mix(in srgb, var(--bad) 15%, transparent);
 }
 
 .character-sheet .attunement-clear-btn:disabled {
@@ -1716,8 +1741,8 @@
   top: calc(100% + 3px);
   left: 0;
   right: 0;
-  background: #111827;
-  border: 1px solid #3a4d7a;
+  background: var(--bg-0);
+  border: 1px solid var(--border);
   border-radius: 8px;
   max-height: 220px;
   overflow-y: auto;
@@ -1728,7 +1753,7 @@
 .character-sheet .item-search-loading {
   padding: 8px 12px;
   font-size: 0.78rem;
-  color: var(--muted, #8a9ec8);
+  color: var(--ink-1);
 }
 
 .character-sheet .item-search-result {
@@ -1746,20 +1771,51 @@
 }
 
 .character-sheet .item-search-result:hover {
-  background: rgba(95, 132, 255, 0.12);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
 }
 
 .character-sheet .isr-name {
   font-size: 0.82rem;
-  color: #e0e6ff;
+  color: var(--ink-0);
 }
 
 .character-sheet .isr-meta {
   font-size: 0.7rem;
-  color: var(--muted, #8a9ec8);
+  color: var(--ink-1);
   text-transform: capitalize;
   flex-shrink: 0;
   margin-left: 8px;
+}
+
+:root[data-theme='tavern-light'] .character-sheet .inventory-section-label,
+:root[data-theme='tavern-light'] .character-sheet .inventory-slot-label,
+:root[data-theme='tavern-light'] .character-sheet .inv-slot-label,
+:root[data-theme='tavern-light'] .character-sheet .attunement-index,
+:root[data-theme='tavern-light'] .character-sheet .item-search-loading,
+:root[data-theme='tavern-light'] .character-sheet .isr-meta {
+  color: var(--theme-text-muted);
+}
+
+:root[data-theme='tavern-light'] .character-sheet .inventory-item-name,
+:root[data-theme='tavern-light'] .character-sheet .inv-item-name,
+:root[data-theme='tavern-light'] .character-sheet .isr-name {
+  color: var(--theme-text);
+}
+
+:root[data-theme='tavern-light'] .character-sheet .inv-item-name.equipped {
+  color: var(--theme-accent);
+}
+
+:root[data-theme='tavern-light'] .character-sheet .inv-equipped-badge {
+  color: #fff;
+  background: rgba(40, 167, 69, 0.3);
+  border-color: rgba(40, 167, 69, 0.5);
+}
+
+:root[data-theme='tavern-light'] .character-sheet .inv-magic-badge {
+  color: var(--theme-accent);
+  background: rgba(138, 77, 31, 0.15);
+  border-color: rgba(138, 77, 31, 0.3);
 }
 
 @media (max-width: 768px) {

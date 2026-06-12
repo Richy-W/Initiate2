@@ -18,6 +18,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import ProtectedRoute from './components/ProtectedRoute';
 import ErrorBoundary from './components/ErrorBoundary';
 import { NotificationProvider, useNotification } from './contexts/NotificationContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 import { setGlobalApiErrorHandler } from './services/apiClient';
 import './App.css';
 
@@ -38,56 +39,58 @@ function App() {
       <NotificationProvider>
         <ApiErrorBridge />
         <AuthProvider>
-          <Router>
-            <div className="App">
-              <Routes>
-                {/* Public routes */}
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/register" element={<RegisterPage />} />
+          <ThemeProvider>
+            <Router>
+              <div className="App">
+                <Routes>
+                  {/* Public routes */}
+                  <Route path="/login" element={<LoginPage />} />
+                  <Route path="/register" element={<RegisterPage />} />
 
-                {/* Protected routes */}
-                <Route path="/" element={
-                  <ProtectedRoute>
-                    <Layout />
-                  </ProtectedRoute>
-                }>
-                  {/* Nested routes inside Layout */}
-                  <Route index element={<Navigate to="/dashboard" replace />} />
-                  <Route path="dashboard" element={<DashboardPage />} />
+                  {/* Protected routes */}
+                  <Route path="/" element={
+                    <ProtectedRoute>
+                      <Layout />
+                    </ProtectedRoute>
+                  }>
+                    {/* Nested routes inside Layout */}
+                    <Route index element={<Navigate to="/dashboard" replace />} />
+                    <Route path="dashboard" element={<DashboardPage />} />
 
-                  {/* Character routes */}
-                  <Route path="characters">
-                    <Route index element={<CharactersPage />} />
-                    <Route path="create" element={<CharacterCreatePage />} />
-                    <Route path=":characterId" element={<CharacterDetailPage />} />
-                    <Route path=":characterId/edit" element={<CharacterCreatePage />} />
+                    {/* Character routes */}
+                    <Route path="characters">
+                      <Route index element={<CharactersPage />} />
+                      <Route path="create" element={<CharacterCreatePage />} />
+                      <Route path=":characterId" element={<CharacterDetailPage />} />
+                      <Route path=":characterId/edit" element={<CharacterCreatePage />} />
+                    </Route>
+
+                    {/* Campaign routes */}
+                    <Route path="campaigns">
+                      <Route index element={<CampaignsPage />} />
+                      <Route path=":campaignId" element={<CampaignDetailPage />} />
+                      <Route path=":campaignId/combat/:encounterId?" element={<CombatPage />} />
+                    </Route>
+
+                    {/* Content routes */}
+                    <Route path="content">
+                      <Route index element={<ContentPage />} />
+                      <Route path=":contentType" element={<ContentPage />} />
+                    </Route>
+
+                    {/* Profile routes */}
+                    <Route path="profile" element={<ProfilePage />} />
+
+                    {/* Help / onboarding */}
+                    <Route path="help" element={<HelpPage />} />
                   </Route>
 
-                  {/* Campaign routes */}
-                  <Route path="campaigns">
-                    <Route index element={<CampaignsPage />} />
-                    <Route path=":campaignId" element={<CampaignDetailPage />} />
-                    <Route path=":campaignId/combat/:encounterId?" element={<CombatPage />} />
-                  </Route>
-
-                  {/* Content routes */}
-                  <Route path="content">
-                    <Route index element={<ContentPage />} />
-                    <Route path=":contentType" element={<ContentPage />} />
-                  </Route>
-
-                  {/* Profile routes */}
-                  <Route path="profile" element={<ProfilePage />} />
-
-                  {/* Help / onboarding */}
-                  <Route path="help" element={<HelpPage />} />
-                </Route>
-
-                {/* 404 route */}
-                <Route path="*" element={<NotFoundPage />} />
-              </Routes>
-            </div>
-          </Router>
+                  {/* 404 route */}
+                  <Route path="*" element={<NotFoundPage />} />
+                </Routes>
+              </div>
+            </Router>
+          </ThemeProvider>
         </AuthProvider>
       </NotificationProvider>
     </ErrorBoundary>

@@ -424,7 +424,7 @@ class CharacterViewSet(viewsets.ModelViewSet):
 
         file_slug = slugify(character.name) or f"character-{character.id}"
         response = HttpResponse(pdf_bytes, content_type='application/pdf')
-        response['Content-Disposition'] = f'attachment; filename="{file_slug}-sheet.pdf"'
+        response['Content-Disposition'] = f'attachment; filename="tavernkeeper-{file_slug}-sheet.pdf"'
         return response
     
     @action(detail=True, methods=['post'])

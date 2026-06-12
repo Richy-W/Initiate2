@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNotification } from '../../contexts/NotificationContext';
 import { getUserFriendlyErrorMessage } from '../../utils/errorHandling';
+import { BRAND_COPY } from '../../constants/brand';
 import styles from './LoginPage.module.css';
 
 const RegisterPage: React.FC = () => {
@@ -48,7 +49,7 @@ const RegisterPage: React.FC = () => {
         last_name: form.lastName,
       });
 
-      notifySuccess('Account created successfully. Welcome to Initiate!');
+      notifySuccess(BRAND_COPY.registerWelcome);
       navigate('/dashboard', { replace: true });
     } catch (submitError: unknown) {
       const message = getUserFriendlyErrorMessage(submitError, 'Failed to create account.');
@@ -63,7 +64,7 @@ const RegisterPage: React.FC = () => {
     <div className={styles['login-page']}>
       <div className={[styles['login-shell'], styles['register-shell']].filter(Boolean).join(' ')}>
         <aside className={styles['login-brand-pane']} aria-hidden="true">
-          <p className={styles['login-kicker']}>Initiate Platform</p>
+          <p className={styles['login-kicker']}>{BRAND_COPY.authKicker}</p>
           <h1>Create Your Account</h1>
           <p>
             Build characters, join campaigns, and manage encounters in one place.
