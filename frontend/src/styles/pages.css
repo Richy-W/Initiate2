@@ -98,7 +98,7 @@
   border: 1px solid var(--app-border);
   border-radius: 14px;
   padding: 22px 24px;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 6px 24px color-mix(in srgb, var(--theme-border) 26%, transparent);
 }
 
 .pg-card-title {
@@ -133,7 +133,7 @@
 
 .pg-entity-card:hover {
   border-color: var(--app-accent);
-  box-shadow: 0 8px 28px rgba(95, 132, 255, 0.18);
+  box-shadow: 0 8px 28px color-mix(in srgb, var(--app-accent) 24%, transparent);
   transform: translateY(-2px);
 }
 
@@ -180,9 +180,9 @@
 }
 
 .pg-badge--green {
-  background: rgba(28, 164, 110, 0.18);
-  color: #38d49b;
-  border: 1px solid rgba(28, 164, 110, 0.35);
+  background: color-mix(in srgb, #1ca46e 18%, transparent);
+  color: color-mix(in srgb, #1ca46e 80%, var(--theme-text));
+  border: 1px solid color-mix(in srgb, #1ca46e 35%, var(--theme-border));
 }
 
 .pg-badge--gray {
@@ -192,15 +192,15 @@
 }
 
 .pg-badge--red {
-  background: rgba(214, 71, 98, 0.16);
-  color: #f07286;
-  border: 1px solid rgba(214, 71, 98, 0.35);
+  background: color-mix(in srgb, var(--theme-danger) 16%, transparent);
+  color: color-mix(in srgb, var(--theme-danger) 80%, var(--theme-text));
+  border: 1px solid color-mix(in srgb, var(--theme-danger) 35%, var(--theme-border));
 }
 
 .pg-badge--blue {
-  background: rgba(95, 132, 255, 0.16);
-  color: #8aabff;
-  border: 1px solid rgba(95, 132, 255, 0.35);
+  background: color-mix(in srgb, var(--theme-accent) 16%, transparent);
+  color: color-mix(in srgb, var(--theme-accent) 78%, var(--theme-text));
+  border: 1px solid color-mix(in srgb, var(--theme-accent) 35%, var(--theme-border));
 }
 
 /* ── Tab bar ──────────────────────────────────────────────────────── */
@@ -335,9 +335,9 @@
 }
 
 .pg-btn:hover {
-  border-color: #6075b5;
-  background: #25305a;
-  box-shadow: 0 4px 14px rgba(95, 132, 255, 0.15);
+  border-color: var(--theme-accent);
+  background: color-mix(in srgb, var(--theme-accent) 18%, var(--app-bg-2));
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--theme-accent) 22%, transparent);
 }
 
 .pg-btn:focus-visible {
@@ -348,14 +348,14 @@
 .pg-btn--primary {
   background: var(--app-accent);
   border-color: transparent;
-  color: #fff;
-  box-shadow: 0 6px 18px rgba(95, 132, 255, 0.3);
+  color: var(--theme-surface);
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--theme-accent) 34%, transparent);
 }
 
 .pg-btn--primary:hover {
-  background: #7a9bff;
+  background: color-mix(in srgb, var(--theme-accent) 80%, white 20%);
   border-color: transparent;
-  box-shadow: 0 8px 22px rgba(95, 132, 255, 0.4);
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--theme-accent) 42%, transparent);
 }
 
 .pg-btn--danger {

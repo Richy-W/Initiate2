@@ -24,26 +24,26 @@
   text-align: left;
   font-size: 0.92rem;
   line-height: 1.4;
-  box-shadow: 0 12px 32px rgba(17, 24, 39, 0.14);
+  box-shadow: 0 12px 32px color-mix(in srgb, var(--theme-border) 26%, transparent);
   backdrop-filter: blur(2px);
 }
 
 .app-toast--success {
-  background: #ecfdf5;
-  border-color: #a7f3d0;
-  color: #065f46;
+  background: color-mix(in srgb, #1ca46e 14%, var(--theme-surface));
+  border-color: color-mix(in srgb, #1ca46e 36%, var(--theme-border));
+  color: var(--theme-text);
 }
 
 .app-toast--error {
-  background: #fef2f2;
-  border-color: #fecaca;
-  color: #991b1b;
+  background: color-mix(in srgb, var(--theme-danger) 16%, var(--theme-surface));
+  border-color: color-mix(in srgb, var(--theme-danger) 36%, var(--theme-border));
+  color: var(--theme-text);
 }
 
 .app-toast--info {
-  background: #eff6ff;
-  border-color: #bfdbfe;
-  color: #1e3a8a;
+  background: color-mix(in srgb, var(--theme-accent) 14%, var(--theme-surface));
+  border-color: color-mix(in srgb, var(--theme-accent) 34%, var(--theme-border));
+  color: var(--theme-text);
 }
 
 .app-toast-dismiss {
@@ -1412,6 +1412,7 @@
   color: #9C27B0;
   outline: none;
   padding: 2px 0;
+  appearance: textfield;
   -moz-appearance: textfield;
 }
 

@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useReducer, useEffect, ReactNode } from 'react';
 import { api, handleApiError } from '../services/apiClient';
+import { ThemePreference } from '../utils/themePreference';
 
 // Types
 export interface User {
@@ -10,6 +11,7 @@ export interface User {
   last_name: string;
   full_name: string;
   is_dm: boolean;
+  theme_preference: ThemePreference;
   avatar?: string;
 }
 

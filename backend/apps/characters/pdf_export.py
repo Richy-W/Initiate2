@@ -56,6 +56,7 @@ def render_character_sheet_pdf(character: Character, base_url: str) -> bytes:
 
     context = {
         "character": character,
+        "product_name": "TavernKeeper",
         "ability_rows": _ability_rows(character),
         "proficiency_bonus": _signed(character.proficiency_bonus),
         "initiative": _signed(character.initiative),

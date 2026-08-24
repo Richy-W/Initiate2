@@ -4,6 +4,13 @@ from django.db import models
 
 class User(AbstractUser):
     """Custom User model extending Django's AbstractUser."""
+
+    THEME_DARK = 'dark'
+    THEME_TAVERN_LIGHT = 'tavern-light'
+    THEME_PREFERENCE_CHOICES = (
+        (THEME_DARK, 'Dark'),
+        (THEME_TAVERN_LIGHT, 'Tavern Light'),
+    )
     
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=30)
@@ -17,6 +24,11 @@ class User(AbstractUser):
     # Account settings
     email_notifications = models.BooleanField(default=True)
     is_dm = models.BooleanField(default=False, help_text="Can create and manage campaigns")
+    theme_preference = models.CharField(
+        max_length=20,
+        choices=THEME_PREFERENCE_CHOICES,
+        default=THEME_TAVERN_LIGHT,
+    )
     
     # Activity tracking
     last_login_ip = models.GenericIPAddressField(null=True, blank=True)
