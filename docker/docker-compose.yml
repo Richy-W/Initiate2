@@ -35,8 +35,10 @@ services:
       - DB_HOST=db
       - DB_PORT=5432
       - REDIS_URL=redis://redis:6379/0
+      - CONTENT_ROOT=/api/content
     volumes:
       - ../backend:/app
+      - ../api:/api
 
   frontend:
     build:

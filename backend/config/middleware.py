@@ -145,10 +145,20 @@ class CORSMiddleware:
 
     def __call__(self, request):
         response = self.get_response(request)
-        
+
         # Add CORS headers for development
         if settings.DEBUG:
-            response['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+            allowed_origins = [
+                'http://localhost:3000',
+                'http://127.0.0.1:3000',
+                'http://localhost:3001',
+                'http://127.0.0.1:3001',
+            ]
+            origin = request.headers.get('Origin')
+            if origin in allowed_origins:
+                response['Access-Control-Allow-Origin'] = origin
+            else:
+                response['Access-Control-Allow-Origin'] = 'http://localhost:3000'
             response['Access-Control-Allow-Methods'] = 'GET, POST, PUT, PATCH, DELETE, OPTIONS'
             response['Access-Control-Allow-Headers'] = 'Content-Type, Authorization, X-CSRFToken'
             response['Access-Control-Allow-Credentials'] = 'true'
@@ -160,8 +170,15 @@ class CORSMiddleware:
         Handle preflight OPTIONS requests.
         """
         if request.method == 'OPTIONS' and settings.DEBUG:
+            allowed_origins = [
+                'http://localhost:3000',
+                'http://127.0.0.1:3000',
+                'http://localhost:3001',
+                'http://127.0.0.1:3001',
+            ]
+            origin = request.headers.get('Origin')
             response = JsonResponse({}, status=200)
-            response['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+            response['Access-Control-Allow-Origin'] = origin if origin in allowed_origins else 'http://localhost:3000'
             response['Access-Control-Allow-Methods'] = 'GET, POST, PUT, PATCH, DELETE, OPTIONS'
             response['Access-Control-Allow-Headers'] = 'Content-Type, Authorization, X-CSRFToken'
             response['Access-Control-Allow-Credentials'] = 'true'

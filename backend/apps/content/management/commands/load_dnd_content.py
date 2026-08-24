@@ -1,5 +1,6 @@
 import json
 import os
+from pathlib import Path
 from django.core.management.base import BaseCommand
 from django.conf import settings
 from django.db import transaction
@@ -30,20 +31,20 @@ class Command(BaseCommand):
         if options['data_dir']:
             data_dir = options['data_dir']
         else:
-            # Resolve workspace root (6 levels up from this file), then api/content
-            workspace_root = os.path.dirname(
-                os.path.dirname(
-                    os.path.dirname(
-                        os.path.dirname(
-                            os.path.dirname(
-                                os.path.dirname(os.path.abspath(__file__))
-                            )
-                        )
-                    )
-                )
-            )
-            data_dir = os.path.join(workspace_root, 'api', 'content')
-        
+            candidate_paths = [
+                Path(os.environ.get('CONTENT_ROOT')).resolve() if os.environ.get('CONTENT_ROOT') else None,
+                Path(__file__).resolve().parents[5] / 'api' / 'content',
+                Path(settings.BASE_DIR).resolve().parent / 'api' / 'content',
+                Path('/api/content'),
+            ]
+            data_dir = None
+            for candidate in candidate_paths:
+                if candidate and candidate.exists():
+                    data_dir = str(candidate)
+                    break
+            if data_dir is None:
+                data_dir = str(Path(__file__).resolve().parents[5] / 'api' / 'content')
+
         if not os.path.exists(data_dir):
             self.stdout.write(self.style.ERROR(f'Data directory not found: {data_dir}'))
             return
@@ -272,7 +273,7 @@ class Command(BaseCommand):
         if not os.path.exists(classes_dir):
             self.stdout.write(self.style.WARNING('Classes directory not found'))
             return
-        
+
         count = 0
         for filename in os.listdir(classes_dir):
             if filename.endswith('.json'):
@@ -280,55 +281,59 @@ class Command(BaseCommand):
                 try:
                     with open(filepath, 'r', encoding='utf-8') as f:
                         data = json.load(f)
-                    
-                    # Create class from JSON data
+
+                    skill_options = []
+                    proficiencies = data.get('proficiencies', {}) or {}
+                    skills_block = proficiencies.get('skills', {}) or {}
+                    if isinstance(skills_block, dict):
+                        skill_options = skills_block.get('from', [])
+
                     char_class, created = CharacterClass.objects.get_or_create(
                         name=data.get('name', ''),
                         defaults={
                             'description': data.get('description', ''),
-                            'hit_die': data.get('hitDie', 8),
+                            'hit_die': 12 if str(data.get('hitPointDie', 'D8')).upper() == 'D12' else 8,
                             'primary_ability': data.get('primaryAbility', []),
-                            'saving_throw_proficiencies': data.get('proficiencies', {}).get('savingThrows', []),
-                            'armor_proficiencies': data.get('proficiencies', {}).get('armor', []),
-                            'weapon_proficiencies': data.get('proficiencies', {}).get('weapons', []),
-                            'tool_proficiencies': data.get('proficiencies', {}).get('tools', []),
-                            'skill_choices': data.get('proficiencies', {}).get('skillsToChoose', 2),
+                            'saving_throw_proficiencies': proficiencies.get('savingThrows', []),
+                            'armor_proficiencies': proficiencies.get('armor', []),
+                            'weapon_proficiencies': proficiencies.get('weapons', []),
+                            'tool_proficiencies': proficiencies.get('tools', []),
+                            'skill_choices': skills_block.get('choose', 2) if isinstance(skills_block, dict) else 2,
                             'spellcasting': data.get('spellcasting', {}),
-                            'starting_equipment': data.get('equipment', []),
-                            'starting_wealth': data.get('startingWealthVariant', {}),
-                            'source': data.get('source', 'Unknown'),
+                            'starting_equipment': (data.get('startingEquipment', {}) or {}).get('options', []),
+                            'starting_wealth': (data.get('startingEquipment', {}) or {}).get('gold', {}),
+                            'source': data.get('sourceBook', 'Unknown'),
                             'page': data.get('page'),
                         }
                     )
-                    
-                    # Add skill proficiencies
-                    if created and 'proficiencies' in data and 'skills' in data['proficiencies']:
-                        for skill_name in data['proficiencies']['skills']:
+
+                    if created:
+                        for skill_name in skill_options:
                             try:
                                 skill = Skill.objects.get(name=skill_name)
                                 char_class.skill_proficiencies.add(skill)
                             except Skill.DoesNotExist:
                                 pass
-                    
-                    # Create class features
-                    if created and 'classFeatures' in data:
-                        for level, features in data['classFeatures'].items():
+
+                        class_features = data.get('classFeatures', {}) or {}
+                        for level_key, level_entry in class_features.items():
+                            level_payload = level_entry if isinstance(level_entry, dict) else {}
+                            features = level_payload.get('features', []) or []
                             for feature_data in features:
                                 ClassFeature.objects.create(
                                     character_class=char_class,
                                     name=feature_data.get('name', ''),
                                     description=feature_data.get('description', ''),
-                                    level=int(level),
-                                    uses=feature_data.get('uses', ''),
-                                    recharge=feature_data.get('recharge', ''),
+                                    level=int(level_key),
+                                    uses=str(feature_data.get('uses', '')),
+                                    recharge=str(feature_data.get('recharge', '')),
                                 )
-                    
-                    if created:
+
                         count += 1
-                        
+
                 except Exception as e:
                     self.stdout.write(self.style.ERROR(f'Error loading {filename}: {str(e)}'))
-        
+
         self.stdout.write(f'Loaded {count} classes')
 
     def load_equipment(self, data_dir):

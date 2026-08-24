@@ -265,6 +265,8 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # React development server
     "http://127.0.0.1:3000",
+    "http://localhost:3001",  # Alternate dev port if 3000 is occupied
+    "http://127.0.0.1:3001",
 ]
 
 # WebSocket and Channels configuration
