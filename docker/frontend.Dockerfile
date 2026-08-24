@@ -1,5 +1,5 @@
 # React Frontend Dockerfile
-FROM node:18-alpine
+FROM node:20-alpine
 
 # Set work directory
 WORKDIR /app
@@ -7,8 +7,8 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci
+# Install dependencies using the lockfile generated for this project
+RUN npm install
 
 # Copy project
 COPY . .

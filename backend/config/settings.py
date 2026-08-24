@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 from decouple import config
 from datetime import timedelta
+from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -96,30 +97,65 @@ ASGI_APPLICATION = "config.asgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DB_ENGINE = config('DB_ENGINE', default='django.db.backends.sqlite3')
-DB_NAME = config('DB_NAME', default='db.sqlite3')
+POSTGRES_ENGINE = 'django.db.backends.postgresql'
+SQLITE_ENGINE = 'django.db.backends.sqlite3'
+SUPPORTED_DATABASE_ENGINES = {POSTGRES_ENGINE}
 
-# Keep SQLite path stable regardless of where manage.py is run from.
-if DB_ENGINE == 'django.db.backends.sqlite3':
-    db_name_path = Path(DB_NAME)
-    if not db_name_path.is_absolute():
-        DB_NAME = BASE_DIR / db_name_path
+
+def validate_database_configuration(db_engine, db_name, db_user, db_password, db_host, db_port):
+    if db_engine == SQLITE_ENGINE:
+        raise ImproperlyConfigured(
+            "SQLite is prohibited by project constitution. "
+            "Use DB_ENGINE=django.db.backends.postgresql and run "
+            "`docker compose -f docker/docker-compose.yml up -d db`."
+        )
+
+    if db_engine not in SUPPORTED_DATABASE_ENGINES:
+        raise ImproperlyConfigured(
+            f"Unsupported DB_ENGINE '{db_engine}'. Supported engines: {sorted(SUPPORTED_DATABASE_ENGINES)}"
+        )
+
+    required_values = {
+        'DB_NAME': db_name,
+        'DB_USER': db_user,
+        'DB_PASSWORD': db_password,
+    }
+    missing_keys = [name for name, value in required_values.items() if not str(value).strip()]
+    if missing_keys:
+        raise ImproperlyConfigured(
+            "Missing required PostgreSQL configuration: "
+            f"{', '.join(missing_keys)}. "
+            "Copy backend/.env.example to backend/.env and run "
+            "`docker compose -f docker/docker-compose.yml up -d db`."
+        )
+
+    if not str(db_host).strip() or not str(db_port).strip():
+        raise ImproperlyConfigured(
+            "DB_HOST and DB_PORT must be configured for PostgreSQL. "
+            "Copy backend/.env.example to backend/.env and run "
+            "`docker compose -f docker/docker-compose.yml up -d db`."
+        )
+
+
+DB_ENGINE = config('DB_ENGINE', default=POSTGRES_ENGINE)
+DB_NAME = config('DB_NAME', default='')
+DB_USER = config('DB_USER', default='')
+DB_PASSWORD = config('DB_PASSWORD', default='')
+DB_HOST = config('DB_HOST', default='localhost')
+DB_PORT = config('DB_PORT', default='5432')
+
+validate_database_configuration(DB_ENGINE, DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT)
 
 DATABASES = {
     "default": {
         "ENGINE": DB_ENGINE,
         "NAME": DB_NAME,
+        'USER': DB_USER,
+        'PASSWORD': DB_PASSWORD,
+        'HOST': DB_HOST,
+        'PORT': DB_PORT,
     }
 }
-
-# PostgreSQL specific settings (when using PostgreSQL)
-if DB_ENGINE == 'django.db.backends.postgresql':
-    DATABASES['default'].update({
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'), 
-        'HOST': config('DB_HOST', default='localhost'),
-        'PORT': config('DB_PORT', default='5432'),
-    })
 
 # Authentication settings
 AUTH_USER_MODEL = 'users.User'
@@ -271,6 +307,9 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Logging configuration
+log_dir = BASE_DIR / 'logs'
+log_dir.mkdir(exist_ok=True)
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -278,7 +317,7 @@ LOGGING = {
         'file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': BASE_DIR / 'logs' / 'django.log',
+            'filename': str(log_dir / 'django.log'),
         },
         'console': {
             'level': 'DEBUG',

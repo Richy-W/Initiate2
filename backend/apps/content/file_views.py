@@ -1,5 +1,6 @@
 import json
 import os
+from pathlib import Path
 from django.conf import settings
 from django.http import JsonResponse
 from rest_framework.decorators import api_view, permission_classes
@@ -15,8 +16,28 @@ from drf_spectacular.utils import extend_schema, OpenApiResponse, OpenApiTypes
 
 
 def get_content_path():
-    """Get the path to the content directory."""
-    return os.path.join(settings.BASE_DIR, '..', 'api', 'content')
+    """Get the path to the repo-level content directory.
+
+    In local development this is usually ../api/content relative to the backend project.
+    In Docker, the repo root is mounted into /workspace and we use CONTENT_ROOT when set.
+    """
+    candidates = [
+        os.environ.get('CONTENT_ROOT'),
+        os.path.join(settings.BASE_DIR, '..', 'api', 'content'),
+        os.path.join(settings.BASE_DIR.parent, 'api', 'content'),
+        '/workspace/api/content',
+        '/app/../api/content',
+    ]
+
+    for candidate in candidates:
+        if not candidate:
+            continue
+        path = Path(candidate).resolve()
+        if path.exists():
+            return str(path)
+
+    fallback = (Path(settings.BASE_DIR).resolve().parent / 'api' / 'content')
+    return str(fallback)
 
 
 @extend_schema(tags=['content'], responses={200: OpenApiTypes.OBJECT, 404: OpenApiTypes.OBJECT})

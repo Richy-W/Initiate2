@@ -4,6 +4,12 @@ FROM python:3.11-slim
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
+ENV DB_ENGINE=django.db.backends.postgresql
+ENV DB_NAME=dnd_db
+ENV DB_USER=dnd_user
+ENV DB_PASSWORD=dnd_password
+ENV DB_HOST=db
+ENV DB_PORT=5432
 
 # Set work directory
 WORKDIR /app

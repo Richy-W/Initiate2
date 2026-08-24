@@ -2,6 +2,20 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Backend Prerequisite
+
+This frontend depends on the backend API running with PostgreSQL.
+
+Before starting frontend development, from the repo root run:
+
+```bash
+docker compose -f docker/docker-compose.yml up -d db
+cp backend/.env.example backend/.env
+cd backend
+python manage.py migrate
+python manage.py runserver
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
