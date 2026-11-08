@@ -4,6 +4,8 @@ import { computeSpellcastingProfile } from '../../utils/spellUtils';
 import SpellcastingStatBlock from './SpellcastingStatBlock';
 import SpellSlotTracker from './SpellSlotTracker';
 import SpellBrowser from './SpellBrowser';
+import ResourceCounterControls from './ResourceCounterControls';
+import { characterAPI } from '../../services/apiClient';
 import { spellSlotsAPI, characterSpellsAPI } from '../../services/apiClient';
 import styles from './SpellsTab.module.css';
 
@@ -102,6 +104,36 @@ const SpellsTab: React.FC<Props> = ({ character, onRefresh }) => {
     ['full', 'half', 'third'].includes(profile.spellcastingType);
   const preparedSpells = characterSpells.filter(cs => cs.is_prepared && cs.spell_base_level > 0);
 
+  const grantedSpells: any[] = (character as any).granted_spells ?? [];
+  const freeCastGrants = grantedSpells.filter((g) => Number(g.free_cast_max || 0) > 0);
+
+  const featureUsage: any[] = (character as any).feature_usage ?? [];
+
+  const handleResourceSpend = useCallback(
+    async (featureKey: string, amount: number) => {
+      await characterAPI.resourceSpend(character.id, { feature_key: featureKey, amount });
+      onRefresh?.();
+    },
+    [character.id, onRefresh],
+  );
+
+  const handleSetOverride = useCallback(
+    async (featureKey: string, scope: 'character' | 'resource', maxUses: number) => {
+      const override_payload =
+        scope === 'character'
+          ? { max_uses: maxUses }
+          : { max_uses: maxUses, resource_override_max_uses: maxUses };
+
+      await characterAPI.resourceSpend(character.id, {
+        feature_key: featureKey,
+        amount: 0,
+        override_payload,
+      });
+      onRefresh?.();
+    },
+    [character.id, onRefresh],
+  );
+
   return (
     <div className={styles.container}>
       <SpellcastingStatBlock profile={profile} />
@@ -137,6 +169,42 @@ const SpellsTab: React.FC<Props> = ({ character, onRefresh }) => {
         isPactCaster={isPactCaster}
         onToggleSlot={handleToggleSlot}
       />
+
+      {freeCastGrants.length > 0 && (
+        <div>
+          <h4>Free Casts</h4>
+          {freeCastGrants.map((grant) => {
+            const available = Math.max(0, Number(grant.free_cast_max || 0) - Number(grant.free_cast_used || 0));
+            return (
+              <ResourceCounterControls
+                key={`free-cast-${grant.spell_slug}`}
+                resourceKey={`lineage_spell:${grant.spell_slug}`}
+                label={`${grant.spell_slug} (Free Cast)`}
+                currentUses={available}
+                maxUses={Number(grant.free_cast_max || 0)}
+                onSpend={handleResourceSpend}
+              />
+            );
+          })}
+        </div>
+      )}
+
+      {featureUsage.length > 0 && (
+        <div>
+          <h4>Resource Pools</h4>
+          {featureUsage.map((usage) => (
+            <ResourceCounterControls
+              key={usage.feature_key}
+              resourceKey={usage.feature_key}
+              label={usage.feature_key}
+              currentUses={Number(usage.current_uses || 0)}
+              maxUses={Number(usage.max_uses || usage.current_uses || 0)}
+              onSpend={handleResourceSpend}
+              onSetOverride={handleSetOverride}
+            />
+          ))}
+        </div>
+      )}
 
       {characterSpells.length === 0 ? (
         <div className={styles.emptyState}>

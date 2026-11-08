@@ -1,8 +1,20 @@
 from rest_framework import serializers
-from .models import Character, CharacterSpell, SpellSlotState
+from .models import (
+    Character,
+    CharacterSpell,
+    SpellSlotState,
+    CharacterSubclassState,
+    FeatureUsageState,
+    GrantedSpellState,
+    NaturalAttackProfile,
+    NaturalArmorProfile,
+)
 from apps.content.serializers import SpeciesSerializer, CharacterClassSerializer, BackgroundSerializer, SkillSerializer, SpellSerializer
 import json
 from pathlib import Path
+from apps.characters.services.mechanics.features import append_unique_feature
+from apps.characters.services.mechanics.grants import apply_lineage_spell_grants
+from apps.characters.services.mechanics.derived_stats import build_derived_stat_snapshot
 
 
 class CharacterSerializer(serializers.ModelSerializer):
@@ -116,6 +128,79 @@ class SpellSlotStateSerializer(serializers.ModelSerializer):
         return value
 
 
+class CharacterSubclassStateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CharacterSubclassState
+        fields = [
+            'class_slug',
+            'subclass_slug',
+            'class_content_version',
+            'subclass_content_version',
+            'warning_state',
+        ]
+
+
+class FeatureUsageStateSerializer(serializers.ModelSerializer):
+    max_uses = serializers.SerializerMethodField()
+
+    class Meta:
+        model = FeatureUsageState
+        fields = [
+            'feature_key',
+            'source_type',
+            'current_uses',
+            'max_uses',
+            'recharge_type',
+        ]
+
+    def get_max_uses(self, obj):
+        # Foundational implementation: default to override value or current uses.
+        override_payload = obj.override_payload or {}
+        if isinstance(override_payload, dict) and 'max_uses' in override_payload:
+            return int(override_payload.get('max_uses') or 0)
+        return int(obj.current_uses or 0)
+
+
+class GrantedSpellStateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GrantedSpellState
+        fields = [
+            'spell_slug',
+            'source_type',
+            'unlock_level',
+            'free_cast_max',
+            'free_cast_used',
+        ]
+
+
+class NaturalAttackProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NaturalAttackProfile
+        fields = [
+            'attack_key',
+            'name',
+            'ability',
+            'proficiency_policy',
+            'damage_dice',
+            'damage_type',
+            'source_key',
+        ]
+
+
+class NaturalArmorProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NaturalArmorProfile
+        fields = [
+            'armor_key',
+            'formula',
+            'applies_when_wearing_armor',
+            'shield_allowed',
+            'precedence_rank',
+            'source_key',
+            'dm_override_value',
+        ]
+
+
 class CharacterDetailSerializer(CharacterSerializer):
     """Detailed character serializer with full information."""
 
@@ -158,6 +243,13 @@ class CharacterDetailSerializer(CharacterSerializer):
     
     character_spells = CharacterSpellSerializer(many=True, read_only=True)
     spell_slot_states = SpellSlotStateSerializer(many=True, read_only=True)
+    subclass_state = serializers.SerializerMethodField()
+    derived_stats = serializers.SerializerMethodField()
+    feature_usage = serializers.SerializerMethodField()
+    granted_spells = serializers.SerializerMethodField()
+    natural_attacks = serializers.SerializerMethodField()
+    natural_armor_profiles = serializers.SerializerMethodField()
+    normalized_features = serializers.SerializerMethodField()
 
     # Equipped items details
     equipped_items_details = serializers.SerializerMethodField()
@@ -166,6 +258,108 @@ class CharacterDetailSerializer(CharacterSerializer):
     def get_equipped_items_details(self, obj):
         """Get detailed information about equipped items."""
         return obj.get_equipped_items_details()
+
+    def get_subclass_state(self, obj):
+        state = getattr(obj, 'subclass_state', None)
+        if not state:
+            return {
+                'class_slug': str(obj.character_class.name or '').strip().lower().replace(' ', '-'),
+                'subclass_slug': None,
+                'class_content_version': '',
+                'subclass_content_version': '',
+                'warning_state': False,
+            }
+        return CharacterSubclassStateSerializer(state).data
+
+    def get_derived_stats(self, obj):
+        return build_derived_stat_snapshot(obj)
+
+    def get_feature_usage(self, obj):
+        qs = obj.feature_usage_states.all().order_by('feature_key')
+        return FeatureUsageStateSerializer(qs, many=True).data
+
+    def get_granted_spells(self, obj):
+        qs = obj.granted_spell_states.all().order_by('unlock_level', 'spell_slug')
+        return GrantedSpellStateSerializer(qs, many=True).data
+
+    def get_natural_attacks(self, obj):
+        qs = obj.natural_attack_profiles.all().order_by('name')
+        return NaturalAttackProfileSerializer(qs, many=True).data
+
+    def get_natural_armor_profiles(self, obj):
+        qs = obj.natural_armor_profiles.all().order_by('precedence_rank', 'armor_key')
+        return NaturalArmorProfileSerializer(qs, many=True).data
+
+    def get_normalized_features(self, obj):
+        def to_feature(entry, default_source=''):
+            if isinstance(entry, str):
+                clean_name = entry.strip()
+                if not clean_name:
+                    return None
+                return {
+                    'key': clean_name.lower(),
+                    'name': clean_name,
+                    'description': '',
+                    'source': default_source or 'Unknown',
+                }
+
+            if not isinstance(entry, dict):
+                return None
+
+            raw_name = entry.get('name') or entry.get('title') or entry.get('feature_name') or entry.get('id')
+            clean_name = str(raw_name or '').strip()
+            if not clean_name:
+                return None
+
+            description = str(
+                (entry.get('description') or entry.get('details') or entry.get('text') or '')
+            ).strip()
+            source = str(entry.get('source') or default_source or 'Unknown').strip()
+            return {
+                'key': clean_name.lower(),
+                'name': clean_name,
+                'description': description,
+                'source': source,
+            }
+
+        candidates = []
+
+        for feature in (obj.features or []):
+            normalized = to_feature(feature)
+            if normalized:
+                candidates.append(normalized)
+
+        by_level = (getattr(obj, 'character_class', None) and CharacterClassSerializer(obj.character_class).data.get('features_by_level')) or {}
+        if isinstance(by_level, dict):
+            for level_key, level_features in by_level.items():
+                try:
+                    if int(level_key) > obj.level:
+                        continue
+                except (TypeError, ValueError):
+                    continue
+
+                for feature in (level_features or []):
+                    normalized = to_feature(feature, default_source='Class')
+                    if normalized:
+                        candidates.append(normalized)
+
+        for trait in ((obj.species and obj.species.traits) or []):
+            normalized = to_feature(trait, default_source='Species')
+            if normalized:
+                candidates.append(normalized)
+
+        deduped = {}
+        for feature in candidates:
+            key = feature['key']
+            existing = deduped.get(key)
+            if not existing:
+                deduped[key] = feature
+                continue
+
+            if len(feature.get('description') or '') > len(existing.get('description') or ''):
+                deduped[key] = feature
+
+        return list(deduped.values())
     
     class Meta(CharacterSerializer.Meta):
         fields = CharacterSerializer.Meta.fields + [
@@ -183,6 +377,9 @@ class CharacterDetailSerializer(CharacterSerializer):
             'encumbrance_status', 'encumbrance_effects', 'effective_speed', 'is_encumbered',
             'equipped_items_details', 'calculated_armor_class', 'attuned_items',
             'character_spells', 'spell_slot_states',
+            'subclass_state', 'derived_stats', 'feature_usage', 'granted_spells',
+            'natural_attacks', 'natural_armor_profiles',
+            'normalized_features',
         ]
 
 
@@ -521,7 +718,7 @@ class CharacterCreateSerializer(serializers.ModelSerializer):
             )
 
             if variant_match:
-                features.append({
+                append_unique_feature(features, {
                     'name': f"{character.species.name} Variant: {variant_match.get('name')}",
                     'description': variant_match.get('description', ''),
                     'source': 'Species',
@@ -529,21 +726,21 @@ class CharacterCreateSerializer(serializers.ModelSerializer):
 
                 for variant_trait in variant_match.get('traits') or []:
                     if isinstance(variant_trait, dict) and variant_trait.get('name'):
-                        features.append({
+                        append_unique_feature(features, {
                             'name': variant_trait.get('name'),
                             'description': variant_trait.get('description', ''),
                             'source': f"{character.species.name} Variant",
                         })
 
             if selected_spellcasting_ability:
-                features.append({
+                append_unique_feature(features, {
                     'name': 'Species Spellcasting Ability Choice',
                     'description': selected_spellcasting_ability,
                     'source': 'Species Choice',
                 })
 
             if selected_size:
-                features.append({
+                append_unique_feature(features, {
                     'name': 'Species Size Choice',
                     'description': selected_size,
                     'source': 'Species Choice',
@@ -568,13 +765,13 @@ class CharacterCreateSerializer(serializers.ModelSerializer):
                     mi_parts.append(f"Cantrip: {mi_cantrip2}")
                 if mi_spell1:
                     mi_parts.append(f"1st-Level Spell: {mi_spell1}")
-                features.append({
+                append_unique_feature(features, {
                     'name': 'Magic Initiate',
                     'description': '; '.join(mi_parts),
                     'source': 'Feat',
                 })
             elif selected_feat:
-                features.append({
+                append_unique_feature(features, {
                     'name': f"Species Feat Choice: {selected_feat}",
                     'description': '',
                     'source': 'Feat',
@@ -592,6 +789,24 @@ class CharacterCreateSerializer(serializers.ModelSerializer):
                 for v in (selected_species_options.get('skilledToolChoices') or [])
                 if str(v).strip()
             ]
+
+            append_unique_feature(features, {
+                'name': 'Build Options',
+                'description': 'Canonical persisted character creation selections.',
+                'source': 'System',
+                'metadata': {
+                    'variant': selected_variant,
+                    'skillChoice': selected_skill_choice,
+                    'spellcastingAbility': selected_spellcasting_ability,
+                    'sizeCategory': selected_size,
+                    'featChoice': selected_feat,
+                    'skillfulChoice': selected_skillful_choice,
+                    'skilledSkillChoices': skilled_skill_choices,
+                    'skilledToolChoices': skilled_tool_choices,
+                    'classEquipmentOption': selected_class_equipment_option,
+                    'backgroundEquipmentOption': selected_background_equipment_option,
+                },
+            })
 
             # T018: Add Skillful + Skilled skills to selected_skills (with deduplication)
             if selected_skillful_choice and selected_skillful_choice not in selected_skills:
@@ -636,6 +851,7 @@ class CharacterCreateSerializer(serializers.ModelSerializer):
                 selected_bg_gold = int(background_json.get('startingEquipment', {}).get('gold', 0) or 0)
             currency['gp'] = background_gold + class_gold + selected_bg_gold
             character.currency = currency
+            character.features = features
             
             character.save()
 
@@ -681,6 +897,8 @@ class CharacterCreateSerializer(serializers.ModelSerializer):
                     existing_spells = list(character.spells_known or [])
                     existing_spells.extend(mi_spells)
                     character.spells_known = existing_spells
+
+            apply_lineage_spell_grants(character, selected_species_options)
 
             character.save(update_fields=['tool_proficiencies', 'spells_known'])
 

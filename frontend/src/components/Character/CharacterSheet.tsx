@@ -8,6 +8,9 @@ import { OfficialIdentityHeader } from './OfficialIdentityHeader';
 import SpellsTab from './SpellsTab';
 import SpellPrintPage from './SpellPrintPage';
 import { isSpellcaster } from '../../utils/spellUtils';
+import { getCanonicalDerivedStats, shouldShowSpellsTab } from '../../utils/characterMathParity';
+import { filterFeaturesByCategory, FeatureFilter, normalizeFeatureViewModels } from '../../utils/featureNormalization';
+import { CharacterFeatureViewModel } from '../../types/characterMechanics';
 import styles from './CharacterSheet.module.css';
 
 interface Character {
@@ -42,6 +45,7 @@ interface Character {
   skill_proficiencies?: any[] | Record<string, any> | string | null;
   skill_expertises?: any[] | Record<string, any> | string | null;
   features?: any[] | Record<string, any> | string | null;
+  normalized_features?: any[];
   saving_throw_proficiencies?: string[] | Record<string, any> | string | null;
   skill_proficiencies_detail?: Array<{ id?: string; name?: string }> | Record<string, any> | string | null;
   skill_expertises_detail?: Array<{ id?: string; name?: string }>;
@@ -77,21 +81,15 @@ interface Character {
   notes?: string;
   character_spells?: any[];
   spell_slot_states?: any[];
+  derived_stats?: any;
+  granted_spells?: any[];
   /** Slot → { equipment: { id, name, equipment_type, ... }, slot, id } */
   equipped_items_details?: Record<string, { equipment: any; slot: string; id: string }>;
   attuned_items?: string[];
 }
 
 type InfoTab = 'features' | 'proficiencies';
-type FeatureFilter = 'all' | 'class' | 'species' | 'feats' | 'background';
 type AbilityKey = 'strength' | 'dexterity' | 'constitution' | 'intelligence' | 'wisdom' | 'charisma';
-
-type CharacterFeature = {
-  key: string;
-  name: string;
-  description?: string;
-  source?: string;
-};
 
 const ABILITY_KEYS: AbilityKey[] = ['strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma'];
 
@@ -127,7 +125,7 @@ export const CharacterSheet: React.FC = () => {
   const [currencyDraft, setCurrencyDraft] = useState({ cp: 0, sp: 0, ep: 0, gp: 0, pp: 0 });
   const [currencySaveState, setCurrencySaveState] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
   const [inventoryActionError, setInventoryActionError] = useState<string | null>(null);
-  const [selectedFeature, setSelectedFeature] = useState<CharacterFeature | null>(null);
+  const [selectedFeature, setSelectedFeature] = useState<CharacterFeatureViewModel | null>(null);
   const [hpAdjustment, setHpAdjustment] = useState(0);
   const [tempHpDraft, setTempHpDraft] = useState(0);
   const [hpActionError, setHpActionError] = useState<string | null>(null);
@@ -658,20 +656,27 @@ export const CharacterSheet: React.FC = () => {
     [character, normalizeToArray]
   );
 
+  const canonicalDerivedStats = useMemo(
+    () => getCanonicalDerivedStats(character),
+    [character]
+  );
+
   const characterForDerivedTotals = useMemo(
     () =>
       character
         ? {
             ...character,
-            total_strength: abilityTotals.strength,
-            total_dexterity: abilityTotals.dexterity,
-            total_constitution: abilityTotals.constitution,
-            total_intelligence: abilityTotals.intelligence,
-            total_wisdom: abilityTotals.wisdom,
-            total_charisma: abilityTotals.charisma,
+            total_strength: canonicalDerivedStats.ability_totals.strength,
+            total_dexterity: canonicalDerivedStats.ability_totals.dexterity,
+            total_constitution: canonicalDerivedStats.ability_totals.constitution,
+            total_intelligence: canonicalDerivedStats.ability_totals.intelligence,
+            total_wisdom: canonicalDerivedStats.ability_totals.wisdom,
+            total_charisma: canonicalDerivedStats.ability_totals.charisma,
+            proficiency_bonus: canonicalDerivedStats.proficiency_bonus,
+            derived_stats: canonicalDerivedStats,
           }
         : character,
-    [character, abilityTotals]
+    [character, canonicalDerivedStats]
   );
 
   const normalizeSkillToken = useCallback(
@@ -721,6 +726,9 @@ export const CharacterSheet: React.FC = () => {
   // into the DB value for characters created before the backend fix.
   const effectiveMaxHp = useMemo(() => {
     if (!character) return 0;
+    if (canonicalDerivedStats.max_hit_points > 0) {
+      return canonicalDerivedStats.max_hit_points;
+    }
     const storedMax = character.max_hit_points || 0;
     const level = character.level || 1;
     const hasTough = normalizeToArray(character.features).some((f) => {
@@ -738,14 +746,14 @@ export const CharacterSheet: React.FC = () => {
       return storedMax + toughBonus;
     }
     return storedMax;
-  }, [character, normalizeToArray]);
+  }, [character, canonicalDerivedStats, normalizeToArray]);
 
   // Compute effective AC, handling Unarmored Defense for Barbarian (10+DEX+CON)
   // and Monk (10+DEX+WIS) when the character has no armor equipped.
   // Uses abilityTotals so species/background bonuses are included.
   const effectiveAC = useMemo(() => {
     if (!character) return 0;
-    const storedAC = character.armor_class || 10;
+    const storedAC = canonicalDerivedStats.armor_class || character.armor_class || 10;
     const hasArmorEquipped = Object.values((character as any).equipped_items_details ?? {}).some(
       (slot: any) => slot?.equipment?.equipment_type === 'armor'
     );
@@ -769,7 +777,7 @@ export const CharacterSheet: React.FC = () => {
       return 10 + dexMod + mod(abilityTotals.wisdom || 10);
     }
     return storedAC;
-  }, [character, abilityTotals, normalizeToArray]);
+  }, [character, abilityTotals, canonicalDerivedStats, normalizeToArray]);
 
   const passiveSummary = useMemo(() => {
     const skillMeta = [
@@ -861,127 +869,11 @@ export const CharacterSheet: React.FC = () => {
   }, [abilityTotals, character, expertiseTokens, getAbilityModifier, normalizeSkillToken, normalizeToArray, proficiencyTokens]);
 
   const classAndBackgroundFeatures = useMemo(() => {
-    if (!character) return [] as CharacterFeature[];
-
-    const toFeature = (feature: any): CharacterFeature | null => {
-      if (typeof feature === 'string') {
-        const cleanName = feature.trim();
-        if (!cleanName) return null;
-        const key = cleanName.toLowerCase();
-        return { key, name: cleanName };
-      }
-
-      if (!feature || typeof feature !== 'object') {
-        return null;
-      }
-
-      const rawName = feature.name || feature.title || feature.feature_name || feature.id;
-      const cleanName = String(rawName || '').trim();
-      if (!cleanName) return null;
-
-      const descriptionParts = [feature.description, feature.details, feature.text]
-        .map((value) => (typeof value === 'string' ? value.trim() : ''))
-        .filter(Boolean);
-
-      const source = typeof feature.source === 'string' ? feature.source.trim() : '';
-      const key = cleanName.toLowerCase();
-
-      return {
-        key,
-        name: cleanName,
-        description: descriptionParts[0] || undefined,
-        source: source || undefined,
-      };
-    };
-
-    const fromCharacterFeatures = normalizeToArray(character.features)
-      .map((feature) => toFeature(feature))
-      .filter(Boolean) as CharacterFeature[];
-
-    const byLevel = character.class_detail?.features_by_level;
-    const byLevelEntries = byLevel && typeof byLevel === 'object' ? Object.entries(byLevel) : [];
-
-    const fromClassProgression = byLevelEntries
-      .filter(([level]) => Number(level) <= character.level)
-      .flatMap(([, feats]) => normalizeToArray(feats))
-      .map((feature) => {
-        const f = toFeature(feature);
-        if (!f) return null;
-        return { ...f, source: f.source || 'Class' };
-      })
-      .filter(Boolean) as CharacterFeature[];
-
-    const fromSpeciesTraits = normalizeToArray(character.species_detail?.traits)
-      .map((trait) => {
-        const traitFeature = toFeature(trait);
-        if (!traitFeature) return null;
-        return {
-          ...traitFeature,
-          source: traitFeature.source || 'Species',
-        };
-      })
-      .filter(Boolean) as CharacterFeature[];
-
-    const merged = [...fromCharacterFeatures, ...fromClassProgression, ...fromSpeciesTraits];
-
-    // Filter out character-creation metadata artifacts (size/ability choices, etc.)
-    const filtered = merged.filter((f) => {
-      const source = (f.source ?? '').toLowerCase();
-      if (source === 'species choice') return false;
-      // Remove entries whose name is purely a player-choice annotation with no real description
-      const name = (f.name ?? '').toLowerCase();
-      if ((name.endsWith('choice') || name.endsWith('category')) && (f.description ?? '').length < 40) return false;
-      return true;
-    });
-
-    const deduped = new Map<string, CharacterFeature>();
-
-    filtered.forEach((feature) => {
-      const existing = deduped.get(feature.key);
-      if (!existing) {
-        deduped.set(feature.key, feature);
-        return;
-      }
-
-      const existingDescLength = existing.description?.length || 0;
-      const nextDescLength = feature.description?.length || 0;
-      if (nextDescLength > existingDescLength) {
-        deduped.set(feature.key, { ...existing, ...feature });
-      }
-    });
-
-    return Array.from(deduped.values());
-  }, [character, normalizeToArray]);
+    return normalizeFeatureViewModels(character);
+  }, [character]);
 
   const filteredFeatures = useMemo(() => {
-    if (activeFeatureFilter === 'all') return classAndBackgroundFeatures;
-
-    const includesText = (value: string, terms: string[]): boolean =>
-      terms.some((term) => value.includes(term));
-
-    return classAndBackgroundFeatures.filter((feature) => {
-      const source = String(feature.source || '').toLowerCase();
-      const name = String(feature.name || '').toLowerCase();
-      const combined = `${source} ${name}`;
-
-      if (activeFeatureFilter === 'class') {
-        return includesText(combined, ['class', 'spellcasting', 'fighting style', 'channel', 'rage']);
-      }
-
-      if (activeFeatureFilter === 'species') {
-        return includesText(combined, ['species', 'lineage', 'ancestry', 'legacy', 'darkvision', 'trance']);
-      }
-
-      if (activeFeatureFilter === 'feats') {
-        return includesText(combined, ['feat']);
-      }
-
-      if (activeFeatureFilter === 'background') {
-        return includesText(combined, ['background', 'origin']);
-      }
-
-      return true;
-    });
+    return filterFeaturesByCategory(classAndBackgroundFeatures, activeFeatureFilter);
   }, [activeFeatureFilter, classAndBackgroundFeatures]);
 
   const extractLabels = useCallback(
@@ -1292,17 +1184,24 @@ export const CharacterSheet: React.FC = () => {
     saving_throw_proficiencies: savingThrowProficiencies,
     character_spells: character?.character_spells,
     spell_slot_states: character?.spell_slot_states,
+    granted_spells: character?.granted_spells,
+    derived_stats: canonicalDerivedStats,
     features: normalizeToArray(character?.features),
     species_detail: character?.species_detail,
   };
 
+  const showSpellsTab = shouldShowSpellsTab(
+    character,
+    isSpellcaster(character as any, (character as any).class_detail)
+  );
+
   const headerAbilities = [
-    { key: 'strength', label: 'STR', total: abilityTotals.strength },
-    { key: 'dexterity', label: 'DEX', total: abilityTotals.dexterity },
-    { key: 'constitution', label: 'CON', total: abilityTotals.constitution },
-    { key: 'intelligence', label: 'INT', total: abilityTotals.intelligence },
-    { key: 'wisdom', label: 'WIS', total: abilityTotals.wisdom },
-    { key: 'charisma', label: 'CHA', total: abilityTotals.charisma },
+    { key: 'strength', label: 'STR', total: canonicalDerivedStats.ability_totals.strength },
+    { key: 'dexterity', label: 'DEX', total: canonicalDerivedStats.ability_totals.dexterity },
+    { key: 'constitution', label: 'CON', total: canonicalDerivedStats.ability_totals.constitution },
+    { key: 'intelligence', label: 'INT', total: canonicalDerivedStats.ability_totals.intelligence },
+    { key: 'wisdom', label: 'WIS', total: canonicalDerivedStats.ability_totals.wisdom },
+    { key: 'charisma', label: 'CHA', total: canonicalDerivedStats.ability_totals.charisma },
   ];
 
   const deathSaveSuccesses = Math.max(0, Math.min(3, Number(character.death_save_successes || 0)));
@@ -1430,11 +1329,11 @@ export const CharacterSheet: React.FC = () => {
             </div>
             <div className={styles['vital-stat']}>
               <div className={styles['vital-stat-label']}>Initiative</div>
-                <div className={styles['vital-stat-value']}>{getAbilityModifierString(abilityTotals.dexterity)}</div>
+                <div className={styles['vital-stat-value']}>{getAbilityModifierString(canonicalDerivedStats.ability_totals.dexterity)}</div>
             </div>
             <div className={styles['vital-stat']}>
               <div className={styles['vital-stat-label']}>Proficiency</div>
-              <div className={styles['vital-stat-value']}>+{character.proficiency_bonus || 2}</div>
+              <div className={styles['vital-stat-value']}>+{canonicalDerivedStats.proficiency_bonus || 2}</div>
             </div>
           </div>
         </div>
@@ -1507,7 +1406,7 @@ export const CharacterSheet: React.FC = () => {
                 >
                   Combat
                 </button>
-                {isSpellcaster(character as any, (character as any).class_detail) && (
+                {showSpellsTab && (
                   <button
                     className={[styles['traits-tab'], activeSkillsTab === 'spells' ? styles['active'] : ''].filter(Boolean).join(' ')}
                     onClick={() => setActiveSkillsTab('spells')}
@@ -1518,7 +1417,7 @@ export const CharacterSheet: React.FC = () => {
               </div>
               {activeSkillsTab === 'skills' && <SkillRolls character={characterForRollPanels} />}
               {activeSkillsTab === 'combat' && <AttackRolls character={characterForRollPanels} onRefresh={refreshCharacter} />}
-              {activeSkillsTab === 'spells' && isSpellcaster(character as any, (character as any).class_detail) && (
+              {activeSkillsTab === 'spells' && showSpellsTab && (
                 <SpellsTab character={character as any} onRefresh={refreshCharacter} />
               )}
             </div>

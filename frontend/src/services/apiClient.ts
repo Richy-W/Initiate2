@@ -195,6 +195,24 @@ export const api = {
       const response = await apiClient.post(`/characters/${id}/rest/`, { type });
       return response.data;
     },
+    resourceSpend: async (
+      id: string | number,
+      payload: {
+        feature_key: string;
+        amount: number;
+        override_payload?: Record<string, any>;
+      }
+    ) => {
+      const response = await apiClient.post(`/characters/${id}/resource_spend/`, payload);
+      return response.data;
+    },
+    setSubclass: async (
+      id: string | number,
+      payload: { class_slug: string; subclass_slug: string; client_confirmed_warning?: boolean }
+    ) => {
+      const response = await apiClient.post(`/characters/${id}/subclass/`, payload);
+      return response.data;
+    },
     equipItem: async (id: string | number, payload: { equipment_id: string | number; slot?: string }) => {
       const response = await apiClient.post(`/characters/${id}/equip_item/`, payload);
       return response.data;

@@ -19,7 +19,7 @@
   border: 1px solid var(--app-border, #1e2d50);
   border-radius: 6px;
   font-size: 0.875rem;
-  background: #0d1322;
+  background: color-mix(in srgb, var(--theme-surface) 85%, black);
   color: var(--app-ink-0, #e8eaf6);
   margin-bottom: 16px;
   box-sizing: border-box;
@@ -34,7 +34,7 @@
 
 .search:focus {
   border-color: var(--app-accent, #5f84ff);
-  box-shadow: 0 0 0 3px rgba(95, 132, 255, 0.18);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--app-accent) 18%, transparent);
 }
 
 .section {
@@ -99,24 +99,24 @@
   cursor: pointer;
   font-size: 0.875rem;
   color: var(--app-ink-0, #e8eaf6);
-  background: #141f3a;
+  background: var(--app-bg-2);
   transition: border-color 0.15s, background 0.15s;
   user-select: none;
 }
 
 .spellRow:hover {
-  background: #1a2545;
+  background: color-mix(in srgb, var(--app-accent) 14%, var(--app-bg-2));
   border-color: var(--app-border, #1e2d50);
 }
 
 .spellRowSelected {
-  background: rgba(95, 132, 255, 0.12);
-  border-color: rgba(95, 132, 255, 0.4);
+  background: color-mix(in srgb, var(--app-accent) 12%, transparent);
+  border-color: color-mix(in srgb, var(--app-accent) 40%, transparent);
 }
 
 .spellRowSelected:hover {
-  background: rgba(95, 132, 255, 0.18);
-  border-color: rgba(95, 132, 255, 0.55);
+  background: color-mix(in srgb, var(--app-accent) 18%, transparent);
+  border-color: color-mix(in srgb, var(--app-accent) 55%, transparent);
 }
 
 .checkBox {
@@ -145,7 +145,7 @@
 }
 
 .spellRowDisabled:hover {
-  background: #141f3a;
+  background: var(--app-bg-2);
   border-color: transparent;
 }
 

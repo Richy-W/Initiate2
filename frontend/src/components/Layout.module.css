@@ -60,11 +60,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
-  font-weight: 900;
-  color: var(--theme-surface);
-  border: 1px solid color-mix(in srgb, var(--theme-accent) 40%, var(--theme-border));
-  background: linear-gradient(135deg, var(--theme-accent), var(--theme-accent-2));
+  object-fit: contain;
+  background: color-mix(in srgb, var(--theme-accent) 14%, transparent);
   box-shadow: 0 6px 18px color-mix(in srgb, var(--theme-accent) 40%, transparent);
 }
 

@@ -32,7 +32,7 @@ const Layout: React.FC = () => {
         <div className={styles['top-nav-inner']}>
           <div className={styles['brand-area']}>
             <Link to="/dashboard" className={styles['brand-link']} aria-label="Go to dashboard">
-              <span className={styles['brand-mark']} aria-hidden="true">I</span>
+              <img src="/logo192.png" alt="" className={styles['brand-mark']} aria-hidden="true" />
               <div className={styles['brand-copy']}>
                 <h1 className={styles['brand-title']}>{APP_NAME}</h1>
                 <p className={styles['brand-subtitle']}>{APP_TAGLINE}</p>

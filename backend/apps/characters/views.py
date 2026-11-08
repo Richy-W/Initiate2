@@ -7,9 +7,31 @@ from django.db.models import Q
 from django.http import HttpResponse
 from django.utils.text import slugify
 from drf_spectacular.utils import extend_schema
+from django.utils import timezone
+from pathlib import Path
+import json
 
-from .models import Character, CharacterSpell, SpellSlotState
+from .models import (
+    Character,
+    CharacterSpell,
+    SpellSlotState,
+    CharacterSubclassState,
+    FeatureUsageState,
+    SubclassChangeAuditEvent,
+)
 from .serializers import CharacterSerializer, CharacterDetailSerializer, CharacterCreateSerializer, CharacterSpellSerializer, SpellSlotStateSerializer
+from apps.characters.services.mechanics.grants import apply_lineage_spell_grants
+from apps.characters.services.mechanics.resources import (
+    apply_rest_reset,
+    spend_feature_resource,
+    validate_override_payload,
+)
+from apps.characters.services.mechanics.subclass import (
+    backfill_subclass_resources,
+    find_subclass_definition,
+    load_class_content,
+    validate_subclass_timing,
+)
 from .pdf_export import render_character_sheet_pdf
 from apps.content.models import Species, CharacterClass, Background
 
@@ -130,9 +152,91 @@ class CharacterViewSet(viewsets.ModelViewSet):
         character.current_hit_points = character.max_hit_points
         
         character.save()
+        apply_lineage_spell_grants(character, {})
         
         serializer = self.get_serializer(character)
         return Response(serializer.data)
+
+    @action(detail=True, methods=['post'])
+    def subclass(self, request, pk=None):
+        """Persist or change subclass selection with audit metadata."""
+        character = self.get_object()
+
+        class_slug = str(request.data.get('class_slug', '')).strip()
+        subclass_slug = str(request.data.get('subclass_slug', '')).strip()
+        client_confirmed_warning = bool(request.data.get('client_confirmed_warning', False))
+
+        if not class_slug or not subclass_slug:
+            return Response(
+                {'code': 'invalid_subclass_selection', 'message': 'class_slug and subclass_slug are required.'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        expected_class_slug = str(character.character_class.name or '').strip().lower().replace(' ', '-')
+        if class_slug != expected_class_slug:
+            return Response(
+                {
+                    'code': 'invalid_subclass_selection',
+                    'message': 'Subclass selection does not match character class.',
+                    'field_errors': {'class_slug': ['Class slug does not match character class.']},
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        class_slug = str(character.character_class.name or '').strip().lower().replace(' ', '-')
+        class_json = load_class_content(class_slug)
+
+        timing_ok, timing_message = validate_subclass_timing(character, class_json)
+        if not timing_ok:
+            return Response(
+                {
+                    'code': 'invalid_subclass_timing',
+                    'message': timing_message,
+                    'field_errors': {'subclass_slug': [timing_message]},
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        subclass_definition = find_subclass_definition(class_json, subclass_slug)
+        if subclass_definition is None:
+            return Response(
+                {
+                    'code': 'invalid_subclass_definition',
+                    'message': 'Subclass is not defined for this class.',
+                    'field_errors': {'subclass_slug': ['Unknown or cross-class subclass.']},
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        subclass_state, _ = CharacterSubclassState.objects.get_or_create(
+            character=character,
+            defaults={'class_slug': class_slug},
+        )
+        previous_subclass_slug = subclass_state.subclass_slug
+        warning_state = not client_confirmed_warning and character.level >= 3 and previous_subclass_slug != subclass_slug
+
+        subclass_state.class_slug = class_slug
+        subclass_state.subclass_slug = subclass_slug
+        subclass_state.class_content_version = '2024.1'
+        subclass_state.subclass_content_version = '2024.1'
+        subclass_state.selected_at = timezone.now()
+        subclass_state.selected_by_user = request.user
+        subclass_state.warning_state = warning_state
+        subclass_state.save()
+
+        SubclassChangeAuditEvent.objects.create(
+            character=character,
+            actor_user=request.user,
+            previous_subclass_slug=previous_subclass_slug,
+            new_subclass_slug=subclass_slug,
+            reason='Player subclass selection update',
+            notified_dm=False,
+        )
+
+        backfill_subclass_resources(character, subclass_definition)
+
+        serializer = CharacterDetailSerializer(character)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
     @action(detail=True, methods=['post'])
     def rest(self, request, pk=None):
@@ -154,6 +258,7 @@ class CharacterViewSet(viewsets.ModelViewSet):
             used_slots = SpellSlotState.objects.filter(character=character, used__gt=0)
             slots_restored = list(used_slots.values_list('slot_level', flat=True))
             used_slots.update(used=0)
+            apply_rest_reset(character, 'long')
         elif rest_type == 'short':
             # Short rest - restore some HP based on hit dice (simplified)
             hit_dice = character.character_class.hit_die
@@ -168,6 +273,7 @@ class CharacterViewSet(viewsets.ModelViewSet):
                 used_slots = SpellSlotState.objects.filter(character=character, used__gt=0)
                 slots_restored = list(used_slots.values_list('slot_level', flat=True))
                 used_slots.update(used=0)
+            apply_rest_reset(character, 'short')
         else:
             return Response(
                 {'error': 'Invalid rest type. Use "short" or "long"'}, 
@@ -185,6 +291,92 @@ class CharacterViewSet(viewsets.ModelViewSet):
             'death_save_failures': character.death_save_failures,
             'slots_restored': slots_restored,
         })
+
+    @action(detail=True, methods=['post'])
+    def resource_spend(self, request, pk=None):
+        """Spend from a feature usage pool with server-side guardrails."""
+        character = self.get_object()
+        feature_key = str(request.data.get('feature_key', '')).strip()
+        amount = request.data.get('amount')
+        override_payload = request.data.get('override_payload')
+
+        if not feature_key:
+            return Response(
+                {'code': 'invalid_resource_spend', 'message': 'feature_key is required.'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        try:
+            amount = int(amount)
+        except (TypeError, ValueError):
+            amount = 0
+
+        state = FeatureUsageState.objects.filter(character=character, feature_key=feature_key).first()
+        if not state:
+            return Response(
+                {'code': 'unknown_feature_key', 'message': 'No resource state exists for this feature key.'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        if override_payload is not None:
+            if not request.user.is_staff:
+                return Response(
+                    {
+                        'code': 'override_forbidden',
+                        'message': 'Only staff users may modify override payloads.',
+                    },
+                    status=status.HTTP_403_FORBIDDEN,
+                )
+
+            is_valid, error_message = validate_override_payload(override_payload)
+            if not is_valid:
+                return Response(
+                    {'code': 'invalid_override_payload', 'message': error_message},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
+            state.override_payload = override_payload
+            state.save(update_fields=['override_payload'])
+
+        if amount < 0:
+            return Response(
+                {'code': 'invalid_resource_spend', 'message': 'amount must be zero or greater.'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        if amount == 0:
+            if override_payload is None:
+                return Response(
+                    {'code': 'invalid_resource_spend', 'message': 'amount must be greater than zero.'},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+            return Response(
+                {
+                    'feature_key': state.feature_key,
+                    'current_uses': state.current_uses,
+                    'spent': 0,
+                    'override_updated': True,
+                },
+                status=status.HTTP_200_OK,
+            )
+
+        try:
+            payload = spend_feature_resource(character, state, amount)
+        except RuntimeError:
+            return Response(
+                {'code': 'resource_overspend', 'message': 'Cannot spend more uses than currently available.'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        except ValueError:
+            return Response(
+                {'code': 'invalid_resource_spend', 'message': 'amount must be greater than zero.'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        return Response(
+            payload,
+            status=status.HTTP_200_OK,
+        )
     
     @action(detail=True, methods=['post'])
     def init_slots(self, request, pk=None):

@@ -7,6 +7,9 @@
   --cc-ink-1: var(--app-ink-1);
   --cc-border: var(--app-border);
   --cc-accent: var(--app-accent);
+  --cc-accent-2: var(--app-accent-2);
+  --cc-surface: var(--theme-surface);
+  --cc-danger: var(--app-danger);
 }
 
 /* ── Homebrew step ──────────────────────────────────────────────────────── */
@@ -25,7 +28,7 @@
 }
 
 .homebrew-browser {
-  background: #11182a;
+  background: var(--cc-surface);
   border: 1px solid var(--cc-border);
   border-radius: 10px;
   padding: 16px 18px;
@@ -34,7 +37,7 @@
 .homebrew-search {
   width: 100%;
   box-sizing: border-box;
-  background: #0d1322;
+  background: color-mix(in srgb, var(--cc-surface) 85%, black);
   border: 1px solid var(--cc-border);
   border-radius: 6px;
   color: var(--cc-ink-0);
@@ -47,7 +50,7 @@
 
 .homebrew-search:focus {
   border-color: var(--cc-accent);
-  box-shadow: 0 0 0 3px rgba(95, 132, 255, 0.2);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--cc-accent) 20%, transparent);
 }
 
 .homebrew-list {
@@ -61,7 +64,7 @@
 .homebrew-item {
   width: 100%;
   text-align: left;
-  background: #141f3a;
+  background: var(--cc-bg-2);
   border: 1px solid var(--cc-border);
   border-radius: 8px;
   padding: 12px 14px;
@@ -71,7 +74,7 @@
 
 .homebrew-item:hover {
   border-color: var(--cc-accent);
-  background: #1a2545;
+  background: color-mix(in srgb, var(--cc-accent) 14%, var(--cc-bg-2));
 }
 
 .homebrew-item-header {
@@ -89,7 +92,7 @@
 
 .homebrew-version-badge {
   font-size: 0.72rem;
-  background: #1e2d50;
+  background: color-mix(in srgb, var(--cc-accent) 20%, var(--cc-bg-1));
   color: var(--cc-ink-1);
   border: 1px solid var(--cc-border);
   border-radius: 4px;
@@ -112,7 +115,7 @@
 }
 
 .homebrew-selected-list {
-  background: #11182a;
+  background: var(--cc-surface);
   border: 1px solid var(--cc-border);
   border-radius: 10px;
   padding: 14px 16px;
@@ -133,7 +136,7 @@
   font-size: 0.875rem;
   color: var(--cc-ink-1);
   padding: 5px 0;
-  border-bottom: 1px solid #1e2a45;
+  border-bottom: 1px solid var(--cc-border);
 }
 
 .homebrew-selected-row:last-child {
@@ -142,7 +145,7 @@
 
 .homebrew-type-badge {
   font-size: 0.72rem;
-  background: #1e2d50;
+  background: color-mix(in srgb, var(--cc-accent) 20%, var(--cc-bg-1));
   color: var(--cc-accent);
   border-radius: 4px;
   padding: 1px 6px;
@@ -153,7 +156,7 @@
 .homebrew-remove-btn {
   background: none;
   border: none;
-  color: #f87171;
+  color: var(--cc-danger);
   cursor: pointer;
   font-size: 0.8rem;
   padding: 2px 6px;
@@ -162,14 +165,12 @@
 }
 
 .homebrew-remove-btn:hover {
-  background: rgba(248, 113, 113, 0.12);
+  background: color-mix(in srgb, var(--cc-danger) 14%, transparent);
 }
 
 .character-wizard {
   min-height: 100vh;
-  background:
-    radial-gradient(1200px 700px at 100% -10%, rgba(95, 132, 255, 0.2), transparent 60%),
-    linear-gradient(180deg, var(--cc-bg-0) 0%, #0b0e19 100%);
+  background: transparent;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -177,9 +178,9 @@
 .character-wizard-container {
   max-width: 1000px;
   margin: 0 auto;
-  background: rgba(23, 29, 51, 0.94);
+  background: color-mix(in srgb, var(--cc-surface) 94%, transparent);
   border-radius: 20px;
-  border: 1px solid var(--cc-border);
+  border: 2px solid var(--cc-border);
   box-shadow: 0 14px 46px rgba(0, 0, 0, 0.34);
   backdrop-filter: blur(10px);
   overflow: hidden;
@@ -187,11 +188,13 @@
 
 /* Progress Indicator */
 .wizard-header {
-  background: linear-gradient(135deg, #1b2542, #283866);
-  color: white;
+  background: linear-gradient(180deg, var(--cc-bg-1), var(--cc-surface));
+  color: var(--cc-ink-0);
   padding: 24px 32px;
   text-align: center;
-  border-bottom: 1px solid var(--cc-border);
+  border: 2px solid var(--cc-border);
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
 }
 
 .wizard-title {
@@ -245,8 +248,8 @@
   min-height: 500px;
   margin: 0;
   border-radius: 0;
-  background: linear-gradient(180deg, #141b31, #11182a);
-  border-top: 1px solid var(--cc-border);
+  background: linear-gradient(180deg, var(--cc-bg-1), var(--cc-surface));
+  border-top: 2px solid var(--cc-border);
   box-shadow: none;
 }
 
@@ -283,7 +286,7 @@
 }
 
 .selection-card {
-  background: linear-gradient(180deg, #1a2036, #151b2f);
+  background: linear-gradient(180deg, var(--cc-bg-2), var(--cc-surface));
   border: 2px solid var(--cc-border);
   border-radius: 12px;
   padding: 20px;
@@ -295,13 +298,13 @@
 .selection-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  border-color: #667eea;
+  border-color: var(--cc-accent);
 }
 
 .selection-card.selected {
   border-color: var(--cc-accent);
-  background: linear-gradient(180deg, #202a49, #17203a);
-  box-shadow: 0 8px 25px rgba(95, 132, 255, 0.24);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--cc-accent) 18%, var(--cc-bg-2)), color-mix(in srgb, var(--cc-accent) 10%, var(--cc-surface)));
+  box-shadow: 0 8px 25px color-mix(in srgb, var(--cc-accent) 24%, transparent);
 }
 
 .selection-card .card-header {
@@ -367,7 +370,7 @@
 }
 
 .ability-score-block {
-  background: linear-gradient(180deg, #1a2036, #151b2f);
+  background: linear-gradient(180deg, var(--cc-bg-2), var(--cc-surface));
   border: 2px solid var(--cc-border);
   border-radius: 12px;
   padding: 20px;
@@ -393,7 +396,7 @@
 .ability-score-modifier {
   font-size: 1rem;
   color: var(--cc-ink-0);
-  background: rgba(95, 132, 255, 0.15);
+  background: color-mix(in srgb, var(--cc-accent) 15%, transparent);
   padding: 4px 12px;
   border-radius: 20px;
   display: inline-block;
@@ -432,14 +435,14 @@
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.3s ease;
-  background: #11182a;
+  background: var(--cc-surface);
   color: var(--cc-ink-0);
 }
 
 .form-input:focus {
   outline: none;
   border-color: var(--cc-accent);
-  box-shadow: 0 0 0 3px rgba(95, 132, 255, 0.2);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--cc-accent) 20%, transparent);
 }
 
 .form-textarea {
@@ -450,7 +453,7 @@
 
 /* Navigation Buttons */
 .wizard-navigation {
-  background: #141a2e;
+  background: var(--cc-bg-1);
   padding: 24px 40px;
   border-top: 1px solid var(--cc-border);
   display: flex;
@@ -471,23 +474,23 @@
 }
 
 .nav-button.primary {
-  background: linear-gradient(135deg, var(--cc-accent), #7a9bff);
+  background: linear-gradient(135deg, var(--cc-accent), var(--cc-accent-2));
   color: white;
 }
 
 .nav-button.primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(95, 132, 255, 0.35);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--cc-accent) 35%, transparent);
 }
 
 .nav-button.secondary {
-  background: #212a47;
+  background: var(--cc-bg-2);
   color: var(--cc-ink-0);
   border: 1px solid var(--cc-border);
 }
 
 .nav-button.secondary:hover {
-  background: #2a3558;
+  background: color-mix(in srgb, var(--cc-accent) 10%, var(--cc-bg-2));
 }
 
 .nav-button:disabled {
@@ -499,7 +502,7 @@
 
 /* Character Summary */
 .character-summary {
-  background: linear-gradient(180deg, #1a2036, #151b2f);
+  background: linear-gradient(180deg, var(--cc-bg-2), var(--cc-surface));
   border: 1px solid var(--cc-border);
   border-radius: 12px;
   padding: 24px;
@@ -521,7 +524,7 @@
 
 .summary-item {
   padding: 12px;
-  background: #11182a;
+  background: var(--cc-surface);
   border-radius: 8px;
   border: 1px solid var(--cc-border);
 }
@@ -554,7 +557,7 @@
 .loading-spinner {
   width: 24px;
   height: 24px;
-  border: 3px solid #243055;
+  border: 3px solid var(--cc-border);
   border-top: 3px solid var(--cc-accent);
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -628,7 +631,7 @@
 .character-wizard .point-assignments-card,
 .character-wizard .rolled-scores-card,
 .character-wizard .equipment-option-container {
-  background: linear-gradient(180deg, #1a2036, #151b2f) !important;
+  background: linear-gradient(180deg, var(--cc-bg-2), var(--cc-surface)) !important;
   border-color: var(--cc-border) !important;
   color: var(--cc-ink-0) !important;
 }
@@ -638,7 +641,7 @@
 .character-wizard .background-card.selected,
 .character-wizard .method-option:has(input[type='radio']:checked),
 .character-wizard .equipment-option-container:has(input[type='radio']:checked) {
-  background: linear-gradient(180deg, #202a49, #17203a) !important;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--cc-accent) 18%, var(--cc-bg-2)), color-mix(in srgb, var(--cc-accent) 10%, var(--cc-surface))) !important;
   border-color: var(--cc-accent) !important;
 }
 
@@ -655,7 +658,7 @@
 .character-wizard .score-badge.available,
 .character-wizard .score-badge.assigned,
 .character-wizard .points-summary {
-  background: #11182a !important;
+  background: var(--cc-surface) !important;
   border-color: var(--cc-border) !important;
 }
 
@@ -704,14 +707,14 @@
 .character-wizard .ability-assignment-row select,
 .character-wizard .score-input,
 .character-wizard .form-control {
-  background: #11182a !important;
+  background: var(--cc-surface) !important;
   color: var(--cc-ink-0) !important;
   border-color: var(--cc-border) !important;
 }
 
 /* -- Equipment option cards (label-based radio cards) ------------------- */
 .character-wizard .equipment-option {
-  background: linear-gradient(180deg, #1a2036, #151b2f) !important;
+  background: linear-gradient(180deg, var(--cc-bg-2), var(--cc-surface)) !important;
   border: 2px solid var(--cc-border) !important;
   border-radius: 10px;
   color: var(--cc-ink-0) !important;
@@ -725,9 +728,9 @@
   border-color: var(--cc-accent) !important;
 }
 .character-wizard .equipment-option.selected {
-  background: linear-gradient(180deg, #202a49, #17203a) !important;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--cc-accent) 18%, var(--cc-bg-2)), color-mix(in srgb, var(--cc-accent) 10%, var(--cc-surface))) !important;
   border-color: var(--cc-accent) !important;
-  box-shadow: 0 4px 16px rgba(95,132,255,0.2);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--cc-accent) 20%, transparent);
 }
 .character-wizard .equipment-option strong,
 .character-wizard .equipment-option p,
@@ -763,8 +766,8 @@
 
 /* -- Variant info panel --------------------------------------------------- */
 .variant-info-panel {
-  background: #11182a;
-  border: 1px solid var(--cc-border, #38446d);
+  background: var(--cc-surface);
+  border: 1px solid var(--cc-border);
   border-radius: 10px;
   padding: 16px 18px;
   margin-top: 14px;
