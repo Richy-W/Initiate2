@@ -24,11 +24,23 @@ body {
   margin: 0;
   font-family: 'Trebuchet MS', 'Segoe UI Variable', 'Palatino Linotype', serif;
   color: var(--app-ink-0);
-  background:
-    radial-gradient(1200px 700px at 100% -10%, color-mix(in srgb, var(--theme-accent) 22%, transparent), transparent 60%),
-    linear-gradient(180deg, var(--app-bg-0) 0%, color-mix(in srgb, var(--app-bg-0) 86%, black) 100%);
+  background: url('./assets/tavernkeeper-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center -60px;
+  background-size: cover;
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+:root[data-theme='tavern-light'] body {
+  background:
+    radial-gradient(1200px 700px at 100% -10%, color-mix(in srgb, var(--theme-accent) 22%, transparent), transparent 60%),
+    url('./assets/tavernkeeper-bg-light.jpg');
+  background-repeat: no-repeat;
+  background-position: center -60px;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 input,

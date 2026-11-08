@@ -1,5 +1,5 @@
 .weaponMasterySelection {
-  background: #11182a;
+  background: var(--theme-surface);
   border: 1px solid var(--app-border);
   border-radius: 10px;
   padding: 14px 16px;
@@ -48,7 +48,7 @@
   border: 2px solid var(--app-border);
   border-radius: 8px;
   font-size: 0.9rem;
-  background: #11182a;
+  background: var(--theme-surface);
   color: var(--app-ink-0);
   cursor: pointer;
   transition: border-color 0.2s ease;
@@ -58,10 +58,10 @@
 .weaponMasterySelect:focus {
   outline: none;
   border-color: var(--app-accent);
-  box-shadow: 0 0 0 3px rgba(95, 132, 255, 0.2);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--app-accent) 20%, transparent);
 }
 
 .weaponMasterySelect option {
-  background: #11182a;
+  background: var(--theme-surface);
   color: var(--app-ink-0);
 }
