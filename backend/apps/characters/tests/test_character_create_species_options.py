@@ -250,3 +250,33 @@ class CharacterCreateSpeciesOptionsTestCase(TestCase):
             [],
             "tool_proficiencies must remain [] with empty Skilled tool choices.",
         )
+
+    def test_build_options_feature_metadata_persisted(self):
+        """Canonical build options should be persisted as system metadata."""
+        selected_options = {
+            'variant': 'High Elf',
+            'skillChoice': 'Perception',
+            'spellcastingAbility': 'Intelligence',
+            'sizeCategory': 'Medium',
+            'featChoice': 'Skilled',
+            'skillfulChoice': 'Arcana',
+            'skilledSkillChoices': ['History', 'Perception'],
+            'skilledToolChoices': ["Smith's Tools"],
+        }
+        data = _make_validated_data(
+            self.user,
+            self.species,
+            self.char_class,
+            self.background,
+            selected_species_options=selected_options,
+        )
+        character = CharacterCreateSerializer().create(data)
+
+        build_option_entries = [
+            f for f in (character.features or [])
+            if isinstance(f, dict) and f.get('name') == 'Build Options'
+        ]
+        self.assertTrue(build_option_entries, 'Expected Build Options feature metadata entry.')
+        metadata = build_option_entries[0].get('metadata', {})
+        self.assertEqual(metadata.get('variant'), 'High Elf')
+        self.assertEqual(metadata.get('spellcastingAbility'), 'Intelligence')

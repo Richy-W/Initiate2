@@ -2,6 +2,7 @@
 import styles from './CharacterSheet.module.css';
 import { getSpellAttacks, AttackRow } from '../../utils/spellUtils';
 import { spellSlotsAPI, contentAPI } from '../../services/apiClient';
+import { getCanonicalDerivedStats } from '../../utils/characterMathParity';
 
 interface Character {
   strength: number;
@@ -22,6 +23,7 @@ interface Character {
   id?: number | string;
   features?: any[];
   species_detail?: { name?: string; traits?: any[] };
+  derived_stats?: any;
 }
 
 interface AttackRollsProps {
@@ -95,8 +97,16 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character, onRefresh }
     return <div className={styles['attack-rolls']}>Loading attack rolls...</div>;
   }
 
-  const getAbilityModifier = (score: number): number => {
-    return Math.floor((score - 10) / 2);
+  const derivedStats = getCanonicalDerivedStats(character as any);
+  const abilityTotals = derivedStats.ability_totals || {};
+  const abilityMods = derivedStats.ability_modifiers || {};
+
+  const getAbilityModifier = (score: number): number => Math.floor((score - 10) / 2);
+
+  const getAbilityModifierByKey = (key: 'strength' | 'dexterity' | 'constitution' | 'intelligence' | 'wisdom' | 'charisma'): number => {
+    const fromDerived = Number((abilityMods as any)[key]);
+    if (Number.isFinite(fromDerived)) return fromDerived;
+    return getAbilityModifier(Number((abilityTotals as any)[key] ?? (character as any)[key] ?? 10));
   };
 
   const rollD20 = (): number => {
@@ -143,13 +153,13 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character, onRefresh }
 
     if (isFinesse || monkWeapon) {
       // Finesse / Monk weapons can use STR or DEX (use higher)
-      const strMod = getAbilityModifier(character.strength || 10);
-      const dexMod = getAbilityModifier(character.dexterity || 10);
+      const strMod = getAbilityModifierByKey('strength');
+      const dexMod = getAbilityModifierByKey('dexterity');
       abilityModifier = Math.max(strMod, dexMod);
     } else if (isRanged || isThrownMelee) {
-      abilityModifier = getAbilityModifier(character.dexterity || 10);
+      abilityModifier = getAbilityModifierByKey('dexterity');
     } else {
-      abilityModifier = getAbilityModifier(character.strength || 10);
+      abilityModifier = getAbilityModifierByKey('strength');
     }
     
     // Check if proficient with this weapon
@@ -159,7 +169,7 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character, onRefresh }
       prof === 'all'
     ) || false;
     
-    const proficiencyBonus = isProficient ? character.proficiency_bonus : 0;
+    const proficiencyBonus = isProficient ? Number(derivedStats.proficiency_bonus || character.proficiency_bonus || 0) : 0;
     
     return abilityModifier + proficiencyBonus;
   };
@@ -171,13 +181,13 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character, onRefresh }
     const monkWeapon = isMonkWeapon(weapon);
 
     if (isFinesse || monkWeapon) {
-      const strMod = getAbilityModifier(character.strength || 10);
-      const dexMod = getAbilityModifier(character.dexterity || 10);
+      const strMod = getAbilityModifierByKey('strength');
+      const dexMod = getAbilityModifierByKey('dexterity');
       return Math.max(strMod, dexMod);
     } else if (isRanged || isThrownMelee) {
-      return getAbilityModifier(character.dexterity || 10);
+      return getAbilityModifierByKey('dexterity');
     } else {
-      return getAbilityModifier(character.strength || 10);
+      return getAbilityModifierByKey('strength');
     }
   };
 
@@ -385,8 +395,8 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character, onRefresh }
       const damageTypes = ['acid', 'cold', 'fire', 'lightning', 'poison'];
       const damageType = damageTypes.find(dt => searchText.includes(dt)) ?? 'magic';
       const damageDice = level >= 17 ? '4d10' : level >= 11 ? '3d10' : level >= 5 ? '2d10' : '1d10';
-      const conMod = getAbilityModifier(character.constitution || 10);
-      const saveDC = 8 + conMod + (character.proficiency_bonus || 2);
+      const conMod = getAbilityModifierByKey('constitution');
+      const saveDC = 8 + conMod + Number(derivedStats.proficiency_bonus || character.proficiency_bonus || 2);
       specials.push({
         name: 'Breath Weapon',
         damageDice,
@@ -417,7 +427,17 @@ export const AttackRolls: React.FC<AttackRollsProps> = ({ character, onRefresh }
     }, ...prev.slice(0, 4)]);
   };
 
-  const spellAttacks: AttackRow[] = getSpellAttacks(character as any, classDetail);
+  const canonicalCharacterForSpells = {
+    ...(character as any),
+    strength: Number(abilityTotals.strength ?? character.strength),
+    dexterity: Number(abilityTotals.dexterity ?? character.dexterity),
+    constitution: Number(abilityTotals.constitution ?? character.constitution),
+    intelligence: Number(abilityTotals.intelligence ?? character.intelligence),
+    wisdom: Number(abilityTotals.wisdom ?? character.wisdom),
+    charisma: Number(abilityTotals.charisma ?? character.charisma),
+    proficiency_bonus: Number(derivedStats.proficiency_bonus || character.proficiency_bonus || 2),
+  };
+  const spellAttacks: AttackRow[] = getSpellAttacks(canonicalCharacterForSpells as any, classDetail);
 
   return (
     <div className={styles['attack-rolls']}>

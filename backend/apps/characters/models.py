@@ -882,3 +882,194 @@ class SpellSlotState(models.Model):
 
     def __str__(self):
         return f"{self.character.name} - Level {self.slot_level} slots ({self.used}/{self.total})"
+
+
+class CharacterSubclassState(models.Model):
+    """Persist selected subclass and content-version metadata for a character."""
+
+    character = models.OneToOneField(
+        Character,
+        on_delete=models.CASCADE,
+        related_name='subclass_state',
+    )
+    class_slug = models.CharField(max_length=100)
+    subclass_slug = models.CharField(max_length=100, blank=True, null=True)
+    class_content_version = models.CharField(max_length=40, default='')
+    subclass_content_version = models.CharField(max_length=40, default='')
+    selected_at = models.DateTimeField(blank=True, null=True)
+    selected_by_user = models.ForeignKey(
+        User,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        related_name='selected_subclass_states',
+    )
+    warning_state = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['character_id']
+
+    def __str__(self):
+        return f"{self.character.name} subclass state"
+
+
+class FeatureUsageState(models.Model):
+    """Track current uses for limited-use mechanics resources."""
+
+    SOURCE_SPECIES = 'species'
+    SOURCE_CLASS = 'class'
+    SOURCE_SUBCLASS = 'subclass'
+    SOURCE_FEAT = 'feat'
+    SOURCE_LINEAGE_SPELL = 'lineage_spell'
+    SOURCE_CHOICES = [
+        (SOURCE_SPECIES, 'Species'),
+        (SOURCE_CLASS, 'Class'),
+        (SOURCE_SUBCLASS, 'Subclass'),
+        (SOURCE_FEAT, 'Feat'),
+        (SOURCE_LINEAGE_SPELL, 'Lineage Spell'),
+    ]
+
+    RECHARGE_SHORT_REST = 'short_rest'
+    RECHARGE_LONG_REST = 'long_rest'
+    RECHARGE_DAY = 'day'
+    RECHARGE_CUSTOM = 'custom'
+    RECHARGE_CHOICES = [
+        (RECHARGE_SHORT_REST, 'Short Rest'),
+        (RECHARGE_LONG_REST, 'Long Rest'),
+        (RECHARGE_DAY, 'Day'),
+        (RECHARGE_CUSTOM, 'Custom'),
+    ]
+
+    character = models.ForeignKey(
+        Character,
+        on_delete=models.CASCADE,
+        related_name='feature_usage_states',
+    )
+    feature_key = models.CharField(max_length=200)
+    source_type = models.CharField(max_length=20, choices=SOURCE_CHOICES)
+    current_uses = models.PositiveIntegerField(default=0)
+    recharge_type = models.CharField(max_length=20, choices=RECHARGE_CHOICES)
+    last_reset_at = models.DateTimeField(blank=True, null=True)
+    override_payload = JSONField(default=dict, blank=True)
+
+    class Meta:
+        unique_together = ['character', 'feature_key']
+        ordering = ['feature_key']
+
+    def __str__(self):
+        return f"{self.character.name}:{self.feature_key}"
+
+
+class GrantedSpellState(models.Model):
+    """Represent auto-granted lineage/class/subclass spells and free-cast metadata."""
+
+    SOURCE_LINEAGE = 'lineage'
+    SOURCE_CLASS_FEATURE = 'class_feature'
+    SOURCE_SUBCLASS_FEATURE = 'subclass_feature'
+    SOURCE_FEAT = 'feat'
+    SOURCE_CHOICES = [
+        (SOURCE_LINEAGE, 'Lineage'),
+        (SOURCE_CLASS_FEATURE, 'Class Feature'),
+        (SOURCE_SUBCLASS_FEATURE, 'Subclass Feature'),
+        (SOURCE_FEAT, 'Feat'),
+    ]
+
+    character = models.ForeignKey(
+        Character,
+        on_delete=models.CASCADE,
+        related_name='granted_spell_states',
+    )
+    spell_slug = models.CharField(max_length=120)
+    source_type = models.CharField(max_length=30, choices=SOURCE_CHOICES)
+    source_key = models.CharField(max_length=160)
+    unlock_level = models.PositiveIntegerField(default=1)
+    grant_version = models.CharField(max_length=40, default='')
+    free_cast_max = models.PositiveIntegerField(default=0)
+    free_cast_used = models.PositiveIntegerField(default=0)
+    uses_slots_when_free_cast_empty = models.BooleanField(default=True)
+
+    class Meta:
+        unique_together = ['character', 'spell_slug', 'source_key']
+        ordering = ['unlock_level', 'spell_slug']
+
+    def __str__(self):
+        return f"{self.character.name}:{self.spell_slug}"
+
+
+class NaturalAttackProfile(models.Model):
+    """Canonical natural weapon attack rows for character combat panels."""
+
+    PROFICIENCY_PROFICIENT = 'proficient'
+    PROFICIENCY_CONDITIONAL = 'conditional'
+    PROFICIENCY_NONE = 'none'
+    PROFICIENCY_CHOICES = [
+        (PROFICIENCY_PROFICIENT, 'Proficient'),
+        (PROFICIENCY_CONDITIONAL, 'Conditional'),
+        (PROFICIENCY_NONE, 'None'),
+    ]
+
+    character = models.ForeignKey(
+        Character,
+        on_delete=models.CASCADE,
+        related_name='natural_attack_profiles',
+    )
+    attack_key = models.CharField(max_length=160)
+    name = models.CharField(max_length=120)
+    ability = models.CharField(max_length=3)
+    proficiency_policy = models.CharField(max_length=20, choices=PROFICIENCY_CHOICES)
+    damage_dice = models.CharField(max_length=40)
+    damage_type = models.CharField(max_length=60)
+    source_key = models.CharField(max_length=160)
+
+    class Meta:
+        unique_together = ['character', 'attack_key']
+        ordering = ['name']
+
+    def __str__(self):
+        return f"{self.character.name}:{self.name}"
+
+
+class NaturalArmorProfile(models.Model):
+    """Canonical natural armor formulas and precedence metadata."""
+
+    character = models.ForeignKey(
+        Character,
+        on_delete=models.CASCADE,
+        related_name='natural_armor_profiles',
+    )
+    armor_key = models.CharField(max_length=160)
+    formula = models.CharField(max_length=120)
+    applies_when_wearing_armor = models.BooleanField(default=False)
+    shield_allowed = models.BooleanField(default=True)
+    precedence_rank = models.IntegerField(default=0)
+    source_key = models.CharField(max_length=160)
+    dm_override_value = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        unique_together = ['character', 'armor_key']
+        ordering = ['precedence_rank', 'armor_key']
+
+    def __str__(self):
+        return f"{self.character.name}:{self.armor_key}"
+
+
+class SubclassChangeAuditEvent(models.Model):
+    """Audit events for subclass change actions."""
+
+    character = models.ForeignKey(
+        Character,
+        on_delete=models.CASCADE,
+        related_name='subclass_change_events',
+    )
+    actor_user = models.ForeignKey(User, on_delete=models.CASCADE)
+    previous_subclass_slug = models.CharField(max_length=100, blank=True, null=True)
+    new_subclass_slug = models.CharField(max_length=100)
+    changed_at = models.DateTimeField(auto_now_add=True)
+    reason = models.TextField(blank=True)
+    notified_dm = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['-changed_at']
+
+    def __str__(self):
+        return f"{self.character.name}:{self.previous_subclass_slug}->{self.new_subclass_slug}"

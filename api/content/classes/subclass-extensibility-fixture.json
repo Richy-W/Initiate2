@@ -1,0 +1,40 @@
+{
+  "className": "Fighter",
+  "subclasses": [
+    {
+      "name": "Arcane Vanguard",
+      "description": "A synthetic subclass fixture used to validate modular subclass onboarding paths.",
+      "features": {
+        "3": [
+          {
+            "name": "Runic Guard",
+            "description": "When not wearing heavy armor, gain +1 AC while conscious.",
+            "type": "feature"
+          }
+        ],
+        "7": [
+          {
+            "name": "Vanguard Reserve",
+            "description": "Gain a 2-use pool that refreshes on a short rest.",
+            "type": "resource"
+          }
+        ]
+      },
+      "mechanics": {
+        "resources": [
+          {
+            "key": "vanguard_reserve",
+            "maxUses": 2,
+            "recharge": "short_rest"
+          }
+        ],
+        "attacks": [],
+        "spells": []
+      }
+    }
+  ],
+  "fixtureMetadata": {
+    "purpose": "extensibility_validation",
+    "version": "1"
+  }
+}

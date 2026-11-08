@@ -1,6 +1,6 @@
 ﻿# initiat2.0 Development Guidelines
 
-Auto-generated from all feature plans. Last updated: 2026-06-11
+Auto-generated from all feature plans. Last updated: 2026-08-24
 
 ## Active Technologies
 - TypeScript 4.9.5 / JavaScript (ES6+) + React 19.2.5, react-scripts 5.0.1 (Create React App with built-in CSS Modules support) (002-css-modules-migration)
@@ -9,6 +9,8 @@ Auto-generated from all feature plans. Last updated: 2026-06-11
 - PostgreSQL (Docker Compose for local dev) (004-spells-integration)
 - Python 3.11 / Django 4.2 + django-decouple, psycopg2-binary (005-db-constitution-compliance)
 - PostgreSQL 14 via Docker Compose (005-db-constitution-compliance)
+- Python 3.11 backend, TypeScript (React 19) frontend + Django 4.2, Django REST Framework, simplejwt, channels, React 19, axios, react-router-dom (006-character-traits-and-math-parity)
+- PostgreSQL (constitution standard), file-based rules content JSON under `api/content/*` (006-character-traits-and-math-parity)
 
 - Python 3.11+ for backend, JavaScript ES6+ for frontend + Django 4.2+, Django REST Framework, React 18+, PostgreSQL 14+ (001-dnd-web-app)
 
@@ -29,9 +31,9 @@ cd src; pytest; ruff check .
 Python 3.11+ for backend, JavaScript ES6+ for frontend: Follow standard conventions
 
 ## Recent Changes
+- 006-character-traits-and-math-parity: Added Python 3.11 backend, TypeScript (React 19) frontend + Django 4.2, Django REST Framework, simplejwt, channels, React 19, axios, react-router-dom
 - 005-db-constitution-compliance: Enforced PostgreSQL-only configuration; removed SQLite fallback from settings.py
 - 004-spells-integration: Added Python 3.x (Django 4.x) + TypeScript (React 18) + Django REST Framework, djangorestframework-simplejwt, React, CSS Modules
-- 002-css-modules-migration: Added TypeScript 4.9.5 / JavaScript (ES6+) + React 19.2.5, react-scripts 5.0.1 (Create React App with built-in CSS Modules support)
 
 
 <!-- MANUAL ADDITIONS START -->

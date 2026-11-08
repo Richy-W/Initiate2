@@ -31,6 +31,9 @@ export const LevelUp: React.FC<LevelUpProps> = ({ character, onLevelUp, onClose 
   const [hasRolledHP, setHasRolledHP] = useState(false);
   const [selectedFeat, setSelectedFeat] = useState<string | null>(null);
   const [miSelections, setMiSelections] = useState<MagicInitiateSelections | null>(null);
+  const [subclassSlug, setSubclassSlug] = useState('');
+  const [subclassWarningConfirmed, setSubclassWarningConfirmed] = useState(false);
+  const [subclassError, setSubclassError] = useState<string | null>(null);
 
   const getAbilityModifier = (score: number): number => {
     return Math.floor((score - 10) / 2);
@@ -78,6 +81,17 @@ export const LevelUp: React.FC<LevelUpProps> = ({ character, onLevelUp, onClose 
     return [4, 8, 12, 16, 19].includes(newLevel);
   };
 
+  const requiredSubclassLevel = (): number =>
+    Number((character.character_class as any)?.subclass_level ?? 3);
+
+  const isSubclassSelectionLevel = (): boolean => {
+    const newLevel = character.level + 1;
+    const existingSubclassSlug = (character as any).subclass_state?.subclass_slug;
+    return newLevel === requiredSubclassLevel() && !existingSubclassSlug;
+  };
+
+  const hasExistingSubclass = (): boolean => Boolean((character as any).subclass_state?.subclass_slug);
+
   const hasMagicInitiateSpells = (): boolean => {
     return (character.character_spells ?? []).some(cs => cs.source === 'magic_initiate');
   };
@@ -107,6 +121,19 @@ export const LevelUp: React.FC<LevelUpProps> = ({ character, onLevelUp, onClose 
       };
       
       const updatedCharacter = await characterAPI.levelUp(character.id, levelUpPayload);
+
+      if (isSubclassSelectionLevel() && subclassSlug.trim()) {
+        const classSlug = String((character.character_class as any)?.name || '').trim().toLowerCase().replace(/\s+/g, '-');
+        try {
+          await characterAPI.setSubclass(character.id, {
+            class_slug: classSlug,
+            subclass_slug: subclassSlug.trim(),
+            client_confirmed_warning: subclassWarningConfirmed || !hasExistingSubclass(),
+          });
+        } catch (subclassErr: any) {
+          setSubclassError(subclassErr?.response?.data?.message || 'Failed to save subclass selection.');
+        }
+      }
 
       // Post Magic Initiate spells if feat was selected this level-up
       if (selectedFeat === 'Magic Initiate' && miSelections && !hasMagicInitiateSpells()) {
@@ -139,6 +166,7 @@ export const LevelUp: React.FC<LevelUpProps> = ({ character, onLevelUp, onClose 
     'Hit Points',
     ...(isAbilityScoreImprovementLevel() ? ['Ability Score Improvement'] : []),
     ...(isAbilityScoreImprovementLevel() && !hasMagicInitiateSpells() ? ['Feat (Optional)'] : []),
+    ...(isSubclassSelectionLevel() ? ['Subclass'] : []),
     'Features',
     'Confirm',
   ];
@@ -290,6 +318,32 @@ export const LevelUp: React.FC<LevelUpProps> = ({ character, onLevelUp, onClose 
           </div>
         );
 
+      case 'Subclass':
+        return (
+          <div className="level-up-step">
+            <h3>Choose Your Subclass</h3>
+            <p>At this level, you select a subclass that shapes your character's path.</p>
+            <input
+              type="text"
+              aria-label="subclass-slug"
+              placeholder="e.g. champion"
+              value={subclassSlug}
+              onChange={(e) => setSubclassSlug(e.target.value)}
+            />
+            {hasExistingSubclass() && (
+              <label>
+                <input
+                  type="checkbox"
+                  checked={subclassWarningConfirmed}
+                  onChange={(e) => setSubclassWarningConfirmed(e.target.checked)}
+                />
+                {' '}I understand changing subclass may affect existing features and the DM will be notified.
+              </label>
+            )}
+            {subclassError && <div className="error-message">{subclassError}</div>}
+          </div>
+        );
+
       case 'Features':
         const newFeatures = getNewFeatures();
         return (
@@ -371,6 +425,8 @@ export const LevelUp: React.FC<LevelUpProps> = ({ character, onLevelUp, onClose 
         return hasRolledHP;
       case 'Ability Score Improvement':
         return levelUpData.abilityScoreImprovement?.ability1;
+      case 'Subclass':
+        return subclassSlug.trim().length > 0 && (!hasExistingSubclass() || subclassWarningConfirmed);
       case 'Features':
         return true;
       case 'Confirm':

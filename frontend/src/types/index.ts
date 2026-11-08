@@ -1,5 +1,7 @@
 // Common character types used across the application
 
+export * from './characterMechanics';
+
 export interface InventoryItem {
   equipment_id: string;
   quantity: number;
